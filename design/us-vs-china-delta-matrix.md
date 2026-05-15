@@ -253,6 +253,20 @@ Net-new in US skill (not in China skill):
 
 ---
 
+## 16. Composition with marketplace plugins (post-Phase A addition)
+
+After Phase A was committed, the user installed `financial-analysis` and `equity-research` plugins from `claude-for-financial-services`. These provide complementary OUTPUT primitives (Excel DCF, Excel comps, polished DOCX assembly) but lack the buy-side rigor / multi-agent / verification layer we're building. Full per-skill inventory and composition choice is in `./skill-composition.md`.
+
+**Composition stance** (per `open-decisions.md` D21):
+- us-equity-research operates as **buy-side opinionated framework + verification layer**; produces Markdown + structured JSON as single source of truth
+- **Delegates** Excel DCF artifact to `financial-analysis:dcf-model`, Excel comps to `financial-analysis:comps-analysis`, polished DOCX to `equity-research:initiating-coverage` Task 5 — soft-dependency, gated on plugin availability
+- **Skipped** as out-of-scope: `lbo-model`, `competitive-analysis` (deck), `ib-check-deck`, `deck-refresh`, `valuation-reviewer:ic-memo` (PE deal), all `investment-banking` / `operations` / `wealth-management` verticals
+- **New Phase B file**: `us-equity-research/references/tool-composition-us.md` documents the JSON contract passed to each delegate
+
+This affects file-ownership: one additional file owned by an orchestrator subagent in Phase B1.
+
+---
+
 ## Implications for Phase B file-ownership table
 
 These deltas drive the per-file scope:
@@ -275,6 +289,7 @@ These deltas drive the per-file scope:
 - **`multi-audience-delivery-us.md`** is institutional / IC pre-read / IC debate / LP letter only (no retail/Chinese)
 - **`monitoring-framework-us.md`** preserves Tier 1/2/3 trigger structure; integrates earnings dates calendar, Form 4 alerts, 13F filing windows, sell-side estimate revision dashboards
 - **`verification-protocol-us.md`** preserves the protocol; SEC EDGAR full-text search replaces CNINFO targeted-search; **mgmt guidance verified against transcript, not press release**
+- **`tool-composition-us.md`** (NET-NEW from Layer 16) — JSON contracts for delegating Excel DCF / Excel comps / polished DOCX to the `financial-analysis` and `equity-research` marketplace plugins when available; graceful fallback to Markdown-only when not
 
 ---
 
@@ -282,3 +297,4 @@ These deltas drive the per-file scope:
 
 - For shared-contract schemas to write in Phase B0, see `BUILD_PROMPT.md` §"Memory and isolation discipline" point 5 (`schemas/memo.json`, `schemas/source_tags.json`, `design/file-ownership.md`)
 - For open decisions that require user confirmation before Phase B starts, see `./open-decisions.md`
+- For per-skill catalog of marketplace plugins and our composition choice (delegate / reference template / skip), see `./skill-composition.md`

@@ -274,6 +274,48 @@ Plus 2-3 **idiosyncratic A0 events** specific to the name (customer loss, IP lit
 
 ---
 
+## D21 — Composition with newly-installed marketplace plugins
+
+**Context**: After Phase A was committed, the user installed `financial-analysis` and `equity-research` plugins from `claude-for-financial-services`. Full inventory and per-skill choice in `./skill-composition.md`.
+
+**Recommendation**: **Soft-dependency composition.** us-equity-research detects whether those plugins are installed and:
+- If installed: delegates Excel DCF, Excel comps, and polished DOCX assembly to `financial-analysis:dcf-model`, `financial-analysis:comps-analysis`, and `equity-research:initiating-coverage` Task 5 respectively
+- If not installed: produces Markdown + JSON only; surfaces a one-line note about how to enable Excel/DOCX outputs
+
+**Phase B implications** (additions):
+1. New Phase B reference file: **`us-equity-research/references/tool-composition-us.md`** documenting the JSON contract our orchestrator passes to each delegate
+2. Phase 3 A7 (valuation) prompt mentions optional Excel DCF delegation
+3. Phase 2 A3-Peers prompt mentions optional Excel comps delegation
+4. `multi-audience-delivery-us.md` mentions optional polished DOCX delegation
+5. `SKILL.md` description mentions optional Excel/DOCX outputs require the dependency plugins
+
+**Skills DELEGATED (not duplicated)**:
+- `financial-analysis:dcf-model` for Excel DCF artifact
+- `financial-analysis:comps-analysis` for Excel comps artifact
+- `equity-research:initiating-coverage` Task 5 for polished 30-50pg DOCX
+- `financial-analysis:audit-xls` as quality gate for any Excel artifact we produce
+- `financial-analysis:3-statement-model` if user requests a separate 3-statement workbook
+
+**Skills used as REFERENCE TEMPLATES (we adopt structure, add buy-side rigor)**:
+- `equity-research:earnings-preview` → informs our `earnings-prep-template.md`
+- `equity-research:thesis-tracker` → informs scorecard section in `monitoring-framework-us.md`
+- `equity-research:catalyst-calendar` → ensures our §10 catalyst calendar is interop-compatible
+
+**Skills SKIPPED**:
+- `lbo-model`, `competitive-analysis` (deck), `ib-check-deck`, `deck-refresh`, `clean-data-xls`, `model-update`, `sector-overview`, `idea-generation`, `valuation-reviewer:ic-memo`, `spglobal:tear-sheet`, `lseg:equity-research`, and all `investment-banking`/`operations`/`wealth-management` skills — out of scope or wrong audience.
+
+**Trigger phrase coordination** (open question — should be ratified):
+- Our triggers (D18) own "PM red-team", "score this memo", "round N review", "build me a thesis on", "kill thesis on", "is X a buy", "S1-S5", "five-scenario", "three-method reconcile" — the rigor / multi-agent / buy-side IC territory
+- `equity-research:initiating-coverage` owns "initiate coverage on", "create an initiation report for" — the sell-side-format DOCX territory
+- `equity-research:earnings-analysis` owns "earnings update for [company]", "Q[N] update", "post-earnings report"
+- Risk: ambiguity on "earnings prep" vs "earnings update". Recommendation: our `earnings-prep-template.md` is pre-print preparatory; `equity-research:earnings-analysis` is post-print DOCX. Triggers don't collide if we use "earnings prep for" (pre-print) vs their "earnings update / Q[N] update / post-earnings" (post-print).
+
+**Blocks if wrong**: `SKILL.md` triggers (D18), Phase 3 A7 prompt, Phase 2 A3-Peers prompt, `multi-audience-delivery-us.md`, `tool-composition-us.md` (net-new file), file-ownership table in Phase B0.
+
+**Override path**: User specifies stronger preference — full self-contained (no soft-dependency, duplicate the Excel/DOCX logic) OR hard-dependency (refuse to run if plugins not installed). Recommended default is soft.
+
+---
+
 ## Items NOT decided here (deferred)
 
 The following are out of scope for the current build and will not be decided in Phase A:
