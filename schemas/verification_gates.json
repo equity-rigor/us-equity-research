@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://us-equity-research.local/schemas/verification_gates.json",
+  "title": "Verification Gates — US",
+  "description": "10 verification gates inherited from china-equity-ic-rigor (G1-G10), plus 4 US-specific additions (G11-G14) from delta matrix Layer 10 (B11-B14). A memo cannot claim score >8.0 with any gate failing. Run via Phase C scripts; results captured here for human-readable audit trail.",
+  "schema_version": "0.1.0",
+  "type": "object",
+  "definitions": {
+    "gate_id": {
+      "type": "string",
+      "enum": ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "G10", "G11", "G12", "G13", "G14"]
+    },
+    "gate_status": {
+      "type": "string",
+      "enum": ["pass", "fail", "n_a", "skipped"],
+      "description": "pass = gate verified; fail = blocks scoring above 8.0; n_a = gate not applicable (e.g. single-segment company → no segment GM gate); skipped = explicitly skipped by user with documented reason."
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "verification_script": {
+          "type": "string",
+          "description": "Path to script that produced this verification, e.g. 'scripts/verify_eps_pe.py'"
+        },
+        "command_run": {
+          "type": "string",
+          "description": "Exact command executed"
+        },
+        "exit_code": {"type": "integer"},
+        "stdout_excerpt": {"type": "string"},
+        "stderr_excerpt": {"type": "string"},
+        "manual_check_note": {
+          "type": "string",
+          "description": "If gate verified manually (not via script), how it was checked"
+        }
+      }
+    },
+    "gate_check": {
+      "type": "object",
+      "required": ["gate_id", "name", "status", "checked_at"],
+      "additionalProperties": false,
+      "properties": {
+        "gate_id": {"$ref": "#/definitions/gate_id"},
+        "name": {"type": "string"},
+        "description": {"type": "string", "description": "What this gate checks and why it matters"},
+        "status": {"$ref": "#/definitions/gate_status"},
+        "checked_at": {"type": "string", "format": "date-time"},
+        "evidence": {"$ref": "#/definitions/evidence"},
+        "failure_reason": {
+          "type": "string",
+          "description": "If status=fail, what specifically broke"
+        },
+        "remediation_required": {
+          "type": "string",
+          "description": "If status=fail, what to fix and where (file:section)"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["math", "source", "consistency", "structure", "quant_overlay"],
+          "description": "Bug category. math=arithmetic; source=citation/anchor; consistency=cross-section; structure=missing required component; quant_overlay=B13-B14 US-specific"
+        },
+        "blocks_score_above": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "Score cap if this gate fails. Default 8.0 for most gates; 7.0 for critical math gates G1/G3."
+        }
+      }
+    }
+  },
+  "type": "object",
+  "required": ["schema_version", "ticker", "run_id", "gates", "overall_pass", "blocks_score_above"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "string", "const": "0.1.0"},
+    "ticker": {"type": "string"},
+    "run_id": {
+      "type": "string",
+      "description": "Unique ID for this verification run, e.g. 'NVDA_2026-05-15_run3'"
+    },
+    "memo_path": {
+      "type": "string",
+      "description": "Path to the IC memo this verification applies to"
+    },
+    "memo_structured_path": {
+      "type": "string",
+      "description": "Path to the structured JSON conforming to schemas/memo.json"
+    },
+    "gates": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/gate_check"},
+      "minItems": 14,
+      "maxItems": 14,
+      "description": "All 14 gates must appear (even if status=n_a)."
+    },
+    "overall_pass": {
+      "type": "boolean",
+      "description": "True iff all gates are pass or n_a. Any 'fail' status sets overall_pass=false."
+    },
+    "blocks_score_above": {
+      "type": "number",
+      "description": "Min of gate-level blocks_score_above for any failing gate. If overall_pass=true, this is 10.0 (no cap)."
+    },
+    "gate_definitions": {
+      "type": "object",
+      "description": "Reference catalog. Listed here for completeness — the actual gates are in the 'gates' array.",
+      "additionalProperties": false,
+      "properties": {
+        "G1": {
+          "type": "string",
+          "const": "EPS × Multiple multiplicativity — for every scenario row in every valuation table, verify EPS × multiple = target_price within rounding (±0.5%). Verified by scripts/verify_eps_pe.py. Most-failed gate."
+        },
+        "G2": {
+          "type": "string",
+          "const": "Segment GM reconciliation — Σ(segment_revenue × segment_GM) / Σ(segment_revenue) within ±50bp of consolidated GM as reported. Verified by scripts/verify_segment_gm.py. n_a for single-segment companies."
+        },
+        "G3": {
+          "type": "string",
+          "const": "SOTP monotonicity — for every segment in the SOTP table, NI ≤ OP ≤ GP ≤ Revenue. Any inversion fails. Verified by scripts/verify_sotp_monotonicity.py."
+        },
+        "G4": {
+          "type": "string",
+          "const": "Scenario probabilities sum to 1.00 ±0.01. Verified by scripts/verify_scenario_weights.py."
+        },
+        "G5": {
+          "type": "string",
+          "const": "Bear/bull EPS bridge reconciles to base — sum of named adjustments must equal (base_eps - scenario_eps) within rounding. Verified by scripts/verify_bear_bridge.py."
+        },
+        "G6": {
+          "type": "string",
+          "const": "Source tag declared at first use — every specific number (revenue, GM, segment share, customer concentration, capacity, ADV, beta) tagged S1-S5 or Pending at first appearance in memo Markdown. Verified by scripts/verify_source_tags.py via regex scan."
+        },
+        "G7": {
+          "type": "string",
+          "const": "Headline conditionality matches anchor strength — if any top-3 anchor is S3 or weaker, headline contains conditional language ('source-conditional', 'if [trigger]', 'subject to'). If all top-3 are S1-S2, headline can be unconditional. Verified by scripts/verify_headline_conditionality.py."
+        },
+        "G8": {
+          "type": "string",
+          "const": "GM taxonomy box exists — somewhere in memo, the 5 GM types (T1 consolidated / T2 segment / T3 sub-segment / T4 analyst-modeled / T5 marginal) are explicitly defined and each GM mention in the memo is implicitly tagged to one type. Verified by scripts/verify_gm_taxonomy.py."
+        },
+        "G9": {
+          "type": "string",
+          "const": "What-would-reverse has numerical denominators — every directional trigger has a numerical threshold, not a handwave. E.g. 'if DC revenue Q4 < $X B' not 'if DC weakens'. Verified by scripts/verify_what_would_reverse.py."
+        },
+        "G10": {
+          "type": "string",
+          "const": "Anchor weighting impact table exists — headline impact of ±10pp probability shift on the strongest scenario is shown. Verified by scripts/verify_weighting_sensitivity.py via JSON presence check."
+        },
+        "G11": {
+          "type": "string",
+          "const": "[US-specific, B11] Non-GAAP to GAAP reconciliation present — every non-GAAP number cited in memo has its GAAP counterpart shown, with the bridge (SBC, restructuring, amortization of acquired intangibles, etc.) listed. Verified by scripts/verify_non_gaap.py. n_a if no non-GAAP cited."
+        },
+        "G12": {
+          "type": "string",
+          "const": "[US-specific, B12] SBC treatment in FCF disclosed — memo states whether SBC is deducted from FCF; if not deducted, dilution effect from RSU/option vest is shown separately. Common bug: 'FCF' cited as bull case without flagging SBC as a real cost. Verified by scripts/verify_fcf_definition.py. n_a if no FCF cited."
+        },
+        "G13": {
+          "type": "string",
+          "const": "[US-specific, B13] Factor exposure stated — Barra-style factor tags (Value / Quality / Momentum / Growth / Size / Low-Vol / Liquidity) appear in §11 quant overlay. Required in every institutional IC memo per D13. Verified by scripts/verify_quant_overlay.py."
+        },
+        "G14": {
+          "type": "string",
+          "const": "[US-specific, B14] Capacity / ADV / days-to-exit stated — for the recommended position size, days-to-exit at 10%/20%/30% participation against name's 30-day ADV is shown. Required per D13. Verified by scripts/verify_quant_overlay.py."
+        }
+      }
+    }
+  }
+}

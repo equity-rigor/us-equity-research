@@ -316,6 +316,44 @@ Plus 2-3 **idiosyncratic A0 events** specific to the name (customer loss, IP lit
 
 ---
 
+## D22 — Schema decomposition: monolithic memo.json vs. multi-schema
+
+**Context**: BUILD_PROMPT §"Memory and Isolation Discipline" point 5 called for `schemas/memo.json` + `schemas/source_tags.json`. During B0 we discovered that the buy-side rigor blocks (5-scenario framework, 14 verification gates) each have enough complexity to warrant their own schema, and that JSON Schema's `$ref` mechanism makes multi-schema decomposition cleaner than a monolithic file.
+
+**Recommendation**: **Adopt 4-schema decomposition.**
+
+1. `schemas/memo.json` — umbrella, $refs the three below
+2. `schemas/source_tags.json` — S1-S5 + Pending stratification, citation, anchor objects
+3. `schemas/scenarios.json` — 5-scenario probabilistic framework with headline derivation
+4. `schemas/verification_gates.json` — 14 gates (G1-G10 inherited + G11-G14 US-specific)
+
+**Rationale**: Each sub-schema is independently testable, independently versioned (each has its own `schema_version`), and reusable. The umbrella references them by path; subagents writing each schema can fail independently without cascading.
+
+**Origin**: B0 multi-agent collision surfaced this — the Cowork agent wrote the three sub-schemas first while Claude Code wasn't looking, then `memo.json` was added as the umbrella. The accident produced the right architecture.
+
+**Blocks if wrong**: All Phase B+ subagents that consume schemas; Phase C verification scripts.
+
+---
+
+## D23 — Treatment of `reference/anthropic-official/`
+
+**Context**: Phase A.1 introduced soft-dependency on `claude-for-financial-services` plugins (D21). For B0 schema conformance audit, we imported the official plugin source (~740K) into `reference/anthropic-official/`. The plugin source carries its own Apache-2.0 LICENSE.
+
+**Recommendation**: **Gitignore `reference/anthropic-official/`.** Each session that needs it runs:
+
+```
+/plugin marketplace add anthropics/financial-services-plugins
+cp -R ~/.claude/plugins/marketplaces/claude-for-financial-services/plugins/vertical-plugins/{equity-research,financial-analysis} reference/anthropic-official/
+```
+
+**Rationale**: Third-party Apache-2.0 source commingling avoided; repo stays small; versions stay current with upstream; reproducible via documented commands. Trade-off: a fresh clone needs the import step before B1+ subagents can read official plugin files.
+
+**Pin discipline**: Phase F plugin.json `requires` block declares the tested-against version of `claude-for-financial-services` so silent breaking changes surface as install-time errors rather than runtime delegation failures.
+
+**Blocks if wrong**: Repo size, license boundaries, multi-session reproducibility.
+
+---
+
 ## Items NOT decided here (deferred)
 
 The following are out of scope for the current build and will not be decided in Phase A:

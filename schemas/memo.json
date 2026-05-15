@@ -1,0 +1,613 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://us-equity-research.local/schemas/memo.json",
+  "title": "US Equity IC Memo — Structured Representation",
+  "description": "Umbrella schema for the full structured IC memo. Designed as a strict superset of the implicit input contract for equity-research:initiating-coverage Task 5 (which has no formal JSON schema; its contract is at the file-format layer). Sub-schemas referenced via $ref: source_tags.json (S1-S5), scenarios.json (5-scenario block), verification_gates.json (14 gates). Buy-side rigor additions: GM taxonomy, bear bridge, what-would-reverse, position sizing by mandate, quant overlay (Barra factors, capacity, edge decay).",
+  "schema_version": "0.1.0",
+  "type": "object",
+  "definitions": {
+    "company_qualitative": {
+      "type": "object",
+      "description": "Qualitative narrative content. Maps to Task 1 of initiating-coverage (Company Research Document) — 6-8K word output. Can be rendered to .md for delegation.",
+      "required": ["description", "industry", "competitive_landscape"],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 800,
+          "description": "Plain-English business description (800-1,200 words). What the company does, how it makes money, geographic presence, scale."
+        },
+        "history": {
+          "type": "string",
+          "description": "Founding story + milestone timeline (800-1,200 words)."
+        },
+        "products": {
+          "type": "array",
+          "description": "Product portfolio. Each entry covers a major product line.",
+          "items": {
+            "type": "object",
+            "required": ["name", "description"],
+            "properties": {
+              "name": {"type": "string"},
+              "description": {"type": "string"},
+              "target_customers": {"type": "string"},
+              "pricing_model": {"type": "string"},
+              "revenue_contribution_pct": {"type": "number"},
+              "competitive_position": {"type": "string"},
+              "source_citation": {"$ref": "source_tags.json#/definitions/citation"}
+            }
+          }
+        },
+        "customers_gtm": {
+          "type": "string",
+          "description": "Customer segments, distribution channels, sales strategy, key partnerships (500-700 words)."
+        },
+        "industry": {
+          "type": "object",
+          "required": ["overview", "tam"],
+          "properties": {
+            "overview": {"type": "string", "description": "Industry definition, market size, growth, key trends, regulatory environment (800-1,200 words)."},
+            "tam": {
+              "type": "object",
+              "properties": {
+                "current_year": {"type": "integer"},
+                "current_tam_usd_b": {"type": "number"},
+                "projected_year": {"type": "integer"},
+                "projected_tam_usd_b": {"type": "number"},
+                "cagr_pct": {"type": "number"},
+                "source": {"$ref": "source_tags.json#/definitions/citation"}
+              }
+            }
+          }
+        },
+        "competitive_landscape": {
+          "type": "object",
+          "required": ["peers"],
+          "properties": {
+            "peers": {
+              "type": "array",
+              "minItems": 5,
+              "maxItems": 10,
+              "items": {
+                "type": "object",
+                "required": ["name"],
+                "properties": {
+                  "name": {"type": "string"},
+                  "ticker": {"type": "string"},
+                  "market_cap_usd_b": {"type": "number"},
+                  "market_share_pct": {"type": "number"},
+                  "key_differentiator": {"type": "string"},
+                  "revenue_growth_pct": {"type": "number"},
+                  "ebitda_margin_pct": {"type": "number"}
+                }
+              }
+            },
+            "positioning_narrative": {"type": "string"}
+          }
+        }
+      }
+    },
+    "management_bio": {
+      "type": "object",
+      "required": ["name", "title", "bio"],
+      "properties": {
+        "name": {"type": "string"},
+        "title": {"type": "string"},
+        "tenure_years": {"type": "number"},
+        "bio": {"type": "string", "minLength": 300, "description": "300-400 word bio per official plugin spec"},
+        "compensation_usd_m": {"type": "number"},
+        "stock_ownership_shares": {"type": "integer"},
+        "background": {"type": "string"},
+        "source": {"$ref": "source_tags.json#/definitions/citation"}
+      }
+    },
+    "risk_factor": {
+      "type": "object",
+      "required": ["category", "title", "description"],
+      "properties": {
+        "category": {
+          "type": "string",
+          "enum": ["company_specific", "industry_market", "financial", "macroeconomic", "regulatory", "geopolitical", "esg"]
+        },
+        "title": {"type": "string"},
+        "description": {"type": "string", "minLength": 50, "description": "50-100 word per official plugin spec"},
+        "probability_qualitative": {"type": "string", "enum": ["very_low", "low", "medium", "high", "very_high"]},
+        "impact_qualitative": {"type": "string", "enum": ["minor", "moderate", "material", "severe"]},
+        "mitigants": {"type": "string"}
+      }
+    },
+    "financial_period": {
+      "type": "object",
+      "required": ["period", "period_type"],
+      "properties": {
+        "period": {"type": "string", "description": "e.g., 'FY24A', 'FY25E', 'FY26E'. A=actual, E=estimate, P=preliminary."},
+        "period_type": {"type": "string", "enum": ["historical", "ltm", "projected"]},
+        "revenue_usd_m": {"type": "number"},
+        "revenue_growth_pct": {"type": "number"},
+        "gross_profit_usd_m": {"type": "number"},
+        "gross_margin_pct": {"type": "number"},
+        "operating_expenses_usd_m": {"type": "number"},
+        "ebit_usd_m": {"type": "number"},
+        "ebit_margin_pct": {"type": "number"},
+        "ebitda_usd_m": {"type": "number"},
+        "ebitda_margin_pct": {"type": "number"},
+        "depreciation_amortization_usd_m": {"type": "number"},
+        "tax_rate_pct": {"type": "number"},
+        "net_income_gaap_usd_m": {"type": "number"},
+        "net_income_non_gaap_usd_m": {"type": "number"},
+        "eps_diluted_gaap_usd": {"type": "number"},
+        "eps_diluted_non_gaap_usd": {"type": "number"},
+        "diluted_shares_m": {"type": "number"},
+        "capex_usd_m": {"type": "number"},
+        "fcf_usd_m": {"type": "number"},
+        "fcf_includes_sbc_addback": {"type": "boolean", "description": "Required: discloses whether SBC is added back to FCF. Drives G12 verification."},
+        "sbc_usd_m": {"type": "number"},
+        "buyback_usd_m": {"type": "number"},
+        "buyback_offsets_sbc_ratio": {"type": "number", "description": "buyback_usd_m / sbc_usd_m; <1.0 means dilution masked. B12 forensic flag."},
+        "net_debt_usd_m": {"type": "number"},
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "revenue_usd_m": {"type": "number"},
+              "gm_pct": {"type": "number"},
+              "gm_taxonomy_type": {"type": "string", "enum": ["T1_consolidated", "T2_segment", "T3_sub_segment", "T4_analyst_modeled", "T5_marginal"]},
+              "source": {"$ref": "source_tags.json#/definitions/citation"}
+            }
+          }
+        }
+      }
+    },
+    "gm_taxonomy_entry": {
+      "type": "object",
+      "required": ["type", "name", "value_range", "source"],
+      "properties": {
+        "type": {"type": "string", "enum": ["T1_consolidated", "T2_segment", "T3_sub_segment", "T4_analyst_modeled", "T5_marginal"]},
+        "name": {"type": "string", "description": "e.g., 'Consolidated GM', 'Datacenter segment GM', 'Hopper SKU mix GM', 'FY26E modeled GM', 'Blackwell marginal GM'"},
+        "value_range": {"type": "string", "description": "e.g., '14-16%', '17%', '8-10%'"},
+        "source": {"$ref": "source_tags.json#/definitions/citation"}
+      }
+    },
+    "valuation_method": {
+      "type": "object",
+      "required": ["method", "implied_price_usd"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["DCF", "Trading_comps", "Precedent_transactions", "SOTP", "Multi_multiple_bear", "P_B_ROE_implied", "NAV", "NPV_pipeline", "Replacement_cost"]
+        },
+        "implied_price_usd": {"type": "number"},
+        "price_range_low_usd": {"type": "number"},
+        "price_range_high_usd": {"type": "number"},
+        "weight_pct": {"type": "number", "description": "Weight in weighted-average price target. All methods' weights sum to 100."},
+        "weighted_value_usd": {"type": "number"},
+        "key_assumptions": {"type": "object"},
+        "narrative": {"type": "string"}
+      }
+    },
+    "dcf_components": {
+      "type": "object",
+      "description": "DCF inputs sufficient to delegate to financial-analysis:dcf-model. Maps to that skill's required inputs.",
+      "properties": {
+        "wacc_pct": {"type": "number"},
+        "wacc_components": {
+          "type": "object",
+          "properties": {
+            "risk_free_rate_pct": {"type": "number", "description": "10Y UST yield. Source: FRED DGS10."},
+            "risk_free_source_date": {"type": "string", "format": "date"},
+            "equity_risk_premium_pct": {"type": "number", "description": "Damodaran US implied ERP."},
+            "beta": {"type": "number"},
+            "beta_basis": {"type": "string", "enum": ["5y_monthly_vs_SP500", "2y_daily_vs_SP500", "industry_unlevered", "adjusted_bloomberg"]},
+            "cost_of_equity_pct": {"type": "number"},
+            "pre_tax_cost_of_debt_pct": {"type": "number"},
+            "tax_rate_pct": {"type": "number"},
+            "after_tax_cost_of_debt_pct": {"type": "number"},
+            "equity_weight_pct": {"type": "number"},
+            "debt_weight_pct": {"type": "number"}
+          }
+        },
+        "terminal_growth_pct": {"type": "number", "description": "Long-run nominal GDP-aligned (2.0-2.5% default)."},
+        "terminal_method": {"type": "string", "enum": ["perpetuity_growth", "exit_multiple"]},
+        "explicit_forecast_years": {"type": "integer", "minimum": 3, "maximum": 10},
+        "sensitivity_wacc_range_pct": {"type": "array", "items": {"type": "number"}, "minItems": 5, "maxItems": 5},
+        "sensitivity_terminal_g_range_pct": {"type": "array", "items": {"type": "number"}, "minItems": 5, "maxItems": 5},
+        "implied_share_price_usd": {"type": "number"}
+      }
+    },
+    "catalyst": {
+      "type": "object",
+      "required": ["title", "expected_date", "type", "expected_impact_pct"],
+      "properties": {
+        "title": {"type": "string"},
+        "expected_date": {"type": "string", "format": "date"},
+        "type": {"type": "string", "enum": ["earnings_print", "investor_day", "product_launch", "regulatory_decision", "M&A", "capital_return", "guidance_update", "macro_event", "litigation_milestone"]},
+        "expected_impact_pct": {"type": "number", "description": "Estimated stock move on confirmation (signed)."},
+        "what_would_reverse_thesis": {"type": "string"},
+        "anchor_ref": {"type": "string", "description": "Anchor ID this catalyst would graduate to S2."}
+      }
+    },
+    "what_would_reverse_trigger": {
+      "type": "object",
+      "required": ["direction", "numerical_threshold", "unit", "observable_via"],
+      "description": "G9 gate: every directional trigger must have a numerical denominator, not handwave.",
+      "properties": {
+        "direction": {"type": "string", "enum": ["reverse_bear_to_neutral", "reverse_bear_to_bull", "reverse_bull_to_neutral", "reverse_bull_to_bear"]},
+        "numerical_threshold": {"type": "string", "description": "e.g., 'NVDA DC Q4 revenue > $40B', 'GM > 75% for two consecutive quarters', 'hyperscaler capex YoY > 0%'"},
+        "unit": {"type": "string"},
+        "observable_via": {"type": "string", "description": "Specific S-source where this would appear, e.g., '10-Q Note 4', 'next earnings call', 'press release on consensus refresh'"},
+        "expected_observation_date": {"type": "string", "format": "date"}
+      }
+    },
+    "tail_risk_a0_event": {
+      "type": "object",
+      "required": ["event_class", "name", "probability_shift", "downside_impact"],
+      "properties": {
+        "event_class": {
+          "type": "string",
+          "enum": ["NBER_recession", "Fed_rate_shock", "sector_regulatory_action", "sanctions_export_control", "tariff_trade_war", "election_political_transition", "FX_shock", "commodity_shock", "idiosyncratic"]
+        },
+        "name": {"type": "string"},
+        "probability_shift": {
+          "type": "object",
+          "description": "How this event would shift the 5-scenario probability distribution.",
+          "properties": {
+            "strong_bear_delta_pp": {"type": "number"},
+            "bear_delta_pp": {"type": "number"},
+            "base_delta_pp": {"type": "number"},
+            "bull_delta_pp": {"type": "number"},
+            "strong_bull_delta_pp": {"type": "number"}
+          }
+        },
+        "downside_impact": {
+          "type": "object",
+          "properties": {
+            "worst_case_eps_haircut_pct": {"type": "number"},
+            "worst_case_multiple_compression_pct": {"type": "number"},
+            "worst_case_price_pct": {"type": "number"}
+          }
+        }
+      }
+    },
+    "position_sizing_by_mandate": {
+      "type": "object",
+      "description": "D3: explicit sizing for four mandate types. Decouple rating from sizing.",
+      "properties": {
+        "long_only_large_cap": {
+          "type": "object",
+          "properties": {
+            "benchmark": {"type": "string", "const": "S&P 500"},
+            "recommended_active_weight_bps": {"type": "number", "description": "vs benchmark weight, signed"},
+            "max_weight_pct_nav": {"type": "number"},
+            "kelly_implied_pct_nav": {"type": "number"},
+            "conviction_adjusted_pct_nav": {"type": "number"}
+          }
+        },
+        "long_only_smid": {
+          "type": "object",
+          "properties": {
+            "benchmark": {"type": "string", "enum": ["Russell 3000", "Russell 1000", "Russell 2000"]},
+            "recommended_active_weight_bps": {"type": "number"},
+            "max_weight_pct_nav": {"type": "number"},
+            "conviction_adjusted_pct_nav": {"type": "number"}
+          }
+        },
+        "long_short_hedge_fund": {
+          "type": "object",
+          "properties": {
+            "gross_exposure_pct_nav": {"type": "number"},
+            "net_exposure_pct_nav": {"type": "number"},
+            "single_name_long_cap_pct_nav": {"type": "number"},
+            "single_name_short_cap_pct_nav": {"type": "number"}
+          }
+        },
+        "sector_specialty": {
+          "type": "object",
+          "properties": {
+            "benchmark": {"type": "string", "description": "Sector ETF or custom basket"},
+            "recommended_active_weight_bps": {"type": "number"},
+            "conviction_adjusted_pct_nav": {"type": "number"}
+          }
+        },
+        "pair_trade": {
+          "type": "object",
+          "properties": {
+            "long_ticker": {"type": "string"},
+            "short_ticker": {"type": "string"},
+            "structure": {"type": "string", "enum": ["dollar_neutral", "beta_neutral", "value_neutral", "ratio"]},
+            "expected_spread_return_pct": {"type": "number"}
+          }
+        }
+      }
+    },
+    "quant_overlay": {
+      "type": "object",
+      "description": "Phase D quant overlay — Barra factors, capacity, edge decay, correlation, stress. Required per D13 in every institutional memo. Verified by G13 and G14.",
+      "required": ["factor_tags", "capacity"],
+      "properties": {
+        "factor_tags": {
+          "type": "object",
+          "description": "Barra-style factor exposures. Each on -2 to +2 z-score.",
+          "properties": {
+            "value": {"type": "number", "minimum": -3, "maximum": 3},
+            "quality": {"type": "number", "minimum": -3, "maximum": 3},
+            "momentum": {"type": "number", "minimum": -3, "maximum": 3},
+            "growth": {"type": "number", "minimum": -3, "maximum": 3},
+            "size": {"type": "number", "minimum": -3, "maximum": 3},
+            "low_vol": {"type": "number", "minimum": -3, "maximum": 3},
+            "liquidity": {"type": "number", "minimum": -3, "maximum": 3}
+          }
+        },
+        "capacity": {
+          "type": "object",
+          "required": ["adv_30d_usd_m", "days_to_exit_10pct_participation", "days_to_exit_20pct_participation"],
+          "properties": {
+            "adv_30d_usd_m": {"type": "number", "description": "30-day average daily dollar volume in USD millions"},
+            "days_to_exit_10pct_participation": {"type": "number"},
+            "days_to_exit_20pct_participation": {"type": "number"},
+            "days_to_exit_30pct_participation": {"type": "number"},
+            "max_position_constrained_by_adv_pct_nav": {"type": "number"}
+          }
+        },
+        "edge_decay": {
+          "type": "object",
+          "properties": {
+            "thesis_half_life_months": {"type": "number"},
+            "time_to_priced_in_months": {"type": "number"},
+            "refresh_cadence": {"type": "string", "enum": ["weekly", "monthly", "quarterly_print", "event_driven"]},
+            "primary_decay_driver": {"type": "string"}
+          }
+        },
+        "correlation": {
+          "type": "object",
+          "description": "Placeholder per D14 — populate when book file is wired in.",
+          "properties": {
+            "book_file_path": {"type": "string"},
+            "top10_pairwise_corr": {"type": "array", "items": {"type": "object", "properties": {"ticker": {"type": "string"}, "corr": {"type": "number"}}}},
+            "live_wired": {"type": "boolean"}
+          }
+        },
+        "stress_overlay": {
+          "type": "object",
+          "properties": {
+            "fed_funds_plus_200bp": {"type": "number", "description": "Stock %"},
+            "oil_minus_20pct": {"type": "number"},
+            "usd_plus_5pct": {"type": "number"},
+            "recession_dummy": {"type": "number"}
+          }
+        }
+      }
+    },
+    "forensic_flags": {
+      "type": "object",
+      "description": "US-specific forensic accounting checklist. Each item: status, value, source. Drives G11-G12 verification.",
+      "properties": {
+        "asc_606_red_flags": {"type": "array", "items": {"type": "object", "properties": {"flag": {"type": "string"}, "evidence": {"type": "string"}, "severity": {"type": "string", "enum": ["low", "medium", "high"]}}}},
+        "asc_842_lease_pv_usd_m": {"type": "number"},
+        "asc_718_sbc_pct_revenue": {"type": "number"},
+        "asc_718_sbc_pct_ocf": {"type": "number"},
+        "non_gaap_to_gaap_delta_pct_ni_5y_avg": {"type": "number", "description": "If >25% sustained, scrutinize. B11 forensic."},
+        "non_gaap_reconciliation_present": {"type": "boolean"},
+        "fcf_definition": {"type": "string", "enum": ["OCF_minus_capex", "OCF_minus_capex_minus_sbc", "EBITDA_minus_capex", "non_standard"]},
+        "goodwill_pct_net_assets": {"type": "number"},
+        "auditor": {"type": "string"},
+        "auditor_change_recent": {"type": "boolean"},
+        "restatement_8k_4_02_recent": {"type": "boolean"},
+        "form_4_net_12mo_usd_m": {"type": "number", "description": "Net insider activity over trailing 12 months."},
+        "going_concern_qualification": {"type": "boolean"},
+        "vie_exposure": {"type": "string", "enum": ["none", "minor", "material", "significant"]},
+        "pension_funded_status_pct": {"type": "number"}
+      }
+    },
+    "positioning_sentiment": {
+      "type": "object",
+      "properties": {
+        "top_holders_13f": {"type": "array", "items": {"type": "object", "properties": {"holder": {"type": "string"}, "shares_m": {"type": "number"}, "pct_so": {"type": "number"}, "qoq_delta_pct": {"type": "number"}}}},
+        "short_interest_pct_float": {"type": "number"},
+        "days_to_cover": {"type": "number"},
+        "stock_loan_rate_bps": {"type": "number"},
+        "options_skew_25d_put_minus_call": {"type": "number", "description": "25-delta put IV minus 25-delta call IV"},
+        "options_implied_move_earnings_pct": {"type": "number"},
+        "iv_rank_pct": {"type": "number"},
+        "etf_passive_ownership_pct": {"type": "number"},
+        "sell_side_distribution": {"type": "object", "properties": {"buy_pct": {"type": "number"}, "hold_pct": {"type": "number"}, "sell_pct": {"type": "number"}, "pt_median_usd": {"type": "number"}, "pt_low_usd": {"type": "number"}, "pt_high_usd": {"type": "number"}, "pt_revision_3mo_pct": {"type": "number"}}},
+        "activist_13d_filed": {"type": "boolean"},
+        "form_4_pattern": {"type": "string", "enum": ["cluster_buying", "cluster_selling", "10b5_1_routine", "discretionary_buying", "discretionary_selling", "mixed", "no_activity"]},
+        "index_inclusion": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "regulatory_status": {
+      "type": "object",
+      "properties": {
+        "antitrust_open_matters": {"type": "array", "items": {"type": "object", "properties": {"agency": {"type": "string", "enum": ["FTC", "DOJ", "State_AG", "EU_CMA", "UK_CMA", "CCI_India", "Canada_Bureau", "Other"]}, "matter": {"type": "string"}, "stage": {"type": "string"}, "expected_resolution": {"type": "string", "format": "date"}}}},
+        "export_control_status": {"type": "object", "properties": {"bis_entity_list": {"type": "boolean"}, "ofac_sdn": {"type": "boolean"}, "cfius_review_open": {"type": "boolean"}, "itar_subject": {"type": "boolean"}, "verified_as_of": {"type": "string", "format": "date"}}},
+        "sector_regulator_open_matters": {"type": "array", "items": {"type": "object", "properties": {"agency": {"type": "string", "enum": ["FDA", "FCC", "FERC", "NHTSA", "EPA", "FAA", "CFPB", "OCC", "FDIC", "Fed_banking", "SEC_enforcement", "NRC", "USDA", "HHS_CMS", "Other"]}, "matter": {"type": "string"}, "stage": {"type": "string"}}}},
+        "tariff_exposure_pct_cogs": {"type": "number"},
+        "tax_policy_exposures": {"type": "array", "items": {"type": "string", "enum": ["BEAT", "GILTI", "FDII", "Section_174_RD_amortization", "Pillar_2_GMT", "CAMT", "IRA_45X", "IRA_48", "CHIPS_48D", "RD_Credit_Section_41"]}}
+      }
+    }
+  },
+  "type": "object",
+  "required": [
+    "schema_version", "ticker", "as_of_date", "model_cutoff_date", "current_price_usd",
+    "headline", "recommendation",
+    "company_qualitative", "management", "financials", "scenarios_ref",
+    "valuation", "risks", "catalysts", "what_would_reverse",
+    "source_tags_ref", "verification_gates_ref",
+    "gm_taxonomy", "forensic_flags", "positioning_sentiment", "regulatory_status",
+    "position_sizing", "quant_overlay", "tail_risks",
+    "delegation_outputs"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "const": "0.1.0"},
+    "ticker": {"type": "string", "pattern": "^[A-Z]{1,5}(\\.[A-Z]{1,3})?$"},
+    "exchange": {"type": "string", "enum": ["NYSE", "Nasdaq", "AMEX", "OTC", "TSX", "LSE"]},
+    "company_name": {"type": "string"},
+    "sector_gics": {"type": "string"},
+    "industry_gics": {"type": "string"},
+    "as_of_date": {"type": "string", "format": "date"},
+    "model_cutoff_date": {"type": "string", "format": "date", "description": "Claude knowledge cutoff at run time; anchors post-this need verified=true."},
+    "author": {"type": "string"},
+    "current_price_usd": {"type": "number"},
+    "market_cap_usd_b": {"type": "number"},
+    "enterprise_value_usd_b": {"type": "number"},
+    "fiscal_year_end": {"type": "string", "description": "MM-DD format, e.g. '01-31' for NVDA"},
+
+    "headline": {"$ref": "scenarios.json#/properties/headline"},
+
+    "recommendation": {
+      "type": "object",
+      "required": ["rating", "price_target_usd", "upside_downside_pct", "time_horizon_months", "conviction_tag"],
+      "properties": {
+        "rating": {"type": "string", "enum": ["Strong Buy", "Buy", "Hold", "Sell", "Strong Sell"]},
+        "price_target_usd": {"type": "number"},
+        "price_target_range_low_usd": {"type": "number"},
+        "price_target_range_high_usd": {"type": "number"},
+        "upside_downside_pct": {"type": "number"},
+        "time_horizon_months": {"type": "integer"},
+        "conviction_tag": {"type": "string", "enum": ["high_conviction", "moderate_conviction", "low_conviction", "source_conditional", "reactive"]},
+        "default_action": {"type": "string", "enum": ["initiate_long", "add_long", "hold_long", "trim_long", "exit_long", "initiate_short", "add_short", "hold_short", "cover_short", "no_action", "spread_long_short"]},
+        "rationale_one_paragraph": {"type": "string", "minLength": 100}
+      }
+    },
+
+    "investment_thesis_pillars": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["title", "key_statistic", "narrative"],
+        "properties": {
+          "title": {"type": "string"},
+          "key_statistic": {"type": "string"},
+          "narrative": {"type": "string", "minLength": 200},
+          "anchor_refs": {"type": "array", "items": {"type": "string"}},
+          "timeline": {"type": "string"}
+        }
+      }
+    },
+
+    "company_qualitative": {"$ref": "#/definitions/company_qualitative"},
+
+    "management": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 6,
+      "items": {"$ref": "#/definitions/management_bio"}
+    },
+
+    "financials": {
+      "type": "object",
+      "required": ["historical", "projected"],
+      "properties": {
+        "historical": {"type": "array", "minItems": 3, "items": {"$ref": "#/definitions/financial_period"}, "description": "3-5 years historical actuals"},
+        "ltm": {"$ref": "#/definitions/financial_period"},
+        "projected": {"type": "array", "minItems": 5, "maxItems": 10, "items": {"$ref": "#/definitions/financial_period"}, "description": "5+ years projected"},
+        "revenue_by_product": {"type": "array", "items": {"type": "object", "properties": {"product": {"type": "string"}, "by_period": {"type": "object"}}}, "description": "20-30 rows expected by initiating-coverage Task 2"},
+        "revenue_by_geography": {"type": "array", "items": {"type": "object", "properties": {"region": {"type": "string"}, "by_period": {"type": "object"}}}, "description": "15-20 rows expected by initiating-coverage Task 2"}
+      }
+    },
+
+    "gm_taxonomy": {
+      "type": "object",
+      "description": "G8 gate. Box defining 5 GM types and value range for each.",
+      "required": ["entries"],
+      "properties": {
+        "entries": {"type": "array", "minItems": 1, "items": {"$ref": "#/definitions/gm_taxonomy_entry"}},
+        "reconciliation_consolidated_vs_implied_bp": {"type": "number", "description": "|reported consolidated GM − Σ(segment_rev × segment_GM)/Σ(segment_rev)| in bps. G2 gate."}
+      }
+    },
+
+    "scenarios_ref": {
+      "type": "string",
+      "description": "Path to scenarios.json instance: 'outputs/<ticker>_scenarios.json'"
+    },
+
+    "valuation": {
+      "type": "object",
+      "required": ["methods", "weighted_price_target_usd"],
+      "properties": {
+        "methods": {"type": "array", "minItems": 2, "maxItems": 5, "items": {"$ref": "#/definitions/valuation_method"}, "description": "DCF + Comps minimum per official plugin; add Precedent / SOTP / Multi-multiple bear as relevant. Mandatory >=2 methods to enable three-method reconcile."},
+        "dcf_components": {"$ref": "#/definitions/dcf_components"},
+        "weighted_price_target_usd": {"type": "number"},
+        "football_field_range_low_usd": {"type": "number"},
+        "football_field_range_high_usd": {"type": "number"},
+        "reconciliation_narrative": {"type": "string", "description": "How the three methods cross-check. SOTP for internal segment consistency, DCF for cash-flow rigor, multi-multiple as bear check. NOT averaged."}
+      }
+    },
+
+    "risks": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 15,
+      "items": {"$ref": "#/definitions/risk_factor"},
+      "description": "8-12 risks per official plugin spec, organized by category."
+    },
+
+    "catalysts": {"type": "array", "minItems": 3, "maxItems": 8, "items": {"$ref": "#/definitions/catalyst"}, "description": "3-5 catalysts per official spec; extends to 8 with monitoring framework dates."},
+
+    "what_would_reverse": {"type": "array", "minItems": 2, "items": {"$ref": "#/definitions/what_would_reverse_trigger"}},
+
+    "tail_risks": {"type": "array", "minItems": 5, "maxItems": 12, "items": {"$ref": "#/definitions/tail_risk_a0_event"}, "description": "6 standing A0 events + 2-3 idiosyncratic per D12."},
+
+    "forensic_flags": {"$ref": "#/definitions/forensic_flags"},
+
+    "positioning_sentiment": {"$ref": "#/definitions/positioning_sentiment"},
+
+    "regulatory_status": {"$ref": "#/definitions/regulatory_status"},
+
+    "position_sizing": {"$ref": "#/definitions/position_sizing_by_mandate"},
+
+    "quant_overlay": {"$ref": "#/definitions/quant_overlay"},
+
+    "source_tags_ref": {
+      "type": "string",
+      "description": "Path to source_tags.json instance: 'outputs/<ticker>_source_tags.json'"
+    },
+
+    "verification_gates_ref": {
+      "type": "string",
+      "description": "Path to verification_gates.json instance: 'outputs/<ticker>_verification_gates.json'"
+    },
+
+    "audience_variant": {
+      "type": "string",
+      "enum": ["institutional_full", "ic_preread", "ic_debate_script", "lp_letter", "earnings_prep", "earnings_flash", "kill_memo"],
+      "default": "institutional_full",
+      "description": "D4: dropped retail variant. Bilingual mode also dropped."
+    },
+
+    "delegation_outputs": {
+      "type": "object",
+      "description": "Intermediate artifacts written for optional delegation to financial-analysis and equity-research plugins. Per D21 / tool-composition-us.md.",
+      "properties": {
+        "company_research_md_path": {"type": "string", "description": "Rendered Task 1 input for initiating-coverage. 6-8K words. e.g. 'outputs/<ticker>_Research_Document_<date>.md'"},
+        "valuation_analysis_md_path": {"type": "string", "description": "Rendered Task 3 input. e.g. 'outputs/<ticker>_Valuation_Analysis_<date>.md'"},
+        "scenarios_3case_for_dcf_plugin": {
+          "type": "object",
+          "description": "5-scenario → 3-case mapping for delegation to financial-analysis:dcf-model. Bear = strong_bear + bear (probability-weighted). Base = base. Bull = bull + strong_bull. The dcf-model plugin operates on 3 cases; we maintain 5 internally.",
+          "properties": {
+            "bear_case_revenue_growth_pcts": {"type": "array", "items": {"type": "number"}},
+            "bear_case_ebit_margin_pcts": {"type": "array", "items": {"type": "number"}},
+            "base_case_revenue_growth_pcts": {"type": "array", "items": {"type": "number"}},
+            "base_case_ebit_margin_pcts": {"type": "array", "items": {"type": "number"}},
+            "bull_case_revenue_growth_pcts": {"type": "array", "items": {"type": "number"}},
+            "bull_case_ebit_margin_pcts": {"type": "array", "items": {"type": "number"}}
+          }
+        }
+      }
+    },
+
+    "memo_metadata": {
+      "type": "object",
+      "properties": {
+        "run_id": {"type": "string"},
+        "iteration_round": {"type": "integer", "minimum": 0, "description": "PM red-team round number"},
+        "current_score": {"type": "number", "minimum": 0, "maximum": 10},
+        "target_score": {"type": "number", "minimum": 0, "maximum": 10},
+        "verification_calls_count": {"type": "integer", "minimum": 12, "description": "D9: minimum 12 WebSearch+WebFetch calls per memo"}
+      }
+    }
+  }
+}

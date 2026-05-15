@@ -1,0 +1,32 @@
+# Phase B0 / D23 — third-party plugin source, reproducible via /plugin marketplace add
+reference/anthropic-official/
+
+# Standard Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Excel / Office artifacts
+~$*.xlsx
+~$*.docx
+~$*.pptx
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Outputs (per memo are stored under outputs/ at the project root or workspace)
+# Phase E NVDA self-test outputs are committed; ad-hoc runs are not.
+# outputs/*.md  -- intentionally NOT ignored; we commit Phase E deliverables
+# outputs/*.json -- same
