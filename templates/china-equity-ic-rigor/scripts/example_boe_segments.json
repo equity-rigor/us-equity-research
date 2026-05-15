@@ -1,0 +1,13 @@
+{
+  "ticker": "000725",
+  "year": 2024,
+  "consolidated_gm": 0.155,
+  "consolidated_gm_source": "S1: 2024 年报 利润表",
+  "segments": [
+    {"name": "显示器件", "revenue_yi": 1330, "GM": 0.17, "source": "S1: 2024 年报附注 §3.2"},
+    {"name": "IoT",      "revenue_yi":  420, "GM": 0.09, "source": "S1: 2024 年报附注 §3.2"},
+    {"name": "传感器",   "revenue_yi":  220, "GM": 0.19, "source": "S1: 2024 年报附注 §3.2"},
+    {"name": "智慧系统", "revenue_yi":   76, "GM": 0.22, "source": "S1: 2024 年报附注 §3.2"}
+  ],
+  "tolerance_bp": 50
+}
