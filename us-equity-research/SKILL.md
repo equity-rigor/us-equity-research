@@ -1,0 +1,262 @@
+---
+name: us-equity-research
+description: Conduct institutional buy-side fundamental research on a single-name US-listed equity using a multi-agent workflow with mandatory web verification, S1-S5 source stratification, and 5-scenario probabilistic valuation. Use this skill whenever the user provides a US ticker (1-5 uppercase chars on NYSE/Nasdaq/AMEX/OTC such as NVDA, AAPL, JPM, XOM, MRK, BRK.B, AMZN) and asks for fundamental analysis, an investment thesis, a stock pitch, an IC memo, buy-side research, a 10-K read, an earnings prep, a kill thesis, a long/short pair-trade structure, or any institutional-grade deep-dive. Triggers include "is X a buy", "build me a thesis on", "stock pitch for X", "buy-side research on X", "IC memo for X", "fundamental analysis of X", "earnings prep for X", "kill thesis on X", "10-K read on X", "pair-trade structure long X short Y", "long X short Y", "fundamental work on X". Also triggers on sector phrases including "AI infrastructure", "datacenter capex", "energy transition", "biotech pipeline", "SaaS Rule of 40", "bank stress capital", "REIT AFFO", "E&P FCF yield". In scope: US-domiciled common equity and foreign-issuer ADRs (Toyota, Spotify, BABA, Nestlé). Out of scope: PE deals (use lbo-model), sell-side initiation report format (use equity-research:initiating-coverage directly), retail-investor commentary (FINRA Rule 2210 scope). Default mode is EDGAR-only and free-aggregator data; optional premium hooks (Visible Alpha, Capital IQ, AlphaSense, Bloomberg) gate behind explicit user signaling. Optional polished Excel DCF, Excel comps, and 30-50pg DOCX outputs delegate to financial-analysis and equity-research plugins when installed.
+---
+
+# US Single-Name Equity Research Workflow
+
+A multi-phase, multi-agent fundamental research framework for US-listed equities. Produces IC-memo-grade output with mandatory web verification, integrated red team, S1-S5 source stratification, 5-scenario probabilistic valuation, and explicit position sizing across mandate types. Designed to compose with the buy-side PM rigor layer `us-equity-ic-rigor` and to delegate Excel/DOCX artifact construction to marketplace plugins `financial-analysis` and `equity-research` when installed.
+
+## Core Principles
+
+These four principles run through every phase. Without them, the workflow degrades to ordinary sell-side commentary.
+
+**1. Multi-agent specialization beats monolithic analysis.** A single agent doing "everything about NVDA" will skim. Forced specialization with explicit handoffs catches things one analyst would miss. Industry/cycle, forensic accounting, regulatory/policy, positioning/sentiment, and competitive analysis are different analytical units — they deserve different specialists. Per D7, this is preserved exactly from the China precedent.
+
+**2. Red Team runs in parallel from day one, not as final reviewer.** The Red Team's job is to build the strongest possible bear case in good faith. It is judged on whether it identifies things the bull side missed, not on agreement with the PM. Assigning Red Team only at the end is too late — by then the narrative has hardened.
+
+**3. Web verification is mandatory for any post-cutoff specific claim.** Sub-agents can hallucinate plausible-looking URLs, EDGAR accession numbers, regulatory designations, and dollar figures — especially for events past the model's January 2026 knowledge cutoff. Every material specific claim (FY financials, Entity List / OFAC SDN status, antitrust action status, FDA outcomes, customer share, settlement amounts, guidance numbers) must be independently verified via WebSearch / WebFetch / EDGAR full-text search with source URL captured. Distinguish framework claims (durable, structural) from specific numerical claims (need verification). The single biggest failure mode is unverified hallucination dressed up as primary-source rigor. Per D9 the minimum is 12 distinct WebSearch+WebFetch calls per memo.
+
+**4. Position sizing reflects confidence, not just direction.** A "Buy" rating with limited conviction is half-weight. A "Buy" with high conviction is a core position. Always specify both rating and sizing, with explicit reasons for the gap between them. Per D1, ratings are 5-band (Strong Buy / Buy / Hold / Sell / Strong Sell) with ±20% / ±10% return-band thresholds; per D3, sizing is reported across 5 mandate types.
+
+## When to Trigger
+
+Invoke this workflow whenever the user wants institutional buy-side research on a US-listed equity. Specific triggers include providing a ticker like NVDA, AAPL, JPM, XOM, MRK, BRK.B and asking "is this a buy", "build me a thesis", "research this", "kill thesis on this", or requesting a stock pitch / IC memo / buy-side note / fundamental analysis. Sector-themed requests ("AI infrastructure exposure", "SaaS Rule of 40 screen on X", "biotech pipeline NPV on X") also trigger. Pair-trade requests ("long NVDA short AMD") trigger this skill on each leg with the pair structure carried into Phase 3.
+
+If the user provides only a ticker without an explicit research request, ask: "Long-only or L/S mandate? Horizon — default 12mo primary / 24mo secondary? Data access tier — EDGAR-only (default) or premium (Visible Alpha / Capital IQ / Bloomberg)?" Default if no answer: long-only L/S-friendly, 12mo primary + 24mo secondary (per D2), EDGAR-only (per D5).
+
+Trigger boundaries: when the user asks for a polished sell-side-format 30-50pg initiation DOCX, that's `equity-research:initiating-coverage`'s territory — this skill produces the structured content and delegates Task 5 at the end. When the user asks for a post-print earnings update DOCX ("Q3 update for NVDA"), `equity-research:earnings-analysis` is preferred. This skill owns pre-print earnings prep, IC memos, kill memos, LP letters, and the verification rigor.
+
+## Workflow Overview
+
+The full workflow has three sequential research phases, a mandatory independent verification phase, and a final synthesis. Total elapsed time depends on user urgency, but a serious deep-dive is roughly two hours of orchestrated agent execution.
+
+```
+Phase 0   Setup & data spec (PM / orchestrator)
+   |
+Phase 1   Initial deep-dive (5 specialists in parallel)
+   |      A1 Industry/cycle, A4 Capacity/capex, A5 Regulatory/policy,
+   |      A8 Positioning/sentiment, FS Forensic accounting
+   |      -> PM synthesis -> Phase 1 Integrated Brief
+   |
+Phase 1.5 Refresh round (only if Phase 1 agents failed to use web tools)
+   |
+Phase 2   Deepening + Forensic + Red Team (5 agents in parallel)
+   |      A2 Forensic continuation, A3 Customer/commercial pipeline,
+   |      A3-Peers Competitive comparison, R Red Team v1, A6 Channel pulse
+   |      -> PM synthesis -> Phase 2 Integrated Brief (v3)
+   |
+Phase 3   Valuation + Final synthesis (4 agents in parallel)
+   |      A7 DCF + SOTP + sector-appropriate multiples + quant overlay,
+   |      Mirror analysis on top peer (if pair-trade),
+   |      [Topic]-Forensic deep-dive on identified specific risk,
+   |      R-v2 Refreshed Red Team
+   |      -> PM synthesis -> IC Memo (English)
+   |
+Verify    Independent web verification (mandatory, never skip)
+   |      12+ WebSearch+WebFetch calls; EDGAR full-text search; 14 gates
+   |      -> Verification Report with source matrix and structured JSON
+   |
+Final     Multi-audience deliverables
+          Institutional IC memo (full) + IC pre-read + IC debate script +
+          LP letter + earnings prep + earnings flash (English only)
+          Optional Excel DCF / comps / polished DOCX delegated to marketplace plugins
+```
+
+Phase reference files (read on demand, not at skill load):
+
+- `references/phase-1-deep-dive-us.md` — Five specialist agent prompts for Phase 1
+- `references/phase-2-continuation-us.md` — Five agent prompts for Phase 2
+- `references/phase-3-valuation-us.md` — Four agent prompts for Phase 3
+- `references/verification-protocol-us.md` — Web verification methodology
+- `references/us-data-sources.md` — EDGAR, FRED, Federal Register, regulators, free vs premium tiering
+- `references/source-stratification-us.md` — S1-S5 + Pending taxonomy ported to US filings
+- `references/forensic-accounting-checklist-us.md` — ASC 606/842/718, non-GAAP, SBC, restatements, Form 4, RPT
+- `references/regulatory-desk-us.md` — FTC/DOJ/State AGs/EU CMA, BIS/OFAC/CFIUS, FDA/FCC/FERC/NHTSA/EPA/FAA/CFPB, USTR 301/232, BEAT/GILTI/§174
+- `references/positioning-sentiment-us.md` — 13F clusters, Form 4 patterns, 13D activists, short interest + DTC, options skew, ETF passive %, index inclusion
+- `references/valuation-discipline-us.md` — Sector-default multiple table (P/E, EV/EBITDA, P/B, AFFO, ARR + Rule of 40, NPV pipeline, EBITDAX, etc.) per D8
+- `references/monitoring-framework-us.md` — Catalyst calendar, Tier 1/2/3 triggers, kill criteria, earnings cycle
+- `references/ic-memo-template-us.md` — Full 12-section institutional memo template
+- `references/lp-letter-template.md` — 1-2 page LP communication variant
+- `references/earnings-prep-template.md` — Night-before earnings checklist
+- `references/earnings-flash-template.md` — T+30min same-day structured response
+- `references/tool-composition-us.md` — JSON delegation contracts for `financial-analysis:dcf-model`, `financial-analysis:comps-analysis`, `equity-research:initiating-coverage` Task 5
+
+Sister skill: `us-equity-ic-rigor` is the PM red-team rigor layer that hardens the deliverable produced by this skill. Invoke it after Phase 3 for IC defense — it scores the memo on the 6-9 rubric, audits the 5-scenario framework, three-method valuation reconcile, GM taxonomy, bear bridge, what-would-reverse triggers, A0 tail mapping, and position sizing. Pass it the same structured JSON this skill produces.
+
+## Operating Mode
+
+**Always parallel-dispatch specialists within a phase.** Use the Agent tool with multiple invocations in a single message. Each Phase 1 agent runs ~10-20 minutes. Sequential dispatch wastes hours.
+
+**Always orchestrate via PM after each phase.** The PM agent (you) does not write opinions during specialist work — it adjudicates between specialists when their conclusions conflict and surfaces unresolved tensions. Each phase ends with a synthesis brief.
+
+**Acknowledge agent failures openly.** Some Phase 1 agents will return framework-only output if they fail to use web tools. Explicitly tag these as "framework only — needs refresh" and re-dispatch in Phase 1.5 with explicit instructions to use WebSearch / WebFetch / EDGAR full-text search.
+
+**Verify before publishing.** Verification is not optional. Run the verification phase before any IC memo is written. If material claims cannot be verified, downgrade conviction and flag the gap explicitly with a Pending tag per `source-stratification-us.md`.
+
+**Default to EDGAR-only mode** (D5). Premium hooks (Visible Alpha, Capital IQ, AlphaSense, Bloomberg) require explicit user signaling or env-var gating documented in `us-data-sources.md`. The skill must produce a complete, defensible memo in EDGAR-only mode; premium data improves S4 consensus quality but is never load-bearing on the framework.
+
+## Phase 0: Setup
+
+Before dispatching any agents, capture:
+
+1. **Stock identifier**: Ticker + exchange + company legal name + CIK (e.g., NVDA / Nasdaq / NVIDIA Corporation / CIK 0001045810). For ADRs (Toyota / TM, Spotify / SPOT, Alibaba / BABA), note the 20-F filing as the S1 source instead of 10-K (per D11).
+2. **Mandate**: Long-only large-cap / long-only SMID / L/S hedge fund / sector specialty / pair-trade structure (per D3). Drives which sizing column gets featured in the headline.
+3. **Horizon**: 12-month primary + 24-month secondary (default per D2). Earnings prep / flash use 3-6 month horizon.
+4. **Data access tier**: EDGAR-only (default) / premium hooks enabled (with env var indication).
+5. **Sector**: GICS Level-2 or Level-4 — drives the primary valuation multiple per the `valuation-discipline-us.md` sector table (D8). E.g., NVDA = Tech > Semis > P/E primary; JPM = Financials > Diversified Banks > P/B + ROE-implied P/B; XOM = Energy > Integrated > EV/EBITDAX + FCF yield; MRK = Healthcare > Pharma > EV/Sales + NPV pipeline; AMT = REITs > Tower > P/AFFO + NAV.
+6. **Pair-trade flag** (if applicable): partner ticker, pair-spread benchmark, expected hedge ratio.
+
+Default if unspecified: long-only L/S-friendly, 12mo primary + 24mo secondary, EDGAR-only, sector inferred from ticker.
+
+Then articulate the Phase 0 hypothesis tree — three competing theses (bull / capex-treadmill or quality-trap / regulatory or tail). Phase 1-3 agents test these hypotheses. Do not pre-commit to one.
+
+## Phase 1: Five-Agent Initial Deep-Dive
+
+Dispatch all five in a single message (parallel). Each agent takes ticker + Phase 0 context as input.
+
+| Agent | Specialist | Output |
+|---|---|---|
+| **A1** | Industry & cycle desk | Cycle position, supply/demand, end-market segmentation (e.g., NVDA: DC vs gaming vs auto vs pro-viz), peer landscape, catalysts. Cites trade-press S5 sources (Gartner / IDC / Counterpoint / Omdia / Yipit / Placer.ai). |
+| **A4** | Capacity & capex map | Line-by-line production assets, capex schedule, depreciation waterfall, ROIC trajectory. For asset-heavy names (XOM, T, INTC) this is load-bearing; for asset-light SaaS or financials it shifts to working-capital + AUM/AUA + customer cohort economics. |
+| **A5** | Regulatory & policy desk | FTC/DOJ/state AGs/EU CMA antitrust status; BIS Entity List / OFAC SDN / CFIUS export-control status; sector regulator open matters (FDA CRL/AdCom for pharma; FCC docket for telecom; FERC order for energy; NHTSA recall for autos; EPA enforcement; FAA grounding; CFPB action); USTR Section 301/232 tariff exposure; BEAT/GILTI/§174 R&D capitalization / Pillar 2 GMT tax exposure. Cites Federal Register, agency dockets, PACER. |
+| **A8** | Positioning & sentiment | 13F holdings clusters and concentration (Whale Wisdom / fintel / sec.gov direct); Form 4 net insider activity last 90d/6mo/12mo and 10b5-1 plan structure; 13D activist filings; short interest + days-to-cover; options skew + IV term structure + gamma; ETF passive ownership %; S&P 500 / Russell / Nasdaq 100 index status; sell-side rating distribution + PT dispersion + revision trend. |
+| **FS** | Financial statements forensics | 5-year P&L / BS / CF from EDGAR XBRL company facts API (data.sec.gov/api/xbrl/companyfacts/CIK*.json); ASC 606 revenue-recognition red flags; ASC 842 lease PV; ASC 718 SBC % of revenue and buyback-offset ratio; non-GAAP vs GAAP delta as % of net income over 5y; FCF construction (does it deduct SBC?); goodwill vs net assets; auditor changes (8-K Item 4.01); restatements (8-K Item 4.02); PCAOB inspection findings; pension PBO funding ratio; VIE disclosures. |
+
+**FS is the most important agent in Phase 1.** It is the foundation everything else builds on. If FS does not pull actual 10-K / 10-Q data via EDGAR XBRL API, the whole Phase 1 must be re-run. The US-specific gate: non-GAAP vs GAAP gap must be quantified; SBC treatment in FCF must be explicit; restatement and going-concern checks must be performed (delta matrix §6, gates G11/G12).
+
+After dispatch completion, write Phase 1 Integrated Brief synthesizing findings. Identify conflicts between agents and adjudicate. Flag which agents returned framework-only vs primary-source-verified output.
+
+For full agent prompts and structure, read `references/phase-1-deep-dive-us.md`.
+
+## Phase 1.5: Refresh (Conditional)
+
+Trigger only if Phase 1 agents failed to use web tools (look at `tool_uses` count in agent metadata — anything below ~10 likely means no real verification).
+
+Re-dispatch failed agents with explicit, mandatory instructions:
+
+- "You MUST use WebSearch, WebFetch, and EDGAR full-text search (efts.sec.gov/LATEST/search-index?q=...) — minimum 15 calls"
+- "Other agents in this batch successfully used 25-100+ web tool calls. Do not refuse to execute."
+- Provide specific URLs to fetch (EDGAR company filing page, XBRL companyfacts JSON, Federal Register agency docket, FRED series for macro, IR transcript URL)
+
+After refresh, write v2 of the Integrated Brief with corrections clearly documented.
+
+## Phase 2: Deepening + Forensic + Red Team
+
+Dispatch five in parallel. Phase 2 is set up based on Phase 1 findings — the agents target specific gaps and tensions surfaced.
+
+| Agent | Specialist | Output |
+|---|---|---|
+| **A2** | Forensic continuation | Pull most recent 10-Q (or 8-K Item 2.02 results release); resolve specific anomalies (DSO/DIO/DPO trend breaks, deferred-revenue declines, segment GM unexplained shifts); deep-read 10-K Notes (Commitments and Contingencies, Off-Balance-Sheet Arrangements, Subsequent Events); DEF 14A Item 404 related-party check. |
+| **A3** | Customer / commercial pipeline | Customer wins/losses; product roadmap; ASP and unit dynamics; major contracts (10-K Item 1.01 disclosures); customer concentration % (10-K risk factors); net retention / churn for SaaS; pipeline coverage for biotech. |
+| **A3-Peers** | Competitive comparison | Side-by-side vs 2-3 closest peers (GICS sub-industry); relative valuation; pair-trade framing; segment-level peer comparison. Optional delegation to `financial-analysis:comps-analysis` for Excel comps artifact if user requested and plugin installed (see `references/tool-composition-us.md`). |
+| **R** | Red Team v1 | Strongest bear case in good faith; base-rate analysis on peer industry (e.g., what % of high-growth SaaS at 80x EV/ARR retained that multiple 24mo later?); specific kill criteria with numerical denominators; identify the strongest S1-S2 fact the bull case ignores. |
+| **A6** | Channel pulse | Monitoring framework; weekly / monthly tracking dashboard; Tier 1/2/3 trigger structure; pre-announcement risk; sell-side estimate revision dashboard; 13F filing-window awareness (mid-Feb, mid-May, mid-Aug, mid-Nov); Form 4 alert thresholds. |
+
+Phase 2 typically surfaces material bear data points that Phase 1 missed — e.g., for NVDA: a meaningful Form 4 cluster of C-suite selling, a non-GAAP-to-GAAP gap widening to 35% of net income, a specific 8-K Item 1.01 customer-contract loss, or a pending FTC/DOJ investigation surfaced in Federal Register. Synthesize into v3 of the Integrated Brief.
+
+For full agent prompts, read `references/phase-2-continuation-us.md`.
+
+## Phase 3: Valuation + Final Synthesis
+
+Dispatch four in parallel.
+
+| Agent | Specialist | Output |
+|---|---|---|
+| **A7** | Valuation + quant overlay | DCF (WACC = Rf from 10Y UST via FRED `DGS10` + Damodaran implied US ERP + 5y weekly beta vs S&P 500 + after-tax cost of debt; terminal growth 2.0-2.5%; 5y explicit forecast or 3y + 7y fade for high-growth or 10y normalized for cyclicals); peer multiples per sector default (D8); SOTP if multi-segment; precedent M&A if relevant; **5-scenario probabilistic framework** with each scenario carrying its own EPS path, multiple, and bridge (per `schemas/scenarios.json`); **quant overlay** (Barra factor tags, capacity / ADV / days-to-exit at 10%/20%/30% participation, edge decay, correlation placeholder, stress overlay — mandatory per D13); position sizing across 5 mandate types (D3). Optional delegation to `financial-analysis:dcf-model` for Excel DCF artifact (see `references/tool-composition-us.md`); the 5-scenario block collapses to 3-case (Bear = strong_bear+bear weighted; Base; Bull = bull+strong_bull weighted) at the delegation boundary. |
+| **Mirror** | Full analysis on top peer | If pair-trade is part of thesis; verify peer-side fundamentals at same S1-S2 rigor as primary leg; reconcile pair spread expectation. |
+| **[Topic]-Forensic** | Specific deep-dive on identified risk | E.g., specific 10-K Note V item, specific subsidiary's VIE structure, specific regulatory matter (FDA CRL trajectory, FTC Second Request signal, OFAC SDN sub-list), specific contractual obligation, specific patent litigation at ITC §337 or Delaware Chancery. |
+| **R-v2** | Refreshed Red Team | Update bear case with Phase 2 findings; recalibrate scenario weights; surface what-would-reverse triggers with numerical denominators (e.g., "DC revenue growth <X% for two consecutive quarters" not "growth slows"). |
+
+Phase 3 typically reveals that initial Red Team was either too aggressive or too lenient — recalibrate. Mirror analysis often shows the relative-value thesis is more nuanced than headline multiples suggest.
+
+After Phase 3, write the IC Memo (English). For structure see `references/ic-memo-template-us.md`. Hand off to `us-equity-ic-rigor` for PM red-team scoring on the 6-9 rubric (B11-B14 US-specific bugs included).
+
+For full Phase 3 agent prompts, read `references/phase-3-valuation-us.md`.
+
+## Verification Phase (MANDATORY)
+
+Never skip this. The single biggest failure mode in agent-driven research is unverified hallucination dressed up as primary-source rigor.
+
+Process:
+
+1. Extract every material specific claim from the IC memo — financials, segment revenue / GM, customer concentration, regulatory designation status (Entity List, OFAC SDN, FDA outcome, antitrust matter), M&A status, settlement amounts, catalyst dates, management guidance numbers.
+2. Run direct WebSearch + WebFetch + EDGAR full-text search (efts.sec.gov/LATEST/search-index?q=...) on each — **minimum 12 distinct searches per memo (D9)**.
+3. Document each as Verified / Partially Verified / Contradicted, with source URL and date, conforming to `schemas/source_tags.json` citation structure.
+4. **Verify management guidance against the earnings call transcript, NOT the press release.** Companies sometimes provide different ranges on the call vs in the 8-K Item 7.01 press release. The call is the authoritative S3 source for guidance per delta matrix §11.
+5. Specifically verify any "designated on regulatory list" / "company X said Y" / "specific dollar amount" claims — these are highest-risk hallucinations. For Entity List status, query bis.doc.gov/index.php/policy-guidance/lists-of-parties-of-concern/entity-list. For OFAC SDN, query sanctionssearch.ofac.treas.gov. For FDA action letters, query fda.gov/drugs/development-approval-process-drugs.
+6. Dispatch an independent sanity-check sub-agent that re-verifies using its own web searches — do not trust the prior verification.
+7. Run the 14 verification gates (G1-G10 inherited from china-equity-ic-rigor; G11-G14 US-specific: non-GAAP/GAAP reconciliation, FCF SBC treatment, Barra factor exposure stated, capacity / ADV days-to-exit stated). Per `schemas/verification_gates.json` — a memo cannot claim score >8.0 with any gate failing.
+8. If verification finds material errors, update the IC memo and document the correction.
+
+For verification methodology and the standard checklist, read `references/verification-protocol-us.md`.
+
+## Final Deliverable
+
+Five audience-derived deliverables, English only (per D4 — no retail variant, no Chinese variant):
+
+**1. Institutional IC Memo (full)** — 12-section structure per `references/ic-memo-template-us.md`. Rating (5-band Strong Buy / Buy / Hold / Sell / Strong Sell per D1), 12mo and 24mo target prices, position sizing across 5 mandate types, core thesis with anchor S-levels, 5-scenario valuation, three-method reconcile (DCF / comps / SOTP or precedent), GM taxonomy, bear bridge, what-would-reverse triggers, A0 tail map, kill criteria, catalyst calendar, quant overlay, source matrix appendix. Suitable for buy-side IC discussion.
+
+**2. IC Pre-Read** — 3-4 page condensed for IC committee pre-circulation. Page 1: rating, sizing, three-sentence thesis, three what-would-reverse triggers. Pages 2-4: scenario table, key forensic flags, source matrix excerpt.
+
+**3. IC Debate Script** — Verbal script + 20-question Q&A bank covering the strongest objections from the Red Team plus PM-typical pushback (what would reverse, why this size, why not the obvious pair, factor exposure).
+
+**4. LP Letter** — 1-2 page quarterly LP communication variant per `references/lp-letter-template.md`. Focus on attribution narrative, change-in-view, position adjustments. Conforms to common buy-side LP comms norms.
+
+**5. Earnings Prep + Earnings Flash** — Pre-earnings night-before checklist (`earnings-prep-template.md`) covering consensus snapshot, KPI guide, management-commentary watch list, beat/miss scenario tree, options-implied move. Same-day T+30min structured response (`earnings-flash-template.md`) covering print-vs-consensus, guidance change, KPI delta, scenario weight update, what-would-reverse trigger check, position-sizing recommendation. Pre-announcement detection rule per D10: if pre-announcement is negative and exceeds -5% beat/miss vs consensus, invoke kill-memo flow.
+
+Position sizing must be expressed for at least the 5 mandate types per D3:
+
+- Long-only large-cap (benchmark: S&P 500)
+- Long-only SMID / all-cap (benchmark: Russell 3000 or Russell 1000/2000)
+- L/S hedge fund (gross / net exposure, no single-stock benchmark)
+- Sector specialty (benchmark: sector ETF or custom basket)
+- Pair-trade structure (benchmark: pair spread)
+
+**Optional artifact delegation** (gated on plugin availability — `financial-analysis` and `equity-research` from `claude-for-financial-services`):
+
+- Excel DCF: orchestrator dispatches `financial-analysis:dcf-model` with the A7 5-scenario block collapsed to 3-case (Bear / Base / Bull) per the contract in `references/tool-composition-us.md`. Output: `outputs/<ticker>_DCF.xlsx`.
+- Excel comps: orchestrator dispatches `financial-analysis:comps-analysis` with the A3-Peers peer set and standardized financial fields. Output: `outputs/<ticker>_Comps.xlsx`.
+- Polished 30-50pg DOCX: orchestrator dispatches `equity-research:initiating-coverage` Task 5 with intermediate Markdown files (`<ticker>_Research_Document_<date>.md`, `<ticker>_Valuation_Analysis_<date>.md`) plus the Excel model. Output: `outputs/<ticker>_Initiation_Report_<date>.docx`.
+- Excel audit: any Excel artifact this skill produces can be quality-gated through `financial-analysis:audit-xls`.
+
+If the plugins are not installed, the skill produces complete Markdown + structured JSON deliverables and surfaces a one-line note that Excel / DOCX outputs require installing `financial-analysis@claude-for-financial-services` and `equity-research@claude-for-financial-services`.
+
+The Markdown memo and structured JSON (`outputs/<ticker>_IC_memo.md` + `outputs/<ticker>_structured.json` conforming to `schemas/memo.json`) are the **single source of truth**. Excel and DOCX artifacts are derived. If a number changes during PM red-team via `us-equity-ic-rigor`, it propagates from JSON to all artifacts on rebuild.
+
+## Common Failure Modes
+
+These are the recurring traps. Watch for them.
+
+**Hallucination of regulatory designation.** Sub-agents will confidently claim "company X is on the Entity List" or "company Y is on the OFAC SDN list" when the actual fact is "lawmakers have requested addition" or "the company is under preliminary investigation." Verify every regulatory designation directly against BIS / OFAC / Federal Register / FDA action-letter database. Same discipline applies to antitrust ("FTC has filed suit" vs "FTC has opened an investigation"), M&A ("deal announced" vs "deal closed" vs "deal blocked"), and litigation ("class action filed" vs "class certified" vs "settled").
+
+**$M vs $B unit confusion.** US analog of China 亿/billion confusion. A 10x error here destroys the memo. Some filings report in thousands; some in millions; some in billions. Always check the unit declaration in the financial statements header. Also watch for basis-points vs percent confusion (100x error).
+
+**Pre-cutoff stale earnings call reference.** Model cutoff is January 2026. Any earnings call after that cutoff must be web-verified; do not rely on training-data recall for FY25Q4, FY26Q1, or later transcripts. The current session date is 2026-05-15.
+
+**Non-GAAP / GAAP gap obscuring earnings quality.** US filers report both. Analysts often anchor to non-GAAP without reconciliation. If non-GAAP-to-GAAP delta is >25% of net income sustained over 5 years, that is a red flag — common abuses include persistent "one-time" restructuring charges, "adjusted EBITDA" excluding SBC and recurring acquisition costs, idiosyncratic "FCF" definitions. Gate G11 verifies reconciliation.
+
+**SBC excluded from FCF making cash generation look stronger than it is.** Many companies define "FCF" as operating cash flow minus capex, with SBC fully added back at the OCF line and never re-charged. This is a free pass on real economic dilution. Gate G12 verifies that the memo's FCF definition treats SBC consistently with the bear bridge.
+
+**Cherry-picking the bearish data point.** When industry data has multiple sub-segments (e.g., "data center capex +30% but networking -15%, switching +45%"), agents tend to grab the headline and miss the nuance. Read the full data, not just the lead.
+
+**Confirmation bias compounding across agents.** Agent A introduces a finding, agents B and C accept it as fact, the PM synthesis treats it as established. Verification must explicitly re-test claims that propagated through multiple agents.
+
+**Anchoring to existing position (endowment effect).** When evaluating "should we hold this stock?" the analytically correct frame is "would I buy this at current price?" — not "what is my cost basis?" Endowment effect is the most common bias in equity research. Same trap as China skill; preserved verbatim.
+
+**Confusing rating with sizing.** "Buy" rating does not equal "core position." A Buy with limited conviction is a half-weight position. State both explicitly and explain the gap. The 5-band rating per D1 reflects 12mo expected return; the per-mandate sizing per D3 reflects conviction times volatility times capacity.
+
+**Anchoring guidance to the press release instead of the transcript.** Companies sometimes give different ranges on the call vs in the 8-K Item 7.01 press release. Verify against the transcript per delta matrix §11.
+
+## When to Stop and Ask the User
+
+The skill is comprehensive but not autonomous. Pause to ask the user when:
+
+1. After Phase 0 if mandate, sector, or data access is unclear and defaults would materially shift the answer (e.g., pair-trade benchmark, ADR vs US-domiciled treatment).
+2. After Phase 1 if a major agent failed and refresh would take significant time, OR if FS forensics surfaced a material restatement or going-concern flag that changes the entire frame.
+3. Before Phase 2 if Phase 1 surfaced an unexpected showstopper — fraud allegation, suspended trading, pending acquisition, surprise Entity List addition.
+4. Before final IC memo if verification surfaced material errors that change the directional view, or if any of the 14 verification gates fails and remediation requires user input.
+5. Before invoking artifact delegation (Excel DCF / comps / polished DOCX) — these are opt-in per D21; ask whether user wants them.
+6. Whenever a major decision point hinges on user-specific context (risk tolerance, liquidity needs, existing book exposure, factor correlations).
+
+Otherwise, follow the workflow without interrupting.
