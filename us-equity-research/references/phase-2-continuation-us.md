@@ -35,56 +35,36 @@ Key questions:
 2) Resolve each Phase 1 anomaly — investigate, pull primary doc, document
    corrected read with specific 10-K / 10-Q Note + page
 
-3) Deep-read 10-K footnotes Phase 1 didn't cover
-   - Note "Commitments and Contingencies" — litigation reserves, CERCLA
-     environmental, FIN 48 / ASC 740 uncertain tax positions
-   - Note "Off-Balance-Sheet Arrangements" — securitizations, synthetic leases,
-     VIE primary beneficiary
-   - Note "Subsequent Events"
-   - Note "Income Taxes" — rate reconciliation; permanent / temporary
-     differences; valuation allowance on DTAs
-   - Note "Debt" — maturity ladder, covenants, weighted-average rate
-   - Note "Employee Benefits" — pension PBO vs FV plan assets, mandatory
-     contributions if underfunded
+3) Deep-read 10-K footnotes Phase 1 didn't cover — Commitments & Contingencies
+   (litigation, CERCLA, FIN 48 / ASC 740); Off-Balance-Sheet (securitizations,
+   synthetic leases, VIE per ASC 810); Subsequent Events; Income Taxes (rate
+   reconciliation, valuation allowance on DTAs); Debt (maturity, covenants,
+   coupon); Employee Benefits (pension PBO vs FV plan assets).
 
-4) Restatement & §16(b) check
-   - 8-K Item 4.02 in last 5y — severe
-   - 8-K Item 4.01 (auditor change) — Big-4 → mid-tier flag
-   - PCAOB inspection for current auditor
-   - Form 4 §16(b) short-swing recoveries if any
+4) Restatement & §16(b) check — 8-K Item 4.02 (severe), 4.01 (auditor change),
+   PCAOB inspection for current auditor, §16(b) short-swing recoveries.
 
-5) Pension / OPEB (if material) — PBO vs FV plan assets 5y; underfunded ratio
-   vs ERISA mandatory contribution trigger; discount rate assumption +
-   sensitivity. Material in legacy autos, airlines, industrials.
+5) Pension / OPEB (per `forensic-accounting-checklist-us.md` Item 9 if
+   material) — PBO vs FV plan assets 5y; ERISA mandatory contribution
+   trigger; discount rate sensitivity.
 
-6) Debt structure
-   - Composition: revolver, ST notes, LT notes, convertibles, term loan
-   - Maturity ladder + refinancing schedule
-   - Average coupon vs current IG / HY yield (FRED BAMLC0A0CM IG OAS,
-     BAMLH0A0HYM2 HY OAS)
-   - Covenants, recent issuance / repayment last 12mo
-   - Interest cover
+6) Debt structure — composition, maturity ladder, refinancing schedule,
+   coupon vs current IG/HY yield (FRED BAMLC0A0CM IG OAS, BAMLH0A0HYM2 HY OAS),
+   covenants, interest cover.
 
-7) Effective tax rate trajectory
-   - 10-K rate reconciliation — drivers of gap from 21% statutory
-   - GILTI / FDII / BEAT / §174 R&D capitalization impact
-   - Pillar 2 GMT (15% global minimum) exposure
-   - Valuation allowance movements on DTAs
+7) ETR trajectory — 10-K rate reconciliation drivers; GILTI/FDII/BEAT/§174
+   impact; Pillar 2 GMT exposure; DTA valuation allowance movements. Per
+   `forensic-accounting-checklist-us.md` Item 14.
 
-8) Buybacks + capital return cash discipline
-   - 10-Q Note "Share Repurchases" — share count change last 12mo
-   - SBC offset adequacy (buyback $ ÷ SBC $); <1.0 means real dilution masked
-   - Dividend payout vs FCF (post-SBC)
-   - ASR vs open-market vs tender breakdown
+8) Buybacks + capital return — 10-Q "Share Repurchases" note; buyback-to-SBC
+   ratio (<1.0 = dilution masked); dividend payout vs FCF; ASR vs open-market.
+   Per `forensic-accounting-checklist-us.md` Item 3.
 
-9) Working capital
-   - CCC (DSO + DIO − DPO) trend over 8 quarters
-   - FCF conversion rate (FCF / GAAP NI)
+9) Working capital — CCC (DSO + DIO − DPO) 8Q trend; FCF conversion
+   (FCF / GAAP NI).
 
-10) Form 4 net activity update since Phase 1
-    - openinsider.com/screener?s={ticker}
-    - New filings since Phase 1 cutoff
-    - Cluster patterns
+10) Form 4 net activity update since Phase 1 — openinsider.com; new filings
+    since Phase 1 cutoff; cluster patterns.
 
 Deliverables:
 A) Most-recent-quarter detailed financial extract
@@ -112,15 +92,13 @@ Today is [DATE]. WebSearch + WebFetch — target 25+ calls.
 Context: Phase 1 established baseline. Answer specific commercial questions
 from Phase 1 brief.
 
-1) [Identified major customer #1]
-   - Current account status, share trajectory, recent wins/losses
-   - Contract structure if disclosed (10-K Item 1.01 material agreements via 8-K)
-   - Tech: TechInsights teardowns, The Information, Stratechery
-   - Pharma: customer-side capex / formulary placement
-   - Autos: vehicle platform supplier disclosures, Wards Auto
-   - SaaS: customer logos from IR pages
+1) [Major customer #1] — current account status, share trajectory, recent
+   wins/losses, contract structure (8-K Item 1.01 if disclosed). Sector
+   triangulation: TechInsights / The Information for tech; customer-side
+   formulary for pharma; Wards Auto platform disclosures for autos; IR
+   customer logos for SaaS.
 
-2) [Customers #2 – #5]: same analysis
+2) [Customers #2-#5]: same analysis.
 
 3) Top customer revenue concentration
    - 10-K Item 1 — ≥10% of consolidated revenue disclosure (Regulation S-K
@@ -355,92 +333,46 @@ score 9+ requires identifying specific anchors bull case ignored.
 You are the Channel Pulse / Monitoring specialist analyzing [COMPANY] ([TICKER]).
 Today is [DATE]. WebSearch (15+ calls).
 
-Build the monitoring framework. See `monitoring-framework-us.md` for the
-dashboard discipline.
+Build the monitoring framework following the full dashboard discipline in
+`monitoring-framework-us.md` (Tier 1/2/3 triggers, weekly/monthly/quarterly
+cadence, preset alerts, key third-party voices catalog).
 
-Sections:
+Deliverables (each populated for THIS name and sector):
 
-1) WEEKLY DATA TRACKING DASHBOARD
-   For each series: source URL, update frequency, current reading + 90-day
-   prior, threshold for "investment-relevant" change, bull/bear interpretation.
-   Categories:
-   - Industry pricing (sector-specific trade indices)
-   - Demand indicators
-     * FRED macro: DCOILWTICO, INDPRO, UNRATE, CPIAUCSL, T10Y2Y, BAMLC0A0CM
-     * EIA weekly petroleum (Wed) for energy
-     * Baker Hughes rig count for E&P
-     * SAAR for autos
-     * Placer.ai foot traffic for retail / restaurants
-   - Company-specific
-     * Stock price vs S&P 500 + sector ETF + peers
-     * 13F holder concentration (45-day lag)
-     * Form 4 via openinsider.com/screener?s={ticker}
-     * Short interest via FINRA / shortinterest.com
-     * Options OI + IV term structure
-     * ETF flow into sector ETF; index rebalancing windows
-     * Sell-side rating distribution + revision velocity
-   - Customer signals
-     * Customer earnings calls
-     * Customer 8-K Item 1.01 / 1.02 supplier rotations
-     * Trade-press teardowns (TechInsights for tech)
-   - Regulatory
-     * Federal Register daily index (federalregister.gov/documents/current)
-     * BIS Entity List updates (Federal Register)
-     * OFAC SDN updates (Treasury press)
-     * Agency dockets (FDA / FCC / FERC / NHTSA / EPA / FAA)
+1) **Weekly data tracking dashboard** — table for each series with source URL,
+   update frequency, current reading + 90-day prior, threshold for investment-
+   relevant change, bull/bear interpretation. Categories: industry pricing
+   (sector-specific); demand indicators (FRED series per sector — DCOILWTICO
+   / INDPRO / UNRATE / CPIAUCSL / T10Y2Y / BAMLC0A0CM; EIA / Baker Hughes /
+   SAAR / Placer.ai as relevant); company-specific (price vs S&P 500 + sector
+   ETF; 13F clusters; Form 4 via openinsider; short interest; options OI +
+   IV; sell-side ratings); customer signals; regulatory dockets (Federal
+   Register, BIS Entity List, OFAC SDN, agency-specific FDA/FCC/FERC/NHTSA/
+   EPA/FAA).
 
-2) CATALYST CALENDAR
-   Table: | Date | Event | Bull/Bear/Neutral | Action if Triggered |
-   Cover: quarterly earnings dates (next 4Q including pre-announcement
-   windows); annual 10-K filing; DEF 14A; major industry conferences (CES /
-   OFC / HBA / JPM Healthcare); customer product launches; regulatory
-   deadlines (PDUFA, AdCom, FCC docket close, FERC order); discrete event-risk
-   dates; FOMC (8/year) for rate-sensitive names; index reconstitution
-   (Russell late June, S&P quarterly, Nasdaq 100 December).
+2) **Catalyst calendar** — sortable table: Date | Event | Bull/Bear/Neutral
+   | Action if Triggered. Cover quarterly earnings (next 4Q + pre-announcement
+   windows), 10-K, DEF 14A, industry conferences (CES/OFC/JPM Healthcare/
+   etc.), product launches, regulatory deadlines (PDUFA, AdCom, FCC, FERC),
+   FOMC for rate-sensitive names, index reconstitution windows.
 
-3) THREE-TIER TRIGGER THRESHOLDS per `monitoring-framework-us.md`
-   - Tier 1 auto-exit (binary observable severe)
-   - Tier 2 position-cut (significant, quarterly cadence to detect)
-   - Tier 3 watch (subtler, re-evaluate at next quarterly)
-   Every threshold a NUMBER, not "meaningful change."
+3) **Three-tier trigger thresholds** per `monitoring-framework-us.md` —
+   numerical thresholds per Tier 1 / Tier 2 / Tier 3 for THIS name. Every
+   threshold a NUMBER, not "meaningful change."
 
-4) WEEKLY ROUTINE
-   - Monday (15min): price vs S&P 500 / sector ETF; Form 4 alerts from
-     openinsider; news scan (The Information / STAT / Wards Auto / Energy
-     Intel / sector press)
-   - Wednesday (10min): sell-side ratings; customer disclosures; government
-     press (FTC, DOJ, BIS, OFAC, Treasury); FDA dashboards if biotech
-   - Friday (10min): options flow (CBOE OI); volume vs 20-day ADV; pending
-     catalysts next 14 days
+4) **Weekly + Monthly + Quarterly routines** customized to this name —
+   sector-specific data sources, customer-list watch, peer-print calendar.
+   Full routine templates in `monitoring-framework-us.md`.
 
-5) MONTHLY ROUTINE (30min, first Monday)
-   - Re-verify 13F clusters (WhaleWisdom / fintel / HedgeFollow)
-   - Mutual fund holdings refresh (N-PORT)
-   - Industry monthly tracker (Counterpoint / Omdia / IDC / IQVIA / Yipit)
-   - Reconcile market data vs base case operating margin trajectory
+5) **Named third-party voices for this sector** — analysts whose calls move
+   the stock (full catalog in `monitoring-framework-us.md`).
 
-6) QUARTERLY ROUTINE (4hr after earnings)
-   - Full re-underwrite
-   - Update normalized P&L with reported segment splits
-   - Refresh peer comparison
-   - Refresh sell-side consensus vs base case gap
-   - Walk through each Tier 1/2/3 trigger
-   - Walk through 5-10 open questions
+6) **Preset alert triggers** for this name — Form 4 cluster, 13D, FDA/agency
+   decision dates, antitrust action, ITC §337, 8-K Item 4.02 restatement,
+   FOMC if rate-sensitive, stock move >5σ unexplained. Specific numerical
+   thresholds per trigger.
 
-7) KEY THIRD-PARTY VOICES BY SECTOR (named analysts whose calls move stock —
-   per `monitoring-framework-us.md` for full list)
-
-8) PRESET ALERT TRIGGERS (page PM immediately)
-   - Form 4 cluster: 3+ insiders in 5 trading days
-   - 13D filing
-   - FDA decision letter / AdCom outcome
-   - Antitrust action (FTC / DOJ / EU CMA)
-   - ITC §337 filing or determination
-   - 8-K Item 4.02 (restatement)
-   - Fed FOMC dot-plot shift (rate-sensitive names)
-   - Stock move >5σ in single day vs S&P 500 with no clear cause
-
-Every threshold a number. Format as tactical playbook. Length 2,500 words.
+Format as tactical playbook. Length 2,500 words.
 ```
 
 ---

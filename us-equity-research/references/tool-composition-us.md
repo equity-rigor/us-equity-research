@@ -94,7 +94,7 @@ The resulting block is written into `memo.json` `delegation_outputs.scenarios_3c
 }
 ```
 
-These map 1:1 to dcf-model's three scenario assumption blocks (per dcf-model SKILL.md §"Section 3: DCF Scenario Assumptions"), populated via the case-selector cell (1=Bear, 2=Base, 3=Bull) and consolidation column with INDEX formulas. The dcf-model Bear-case block consumes `bear_case_revenue_growth_pcts` and `bear_case_ebit_margin_pcts` horizontally across FY1–FY5; same pattern for Base and Bull.
+These map 1:1 to dcf-model's three scenario assumption blocks (per dcf-model SKILL.md, "DCF Scenario Assumptions" section), populated via the case-selector cell (1=Bear, 2=Base, 3=Bull) and consolidation column with INDEX formulas. The dcf-model Bear-case block consumes `bear_case_revenue_growth_pcts` and `bear_case_ebit_margin_pcts` horizontally across FY1–FY5; same pattern for Base and Bull. (Soft reference — dcf-model section name not contract-bound; if the upstream skill renames the section, the data-path mapping above is the stable contract.)
 
 ### Sensitivity tables
 

@@ -31,19 +31,19 @@ KEY INPUTS FROM PHASES 1 + 2 (use these — do not re-derive):
 - Phase 2 Red Team v1 bear PT
 - Phase 2 A3-Peers peer set with multiples
 
-## 1. WACC DERIVATION (per `valuation-discipline-us.md`)
+## 1. WACC DERIVATION
 
-- R_f: current 10Y UST yield from FRED DGS10
-  (https://fred.stlouisfed.org/series/DGS10). Cite as S2 with FRED URL + date.
-- ERP: Damodaran implied US ERP from
-  https://pages.stern.nyu.edu/~adamodar/ — current monthly update, ~4.5-6%.
-- Beta: 5y weekly or 2y daily vs S&P 500 (state basis). Thin-trade: Bloomberg
-  adjusted beta = 0.67×raw + 0.33×1.0. Multi-segment: consider levered/
-  unlevered industry beta per Damodaran sector tables.
-- Cost of debt: blended IG vs HY by current rating; after-tax = pre-tax ×
-  (1 − ETR). Use FRED BAMLC0A0CM (IG OAS) or BAMLH0A0HYM2 (HY OAS).
-- Capital structure: net debt / total cap at market values.
-- Compute target WACC; show each input with citation.
+Full build discipline in `valuation-discipline-us.md`. Required inputs for
+this name with citations:
+- R_f from FRED DGS10 (cite date + value).
+- ERP from Damodaran implied US (cite date + value).
+- Beta basis stated (5y_monthly_vs_SP500 / 2y_daily / industry_unlevered /
+  adjusted_bloomberg).
+- After-tax cost of debt = pre-tax × (1 − ETR); pre-tax from FRED BAMLC0A0CM
+  (IG OAS) or BAMLH0A0HYM2 (HY OAS) for company's rating tier.
+- Capital structure at MARKET value; equity_weight + debt_weight = 1.00.
+- Compute WACC; sanity-check against typical bands per `valuation-discipline-
+  us.md`.
 
 ## 2. NORMALIZED 5-YEAR FORWARD MODEL
 
@@ -81,23 +81,11 @@ multiple per D8).
 
 ## 4. PEER MULTIPLES
 
-Using A3-Peers peer set, apply sector-default multiples per D8 +
-`valuation-discipline-us.md`:
-- Mature industrial / consumer: P/E (NTM), EV/EBITDA
-- Banks: P/B, ROTCE-implied P/B
-- Insurance: P/B, ROE-implied
-- REITs: P/AFFO, NAV
-- SaaS: EV/ARR, Rule of 40
-- Biotech (pre-revenue): NPV pipeline only
-- E&P: EV/EBITDAX, FCF yield, NAV
-- Autos: EV/EBITDA, EV/Sales
-- Airlines: EV/EBITDAR
-- Asset managers: P/AUM, EV/EBITDA
-
-Apply to subject to derive implied IV. Note premium / discount vs peer median.
-Normalize for capex intensity, SBC %, leverage, regulatory exposure. Pull
-historical multiple percentiles 5/25/50/75/95 over 5-10y from YCharts /
-Macrotrends.
+Using A3-Peers peer set, apply the sector-default primary multiple per D8 +
+`valuation-discipline-us.md` (full sector table there). Derive implied IV.
+Document premium / discount vs peer median. Normalize for capex intensity,
+SBC %, leverage, regulatory exposure. Pull historical multiple percentiles
+5/25/50/75/95 over 5-10y from YCharts / Macrotrends.
 
 ## 5. SOTP (if multi-segment)
 
@@ -111,25 +99,16 @@ EV; total reconciles to subject EV ± identified deltas.
 Capital IQ / SDC Platinum if premium (else trade-press M&A); LTM rule of thumb:
 control premium 25-35%; strategic vs financial buyer differentiation.
 
-## 7. FIVE-SCENARIO PROBABILISTIC FRAMEWORK (per `five-scenario-framework-us.md`,
-   `schemas/scenarios.json`)
+## 7. FIVE-SCENARIO PROBABILISTIC FRAMEWORK
 
-Five scenarios: strong_bear / bear / base / bull / strong_bull. Probabilities
-sum to 1.00 (gate G4 `verify_scenario_weights.py`).
+Full discipline in `five-scenario-framework-us.md` + `schemas/scenarios.json`.
+For this name: build all 5 scenarios (strong_bear / bear / base / bull /
+strong_bull) with probability (sum = 1.00, G4), EPS path, multiple, target,
+expected return, anchors, strongest_anchor_S_level. Bear-bridge construction
+per `bear-bridge-us.md` (G5; soft / clean / strong layers).
 
-Each scenario carries:
-- EPS path (5y)
-- Multiple applied to terminal year
-- Headline derivation: PT, expected return, narrative
-- Bear bridge (named adjustments base → bear, per `bear-bridge-us.md`,
-  gate G5)
-- Soft / clean / strong layer documentation
-
-5-scenario collapses to 3-case at delegation boundary per `tool-composition-us.md`:
-- Bear (dcf-model) = strong_bear + bear (probability-weighted)
-- Base (dcf-model) = base
-- Bull (dcf-model) = bull + strong_bull (probability-weighted)
-ONLY structural translation needed; preserve 5 internally for P10/P90.
+5→3 scenario collapse for `financial-analysis:dcf-model` delegation
+documented in `tool-composition-us.md`. Preserve 5 internally for P10 / P90.
 
 ## 8. TRIANGULATION (per `three-method-valuation-us.md`)
 
@@ -143,70 +122,47 @@ Reconcile DCF central with peer multiples with SOTP.
 
 ## 9. QUANT OVERLAY (MANDATORY per D13) — drives G13 + G14
 
-Per `quant-overlay-us.md`.
+Full discipline in `quant-overlay-us.md` (Phase D file). For this name:
+- Barra factor tags: Value / Quality / Momentum / Growth / Size / Low-Vol /
+  Liquidity, each on −3 to +3 z-score with brief justification.
+- Capacity: 30-day ADV ($M); days-to-exit at 10% / 20% / 30% participation
+  for recommended position; max position constrained by ADV (% NAV); stock
+  loan rate if shorting.
+- Edge decay: thesis half-life (quarters), time-to-priced-in, refresh cadence
+  aligned to A6 monitoring framework, primary decay driver.
+- Correlation placeholder per D14 — reference book file path; do not wire live.
+- Stress overlay: Fed funds +200bp; oil −20%; USD +5%; recession dummy (NBER
+  / LEI / UNRATE). Stock % impact per scenario.
 
-A) Barra-style factor tags
-   - Value / Quality / Momentum / Growth / Size / Low-Vol / Liquidity
-   - Each labeled +1 / 0 / −1 with brief justification
+## 10. POSITION SIZING (per D3, across 5 mandate types)
 
-B) Capacity analysis
-   - 30-day ADV ($)
-   - Max position size at 10% / 20% / 30% participation
-   - Days-to-exit at each participation for recommended position
-   - Stock loan rate if shorting
+Full sizing chain (E[R] / σ / Sharpe / Kelly / conviction multiplier 0.10×-
+0.50×) in `position-sizing-us.md`. For this name, output specific
+recommendations for: long_only_large_cap (vs S&P 500), long_only_smid (vs
+Russell), long_short_hedge_fund (gross/net + single-name caps), sector_specialty
+(vs sector ETF), pair_trade (long+short + hedge ratio). Each with active
+weight bps + conviction-adjusted % NAV + justification linking rating to
+sizing (per D1, "Buy" with limited conviction = half-weight).
 
-C) Edge decay
-   - Time-to-priced-in estimate
-   - Thesis half-life (quarters before alpha consumed)
-   - Refresh cadence aligned to A6 monitoring framework
-
-D) Correlation placeholder
-   - Per D14, references external book file (e.g., ~/book/holdings.json)
-   - Do not wire live; document the slot
-
-E) Stress overlay
-   - Fed funds +200bp (rate-sensitive multiple + cost of debt)
-   - Oil −20% (energy + airlines)
-   - USD +5% (multinational FX translation, S&P 500 ~40% foreign rev)
-   - Recession dummy (NBER, LEI <0, UNRATE > threshold)
-
-## 10. POSITION SIZING (per D3 across 5 mandate types) — per `position-sizing-us.md`
-
-- Long-only large-cap (S&P 500): active weight bps + conviction-adjusted % NAV
-- Long-only SMID / all-cap (Russell 3000 or Russell 1000/2000)
-- L/S hedge fund (gross / net; pair structure if applicable)
-- Sector specialty (sector ETF or custom basket)
-- Pair-trade (pair spread; hedge ratio)
-
-For each mandate: active weight bps; conviction-adjusted % NAV; justification
-linking rating + sizing (per D1, "Buy" with limited conviction = half-weight).
-
-Sensitivity to top 5 most sensitive assumptions: current value; change-in-input
-moving IV by ±10%; observable that would falsify (links to `what-would-reverse-us.md`,
-gate G9).
+Sensitivity to top 5 inputs: current value; ±10% input → IV impact;
+falsifying observable per `what-would-reverse-us.md` (G9).
 
 ## 11. KEY MODEL ASSUMPTIONS — WHAT WOULD REVERSE
 
-For top 5 most sensitive inputs:
-- Current assumption (S-tag)
-- Threshold value that flips view
-- Specific observable (10-Q line / FDA decision / FRED series / industry
-  monthly tracker) that surfaces falsification
+Top 5 most sensitive inputs each with: current assumption (S-tag), threshold
+flipping view, specific falsifying observable (10-Q line / FDA decision /
+FRED series / industry tracker). Detailed trigger discipline in
+`what-would-reverse-us.md` (G9).
 
-Optional artifact delegation (per `tool-composition-us.md`):
-- If user requested Excel DCF, dispatch `financial-analysis:dcf-model` AT THE
-  END of A7 with 5-scenario block collapsed to 3-case + WACC components +
-  forecast model + sensitivity grid. Output: outputs/{ticker}_DCF.xlsx.
-  Document 5→3 collapse in delegation payload.
+Optional Excel DCF delegation per `tool-composition-us.md` — invoke
+`financial-analysis:dcf-model` at end with 5→3 collapsed scenarios + WACC +
+forecast + sensitivity grid.
 
 REQUIREMENTS:
-- Verify current 10Y UST yield (FRED DGS10) via WebFetch
-- Verify Damodaran implied US ERP via WebFetch on pages.stern.nyu.edu/~adamodar
-- Verify current peer multiples via Yahoo Finance / StockAnalysis (or premium)
-- Verify subject's current stock price (live within 24h — gates G7, G10)
-- Show calculations explicitly
-- Length 3,500+ words plus tables
-- Be a red team — show bear in full alongside base + bull
+- Verify R_f (FRED DGS10), ERP (Damodaran), peer multiples, current stock
+  price via WebFetch within 24h. 20+ tool calls.
+- Show calculations explicitly. Length 3,500+ words.
+- Be a red team — show bear in full alongside base + bull.
 ```
 
 ---
@@ -229,45 +185,28 @@ relative-value case and identify peer-specific risks.
 
 Cover (condensed but rigorous — 4 dimensions in one memo):
 
-1) Industry / cycle (mini-A1)
-   - Same sub-industry cycle position as subject (or different?)
-   - End-market mix vs subject
-   - Specific catalysts unique to peer
+1) Industry / cycle (mini-A1) — sub-industry cycle position vs subject; end-
+   market mix vs subject; peer-specific catalysts.
 
-2) Forensic snapshot (mini-FS)
-   - Most recent 10-K + 10-Q from peer EDGAR
-   - 5y P&L + LTM
-   - Non-GAAP/GAAP delta as % NI
-   - SBC % of revenue
-   - FCF definition; SBC treatment
-   - Form 4 net activity 12mo
-   - Restatement / going-concern / auditor change check
-   - Pension underfunding if material
-   - URL: sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK={peer_cik}
+2) Forensic snapshot (mini-FS, per `forensic-accounting-checklist-us.md`) —
+   peer 10-K + 10-Q via EDGAR; 5y P&L + LTM; non-GAAP/GAAP delta; SBC %; FCF
+   definition + SBC treatment; Form 4 net 12mo; restatement / auditor-change /
+   going-concern check; pension underfunding if material.
 
-3) Commercial positioning (mini-A3)
-   - Customer mix vs subject
-   - ASP positioning (premium / discount vs subject + sector median)
-   - Product roadmap differences
-   - Customer concentration
+3) Commercial positioning (mini-A3) — customer mix vs subject; ASP positioning;
+   product roadmap; customer concentration.
 
-4) Valuation (mini-A7)
-   - Sector-default multiple per D8
-   - Trade vs subject on EV/multiple basis
-   - Standalone DCF base case (abbreviated WACC)
-   - SOTP if multi-segment
+4) Valuation (mini-A7) — sector-default primary multiple per D8 +
+   `valuation-discipline-us.md`; trade vs subject on EV/multiple basis;
+   abbreviated DCF; SOTP if multi-segment.
 
-5) Position-sizing recommendation in three frameworks:
-   A) Standalone — what size of peer in book?
-   B) Pair with subject — relative size? Beta-adjusted hedge ratio?
-   C) Skip — what's the reason?
+5) Position-sizing in three frameworks: (A) standalone size; (B) pair with
+   subject (relative size, beta-adjusted hedge ratio); (C) skip — reason.
 
-6) Monitoring + kill criteria specific to peer
+6) Monitoring + kill criteria specific to peer.
 
-7) Peer-specific risks
-   - Regulatory exposure differences
-   - Customer concentration risk
-   - Pending litigation / antitrust
+7) Peer-specific risks — regulatory differences, customer concentration,
+   pending litigation / antitrust.
 
 REQUIREMENTS:
 - Pull latest 10-K + 10-Q from peer EDGAR
