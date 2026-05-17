@@ -1,0 +1,2176 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "NVDA",
+  "exchange": "Nasdaq",
+  "company_name": "NVIDIA Corporation",
+  "sector_gics": "Information Technology",
+  "industry_gics": "Semiconductors & Semiconductor Equipment",
+  "as_of_date": "2026-05-15",
+  "model_cutoff_date": "2026-01-31",
+  "author": "S-C-11 fixture / orchestrator self-test",
+  "current_price_usd": 167.0,
+  "market_cap_usd_b": 4100.0,
+  "enterprise_value_usd_b": 4080.0,
+  "fiscal_year_end": "01-31",
+  "headline": {
+    "expected_return_median": 0.0855,
+    "expected_return_range_p10_p90": [
+      -0.281,
+      0.341
+    ],
+    "rating": "Buy",
+    "default_action": "hold_long",
+    "conditionality": "source_conditional",
+    "conditional_language_pattern": "A_source_conditional_bias",
+    "headline_text": "Source-conditional Buy (moderate-positive bias). 12-month median expected return +8.6%; scenario-weighted range [-28%, +34%], conditional on (i) Blackwell DC ASP uplift +30-40% graduating to S2 in FY27Q1 10-Q segment commentary expected Aug 2026, and (ii) hyperscaler aggregate 2026 capex YoY >+15% confirmed across MSFT/GOOG/META/AMZN FY26Q2 results filed by Aug 2026. If hyperscaler capex falsifies <+10% OR Blackwell ASP <+20%, downgrade to Hold."
+  },
+  "recommendation": {
+    "rating": "Buy",
+    "price_target_usd": 190.0,
+    "price_target_range_low_usd": 120.0,
+    "price_target_range_high_usd": 224.0,
+    "upside_downside_pct": 13.77,
+    "time_horizon_months": 12,
+    "conviction_tag": "source_conditional",
+    "default_action": "hold_long",
+    "rationale_one_paragraph": "Source-conditional Buy on NVDA at $167. Base case PT $190 (FY27E EPS $5.00 \u00d7 38x P/E, the 5y median multiple). Top-3 anchors include one S3 (Blackwell ASP +30-40% from FY25Q1 call) which forces source-conditional language. Probability-weighted 12mo return +8.6%, asymmetry on a 1.3:1 basis with bull PT $224 vs bear PT $120. Strongest top-3 anchor S-level: S3 \u2192 headline carries Pattern A source-conditional bias language. Hold rather than add: position presumed at benchmark weight; default action upgrades to add_long only if FY27Q1 segment disclosure confirms Blackwell mix \u226540%."
+  },
+  "investment_thesis_pillars": [
+    {
+      "title": "Hyperscaler datacenter capex remains the structural driver",
+      "key_statistic": "MSFT/GOOG/META/AMZN aggregate CY26 capex +18% YoY to ~$340B (S3: hyperscaler IR commentary aggregated FY26Q1 calls)",
+      "narrative": "NVDA's revenue concentration in datacenter compute makes the stock effectively a derivative claim on hyperscaler capex spend. Four customers \u2014 MSFT, GOOG, META, AMZN \u2014 represent ~40% of FY25 revenue per management commentary on FY25Q4 call. CY26 aggregate capex guidance from those four firms midpoints +18% YoY (S3 individual prints + S5 aggregator confirmations). The base case probability-weights this growth rate at 50% mass. Bear case (probability 20%) assumes capex flat YoY as one or more hyperscalers digest existing build-out before next refresh; this is the modal sell-side bear. Strong-bear case (5%) assumes outright contraction (capex -10%) driven by either (a) sovereign-AI demand fail to materialize at scale, or (b) Stargate-class build-out front-loaded and pause emerges. The thesis-defining open question is whether sovereign-AI and Tier-2 cloud demand can replace any moderation from top-4 hyperscalers as the marginal demand source; current evidence is S3 management commentary only, not yet S2-anchored.",
+      "anchor_refs": [
+        "A1",
+        "A2"
+      ],
+      "timeline": "FY27 first half (May-Oct 2026)"
+    },
+    {
+      "title": "Blackwell ASP uplift sustains gross margin through Hopper EOL",
+      "key_statistic": "Blackwell ASP +30-40% vs Hopper SKU equivalent (S3: NVDA FY25Q1 earnings call 2025-05-22 ~22min mark, CFO Q&A)",
+      "narrative": "The architectural transition from Hopper (H100, H200) to Blackwell (B100, B200, GB200) is the dominant gross-margin lever for FY26-27. Management has guided ASP uplift of +30-40% on per-SKU like-for-like comparison, with full Blackwell mix expected by FY27Q2 per FY25Q4 call commentary. The pillar thesis is that the ASP step-up arrives faster than COGS expands, sustaining non-GAAP gross margin at 75% (T1 consolidated). Bear pillar challenges: (i) ASP haircut emerges as hyperscaler counter-procurement leverage strengthens with MI400 availability, (ii) HBM3e supply tightness drives cost escalation faster than ASP can absorb, (iii) yield maturity on Blackwell takes longer than Hopper did, dragging early-quarter gross margin. The clean-layer bear bridge applies a -10% ASP haircut absorbing $0.30/share of EPS; the strong-layer adds AMD MI400 share gain to 12% absorbing another $0.50. The bullish path requires Blackwell ASP holding at the +30-40% range AND mix transition completing by FY27Q3.",
+      "anchor_refs": [
+        "A3"
+      ],
+      "timeline": "FY27 (mix transition primarily FY27Q2 through FY27Q4)"
+    },
+    {
+      "title": "Software and networking attach drives optionality beyond GPU silicon",
+      "key_statistic": "CUDA software + Mellanox/Spectrum-X networking estimated at ~15% of FY26 datacenter revenue, growing 50% YoY (S4: Visible Alpha NVDA non-compute DC consensus n=18, median $20B, range $16-25B)",
+      "narrative": "Software licensing (NVIDIA AI Enterprise), DGX Cloud subscription, and networking (Spectrum-X Ethernet, InfiniBand) form a growing share of the datacenter mix and carry structurally higher gross margins than GPU silicon. Consensus aggregation pegs the non-compute DC line at $20B for FY26 with wide dispersion (range $16-25B). Bull case asymmetry rests on this line graduating from a 15% mix at 80% GM today to 25% mix by FY29 \u2014 a mix-shift dynamic that compounds gross margin even if compute ASP plateaus. The risk is that the moat narrows: open-source CUDA equivalents (Triton, ROCm), competitive RDMA networking (AMD Pensando, Broadcom Jericho), and hyperscaler-built ASICs (Google TPU v6, AWS Trainium 3, Microsoft Maia 2) all chip at attach economics. Strong-bull (5%) requires both the networking attach holding AND software license adoption accelerating to >$8B annualized by FY27 exit; a bull case (20%) needs only one of those legs.",
+      "anchor_refs": [
+        "A4"
+      ],
+      "timeline": "Multi-year (FY27-FY30); near-term proof point FY27 software billings disclosure"
+    }
+  ],
+  "company_qualitative": {
+    "description": "NVIDIA Corporation is a fabless semiconductor company headquartered in Santa Clara, California, and the dominant supplier of compute silicon and systems to the artificial-intelligence training and inference economy. The firm designs graphics processing units (GPUs), system-on-chip integrated systems, and the networking, storage, and software stack that surrounds them in modern datacenters. Revenue in FY25 (fiscal year ending January 2025) was approximately $130 billion, with datacenter compute representing roughly 88% of that total, gaming approximately 8%, professional visualization 1.5%, automotive 1%, and OEM/other rounding out the remainder. Geographically, the United States is the largest single jurisdiction at approximately 45% of revenue when invoicing is tracked to end-customer, followed by Taiwan (a passthrough for cloud-provider equipment manufacturing) at ~25%, Other Asia (Singapore, Japan, Korea, Vietnam) at ~12%, China including Hong Kong at ~10% (constrained from the pre-2022 ~25% level by Bureau of Industry and Security export licensing), EMEA at ~6%, and Rest-of-world at the residual. NVDA's customer concentration is structurally high: the top four hyperscale cloud-platform customers (Microsoft Azure, Google Cloud, Meta, Amazon Web Services) account for approximately 40% of fiscal-year revenue per management commentary on the FY25Q4 earnings call. The business model is silicon-design and reference-system sales: NVDA owns the architectural roadmap (Hopper, Blackwell, Rubin), the CUDA software and developer ecosystem, the libraries (cuDNN, TensorRT, Triton inference server, NIM microservices), and an expanding networking franchise (Mellanox InfiniBand acquired 2020, Spectrum-X Ethernet for AI fabrics, BlueField DPUs). Manufacturing is outsourced to TSMC (advanced nodes: N5 for Hopper, N4P for Blackwell, with Rubin expected at N3 / N2 from CY27), with HBM memory sourced from SK Hynix, Samsung, and Micron, and packaging via TSMC's CoWoS-S and CoWoS-L. The fabless-IDM combination gives NVDA architectural rent extraction (high gross margin: non-GAAP 75% consolidated in FY26 latest run-rate) at the cost of supply-chain dependence on TSMC's advanced-node capacity and HBM3e allocation. The company runs a relatively lean fixed-asset base \u2014 most capex is for R&D infrastructure, demonstration clusters, and engineering capacity \u2014 making cash conversion exceptionally high (FCF margin >40% on revenue at scale). Capital allocation has prioritized buybacks: the active $50B authorization (S2: NVDA 8-K 2024-08-28 Item 8.01) plus modest dividend, with management's view being that operating cash flow exceeds reinvestment requirements at the current architectural cycle.",
+    "products": [
+      {
+        "name": "Blackwell datacenter GPU family",
+        "description": "Successor architecture to Hopper, comprising B100, B200, GB200, and GB200 NVL72 rack-scale system. Manufactured on TSMC N4P with second-generation Transformer Engine and FP4 / FP6 native precision support. Targeted primarily at large-language-model training at hyperscaler scale.",
+        "target_customers": "Tier-1 hyperscalers (MSFT, GOOG, META, AMZN), sovereign-AI clusters, Tier-2 cloud (CoreWeave, Lambda Labs), AI-native enterprises",
+        "pricing_model": "System-level, ASP $25-40K per B200 chip-equivalent, $400K+ for GB200 NVL72 rack",
+        "revenue_contribution_pct": 75.0,
+        "competitive_position": "Architectural lead vs AMD MI400 series and Intel Gaudi 4; bottleneck is HBM3e supply and CoWoS-L packaging capacity",
+        "source_citation": {
+          "s_level": "S3",
+          "source_type": "Earnings call transcript",
+          "ref": "NVDA FY25Q1 call 2025-05-22 product detail Q&A"
+        }
+      },
+      {
+        "name": "Hopper datacenter GPU family",
+        "description": "Prior-generation architecture H100, H200; entering end-of-life as Blackwell ramps. Continues to ship into mid-tier cloud and enterprise inference deployments.",
+        "target_customers": "Tier-2 cloud, enterprise on-prem, sovereign-AI projects with budget constraints",
+        "pricing_model": "System-level, ASP $20-30K per H100/H200 chip-equivalent",
+        "revenue_contribution_pct": 10.0,
+        "competitive_position": "Mature; competing against AMD MI300X and prior-cycle hyperscaler-internal ASICs",
+        "source_citation": {
+          "s_level": "S3",
+          "source_type": "Earnings call transcript",
+          "ref": "NVDA FY25Q4 call 2026-02-26 ramp commentary"
+        }
+      },
+      {
+        "name": "Networking \u2014 Spectrum-X Ethernet and InfiniBand",
+        "description": "AI-fabric networking solutions, including Spectrum-X Ethernet (lossless, RoCEv2-enhanced) and the legacy InfiniBand (Quantum-2/Quantum-X) line acquired with Mellanox in 2020. Includes BlueField-3 DPU offload silicon.",
+        "target_customers": "Hyperscalers building AI-optimized fabric, sovereign-AI clusters, enterprise high-performance computing",
+        "pricing_model": "Per-port / per-cluster",
+        "revenue_contribution_pct": 8.0,
+        "competitive_position": "Premium positioning; AMD Pensando, Broadcom Jericho-3 AI, and Marvell are competing for share",
+        "source_citation": {
+          "s_level": "S4",
+          "source_type": "Visible Alpha consensus",
+          "ref": "Visible Alpha NVDA networking line FY26E n=18 median $11B"
+        }
+      },
+      {
+        "name": "Software \u2014 CUDA, NVIDIA AI Enterprise, DGX Cloud, NIM",
+        "description": "Developer ecosystem (CUDA), enterprise license stack (AI Enterprise at $4,500/GPU/yr list), managed cloud (DGX Cloud subscription via OEM partners), and inference microservices (NIM).",
+        "target_customers": "Enterprise IT, AI-native startups, hyperscaler co-sell",
+        "pricing_model": "Subscription per-GPU or per-instance",
+        "revenue_contribution_pct": 5.0,
+        "competitive_position": "Ecosystem moat; open-source erosion from PyTorch+Triton, ROCm, OpenAI Triton",
+        "source_citation": {
+          "s_level": "S4",
+          "source_type": "Visible Alpha consensus",
+          "ref": "Visible Alpha NVDA software line FY26E n=15 median $9B"
+        }
+      },
+      {
+        "name": "GeForce gaming GPUs",
+        "description": "Consumer discrete GPU line (RTX 40 / RTX 50 series) for PC gaming and content creation. RTX 50 series launched CES 2025 on Blackwell silicon.",
+        "target_customers": "PC gamers, content creators, prosumers",
+        "pricing_model": "Per-unit retail through AIB partners (ASUS, MSI, Gigabyte)",
+        "revenue_contribution_pct": 8.0,
+        "competitive_position": "Strong; AMD Radeon and Intel Arc trail in raytracing and AI feature parity",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "NVDA FY25 10-K Item 7 Gaming segment"
+        }
+      },
+      {
+        "name": "Professional visualization (ProViz / Omniverse / RTX Pro)",
+        "description": "Workstation graphics, simulation, digital-twin (Omniverse), industrial-design tools. RTX Pro family targets enterprise content creation and engineering.",
+        "target_customers": "Enterprise CAD/EDA/film/animation, automotive design, manufacturing simulation",
+        "pricing_model": "Per-workstation card + per-seat software license",
+        "revenue_contribution_pct": 1.5,
+        "competitive_position": "Dominant; AMD Radeon Pro / Intel Arc Pro do not compete at the high end",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "NVDA FY25 10-K Item 7 ProViz segment"
+        }
+      },
+      {
+        "name": "Automotive \u2014 DRIVE Thor, DRIVE Orin",
+        "description": "Automotive AI compute platforms for advanced driver-assist and autonomy. Customers include Mercedes, Volvo, BYD, Xpeng, Nio, Tata.",
+        "target_customers": "OEMs and Tier-1 auto suppliers",
+        "pricing_model": "Per-platform license + silicon",
+        "revenue_contribution_pct": 1.0,
+        "competitive_position": "Top 2-3 platform; competing with Qualcomm Snapdragon Ride, Mobileye EyeQ, Tesla in-house silicon",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "NVDA FY25 10-K Item 7 Automotive segment"
+        }
+      }
+    ],
+    "customers_gtm": "Direct enterprise relationships with hyperscalers for datacenter compute; OEM partnerships (Dell, HPE, Lenovo, Supermicro, ASUS) for enterprise and Tier-2 cloud; channel distribution (Arrow, Avnet, TD Synnex) for mid-market enterprise; AIB partners (ASUS, MSI, Gigabyte, Zotac) for consumer gaming GPUs. Customer concentration is structurally high in datacenter: top-4 hyperscalers ~40% of revenue per S3 mgmt commentary on FY25Q4 call. Cloud direct-buy relationships are increasingly intermediated by hyperscalers' own procurement engineering teams (S3: NVDA FY25Q1 call CFO color). Distribution to sovereign-AI clusters (UAE, Saudi Arabia, India, Japan) is direct with end-customer involvement and BIS license oversight.",
+    "industry": {
+      "overview": "The accelerated-compute datacenter market sits at the intersection of three multi-year dynamics: (1) the generative AI training and inference compute demand cycle initiated by ChatGPT release Nov 2022 and sustained by hyperscaler capex commitments through CY26 and beyond; (2) the architectural transition from CPU-centric to accelerator-centric datacenter compute, with GPUs (NVDA, AMD), custom ASICs (Google TPU, AWS Trainium, MSFT Maia, Meta MTIA), and emerging FPGAs/DPUs splitting the silicon pie; (3) the geopolitical bifurcation of advanced-semiconductor supply chains between US-aligned (TSMC, Samsung, Intel) and PRC-domestic (SMIC, Huawei Ascend, Cambricon) fabrication, with US Bureau of Industry and Security (BIS) controls limiting NVDA's China datacenter SKU availability since October 2022 and tightened in October 2023 (FDPR amendment) and again in October 2024 (HBM controls). Per Gartner DC GPU forecast 2026/03 (S5), the worldwide accelerated-compute silicon TAM is projected at ~$430B for CY26 growing to ~$700B by CY28, a CAGR of ~28%. Hyperscaler datacenter capex aggregate (MSFT+GOOG+META+AMZN) is projected at ~$340B for CY26 (~+18% YoY) per their respective FY26Q1 calls, with another ~$80B from Tier-2 and sovereign-AI cluster build-outs. The regulatory environment in the United States has been broadly enabling (CHIPS Act 25% manufacturing investment credit under Section 48D applicable to NVDA's HBM and CoWoS allocation indirectly via TSMC Arizona, IRA 45X advanced manufacturing credit eligibility, and the AI Executive Order of October 2023 establishing voluntary AI safety commitments). Outside the United States, the EU AI Act enters phased application from August 2026, the UK and Canada have proposed AI regulatory frameworks, and the PRC is investing heavily in domestic AI silicon alternatives (Huawei Ascend 910C / 920, Cambricon Siyuan 590, Biren BR100).",
+      "tam": {
+        "current_year": 2026,
+        "current_tam_usd_b": 430.0,
+        "projected_year": 2028,
+        "projected_tam_usd_b": 700.0,
+        "cagr_pct": 28.0,
+        "source": {
+          "s_level": "S5",
+          "source_type": "Gartner",
+          "ref": "Gartner DC GPU forecast 2026/03, methodology hyperscaler capex \u00d7 GPU-attach \u00d7 ASP"
+        }
+      }
+    },
+    "competitive_landscape": {
+      "peers": [
+        {
+          "name": "Advanced Micro Devices",
+          "ticker": "AMD",
+          "market_cap_usd_b": 280.0,
+          "market_share_pct": 8.0,
+          "key_differentiator": "MI300X / MI400 series; ROCm software stack; gaining hyperscaler footholds",
+          "revenue_growth_pct": 22.0,
+          "ebitda_margin_pct": 24.0
+        },
+        {
+          "name": "Broadcom",
+          "ticker": "AVGO",
+          "market_cap_usd_b": 1100.0,
+          "market_share_pct": 12.0,
+          "key_differentiator": "Custom ASIC design partner to GOOG TPU, META MTIA; AI networking via Jericho-3",
+          "revenue_growth_pct": 30.0,
+          "ebitda_margin_pct": 58.0
+        },
+        {
+          "name": "Marvell Technology",
+          "ticker": "MRVL",
+          "market_cap_usd_b": 75.0,
+          "market_share_pct": 3.0,
+          "key_differentiator": "Custom AI ASIC for AMZN Trainium 2/3, MSFT Maia 2; optical interconnect",
+          "revenue_growth_pct": 35.0,
+          "ebitda_margin_pct": 30.0
+        },
+        {
+          "name": "Intel",
+          "ticker": "INTC",
+          "market_cap_usd_b": 95.0,
+          "market_share_pct": 2.0,
+          "key_differentiator": "Gaudi 4 accelerator; advanced foundry ambitions; legacy server CPU base",
+          "revenue_growth_pct": 3.0,
+          "ebitda_margin_pct": 12.0
+        },
+        {
+          "name": "Taiwan Semiconductor Manufacturing",
+          "ticker": "TSM",
+          "market_cap_usd_b": 920.0,
+          "market_share_pct": null,
+          "key_differentiator": "Sole-source N4P / N3 advanced node foundry; AI silicon supply bottleneck",
+          "revenue_growth_pct": 28.0,
+          "ebitda_margin_pct": 67.0
+        },
+        {
+          "name": "Arm Holdings",
+          "ticker": "ARM",
+          "market_cap_usd_b": 140.0,
+          "market_share_pct": null,
+          "key_differentiator": "Neoverse server CPU IP increasingly paired with GPU systems (Grace, BG200)",
+          "revenue_growth_pct": 26.0,
+          "ebitda_margin_pct": 40.0
+        }
+      ],
+      "positioning_narrative": "NVDA occupies a near-monopoly position in merchant accelerator silicon for AI training (estimated 90%+ share by revenue) with a moderating share position in inference (where custom ASICs from GOOG TPU, AWS Trainium, MSFT Maia, META MTIA, plus AMD MI300/400, are taking incremental share). The competitive set is bimodal: AMD is the only credible merchant-silicon alternative; AVGO and MRVL are custom-ASIC design partners to hyperscalers and represent the structural counter-position. INTC remains a distant third in merchant silicon. The supply-side competitive constraint is TSMC advanced-node and CoWoS packaging capacity, which NVDA, AMD, and AVGO/MRVL custom ASICs all compete for."
+    }
+  },
+  "management": [
+    {
+      "name": "Jensen Huang",
+      "title": "Co-founder, President and CEO",
+      "tenure_years": 33,
+      "bio": "Co-founded NVIDIA in 1993 with Chris Malachowsky and Curtis Priem and has served as CEO since inception. Holds B.S.E.E. from Oregon State University and M.S.E.E. from Stanford University. Prior to founding NVIDIA, was Director of CoreWare at LSI Logic and worked at Advanced Micro Devices as a microprocessor designer. Has led NVIDIA through the transition from consumer graphics card vendor to general-purpose accelerated computing platform, then to AI-infrastructure dominance post-2022. Forbes ranked Huang as one of the world's most influential CEOs in technology; recognized by Time as one of the most influential people in AI in 2023 and 2024. Owns approximately 3.5% of NVDA fully-diluted shares (S2: NVDA DEF 14A 2024-06-13 beneficial ownership table). Compensation FY25 approximately $34M (mostly equity-based, S2: NVDA DEF 14A 2024-06-13). Known publicly for his black leather jacket, hands-on technical engagement at GTC keynotes, and unusual longevity at the helm of a $4T+ market-cap company (33-year founder tenure, rare among large-cap technology firms).",
+      "compensation_usd_m": 34.0,
+      "stock_ownership_shares": 858000000,
+      "background": "Engineering, microprocessor design; ex-LSI Logic, ex-AMD",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "NVDA 2024 proxy 2024-06-13"
+      }
+    },
+    {
+      "name": "Colette Kress",
+      "title": "Executive Vice President and CFO",
+      "tenure_years": 13,
+      "bio": "Joined NVIDIA in 2013 as EVP and CFO. Prior to NVIDIA, was Senior Vice President and CFO of the Business Technology and Operations Finance organization at Cisco Systems (2010-2013) and held senior finance roles at Microsoft (1999-2010) including CFO of the Server and Tools Division. Earlier career at Texas Instruments. Holds a B.S. in Finance from the University of Arizona and an M.B.A. from Southern Methodist University. Has been the principal investor-facing CFO voice through the AI-cycle revenue trajectory from approximately $11B at FY15 to approximately $130B at FY25, navigating one of the most rapid corporate revenue scalings in semiconductor history. Has consistently disclosed customer-concentration commentary on calls (S3) while keeping segment-level granularity tight in filings (S1/S2 disclosures relatively conservative). Compensation FY25 approximately $14M (mostly equity-based). On the call, generally signals guidance ranges narrower and more conservatively than peer hyperscaler CFOs, which is the empirical pattern PMs anchor to when evaluating S3 management commentary at NVDA.",
+      "compensation_usd_m": 14.0,
+      "stock_ownership_shares": 2100000,
+      "background": "Finance, ex-Cisco, ex-Microsoft, ex-Texas Instruments",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "NVDA 2024 proxy 2024-06-13"
+      }
+    },
+    {
+      "name": "Debora Shoquist",
+      "title": "Executive Vice President, Operations",
+      "tenure_years": 18,
+      "bio": "Joined NVIDIA in 2007 as EVP, Operations, with responsibility for supply chain, manufacturing engineering, IT, security, and facilities. Previously held senior operations roles at JDS Uniphase, Coherent, and Quantum. Holds a B.S. in Electrical Engineering and a B.S. in Biology from Kansas State University. Has been the operations executive through NVDA's transition from per-chip discrete-card business to rack-scale system delivery (DGX, GB200 NVL72), which materially changed manufacturing complexity, inventory dynamics, and customer-delivery operational discipline. Operations function is also responsible for managing TSMC allocation negotiations and HBM3e supplier coordination across SK Hynix, Samsung, and Micron \u2014 material constraints on NVDA's revenue trajectory in FY26-27.",
+      "background": "Operations, manufacturing engineering, supply chain; ex-JDS Uniphase, ex-Coherent, ex-Quantum",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "NVDA 2024 proxy 2024-06-13"
+      }
+    },
+    {
+      "name": "Tim Teter",
+      "title": "Executive Vice President, General Counsel and Secretary",
+      "tenure_years": 8,
+      "bio": "Joined NVIDIA in 2018 as EVP and General Counsel. Previously a partner at Cooley LLP in Palo Alto, where he led intellectual property and securities-litigation practice areas including NVIDIA representation. Holds a B.S. from the University of California Davis and a J.D. from Stanford Law School. Has led NVIDIA's legal posture through significant inflection points: the failed ARM acquisition (announced 2020, terminated 2022 after FTC blocked); the Mellanox acquisition closing 2020; the ongoing securities and antitrust scrutiny of AI-silicon market structure; export-control compliance under BIS rules tightened October 2022, October 2023, and October 2024; and the multi-jurisdiction regulatory engagement (FTC, DOJ, EU CMA, UK CMA, CCI India) that surrounds dominant-position semiconductor positions.",
+      "background": "Securities and IP litigation; ex-Cooley LLP partner",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "NVDA 2024 proxy 2024-06-13"
+      }
+    }
+  ],
+  "financials": {
+    "historical": [
+      {
+        "period": "FY22A",
+        "period_type": "historical",
+        "revenue_usd_m": 26914,
+        "revenue_growth_pct": 61.4,
+        "gross_profit_usd_m": 17475,
+        "gross_margin_pct": 64.93,
+        "ebit_usd_m": 10041,
+        "ebit_margin_pct": 37.31,
+        "net_income_gaap_usd_m": 9752,
+        "eps_diluted_gaap_usd": 0.39,
+        "diluted_shares_m": 25070,
+        "fcf_usd_m": 8132,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 2004,
+        "buyback_usd_m": 8443,
+        "buyback_offsets_sbc_ratio": 4.21,
+        "segments": [
+          {
+            "name": "Datacenter",
+            "revenue_usd_m": 10613,
+            "gm_pct": 65.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "NVDA FY22 10-K Note 13"
+            }
+          },
+          {
+            "name": "Gaming",
+            "revenue_usd_m": 12462,
+            "gm_pct": 63.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "NVDA FY22 10-K Note 13"
+            }
+          }
+        ]
+      },
+      {
+        "period": "FY23A",
+        "period_type": "historical",
+        "revenue_usd_m": 26974,
+        "revenue_growth_pct": 0.2,
+        "gross_profit_usd_m": 15356,
+        "gross_margin_pct": 56.93,
+        "ebit_usd_m": 4224,
+        "ebit_margin_pct": 15.66,
+        "net_income_gaap_usd_m": 4368,
+        "eps_diluted_gaap_usd": 0.17,
+        "diluted_shares_m": 25070,
+        "fcf_usd_m": 3808,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 2710,
+        "buyback_usd_m": 10039,
+        "buyback_offsets_sbc_ratio": 3.71
+      },
+      {
+        "period": "FY24A",
+        "period_type": "historical",
+        "revenue_usd_m": 60922,
+        "revenue_growth_pct": 125.8,
+        "gross_profit_usd_m": 44301,
+        "gross_margin_pct": 72.72,
+        "ebit_usd_m": 32972,
+        "ebit_margin_pct": 54.12,
+        "net_income_gaap_usd_m": 29760,
+        "eps_diluted_gaap_usd": 1.19,
+        "diluted_shares_m": 25010,
+        "fcf_usd_m": 27000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 3549,
+        "buyback_usd_m": 9533,
+        "buyback_offsets_sbc_ratio": 2.69
+      },
+      {
+        "period": "FY25A",
+        "period_type": "historical",
+        "revenue_usd_m": 130497,
+        "revenue_growth_pct": 114.2,
+        "gross_profit_usd_m": 97858,
+        "gross_margin_pct": 74.99,
+        "ebit_usd_m": 81453,
+        "ebit_margin_pct": 62.42,
+        "net_income_gaap_usd_m": 72880,
+        "eps_diluted_gaap_usd": 2.94,
+        "eps_diluted_non_gaap_usd": 3.15,
+        "diluted_shares_m": 24800,
+        "fcf_usd_m": 60800,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 4737,
+        "buyback_usd_m": 33706,
+        "buyback_offsets_sbc_ratio": 7.11,
+        "segments": [
+          {
+            "name": "Datacenter",
+            "revenue_usd_m": 115191,
+            "gm_pct": 76.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "NVDA FY25 10-K Note 13 Segment Information"
+            }
+          },
+          {
+            "name": "Gaming",
+            "revenue_usd_m": 11350,
+            "gm_pct": 60.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "NVDA FY25 10-K Note 13"
+            }
+          },
+          {
+            "name": "ProViz",
+            "revenue_usd_m": 1880,
+            "gm_pct": 70.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "NVDA FY25 10-K Note 13"
+            }
+          },
+          {
+            "name": "Automotive",
+            "revenue_usd_m": 1694,
+            "gm_pct": 65.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "NVDA FY25 10-K Note 13"
+            }
+          },
+          {
+            "name": "OEM_Other",
+            "revenue_usd_m": 382,
+            "gm_pct": 30.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "NVDA FY25 10-K Note 13"
+            }
+          }
+        ]
+      }
+    ],
+    "ltm": {
+      "period": "LTM_FY26Q1",
+      "period_type": "ltm",
+      "revenue_usd_m": 145000,
+      "revenue_growth_pct": 11.1,
+      "gross_profit_usd_m": 108750,
+      "gross_margin_pct": 75.0,
+      "ebit_usd_m": 90600,
+      "ebit_margin_pct": 62.5,
+      "net_income_gaap_usd_m": 80500,
+      "eps_diluted_gaap_usd": 3.27,
+      "eps_diluted_non_gaap_usd": 3.5,
+      "diluted_shares_m": 24600,
+      "fcf_usd_m": 67000,
+      "fcf_includes_sbc_addback": false,
+      "sbc_usd_m": 5200,
+      "buyback_usd_m": 38000,
+      "buyback_offsets_sbc_ratio": 7.31,
+      "segments": [
+        {
+          "name": "Datacenter",
+          "revenue_usd_m": 130000,
+          "gm_pct": 76.5,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S2",
+            "source_type": "10-Q",
+            "ref": "NVDA FY26Q1 10-Q Note 4 Segment Information"
+          }
+        },
+        {
+          "name": "Gaming",
+          "revenue_usd_m": 11000,
+          "gm_pct": 60.0,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S2",
+            "source_type": "10-Q",
+            "ref": "NVDA FY26Q1 10-Q Note 4"
+          }
+        },
+        {
+          "name": "ProViz",
+          "revenue_usd_m": 2000,
+          "gm_pct": 70.0,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S2",
+            "source_type": "10-Q",
+            "ref": "NVDA FY26Q1 10-Q Note 4"
+          }
+        },
+        {
+          "name": "Automotive",
+          "revenue_usd_m": 1500,
+          "gm_pct": 65.0,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S2",
+            "source_type": "10-Q",
+            "ref": "NVDA FY26Q1 10-Q Note 4"
+          }
+        },
+        {
+          "name": "OEM_Other",
+          "revenue_usd_m": 500,
+          "gm_pct": 30.0,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S2",
+            "source_type": "10-Q",
+            "ref": "NVDA FY26Q1 10-Q Note 4"
+          }
+        }
+      ]
+    },
+    "projected": [
+      {
+        "period": "FY26E",
+        "period_type": "projected",
+        "revenue_usd_m": 165000,
+        "revenue_growth_pct": 26.4,
+        "gross_profit_usd_m": 124000,
+        "gross_margin_pct": 75.15,
+        "ebit_usd_m": 104000,
+        "ebit_margin_pct": 63.0,
+        "net_income_gaap_usd_m": 92000,
+        "eps_diluted_gaap_usd": 3.76,
+        "eps_diluted_non_gaap_usd": 4.0,
+        "diluted_shares_m": 24500,
+        "fcf_usd_m": 78000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 5800,
+        "buyback_usd_m": 40000
+      },
+      {
+        "period": "FY27E",
+        "period_type": "projected",
+        "revenue_usd_m": 200000,
+        "revenue_growth_pct": 21.2,
+        "gross_profit_usd_m": 150000,
+        "gross_margin_pct": 75.0,
+        "ebit_usd_m": 126000,
+        "ebit_margin_pct": 63.0,
+        "net_income_gaap_usd_m": 115000,
+        "eps_diluted_gaap_usd": 4.74,
+        "eps_diluted_non_gaap_usd": 5.0,
+        "diluted_shares_m": 24250,
+        "fcf_usd_m": 95000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 6500,
+        "buyback_usd_m": 45000
+      },
+      {
+        "period": "FY28E",
+        "period_type": "projected",
+        "revenue_usd_m": 235000,
+        "revenue_growth_pct": 17.5,
+        "gross_profit_usd_m": 175000,
+        "gross_margin_pct": 74.47,
+        "ebit_usd_m": 146000,
+        "ebit_margin_pct": 62.1,
+        "net_income_gaap_usd_m": 133000,
+        "eps_diluted_gaap_usd": 5.55,
+        "eps_diluted_non_gaap_usd": 5.8,
+        "diluted_shares_m": 23950,
+        "fcf_usd_m": 108000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 7300,
+        "buyback_usd_m": 50000
+      },
+      {
+        "period": "FY29E",
+        "period_type": "projected",
+        "revenue_usd_m": 265000,
+        "revenue_growth_pct": 12.8,
+        "gross_profit_usd_m": 195500,
+        "gross_margin_pct": 73.77,
+        "ebit_usd_m": 162000,
+        "ebit_margin_pct": 61.1,
+        "net_income_gaap_usd_m": 147000,
+        "eps_diluted_gaap_usd": 6.21,
+        "eps_diluted_non_gaap_usd": 6.45,
+        "diluted_shares_m": 23650,
+        "fcf_usd_m": 119000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 8200,
+        "buyback_usd_m": 55000
+      },
+      {
+        "period": "FY30E",
+        "period_type": "projected",
+        "revenue_usd_m": 290000,
+        "revenue_growth_pct": 9.4,
+        "gross_profit_usd_m": 211700,
+        "gross_margin_pct": 73.0,
+        "ebit_usd_m": 174000,
+        "ebit_margin_pct": 60.0,
+        "net_income_gaap_usd_m": 158000,
+        "eps_diluted_gaap_usd": 6.78,
+        "eps_diluted_non_gaap_usd": 7.0,
+        "diluted_shares_m": 23300,
+        "fcf_usd_m": 128000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 9100,
+        "buyback_usd_m": 60000
+      }
+    ],
+    "revenue_by_product": [
+      {
+        "product": "Datacenter \u2014 Compute (GPU silicon)",
+        "by_period": {
+          "FY25A": 95000,
+          "LTM": 108000,
+          "FY26E": 132000,
+          "FY27E": 162000
+        }
+      },
+      {
+        "product": "Datacenter \u2014 Networking (Spectrum-X, InfiniBand)",
+        "by_period": {
+          "FY25A": 12000,
+          "LTM": 13000,
+          "FY26E": 16000,
+          "FY27E": 22000
+        }
+      },
+      {
+        "product": "Datacenter \u2014 Software (AI Enterprise, DGX Cloud, NIM)",
+        "by_period": {
+          "FY25A": 8000,
+          "LTM": 9000,
+          "FY26E": 11000,
+          "FY27E": 15000
+        }
+      },
+      {
+        "product": "Gaming \u2014 Desktop discrete (GeForce RTX 40/50)",
+        "by_period": {
+          "FY25A": 9300,
+          "LTM": 9000,
+          "FY26E": 10000,
+          "FY27E": 11000
+        }
+      },
+      {
+        "product": "Gaming \u2014 Laptop / mobile",
+        "by_period": {
+          "FY25A": 2050,
+          "LTM": 2000,
+          "FY26E": 2200,
+          "FY27E": 2400
+        }
+      },
+      {
+        "product": "Professional Visualization (RTX Pro, Omniverse)",
+        "by_period": {
+          "FY25A": 1880,
+          "LTM": 2000,
+          "FY26E": 2300,
+          "FY27E": 2800
+        }
+      },
+      {
+        "product": "Automotive (DRIVE Orin/Thor)",
+        "by_period": {
+          "FY25A": 1694,
+          "LTM": 1500,
+          "FY26E": 1700,
+          "FY27E": 2000
+        }
+      },
+      {
+        "product": "OEM and Other",
+        "by_period": {
+          "FY25A": 382,
+          "LTM": 500,
+          "FY26E": 800,
+          "FY27E": 800
+        }
+      }
+    ],
+    "revenue_by_geography": [
+      {
+        "region": "United States",
+        "by_period": {
+          "FY25A": 58723,
+          "LTM": 65000,
+          "FY26E": 74000,
+          "FY27E": 90000
+        }
+      },
+      {
+        "region": "Taiwan",
+        "by_period": {
+          "FY25A": 32624,
+          "LTM": 36000,
+          "FY26E": 41000,
+          "FY27E": 50000
+        }
+      },
+      {
+        "region": "China (incl. Hong Kong)",
+        "by_period": {
+          "FY25A": 13050,
+          "LTM": 14000,
+          "FY26E": 16000,
+          "FY27E": 20000
+        }
+      },
+      {
+        "region": "Other Asia Pacific",
+        "by_period": {
+          "FY25A": 15660,
+          "LTM": 17000,
+          "FY26E": 20000,
+          "FY27E": 24000
+        }
+      },
+      {
+        "region": "EMEA",
+        "by_period": {
+          "FY25A": 7830,
+          "LTM": 9000,
+          "FY26E": 10000,
+          "FY27E": 12000
+        }
+      },
+      {
+        "region": "Rest of World",
+        "by_period": {
+          "FY25A": 2610,
+          "LTM": 4000,
+          "FY26E": 4000,
+          "FY27E": 4000
+        }
+      }
+    ]
+  },
+  "gm_taxonomy": {
+    "entries": [
+      {
+        "type": "T1_consolidated",
+        "name": "Consolidated non-GAAP gross margin",
+        "value_range": "75.0%",
+        "source": {
+          "s_level": "S2",
+          "source_type": "10-Q",
+          "ref": "NVDA FY26Q1 10-Q Item 2 MD&A non-GAAP reconciliation"
+        }
+      },
+      {
+        "type": "T2_segment",
+        "name": "Datacenter segment GM",
+        "value_range": "76.5%",
+        "source": {
+          "s_level": "S2",
+          "source_type": "10-Q",
+          "ref": "NVDA FY26Q1 10-Q Note 4 Segment Information"
+        }
+      },
+      {
+        "type": "T3_sub_segment",
+        "name": "DC Networking sub-segment GM (Spectrum-X / InfiniBand)",
+        "value_range": "65-70%",
+        "source": {
+          "s_level": "S4",
+          "source_type": "Visible Alpha consensus",
+          "ref": "Visible Alpha NVDA networking gross margin n=18 median 67%"
+        }
+      },
+      {
+        "type": "T4_analyst_modeled",
+        "name": "FY27E modeled DC compute GM (Blackwell mix)",
+        "value_range": "78-79%",
+        "source": {
+          "s_level": "S5",
+          "source_type": "Other",
+          "ref": "Internal model: Hopper-to-Blackwell ASP uplift +30% \u00d7 cost-up +18% \u00d7 HBM3e allocation assumption"
+        }
+      },
+      {
+        "type": "T5_marginal",
+        "name": "Incremental Blackwell GB200 NVL72 system marginal GM",
+        "value_range": "82-85%",
+        "source": {
+          "s_level": "S5",
+          "source_type": "Other",
+          "ref": "Internal model: marginal contribution analysis on rack-scale ASP $400K-$600K vs marginal cost ~$80K silicon + HBM"
+        }
+      }
+    ],
+    "reconciliation_consolidated_vs_implied_bp": 12.0
+  },
+  "scenarios_ref": "outputs/NVDA_scenarios.json",
+  "valuation": {
+    "methods": [
+      {
+        "method": "DCF",
+        "implied_price_usd": 188.0,
+        "price_range_low_usd": 145.0,
+        "price_range_high_usd": 230.0,
+        "weight_pct": 50,
+        "weighted_value_usd": 94.0,
+        "key_assumptions": {
+          "wacc_pct": 11.5,
+          "terminal_growth_pct": 2.5,
+          "explicit_forecast_years": 5,
+          "exit_multiple_check_pe": 28
+        },
+        "narrative": "5y explicit DCF with terminal growth 2.5% and WACC 11.5%. Discounts FY26E-FY30E projected FCF $78B \u2192 $128B trajectory and 28x exit P/E sanity check on FY30E EPS $6.78."
+      },
+      {
+        "method": "Trading_comps",
+        "implied_price_usd": 195.0,
+        "price_range_low_usd": 165.0,
+        "price_range_high_usd": 240.0,
+        "weight_pct": 30,
+        "weighted_value_usd": 58.5,
+        "key_assumptions": {
+          "peer_set": "AVGO, AMD, MRVL, INTC, ARM",
+          "peer_median_fy27e_pe": 38,
+          "nvda_premium_to_peer_median": 0.0
+        },
+        "narrative": "Peer set AVGO/AMD/MRVL/INTC/ARM trades at FY27E P/E median 38x; NVDA at peer median given comparable growth-quality."
+      },
+      {
+        "method": "SOTP",
+        "implied_price_usd": 196.0,
+        "price_range_low_usd": 170.0,
+        "price_range_high_usd": 235.0,
+        "weight_pct": 20,
+        "weighted_value_usd": 39.2,
+        "key_assumptions": {
+          "Datacenter_segment": {
+            "revenue_usd_m_fy27e": 175000,
+            "segment_gp_usd_m_fy27e": 133000,
+            "segment_op_usd_m_fy27e": 115000,
+            "segment_ni_usd_m_fy27e": 92000,
+            "segment_multiple": "P/E 40x",
+            "implied_value_usd_b": 3680
+          },
+          "Gaming_segment": {
+            "revenue_usd_m_fy27e": 11500,
+            "segment_gp_usd_m_fy27e": 6900,
+            "segment_op_usd_m_fy27e": 4500,
+            "segment_ni_usd_m_fy27e": 3600,
+            "segment_multiple": "P/E 18x",
+            "implied_value_usd_b": 65
+          },
+          "ProViz_segment": {
+            "revenue_usd_m_fy27e": 2800,
+            "segment_gp_usd_m_fy27e": 1960,
+            "segment_op_usd_m_fy27e": 1400,
+            "segment_ni_usd_m_fy27e": 1100,
+            "segment_multiple": "P/E 25x",
+            "implied_value_usd_b": 28
+          },
+          "Automotive_segment": {
+            "revenue_usd_m_fy27e": 2000,
+            "segment_gp_usd_m_fy27e": 1300,
+            "segment_op_usd_m_fy27e": 800,
+            "segment_ni_usd_m_fy27e": 640,
+            "segment_multiple": "EV/Sales 12x",
+            "implied_value_usd_b": 24
+          }
+        },
+        "narrative": "Segment-by-segment SOTP. DC valued at premium P/E 40x; Gaming at mature P/E 18x; ProViz at P/E 25x; Automotive at growth EV/Sales 12x reflecting pre-scale. Each segment maintains NI \u2264 OP \u2264 GP \u2264 Revenue monotonicity per G3."
+      },
+      {
+        "method": "Multi_multiple_bear",
+        "implied_price_usd": 100.8,
+        "price_range_low_usd": 62.0,
+        "price_range_high_usd": 120.0,
+        "weight_pct": 0,
+        "weighted_value_usd": 0.0,
+        "key_assumptions": {
+          "FY27E_PE_trough_band": "22-30x (FY23 trough analog)",
+          "FCF_yield_floor_pct": 3.0,
+          "EV_Sales_trough_band": "10-12x"
+        },
+        "narrative": "Strong_bear floor reference. NVDA FY23 P/E trough = 25x. Bear scenario applies 30x (above trough); strong_bear applies 22x. Not weighted into base PT; serves as downside discipline."
+      }
+    ],
+    "dcf_components": {
+      "wacc_pct": 11.5,
+      "wacc_components": {
+        "risk_free_rate_pct": 4.4,
+        "risk_free_source_date": "2026-05-15",
+        "equity_risk_premium_pct": 5.5,
+        "beta": 1.75,
+        "beta_basis": "5y_monthly_vs_SP500",
+        "cost_of_equity_pct": 14.0,
+        "pre_tax_cost_of_debt_pct": 5.5,
+        "tax_rate_pct": 14.0,
+        "after_tax_cost_of_debt_pct": 4.7,
+        "equity_weight_pct": 95,
+        "debt_weight_pct": 5
+      },
+      "terminal_growth_pct": 2.5,
+      "terminal_method": "perpetuity_growth",
+      "explicit_forecast_years": 5,
+      "sensitivity_wacc_range_pct": [
+        10.5,
+        11.0,
+        11.5,
+        12.0,
+        12.5
+      ],
+      "sensitivity_terminal_g_range_pct": [
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5
+      ],
+      "implied_share_price_usd": 188.0
+    },
+    "weighted_price_target_usd": 190.0,
+    "football_field_range_low_usd": 100.8,
+    "football_field_range_high_usd": 240.0,
+    "reconciliation_narrative": "DCF $188, Trading comps $195, SOTP $196 cluster tightly around $190-200 range. Multi-multiple bear floor at $100.80 (FY27E bear EPS $4.00 \u00d7 P/E 30x trough multiple). Methods cross-check rather than averaged; the $190 PT is approximately the centroid of DCF and SOTP, with comps providing the bull-side discipline."
+  },
+  "risks": [
+    {
+      "category": "company_specific",
+      "title": "Customer concentration \u2014 top-4 hyperscalers ~40% of revenue",
+      "description": "Top-4 hyperscale cloud customers represent approximately 40% of FY25 revenue per S3 management commentary. Any single customer pulling demand or shifting to internal silicon (Google TPU, AWS Trainium, Microsoft Maia, Meta MTIA) materially affects revenue trajectory. The risk is structural and not mitigable in near-term given the absence of comparable Tier-1 demand outside the top-4.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "material",
+      "mitigants": "Sovereign-AI cluster build-out (UAE, Saudi Arabia, India, Japan) and Tier-2 cloud (CoreWeave, Lambda Labs) emerging as offsetting demand pools; software/networking attach reduces silicon-only revenue concentration."
+    },
+    {
+      "category": "industry_market",
+      "title": "AMD MI400 share gain in inference workloads",
+      "description": "AMD MI300X / MI400 series gaining hyperscaler share for inference workloads where total cost of ownership matters more than peak performance. Current AMD share estimated ~8%; bear case assumes shift to 12% (strong-bear 15%).",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "material",
+      "mitigants": "Blackwell B200 / GB200 NVL72 system performance advantage; CUDA ecosystem moat; full-stack networking + software bundling."
+    },
+    {
+      "category": "industry_market",
+      "title": "Custom hyperscaler ASIC displacement (Google TPU v6, AWS Trainium 3, MSFT Maia 2, Meta MTIA)",
+      "description": "Hyperscaler in-house silicon programs maturing, particularly for inference. Google TPU v6 (2025 launch), AWS Trainium 3 (2026 expected), MSFT Maia 2, Meta MTIA 2 all positioned as cost-effective alternatives to NVDA GPU for hyperscaler-specific workloads.",
+      "probability_qualitative": "high",
+      "impact_qualitative": "moderate",
+      "mitigants": "Custom ASIC programs typically capture inference, less so leading-edge training. NVDA continues to lead training-class workloads. Hyperscalers continue dual-sourcing \u2014 internal ASIC for cost-optimized inference, NVDA GPU for frontier training."
+    },
+    {
+      "category": "regulatory",
+      "title": "BIS export controls \u2014 China datacenter SKU restrictions",
+      "description": "U.S. BIS Entity List additions affecting NVDA's ability to sell advanced datacenter SKUs into PRC customers. Existing controls (October 2022, October 2023 FDPR amendment, October 2024 HBM controls) have reduced NVDA's China DC revenue from ~25% (pre-2022) to ~10% currently. Further tightening could affect remaining $14-20B China DC revenue.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "material",
+      "mitigants": "NVDA's H20 / B20-class SKUs designed to fall below performance thresholds; ongoing BIS license processing for approved customers; sovereign-AI cluster sales geographically diversify customer base."
+    },
+    {
+      "category": "geopolitical",
+      "title": "Taiwan / TSMC supply concentration",
+      "description": "Sole-source dependence on TSMC for advanced-node (N4P, N3, N2) wafer supply and CoWoS-L packaging. Taiwan geopolitical disruption (cross-strait, blockade, or kinetic event) would materially affect NVDA's ability to fulfill demand, with TSMC Arizona facility capacity coming online only gradually through CY27-28.",
+      "probability_qualitative": "low",
+      "impact_qualitative": "severe",
+      "mitigants": "TSMC Arizona N4 expansion accelerating; TSMC Japan, TSMC Dresden providing supply chain diversification; Samsung 3nm GAA as fallback foundry."
+    },
+    {
+      "category": "financial",
+      "title": "Buyback yield support \u2014 SBC offset ratio",
+      "description": "FY25 SBC of $4.7B vs buyback of $33.7B implies buyback-offset-to-SBC ratio of 7.1x \u2014 well above the 1.0x dilution-mask threshold. However, if buyback pace moderates while SBC accelerates with hiring, ratio could compress; dilution offset weakens.",
+      "probability_qualitative": "low",
+      "impact_qualitative": "minor",
+      "mitigants": "Active $50B buyback authorization (S2: NVDA 8-K 2024-08-28 Item 8.01) provides discretionary capital return; SBC growth has tracked revenue growth, not exceeded it."
+    },
+    {
+      "category": "macroeconomic",
+      "title": "Hyperscaler capex cycle reversal",
+      "description": "Aggregate MSFT/GOOG/META/AMZN capex run-rate at $340B for CY26 represents historically high investment intensity. A cyclical pullback to mid-cycle norms ($250-280B) would reduce NVDA addressable demand by 15-20%.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "material",
+      "mitigants": "Software/networking attach reduces pure-silicon cyclicality; sovereign-AI and enterprise demand provides countercyclical pool."
+    },
+    {
+      "category": "company_specific",
+      "title": "Blackwell production yield / HBM3e supply tightness",
+      "description": "Blackwell ramp dependent on TSMC CoWoS-L capacity and HBM3e supply from SK Hynix, Samsung, Micron. Supply tightness in either node could constrain FY27 shipment trajectory below current guidance midpoint.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "moderate",
+      "mitigants": "Triple-sourced HBM3e; TSMC CoWoS-L expansion accelerating through CY26; HBM4 qualification underway for Rubin generation."
+    },
+    {
+      "category": "regulatory",
+      "title": "EU AI Act and EU CMA scrutiny on AI-silicon market structure",
+      "description": "EU AI Act phased application from August 2026 introduces high-risk system obligations affecting AI-infrastructure positioning. EU CMA has signaled interest in AI-silicon market structure given NVDA's dominant share.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "moderate",
+      "mitigants": "Compliance posture well-resourced; foundation-model providers (not silicon vendors) primary regulatory subject under AI Act."
+    },
+    {
+      "category": "company_specific",
+      "title": "Founder-CEO key-person risk (Jensen Huang, age 63)",
+      "description": "Jensen Huang has led NVDA for 33 years as founder-CEO. Succession planning is not publicly disclosed in detail. Founder-CEO succession events at large-cap technology firms (e.g., Microsoft 2014, Apple 2011, Intel 2024) have historically produced material near-term volatility.",
+      "probability_qualitative": "low",
+      "impact_qualitative": "moderate",
+      "mitigants": "Deep bench of EVPs (Kress CFO, Shoquist Operations, others); board-level succession governance; founder-shareholder alignment via 3.5% ownership."
+    }
+  ],
+  "catalysts": [
+    {
+      "title": "NVDA FY27Q1 10-Q earnings release",
+      "expected_date": "2026-08-21",
+      "type": "earnings_print",
+      "expected_impact_pct": 5.0,
+      "what_would_reverse_thesis": "FY27Q1 datacenter revenue <$32B (vs base $35B) or Blackwell mix commentary indicating <30% would trigger thesis re-evaluation.",
+      "anchor_ref": "A3"
+    },
+    {
+      "title": "NVDA GTC Spring 2026 keynote",
+      "expected_date": "2026-03-18",
+      "type": "investor_day",
+      "expected_impact_pct": 3.0,
+      "what_would_reverse_thesis": "Roadmap commentary on Rubin architecture timing or sovereign-AI demand signals.",
+      "anchor_ref": "A4"
+    },
+    {
+      "title": "Hyperscaler FY26Q2 capex prints (MSFT, GOOG, META, AMZN)",
+      "expected_date": "2026-07-29",
+      "type": "earnings_print",
+      "expected_impact_pct": 4.0,
+      "what_would_reverse_thesis": "Aggregate capex commentary YoY <+10% would trigger downgrade scenario.",
+      "anchor_ref": "A2"
+    },
+    {
+      "title": "BIS October regulatory cycle decision",
+      "expected_date": "2026-10-15",
+      "type": "regulatory_decision",
+      "expected_impact_pct": -3.0,
+      "what_would_reverse_thesis": "Additional Entity List or HBM tightening affecting NVDA China DC SKUs.",
+      "anchor_ref": "A6"
+    },
+    {
+      "title": "NVDA Q4 FY26 / FY26 10-K filing",
+      "expected_date": "2026-03-25",
+      "type": "earnings_print",
+      "expected_impact_pct": 3.0,
+      "what_would_reverse_thesis": "FY26 segment reporting in 10-K Note 13 should confirm or refute S3 management commentary on Blackwell mix; graduates A3 anchor to S1 if confirmed.",
+      "anchor_ref": "A3"
+    },
+    {
+      "title": "Federal Reserve FOMC June 2026 meeting",
+      "expected_date": "2026-06-17",
+      "type": "macro_event",
+      "expected_impact_pct": 2.0,
+      "what_would_reverse_thesis": "Hawkish rate path could compress growth-stock multiples; dovish path supports."
+    }
+  ],
+  "what_would_reverse": [
+    {
+      "direction": "reverse_bull_to_neutral",
+      "numerical_threshold": "Hyperscaler aggregate CY26 capex YoY growth <+10% confirmed by MSFT/GOOG/META/AMZN FY26Q2 prints",
+      "unit": "%",
+      "observable_via": "MSFT FY26Q2 10-Q (Apr 2026), GOOG FY26Q2 10-Q (Apr 2026), META FY26Q2 10-Q (Apr 2026), AMZN FY26Q2 10-Q (Apr 2026)",
+      "expected_observation_date": "2026-07-30"
+    },
+    {
+      "direction": "reverse_bull_to_bear",
+      "numerical_threshold": "AMD MI400 share in hyperscaler bookings >15% for two consecutive quarters confirmed via AMD segment disclosure",
+      "unit": "%",
+      "observable_via": "AMD FY26Q2 and FY26Q3 10-Q DC segment commentary",
+      "expected_observation_date": "2026-11-15"
+    },
+    {
+      "direction": "reverse_bear_to_neutral",
+      "numerical_threshold": "NVDA FY27Q1 datacenter revenue \u2265$35B AND Blackwell mix \u226540% commentary on call",
+      "unit": "$B",
+      "observable_via": "NVDA FY27Q1 10-Q Note 4 (expected filed 2026-08-21) + earnings call transcript",
+      "expected_observation_date": "2026-08-21"
+    },
+    {
+      "direction": "reverse_bear_to_bull",
+      "numerical_threshold": "Sovereign-AI cluster commitments aggregate >$30B announced across UAE/Saudi/India/Japan/Korea in next 12 months",
+      "unit": "$B",
+      "observable_via": "Press releases + 8-K Item 7.01 disclosures + Federal Register BIS license commentary",
+      "expected_observation_date": "2027-05-15"
+    },
+    {
+      "direction": "reverse_bull_to_neutral",
+      "numerical_threshold": "NVDA non-GAAP gross margin <74.0% for two consecutive quarters",
+      "unit": "%",
+      "observable_via": "NVDA FY27Q1 and FY27Q2 10-Q Item 2 MD&A non-GAAP reconciliation tables",
+      "expected_observation_date": "2026-11-20"
+    }
+  ],
+  "tail_risks": [
+    {
+      "event_class": "sanctions_export_control",
+      "name": "BIS expansion to ban all NVDA Blackwell-class SKUs to PRC",
+      "probability_shift": {
+        "strong_bear_delta_pp": 5,
+        "bear_delta_pp": 5,
+        "base_delta_pp": -5,
+        "bull_delta_pp": -3,
+        "strong_bull_delta_pp": -2
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -15,
+        "worst_case_multiple_compression_pct": -10,
+        "worst_case_price_pct": -22
+      }
+    },
+    {
+      "event_class": "Fed_rate_shock",
+      "name": "Fed funds +200bp surprise hike on inflation re-acceleration",
+      "probability_shift": {
+        "strong_bear_delta_pp": 3,
+        "bear_delta_pp": 5,
+        "base_delta_pp": -2,
+        "bull_delta_pp": -3,
+        "strong_bull_delta_pp": -3
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -5,
+        "worst_case_multiple_compression_pct": -25,
+        "worst_case_price_pct": -28
+      }
+    },
+    {
+      "event_class": "NBER_recession",
+      "name": "US NBER-defined recession with hyperscaler capex cut",
+      "probability_shift": {
+        "strong_bear_delta_pp": 8,
+        "bear_delta_pp": 7,
+        "base_delta_pp": -10,
+        "bull_delta_pp": -3,
+        "strong_bull_delta_pp": -2
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -20,
+        "worst_case_multiple_compression_pct": -15,
+        "worst_case_price_pct": -32
+      }
+    },
+    {
+      "event_class": "sector_regulatory_action",
+      "name": "FTC Section 7 / DOJ Section 2 investigation into AI-silicon market structure",
+      "probability_shift": {
+        "strong_bear_delta_pp": 2,
+        "bear_delta_pp": 4,
+        "base_delta_pp": -3,
+        "bull_delta_pp": -2,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -3,
+        "worst_case_multiple_compression_pct": -10,
+        "worst_case_price_pct": -13
+      }
+    },
+    {
+      "event_class": "idiosyncratic",
+      "name": "TSMC advanced-node disruption (Taiwan event, foundry yield crisis)",
+      "probability_shift": {
+        "strong_bear_delta_pp": 4,
+        "bear_delta_pp": 3,
+        "base_delta_pp": -5,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -25,
+        "worst_case_multiple_compression_pct": -20,
+        "worst_case_price_pct": -40
+      }
+    },
+    {
+      "event_class": "election_political_transition",
+      "name": "US presidential transition with tariff / export-control rebalance",
+      "probability_shift": {
+        "strong_bear_delta_pp": 1,
+        "bear_delta_pp": 2,
+        "base_delta_pp": -1,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -4,
+        "worst_case_multiple_compression_pct": -8,
+        "worst_case_price_pct": -12
+      }
+    }
+  ],
+  "forensic_flags": {
+    "asc_606_red_flags": [
+      {
+        "flag": "Hyperscaler bill-and-hold arrangements",
+        "evidence": "NVDA FY25 10-K Note 2 revenue recognition discusses ship-and-hold and FOB-port arrangements; no material POB-allocation issues flagged.",
+        "severity": "low"
+      }
+    ],
+    "asc_842_lease_pv_usd_m": 1850.0,
+    "asc_718_sbc_pct_revenue": 3.6,
+    "asc_718_sbc_pct_ocf": 7.2,
+    "non_gaap_to_gaap_delta_pct_ni_5y_avg": 8.5,
+    "non_gaap_reconciliation_present": false,
+    "fcf_definition": "OCF_minus_capex",
+    "goodwill_pct_net_assets": 6.5,
+    "auditor": "PwC LLP",
+    "auditor_change_recent": false,
+    "restatement_8k_4_02_recent": false,
+    "form_4_net_12mo_usd_m": -850.0,
+    "going_concern_qualification": false,
+    "vie_exposure": "none",
+    "pension_funded_status_pct": 98.0
+  },
+  "positioning_sentiment": {
+    "top_holders_13f": [
+      {
+        "holder": "Vanguard Group",
+        "shares_m": 1980,
+        "pct_so": 8.4,
+        "qoq_delta_pct": 0.6
+      },
+      {
+        "holder": "BlackRock",
+        "shares_m": 1700,
+        "pct_so": 7.2,
+        "qoq_delta_pct": 0.4
+      },
+      {
+        "holder": "FMR (Fidelity)",
+        "shares_m": 1200,
+        "pct_so": 5.1,
+        "qoq_delta_pct": 1.2
+      },
+      {
+        "holder": "State Street",
+        "shares_m": 950,
+        "pct_so": 4.0,
+        "qoq_delta_pct": 0.3
+      },
+      {
+        "holder": "T. Rowe Price",
+        "shares_m": 380,
+        "pct_so": 1.6,
+        "qoq_delta_pct": -0.4
+      }
+    ],
+    "short_interest_pct_float": 0.95,
+    "days_to_cover": 0.5,
+    "stock_loan_rate_bps": 25,
+    "options_skew_25d_put_minus_call": 3.2,
+    "options_implied_move_earnings_pct": 7.5,
+    "iv_rank_pct": 35,
+    "etf_passive_ownership_pct": 12.5,
+    "sell_side_distribution": {
+      "buy_pct": 82,
+      "hold_pct": 16,
+      "sell_pct": 2,
+      "pt_median_usd": 195,
+      "pt_low_usd": 130,
+      "pt_high_usd": 250,
+      "pt_revision_3mo_pct": 4.5
+    },
+    "activist_13d_filed": false,
+    "form_4_pattern": "10b5_1_routine",
+    "index_inclusion": [
+      "S&P 500",
+      "Nasdaq-100",
+      "PHLX Semiconductor (SOX)",
+      "iShares Semiconductor (SOXX)",
+      "VanEck Semiconductor (SMH)"
+    ]
+  },
+  "regulatory_status": {
+    "antitrust_open_matters": [
+      {
+        "agency": "FTC",
+        "matter": "Section 7 informal inquiry into AI-silicon market structure (no formal Second Request)",
+        "stage": "Informal inquiry",
+        "expected_resolution": "2026-12-31"
+      },
+      {
+        "agency": "EU_CMA",
+        "matter": "AI-silicon market study, non-binding",
+        "stage": "Market study consultation",
+        "expected_resolution": "2027-03-31"
+      }
+    ],
+    "export_control_status": {
+      "bis_entity_list": false,
+      "ofac_sdn": false,
+      "cfius_review_open": false,
+      "itar_subject": false,
+      "verified_as_of": "2026-05-15"
+    },
+    "sector_regulator_open_matters": [
+      {
+        "agency": "SEC_enforcement",
+        "matter": "No open matters disclosed",
+        "stage": "None"
+      }
+    ],
+    "tariff_exposure_pct_cogs": 4.0,
+    "tax_policy_exposures": [
+      "Section_174_RD_amortization",
+      "GILTI",
+      "FDII",
+      "CHIPS_48D",
+      "RD_Credit_Section_41"
+    ]
+  },
+  "position_sizing": {
+    "long_only_large_cap": {
+      "benchmark": "S&P 500",
+      "recommended_active_weight_bps": 50,
+      "max_weight_pct_nav": 8.0,
+      "kelly_implied_pct_nav": 4.2,
+      "conviction_adjusted_pct_nav": 2.0
+    },
+    "long_only_smid": {
+      "benchmark": "Russell 1000",
+      "recommended_active_weight_bps": 40,
+      "max_weight_pct_nav": 6.0,
+      "conviction_adjusted_pct_nav": 1.8
+    },
+    "long_short_hedge_fund": {
+      "gross_exposure_pct_nav": 4.5,
+      "net_exposure_pct_nav": 3.0,
+      "single_name_long_cap_pct_nav": 5.0,
+      "single_name_short_cap_pct_nav": -3.0
+    },
+    "sector_specialty": {
+      "benchmark": "iShares Semiconductor (SOXX)",
+      "recommended_active_weight_bps": 200,
+      "conviction_adjusted_pct_nav": 6.0
+    },
+    "pair_trade": {
+      "long_ticker": "NVDA",
+      "short_ticker": "AVGO",
+      "structure": "dollar_neutral",
+      "expected_spread_return_pct": 6.0
+    }
+  },
+  "quant_overlay": {
+    "factor_tags": {
+      "value": -1.5,
+      "quality": 1.2,
+      "momentum": 1.8,
+      "growth": 2.5,
+      "size": 3.0,
+      "low_vol": 0.2,
+      "liquidity": 2.0
+    },
+    "capacity": {
+      "adv_30d_usd_m": 30000.0,
+      "days_to_exit_10pct_participation": 0.5,
+      "days_to_exit_20pct_participation": 0.25,
+      "days_to_exit_30pct_participation": 0.17,
+      "max_position_constrained_by_adv_pct_nav": 15.0
+    },
+    "edge_decay": {
+      "thesis_half_life_months": 6.0,
+      "time_to_priced_in_months": 9.0,
+      "refresh_cadence": "quarterly_print",
+      "primary_decay_driver": "Hyperscaler capex print cycle + Blackwell mix disclosure"
+    },
+    "correlation": {
+      "book_file_path": "n/a (placeholder per D14)",
+      "top10_pairwise_corr": [],
+      "live_wired": false
+    },
+    "stress_overlay": {
+      "fed_funds_plus_200bp": -18.0,
+      "oil_minus_20pct": 2.0,
+      "usd_plus_5pct": -3.5,
+      "recession_dummy": -28.0
+    }
+  },
+  "source_tags_ref": "outputs/NVDA_source_tags.json",
+  "verification_gates_ref": "outputs/NVDA_verification_gates.json",
+  "audience_variant": "institutional_full",
+  "delegation_outputs": {
+    "company_research_md_path": "outputs/NVDA_Research_Document_2026-05-15.md",
+    "valuation_analysis_md_path": "outputs/NVDA_Valuation_Analysis_2026-05-15.md",
+    "scenarios_3case_for_dcf_plugin": {
+      "bear_case_revenue_growth_pcts": [
+        10,
+        5,
+        5,
+        5,
+        5
+      ],
+      "bear_case_ebit_margin_pcts": [
+        55,
+        53,
+        52,
+        51,
+        50
+      ],
+      "base_case_revenue_growth_pcts": [
+        26,
+        21,
+        17,
+        13,
+        9
+      ],
+      "base_case_ebit_margin_pcts": [
+        63,
+        63,
+        62,
+        61,
+        60
+      ],
+      "bull_case_revenue_growth_pcts": [
+        35,
+        28,
+        23,
+        19,
+        14
+      ],
+      "bull_case_ebit_margin_pcts": [
+        65,
+        65,
+        64,
+        63,
+        62
+      ]
+    }
+  },
+  "memo_metadata": {
+    "run_id": "NVDA_2026-05-15_fixture_v0",
+    "iteration_round": 0,
+    "current_score": 9.0,
+    "target_score": 9.0,
+    "verification_calls_count": 14
+  },
+  "scenarios_inline": {
+    "schema_version": "0.1.0",
+    "ticker": "NVDA",
+    "current_price": 167.0,
+    "as_of_date": "2026-05-15",
+    "fiscal_year_end": "01-31",
+    "base_eps": 5.0,
+    "scenarios": [
+      {
+        "id": "strong_bear",
+        "probability": 0.05,
+        "narrative_one_liner": "DC capex -10% YoY; AMD MI400 share to 15%; export-control re-tightens China DC; Blackwell ramp slips",
+        "eps": 2.8,
+        "eps_period": "FY27E",
+        "multiple": 22.0,
+        "multiple_type": "P/E",
+        "target_price": 61.6,
+        "expected_return": -0.631,
+        "anchors": [
+          "A3",
+          "A5",
+          "A6"
+        ],
+        "strongest_anchor_s_level": "S5",
+        "eps_bridge": [
+          {
+            "label": "Soft 1: SBC headwind 3.0% \u2192 3.5% of revenue",
+            "delta_eps": -0.2,
+            "layer": "soft",
+            "source_tag": "S1: NVDA FY25 10-K ASC 718"
+          },
+          {
+            "label": "Soft 2: Cycle-trough non-GAAP GM compression -200bp (75% \u2192 73%)",
+            "delta_eps": -0.3,
+            "layer": "soft",
+            "source_tag": "S2: NVDA FY26Q1 10-Q trend"
+          },
+          {
+            "label": "Clean 1: Blackwell ASP haircut -10%",
+            "delta_eps": -0.3,
+            "layer": "clean",
+            "source_tag": "S3: NVDA FY25Q4 call + S5 supply chain checks"
+          },
+          {
+            "label": "Clean 2: Hyperscaler DC capex flat YoY vs base +15%",
+            "delta_eps": -0.2,
+            "layer": "clean",
+            "source_tag": "S5: Counterpoint capex tracker"
+          },
+          {
+            "label": "Strong 1: AMD MI400 share to 12% from 8%",
+            "delta_eps": -0.5,
+            "layer": "strong",
+            "source_tag": "S5: hyperscaler RFP signals"
+          },
+          {
+            "label": "Strong 2: Export control re-tightens China DC ($14B exposure)",
+            "delta_eps": -0.5,
+            "layer": "strong",
+            "source_tag": "S5: tail event (BIS policy modeling)"
+          },
+          {
+            "label": "Strong 3: Customer concentration top-4 hyperscaler price negotiation",
+            "delta_eps": -0.2,
+            "layer": "strong",
+            "source_tag": "S3: management Q&A + S2 segment trend"
+          }
+        ],
+        "multiple_band_basis": "NVDA 5y P/E P5/P25/median/P75/P95 = 25/30/38/48/65; strong_bear 22x = below P5 (FY23 trough analog 25x)"
+      },
+      {
+        "id": "bear",
+        "probability": 0.2,
+        "narrative_one_liner": "DC capex flat YoY; Blackwell ASP -10% haircut; AMD MI400 share 10%; SBC drag widens",
+        "eps": 4.0,
+        "eps_period": "FY27E",
+        "multiple": 30.0,
+        "multiple_type": "P/E",
+        "target_price": 120.0,
+        "expected_return": -0.281,
+        "anchors": [
+          "A1",
+          "A3",
+          "A5"
+        ],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {
+            "label": "Soft 1: SBC headwind 3.0% \u2192 3.5% of revenue",
+            "delta_eps": -0.2,
+            "layer": "soft",
+            "source_tag": "S1: NVDA FY25 10-K ASC 718"
+          },
+          {
+            "label": "Soft 2: Cycle-trough non-GAAP GM compression -200bp",
+            "delta_eps": -0.3,
+            "layer": "soft",
+            "source_tag": "S2: NVDA FY26Q1 10-Q trend"
+          },
+          {
+            "label": "Clean 1: Blackwell ASP haircut -10%",
+            "delta_eps": -0.3,
+            "layer": "clean",
+            "source_tag": "S3: NVDA FY25Q4 call"
+          },
+          {
+            "label": "Clean 2: Hyperscaler DC capex flat YoY",
+            "delta_eps": -0.2,
+            "layer": "clean",
+            "source_tag": "S5: Counterpoint capex tracker"
+          }
+        ],
+        "multiple_band_basis": "NVDA 5y P/E P25 = 30x; bear scenario at P25"
+      },
+      {
+        "id": "base",
+        "probability": 0.5,
+        "narrative_one_liner": "DC capex +18% YoY; Blackwell on schedule; AMD MI400 stays 8% share; software/networking attach growing 50%",
+        "eps": 5.0,
+        "eps_period": "FY27E",
+        "multiple": 38.0,
+        "multiple_type": "P/E",
+        "target_price": 190.0,
+        "expected_return": 0.138,
+        "anchors": [
+          "A1",
+          "A2",
+          "A3"
+        ],
+        "strongest_anchor_s_level": "S2",
+        "eps_bridge": [],
+        "multiple_band_basis": "NVDA 5y P/E median = 38x"
+      },
+      {
+        "id": "bull",
+        "probability": 0.2,
+        "narrative_one_liner": "DC capex +25% YoY; Blackwell ASP +20%; software/networking 25% of DC mix; sovereign-AI add 5pts share",
+        "eps": 5.6,
+        "eps_period": "FY27E",
+        "multiple": 40.0,
+        "multiple_type": "P/E",
+        "target_price": 224.0,
+        "expected_return": 0.341,
+        "anchors": [
+          "A2",
+          "A4"
+        ],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {
+            "label": "Bull Soft 1: Software attach expanding to 7% of DC vs base 5%",
+            "delta_eps": 0.2,
+            "layer": "soft",
+            "source_tag": "S4: Visible Alpha software line consensus"
+          },
+          {
+            "label": "Bull Soft 2: Networking attach +1pp on Spectrum-X share",
+            "delta_eps": 0.2,
+            "layer": "soft",
+            "source_tag": "S4: Visible Alpha networking line"
+          },
+          {
+            "label": "Bull Clean 1: Blackwell ASP holds at +35% vs +30% base",
+            "delta_eps": 0.2,
+            "layer": "clean",
+            "source_tag": "S3: NVDA FY25Q1 call"
+          }
+        ],
+        "multiple_band_basis": "NVDA 5y P/E P75 = 48x; bull at 40x below P75 to remain disciplined"
+      },
+      {
+        "id": "strong_bull",
+        "probability": 0.05,
+        "narrative_one_liner": "DC capex +30% YoY; Blackwell ASP +35%; sovereign-AI add 5pts share; software billings >$8B annualized; Rubin pull-in",
+        "eps": 6.4,
+        "eps_period": "FY27E",
+        "multiple": 45.0,
+        "multiple_type": "P/E",
+        "target_price": 288.0,
+        "expected_return": 0.725,
+        "anchors": [
+          "A2",
+          "A4"
+        ],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {
+            "label": "Bull Soft 1: Software attach to 7%",
+            "delta_eps": 0.2,
+            "layer": "soft",
+            "source_tag": "S4: Visible Alpha"
+          },
+          {
+            "label": "Bull Soft 2: Networking +1pp Spectrum-X share",
+            "delta_eps": 0.2,
+            "layer": "soft",
+            "source_tag": "S4: Visible Alpha"
+          },
+          {
+            "label": "Bull Clean 1: Blackwell ASP +35%",
+            "delta_eps": 0.2,
+            "layer": "clean",
+            "source_tag": "S3: NVDA FY25Q1 call"
+          },
+          {
+            "label": "Bull Strong 1: Sovereign-AI cluster add 5pts share",
+            "delta_eps": 0.4,
+            "layer": "strong",
+            "source_tag": "S3: management commentary + S5 trade press"
+          },
+          {
+            "label": "Bull Strong 2: Rubin pull-in to FY27 second half",
+            "delta_eps": 0.4,
+            "layer": "strong",
+            "source_tag": "S3: GTC 2026 roadmap"
+          }
+        ],
+        "multiple_band_basis": "NVDA 5y P/E P75 = 48x; strong_bull at 45x just below P75"
+      }
+    ],
+    "probability_sum_check": 1.0,
+    "conviction_tag": "source_conditional",
+    "headline": {
+      "expected_return_median": 0.0855,
+      "expected_return_range_p10_p90": [
+        -0.281,
+        0.341
+      ],
+      "rating": "Buy",
+      "default_action": "hold_long",
+      "conditionality": "source_conditional",
+      "conditional_language_pattern": "A_source_conditional_bias",
+      "headline_text": "Source-conditional Buy (moderate-positive bias). 12-month median expected return +8.6%; scenario-weighted range [-28%, +34%], conditional on (i) Blackwell DC ASP uplift +30-40% graduating to S2 in FY27Q1 10-Q segment commentary expected Aug 2026, and (ii) hyperscaler aggregate 2026 capex YoY >+15% confirmed across MSFT/GOOG/META/AMZN FY26Q2 results filed by Aug 2026. If hyperscaler capex falsifies <+10% OR Blackwell ASP <+20%, downgrade to Hold."
+    },
+    "weighting_sensitivity": {
+      "base_minus_10_to_bear": 0.044,
+      "base_minus_10_to_bull": 0.105,
+      "strong_tail_plus_10": {
+        "strong_bear": -0.024,
+        "strong_bull": 0.123
+      }
+    }
+  },
+  "source_tags_inline": {
+    "schema_version": "0.1.0",
+    "ticker": "NVDA",
+    "as_of_date": "2026-05-15",
+    "model_cutoff_date": "2026-01-31",
+    "all_citations": [
+      {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "NVDA FY25 10-K Item 7 MD&A",
+        "date": "2025-02-20",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/",
+        "verified": true,
+        "freshness_days": 450,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "NVDA FY25 10-K Note 13 Segment Information",
+        "date": "2025-02-20",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "10-Q",
+        "ref": "NVDA FY26Q1 10-Q Note 4 Segment Information",
+        "date": "2026-05-21",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "10-Q",
+        "ref": "NVDA FY26Q1 10-Q Item 2 MD&A non-GAAP reconciliation",
+        "date": "2026-05-21",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "8-K",
+        "ref": "NVDA 8-K 2024-08-28 Item 8.01 buyback authorization $50B",
+        "date": "2024-08-28",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "NVDA FY25Q1 earnings call 2025-05-22 ~22min mark, CFO Q&A on Blackwell ASP",
+        "date": "2025-05-22",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "FY27Q1 10-Q segment commentary Aug 2026"
+      },
+      {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "NVDA FY25Q4 earnings call 2026-02-26 formal guidance section on FY26 DC trajectory",
+        "date": "2026-02-26",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "FY26 10-K filed Feb 2027"
+      },
+      {
+        "s_level": "S4",
+        "source_type": "Visible Alpha consensus",
+        "ref": "Visible Alpha NVDA DC rev FY27E n=42 median $172B range $150B-$195B",
+        "date": "2026-05-08",
+        "verified": true,
+        "freshness_days": 7,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S4",
+        "source_type": "Visible Alpha consensus",
+        "ref": "Visible Alpha NVDA networking line FY26E n=18 median $11B",
+        "date": "2026-05-08",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S4",
+        "source_type": "Visible Alpha consensus",
+        "ref": "Visible Alpha NVDA software line FY26E n=15 median $9B",
+        "date": "2026-05-08",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S5",
+        "source_type": "Gartner",
+        "ref": "Gartner DC GPU forecast 2026/03, methodology hyperscaler capex \u00d7 GPU-attach \u00d7 ASP",
+        "date": "2026-03-15",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S5",
+        "source_type": "Counterpoint",
+        "ref": "Counterpoint hyperscaler capex tracker 2026/04",
+        "date": "2026-04-01",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S5",
+        "source_type": "IDC",
+        "ref": "IDC DC infrastructure tracker 2026/Q1",
+        "date": "2026-04-15",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "NVDA 2024 proxy statement DEF 14A 2024-06-13",
+        "date": "2024-06-13",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "Form 4",
+        "ref": "NVDA Form 4 filings cluster (Jensen Huang 10b5-1 sales 2026 Q1)",
+        "date": "2026-03-15",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "13F",
+        "ref": "13F holdings Vanguard / BlackRock / FMR / State Street / T. Rowe Price Q4 2025",
+        "date": "2026-02-14",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "NVDA FY25 10-K Item 1A Risk Factors",
+        "date": "2025-02-20",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "Form 4",
+        "ref": "openinsider.com aggregated Form 4 12mo net activity",
+        "date": "2026-05-10",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S4",
+        "source_type": "FactSet consensus",
+        "ref": "FactSet NVDA FY27 consensus PT median $195 n=58",
+        "date": "2026-05-12",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S1",
+        "source_type": "FRED",
+        "ref": "FRED DGS10 10-year UST yield 4.40%",
+        "date": "2026-05-15",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S5",
+        "source_type": "Damodaran",
+        "ref": "Damodaran US implied equity risk premium 5.5%",
+        "date": "2026-05-01",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "BIS Entity List",
+        "ref": "BIS Entity List query NVDA 2026-05-14, no listing",
+        "date": "2026-05-14",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "OFAC SDN",
+        "ref": "OFAC SDN list query NVDA 2026-05-14, no listing",
+        "date": "2026-05-14",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "NVDA FY24 10-K Item 8 Note 16 SBC ASC 718",
+        "date": "2024-02-21",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S3",
+        "source_type": "Investor day deck",
+        "ref": "NVDA GTC Spring 2026 keynote 2026-03-18",
+        "date": "2026-03-18",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S5",
+        "source_type": "Omdia",
+        "ref": "Omdia datacenter GPU shipment tracker 2026/Q1",
+        "date": "2026-04-20",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "MSFT FY26Q1 earnings call 2026-04-24 capex guidance",
+        "date": "2026-04-24",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "GOOG FY26Q1 earnings call 2026-04-29 capex guidance",
+        "date": "2026-04-29",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "META FY26Q1 earnings call 2026-04-30 capex guidance",
+        "date": "2026-04-30",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "AMZN FY26Q1 earnings call 2026-05-01 AWS capex commentary",
+        "date": "2026-05-01",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "NVDA FY25 10-K Item 1 Business \u2014 TSMC supply concentration disclosure",
+        "date": "2025-02-20",
+        "verified": true,
+        "is_anchor_eligible": true
+      }
+    ],
+    "top_anchors": [
+      {
+        "anchor_id": "A1",
+        "claim": "NVDA FY25 datacenter revenue",
+        "value": 115191,
+        "unit": "$M",
+        "citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "NVDA FY25 10-K Item 8 Note 13 Segment Information",
+          "date": "2025-02-20",
+          "verified": true,
+          "is_anchor_eligible": true
+        },
+        "drives_scenarios": [
+          "base",
+          "bear",
+          "bull"
+        ],
+        "sensitivity_pct": 8.0
+      },
+      {
+        "anchor_id": "A2",
+        "claim": "Hyperscaler aggregate 2026 capex YoY growth",
+        "value": 18.0,
+        "unit": "%",
+        "citation": {
+          "s_level": "S5",
+          "source_type": "Counterpoint",
+          "ref": "Counterpoint hyperscaler capex tracker 2026/04 + MSFT/GOOG/META/AMZN FY26Q1 transcripts (S3)",
+          "date": "2026-04-01",
+          "verified": true,
+          "is_anchor_eligible": false
+        },
+        "drives_scenarios": [
+          "bear",
+          "base",
+          "bull"
+        ],
+        "sensitivity_pct": 12.0
+      },
+      {
+        "anchor_id": "A3",
+        "claim": "Blackwell ASP uplift vs Hopper",
+        "value": "+30-40%",
+        "unit": "%",
+        "citation": {
+          "s_level": "S3",
+          "source_type": "Earnings call transcript",
+          "ref": "NVDA FY25Q1 earnings call 2025-05-22 ~22min mark, CFO Q&A to MS analyst",
+          "date": "2025-05-22",
+          "verified": true,
+          "is_anchor_eligible": false,
+          "promotion_path": "FY27Q1 10-Q segment commentary 2026-08-21"
+        },
+        "drives_scenarios": [
+          "strong_bear",
+          "bear",
+          "base",
+          "bull",
+          "strong_bull"
+        ],
+        "sensitivity_pct": 10.0
+      },
+      {
+        "anchor_id": "A4",
+        "claim": "Software and networking attach to FY26 DC revenue",
+        "value": 15.0,
+        "unit": "%",
+        "citation": {
+          "s_level": "S4",
+          "source_type": "Visible Alpha consensus",
+          "ref": "Visible Alpha NVDA non-compute DC consensus n=18 median $20B range $16-25B",
+          "date": "2026-05-08",
+          "verified": true,
+          "is_anchor_eligible": true
+        },
+        "drives_scenarios": [
+          "bull",
+          "strong_bull"
+        ],
+        "sensitivity_pct": 5.0
+      },
+      {
+        "anchor_id": "A5",
+        "claim": "AMD MI400 hyperscaler share",
+        "value": 8.0,
+        "unit": "%",
+        "citation": {
+          "s_level": "S5",
+          "source_type": "Omdia",
+          "ref": "Omdia DC GPU shipment tracker 2026/Q1",
+          "date": "2026-04-20",
+          "verified": true,
+          "is_anchor_eligible": false
+        },
+        "drives_scenarios": [
+          "strong_bear",
+          "bear"
+        ],
+        "sensitivity_pct": 7.0
+      }
+    ],
+    "headline_conditionality": "source_conditional",
+    "pending_assumptions": []
+  },
+  "verification_gates_inline": {
+    "schema_version": "0.1.0",
+    "ticker": "NVDA",
+    "run_id": "NVDA_2026-05-15_fixture_v0",
+    "memo_path": "scripts/tests/fixtures/nvda_v0/clean.md",
+    "memo_structured_path": "scripts/tests/fixtures/nvda_v0/clean.json",
+    "gates": [
+      {
+        "gate_id": "G1",
+        "name": "EPS \u00d7 Multiple multiplicativity",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "math",
+        "blocks_score_above": 7.0
+      },
+      {
+        "gate_id": "G2",
+        "name": "Segment GM reconciliation",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "math",
+        "blocks_score_above": 8.0
+      },
+      {
+        "gate_id": "G3",
+        "name": "SOTP monotonicity",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "math",
+        "blocks_score_above": 7.0
+      },
+      {
+        "gate_id": "G4",
+        "name": "Scenario probabilities sum to 1.00",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "math",
+        "blocks_score_above": 8.0
+      },
+      {
+        "gate_id": "G5",
+        "name": "Bear/bull EPS bridge reconciles",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "math",
+        "blocks_score_above": 8.0
+      },
+      {
+        "gate_id": "G6",
+        "name": "Source tag declared at first use",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "source",
+        "blocks_score_above": 8.0
+      },
+      {
+        "gate_id": "G7",
+        "name": "Headline conditionality matches anchor strength",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "consistency",
+        "blocks_score_above": 8.0
+      },
+      {
+        "gate_id": "G8",
+        "name": "GM taxonomy box exists",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "structure",
+        "blocks_score_above": 8.0
+      },
+      {
+        "gate_id": "G9",
+        "name": "What-would-reverse has numerical denominators",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "structure",
+        "blocks_score_above": 8.0
+      },
+      {
+        "gate_id": "G10",
+        "name": "Anchor weighting impact table exists",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "structure",
+        "blocks_score_above": 8.0
+      },
+      {
+        "gate_id": "G11",
+        "name": "Non-GAAP to GAAP reconciliation present",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "consistency",
+        "blocks_score_above": 8.0
+      },
+      {
+        "gate_id": "G12",
+        "name": "SBC treatment in FCF disclosed",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "consistency",
+        "blocks_score_above": 8.0
+      },
+      {
+        "gate_id": "G13",
+        "name": "Factor exposure stated",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "quant_overlay",
+        "blocks_score_above": 8.0
+      },
+      {
+        "gate_id": "G14",
+        "name": "Capacity / ADV / days-to-exit stated",
+        "status": "pass",
+        "checked_at": "2026-05-15T12:00:00Z",
+        "category": "quant_overlay",
+        "blocks_score_above": 8.0
+      }
+    ],
+    "overall_pass": true,
+    "blocks_score_above": 10.0
+  }
+}
