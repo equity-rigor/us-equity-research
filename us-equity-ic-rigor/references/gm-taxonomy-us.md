@@ -27,6 +27,7 @@ The reality is that those numbers reference four different concepts pointing to 
   - Professional Visualization segment GM ≈ 65-70%
   - Automotive & Embedded segment GM ≈ 55-60%
 - **Critical constraint (G2 gate)**: **Σ(segment_revenue × segment_GM) / Σ(segment_revenue) must equal Type 1 consolidated GM within ±50bp**. If not, either segment data is incomplete, periods are mismatched, or you've mixed sources/cuts. Add an "Other / Unallocated" row OR fix the segment assumption.
+- **G2 scope (explicit)**: the ±50bp reconciliation tolerance applies to **LTM and forward (projected/modeled) periods** — the canonical current and forward-cycle mosaic that the memo is anchoring on. **Historical period segment reconciliation is informational only**: real 10-K segment disclosures routinely diverge from weighted consolidated GM by 50-150bp due to corporate allocation differences, "Other / Unallocated" buckets, source-filing rounding, and segment-definition changes mid-year. Historical mismatches are a forensic flag worth surfacing in the memo but do NOT trip G2. The script `verify_segment_gm.py` enforces this scope.
 
 ### Type 3: Sub-segment / product-line GM (T3_sub_segment)
 

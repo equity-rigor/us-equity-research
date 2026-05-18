@@ -7,7 +7,7 @@ Owns bug B10 (NVDA v0 fixture): `weighting_sensitivity` block deleted from
 defense requires.
 
 Usage:
-    python scripts/verify_weighting_sensitivity.py <memo.json>
+    python scripts/verify_weighting_sensitivity.py --memo-json <memo.json> [--memo-md <path>]
 
 Accepts either:
   - a full structured memo (schemas/memo.json shape) — block at
@@ -111,8 +111,10 @@ def verify(payload: dict[str, Any]) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Verify G10 — anchor weighting impact table present.")
-    parser.add_argument("memo_json", type=Path, help="Path to structured memo JSON or standalone scenarios.json")
-    parser.add_argument("--memo-md", type=Path, default=None, help="(Unused; accepted for uniform calling contract)")
+    parser.add_argument("--memo-json", required=True, type=Path,
+                        help="Path to structured memo JSON or standalone scenarios.json")
+    parser.add_argument("--memo-md", required=False, type=Path, default=None,
+                        help="(Unused; accepted for uniform calling contract)")
     args = parser.parse_args(argv)
 
     try:

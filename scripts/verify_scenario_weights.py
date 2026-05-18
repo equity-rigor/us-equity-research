@@ -6,7 +6,7 @@ Owns bug B04 (NVDA v0 fixture): base probability silently reduced 0.50 → 0.45,
 making the 5-scenario distribution sum to 0.95.
 
 Usage:
-    python scripts/verify_scenario_weights.py <memo.json>
+    python scripts/verify_scenario_weights.py --memo-json <memo.json> [--memo-md <path>]
 
 Accepts either:
   - a full structured memo (schemas/memo.json shape) — scenarios at
@@ -126,8 +126,10 @@ def verify(payload: dict[str, Any]) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Verify G4 — scenario weights sum to 1.00 ±0.01.")
-    parser.add_argument("memo_json", type=Path, help="Path to structured memo JSON or standalone scenarios.json")
-    parser.add_argument("--memo-md", type=Path, default=None, help="(Unused; accepted for uniform calling contract)")
+    parser.add_argument("--memo-json", required=True, type=Path,
+                        help="Path to structured memo JSON or standalone scenarios.json")
+    parser.add_argument("--memo-md", required=False, type=Path, default=None,
+                        help="(Unused; accepted for uniform calling contract)")
     args = parser.parse_args(argv)
 
     try:

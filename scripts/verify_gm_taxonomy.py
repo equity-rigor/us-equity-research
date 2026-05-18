@@ -10,7 +10,7 @@ Pass conditions:
      T1_consolidated, T2_segment, T3_sub_segment, T4_analyst_modeled, T5_marginal
 
 Usage:
-    python scripts/verify_gm_taxonomy.py <memo.json>
+    python scripts/verify_gm_taxonomy.py --memo-json <memo.json> [--memo-md <path>]
 
 Optional flag --memo-md is accepted (uniform calling contract) but unused.
 
@@ -118,8 +118,10 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Verify G8 — GM taxonomy box has entries spanning T1-T5."
     )
-    parser.add_argument("memo_json", type=Path, help="Structured memo JSON path.")
-    parser.add_argument("--memo-md", type=Path, default=None, help="(Unused.)")
+    parser.add_argument("--memo-json", required=True, type=Path,
+                        help="Structured memo JSON path.")
+    parser.add_argument("--memo-md", required=False, type=Path, default=None,
+                        help="(Unused; accepted for uniform calling contract.)")
     args = parser.parse_args(argv)
 
     if not args.memo_json.is_file():

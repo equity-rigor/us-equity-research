@@ -27,7 +27,7 @@ OWNED_BUG = 3  # G3 owns B03
 def _run(memo_json: Path) -> int:
     """Run the verification script and return its exit code."""
     proc = subprocess.run(
-        [sys.executable, str(SCRIPT), str(memo_json)],
+        [sys.executable, str(SCRIPT), "--memo-json", str(memo_json)],
         capture_output=True,
         text=True,
     )

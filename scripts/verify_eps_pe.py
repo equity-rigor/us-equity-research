@@ -8,7 +8,7 @@ For every scenario row in the 5-scenario block, verify:
 Owns bug B01 (base.target_price corrupted 190 -> 200).
 
 Usage:
-    python scripts/verify_eps_pe.py <path/to/memo.json>
+    python scripts/verify_eps_pe.py --memo-json <path/to/memo.json> [--memo-md <path>]
 
 Exit codes:
     0 — gate passes
@@ -23,6 +23,7 @@ Self-contained per Phase-C pre-stagger discipline: stdlib + pydantic v2 only.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -145,15 +146,16 @@ def emit_failure(failures: list[dict]) -> None:
                 print(f'  - {extra["scenario_id"]}: schema error')
 
 
-def main(argv: list[str]) -> int:
-    if len(argv) != 2:
-        print(
-            "Usage: python scripts/verify_eps_pe.py <path/to/memo.json>",
-            file=sys.stderr,
-        )
-        return 2
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description=__doc__ or "Verify G1 — EPS × multiple multiplicativity."
+    )
+    parser.add_argument("--memo-json", required=True, help="Path to structured memo JSON")
+    parser.add_argument("--memo-md", required=False, default=None,
+                        help="Path to memo Markdown (unused; accepted for uniform calling contract)")
+    args = parser.parse_args(argv)
 
-    path = Path(argv[1])
+    path = Path(args.memo_json)
     if not path.is_file():
         print(f"verify_eps_pe.py: file not found: {path}", file=sys.stderr)
         return 2
@@ -184,4 +186,4 @@ def main(argv: list[str]) -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+    sys.exit(main())

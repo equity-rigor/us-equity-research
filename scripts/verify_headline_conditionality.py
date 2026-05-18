@@ -33,7 +33,7 @@ Pattern A/B/C/D marker phrases (per references/source-stratification-us.md):
                                                "range anchored"
 
 Usage:
-    python scripts/verify_headline_conditionality.py <memo.json> [--memo-md <path>]
+    python scripts/verify_headline_conditionality.py --memo-json <memo.json> [--memo-md <path>]
 
 If --memo-md is omitted the script looks for a sibling .md at the same
 stem as memo.json (e.g. fixtures/nvda_v0/clean.json → clean.md).
@@ -260,9 +260,10 @@ def main(argv: Optional[list[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description="Verify G7 — headline conditionality matches anchor strength.",
     )
-    parser.add_argument("memo_json", type=Path, help="Path to structured memo JSON")
+    parser.add_argument("--memo-json", required=True, type=Path,
+                        help="Path to structured memo JSON")
     parser.add_argument(
-        "--memo-md", type=Path, default=None,
+        "--memo-md", required=False, type=Path, default=None,
         help="Path to rendered Markdown memo (default: sibling .md to memo_json)",
     )
     args = parser.parse_args(argv)

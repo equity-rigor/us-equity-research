@@ -6,7 +6,6 @@ within rounding tolerance (delta <= $10M absolute AND <= 0.5% relative).
 Any inversion exceeding both bounds is a hard fail. N/A if no SOTP method present.
 
 Usage:
-    python scripts/verify_sotp_monotonicity.py <memo.json>
     python scripts/verify_sotp_monotonicity.py --memo-json <path> [--memo-md <path>]
 
 Exit 0 = pass or N/A; non-zero = fail.
@@ -134,14 +133,11 @@ def verify(memo: dict[str, Any]) -> tuple[int, list[str]]:
 
 def _parse_args(argv: list[str]) -> Path:
     p = argparse.ArgumentParser(description="Verify SOTP monotonicity (G3).")
-    p.add_argument("memo_json", nargs="?", help="Path to memo JSON (positional)")
-    p.add_argument("--memo-json", dest="memo_json_flag", help="Path to memo JSON (flag form)")
-    p.add_argument("--memo-md", dest="memo_md", help="Path to memo Markdown (unused by G3)")
+    p.add_argument("--memo-json", required=True, help="Path to structured memo JSON")
+    p.add_argument("--memo-md", required=False, default=None,
+                   help="Path to memo Markdown (unused by G3; accepted for uniform calling contract)")
     a = p.parse_args(argv)
-    path_str = a.memo_json or a.memo_json_flag
-    if not path_str:
-        p.error("memo JSON path required (positional or --memo-json)")
-    return Path(path_str)
+    return Path(a.memo_json)
 
 
 def main(argv: list[str] | None = None) -> int:

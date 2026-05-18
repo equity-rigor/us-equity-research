@@ -12,7 +12,7 @@ Owns bug B09: numerical_threshold = "if hyperscaler capex weakens
 materially" with unit="" — no digit, no denominator.
 
 Usage:
-    python scripts/verify_what_would_reverse.py <memo.json>
+    python scripts/verify_what_would_reverse.py --memo-json <memo.json> [--memo-md <path>]
 
 Exit codes:
     0 = pass; 1 = fail; 2 = usage / IO / shape error.
@@ -110,8 +110,10 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Verify G9 — what_would_reverse triggers have numerical denominators."
     )
-    parser.add_argument("memo_json", type=Path, help="Path to structured memo JSON")
-    parser.add_argument("--memo-md", type=Path, default=None, help="(Unused; uniform calling contract)")
+    parser.add_argument("--memo-json", required=True, type=Path,
+                        help="Path to structured memo JSON")
+    parser.add_argument("--memo-md", required=False, type=Path, default=None,
+                        help="(Unused; uniform calling contract)")
     args = parser.parse_args(argv)
 
     if not args.memo_json.is_file():

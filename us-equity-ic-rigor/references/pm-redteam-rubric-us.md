@@ -84,6 +84,8 @@ Modeler quotes segment GMs from notes and consolidated GM from income statement;
 
 **Fix**: add "Other / unallocated" row reconciling the residual; or fix the segment assumption that's wrong.
 
+**Scope methodology note**: G2 applies to **LTM and forward (projected/modeled) periods** — the canonical current and forward-cycle mosaic that the memo's valuation anchors on. **Historical period segment reconciliation is informational only**, because real 10-K disclosures routinely diverge from weighted consolidated GM by 50-150bp due to corporate allocation differences, "Other / Unallocated" buckets, source-filing rounding, and segment-definition changes mid-year. Historical mismatches surface in the memo as forensic flags but do NOT trip G2 / B2. See `gm-taxonomy-us.md` G2-scope paragraph for the canonical statement.
+
 ### B3 — SOTP NI > GP (G3 inversion)
 
 Modeler estimates segment NI directly without going through GP → OP → NI mechanical chain.

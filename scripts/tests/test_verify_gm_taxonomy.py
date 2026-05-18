@@ -40,7 +40,7 @@ def test_verify_gm_taxonomy(fixture_id: str) -> None:
     assert fixture_path.is_file(), f"Missing fixture: {fixture_path}"
 
     result = subprocess.run(
-        [sys.executable, str(SCRIPT), str(fixture_path)],
+        [sys.executable, str(SCRIPT), "--memo-json", str(fixture_path)],
         capture_output=True,
         text=True,
         check=False,

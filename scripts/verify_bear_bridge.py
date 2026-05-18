@@ -9,9 +9,6 @@ for bull).
 CLI (per S-C-N invocation contract used across Phase C/D):
     python scripts/verify_bear_bridge.py --memo-json <path> [--memo-md <path>]
 
-A positional form `python scripts/verify_bear_bridge.py <memo.json>` is
-also accepted to satisfy the orchestrator's S-C-5 spec.
-
 Exit codes:
     0 — gate passes
     non-zero — gate fails (structured stdout per verification_gates.json)
@@ -123,17 +120,12 @@ def parse_args(argv: List[str]) -> Path:
         description="Verify gate G5 (bear/bull EPS bridge reconciles to base_eps).",
         allow_abbrev=False,
     )
-    parser.add_argument("--memo-json", dest="memo_json", type=Path, default=None)
-    parser.add_argument("--memo-md", dest="memo_md", type=Path, default=None,
+    parser.add_argument("--memo-json", required=True, type=Path,
+                        help="Path to structured memo JSON")
+    parser.add_argument("--memo-md", required=False, type=Path, default=None,
                         help="Accepted for uniform invocation contract; unused (G5 is JSON-only).")
-    parser.add_argument("memo_json_positional", nargs="?", type=Path, default=None,
-                        help="Positional memo JSON path (compat with task spec).")
     args = parser.parse_args(argv)
-
-    path = args.memo_json or args.memo_json_positional
-    if path is None:
-        parser.error("memo JSON path required (pass --memo-json <path> or positional)")
-    return path
+    return args.memo_json
 
 
 def main(argv: Optional[List[str]] = None) -> int:

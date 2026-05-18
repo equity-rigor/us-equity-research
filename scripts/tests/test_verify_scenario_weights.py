@@ -30,7 +30,7 @@ OWNED_BUG = "B04"
 
 def _run(memo_json: Path, memo_md: Path) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
-        [sys.executable, str(SCRIPT), str(memo_json), "--memo-md", str(memo_md)],
+        [sys.executable, str(SCRIPT), "--memo-json", str(memo_json), "--memo-md", str(memo_md)],
         capture_output=True,
         text=True,
     )

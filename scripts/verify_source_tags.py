@@ -45,8 +45,7 @@ clean.md must pass; B06.md must fail; B01-B05, B07-B14 must NOT trip):
   paragraph removal, different paragraph).
 
 Usage:
-    python scripts/verify_source_tags.py <memo.md>
-    python scripts/verify_source_tags.py <memo.md> --memo-json <memo.json>
+    python scripts/verify_source_tags.py --memo-md <memo.md> [--memo-json <memo.json>]
 
 The --memo-json flag is accepted for the uniform calling contract but is
 not consumed by G6 (the gate is Markdown-only).
@@ -211,12 +210,14 @@ def main(argv: list[str] | None = None) -> int:
         )
     )
     parser.add_argument(
-        "memo_md",
+        "--memo-md",
+        required=True,
         type=Path,
         help="Path to rendered IC memo Markdown (e.g. clean.md, B06.md).",
     )
     parser.add_argument(
         "--memo-json",
+        required=False,
         type=Path,
         default=None,
         help=(
