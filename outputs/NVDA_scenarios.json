@@ -1,0 +1,243 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "NVDA",
+  "current_price": 221.56,
+  "as_of_date": "2026-05-19",
+  "fiscal_year_end": "01-31",
+  "base_eps": 6.5,
+  "scenarios": [
+    {
+      "id": "strong_bear",
+      "probability": 0.05,
+      "narrative_one_liner": "DC capex flat or -10% YoY; AMD MI400/Helios share to 20%; export-control re-tightens China DC; Blackwell Ultra ramp slips; Rubin pushed to 2H27",
+      "eps": 3.5,
+      "eps_period": "FY27E",
+      "multiple": 24.0,
+      "multiple_type": "P/E",
+      "target_price": 84.0,
+      "expected_return": -0.621,
+      "anchors": [
+        "A3",
+        "A5",
+        "A6"
+      ],
+      "strongest_anchor_s_level": "S5",
+      "eps_bridge": [
+        {
+          "label": "Soft 1: SBC headwind 2.6% -> 3.2% of revenue",
+          "delta_eps": -0.2,
+          "layer": "soft",
+          "source_tag": "S1: NVDA FY26 10-K Note 16 ASC 718"
+        },
+        {
+          "label": "Soft 2: Cycle-trough non-GAAP GM compression -250bp (75% -> 72.5%) on Blackwell Ultra mix risk",
+          "delta_eps": -0.4,
+          "layer": "soft",
+          "source_tag": "S3: NVDA Q4 FY26 call guidance midpoint stress"
+        },
+        {
+          "label": "Clean 1: Blackwell ASP haircut -10% from hyperscaler counter-procurement",
+          "delta_eps": -0.5,
+          "layer": "clean",
+          "source_tag": "S3: NVDA Q1 FY26 call + S5 supply chain checks"
+        },
+        {
+          "label": "Clean 2: Hyperscaler DC capex flat YoY vs base +60%",
+          "delta_eps": -0.4,
+          "layer": "clean",
+          "source_tag": "S5: Counterpoint capex tracker stress"
+        },
+        {
+          "label": "Strong 1: AMD MI400/Helios share to 20% from current 10%",
+          "delta_eps": -0.6,
+          "layer": "strong",
+          "source_tag": "S5: hyperscaler RFP signals + AMD Q1 CY26 commentary"
+        },
+        {
+          "label": "Strong 2: Export control re-tightens China DC ($17B exposure) plus 15% USG revenue share continues",
+          "delta_eps": -0.6,
+          "layer": "strong",
+          "source_tag": "S5: BIS policy modeling tail"
+        },
+        {
+          "label": "Strong 3: Top-4 hyperscaler price negotiation post-Helios competitive entry",
+          "delta_eps": -0.3,
+          "layer": "strong",
+          "source_tag": "S3: management Q&A + S2 segment trend"
+        }
+      ],
+      "multiple_band_basis": "NVDA 5y P/E P5/P25/median/P75/P95 = 25/35/74/95/120; strong_bear 24x = below P5 (FY23 trough analog 25x but adjusted lower for AMD competitive shock)"
+    },
+    {
+      "id": "bear",
+      "probability": 0.2,
+      "narrative_one_liner": "Hyperscaler capex slows to +25% YoY; Blackwell ASP -10% haircut; AMD MI400 share 15%; GM compresses 200bp",
+      "eps": 5.0,
+      "eps_period": "FY27E",
+      "multiple": 32.0,
+      "multiple_type": "P/E",
+      "target_price": 160.0,
+      "expected_return": -0.278,
+      "anchors": [
+        "A1",
+        "A3",
+        "A5"
+      ],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Soft 1: SBC headwind 2.6% -> 3.2% of revenue",
+          "delta_eps": -0.2,
+          "layer": "soft",
+          "source_tag": "S1: NVDA FY26 10-K Note 16 ASC 718"
+        },
+        {
+          "label": "Soft 2: Cycle-trough non-GAAP GM compression -200bp (75% -> 73%)",
+          "delta_eps": -0.4,
+          "layer": "soft",
+          "source_tag": "S3: NVDA Q4 FY26 call guidance stress"
+        },
+        {
+          "label": "Clean 1: Blackwell ASP haircut -10%",
+          "delta_eps": -0.5,
+          "layer": "clean",
+          "source_tag": "S3: NVDA Q1 FY26 call ASP framework"
+        },
+        {
+          "label": "Clean 2: Hyperscaler DC capex moderates to +25% YoY vs base +60%",
+          "delta_eps": -0.4,
+          "layer": "clean",
+          "source_tag": "S5: Counterpoint capex tracker"
+        }
+      ],
+      "multiple_band_basis": "NVDA 5y P/E P25 ~ 35x; bear scenario at 32x reflects mid-cycle compression"
+    },
+    {
+      "id": "base",
+      "probability": 0.5,
+      "narrative_one_liner": "Hyperscaler capex +60-77% YoY confirmed; Blackwell Ultra on schedule; Rubin GA H2 2026 confirmed; AMD MI400 stays ~10% share; software/networking +60% YoY",
+      "eps": 6.5,
+      "eps_period": "FY27E",
+      "multiple": 40.0,
+      "multiple_type": "P/E",
+      "target_price": 260.0,
+      "expected_return": 0.173,
+      "anchors": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "strongest_anchor_s_level": "S1",
+      "eps_bridge": [],
+      "multiple_band_basis": "NVDA 5y trailing average P/E ~74x but FY26 trough 40.8x and current 46x; base case at 40x = mid-cycle multiple consistent with mature growth profile and peer median +11%"
+    },
+    {
+      "id": "bull",
+      "probability": 0.2,
+      "narrative_one_liner": "Hyperscaler capex +90% YoY; Blackwell ASP +35% vs Hopper holds; Rubin GA Q3 2026; software/networking 25% of DC mix; sovereign-AI +$80B aggregate",
+      "eps": 7.3,
+      "eps_period": "FY27E",
+      "multiple": 46.0,
+      "multiple_type": "P/E",
+      "target_price": 335.8,
+      "expected_return": 0.516,
+      "anchors": [
+        "A2",
+        "A4"
+      ],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Bull Soft 1: Software attach expanding to 7% of DC vs base 5%",
+          "delta_eps": 0.2,
+          "layer": "soft",
+          "source_tag": "S4: Visible Alpha software line consensus"
+        },
+        {
+          "label": "Bull Soft 2: Networking attach +1pp on Spectrum-X + NVLink Fabric share",
+          "delta_eps": 0.2,
+          "layer": "soft",
+          "source_tag": "S4: Visible Alpha networking line"
+        },
+        {
+          "label": "Bull Clean 1: Blackwell Ultra ASP holds at +35% vs +25% base assumption",
+          "delta_eps": 0.4,
+          "layer": "clean",
+          "source_tag": "S3: NVDA Q1 FY26 call + GTC roadmap"
+        }
+      ],
+      "multiple_band_basis": "NVDA 5y P/E P75 ~ 95x; bull at 46x just above current P/E reflecting modest re-rating"
+    },
+    {
+      "id": "strong_bull",
+      "probability": 0.05,
+      "narrative_one_liner": "Hyperscaler capex +100% YoY; Blackwell Ultra ASP +40%; sovereign-AI add $100B; software billings >$15B annualized; Vera Rubin demand pull-in",
+      "eps": 8.5,
+      "eps_period": "FY27E",
+      "multiple": 52.0,
+      "multiple_type": "P/E",
+      "target_price": 442.0,
+      "expected_return": 0.995,
+      "anchors": [
+        "A2",
+        "A4"
+      ],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Bull Soft 1: Software attach to 7%",
+          "delta_eps": 0.2,
+          "layer": "soft",
+          "source_tag": "S4: Visible Alpha"
+        },
+        {
+          "label": "Bull Soft 2: Networking +1pp",
+          "delta_eps": 0.2,
+          "layer": "soft",
+          "source_tag": "S4: Visible Alpha"
+        },
+        {
+          "label": "Bull Clean 1: Blackwell Ultra ASP +40%",
+          "delta_eps": 0.4,
+          "layer": "clean",
+          "source_tag": "S3: NVDA Q1 FY26 call"
+        },
+        {
+          "label": "Bull Strong 1: Sovereign-AI cluster add $100B aggregate (Stargate UAE/global expansion)",
+          "delta_eps": 0.6,
+          "layer": "strong",
+          "source_tag": "S3: management commentary + S5 trade press"
+        },
+        {
+          "label": "Bull Strong 2: Vera Rubin demand pull-in to FY27 second half",
+          "delta_eps": 0.6,
+          "layer": "strong",
+          "source_tag": "S3: GTC 2026 roadmap"
+        }
+      ],
+      "multiple_band_basis": "NVDA 5y P/E P75 ~ 95x; strong_bull at 52x well below P75 (disciplined upside)"
+    }
+  ],
+  "probability_sum_check": 1.0,
+  "conviction_tag": "moderate_bull",
+  "headline": {
+    "expected_return_median": 0.1528,
+    "expected_return_range_p10_p90": [
+      -0.278,
+      0.516
+    ],
+    "rating": "Buy",
+    "default_action": "hold_long",
+    "conditionality": "source_conditional",
+    "conditional_language_pattern": "A_source_conditional_bias",
+    "headline_text": "Source-conditional Buy (moderate-positive bias) at $221.56, base case PT $260 on FY27E EPS $6.50 (S4: consensus n=15 median $6.52) \u00d7 40x (S4: 5y trailing average P/E vs current 46x, mid-cycle multiple). 12-month median expected return +15.3%; scenario-weighted range [-28%, +52%], CONDITIONAL on (i) Blackwell ASP and margin discipline confirmed through FY27Q1 print on 2026-05-20 (S3: NVDA Q4 FY26 call 2026-02-25 guided 75% non-GAAP GM \u00b150bp) AND (ii) hyperscaler aggregate CY2026 capex YoY >+50% maintained across MSFT/GOOG/META/AMZN \u2014 currently +77% (S3: hyperscaler Q1 CY26 earnings calls). If hyperscaler capex falsifies <+30% OR FY27Q1 GM <73% OR AMD MI400 hyperscaler share >15% confirmed, downgrade to Hold; if FY27Q1 print confirms guide with positive Blackwell mix commentary, upgrade headline to unconditional Buy."
+  },
+  "weighting_sensitivity": {
+    "base_minus_10_to_bear": 0.108,
+    "base_minus_10_to_bull": 0.187,
+    "strong_tail_plus_10": {
+      "strong_bear": 0.073,
+      "strong_bull": 0.235
+    }
+  }
+}

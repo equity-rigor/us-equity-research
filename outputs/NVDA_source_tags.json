@@ -1,0 +1,388 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "NVDA",
+  "as_of_date": "2026-05-19",
+  "model_cutoff_date": "2026-01-31",
+  "all_citations": [
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "NVDA FY26 10-K Item 7 MD&A (fiscal year ending 2026-01-25)",
+      "date": "2026-02-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000021/nvda-20260125.htm",
+      "verified": true,
+      "freshness_days": 82,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "NVDA FY26 10-K Note 13 Segment Information; Datacenter $193.7B revenue +68% YoY",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "NVDA FY26 10-K Item 7 networking +142% YoY disclosure",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "NVDA FY26 10-K Item 8 financial statements (revenue $215.9B, GAAP/non-GAAP GM 71.1%/71.3%, $4.5B H20 charge)",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "NVDA FY26 10-K Note 16 SBC ASC 718",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "NVDA FY26 10-K Item 1 Business \u2014 TSMC supply concentration + HBM3e/HBM4 supplier disclosure",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "NVDA FY26 10-K Item 1A Risk Factors",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "NVDA Q4 FY26 earnings 8-K press release; Q4 rev $68B, DC $62B, Q4 non-GAAP GM 75.2%; FY27Q1 guide $78B revenue / 75% non-GAAP GM",
+      "date": "2026-02-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "NVDA Q2 FY26 8-K 2025-08-26 announcing $60B incremental share repurchase authorization (no expiration)",
+      "date": "2025-08-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "DEF 14A",
+      "ref": "NVDA 2026 proxy statement DEF 14A 2026-05-12 (management compensation + beneficial ownership)",
+      "date": "2026-05-12",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "13G",
+      "ref": "Vanguard Group 13G/A 2026-01-30 NVDA 2,266,625,855 shares 9.32%",
+      "date": "2026-01-30",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "13F",
+      "ref": "13F holdings Vanguard / BlackRock / FMR / State Street / T. Rowe Price Q1 2026",
+      "date": "2026-05-14",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "Form 4",
+      "ref": "NVDA Form 4 filings cluster (Jensen Huang 10b5-1 sales TTM ~$250M)",
+      "date": "2026-04-30",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "NVDA Q4 FY26 earnings call 2026-02-25 CFO Colette Kress, on FY27Q1 guide of $78B revenue and 75% non-GAAP GM \u00b150bp; visibility to $0.5T Blackwell+Rubin; expect sequential growth all CY2026",
+      "date": "2026-02-25",
+      "verified": true,
+      "is_anchor_eligible": false,
+      "promotion_path": "FY27Q1 10-Q segment commentary expected Aug 2026"
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Investor day deck",
+      "ref": "NVDA GTC Spring 2026 keynote 2026-03-18 announcing Vera Rubin full production + $1T cumulative Blackwell+Rubin opportunity through 2027",
+      "date": "2026-03-18",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "MSFT Q1 CY26 earnings call CY2026 capex guide $190B (~$25B attributed to memory cost pressure)",
+      "date": "2026-04-24",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "GOOG Q1 CY26 earnings call CY2026 capex guide up to $190B (raised from $175B prior)",
+      "date": "2026-04-29",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "META Q1 CY26 earnings call CY2026 capex guide up to $135B",
+      "date": "2026-04-30",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "AMZN Q1 CY26 earnings call AWS capex CY2026 ~$200B",
+      "date": "2026-05-01",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "AMD Q1 CY26 earnings call 2026-05-05: DC revenue $5.8B +57% YoY; Q2 guide $11.2B; Meta 6GW + OpenAI 6GW MI400/Helios commitments",
+      "date": "2026-05-05",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "AVGO Q1 FY26 earnings call: Q2 AI revenue guide $10.7B; $100B AI revenue target 2027; Alphabet networking partnership through 2031",
+      "date": "2026-03-12",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Visible Alpha consensus",
+      "ref": "Visible Alpha NVDA FY27E EPS consensus n=15 median $6.52 range $6.00-$7.29 (some at $8.06 high end)",
+      "date": "2026-05-15",
+      "verified": true,
+      "freshness_days": 4,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Visible Alpha consensus",
+      "ref": "Visible Alpha NVDA DC networking + software FY27E n=18 median $46B range $40-55B",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "FactSet consensus",
+      "ref": "FactSet NVDA analyst PT consensus median $272.08 n=58 buy_pct 85%",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Yahoo Finance consensus",
+      "ref": "Yahoo Finance NVDA spot $221.56 + 5y P/E range (current 46x, 5y median 74.6x, FY26 trough 40.8x)",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Gartner",
+      "ref": "Gartner DC GPU forecast 2026/03 update, methodology hyperscaler capex \u00d7 GPU-attach \u00d7 ASP; TAM $550B CY26 -> $1T CY28",
+      "date": "2026-03-15",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Counterpoint",
+      "ref": "Counterpoint hyperscaler capex tracker 2026/04 aggregating $725B 2026 (+77% YoY) cross-referenced to individual S3 transcripts",
+      "date": "2026-04-15",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S5",
+      "source_type": "IDC",
+      "ref": "IDC DC infrastructure tracker 2026/Q1",
+      "date": "2026-04-15",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Omdia",
+      "ref": "Omdia datacenter GPU shipment tracker 2026/Q1: NVDA share ~87%, AMD ~10%, others ~3%",
+      "date": "2026-04-20",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S1",
+      "source_type": "FRED",
+      "ref": "FRED DGS10 10-year UST yield 4.68%",
+      "date": "2026-05-19",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Damodaran",
+      "ref": "Damodaran US implied equity risk premium 5.5% (May 2026 update)",
+      "date": "2026-05-01",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "BIS Entity List",
+      "ref": "BIS Entity List query NVDA 2026-05-19, no listing for issuer entity",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "OFAC SDN",
+      "ref": "OFAC SDN list query NVDA 2026-05-19, no listing",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    }
+  ],
+  "top_anchors": [
+    {
+      "anchor_id": "A1",
+      "claim": "NVDA FY26 datacenter revenue",
+      "value": 193700,
+      "unit": "$M",
+      "citation": {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "NVDA FY26 10-K Note 13 Segment Information (fiscal year ending 2026-01-25); DC $193.7B +68% YoY",
+        "date": "2026-02-26",
+        "verified": true,
+        "is_anchor_eligible": true,
+        "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000021/nvda-20260125.htm"
+      },
+      "drives_scenarios": [
+        "base",
+        "bear",
+        "bull"
+      ],
+      "sensitivity_pct": 8.0
+    },
+    {
+      "anchor_id": "A2",
+      "claim": "Hyperscaler aggregate CY2026 capex YoY growth",
+      "value": 77.0,
+      "unit": "%",
+      "citation": {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "MSFT Q1 CY26 ($190B) + GOOG Q1 CY26 ($190B) + META Q1 CY26 ($135B) + AMZN Q1 CY26 ($200B) aggregated $725B vs 2025 actual $410B = +77%",
+        "date": "2026-05-01",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "Individual hyperscaler 10-Q segment-level capex filings expected by 2026-08-01"
+      },
+      "drives_scenarios": [
+        "strong_bear",
+        "bear",
+        "base",
+        "bull",
+        "strong_bull"
+      ],
+      "sensitivity_pct": 14.0
+    },
+    {
+      "anchor_id": "A3",
+      "claim": "FY27Q1 non-GAAP gross margin guidance + Q4 FY26 actual",
+      "value": "75.0% guide / 75.2% Q4 actual",
+      "unit": "%",
+      "citation": {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "NVDA Q4 FY26 earnings call 2026-02-25 CFO Colette Kress: FY27Q1 non-GAAP GM 75% \u00b150bp; Q4 actual 75.2%; FY26 full-year 71.3% impacted by $4.5B H20 charge",
+        "date": "2026-02-25",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "NVDA FY27Q1 10-Q segment commentary 2026-08-20"
+      },
+      "drives_scenarios": [
+        "strong_bear",
+        "bear",
+        "base",
+        "bull",
+        "strong_bull"
+      ],
+      "sensitivity_pct": 10.0
+    },
+    {
+      "anchor_id": "A4",
+      "claim": "FY26 DC networking growth YoY (signals software/networking attach trajectory)",
+      "value": 142.0,
+      "unit": "%",
+      "citation": {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "NVDA FY26 10-K Item 7 MD&A: DC networking revenue +142% YoY driven by NVLink Compute Fabric for Blackwell + Ethernet/InfiniBand",
+        "date": "2026-02-26",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": [
+        "bull",
+        "strong_bull"
+      ],
+      "sensitivity_pct": 5.0
+    },
+    {
+      "anchor_id": "A5",
+      "claim": "AMD DC revenue Q1 CY26 and MI400/Helios competitive trajectory",
+      "value": 5800,
+      "unit": "$M",
+      "citation": {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "AMD Q1 CY26 earnings call 2026-05-05: DC revenue $5.8B +57% YoY; Q2 guide $11.2B; Meta 6GW + OpenAI 6GW MI455X/Helios commitments",
+        "date": "2026-05-05",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "AMD FY26 10-K and FY26Q2 10-Q segment disclosures"
+      },
+      "drives_scenarios": [
+        "strong_bear",
+        "bear"
+      ],
+      "sensitivity_pct": 7.0
+    }
+  ],
+  "headline_conditionality": "source_conditional",
+  "pending_assumptions": []
+}
