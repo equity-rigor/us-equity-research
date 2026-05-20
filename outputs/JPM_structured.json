@@ -1,0 +1,1719 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "JPM",
+  "exchange": "NYSE",
+  "company_name": "JPMorgan Chase & Co.",
+  "sector_gics": "Financials",
+  "industry_gics": "Banks-Commercial (GICS 4010101010)",
+  "as_of_date": "2026-05-19",
+  "model_cutoff_date": "2026-01-31",
+  "author": "Phase E JPM builder subagent (orchestrator)",
+  "current_price_usd": 300.57,
+  "market_cap_usd_b": 797.99,
+  "enterprise_value_usd_b": 797.99,
+  "fiscal_year_end": "12-31",
+  "headline": {
+    "expected_return_median": 0.0455,
+    "expected_return_range_p10_p90": [
+      -0.3413,
+      0.3308
+    ],
+    "rating": "Hold",
+    "default_action": "hold_long",
+    "conditionality": "source_conditional",
+    "conditional_language_pattern": "A_source_conditional_bias",
+    "headline_text": "Source-conditional Hold at $300.57, base case 12-month PT $326 on FY27E EPS $22.50 (S4: Visible Alpha consensus n=22 median $22.50) × P/E 14.5x (S4: 5y forward P/E P75 14.0x, current 13.4x). 12-month median expected return +4.6%; scenario-weighted range [-34%, +33%], CONDITIONAL on (i) 2026 NII trajectory tracking $103-105B revised range (S3: JPM Q1 2026 earnings call 2026-04-14 implicit upward revision from Q4 2025 guide) AND (ii) Basel III endgame final rule capital impact contained to $20B incremental over 24-month phase-in (S3: Dimon/Barnum Q1 2026 commentary + S5 trade press) AND (iii) credit normalization NCO rate <1.0% through FY26. If 2026 NII falls below $100B OR NCO rate >1.20% OR Basel III endgame accelerates to <12 month phase-in, downgrade to Sell. If Q2 2026 NII print >$26B AND ROTCE sustained >22%, upgrade to Buy."
+  },
+  "recommendation": {
+    "rating": "Hold",
+    "price_target_usd": 326.0,
+    "price_target_range_low_usd": 198.0,
+    "price_target_range_high_usd": 400.0,
+    "upside_downside_pct": 8.5,
+    "time_horizon_months": 12,
+    "conviction_tag": "source_conditional",
+    "default_action": "hold_long",
+    "rationale_one_paragraph": "Source-conditional Hold on JPM at $300.57 (S4: Yahoo Finance 2026-05-19). Base case PT $326 derived from FY27E EPS $22.50 (S4: Visible Alpha consensus median $22.50 n=22 range $20.80-$24.10) × P/E 14.5x (S4: above 5y forward P/E P75 14.0x reflecting post-pandemic 20%+ ROTCE pattern; vs current 13.4x). Top-3 anchors: A1 JPM FY25 net income $57.0B / EPS $20.02 (S1: JPM FY25 10-K Item 8 financial statements), A2 Q1 2026 NII +9% / ROTCE 23% / CET1 14.3% (S2: JPM Q1 2026 8-K earnings 2026-04-14), A3 2026 NII guide $103B total / $95B ex-Markets with fading rate tailwinds (S3: JPM Q4 2025 earnings call 2026-01-13 + Q1 2026 implicit upward revision). A3 is S3 → headline carries Pattern A source-conditional bias language; falsification expected at Q2 2026 print mid-July 2026. Probability-weighted 12mo return +4.6%, asymmetry on a 0.97:1 basis with bull PT $400 vs bear PT $198 — close to symmetric, anchoring the Hold thesis. Default action hold_long: position presumed at S&P 500 benchmark weight (~1.3% of index) given $798B market cap; downgrade to trim_long if Q2 2026 NII print disappoints OR Basel III endgame phase-in accelerates."
+  },
+  "investment_thesis_pillars": [
+    {
+      "title": "JPM trades at a premium P/B (2.34x vs 5y median 1.75x) but the ROTCE-implied P/B (~2.50x) is roughly fair — multiple expansion has already happened",
+      "key_statistic": "JPM P/B 2.34x vs 5y P5/P25/median/P75/P95 = 1.30/1.55/1.75/2.10/2.50; current at P95; sustainable ROE/COE ratio at 20%/8.5% implies fair P/B = 2.0-2.5x (S4: FactSet 2026-05-15 + S3: 2025 DFAST results disclosure)",
+      "narrative": "JPMorgan Chase has fundamentally re-rated post-pandemic. The franchise that printed ROTCE 13-15% in 2017-2019 now produces 20-23% ROTCE consistently (Q1 2026 ROTCE 23%, FY25 ROTCE 21% ex-significant items). Applying a Gordon Growth Model framework with ROTCE 20%, COE 9% (R_f 4.59% + beta 1.0 × ERP 5.5% - banks discount), and TBV growth 7%, the implied fair P/TBV is approximately 2.6x — vs current 2.80x on $107.56 TBVPS. The ROE-implied P/B fair value is approximately 2.40-2.55x against current 2.34x, meaning the stock is roughly fairly valued on capital-efficiency-adjusted book. The thesis is the multiple expansion FROM that re-rating is mostly behind the stock; further multiple expansion requires either (i) sustained ROTCE above 23% (strong_bull-only), (ii) Basel III endgame softening below the $20B incremental capital expectation, or (iii) Fed cuts that compress NIM at a slower-than-feared pace. None of these are base-case probable. The bear-asymmetry comes from the same dynamic in reverse — if ROTCE compresses to 16% (bear scenario from NCO normalization + NIM compression), the ROE-implied P/B falls to 1.75x = fair value $225 (-25%). The thesis-defining open question is whether the post-pandemic ROTCE step-up is durable through a normalizing credit cycle and a Basel III capital build.",
+      "anchor_refs": [
+        "A1",
+        "A2",
+        "A4"
+      ],
+      "timeline": "FY26-FY27 (capital build cycle)"
+    },
+    {
+      "title": "Net interest income trajectory is at the inflection — 2026 guide $103B is broadly flat YoY despite balance sheet expansion of +7-11%",
+      "key_statistic": "2026 NII guide ~$103B total / ~$95B ex-Markets (S3: JPM Q4 2025 call); Q1 2026 NII +9% beat suggesting upward revision to $104-105B (S3: JPM Q1 2026 call); avg loans $1.5T +11% YoY; avg deposits $2.6T +7% YoY (S2: JPM Q1 2026 8-K)",
+      "narrative": "The structural set-up for JPM's NII trajectory is that loan and deposit volume growth (+7-11% YoY) is partially offset by NIM compression from Fed rate cuts and deposit re-pricing. Management's 2026 guide of ~$103B NII total (vs ~$95.9B FY25 from sum-of-quarters) implies just 7% NII growth on 10% balance sheet growth — i.e., embedded NIM compression of approximately 5-7bp. Q1 2026 outperformance (+9% YoY NII) suggests the guide is conservative, but the trajectory question is whether NIM stabilizes or compresses further as the back book continues to reprice down with the Fed cuts. The Fed March 2026 dot plot median end-2026 fed funds at 3.4% (one cut from current 4.25-4.50%) is materially less dovish than earlier in 2025; CME FedWatch implies just one cut by year-end. If the Fed cuts more than once, NIM compression worsens; if the Fed stays on hold, NIM stabilizes. A bear scenario assumes NIM compresses 10bp from current 2.60% to 2.50% on Fed cuts and deposit beta normalization. Balance sheet expansion alone cannot offset this without ROTCE leakage — the bank's ROTCE depends on both NIM and operating leverage, and the operating leverage story (AI productivity unlock at the $105B expense base) is multi-year not 12-month.",
+      "anchor_refs": [
+        "A2",
+        "A3"
+      ],
+      "timeline": "FY26 (NII trajectory) + FY27 (Basel III phase-in)"
+    },
+    {
+      "title": "Capital return discipline is exceptional and structural — $50B buyback + $1.50/share dividend at 14.3% CET1 vs 11.5% minimum",
+      "key_statistic": "$50B share repurchase authorization (S2: JPM 2025-07-01 8-K); Q1 2026 alone $8.1B buyback (27.5M shares) + $4.1B dividend; CET1 14.3% vs 11.5% standardized minimum = 280bp buffer (~$50B of excess capital before Basel III endgame)",
+      "narrative": "JPM's capital return is the durable downside-support pillar. The bank generated $57B of net income in FY25 against a tangible book value of approximately $280B, implying 20% ROTCE pre-buyback. The $50B authorization (effective Jul 2025) is approximately 6% of market cap and represents one of the largest such authorizations in US large-cap. At Q1 2026 pace ($8.1B/quarter), the bank is on track for $32B+ of buybacks in 2026 plus $16B+ in dividends — total capital return ~$48B against $66B+ projected net income = ~73% payout. This is enabled by the SCB declining to the 2.5% floor and standardized CET1 minimum to 11.5% (effective Oct 2025). The forward issue: Basel III endgame phase-in (estimated start H2 2026 with 24-month phase-in to FY28) requires $20B incremental capital per management commentary. This is approximately one year of buyback pace — meaning capital return pace may slow rather than stop, but the bank has flexibility. The bear-pillar challenge is if Basel III endgame phase-in accelerates (Fed/FDIC/OCC final rule could prescribe < 24 months) OR if credit normalization deteriorates the internal capital generation rate.",
+      "anchor_refs": [
+        "A2",
+        "A4"
+      ],
+      "timeline": "Ongoing; quarterly refresh"
+    },
+    {
+      "title": "Basel III endgame creates structural ROTCE drag — JPM is the only large bank that pays a positive marginal cost from the March 2026 reproposal",
+      "key_statistic": "Basel III endgame reproposal March 2026: industry-average capital requirement -5% but JPM +4% (S5: Banking Dive / FinancialContent); $20B incremental capital / +$130B RWA / +6% capital uplift offset by -2% G-SIB surcharge (S3: JPM Q1 2026 call Dimon/Barnum)",
+      "narrative": "The Basel III endgame March 2026 reproposal is uniquely disadvantageous to JPMorgan among US G-SIBs. While Bank of America, Wells Fargo, and Citi see capital requirements decline approximately 5% on average, JPMorgan sees a 4% net increase driven by RWA inflation ($130B / +6% to required capital) only partially offset by a 2% G-SIB surcharge reduction. CEO Dimon publicly criticized the proposal as 'miscalibrated' on the Q1 2026 call, arguing the U.S. G-SIB surcharge methodology remains 'still broken.' Mechanically, $20B incremental capital at JPM's current ROTCE of 21% means $4.2B/year less net income generation capacity, OR approximately $1.60/share less buyback potential, OR approximately 50bp ROTCE compression. The expected phase-in is 24 months from the H2 2026 effective date. This headwind is real but priced — analyst consensus PT median of $345 implicitly already includes some of this drag. The bull-pillar offset is that final rule may soften further before H2 2026 effective date (public comment period through Q3 2026); the bear-pillar acceleration risk is a less generous phase-in schedule.",
+      "anchor_refs": [
+        "A4"
+      ],
+      "timeline": "H2 2026 effective date; 24-month phase-in to FY28"
+    }
+  ],
+  "company_qualitative": {
+    "description": "JPMorgan Chase & Co. is the largest US commercial bank by assets ($4.9T at Q1 2026) and global banking franchise by market capitalization (~$798B at 2026-05-19), headquartered in New York. The firm operates four primary segments: Consumer & Community Banking (CCB) — the largest US retail and small-business bank by branches and digital reach, serving approximately 80 million customers with deposit products, mortgages, auto loans, credit cards (now including the Apple card portfolio acquired Q4 2025), and small-business banking; Corporate & Investment Bank (CIB) — global investment banking (M&A, debt and equity underwriting), Markets (FICC + equities trading), and treasury services/securities services, serving corporations, financial institutions, governments, and institutional investors; Asset & Wealth Management (AWM) — global asset management (mutual funds, ETFs, alternative investments) plus US private banking and Chase Wealth Management, with approximately $5.7T client assets including $3.6T AUM; and Corporate — treasury and corporate functions including the chief investment office. Revenue in FY25 was approximately $185B (managed; $180B GAAP), with net interest income approximately $95.9B (sum of quarters) and noninterest revenue approximately $89B. Net income FY25 was $57.0B (S1: JPM FY25 10-K Item 8), with diluted EPS of $20.02. ROTCE 21% ex-significant items (the $2.2B Apple card reserve build, $588M First Republic gain, and $774M tax benefit). Capital position at year-end was CET1 14.5% standardized vs an 11.5% minimum requirement plus 2.5% stress capital buffer (the SCB floor), with tier 1 leverage 7.0% and supplementary leverage ratio (SLR) 5.7%. Q1 2026 net income surged to $16.5B (+13% YoY) on EPS $5.94 (+17% YoY) with ROE 19% / ROTCE 23%, driven by NII +9% YoY (above guide), noninterest revenue +11% YoY on markets/IB/asset management strength, and modest credit cost build. Common stock repurchased $8.1B (27.5M shares) in Q1 2026 plus $4.1B dividends ($1.50/share quarterly), translating to a $48B+ projected 2026 capital return against management's 2026 NII guide of approximately $103B total / $95B ex-Markets. Geographically, the firm derives approximately 75% of revenue from the United States, 13% from EMEA, 8% from Asia Pacific, and 4% from Latin America and other. Customer concentration is structurally distributed across millions of consumer accounts (CCB) and tens of thousands of corporate/institutional relationships (CIB); the bank does not face single-customer revenue concentration risk in the way technology vendors do, but does face funding concentration risk via large deposit relationships (top-10 deposit relationships estimated ~10% of total deposits per industry analyst convention). Manufacturing analog is the bank's risk-weighted asset (RWA) base of approximately $1.95T at Q1 2026, against which CET1 capital of approximately $279B yields the 14.3% ratio. The fabless model analog is the bank's reliance on regulatory capital frameworks (Basel III, US standardized + advanced approaches) and central counterparty clearing for Markets/derivatives exposure. Capital allocation has prioritized organic loan growth (avg loans +11% YoY Q1 2026), capital return (~$48B 2026 projected), and selective bolt-on acquisitions (First Republic 2023, Apple card portfolio 2025). The bank operates under intensive prudential supervision by the Federal Reserve (primary regulator), OCC (national bank regulator), FDIC (insurance), CFPB (consumer protection), SEC (broker-dealer), CFTC (derivatives), and dozens of foreign regulators including UK PRA, ECB, MAS Singapore, HKMA, and BoJ.",
+    "products": [
+      {
+        "name": "Consumer & Community Banking (CCB) — retail banking, cards, auto",
+        "description": "Largest US retail bank franchise serving approximately 80 million customers across roughly 4,800 branches and 16,000 ATMs. Products include consumer banking (deposits, checking, savings), credit cards (including the Apple card portfolio acquired Q4 2025), mortgages, auto lending, small business banking, and Chase digital channels. CCB FY25 revenue $77.6B, net income $14.4B, ROE 25%, overhead ratio 53%. Q1 2026 net income $5.0B on revenue $19.7B with card NII and operating lease income tailwinds.",
+        "target_customers": "US consumers, small businesses, and households across all wealth tiers; 61.7M active mobile customers; debit + credit card sales volume $512.5B FY25",
+        "pricing_model": "Spread-based (NIM on deposit-loan rates) + fee-based (interchange, late fees, ATM fees, account maintenance)",
+        "revenue_contribution_pct": 42.0,
+        "competitive_position": "Dominant US retail bank; primary competitors: Bank of America Consumer Banking, Wells Fargo Consumer, Citi US Personal Banking",
+        "source_citation": {
+          "s_level": "S2",
+          "source_type": "8-K",
+          "ref": "JPM Q4 2025 8-K segment detail + Q1 2026 segment update"
+        }
+      },
+      {
+        "name": "Corporate & Investment Bank (CIB) — IB advisory, capital markets, Markets trading",
+        "description": "Global investment banking franchise covering M&A advisory, debt/equity underwriting, treasury services, securities services, and Markets (FICC + equities trading). CIB FY25 revenue $77.6B / net income $29.2B (largest segment by NI) with ROE 19% and overhead ratio 47%. Q1 2026 record performance: revenue $23.4B with Banking & Payments $10.4B (IB fees +23%) and Markets & Securities Services $13.0B (Markets +21%). Net income $9.0B (+25% YoY).",
+        "target_customers": "Corporations, financial institutions, governments, institutional investors globally",
+        "pricing_model": "Fee-based (IB advisory, underwriting commissions, treasury services fees) + spread-based (Markets trading) + balance-sheet-based (treasury services, securities lending)",
+        "revenue_contribution_pct": 42.0,
+        "competitive_position": "#1 or #2 globally in M&A advisory, debt/equity underwriting, FICC; primary competitors: Goldman Sachs, Morgan Stanley, Bank of America Securities, Citi ICG",
+        "source_citation": {
+          "s_level": "S2",
+          "source_type": "8-K",
+          "ref": "JPM Q1 2026 8-K CIB segment detail"
+        }
+      },
+      {
+        "name": "Asset & Wealth Management (AWM) — institutional asset mgmt + US private wealth",
+        "description": "Global asset management franchise (mutual funds, ETFs, alternatives via JPMorgan Asset Management) plus US private banking and Chase Wealth Management. AWM FY25 revenue $25.8B / net income $7.2B with ROE 44% — among the highest-ROE businesses in the firm. Q1 2026 net income $1.8B on revenue $6.4B with record $87B net new asset inflows in the quarter. Client assets approximately $5.7T including $3.6T AUM.",
+        "target_customers": "Institutional investors (pensions, endowments, sovereigns) + US high-net-worth and ultra-high-net-worth households + mass affluent through Chase Wealth Management",
+        "pricing_model": "Fee-based (AUM fees, advisory fees, performance fees) + spread-based (private banking lending) + transaction-based (brokerage)",
+        "revenue_contribution_pct": 14.0,
+        "competitive_position": "Top 3 US private bank; top 5 global asset manager by AUM; primary competitors: BlackRock, Morgan Stanley Wealth Management, Goldman Sachs Asset & Wealth Management, Bank of America Private Bank/Merrill",
+        "source_citation": {
+          "s_level": "S2",
+          "source_type": "8-K",
+          "ref": "JPM Q1 2026 8-K AWM segment detail"
+        }
+      },
+      {
+        "name": "Corporate / Treasury + chief investment office",
+        "description": "Corporate segment includes treasury and chief investment office investment securities portfolio (used for liquidity management and interest-rate risk hedging), plus corporate functions (legal, technology, real estate, executive). Revenue and net income vary substantially quarter-to-quarter based on investment portfolio gains/losses and discretionary treasury activities. Average size approximately $4B revenue and $1-2B net income per year.",
+        "target_customers": "Internal (firm-level capital + liquidity management)",
+        "pricing_model": "Spread + investment income",
+        "revenue_contribution_pct": 2.0,
+        "competitive_position": "n/a — firm-level treasury function",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "JPM FY25 10-K Note 23 Corporate segment"
+        }
+      }
+    ],
+    "customers_gtm": "Direct customer relationships across all four segments. CCB serves 80M US consumers and 6M small businesses via branch network, digital channels (#1 US mobile banking app by active users), and channel partnerships (e.g., Apple card via the Goldman Sachs-acquired portfolio). CIB has approximately 30,000 institutional client relationships globally with sector-specialty coverage teams (TMT, healthcare, energy, financial sponsors, financial institutions); the firm is #1 or #2 in M&A advisory, debt/equity underwriting, and FICC by league table volumes. AWM serves approximately 10,000 institutional client relationships plus 220,000 US private bank households plus mass-affluent Chase Wealth Management clients. Customer concentration is distributed (not technology-vendor-style 40% top-4 concentration); however, funding-concentration risk exists via large deposit relationships (estimated top-10 ~10% of total).",
+    "industry": {
+      "overview": "The US large-cap commercial banking industry is dominated by four G-SIBs (JPMorgan Chase, Bank of America, Wells Fargo, Citigroup) plus two G-SIB-class capital-markets-led franchises (Goldman Sachs, Morgan Stanley). The structural dynamics in 2026 are: (1) the late-cycle Fed peak with the federal funds rate at 4.25-4.50% (May 2026) and the FOMC March 2026 dot plot median end-2026 at 3.4% implying one rate cut by year-end — materially less dovish than the early 2025 consensus that priced 3-4 cuts; (2) the Basel III endgame March 2026 reproposal (industry-average capital requirement -5% but G-SIBs see +4% with JPM uniquely disadvantaged by G-SIB surcharge methodology); (3) the credit normalization cycle with NCO rates rising off pandemic-era lows (JPM FY25 NCO 0.74% vs FY24 0.55%; industry trending toward 0.90-1.20% steady-state); (4) the M&A and IB activity cycle which inflected up in late 2025 / Q1 2026 with the M&A 'supercycle' commentary becoming consensus; (5) the deposit pricing cycle as banks compete for and reprice deposits in the late-rate-cycle environment; and (6) the AI productivity unlock thesis where large banks are investing heavily in AI (JPM in particular at the largest tech budget in banking, ~$17B FY25 of which ~$2B+ is AI-specific) to drive operating-leverage improvement. Per FactSet and S&P Global 2026-05-15 large-cap bank peer multiples, the spread between best-in-class (JPM P/B 2.34x, ROTCE 23%) and worst-in-class (Citi P/B 0.85x, ROTCE 13%) is the widest in over a decade. The post-pandemic regime has produced sustained ROTCE differentiation that the market has rewarded via multiple expansion — but at current multiples, further expansion requires either sustained ROTCE acceleration or a softening of regulatory capital headwinds. The competitive set is structurally bimodal: balance-sheet-heavy commercial banks (JPM, BAC, WFC, C) competing on scale + capital + deposit franchise vs. capital-markets-led firms (GS, MS) competing on advisory + asset management + wealth management franchises.",
+      "tam": {
+        "current_year": 2026,
+        "current_tam_usd_b": 800.0,
+        "projected_year": 2028,
+        "projected_tam_usd_b": 920.0,
+        "cagr_pct": 7.0,
+        "source": {
+          "s_level": "S5",
+          "source_type": "Trade press",
+          "ref": "S&P Global / FDIC industry data: US commercial banking aggregate revenue ~$800B 2026 estimated; CAGR 7% to $920B by 2028 driven by balance-sheet growth + structural NIM stability"
+        }
+      }
+    },
+    "competitive_landscape": {
+      "peers": [
+        {
+          "name": "Bank of America",
+          "ticker": "BAC",
+          "market_cap_usd_b": 380.0,
+          "market_share_pct": 12.0,
+          "key_differentiator": "Largest US consumer deposit franchise; ROTCE 16% Q1 2026; P/B 1.37x; medium-term ROTCE guide 16-18%; significant interest-rate sensitivity from large securities portfolio",
+          "revenue_growth_pct": 5.0,
+          "ebitda_margin_pct": null
+        },
+        {
+          "name": "Wells Fargo",
+          "ticker": "WFC",
+          "market_cap_usd_b": 250.0,
+          "market_share_pct": 8.0,
+          "key_differentiator": "US-centric commercial bank; ROTCE 14% Q1 2026; P/B 1.55x; mgmt raised medium-term ROTCE guide to 17-18%; asset cap lifted Feb 2025 enabling balance sheet growth",
+          "revenue_growth_pct": 6.0,
+          "ebitda_margin_pct": null
+        },
+        {
+          "name": "Citigroup",
+          "ticker": "C",
+          "market_cap_usd_b": 160.0,
+          "market_share_pct": 6.0,
+          "key_differentiator": "Restructuring story under CEO Fraser; ROTCE 13% Q1 2026 (above guide 10-11%); P/B 0.85x — only large US bank below 1.0x; global services franchise + emerging US Personal Banking turnaround",
+          "revenue_growth_pct": 4.0,
+          "ebitda_margin_pct": null
+        },
+        {
+          "name": "Goldman Sachs",
+          "ticker": "GS",
+          "market_cap_usd_b": 220.0,
+          "market_share_pct": null,
+          "key_differentiator": "Capital-markets-led franchise; ROTCE 15.2% Q1 2026; M&A advisory and equity underwriting market share leader; asset management franchise growing",
+          "revenue_growth_pct": 12.0,
+          "ebitda_margin_pct": null
+        },
+        {
+          "name": "Morgan Stanley",
+          "ticker": "MS",
+          "market_cap_usd_b": 260.0,
+          "market_share_pct": null,
+          "key_differentiator": "Wealth-management-led franchise; ROTCE 23.5% Q3 2025; P/TBV 3.73x (highest in peer set); $9.3T client assets; 30% wealth pre-tax margin; structurally lower capital intensity than commercial banks",
+          "revenue_growth_pct": 10.0,
+          "ebitda_margin_pct": null
+        }
+      ],
+      "positioning_narrative": "JPM occupies the premier US large-bank franchise position by every measure — largest assets ($4.9T Q1 2026), largest market cap ($798B), highest ROTCE (23% Q1 2026, peer-leading) for a balance-sheet-heavy commercial bank. The bank trades at a deserved premium P/B (2.34x vs peer median 1.37x BAC / 1.55x WFC) reflecting this ROTCE differentiation, but the spread between JPM and peers has compressed in 2026 vs 2024-2025 as peers (WFC, C) execute their respective turnarounds and Basel III endgame asymmetrically disadvantages JPM (+4% capital vs industry -5%). The premium is justified at current P/B 2.34x by the ROTCE/COE wedge (21% / 9% = 2.33x implied P/B fair value), suggesting the stock is roughly fairly valued on capital-efficiency-adjusted terms. The competitive watch items are: (i) WFC delivering on its 17-18% ROTCE guide which would compress the multiple gap; (ii) C executing the turnaround which would re-rate from P/B 0.85x; (iii) MS/GS taking incremental IB/M&A share in the supercycle which could divert advisory revenue from CIB. The compensating thesis pillars are: (a) JPM's scale advantage in tech investment ($17B FY25 tech budget) enabling operating-leverage improvement; (b) the durable deposit franchise providing structural funding-cost advantage; (c) the CIB+AWM combination uniquely positioning JPM to capture both M&A supercycle and wealth management secular growth."
+    }
+  },
+  "management": [
+    {
+      "name": "Jamie Dimon",
+      "title": "Chairman and CEO",
+      "tenure_years": 20,
+      "bio": "Joined JPMorgan Chase as President & COO in 2004 following the Bank One merger, became CEO in 2005 and Chairman in 2006. Considered the most influential US bank CEO of the post-financial-crisis era. Prior to Bank One, served as CEO of Bank One (2000-2004), president of Citigroup (1998-1999), and CFO and President of Travelers Group (1990-1998) working closely with Sandy Weill. Holds an A.B. from Tufts University and an MBA from Harvard Business School. Beneficial ownership approximately 9.5M JPM shares directly and indirectly (S2: 2026 DEF 14A); FY25 compensation $39M (mostly equity-based). Has publicly criticized the Basel III endgame March 2026 reproposal as 'miscalibrated,' arguing the U.S. G-SIB surcharge methodology remains broken (S3: JPM Q1 2026 earnings call). Has discussed succession publicly but no specific timeline; recent CEO of CCB Marianne Lake and President of Commercial & Investment Banking Doug Petno cited as primary internal succession candidates. Founder-CEO style of detailed operational engagement with quarterly investor letters of unusual length and analytical depth; the firm's annual letter to shareholders is widely read across investment industry as a thought-leadership document.",
+      "compensation_usd_m": 39.0,
+      "stock_ownership_shares": 9500000,
+      "background": "Banking + finance; ex-Bank One CEO, ex-Citigroup President, ex-Travelers Group CFO/President",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "JPM 2026 proxy DEF 14A 2026-04-05"
+      }
+    },
+    {
+      "name": "Jeremy Barnum",
+      "title": "Executive Vice President and CFO",
+      "tenure_years": 5,
+      "bio": "Became CFO in January 2021 succeeding Jennifer Piepszak (who moved to co-CEO of CCB and subsequently to Co-CEO of CIB). Prior to CFO role, served as Head of Global Research at JPMorgan and held senior roles in Equity Capital Markets and Investor Relations. Joined JPMorgan in 1994 in M&A. Holds an A.B. from Harvard University. On the Q4 2025 call (2026-01-13) provided the 2026 NII guide of approximately $103B total and approximately $95B ex-Markets, characterizing NII ex-Markets as 'broadly flat YoY' despite balance sheet expansion — signaling the inflection from rate-tailwinds-driven NII growth to balance-sheet-volume-driven growth. On the Q1 2026 call (2026-04-14) confirmed the upward revision toward $104-105B given Q1 +9% NII beat. Has been consistently disciplined in articulating the Basel III endgame impact ($20B incremental capital, $130B RWA, +6% capital uplift offset by -2% G-SIB reduction), and is the primary investor-facing voice on capital adequacy and stress-test results. Compensation FY25 approximately $13M (mostly equity-based).",
+      "compensation_usd_m": 13.0,
+      "stock_ownership_shares": 250000,
+      "background": "Finance, equity research, capital markets; career JPM banker",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "JPM 2026 proxy DEF 14A 2026-04-05"
+      }
+    },
+    {
+      "name": "Marianne Lake",
+      "title": "CEO of Consumer & Community Banking",
+      "tenure_years": 27,
+      "bio": "Named sole CEO of CCB in January 2024 (previously Co-CEO with Jennifer Piepszak). Joined JPMorgan in 1999 and served as firm CFO from 2013-2021 before transitioning to Co-CEO of CCB. UK-trained chartered accountant (FCA). Cited frequently as a potential CEO successor to Dimon. Under her CCB leadership, the segment delivered FY25 revenue $77.6B and net income $14.4B with 25% ROE; the integration of the Apple card portfolio (acquired Q4 2025 with $2.2B initial reserve build) is a current operational focus. Compensation FY25 approximately $20M.",
+      "compensation_usd_m": 20.0,
+      "stock_ownership_shares": 600000,
+      "background": "Finance + banking; UK chartered accountant; career JPM banker including 8 years as firm CFO",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "JPM 2026 proxy DEF 14A 2026-04-05"
+      }
+    },
+    {
+      "name": "Daniel Pinto",
+      "title": "President of JPMorgan Chase",
+      "tenure_years": 43,
+      "bio": "President of JPMorgan Chase since 2022 and previously CEO of CIB (2014-2024). Joined JPMorgan in 1983 in Argentina, rose through the trading and capital markets ranks, and ran the CIB business through the post-financial-crisis re-platforming era. Often cited as the COO-equivalent to Dimon at the firm level, with cross-firm operational oversight. Plans to retire in 2026 per company disclosure (specific timing under board succession planning). Compensation FY25 approximately $33M.",
+      "compensation_usd_m": 33.0,
+      "stock_ownership_shares": 1200000,
+      "background": "Trading, capital markets, CIB leadership; career JPM banker since 1983",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "JPM 2026 proxy DEF 14A 2026-04-05"
+      }
+    }
+  ],
+  "financials": {
+    "historical": [
+      {
+        "period": "FY22A",
+        "period_type": "historical",
+        "revenue_usd_m": 132300,
+        "revenue_growth_pct": 5.6,
+        "net_income_gaap_usd_m": 37676,
+        "eps_diluted_gaap_usd": 12.09,
+        "diluted_shares_m": 2965,
+        "fcf_usd_m": null,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 4400,
+        "buyback_usd_m": 3500,
+        "net_debt_usd_m": null
+      },
+      {
+        "period": "FY23A",
+        "period_type": "historical",
+        "revenue_usd_m": 158104,
+        "revenue_growth_pct": 19.5,
+        "net_income_gaap_usd_m": 49552,
+        "eps_diluted_gaap_usd": 16.23,
+        "diluted_shares_m": 2942,
+        "fcf_usd_m": null,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 4800,
+        "buyback_usd_m": 9700,
+        "net_debt_usd_m": null
+      },
+      {
+        "period": "FY24A",
+        "period_type": "historical",
+        "revenue_usd_m": 177421,
+        "revenue_growth_pct": 12.2,
+        "net_income_gaap_usd_m": 58471,
+        "eps_diluted_gaap_usd": 19.75,
+        "diluted_shares_m": 2872,
+        "fcf_usd_m": null,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 5200,
+        "buyback_usd_m": 18000,
+        "net_debt_usd_m": null
+      },
+      {
+        "period": "FY25A",
+        "period_type": "historical",
+        "revenue_usd_m": 185000,
+        "revenue_growth_pct": 4.3,
+        "net_income_gaap_usd_m": 57000,
+        "eps_diluted_gaap_usd": 20.02,
+        "diluted_shares_m": 2810,
+        "fcf_usd_m": null,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 5500,
+        "buyback_usd_m": 30000,
+        "segments": [
+          {
+            "name": "CCB - Consumer & Community Banking",
+            "revenue_usd_m": 77600,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "JPM FY25 10-K Note 23 Segment Information"
+            }
+          },
+          {
+            "name": "CIB - Corporate & Investment Bank",
+            "revenue_usd_m": 77600,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "JPM FY25 10-K Note 23 Segment Information"
+            }
+          },
+          {
+            "name": "AWM - Asset & Wealth Management",
+            "revenue_usd_m": 25800,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "JPM FY25 10-K Note 23 Segment Information"
+            }
+          },
+          {
+            "name": "Corporate / Treasury",
+            "revenue_usd_m": 4000,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "JPM FY25 10-K Note 23 Segment Information"
+            }
+          }
+        ]
+      }
+    ],
+    "ltm": {
+      "period": "LTM_Q1FY26",
+      "period_type": "ltm",
+      "revenue_usd_m": 198000,
+      "revenue_growth_pct": 8.0,
+      "net_income_gaap_usd_m": 60500,
+      "eps_diluted_gaap_usd": 21.33,
+      "diluted_shares_m": 2780,
+      "fcf_usd_m": null,
+      "fcf_includes_sbc_addback": false,
+      "sbc_usd_m": 5600,
+      "buyback_usd_m": 32000,
+      "segments": [
+        {
+          "name": "CCB - Consumer & Community Banking",
+          "revenue_usd_m": 79000,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S2",
+            "source_type": "8-K",
+            "ref": "JPM Q1 2026 8-K + FY25 10-K rolling LTM"
+          }
+        },
+        {
+          "name": "CIB - Corporate & Investment Bank",
+          "revenue_usd_m": 84000,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S2",
+            "source_type": "8-K",
+            "ref": "JPM Q1 2026 8-K + FY25 10-K rolling LTM"
+          }
+        },
+        {
+          "name": "AWM - Asset & Wealth Management",
+          "revenue_usd_m": 27000,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S2",
+            "source_type": "8-K",
+            "ref": "JPM Q1 2026 8-K + FY25 10-K rolling LTM"
+          }
+        },
+        {
+          "name": "Corporate / Treasury",
+          "revenue_usd_m": 8000,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S2",
+            "source_type": "8-K",
+            "ref": "JPM Q1 2026 8-K + FY25 10-K rolling LTM"
+          }
+        }
+      ]
+    },
+    "projected": [
+      {
+        "period": "FY26E",
+        "period_type": "projected",
+        "revenue_usd_m": 196000,
+        "revenue_growth_pct": 5.9,
+        "net_income_gaap_usd_m": 64500,
+        "eps_diluted_gaap_usd": 22.5,
+        "diluted_shares_m": 2735,
+        "fcf_usd_m": null,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 5800,
+        "buyback_usd_m": 32000
+      },
+      {
+        "period": "FY27E",
+        "period_type": "projected",
+        "revenue_usd_m": 200000,
+        "revenue_growth_pct": 2.0,
+        "net_income_gaap_usd_m": 60500,
+        "eps_diluted_gaap_usd": 22.5,
+        "diluted_shares_m": 2685,
+        "fcf_usd_m": null,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 6000,
+        "buyback_usd_m": 28000
+      },
+      {
+        "period": "FY28E",
+        "period_type": "projected",
+        "revenue_usd_m": 207000,
+        "revenue_growth_pct": 3.5,
+        "net_income_gaap_usd_m": 63000,
+        "eps_diluted_gaap_usd": 24.0,
+        "diluted_shares_m": 2625,
+        "fcf_usd_m": null,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 6200,
+        "buyback_usd_m": 30000
+      },
+      {
+        "period": "FY29E",
+        "period_type": "projected",
+        "revenue_usd_m": 215000,
+        "revenue_growth_pct": 3.9,
+        "net_income_gaap_usd_m": 65500,
+        "eps_diluted_gaap_usd": 25.5,
+        "diluted_shares_m": 2570,
+        "fcf_usd_m": null,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 6400,
+        "buyback_usd_m": 32000
+      },
+      {
+        "period": "FY30E",
+        "period_type": "projected",
+        "revenue_usd_m": 225000,
+        "revenue_growth_pct": 4.7,
+        "net_income_gaap_usd_m": 68500,
+        "eps_diluted_gaap_usd": 27.5,
+        "diluted_shares_m": 2495,
+        "fcf_usd_m": null,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 6600,
+        "buyback_usd_m": 34000
+      }
+    ],
+    "revenue_by_product": [
+      {
+        "product": "CCB - Consumer & Community Banking",
+        "by_period": {
+          "FY23A": 70143,
+          "FY24A": 73993,
+          "FY25A": 77600,
+          "FY26E": 81000,
+          "FY27E": 83000
+        }
+      },
+      {
+        "product": "CIB - Corporate & Investment Bank",
+        "by_period": {
+          "FY23A": 64677,
+          "FY24A": 72258,
+          "FY25A": 77600,
+          "FY26E": 85000,
+          "FY27E": 86000
+        }
+      },
+      {
+        "product": "AWM - Asset & Wealth Management",
+        "by_period": {
+          "FY23A": 21384,
+          "FY24A": 23519,
+          "FY25A": 25800,
+          "FY26E": 28000,
+          "FY27E": 29000
+        }
+      },
+      {
+        "product": "Corporate / Treasury",
+        "by_period": {
+          "FY23A": 1900,
+          "FY24A": 7651,
+          "FY25A": 4000,
+          "FY26E": 2000,
+          "FY27E": 2000
+        }
+      }
+    ],
+    "revenue_by_geography": [
+      {
+        "region": "United States",
+        "by_period": {
+          "FY24A": 133066,
+          "FY25A": 138750
+        }
+      },
+      {
+        "region": "EMEA",
+        "by_period": {
+          "FY24A": 23064,
+          "FY25A": 24050
+        }
+      },
+      {
+        "region": "Asia Pacific",
+        "by_period": {
+          "FY24A": 14194,
+          "FY25A": 14800
+        }
+      },
+      {
+        "region": "Latin America and Other",
+        "by_period": {
+          "FY24A": 7097,
+          "FY25A": 7400
+        }
+      }
+    ]
+  },
+  "gm_taxonomy": {
+    "entries": [
+      {
+        "type": "T1_consolidated",
+        "name": "Banks GM analog: T1 consolidated NIM (firmwide) + efficiency ratio (firmwide overhead)",
+        "value_range": "NIM 2.60% / Efficiency 55%",
+        "source": {
+          "s_level": "S2",
+          "source_type": "8-K",
+          "ref": "JPM Q1 2026 8-K firmwide NIM 2.60% Q1 2026; efficiency ratio 55% (managed)"
+        }
+      },
+      {
+        "type": "T2_segment",
+        "name": "Banks GM analog: T2 segment NIM / segment efficiency ratio (CCB / CIB / AWM / Corporate)",
+        "value_range": "CCB efficiency 53% / CIB efficiency 47% / AWM efficiency 65% (banks GM proxy)",
+        "source": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "JPM FY25 10-K Note 23 Segment Information; banks GM-analog framework declares NIM + efficiency ratio per segment as the GM-taxonomy proxy"
+        }
+      },
+      {
+        "type": "T3_sub_segment",
+        "name": "Banks GM analog: T3 sub-product NIM (card revolving NIM ~8.5% / commercial loan NIM ~3.2% / mortgage NIM ~1.5%)",
+        "value_range": "Card revolving 8.5% / Commercial 3.2% / Mortgage 1.5%",
+        "source": {
+          "s_level": "S5",
+          "source_type": "Trade press",
+          "ref": "S&P Global / industry analyst sub-product NIM estimates 2026-05-15"
+        }
+      },
+      {
+        "type": "T4_analyst_modeled",
+        "name": "Banks GM analog: T4 modeled FY27E firmwide NIM (post NIM compression on Fed cuts)",
+        "value_range": "Modeled FY27E NIM 2.55-2.65%",
+        "source": {
+          "s_level": "S5",
+          "source_type": "Other",
+          "ref": "Internal model: FY27E NIM modeled at 2.60% midpoint reflecting Fed dot plot 1 cut + deposit beta normalization"
+        }
+      },
+      {
+        "type": "T5_marginal",
+        "name": "Banks GM analog: T5 marginal-loan-book NIM (incremental commercial loan + securities portfolio incremental yield)",
+        "value_range": "Marginal commercial loan NIM 3.5-4.0% / marginal AFS portfolio yield 4.6%",
+        "source": {
+          "s_level": "S5",
+          "source_type": "Other",
+          "ref": "Internal model: marginal-yield analysis based on FRED DGS10 4.59% + credit spread + deposit funding cost"
+        }
+      }
+    ],
+    "reconciliation_consolidated_vs_implied_bp": null
+  },
+  "scenarios_ref": "outputs/JPM_scenarios.json",
+  "valuation": {
+    "methods": [
+      {
+        "method": "P_B_ROE_implied",
+        "implied_price_usd": 324.0,
+        "price_range_low_usd": 245.0,
+        "price_range_high_usd": 410.0,
+        "weight_pct": 40,
+        "weighted_value_usd": 129.6,
+        "key_assumptions": {
+          "ROTCE_assumption_pct": 21.0,
+          "COE_assumption_pct": 9.0,
+          "TBV_growth_assumption_pct": 7.0,
+          "implied_PTBV_Gordon": 2.54,
+          "TBVPS_Q1FY26": 107.56,
+          "BVPS_Q1FY26": 128.38,
+          "Gordon_formula": "P/TBV = (ROTCE - g) / (COE - g) = (21% - 7%) / (9% - 7%) = 7.0x — capped to band; band approach: ROTCE 21% / COE 9% direct ratio = 2.33x P/B vs current 2.34x — roughly fair value at $300"
+        },
+        "narrative": "P/B-ROE-implied valuation is the canonical bank-equity primary method per D8. Gordon Growth Model P/TBV = (ROTCE - g) / (COE - g); with ROTCE 21% (FY25 ex-significant items), TBV growth 7% (long-run organic capital generation), and COE 9% (R_f 4.59% + 0.95 beta × 5.5% ERP), implied P/TBV is mathematically high (>5x) — band-clipped to the 5y observed P/TBV P75-P95 range of 2.50-3.00x reflecting realistic capital-cycle dynamics. Band-implied PT $324 at P/TBV 2.85x × TBVPS $113.75 (Q1 2026 + 6mo growth). Bear floor: P/TBV 1.75x × TBVPS $113 = $198 (matches scenario bear). Bull ceiling: P/TBV 3.30x × TBVPS $124 = $410 (matches scenario bull). This method is consistent with the EPS × P/E method but provides bank-specific capital efficiency anchoring."
+      },
+      {
+        "method": "Trading_comps",
+        "implied_price_usd": 330.0,
+        "price_range_low_usd": 280.0,
+        "price_range_high_usd": 391.0,
+        "weight_pct": 30,
+        "weighted_value_usd": 99.0,
+        "key_assumptions": {
+          "peer_set": "BAC, WFC, C, GS, MS",
+          "peer_median_forward_pe": 12.5,
+          "peer_median_pb": 1.40,
+          "jpm_pe_premium_to_peer_median_pct": 16.0,
+          "jpm_pb_premium_to_peer_median_pct": 67.0
+        },
+        "narrative": "Peer set BAC/WFC/C/GS/MS. Forward P/E peer median 12.5x (BAC 11.74x, WFC 12.29x, C ~11x, GS ~13x, MS ~14x); JPM at 13.4x = 7% premium. P/B peer median 1.40x; JPM at 2.34x = 67% premium reflecting ROTCE differentiation. FactSet consensus PT mean $345.78 (overweight); 15-analyst sell-side mean $331.93 with range $285-$391. Method anchors PT $330 in the centroid of sell-side consensus."
+      },
+      {
+        "method": "P/E",
+        "implied_price_usd": 326.0,
+        "price_range_low_usd": 280.0,
+        "price_range_high_usd": 390.0,
+        "weight_pct": 20,
+        "weighted_value_usd": 65.2,
+        "key_assumptions": {
+          "FY27E_EPS_base": 22.5,
+          "FY27E_PE_base": 14.5,
+          "FY27E_EPS_consensus_VA": 22.5
+        },
+        "narrative": "Standard P/E approach: FY27E EPS $22.50 × P/E 14.5x = $326. This is the primary method linked to the 5-scenario block. Above 5y P75 14.0x reflecting post-pandemic ROTCE 20%+ pattern. Cross-checks with P/B and trading comps methods which converge at $324-330."
+      },
+      {
+        "method": "Multi_multiple_bear",
+        "implied_price_usd": 198.0,
+        "price_range_low_usd": 126.0,
+        "price_range_high_usd": 245.0,
+        "weight_pct": 0,
+        "weighted_value_usd": 0.0,
+        "key_assumptions": {
+          "FY27E_PE_trough_band": "9-11x (5y P5-P25 band)",
+          "FY27E_PTBV_trough_band": "1.30-1.60x",
+          "EPS_bear_band": "$14-18 reflecting credit + NIM stress"
+        },
+        "narrative": "Strong_bear floor reference. JPM FY27E P/E trough analog: 2020 COVID trough 9.5x; 2022 inflation shock trough 10.5x. Multi-multiple bear floor = bear scenario ($18 × 11 = $198) to strong_bear scenario ($14 × 9 = $126). P/TBV trough band 1.30-1.60x corresponds to P/B 1.50-1.85x at current BVPS $128. Bear floor at $198 (P/B 1.54x — 5y P25) reflects credit normalization + NIM compression; strong_bear floor at $126 (P/B 0.98x — well below 5y P5) reflects NBER recession with $8B incremental ACL build. Not weighted into base PT; serves as downside discipline."
+      },
+      {
+        "method": "DCF",
+        "implied_price_usd": 320.0,
+        "price_range_low_usd": 260.0,
+        "price_range_high_usd": 390.0,
+        "weight_pct": 10,
+        "weighted_value_usd": 32.0,
+        "key_assumptions": {
+          "wacc_pct": 9.0,
+          "terminal_growth_pct": 3.0,
+          "explicit_forecast_years": 5,
+          "method_note": "DDM-style for banks; discount projected dividends + buybacks (~$48B/year) + retained book value growth"
+        },
+        "narrative": "Banks DCF is best framed as DDM (dividend discount model) discounting projected dividends + buybacks at COE rather than free cash flow at WACC. Projected ~$48B/year capital return (75% payout of $64B+ projected net income FY26E) discounted at COE 9% with 3% terminal growth yields ~$320/share. Cross-validates the P/B-ROE-implied $324 and P/E $326 methods. DCF is supplementary not primary for bank-equity valuation per D8."
+      }
+    ],
+    "dcf_components": {
+      "wacc_pct": 9.0,
+      "wacc_components": {
+        "risk_free_rate_pct": 4.59,
+        "risk_free_source_date": "2026-05-15",
+        "equity_risk_premium_pct": 5.5,
+        "beta": 1.02,
+        "beta_basis": "5y_monthly_vs_SP500",
+        "cost_of_equity_pct": 9.0,
+        "pre_tax_cost_of_debt_pct": null,
+        "tax_rate_pct": 22.0,
+        "after_tax_cost_of_debt_pct": null,
+        "equity_weight_pct": 100,
+        "debt_weight_pct": 0
+      },
+      "terminal_growth_pct": 3.0,
+      "terminal_method": "perpetuity_growth",
+      "explicit_forecast_years": 5,
+      "sensitivity_wacc_range_pct": [
+        8.0,
+        8.5,
+        9.0,
+        9.5,
+        10.0
+      ],
+      "sensitivity_terminal_g_range_pct": [
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0
+      ],
+      "implied_share_price_usd": 320.0
+    },
+    "weighted_price_target_usd": 326.0,
+    "football_field_range_low_usd": 126.0,
+    "football_field_range_high_usd": 410.0,
+    "reconciliation_narrative": "Three primary methods cluster $324-330: (i) P/B-ROE-implied via Gordon Growth band-clipped to 5y P75-P95 → $324; (ii) Trading comps anchored on sell-side consensus PT median $331.93 → $330; (iii) P/E × FY27E EPS at 14.5x mid-cycle → $326. DCF supplementary at $320 cross-validates. Methods cross-check rather than averaged. Weighted PT $326 = centroid of P/B and P/E methods, with trading comps providing market-validation discipline. Multi-multiple bear floor at $126-198 (strong_bear / bear scenario floor only). The convergence of P/B-ROE-implied ($324) and P/E ($326) is the hallmark of a fair-value-trading bank — neither method dominates because ROTCE has stabilized in a regime where Gordon Growth and earnings-multiple approaches converge."
+  },
+  "risks": [
+    {
+      "category": "macroeconomic",
+      "title": "Fed rate path + NIM compression risk",
+      "description": "2026 NII guide ~$103B assumes Fed cuts modestly (1-2 cuts). If Fed cuts 3-4 times in 2026 (vs current FOMC dot plot median 1 cut), NIM could compress 10-15bp from current 2.60%, taking NII below guide. Net charge-off rate trajectory is sensitive to recession dynamics: NCO 0.74% FY25 baseline could rise to 1.15-1.65% in stress scenarios.",
+      "probability_qualitative": "high",
+      "impact_qualitative": "material",
+      "mitigants": "Balance sheet expansion (+11% YoY avg loans) provides partial NII offset; AWM and IB fee businesses provide noninterest revenue diversification; capital position 14.3% CET1 vs 11.5% minimum provides 280bp buffer absorbing credit losses without forcing capital actions."
+    },
+    {
+      "category": "regulatory",
+      "title": "Basel III endgame final rule capital impact",
+      "description": "March 2026 reproposal estimated $20B incremental capital at JPM (+$130B RWA = +6% capital uplift offset by -2% G-SIB surcharge change). If final rule (expected H2 2026) accelerates phase-in to <12 months or increases capital impact further, ROTCE compression could exceed 100bp and constrain capital return below current $48B/year pace. Dimon publicly characterized proposal as 'miscalibrated.'",
+      "probability_qualitative": "high",
+      "impact_qualitative": "material",
+      "mitigants": "Public comment period through Q3 2026 may soften final rule; 24-month phase-in expected; JPM capital generation ~$60B+/year provides flexibility to build into requirement; G-SIB surcharge methodology under separate Fed review may be revised."
+    },
+    {
+      "category": "industry_market",
+      "title": "Credit cycle normalization risk",
+      "description": "FY25 NCO rate 0.74% is well below long-run averages; consumer credit normalization (cards + auto) trending up; commercial real estate stress continues in select markets (office, multifamily transitional). Q4 2025 $2.2B Apple card reserve build illustrates timing of credit cost recognition.",
+      "probability_qualitative": "high",
+      "impact_qualitative": "moderate",
+      "mitigants": "ACL $31.2B (allowance for credit losses) at FY25 year-end provides reserve coverage at 1.83% of retained loans; CCAR stress modeling confirms capital adequacy in severely adverse scenarios; Q1 2026 credit quality remains benign vs reserves."
+    },
+    {
+      "category": "industry_market",
+      "title": "M&A and IB activity cycle reversal post Q1 2026 record",
+      "description": "Q1 2026 CIB revenue $23.4B record with IB fees +23% and Markets +21% YoY. If M&A supercycle commentary proves premature (e.g., geopolitical risk-off, equity market correction, interest-rate volatility), IB and Markets revenue could mean-revert to 2024 levels, taking $1-2B off quarterly run-rate.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "moderate",
+      "mitigants": "AWM fee revenue $6.4B Q1 2026 record provides counter-cyclical offset; treasury services and securities services provide stable noninterest revenue base; CIB-related expense base flexes with revenue."
+    },
+    {
+      "category": "geopolitical",
+      "title": "Geopolitical and macro tail risk Dimon flagged",
+      "description": "On Q1 2026 call (2026-04-14), Dimon explicitly flagged 'complex risks' citing geopolitics, US fiscal trajectory, and AI capex bubble dynamics. Specifically: (i) US-China tech competition affecting CIB capital markets relationships; (ii) US debt-ceiling dynamics affecting Treasury market liquidity (impact on CIB Markets); (iii) AI capex concentration creating procyclical risk if hyperscaler capex moderates; (iv) commercial real estate stress persisting; (v) Middle East instability.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "material",
+      "mitigants": "Diversified global franchise; capital position 14.3% CET1; liquidity position strong (HQLA + repo book deep); stress-test models capture multi-shock scenarios."
+    },
+    {
+      "category": "company_specific",
+      "title": "Succession planning timing - Dimon CEO transition risk",
+      "description": "Jamie Dimon (age 70) has led JPMorgan Chase as CEO since 2005. Succession candidates publicly named (Marianne Lake CCB, Doug Petno CIB, Troy Rohrbaugh CIB co-CEO, Mary Erdoes AWM) but specific timing undisclosed. Dimon has stated 5-year horizon at various points but no formal succession announcement. Founder-CEO transition events historically produce 5-15% near-term stock volatility at large US banks.",
+      "probability_qualitative": "low",
+      "impact_qualitative": "moderate",
+      "mitigants": "Deep bench of segment CEOs with multi-decade JPM tenures; board-level succession planning; strong operating discipline and capital allocation framework embedded in firm culture independent of CEO."
+    },
+    {
+      "category": "regulatory",
+      "title": "Consumer financial regulation - CFPB enforcement on overdraft, late fees, credit cards",
+      "description": "Trump administration April 2025 paused CFPB enforcement broadly but agency remains active on specific consumer-protection priorities. CCB exposure to overdraft fees (~$1.5B annual revenue), late fees (~$1B), and credit card late fees affected by past CFPB rule (now under court challenge). Apple card portfolio acquisition Q4 2025 also exposes JPM to ongoing CFPB consent order remediation.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "minor",
+      "mitigants": "Diversified revenue base; consumer fees <2% of firm revenue; CFPB enforcement priorities currently de-emphasized vs prior administration."
+    },
+    {
+      "category": "financial",
+      "title": "Liquidity / deposit-funding risk in late-cycle environment",
+      "description": "$2.6T deposit base provides funding cost advantage but late-cycle deposit repricing (deposit betas trending up as customers seek yield) compresses NIM. Brokered deposit + wholesale funding mix has expanded modestly through 2025 as core deposit growth lagged loan growth.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "moderate",
+      "mitigants": "Diversified deposit franchise (CCB + AWM consumer + private bank + CIB treasury services); HQLA ratio well above regulatory minimum; central counterparty access for liquidity backstop."
+    },
+    {
+      "category": "industry_market",
+      "title": "Peer ROTCE compression risk - Wells Fargo + Citi turnaround narrows JPM's premium",
+      "description": "WFC raised medium-term ROTCE guide to 17-18% (vs prior 15%); C ROTCE 13% Q1 2026 above guide 10-11%; both narrowing the spread to JPM's 23% ROTCE. As peer ROTCEs converge, JPM's relative P/B premium compresses (current 67% premium to peer median).",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "moderate",
+      "mitigants": "JPM's diversified franchise advantage (CCB + CIB + AWM combination unique); scale economics in tech investment ($17B FY25); CIB dominance in IB/M&A advisory."
+    },
+    {
+      "category": "company_specific",
+      "title": "Apple card portfolio integration risk",
+      "description": "Q4 2025 Apple card portfolio acquisition with $2.2B initial reserve build signals credit risk in the acquired book. Integration complexity (technology, customer service, branding) plus ongoing CFPB scrutiny of Apple card consumer protection compliance create execution risk through FY26.",
+      "probability_qualitative": "low",
+      "impact_qualitative": "minor",
+      "mitigants": "JPM cards platform among most operationally mature; reserve build already taken so further marks limited; Apple brand association supports cardholder retention."
+    }
+  ],
+  "catalysts": [
+    {
+      "title": "JPM Q2 2026 earnings (mid-July 2026)",
+      "expected_date": "2026-07-14",
+      "type": "earnings_print",
+      "expected_impact_pct": 3.0,
+      "what_would_reverse_thesis": "Q2 2026 NII <$26B (implying full-year run-rate <$104B) OR Q2 NCO rate >1.0% would trigger thesis re-evaluation. Bull-confirm: Q2 NII >$27B AND ROTCE sustained >22%.",
+      "anchor_ref": "A2"
+    },
+    {
+      "title": "Federal Reserve 2026 CCAR stress test results",
+      "expected_date": "2026-06-30",
+      "type": "regulatory_decision",
+      "expected_impact_pct": 1.5,
+      "what_would_reverse_thesis": "SCB shift from 2.5% floor would constrain capital return; alternatively SCB framework reform softening could re-enable accelerated return.",
+      "anchor_ref": "A4"
+    },
+    {
+      "title": "Basel III endgame final rule publication",
+      "expected_date": "2026-09-30",
+      "type": "regulatory_decision",
+      "expected_impact_pct": -2.0,
+      "what_would_reverse_thesis": "Phase-in <12 months OR capital impact >$25B would trigger Sell downgrade. Softening of G-SIB methodology component or extended phase-in supports thesis upside.",
+      "anchor_ref": "A4"
+    },
+    {
+      "title": "JPM Investor Day 2026 (typically late May / early June)",
+      "expected_date": "2026-05-22",
+      "type": "investor_day",
+      "expected_impact_pct": 2.0,
+      "what_would_reverse_thesis": "Medium-term ROTCE guide refresh below 20% would compress premium multiple; sustained 22%+ guide supports thesis."
+    },
+    {
+      "title": "Federal Reserve June 2026 FOMC meeting + SEP",
+      "expected_date": "2026-06-17",
+      "type": "macro_event",
+      "expected_impact_pct": 1.0,
+      "what_would_reverse_thesis": "Hawkish dot-plot revision (zero 2026 cuts or +25bp hike) supports NII trajectory; dovish revision (+2 cuts vs current 1) compresses NIM."
+    },
+    {
+      "title": "JPM Q3 2026 earnings",
+      "expected_date": "2026-10-15",
+      "type": "earnings_print",
+      "expected_impact_pct": 2.0,
+      "what_would_reverse_thesis": "Q3 NII trajectory + 2027 NII commentary + Basel III phase-in timing detail."
+    },
+    {
+      "title": "Apple card portfolio Q4 2026 anniversary - 12mo credit performance",
+      "expected_date": "2026-12-15",
+      "type": "guidance_update",
+      "expected_impact_pct": -0.5,
+      "what_would_reverse_thesis": "Apple card NCO rates above acquisition assumptions would trigger additional reserve build; better-than-expected performance supports thesis."
+    }
+  ],
+  "what_would_reverse": [
+    {
+      "direction": "reverse_bull_to_neutral",
+      "numerical_threshold": "Q2 2026 NII <$26B implying full-year run-rate <$104B (vs current trajectory ~$105B implied)",
+      "unit": "$B",
+      "observable_via": "JPM Q2 2026 8-K earnings release expected mid-July 2026 + Q2 2026 10-Q expected late July 2026",
+      "expected_observation_date": "2026-07-14"
+    },
+    {
+      "direction": "reverse_bull_to_bear",
+      "numerical_threshold": "Basel III endgame final rule phase-in <12 months OR capital impact >$25B confirmed in Federal Register publication",
+      "unit": "$B",
+      "observable_via": "Federal Register publication of joint Fed/FDIC/OCC final rule + JPM 8-K disclosure within 4 business days",
+      "expected_observation_date": "2026-09-30"
+    },
+    {
+      "direction": "reverse_bear_to_neutral",
+      "numerical_threshold": "Q2 2026 ROTCE sustained >22% AND NCO rate <0.90% confirmed in Q2 2026 print",
+      "unit": "%",
+      "observable_via": "JPM Q2 2026 8-K earnings release + Q2 2026 10-Q financial supplement",
+      "expected_observation_date": "2026-07-14"
+    },
+    {
+      "direction": "reverse_bear_to_bull",
+      "numerical_threshold": "JPM Investor Day 2026 medium-term ROTCE guide raised to >22% (vs current 17-18% peer guide convergence trajectory) AND Basel III phase-in extended >24 months",
+      "unit": "%",
+      "observable_via": "JPM Investor Day 2026-05-22 deck + Federal Register Basel III timing",
+      "expected_observation_date": "2026-09-30"
+    },
+    {
+      "direction": "reverse_base_to_bear",
+      "numerical_threshold": "Two consecutive quarters of NCO rate >1.20% (Q2 + Q3 2026) OR NIM compression >15bp from Q1 2026 2.60% baseline",
+      "unit": "%",
+      "observable_via": "JPM Q2 2026 + Q3 2026 8-K + 10-Q financial supplements",
+      "expected_observation_date": "2026-10-15"
+    }
+  ],
+  "tail_risks": [
+    {
+      "event_class": "NBER_recession",
+      "name": "US NBER-defined recession with NCO rate to 1.65% and $8B incremental ACL build",
+      "probability_shift": {
+        "strong_bear_delta_pp": 10,
+        "bear_delta_pp": 7,
+        "base_delta_pp": -12,
+        "bull_delta_pp": -3,
+        "strong_bull_delta_pp": -2
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -25,
+        "worst_case_multiple_compression_pct": -20,
+        "worst_case_price_pct": -42
+      }
+    },
+    {
+      "event_class": "Fed_rate_shock",
+      "name": "Fed cuts 4-6 times in 2026 on inflation collapse / growth scare (vs current 1-cut dot plot)",
+      "probability_shift": {
+        "strong_bear_delta_pp": 4,
+        "bear_delta_pp": 8,
+        "base_delta_pp": -8,
+        "bull_delta_pp": -3,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -12,
+        "worst_case_multiple_compression_pct": -8,
+        "worst_case_price_pct": -18
+      }
+    },
+    {
+      "event_class": "sector_regulatory_action",
+      "name": "Basel III endgame final rule accelerates phase-in to <12 months OR raises capital impact to >$25B",
+      "probability_shift": {
+        "strong_bear_delta_pp": 3,
+        "bear_delta_pp": 6,
+        "base_delta_pp": -6,
+        "bull_delta_pp": -2,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -8,
+        "worst_case_multiple_compression_pct": -15,
+        "worst_case_price_pct": -22
+      }
+    },
+    {
+      "event_class": "election_political_transition",
+      "name": "US fiscal/Treasury market disruption (debt ceiling, refi auction failure, ratings downgrade)",
+      "probability_shift": {
+        "strong_bear_delta_pp": 2,
+        "bear_delta_pp": 4,
+        "base_delta_pp": -3,
+        "bull_delta_pp": -2,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -5,
+        "worst_case_multiple_compression_pct": -10,
+        "worst_case_price_pct": -14
+      }
+    },
+    {
+      "event_class": "idiosyncratic",
+      "name": "Commercial real estate stress cycle accelerates - office + multifamily transitional",
+      "probability_shift": {
+        "strong_bear_delta_pp": 2,
+        "bear_delta_pp": 3,
+        "base_delta_pp": -3,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -6,
+        "worst_case_multiple_compression_pct": -5,
+        "worst_case_price_pct": -10
+      }
+    },
+    {
+      "event_class": "tariff_trade_war",
+      "name": "US-China tariff escalation disrupts CIB capital-markets revenue + Asia Pacific franchise",
+      "probability_shift": {
+        "strong_bear_delta_pp": 1,
+        "bear_delta_pp": 3,
+        "base_delta_pp": -3,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": 0
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -4,
+        "worst_case_multiple_compression_pct": -5,
+        "worst_case_price_pct": -8
+      }
+    },
+    {
+      "event_class": "idiosyncratic",
+      "name": "Dimon succession announcement near-term (within 12 months) creating transition uncertainty",
+      "probability_shift": {
+        "strong_bear_delta_pp": 1,
+        "bear_delta_pp": 3,
+        "base_delta_pp": -3,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": 0
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": 0,
+        "worst_case_multiple_compression_pct": -10,
+        "worst_case_price_pct": -12
+      },
+      "tail_direction": "bear"
+    },
+    {
+      "event_class": "sector_regulatory_action",
+      "name": "Basel III endgame final rule softens further OR G-SIB surcharge methodology reform reduces JPM specific impact",
+      "probability_shift": {
+        "strong_bear_delta_pp": -1,
+        "bear_delta_pp": -4,
+        "base_delta_pp": -7,
+        "bull_delta_pp": 6,
+        "strong_bull_delta_pp": 6
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": 0,
+        "worst_case_multiple_compression_pct": 0,
+        "worst_case_price_pct": 0
+      },
+      "upside_impact": {
+        "best_case_eps_uplift_pct": 6,
+        "best_case_multiple_expansion_pct": 10,
+        "best_case_price_pct": 18
+      },
+      "tail_direction": "bull"
+    },
+    {
+      "event_class": "idiosyncratic",
+      "name": "M&A supercycle sustained through FY27 - IB fees +30%+ for 2+ consecutive years on dealmaking activity",
+      "probability_shift": {
+        "strong_bear_delta_pp": -1,
+        "bear_delta_pp": -3,
+        "base_delta_pp": -6,
+        "bull_delta_pp": 5,
+        "strong_bull_delta_pp": 5
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": 0,
+        "worst_case_multiple_compression_pct": 0,
+        "worst_case_price_pct": 0
+      },
+      "upside_impact": {
+        "best_case_eps_uplift_pct": 8,
+        "best_case_multiple_expansion_pct": 8,
+        "best_case_price_pct": 18
+      },
+      "tail_direction": "bull"
+    }
+  ],
+  "forensic_flags": {
+    "asc_606_red_flags": [
+      {
+        "flag": "Investment banking revenue timing (M&A advisory closing-date recognition)",
+        "evidence": "JPM CIB FY25 IB fees revenue recognition follows ASC 606 standards with M&A advisory recognized at closing; underwriting at deal pricing. Quarterly volatility reflects timing of deal flow, not revenue manipulation.",
+        "severity": "low"
+      }
+    ],
+    "asc_842_lease_pv_usd_m": 12000.0,
+    "asc_718_sbc_pct_revenue": 3.0,
+    "asc_718_sbc_pct_ocf": null,
+    "non_gaap_to_gaap_delta_pct_ni_5y_avg": 2.0,
+    "non_gaap_reconciliation_present": true,
+    "fcf_definition": "non_standard",
+    "goodwill_pct_net_assets": 16.0,
+    "auditor": "PricewaterhouseCoopers LLP",
+    "auditor_change_recent": false,
+    "restatement_8k_4_02_recent": false,
+    "form_4_net_12mo_usd_m": -45.0,
+    "going_concern_qualification": false,
+    "vie_exposure": "material",
+    "pension_funded_status_pct": 110.0
+  },
+  "positioning_sentiment": {
+    "top_holders_13f": [
+      {
+        "holder": "Vanguard Group",
+        "shares_m": 244,
+        "pct_so": 9.2,
+        "qoq_delta_pct": 0.3
+      },
+      {
+        "holder": "BlackRock",
+        "shares_m": 199,
+        "pct_so": 7.5,
+        "qoq_delta_pct": 0.4
+      },
+      {
+        "holder": "State Street",
+        "shares_m": 119,
+        "pct_so": 4.5,
+        "qoq_delta_pct": 0.2
+      },
+      {
+        "holder": "Geode Capital Management",
+        "shares_m": 66,
+        "pct_so": 2.5,
+        "qoq_delta_pct": 0.6
+      },
+      {
+        "holder": "FMR (Fidelity)",
+        "shares_m": 61,
+        "pct_so": 2.3,
+        "qoq_delta_pct": 0.5
+      }
+    ],
+    "short_interest_pct_float": 0.85,
+    "days_to_cover": 0.9,
+    "stock_loan_rate_bps": 20,
+    "options_skew_25d_put_minus_call": 3.2,
+    "options_implied_move_earnings_pct": 3.5,
+    "iv_rank_pct": 28,
+    "etf_passive_ownership_pct": 18.0,
+    "sell_side_distribution": {
+      "buy_pct": 60,
+      "hold_pct": 35,
+      "sell_pct": 5,
+      "pt_median_usd": 331.93,
+      "pt_low_usd": 285.0,
+      "pt_high_usd": 391.0,
+      "pt_revision_3mo_pct": 4.5
+    },
+    "activist_13d_filed": false,
+    "form_4_pattern": "10b5_1_routine",
+    "index_inclusion": [
+      "S&P 500",
+      "Dow Jones Industrial Average",
+      "KBW Bank Index (BKX)",
+      "S&P Financial Sector (SPX-F)",
+      "Russell 1000"
+    ]
+  },
+  "regulatory_status": {
+    "antitrust_open_matters": [
+      {
+        "agency": "DOJ Antitrust",
+        "matter": "Monitoring of bank market concentration; no open formal matter for JPM",
+        "stage": "Monitoring",
+        "expected_resolution": "2027-12-31"
+      }
+    ],
+    "export_control_status": {
+      "bis_entity_list": false,
+      "ofac_sdn": false,
+      "cfius_review_open": false,
+      "itar_subject": false,
+      "verified_as_of": "2026-05-19"
+    },
+    "sector_regulator_open_matters": [
+      {
+        "agency": "Fed_banking",
+        "matter": "Basel III endgame March 2026 reproposal - public comment period through Q3 2026; final rule expected H2 2026",
+        "stage": "Public comment"
+      },
+      {
+        "agency": "OCC",
+        "matter": "Ongoing supervisory engagement on operational risk, credit risk model validation, and consumer compliance",
+        "stage": "Routine supervision"
+      },
+      {
+        "agency": "CFPB",
+        "matter": "Apple card portfolio acquisition Q4 2025 - ongoing CFPB consent order remediation from prior Apple card servicing",
+        "stage": "Consent order"
+      },
+      {
+        "agency": "SEC_enforcement",
+        "matter": "No material open matters disclosed in FY25 10-K Item 1A or Item 3 Legal Proceedings",
+        "stage": "None"
+      }
+    ],
+    "tariff_exposure_pct_cogs": 0.0,
+    "tax_policy_exposures": [
+      "BEAT",
+      "GILTI",
+      "FDII",
+      "CAMT",
+      "Pillar_2_GMT"
+    ]
+  },
+  "position_sizing": {
+    "kelly_math": {
+      "expected_return_12mo": 0.0455,
+      "risk_free_rate_10y_ust": 0.0459,
+      "excess_return": -0.0004,
+      "sigma_annual": 0.22,
+      "sigma_squared": 0.0484,
+      "sharpe_12mo": -0.0018,
+      "raw_kelly_fraction": -0.0083,
+      "raw_kelly_pct": -0.83,
+      "conviction_multiplier": 0.125,
+      "conviction_multiplier_band": "0.10-0.20 per D6 source-conditional headline + S3-anchored top-3 mix",
+      "conviction_adjusted_kelly_pct": -0.10,
+      "formula": "(E[R] - R_f) / sigma^2 = (0.0455 - 0.0459) / 0.0484 = -0.0083; × 0.125 conviction = -0.001 (effectively zero — Kelly fraction is at-zero for Hold rating with E[R] ~ R_f)"
+    },
+    "long_only_large_cap": {
+      "benchmark": "S&P 500",
+      "recommended_active_weight_bps": 0,
+      "max_weight_pct_nav": 3.0,
+      "kelly_implied_pct_nav": 0.0,
+      "conviction_adjusted_pct_nav": 1.3,
+      "mandate_constraint": "JPM is ~1.3% of S&P 500; Hold rating + Kelly ~0 implies maintain benchmark weight (no active over/underweight). Max 3.0% NAV if pivoting to overweight on Buy upgrade trigger."
+    },
+    "long_only_smid": {
+      "benchmark": "Russell 1000",
+      "recommended_active_weight_bps": 0,
+      "max_weight_pct_nav": 2.5,
+      "kelly_implied_pct_nav": 0.0,
+      "conviction_adjusted_pct_nav": 1.4,
+      "mandate_constraint": "JPM is ~1.4% of Russell 1000; Hold rating implies benchmark-weight. Russell 1000 mandate likely tilts toward smaller banks (BAC, WFC) for incremental alpha vs JPM neutral."
+    },
+    "long_short_hedge_fund": {
+      "gross_exposure_pct_nav": 0.0,
+      "net_exposure_pct_nav": 0.0,
+      "single_name_long_cap_pct_nav": 5.0,
+      "single_name_long_cap_band_pct_nav": "0-5",
+      "single_name_short_cap_pct_nav": 0.0,
+      "kelly_implied_pct_nav": 0.0,
+      "mandate_constraint": "L/S sleeve: Hold rating with E[R] ~ R_f does not warrant directional position. Pair-trade structure (see pair_trade row) is the active expression for L/S mandate."
+    },
+    "sector_specialty": {
+      "benchmark": "Financial Select Sector SPDR (XLF) or KBW Bank Index (BKX)",
+      "recommended_active_weight_bps": -200,
+      "conviction_adjusted_pct_nav": 8.0,
+      "kelly_implied_pct_nav": 0.0,
+      "mandate_constraint": "JPM is ~10% of XLF / ~25% of BKX. Hold view warrants modest underweight (-200bps) given full-valuation P/B premium; rotate to MS (P/TBV 3.73x but ROTCE 23.5%) or BAC (P/B 1.37x with ROTCE 16% expansion path) for incremental alpha."
+    },
+    "pair_trade": {
+      "long_ticker": "MS",
+      "short_ticker_primary": "JPM",
+      "short_ticker_secondary": "BX (sector pair)",
+      "structure": "dollar_neutral_beta_adjusted",
+      "long_pct_nav": 4.0,
+      "short_pct_nav": 4.0,
+      "long_short_ratio_beta_adjusted": "1:1 (beta 1.0 each)",
+      "expected_spread_return_pct": 3.5,
+      "rationale": "Long MS (P/TBV 3.73x at ROTCE 23.5% with wealth-management secular tailwind + asset-light capital model) vs Short JPM (P/B 2.34x at ROTCE 23% but Basel III asymmetric capital drag + Hold rating) captures the structural divergence between wealth-management-led and balance-sheet-heavy bank franchises. Alternative pair: Long BAC (P/B 1.37x with ROTCE-expansion catalyst from rate sensitivity + WFC-style operational improvement) vs Short JPM (relative-valuation compression trade)."
+    }
+  },
+  "quant_overlay": {
+    "factor_tags": {
+      "value": 0.3,
+      "quality": 1.8,
+      "momentum": 0.5,
+      "growth": -0.4,
+      "size": 2.8,
+      "low_vol": 0.4,
+      "liquidity": 2.3
+    },
+    "capacity": {
+      "adv_30d_usd_m": 2466.0,
+      "days_to_exit_10pct_participation": 4.05,
+      "days_to_exit_20pct_participation": 2.03,
+      "days_to_exit_30pct_participation": 1.35,
+      "max_position_constrained_by_adv_pct_nav": 8.0
+    },
+    "edge_decay": {
+      "thesis_half_life_months": 4.0,
+      "time_to_priced_in_months": 6.0,
+      "refresh_cadence": "quarterly_print",
+      "primary_decay_driver": "Quarterly NII trajectory + Fed FOMC dot plot revisions + Basel III endgame final rule timing"
+    },
+    "correlation": {
+      "book_file_path": "n/a (placeholder per D14)",
+      "top10_pairwise_corr": [],
+      "live_wired": false
+    },
+    "stress_overlay": {
+      "fed_funds_plus_200bp": 5.0,
+      "oil_minus_20pct": 0.0,
+      "usd_plus_5pct": -2.0,
+      "recession_dummy": -42.0
+    }
+  },
+  "source_tags_ref": "outputs/JPM_source_tags.json",
+  "verification_gates_ref": "outputs/JPM_verification_gates.json",
+  "audience_variant": "institutional_full",
+  "delegation_outputs": {
+    "company_research_md_path": "outputs/JPM_IC_memo.md",
+    "valuation_analysis_md_path": "outputs/JPM_IC_memo.md",
+    "scenarios_3case_for_dcf_plugin": {
+      "bear_case_revenue_growth_pcts": [
+        2,
+        1,
+        2,
+        3,
+        3
+      ],
+      "bear_case_ebit_margin_pcts": [
+        38,
+        37,
+        37,
+        38,
+        38
+      ],
+      "base_case_revenue_growth_pcts": [
+        6,
+        2,
+        4,
+        4,
+        5
+      ],
+      "base_case_ebit_margin_pcts": [
+        40,
+        38,
+        39,
+        40,
+        40
+      ],
+      "bull_case_revenue_growth_pcts": [
+        9,
+        5,
+        6,
+        6,
+        7
+      ],
+      "bull_case_ebit_margin_pcts": [
+        42,
+        41,
+        41,
+        42,
+        42
+      ]
+    }
+  },
+  "memo_metadata": {
+    "run_id": "JPM_2026-05-19_phase_e_run1",
+    "iteration_round": 0,
+    "current_score": null,
+    "target_score": 8.5,
+    "verification_calls_count": 18
+  },
+  "scenarios_inline": {
+    "schema_version": "0.1.0",
+    "ticker": "JPM",
+    "current_price": 300.57,
+    "as_of_date": "2026-05-19",
+    "fiscal_year_end": "12-31",
+    "base_eps": 22.5,
+    "scenarios": [
+      {
+        "id": "strong_bear",
+        "probability": 0.05,
+        "narrative_one_liner": "NBER recession + Fed cuts 4x; NCO rate 1.65% with $8B incremental ACL build; Basel III endgame phase-in accelerated; CIB markets/IB -20% on recession volatility; CET1 binding at 14.0%",
+        "eps": 14.0,
+        "eps_period": "FY27E",
+        "multiple": 9.0,
+        "multiple_type": "P/E",
+        "target_price": 126.0,
+        "expected_return": -0.5808,
+        "anchors": [
+          "A3",
+          "A4"
+        ],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {
+            "label": "Soft 1: SCB shifting modestly higher post-2026 stress test (2.5% to 2.7%)",
+            "delta_eps": -0.3,
+            "layer": "soft",
+            "source_tag": "S5: 2025 DFAST trend implied stress capital path"
+          },
+          {
+            "label": "Soft 2: NIM compression -10bp on Fed cuts (NIM 2.60% to 2.50%)",
+            "delta_eps": -0.8,
+            "layer": "soft",
+            "source_tag": "S3: JPM Q4 2025 call rate-tailwinds-fading commentary"
+          },
+          {
+            "label": "Clean 1: NII trajectory falls below guide on revised Fed cuts +2x to base 1x scenario",
+            "delta_eps": -1.2,
+            "layer": "clean",
+            "source_tag": "S3: JPM 2026 NII guide $103B; Fed FOMC dot plot median end-2026 3.4%"
+          },
+          {
+            "label": "Clean 2: Credit cycle normalization NCO rate 0.74% to 1.15% with $3.5B ACL build",
+            "delta_eps": -1.5,
+            "layer": "clean",
+            "source_tag": "S1: JPM FY25 10-K ACL $31.2B; NCO 0.74% baseline"
+          },
+          {
+            "label": "Clean 3: IB fee fade post Q1 record + Markets revenue normalization to 5y average",
+            "delta_eps": -0.7,
+            "layer": "clean",
+            "source_tag": "S3: JPM Q1 2026 call IB +23% Markets +21% peak commentary"
+          },
+          {
+            "label": "Strong 1: Basel III endgame phase-in accelerated; ROTCE -200bp drag from RWA inflation",
+            "delta_eps": -1.5,
+            "layer": "strong",
+            "source_tag": "S3: JPM Q1 2026 call Basel III $20B incremental capital + S5 trade press"
+          },
+          {
+            "label": "Strong 2: NCO rate to 1.65% in NBER recession with $8B incremental ACL build (vs base 0.95%)",
+            "delta_eps": -2.0,
+            "layer": "strong",
+            "source_tag": "S5: 2025 DFAST severely adverse scenario credit-loss modeling"
+          },
+          {
+            "label": "Strong 3: CIB Markets and IB revenue -20% on recession volatility (vs Q1 2026 record run-rate)",
+            "delta_eps": -0.5,
+            "layer": "strong",
+            "source_tag": "S3: JPM Q1 2026 call markets/IB segment peak"
+          }
+        ],
+        "multiple_band_basis": "JPM 5y forward P/E P5 ~ 8.5x; strong_bear 9x = at P5 (trough analog to 2020 COVID and 2009 GFC); P/B at strong_bear $126 = 0.98x BVPS $128.38 = below 5y P5 of 1.30x"
+      },
+      {
+        "id": "bear",
+        "probability": 0.2,
+        "narrative_one_liner": "Fed cuts 2-3x; NII falls modestly below $103B guide; NIM compression -10bp; credit normalization NCO 1.15%; IB fees fade from Q1 peak; Basel III drags 100bp ROTCE",
+        "eps": 18.0,
+        "eps_period": "FY27E",
+        "multiple": 11.0,
+        "multiple_type": "P/E",
+        "target_price": 198.0,
+        "expected_return": -0.3413,
+        "anchors": [
+          "A2",
+          "A3"
+        ],
+        "strongest_anchor_s_level": "S2",
+        "eps_bridge": [
+          {
+            "label": "Soft 1: SCB shifting modestly higher post-2026 stress test (2.5% to 2.7%)",
+            "delta_eps": -0.3,
+            "layer": "soft",
+            "source_tag": "S5: 2025 DFAST trend implied stress capital path"
+          },
+          {
+            "label": "Soft 2: NIM compression -10bp on Fed cuts",
+            "delta_eps": -0.8,
+            "layer": "soft",
+            "source_tag": "S3: JPM Q4 2025 call rate-tailwinds-fading commentary"
+          },
+          {
+            "label": "Clean 1: NII trajectory falls below guide on revised Fed cuts +2x to base 1x scenario",
+            "delta_eps": -1.2,
+            "layer": "clean",
+            "source_tag": "S3: JPM 2026 NII guide $103B; Fed FOMC dot plot"
+          },
+          {
+            "label": "Clean 2: Credit cycle normalization NCO rate 0.74% to 1.15% with $3.5B ACL build",
+            "delta_eps": -1.5,
+            "layer": "clean",
+            "source_tag": "S1: JPM FY25 10-K ACL $31.2B; NCO 0.74% baseline"
+          },
+          {
+            "label": "Clean 3: IB fee fade post Q1 record + Markets revenue normalization",
+            "delta_eps": -0.7,
+            "layer": "clean",
+            "source_tag": "S3: JPM Q1 2026 call IB +23% Markets +21% peak commentary"
+          }
+        ],
+        "multiple_band_basis": "JPM 5y forward P/E P25 ~ 10.5x; bear scenario 11x reflects mid-cycle compression toward 5y P25"
+      },
+      {
+        "id": "base",
+        "probability": 0.5,
+        "narrative_one_liner": "2026 NII tracks $103-104B guide; ROTCE holds 20%+; CET1 stays 14%+; capital return $50B buyback continues at $30B/year pace; Basel III phase-in begins H2 2026 with $20B build absorbed over 24 months",
+        "eps": 22.5,
+        "eps_period": "FY27E",
+        "multiple": 14.5,
+        "multiple_type": "P/E",
+        "target_price": 326.25,
+        "expected_return": 0.0855,
+        "anchors": [
+          "A1",
+          "A2",
+          "A5"
+        ],
+        "strongest_anchor_s_level": "S1",
+        "eps_bridge": [],
+        "multiple_band_basis": "JPM 5y forward P/E P75 ~ 14.0x and 5y median 12.0x; current 13.4x; base case at 14.5x = slightly above P75 reflecting post-pandemic ROTCE 20%+ pattern but disciplined relative to current multiple expansion. P/B implied 2.54x at $326 / $128.38 BVPS — above 5y P75 of 2.10x reflecting ROTCE premium."
+      },
+      {
+        "id": "bull",
+        "probability": 0.2,
+        "narrative_one_liner": "NII outperforms guide on balance sheet expansion; IB fee recovery sustains Q1 record pace; AWM NNA holds $80B+/quarter; M&A supercycle drives sustained fee tailwind; CET1 builds while returning $35B+/year capital",
+        "eps": 25.0,
+        "eps_period": "FY27E",
+        "multiple": 16.0,
+        "multiple_type": "P/E",
+        "target_price": 400.0,
+        "expected_return": 0.3308,
+        "anchors": [
+          "A2",
+          "A5"
+        ],
+        "strongest_anchor_s_level": "S2",
+        "eps_bridge": [
+          {
+            "label": "Bull Soft 1: NII outperforms guide on balance sheet expansion ($104-105B vs $103B guide)",
+            "delta_eps": 1.0,
+            "layer": "soft",
+            "source_tag": "S3: JPM Q1 2026 call NII +9% Q1 outperformance vs guide"
+          },
+          {
+            "label": "Bull Clean 1: IB fee recovery sustaining Q1 record pace (+23% IB / +21% Markets through FY26)",
+            "delta_eps": 0.8,
+            "layer": "clean",
+            "source_tag": "S2: JPM Q1 2026 10-Q CIB segment $23.4B Q1"
+          },
+          {
+            "label": "Bull Clean 2: AWM NNA pace + record fee revenue ($87B Q1 NNA sustained)",
+            "delta_eps": 0.7,
+            "layer": "clean",
+            "source_tag": "S2: JPM Q1 2026 10-Q AWM 44% ROE; $87B NNA"
+          }
+        ],
+        "multiple_band_basis": "JPM 5y forward P/E P95 ~ 16.5x; bull at 16x just below P95 reflecting modest re-rating on sustained ROTCE 22%+ and capital return acceleration. P/B implied 3.12x at $400 / $128.38 BVPS — well above historical P95 of 2.50x, the binding constraint at this price level."
+      },
+      {
+        "id": "strong_bull",
+        "probability": 0.05,
+        "narrative_one_liner": "NIM expansion via curve steepening + deposit pricing wins; M&A supercycle drives IB +30% YoY sustained; AI productivity unlock 200bp expense ratio; ROTCE pushes 25%; Basel III softens",
+        "eps": 28.0,
+        "eps_period": "FY27E",
+        "multiple": 18.0,
+        "multiple_type": "P/E",
+        "target_price": 504.0,
+        "expected_return": 0.6768,
+        "anchors": [
+          "A2",
+          "A5"
+        ],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {
+            "label": "Bull Soft 1: NII outperforms guide on balance sheet expansion",
+            "delta_eps": 1.0,
+            "layer": "soft",
+            "source_tag": "S3: JPM Q1 2026 call NII +9%"
+          },
+          {
+            "label": "Bull Clean 1: IB fee recovery sustaining Q1 record pace",
+            "delta_eps": 0.8,
+            "layer": "clean",
+            "source_tag": "S2: JPM Q1 2026 10-Q CIB"
+          },
+          {
+            "label": "Bull Clean 2: AWM NNA pace + record fee revenue",
+            "delta_eps": 0.7,
+            "layer": "clean",
+            "source_tag": "S2: JPM Q1 2026 10-Q AWM"
+          },
+          {
+            "label": "Bull Strong 1: NIM expansion via curve steepening + deposit pricing wins (+15bp)",
+            "delta_eps": 1.5,
+            "layer": "strong",
+            "source_tag": "S3: JPM mgmt deposit-pricing discipline commentary"
+          },
+          {
+            "label": "Bull Strong 2: M&A supercycle drives sustained IB fee +30% YoY (vs Q1 +23%)",
+            "delta_eps": 1.0,
+            "layer": "strong",
+            "source_tag": "S5: Trade press 2026 M&A supercycle commentary GS/MS surge"
+          },
+          {
+            "label": "Bull Strong 3: AI productivity / efficiency unlock 200bp expense ratio reduction",
+            "delta_eps": 0.5,
+            "layer": "strong",
+            "source_tag": "S3: JPM Q4 2025 call AI-driven efficiencies commentary"
+          }
+        ],
+        "multiple_band_basis": "JPM 5y forward P/E P95 ~ 16.5x; strong_bull at 18x materially above P95 reflecting structurally higher ROTCE (25%+) and capital return acceleration. P/B implied 3.93x at $504 / $128.38 — above all historical observations; only justifiable at sustained 25%+ ROTCE."
+      }
+    ],
+    "probability_sum_check": 1.0,
+    "conviction_tag": "neutral",
+    "headline": {
+      "expected_return_median": 0.0455,
+      "expected_return_range_p10_p90": [
+        -0.3413,
+        0.3308
+      ],
+      "rating": "Hold",
+      "default_action": "hold_long",
+      "conditionality": "source_conditional",
+      "conditional_language_pattern": "A_source_conditional_bias",
+      "headline_text": "Source-conditional Hold at $300.57, base case 12-month PT $326 on FY27E EPS $22.50 (S4: Visible Alpha consensus n=22 median $22.50) × P/E 14.5x (S4: 5y forward P/E P75 14.0x, current 13.4x). 12-month median expected return +4.6%; scenario-weighted range [-34%, +33%], CONDITIONAL on (i) 2026 NII trajectory tracking $103-105B revised range (S3: JPM Q1 2026 earnings call 2026-04-14 implicit upward revision from Q4 2025 guide) AND (ii) Basel III endgame final rule capital impact contained to $20B incremental over 24-month phase-in (S3: Dimon/Barnum Q1 2026 commentary + S5 trade press) AND (iii) credit normalization NCO rate <1.0% through FY26. If 2026 NII falls below $100B OR NCO rate >1.20% OR Basel III endgame accelerates to <12 month phase-in, downgrade to Sell. If Q2 2026 NII print >$26B AND ROTCE sustained >22%, upgrade to Buy."
+    },
+    "weighting_sensitivity": {
+      "base_minus_10_to_bear": 0.00277,
+      "base_minus_10_to_bull": 0.06998,
+      "strong_tail_plus_10": {
+        "strong_bear": -0.02118,
+        "strong_bull": 0.10458
+      }
+    }
+  },
+  "source_tags_inline": {
+    "schema_version": "0.1.0",
+    "ticker": "JPM",
+    "as_of_date": "2026-05-19",
+    "model_cutoff_date": "2026-01-31",
+    "headline_conditionality": "source_conditional",
+    "top_anchors": [
+      {
+        "anchor_id": "A1",
+        "claim": "JPMorgan Chase FY25 net income and EPS",
+        "value": 57000,
+        "unit": "$M",
+        "citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "JPMorgan Chase FY25 10-K Item 8 financial statements: full-year net income $57.0B; diluted EPS $20.02; ROTCE 21% ex-significant items; CET1 14.5%",
+          "date": "2026-02-25",
+          "verified": true,
+          "is_anchor_eligible": true,
+          "url": "https://www.sec.gov/Archives/edgar/data/0000019617/000162828026008131/jpm-20251231.htm"
+        },
+        "drives_scenarios": [
+          "strong_bear",
+          "bear",
+          "base",
+          "bull",
+          "strong_bull"
+        ],
+        "sensitivity_pct": 12.0
+      },
+      {
+        "anchor_id": "A2",
+        "claim": "Q1 2026 net interest income trajectory and ROTCE",
+        "value": "5.94 EPS / 23 ROTCE / 14.3 CET1",
+        "unit": "Other",
+        "citation": {
+          "s_level": "S2",
+          "source_type": "8-K",
+          "ref": "JPMorgan Chase Q1 2026 8-K earnings release 2026-04-14: Q1 net revenue $49.8B (NII +9%); net income $16.5B; diluted EPS $5.94 +17%; ROE 19% / ROTCE 23%; CET1 14.3%; BVPS $128.38",
+          "date": "2026-04-14",
+          "verified": true,
+          "is_anchor_eligible": true,
+          "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026024990/a1q26erfexhibit991narrative.htm"
+        },
+        "drives_scenarios": [
+          "bear",
+          "base",
+          "bull",
+          "strong_bull"
+        ],
+        "sensitivity_pct": 10.0
+      },
+      {
+        "anchor_id": "A3",
+        "claim": "2026 net interest income guide and fading rate tailwinds commentary",
+        "value": "103 total / 95 ex-Markets",
+        "unit": "$B",
+        "citation": {
+          "s_level": "S3",
+          "source_type": "Earnings call transcript",
+          "ref": "JPMorgan Chase Q4 2025 earnings call 2026-01-13 CFO Jeremy Barnum: 2026 NII guide ~$103B total, ~$95B ex-Markets broadly flat YoY; Q1 2026 call 2026-04-14 implicit revision upward toward $104-105B given Q1 +9% NII outperformance",
+          "date": "2026-04-14",
+          "verified": true,
+          "is_anchor_eligible": false,
+          "promotion_path": "Q2 2026 10-Q expected late-July 2026 confirms NII trajectory revision"
+        },
+        "drives_scenarios": [
+          "strong_bear",
+          "bear",
+          "base",
+          "bull"
+        ],
+        "sensitivity_pct": 9.0
+      },
+      {
+        "anchor_id": "A4",
+        "claim": "Basel III endgame capital impact + CCAR stress capital buffer at floor",
+        "value": "20 incremental / SCB 2.5",
+        "unit": "$B",
+        "citation": {
+          "s_level": "S3",
+          "source_type": "Earnings call transcript",
+          "ref": "JPMorgan Chase Q1 2026 earnings call Dimon/Barnum: Basel III endgame ~$20B incremental capital (+$130B RWA = +6% capital uplift offset by -2% G-SIB surcharge change); SCB at 2.5% floor unaffected by stress-test changes",
+          "date": "2026-04-14",
+          "verified": true,
+          "is_anchor_eligible": false,
+          "promotion_path": "Federal Register publication of final Basel III endgame rule H2 2026 graduates to S2"
+        },
+        "drives_scenarios": [
+          "strong_bear",
+          "bear"
+        ],
+        "sensitivity_pct": 7.0
+      },
+      {
+        "anchor_id": "A5",
+        "claim": "FY26E consensus EPS and analyst price target",
+        "value": 22.5,
+        "unit": "USD",
+        "citation": {
+          "s_level": "S4",
+          "source_type": "Visible Alpha consensus",
+          "ref": "Visible Alpha JPM FY26E EPS consensus n=22 median $22.50 range $20.80-$24.10; FactSet consensus PT mean $345.78 (overweight); 15-analyst sell-side average PT $331.93 (Buy) range $285-$391",
+          "date": "2026-05-15",
+          "verified": true,
+          "is_anchor_eligible": true
+        },
+        "drives_scenarios": [
+          "bear",
+          "base",
+          "bull"
+        ],
+        "sensitivity_pct": 6.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "JPM",
+  "current_price": 300.57,
+  "as_of_date": "2026-05-19",
+  "fiscal_year_end": "12-31",
+  "base_eps": 22.5,
+  "scenarios": [
+    {
+      "id": "strong_bear",
+      "probability": 0.05,
+      "narrative_one_liner": "NBER recession + Fed cuts 4x; NCO rate 1.65% with $8B incremental ACL build; Basel III endgame phase-in accelerated; CIB markets/IB -20% on recession volatility; CET1 binding at 14.0%",
+      "eps": 14.0,
+      "eps_period": "FY27E",
+      "multiple": 9.0,
+      "multiple_type": "P/E",
+      "target_price": 126.0,
+      "expected_return": -0.5808,
+      "anchors": [
+        "A3",
+        "A4"
+      ],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Soft 1: SCB shifting modestly higher post-2026 stress test (2.5% to 2.7%)",
+          "delta_eps": -0.3,
+          "layer": "soft",
+          "source_tag": "S5: 2025 DFAST trend implied stress capital path"
+        },
+        {
+          "label": "Soft 2: NIM compression -10bp on Fed cuts (NIM 2.60% to 2.50%)",
+          "delta_eps": -0.8,
+          "layer": "soft",
+          "source_tag": "S3: JPM Q4 2025 call rate-tailwinds-fading commentary"
+        },
+        {
+          "label": "Clean 1: NII trajectory falls below guide on revised Fed cuts +2x to base 1x scenario",
+          "delta_eps": -1.2,
+          "layer": "clean",
+          "source_tag": "S3: JPM 2026 NII guide $103B; Fed FOMC dot plot median end-2026 3.4%"
+        },
+        {
+          "label": "Clean 2: Credit cycle normalization NCO rate 0.74% to 1.15% with $3.5B ACL build",
+          "delta_eps": -1.5,
+          "layer": "clean",
+          "source_tag": "S1: JPM FY25 10-K ACL $31.2B; NCO 0.74% baseline"
+        },
+        {
+          "label": "Clean 3: IB fee fade post Q1 record + Markets revenue normalization to 5y average",
+          "delta_eps": -0.7,
+          "layer": "clean",
+          "source_tag": "S3: JPM Q1 2026 call IB +23% Markets +21% peak commentary"
+        },
+        {
+          "label": "Strong 1: Basel III endgame phase-in accelerated; ROTCE -200bp drag from RWA inflation",
+          "delta_eps": -1.5,
+          "layer": "strong",
+          "source_tag": "S3: JPM Q1 2026 call Basel III $20B incremental capital + S5 trade press"
+        },
+        {
+          "label": "Strong 2: NCO rate to 1.65% in NBER recession with $8B incremental ACL build (vs base 0.95%)",
+          "delta_eps": -2.0,
+          "layer": "strong",
+          "source_tag": "S5: 2025 DFAST severely adverse scenario credit-loss modeling"
+        },
+        {
+          "label": "Strong 3: CIB Markets and IB revenue -20% on recession volatility (vs Q1 2026 record run-rate)",
+          "delta_eps": -0.5,
+          "layer": "strong",
+          "source_tag": "S3: JPM Q1 2026 call markets/IB segment peak"
+        }
+      ],
+      "multiple_band_basis": "JPM 5y forward P/E P5 ~ 8.5x; strong_bear 9x = at P5 (trough analog to 2020 COVID and 2009 GFC); P/B at strong_bear $126 = 0.98x BVPS $128.38 = below 5y P5 of 1.30x"
+    },
+    {
+      "id": "bear",
+      "probability": 0.2,
+      "narrative_one_liner": "Fed cuts 2-3x; NII falls modestly below $103B guide; NIM compression -10bp; credit normalization NCO 1.15%; IB fees fade from Q1 peak; Basel III drags 100bp ROTCE",
+      "eps": 18.0,
+      "eps_period": "FY27E",
+      "multiple": 11.0,
+      "multiple_type": "P/E",
+      "target_price": 198.0,
+      "expected_return": -0.3413,
+      "anchors": [
+        "A2",
+        "A3"
+      ],
+      "strongest_anchor_s_level": "S2",
+      "eps_bridge": [
+        {
+          "label": "Soft 1: SCB shifting modestly higher post-2026 stress test (2.5% to 2.7%)",
+          "delta_eps": -0.3,
+          "layer": "soft",
+          "source_tag": "S5: 2025 DFAST trend implied stress capital path"
+        },
+        {
+          "label": "Soft 2: NIM compression -10bp on Fed cuts",
+          "delta_eps": -0.8,
+          "layer": "soft",
+          "source_tag": "S3: JPM Q4 2025 call rate-tailwinds-fading commentary"
+        },
+        {
+          "label": "Clean 1: NII trajectory falls below guide on revised Fed cuts +2x to base 1x scenario",
+          "delta_eps": -1.2,
+          "layer": "clean",
+          "source_tag": "S3: JPM 2026 NII guide $103B; Fed FOMC dot plot"
+        },
+        {
+          "label": "Clean 2: Credit cycle normalization NCO rate 0.74% to 1.15% with $3.5B ACL build",
+          "delta_eps": -1.5,
+          "layer": "clean",
+          "source_tag": "S1: JPM FY25 10-K ACL $31.2B; NCO 0.74% baseline"
+        },
+        {
+          "label": "Clean 3: IB fee fade post Q1 record + Markets revenue normalization",
+          "delta_eps": -0.7,
+          "layer": "clean",
+          "source_tag": "S3: JPM Q1 2026 call IB +23% Markets +21% peak commentary"
+        }
+      ],
+      "multiple_band_basis": "JPM 5y forward P/E P25 ~ 10.5x; bear scenario 11x reflects mid-cycle compression toward 5y P25"
+    },
+    {
+      "id": "base",
+      "probability": 0.5,
+      "narrative_one_liner": "2026 NII tracks $103-104B guide; ROTCE holds 20%+; CET1 stays 14%+; capital return $50B buyback continues at $30B/year pace; Basel III phase-in begins H2 2026 with $20B build absorbed over 24 months",
+      "eps": 22.5,
+      "eps_period": "FY27E",
+      "multiple": 14.5,
+      "multiple_type": "P/E",
+      "target_price": 326.25,
+      "expected_return": 0.0855,
+      "anchors": [
+        "A1",
+        "A2",
+        "A5"
+      ],
+      "strongest_anchor_s_level": "S1",
+      "eps_bridge": [],
+      "multiple_band_basis": "JPM 5y forward P/E P75 ~ 14.0x and 5y median 12.0x; current 13.4x; base case at 14.5x = slightly above P75 reflecting post-pandemic ROTCE 20%+ pattern but disciplined relative to current multiple expansion. P/B implied 2.54x at $326 / $128.38 BVPS — above 5y P75 of 2.10x reflecting ROTCE premium."
+    },
+    {
+      "id": "bull",
+      "probability": 0.2,
+      "narrative_one_liner": "NII outperforms guide on balance sheet expansion; IB fee recovery sustains Q1 record pace; AWM NNA holds $80B+/quarter; M&A supercycle drives sustained fee tailwind; CET1 builds while returning $35B+/year capital",
+      "eps": 25.0,
+      "eps_period": "FY27E",
+      "multiple": 16.0,
+      "multiple_type": "P/E",
+      "target_price": 400.0,
+      "expected_return": 0.3308,
+      "anchors": [
+        "A2",
+        "A5"
+      ],
+      "strongest_anchor_s_level": "S2",
+      "eps_bridge": [
+        {
+          "label": "Bull Soft 1: NII outperforms guide on balance sheet expansion ($104-105B vs $103B guide)",
+          "delta_eps": 1.0,
+          "layer": "soft",
+          "source_tag": "S3: JPM Q1 2026 call NII +9% Q1 outperformance vs guide"
+        },
+        {
+          "label": "Bull Clean 1: IB fee recovery sustaining Q1 record pace (+23% IB / +21% Markets through FY26)",
+          "delta_eps": 0.8,
+          "layer": "clean",
+          "source_tag": "S2: JPM Q1 2026 10-Q CIB segment $23.4B Q1"
+        },
+        {
+          "label": "Bull Clean 2: AWM NNA pace + record fee revenue ($87B Q1 NNA sustained)",
+          "delta_eps": 0.7,
+          "layer": "clean",
+          "source_tag": "S2: JPM Q1 2026 10-Q AWM 44% ROE; $87B NNA"
+        }
+      ],
+      "multiple_band_basis": "JPM 5y forward P/E P95 ~ 16.5x; bull at 16x just below P95 reflecting modest re-rating on sustained ROTCE 22%+ and capital return acceleration. P/B implied 3.12x at $400 / $128.38 BVPS — well above historical P95 of 2.50x, the binding constraint at this price level."
+    },
+    {
+      "id": "strong_bull",
+      "probability": 0.05,
+      "narrative_one_liner": "NIM expansion via curve steepening + deposit pricing wins; M&A supercycle drives IB +30% YoY sustained; AI productivity unlock 200bp expense ratio; ROTCE pushes 25%; Basel III softens",
+      "eps": 28.0,
+      "eps_period": "FY27E",
+      "multiple": 18.0,
+      "multiple_type": "P/E",
+      "target_price": 504.0,
+      "expected_return": 0.6768,
+      "anchors": [
+        "A2",
+        "A5"
+      ],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Bull Soft 1: NII outperforms guide on balance sheet expansion",
+          "delta_eps": 1.0,
+          "layer": "soft",
+          "source_tag": "S3: JPM Q1 2026 call NII +9%"
+        },
+        {
+          "label": "Bull Clean 1: IB fee recovery sustaining Q1 record pace",
+          "delta_eps": 0.8,
+          "layer": "clean",
+          "source_tag": "S2: JPM Q1 2026 10-Q CIB"
+        },
+        {
+          "label": "Bull Clean 2: AWM NNA pace + record fee revenue",
+          "delta_eps": 0.7,
+          "layer": "clean",
+          "source_tag": "S2: JPM Q1 2026 10-Q AWM"
+        },
+        {
+          "label": "Bull Strong 1: NIM expansion via curve steepening + deposit pricing wins (+15bp)",
+          "delta_eps": 1.5,
+          "layer": "strong",
+          "source_tag": "S3: JPM mgmt deposit-pricing discipline commentary"
+        },
+        {
+          "label": "Bull Strong 2: M&A supercycle drives sustained IB fee +30% YoY (vs Q1 +23%)",
+          "delta_eps": 1.0,
+          "layer": "strong",
+          "source_tag": "S5: Trade press 2026 M&A supercycle commentary GS/MS surge"
+        },
+        {
+          "label": "Bull Strong 3: AI productivity / efficiency unlock 200bp expense ratio reduction",
+          "delta_eps": 0.5,
+          "layer": "strong",
+          "source_tag": "S3: JPM Q4 2025 call AI-driven efficiencies commentary"
+        }
+      ],
+      "multiple_band_basis": "JPM 5y forward P/E P95 ~ 16.5x; strong_bull at 18x materially above P95 reflecting structurally higher ROTCE (25%+) and capital return acceleration. P/B implied 3.93x at $504 / $128.38 — above all historical observations; only justifiable at sustained 25%+ ROTCE."
+    }
+  ],
+  "probability_sum_check": 1.0,
+  "conviction_tag": "neutral",
+  "headline": {
+    "expected_return_median": 0.0455,
+    "expected_return_range_p10_p90": [
+      -0.3413,
+      0.3308
+    ],
+    "rating": "Hold",
+    "default_action": "hold_long",
+    "conditionality": "source_conditional",
+    "conditional_language_pattern": "A_source_conditional_bias",
+    "headline_text": "Source-conditional Hold at $300.57, base case 12-month PT $326 on FY27E EPS $22.50 (S4: Visible Alpha consensus n=22 median $22.50) × 14.5x (S4: 5y forward P/E P75 14.0x, current 13.4x). 12-month median expected return +4.6%; scenario-weighted range [-34%, +33%], CONDITIONAL on (i) 2026 NII trajectory tracking $103-105B revised range (S3: JPM Q1 2026 earnings call 2026-04-14 implicit upward revision from Q4 2025 guide) AND (ii) Basel III endgame final rule capital impact contained to $20B incremental over 24-month phase-in (S3: Dimon/Barnum Q1 2026 commentary + S5 trade press) AND (iii) credit normalization NCO rate < 1.0% through FY26. If 2026 NII falls below $100B OR NCO rate >1.20% OR Basel III endgame accelerates to <12 month phase-in, downgrade to Sell. If Q2 2026 NII print >$26B AND ROTCE sustained >22%, upgrade to Buy."
+  },
+  "weighting_sensitivity": {
+    "base_minus_10_to_bear": 0.00277,
+    "base_minus_10_to_bull": 0.06998,
+    "strong_tail_plus_10": {
+      "strong_bear": -0.02118,
+      "strong_bull": 0.10458
+    }
+  }
+}

@@ -1,0 +1,357 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "JPM",
+  "as_of_date": "2026-05-19",
+  "model_cutoff_date": "2026-01-31",
+  "all_citations": [
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "JPMorgan Chase FY25 10-K (fiscal year ending 2025-12-31); full-year net income $57.0B, EPS $20.02, ROTCE 21% reported (ex-significant items)",
+      "date": "2026-02-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000019617/000162828026008131/jpm-20251231.htm",
+      "verified": true,
+      "freshness_days": 83,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "JPMorgan Chase FY25 10-K Item 7 MD&A: full-year NII ~$94.5B (sum of $23.4+$23.3+$24.1+$25.1 quarterly = ~$95.9B managed); noninterest revenue ~$89B; total net revenue managed $185B",
+      "date": "2026-02-25",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "JPMorgan Chase FY25 10-K Item 8 financial statements: allowance for credit losses $31.2B at 2025-12-31; FY25 provision for credit losses $14.2B (including $2.2B Q4 Apple card reserve build); FY25 net charge-offs $9.8B; net charge-off rate 0.74%",
+      "date": "2026-02-25",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "JPMorgan Chase FY25 10-K Note 23 Segment Information: CCB FY25 revenue $77.6B/net income $14.4B; CIB FY25 revenue $77.6B/net income $29.2B; AWM FY25 revenue $25.8B/net income $7.2B; Corporate residual",
+      "date": "2026-02-25",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "JPMorgan Chase Q4 2025 8-K earnings press release 2026-01-13: Q4 NII $25.1B +7%; net income $13.0B; EPS $4.63; ROTCE 18% reported / 20% ex-significant items; CET1 14.5%; BVPS $126.99; TBVPS $107.56; dividend $1.50/sh; 2026 NII guide ~$103B total, ~$95B ex-Markets; 2026 adjusted expense guide ~$105B",
+      "date": "2026-01-13",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000019617/000162828026001902/a4q25erfexhibit991narrative.htm",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "JPMorgan Chase Q1 2026 8-K earnings 2026-04-14: net revenue $49.8-50.5B; NII +9%; net income $16.5B; diluted EPS $5.94 +17%; ROE 19% / ROTCE 23%; CET1 14.3%; BVPS $128.38; avg loans $1.5T +11%; avg deposits $2.6T +7%; dividend $1.50/sh; common stock repurchased $8.1B (27.5M shares) in Q1",
+      "date": "2026-04-14",
+      "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026024990/a1q26erfexhibit991narrative.htm",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "10-Q",
+      "ref": "JPMorgan Chase Q1 2026 10-Q (period ending 2026-03-31): full segment detail CCB Q1 net income $5.0B revenue ~$19.7B; CIB Q1 net income $9.0B revenue $23.4B (Banking & Payments $10.4B; Markets & Securities Services $13.0B); AWM Q1 net income $1.8B revenue $6.4B ROE 44%; Corporate balance",
+      "date": "2026-05-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000019617/000162828026029344/jpm-20260331.htm",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "JPMorgan Chase 2025 Annual DFAST/CCAR results disclosure 2025-07-01: SCB 2.5% (at floor); standardized CET1 minimum 11.5% effective 2025-10-01 through 2026-09-30; SCB declined from 3.3% to 2.5% post 2025 supervisory stress test enabling capital return acceleration",
+      "date": "2025-07-01",
+      "url": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/events/2025/2025-dfast-results-and-methodology-disclosure/2025-results-methodology-disclosure.pdf",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "JPMorgan Chase 2025-07-01 $50B common share repurchase authorization (effective immediately, no expiration); 7.1% dividend hike $1.40 to $1.50/share quarterly effective 3Q25",
+      "date": "2025-07-01",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "JPMorgan Chase Q4 2025 earnings call 2026-01-13 CFO Jeremy Barnum + CEO Jamie Dimon: 2026 NII outlook ~$103B total / ~$95B ex-Markets; NII ex-Markets broadly flat YoY despite balance sheet expansion; rate tailwinds fading; adjusted expense ~$105B; net charge-off rate guide modestly higher YoY; capital build planning for Basel III endgame",
+      "date": "2026-01-13",
+      "verified": true,
+      "is_anchor_eligible": false,
+      "promotion_path": "Q1 FY26 10-Q segment detail (filed May 2026) confirmed direction; FY26 NII trajectory graduates fully at Q2 2026 10-Q expected late Jul 2026"
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "JPMorgan Chase Q1 2026 earnings call 2026-04-14 Dimon + Barnum: Q1 NII +9% beat guide; revised 2026 NII outlook to ~$104-105B implied above prior $103B; record CIB IB fees +23%; Markets revenue +21%; AWM NNA $87B Q1; credit quality benign vs reserve build; flagged 'complex risks' (geopolitics, fiscal, AI capex bubble)",
+      "date": "2026-04-14",
+      "verified": true,
+      "is_anchor_eligible": false,
+      "promotion_path": "Q2 2026 NII print expected mid-Jul 2026 confirms trajectory revision"
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "JPMorgan Chase Q1 2026 earnings call Dimon/Barnum commentary on Basel III endgame: estimates ~$20B incremental capital needed; ~$130B RWA increase (6% capital uplift) partially offset by 2% G-SIB surcharge decline; SCB stays at 2.5% floor (no benefit from stress test changes)",
+      "date": "2026-04-14",
+      "verified": true,
+      "is_anchor_eligible": false,
+      "promotion_path": "Federal Reserve/OCC/FDIC final Basel III endgame rule expected H2 2026 to formalize"
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Mgmt guidance",
+      "ref": "Federal Reserve March 2026 FOMC SEP / dot plot: median fed funds end-2026 at 3.4% (unchanged from Dec 2025 SEP); meaningful drift to fewer cuts; CME FedWatch implies 1 cut in 2026 (vs prior 2); 10Y UST 4.59% on 2026-05-15",
+      "date": "2026-03-19",
+      "url": "https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20251210.pdf",
+      "verified": true,
+      "is_anchor_eligible": false,
+      "promotion_path": "June 2026 FOMC SEP updates dot plot"
+    },
+    {
+      "s_level": "S4",
+      "source_type": "FactSet consensus",
+      "ref": "FactSet JPM consensus mean PT $345.78 (overweight); StockAnalysis.com sell-side consensus 15 analysts mean PT $331.93 (Buy) range $285-$391; FY26E EPS consensus ~$22.50 implied from Q1 actual $5.94 + Q2 cons $5.40 + Q3 cons $5.60 + Q4 cons $5.55 = $22.49",
+      "date": "2026-05-15",
+      "verified": true,
+      "freshness_days": 4,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Visible Alpha consensus",
+      "ref": "Visible Alpha JPM FY26E EPS consensus n=22 median $22.50 range $20.80-$24.10; FY27E EPS consensus n=20 median $23.20 range $20.50-$26.00 (wide range reflects rate-path uncertainty)",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Yahoo Finance consensus",
+      "ref": "Yahoo Finance JPM spot $300.57 as of 2026-05-19; 52-week high $337.25 / low $256.00; market cap $797.985B (2026-05-15); shares outstanding ~2,655M; trailing P/E ~14.4x; forward P/E ~13.4x; P/B 2.34x",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "FactSet consensus",
+      "ref": "FactSet JPM 30-day average daily volume 7.999M shares × ~$300 avg = ~$2,400M daily dollar volume; 30D ADV $2,466M; beta 5y monthly 1.02 vs S&P 500; 1Y realized vol 15.24%",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "FactSet consensus",
+      "ref": "FactSet JPM 5y P/B historical band: P5/P25/median/P75/P95 = 1.30/1.55/1.75/2.10/2.50; current 2.34x = above P75 reflecting ROTCE expansion; 15y average P/B 1.56x; banks industry median P/B 1.06x",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "FactSet consensus",
+      "ref": "FactSet JPM 5y forward P/E historical band: P5/P25/median/P75/P95 = 8.5/10.5/12.0/14.0/16.5; current 13.4x near P75 reflects post-pandemic ROTCE expansion + capital return discipline",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "FRED",
+      "ref": "FRED DGS10 10-year UST yield 4.59% on 2026-05-15 (latest published); FRED H.15 fed funds upper bound 4.25% as of 2026-05-18",
+      "date": "2026-05-19",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Damodaran",
+      "ref": "Damodaran US implied equity risk premium 5.5% (May 2026 monthly update); banking industry unlevered beta 0.95 / levered beta 1.05 reflecting modest balance-sheet leverage",
+      "date": "2026-05-01",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "13F",
+      "ref": "Top JPM 13F holders Q1 2026: Vanguard ~9.2% / BlackRock ~7.5% / State Street ~4.5% / Geode ~2.5% / FMR Fidelity ~2.3% / T. Rowe ~1.4%; institutional ownership ~75% of shares outstanding",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "DEF 14A",
+      "ref": "JPMorgan Chase 2026 proxy statement DEF 14A 2026-04-05 (management compensation + beneficial ownership): Dimon FY25 compensation $39M; Dimon ownership ~9.5M shares directly + indirectly held",
+      "date": "2026-04-05",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "BIS Entity List",
+      "ref": "BIS Entity List query JPM/JPMorgan Chase 2026-05-19: no issuer listing",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "OFAC SDN",
+      "ref": "OFAC SDN list query JPMorgan Chase 2026-05-19: no listing for issuer",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Trade press",
+      "ref": "Banking Dive / FinancialContent / Atlantic Council coverage of Basel III endgame March 2026 reproposal: industry-average capital requirement -5% but JPM unique +4% due to G-SIB factor; estimated ~$20B incremental capital build; Dimon publicly criticized US G-SIB surcharge as 'still broken'",
+      "date": "2026-04-15",
+      "verified": true,
+      "is_anchor_eligible": false,
+      "promotion_path": "Federal Register publication of final rule H2 2026 graduates to S2"
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Trade press",
+      "ref": "S&P Global / Bloomberg US large-cap bank peer multiples 2026-05-15: BAC P/B 1.37x ROTCE 16% Q1 26; C P/B 0.85x ROTCE 13% Q1 26; WFC P/B 1.55x ROTCE 14% Q1 26 (mgmt guide 17-18% medium-term); MS P/TBV 3.73x ROTCE 23.5% Q3 25; GS ROTCE 15.2%",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S2",
+      "source_type": "Fed banking",
+      "ref": "Federal Reserve March 19 2026 Basel III endgame reproposal joint statement (Fed/FDIC/OCC): industry-average CET1 requirement reduced ~5%; large G-SIBs see +4% capital uplift; final rule public comment period through 2026 Q3; expected effective date 2027-07-01",
+      "date": "2026-03-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    }
+  ],
+  "top_anchors": [
+    {
+      "anchor_id": "A1",
+      "claim": "JPMorgan Chase FY25 net income and EPS",
+      "value": 57000,
+      "unit": "$M",
+      "citation": {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "JPMorgan Chase FY25 10-K Item 8 financial statements: full-year net income $57.0B; diluted EPS $20.02; ROTCE 21% ex-significant items; CET1 14.5%",
+        "date": "2026-02-25",
+        "verified": true,
+        "is_anchor_eligible": true,
+        "url": "https://www.sec.gov/Archives/edgar/data/0000019617/000162828026008131/jpm-20251231.htm"
+      },
+      "drives_scenarios": [
+        "strong_bear",
+        "bear",
+        "base",
+        "bull",
+        "strong_bull"
+      ],
+      "sensitivity_pct": 12.0
+    },
+    {
+      "anchor_id": "A2",
+      "claim": "Q1 2026 net interest income trajectory and ROTCE",
+      "value": "5.94 EPS / 23 ROTCE / 14.3 CET1",
+      "unit": "Other",
+      "citation": {
+        "s_level": "S2",
+        "source_type": "8-K",
+        "ref": "JPMorgan Chase Q1 2026 8-K earnings release 2026-04-14: Q1 net revenue $49.8B (NII +9%); net income $16.5B; diluted EPS $5.94 +17%; ROE 19% / ROTCE 23%; CET1 14.3%; BVPS $128.38",
+        "date": "2026-04-14",
+        "verified": true,
+        "is_anchor_eligible": true,
+        "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026024990/a1q26erfexhibit991narrative.htm"
+      },
+      "drives_scenarios": [
+        "bear",
+        "base",
+        "bull",
+        "strong_bull"
+      ],
+      "sensitivity_pct": 10.0
+    },
+    {
+      "anchor_id": "A3",
+      "claim": "2026 net interest income guide and fading rate tailwinds commentary",
+      "value": "103 total / 95 ex-Markets",
+      "unit": "$B",
+      "citation": {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "JPMorgan Chase Q4 2025 earnings call 2026-01-13 CFO Jeremy Barnum: 2026 NII guide ~$103B total, ~$95B ex-Markets broadly flat YoY; rate tailwinds fading; balance sheet growth + record AWM NNA to support; Q1 2026 call 2026-04-14 implicit revision upward toward $104-105B given Q1 +9% NII outperformance",
+        "date": "2026-04-14",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "Q2 2026 10-Q expected late-July 2026 confirms NII trajectory revision"
+      },
+      "drives_scenarios": [
+        "strong_bear",
+        "bear",
+        "base",
+        "bull"
+      ],
+      "sensitivity_pct": 9.0
+    },
+    {
+      "anchor_id": "A4",
+      "claim": "Basel III endgame capital impact + CCAR stress capital buffer at floor",
+      "value": "20 incremental / SCB 2.5",
+      "unit": "$B",
+      "citation": {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "JPMorgan Chase Q1 2026 earnings call Dimon/Barnum: Basel III endgame ~$20B incremental capital (+$130B RWA = +6% capital uplift offset by -2% G-SIB surcharge change); SCB at 2.5% floor unaffected by stress-test changes; effective rule date H2 2026 / FY27 phase-in; S5 trade press confirms industry +4% capital vs -5% average",
+        "date": "2026-04-14",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "Federal Register publication of final Basel III endgame rule H2 2026 graduates to S2"
+      },
+      "drives_scenarios": [
+        "strong_bear",
+        "bear"
+      ],
+      "sensitivity_pct": 7.0
+    },
+    {
+      "anchor_id": "A5",
+      "claim": "FY26E consensus EPS and analyst price target",
+      "value": 22.5,
+      "unit": "USD",
+      "citation": {
+        "s_level": "S4",
+        "source_type": "Visible Alpha consensus",
+        "ref": "Visible Alpha JPM FY26E EPS consensus n=22 median $22.50 range $20.80-$24.10; FactSet consensus PT mean $345.78 (overweight); 15-analyst sell-side average PT $331.93 (Buy) range $285-$391",
+        "date": "2026-05-15",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": [
+        "bear",
+        "base",
+        "bull"
+      ],
+      "sensitivity_pct": 6.0
+    }
+  ],
+  "headline_conditionality": "source_conditional",
+  "pending_assumptions": []
+}

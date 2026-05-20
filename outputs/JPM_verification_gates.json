@@ -1,0 +1,196 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "JPM",
+  "run_id": "JPM_2026-05-19_phase_e_run1",
+  "memo_path": "outputs/JPM_IC_memo.md",
+  "memo_structured_path": "outputs/JPM_structured.json",
+  "gates": [
+    {
+      "gate_id": "G1",
+      "name": "EPS × Multiple multiplicativity",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "math",
+      "blocks_score_above": 7.0,
+      "evidence": {
+        "verification_script": "scripts/verify_eps_pe.py",
+        "exit_code": 0,
+        "detail": "5 scenarios verified within ±0.5% (strong_bear $14.00×9=$126.00; bear $18.00×11=$198.00; base $22.50×14.5=$326.25; bull $25.00×16=$400.00; strong_bull $28.00×18=$504.00)"
+      }
+    },
+    {
+      "gate_id": "G2",
+      "name": "Segment GM reconciliation",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "math",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_segment_gm.py",
+        "exit_code": 0,
+        "detail": "0 periods reconciled within ±50bp — banks have no segment GM (uses NIM + efficiency-ratio analog per gm_taxonomy entries); script returns pass with zero applicable periods"
+      }
+    },
+    {
+      "gate_id": "G3",
+      "name": "SOTP monotonicity",
+      "status": "n_a",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "math",
+      "blocks_score_above": 7.0,
+      "evidence": {
+        "verification_script": "scripts/verify_sotp_monotonicity.py",
+        "exit_code": 0,
+        "detail": "No SOTP method in valuation.methods[] — bank-equity SOTP analog (PPNR substitution) presented in memo §6.2 as informational rather than as a weighted method"
+      }
+    },
+    {
+      "gate_id": "G4",
+      "name": "Scenario probabilities sum to 1.00",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "math",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_scenario_weights.py",
+        "exit_code": 0,
+        "detail": "probability_sum: 1.0000 (5+20+50+20+5 = 100%) within tolerance 1.00 ± 0.01"
+      }
+    },
+    {
+      "gate_id": "G5",
+      "name": "Bear/bull EPS bridge reconciles",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "math",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_bear_bridge.py",
+        "exit_code": 0,
+        "detail": "4 scenarios (strong_bear, bear, bull, strong_bull) checked within ±0.01 EPS tolerance against base $22.50"
+      }
+    },
+    {
+      "gate_id": "G6",
+      "name": "Source tag declared at first use",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "source",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_source_tags.py",
+        "exit_code": 0,
+        "detail": "Revenue first-appearance pattern checked; all matches carry an S-tag within 80-char window"
+      }
+    },
+    {
+      "gate_id": "G7",
+      "name": "Headline conditionality matches anchor strength",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "consistency",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_headline_conditionality.py",
+        "exit_code": 0,
+        "detail": "Top-3 S-levels S1,S2,S3 → weak top-3; json_conditionality source_conditional; MD Pattern-A language present"
+      }
+    },
+    {
+      "gate_id": "G8",
+      "name": "GM taxonomy box exists",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "structure",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_gm_taxonomy.py",
+        "exit_code": 0,
+        "detail": "entries_count: 5 (all 5 types T1-T5 present; banks NIM + efficiency-ratio analog declared)"
+      }
+    },
+    {
+      "gate_id": "G9",
+      "name": "What-would-reverse has numerical denominators",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "structure",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_what_would_reverse.py",
+        "exit_code": 0,
+        "detail": "5 triggers verified with numerical denominators + units + observable channels"
+      }
+    },
+    {
+      "gate_id": "G10",
+      "name": "Anchor weighting impact table exists",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "structure",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_weighting_sensitivity.py",
+        "exit_code": 0,
+        "detail": "base_minus_10_to_bear 0.00277; base_minus_10_to_bull 0.06998; strong_tail_plus_10 {strong_bear -0.02118, strong_bull 0.10458}"
+      }
+    },
+    {
+      "gate_id": "G11",
+      "name": "Non-GAAP to GAAP reconciliation present",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "consistency",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_non_gaap.py",
+        "exit_code": 0,
+        "detail": "json_flag true (forensic_flags.non_gaap_reconciliation_present); md_parallel_marker_found true (managed-basis bridge in §6.0)"
+      }
+    },
+    {
+      "gate_id": "G12",
+      "name": "SBC treatment in FCF disclosed",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "consistency",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_fcf_definition.py",
+        "exit_code": 0,
+        "detail": "fcf_definition: non_standard (banks); fcf_includes_sbc_addback: false; bank-FCF analog declared in §12 forensic checklist"
+      }
+    },
+    {
+      "gate_id": "G13",
+      "name": "Factor exposure stated (Barra)",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "quant_overlay",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_quant_overlay.py",
+        "exit_code": 0,
+        "factors_present": ["value", "quality", "momentum", "growth", "size", "low_vol", "liquidity"],
+        "factors_required": ["value", "quality", "momentum", "growth", "size", "low_vol", "liquidity"]
+      }
+    },
+    {
+      "gate_id": "G14",
+      "name": "Capacity / ADV / days-to-exit stated",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:03:34Z",
+      "category": "quant_overlay",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_quant_overlay.py",
+        "exit_code": 0,
+        "capacity_fields_present": ["adv_30d_usd_m", "days_to_exit_10pct_participation"],
+        "capacity_fields_required": ["adv_30d_usd_m", "days_to_exit_10pct_participation"],
+        "detail": "ADV $2,466M; days-to-exit at 10% participation 4.05 days"
+      }
+    }
+  ],
+  "overall_pass": true,
+  "blocks_score_above": 10.0
+}
