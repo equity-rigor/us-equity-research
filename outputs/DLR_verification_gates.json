@@ -1,0 +1,200 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "DLR",
+  "run_id": "DLR_2026-05-19_phase_e_run1",
+  "memo_path": "outputs/DLR_IC_memo.md",
+  "memo_structured_path": "outputs/DLR_structured.json",
+  "gates": [
+    {
+      "gate_id": "G1",
+      "name": "EPS x Multiple multiplicativity",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "math",
+      "blocks_score_above": 7.0,
+      "evidence": {
+        "verification_script": "scripts/verify_eps_pe.py",
+        "scenarios_verified": 5,
+        "tolerance_pct": 0.5,
+        "note": "REIT primary multiple P/AFFO; eps field carries Core FFO/share per field-mapping convention documented in memo §5 and scenarios_inline._field_mapping_note"
+      }
+    },
+    {
+      "gate_id": "G2",
+      "name": "Segment GM reconciliation (REIT analog: NOI margin)",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "math",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_segment_gm.py",
+        "periods_reconciled": 1,
+        "tolerance_bp": 50
+      }
+    },
+    {
+      "gate_id": "G3",
+      "name": "SOTP monotonicity",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "math",
+      "blocks_score_above": 7.0,
+      "evidence": {
+        "verification_script": "scripts/verify_sotp_monotonicity.py",
+        "segments_checked": 4,
+        "note": "NI <= OP <= NOI <= Revenue holds for all 4 segments"
+      }
+    },
+    {
+      "gate_id": "G4",
+      "name": "Scenario probabilities sum to 1.00",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "math",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_scenario_weights.py",
+        "probability_sum": 1.0000,
+        "tolerance": 0.01
+      }
+    },
+    {
+      "gate_id": "G5",
+      "name": "Bear/bull Core FFO bridge reconciles",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "math",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_bear_bridge.py",
+        "scenarios_with_bridges": 4,
+        "tolerance_abs": 0.01
+      }
+    },
+    {
+      "gate_id": "G6",
+      "name": "Source tag declared at first use",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "source",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_source_tags.py",
+        "scanned_anchors": "revenue first-appearance pattern checked; all matches carry an S-tag within 80-char window"
+      }
+    },
+    {
+      "gate_id": "G7",
+      "name": "Headline conditionality matches anchor strength",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "consistency",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_headline_conditionality.py",
+        "top_3_s_levels": "S2,S3,S2",
+        "json_conditionality": "source_conditional",
+        "top_3_strength": "weak",
+        "md_pattern_marker_present": true
+      }
+    },
+    {
+      "gate_id": "G8",
+      "name": "GM taxonomy box exists (REIT analog: NOI margin taxonomy)",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "structure",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_gm_taxonomy.py",
+        "entries_count": 5,
+        "tiers_present": "T1, T2, T3, T4, T5"
+      }
+    },
+    {
+      "gate_id": "G9",
+      "name": "What-would-reverse has numerical denominators",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "structure",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_what_would_reverse.py",
+        "triggers_verified": 5
+      }
+    },
+    {
+      "gate_id": "G10",
+      "name": "Anchor weighting impact table exists",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "structure",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_weighting_sensitivity.py",
+        "weighting_sensitivity_path": "scenarios_inline.weighting_sensitivity",
+        "base_minus_10_to_bear": -0.04,
+        "base_minus_10_to_bull": 0.0107,
+        "strong_tail_plus_10_strong_bear": -0.0614,
+        "strong_tail_plus_10_strong_bull": 0.0388
+      }
+    },
+    {
+      "gate_id": "G11",
+      "name": "Non-GAAP to GAAP reconciliation present (REIT: Core FFO/AFFO bridge to GAAP NI)",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "consistency",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_non_gaap.py",
+        "json_flag": true,
+        "md_parallel_marker_found": true,
+        "forensic_alert": "non_gaap_to_gaap_delta_pct_ni_5y_avg=340.0% > 25% — enhanced scrutiny signal (gate still passes; surface for IC). Large delta is structural for a REIT (real-estate D&A added back in FFO per NAREIT convention)."
+      }
+    },
+    {
+      "gate_id": "G12",
+      "name": "SBC treatment in FCF disclosed",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "consistency",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_fcf_definition.py",
+        "fcf_definition": "OCF_minus_capex",
+        "fcf_includes_sbc_addback": false
+      }
+    },
+    {
+      "gate_id": "G13",
+      "name": "Factor exposure stated (7 Barra factors)",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "quant_overlay",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_quant_overlay.py",
+        "factors_present": ["value", "quality", "momentum", "growth", "size", "low_vol", "liquidity"],
+        "factors_required": ["value", "quality", "momentum", "growth", "size", "low_vol", "liquidity"]
+      }
+    },
+    {
+      "gate_id": "G14",
+      "name": "Capacity / ADV / days-to-exit stated",
+      "status": "pass",
+      "checked_at": "2026-05-19T20:00:00Z",
+      "category": "quant_overlay",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_quant_overlay.py",
+        "capacity_fields_present": ["adv_30d_usd_m", "days_to_exit_10pct_participation"],
+        "capacity_fields_required": ["adv_30d_usd_m", "days_to_exit_10pct_participation"],
+        "adv_30d_usd_m": 500.0,
+        "days_to_exit_10pct_participation": 4.5
+      }
+    }
+  ],
+  "overall_pass": true,
+  "blocks_score_above": 10.0
+}

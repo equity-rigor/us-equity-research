@@ -1,0 +1,1990 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "DLR",
+  "exchange": "NYSE",
+  "company_name": "Digital Realty Trust, Inc.",
+  "sector_gics": "Real Estate",
+  "industry_gics": "Specialized REITs / Data Center",
+  "as_of_date": "2026-05-19",
+  "model_cutoff_date": "2026-03-31",
+  "author": "Phase E DLR builder subagent (orchestrator)",
+  "current_price_usd": 190.0,
+  "market_cap_usd_b": 66.77,
+  "enterprise_value_usd_b": 85.2,
+  "fiscal_year_end": "12-31",
+  "headline": {
+    "expected_return_median": -0.0149,
+    "expected_return_range_p10_p90": [
+      -0.27,
+      0.236
+    ],
+    "rating": "Hold",
+    "default_action": "hold_long",
+    "conditionality": "source_conditional",
+    "conditional_language_pattern": "A_source_conditional_bias",
+    "headline_text": "Source-conditional Hold (neutral, mild-negative skew) at $190.00, base case PT $186 on FY27E Core FFO/share $8.10 (S2: DLR Q1 2026 raised guidance midpoint) x 23x P/AFFO (S4: 5y trailing median multiple, in line with current 23.5x). 12-month median expected return -1.5%; scenario-weighted range [-27%, +24%]. CONDITIONAL on (i) hyperscaler aggregate CY2026 capex YoY >+50% maintained across MSFT/GOOG/META/AMZN -- currently +77% (S3: hyperscaler Q1 CY26 earnings calls) -- AND (ii) DLR Q2 2026 bookings >$400M run-rate confirmed at print 2026-07-23 (S3: DLR Q1 2026 call 2026-04-23 guidance trajectory). If hyperscaler capex falsifies <+30% OR DLR Q2 bookings <$300M OR top-3 customer non-renewal disclosed via 8-K, downgrade to Sell; if hyperscaler capex confirmed >+70% AND DLR Q2 bookings >$500M, upgrade to Buy with PT $215."
+  },
+  "recommendation": {
+    "rating": "Hold",
+    "price_target_usd": 186.0,
+    "price_target_range_low_usd": 98.0,
+    "price_target_range_high_usd": 288.3,
+    "upside_downside_pct": -2.1,
+    "time_horizon_months": 12,
+    "conviction_tag": "source_conditional",
+    "default_action": "hold_long",
+    "rationale_one_paragraph": "Source-conditional Hold on DLR at $190.00 (S4: Yahoo Finance 2026-05-19). Base case PT $186 derived from FY27E Core FFO/share $8.10 (S2: DLR Q1 2026 raised guidance) x 23x P/AFFO (S4: 5y trailing median multiple, in line with current trading multiple 23.5x). Top-3 anchors: A1 DLR FY26 raised guidance $8.10 Core FFO/share (S2: Q1 2026 8-K), A2 hyperscaler aggregate CY2026 capex +77% YoY to $725B (S3: MSFT/GOOG/META/AMZN Q1 CY26 calls), A3 DLR Q1 2026 record bookings $707M including 200MW Charlotte AA-rated hyperscaler lease (S2: Q1 2026 8-K). A2 is S3 -> headline carries Pattern A source-conditional bias language; falsification path via hyperscaler Q2 2026 capex prints by 2026-08-01. Probability-weighted 12mo return -1.5%, with mild downside skew because the current P/AFFO multiple ~23.5x already prices in the bull case and leaves limited margin to absorb a Fed-path shift or top-customer non-renewal. The cross-thesis correlation with NVDA hyperscaler thesis is the dominant external risk -- DLR's largest customers ARE hyperscalers (MSFT, META, IBM Cloud, Oracle), so a portfolio holding both NVDA and DLR is not diversified on the hyperscaler-capex factor. Default action hold_long: position presumed at modest benchmark weight (DLR ~0.20% of S&P 500); upgrades to add_long if DLR Q2 2026 bookings >$500M AND hyperscaler capex confirmed >+70%."
+  },
+  "investment_thesis_pillars": [
+    {
+      "title": "Hyperscaler capex cycle inflection drives multi-year bookings visibility",
+      "key_statistic": "DLR Q1 2026 total bookings $707M annualized at 100% share / $423M at DLR share (second-highest quarter ever; ~70% above next-highest), including 200MW Charlotte AA-rated hyperscaler AI inference lease (S2: DLR Q1 2026 8-K)",
+      "narrative": "DLR's revenue is structurally a derivative claim on hyperscaler colocation demand. The top-4 hyperscale cloud providers (MSFT, GOOG, META, AMZN) jointly guided CY2026 capex at $725B (+77% YoY); DLR's hyperscaler customer concentration (top 20 customers ~51% of recurring revenue per FY25 10-K) means this capex print translates directly into DLR bookings. The 200MW Charlotte lease with an AA-rated hyperscaler -- DLR's largest single lease in company history -- phases through 2028, creating multi-year revenue visibility. The $1.8B backlog at ~19-month commencement lag (S3: DLR Q1 2026 call) provides through-2027 cash-flow predictability. Bear thesis tension: DLR's hyperscale customers are the same companies investing in self-build campuses (Meta's $10B Louisiana/Indiana; MSFT $3.3B Fairwater Wisconsin), and the self-build share at 100MW+ scale is structurally rising.",
+      "anchor_refs": [
+        "A2",
+        "A3",
+        "A5"
+      ],
+      "timeline": "FY26-FY28 (Charlotte phases through 2028)"
+    },
+    {
+      "title": "Interconnection and 0-1MW colocation defends against self-build bypass",
+      "key_statistic": "Q1 2026 0-1MW + interconnection bookings $98M, record, +40% YoY; interconnection segment 2025 bookings $340M, +35% YoY (S2: DLR Q1 2026 8-K + FY25 10-K disclosures)",
+      "narrative": "DLR's defensive franchise against hyperscaler self-build is the interconnection ecosystem -- the multi-cloud peering, enterprise hybrid-cloud access, and AI inference distribution moat that a single-tenant self-built campus cannot replicate. The 0-1MW + interconnection segment grew bookings 40% YoY in Q1 2026 to a record $98M, suggesting the structural enterprise/AI-inference demand is sustainable. Equinix has been the historical leader in this segment (10,000+ co-located customers in its IBX peering ecosystem); DLR has been investing in PlatformDIGITAL to close the gap. Bull thesis asymmetry: if interconnection scales from current ~14% of revenue to 20%+ of revenue at sustainably higher NOI margin (T3 sub-segment NOI 75-80% vs hyperscale T2 segment NOI 65-68%), the consolidated NOI margin re-rates higher and the P/AFFO multiple expands.",
+      "anchor_refs": [
+        "A3"
+      ],
+      "timeline": "Multi-year (FY26-FY30); proof point at quarterly interconnection booking trajectory"
+    },
+    {
+      "title": "Land bank + power capacity is the binding constraint and the moat",
+      "key_statistic": "DLR FY25 portfolio: 310 data centers, 30+ countries, 57.6M rentable sq ft (9.7M under active development; 4.7M held for development); over 1 GW of additional land capacity secured in Q1 2026 (S1: DLR FY25 10-K Item 1 + S3: Q1 2026 call)",
+      "narrative": "Grid power availability is now the binding constraint on hyperscaler colocation supply -- not capital, not land, not silicon. DLR has been aggressive in securing power-rich land and grid interconnection commitments years ahead of demand. The FY25 10-K disclosed 57.6M rentable sq ft with 9.7M actively under development plus 4.7M held for development; the Q1 2026 call disclosed >1 GW of additional land capacity secured during the quarter alone. Pre-leasing timelines have extended to 3-4 years (S5: Cushman & Wakefield 2026 outlook); average colocation pricing rose from $120/kW/month H2 2021 to ~$200/kW/month H1 2026 (S5: datacenterHawk). The bull case requires this binding-constraint dynamic to persist; the bear case is that grid investment + small modular reactor (SMR) capacity from 2028 onwards releases the constraint and pricing normalizes.",
+      "anchor_refs": [
+        "A5"
+      ],
+      "timeline": "FY26-FY29 (SMR capacity meaningful from 2028+)"
+    },
+    {
+      "title": "REIT distribution discipline + AFFO payout coverage provides downside support",
+      "key_statistic": "FY25 dividend $4.88/share vs FY25 Core FFO/share $7.39 -> 66% AFFO payout ratio; FY26 guide $8.10 with dividend likely $4.96 -> 61% AFFO payout (S1: DLR FY25 10-K + S2: Q1 2026 8-K)",
+      "narrative": "DLR maintains a conservative AFFO payout ratio at ~66% of Core FFO (~75% of AFFO after recurring maintenance capex), well below the REIT-sector 75-85% norm and the 90% distribution-requirement floor under IRC Section 856. This buffer provides three things: (a) dividend safety in a bear scenario without forced REIT distribution from impaired assets, (b) reinvestment capacity for the $9.7M+ sq ft development pipeline without external capital, (c) a 25% buffer before the 90% distribution requirement floor binds. Net debt/Adjusted EBITDA at 4.9x (S1: FY25 10-K) is at the upper end of investment-grade REIT discipline but well-managed via $6B+ undrawn liquidity. The bear thesis tail risk is a refi cycle at 10Y UST 5.0%+ where DLR's $18.4B debt repricing at 5.6% blended (vs ~4.2% current) consumes ~$0.40 of Core FFO/share.",
+      "anchor_refs": [
+        "A1"
+      ],
+      "timeline": "Ongoing; refresh cadence at quarterly dividend declaration"
+    }
+  ],
+  "company_qualitative": {
+    "description": "Digital Realty Trust, Inc. (DLR) is a US-domiciled equity REIT and the world's second-largest data center REIT by enterprise value, behind Equinix. DLR designs, builds, owns, and operates wholesale and retail data centers across 310 facilities in 30+ countries on six continents, totaling 57.6 million rentable square feet (S1: DLR FY25 10-K Item 1 Business), of which 9.7M sq ft is actively under development and 4.7M sq ft is held for future development. Portfolio leased rate was 84.7% at FY25 year-end (S1: DLR FY25 10-K Item 1 Business). FY25 total operating revenue was $6.11B (S1: DLR FY25 10-K Item 7 MD&A), up 10% YoY; Core FFO/share was $7.39 (+10.1% YoY); the dividend per share was $4.88. The business is split economically into two operating models: (a) hyperscale wholesale colocation -- multi-megawatt build-to-suit and turnkey deployments for the largest cloud customers (MSFT, META, IBM Cloud, Oracle, AMZN, etc.), characterized by long lease terms (10-15 year typical), tenant-improvement allowances, and lower per-unit pricing but high absolute revenue per deal; and (b) interconnection + 0-1MW colocation -- the higher-margin retail product where enterprise customers, AI startups, financial services firms, and content delivery networks colocate cabinets and racks at metro-edge facilities and access multi-cloud peering. Q1 2026 marked a record interconnection booking quarter at $98M (+40% YoY, S2: DLR Q1 2026 8-K). The geographic mix is approximately 70% North America (largely Northern Virginia, Dallas, Chicago, Phoenix, Atlanta, Northern California); approximately 20% EMEA (London, Frankfurt, Paris, Amsterdam, Madrid); approximately 10% Asia-Pacific (Singapore, Tokyo, Sydney, Mumbai, Seoul). Customer concentration is real but diversifying: top customer represented approximately 11.7% of aggregate revenue in FY25 (S1: DLR FY25 10-K Item 1 Business); top 20 customers represented approximately 51% (S1: FY24 10-K disclosure, expected similar trajectory FY25). On the Q1 2026 earnings call (S3: 2026-04-23) management disclosed seven consecutive quarters where the largest signing came from a different hyperscaler -- a deliberate effort to spread risk across the top customer cohort. Capital structure: $18.4B total debt outstanding at FY25 year-end (S1: DLR FY25 10-K Item 7A), comprised of $17.5B unsecured + $0.9B secured; net debt/Adjusted EBITDA 4.9x; fixed-charge coverage 4.5x; debt-plus-preferred to enterprise value 26.1%. The 351.4M diluted share count (S4: stockanalysis.com 2026-05-19) supports a $66.8B market cap at $190/share, with enterprise value of $85.2B including net debt. The 4.4% implied cap rate (S5: Capright April 2026 update) is the lowest among major property types and reflects investor view of the AI cycle. DLR is included in the S&P 500 Index, the FTSE Nareit Equity REITs Index, the iShares Real Estate ETF (IYR), and the Pacer Benchmark Data & Infrastructure Real Estate ETF (SRVR).",
+    "products": [
+      {
+        "name": "Hyperscale wholesale colocation (multi-MW build-to-suit + turnkey)",
+        "description": "Long-term lease (10-15 year typical) of full data hall or campus space to hyperscale cloud providers and large enterprise customers. Customer brings own racks/servers; DLR provides power, cooling, security, building shell. Typical lease size 5-200MW. The Q1 2026 200MW Charlotte AI inference lease with AA-rated hyperscaler is the canonical example.",
+        "target_customers": "MSFT Azure, META, IBM Cloud, Oracle, GOOG, AMZN, AAPL, Tencent, AI labs (OpenAI direct + indirect via hyperscaler partners)",
+        "pricing_model": "$/kW/month + power passthrough; H1 2026 average ~$200/kW/month for 250-500kW (S5: datacenterHawk); larger 50MW+ deals at lower per-kW rates ($120-160/kW)",
+        "revenue_contribution_pct": 78.0,
+        "competitive_position": "DLR + EQIX + IRM (Iron Mountain) + AWS Direct Connect + GCP/Azure self-build are the structural competitive set; hyperscaler self-build pressure on largest deals offset by speed-to-power advantage at established sites",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "DLR FY25 10-K Item 1 Business product description"
+        }
+      },
+      {
+        "name": "Interconnection + 0-1MW retail colocation (PlatformDIGITAL)",
+        "description": "Per-cabinet or per-rack colocation for enterprise customers with bundled cross-connects, multi-cloud peering, and metro-edge connectivity. Higher per-unit pricing, higher NOI margin, stickier customer base. Q1 2026 bookings $98M, record, +40% YoY.",
+        "target_customers": "Enterprise IT, financial services, content delivery networks, AI inference startups, network service providers (NSPs), cloud regional offices, system integrators",
+        "pricing_model": "Per-cabinet monthly recurring revenue (MRR) + cross-connect MRR + bandwidth burst fees",
+        "revenue_contribution_pct": 14.0,
+        "competitive_position": "EQIX is structural leader in interconnection (10,000+ customer ecosystem); DLR PlatformDIGITAL closing gap; CoreSite, NTT, Iron Mountain compete in retail",
+        "source_citation": {
+          "s_level": "S2",
+          "source_type": "8-K",
+          "ref": "DLR Q1 2026 8-K interconnection bookings detail"
+        }
+      },
+      {
+        "name": "Development services and powered shell sales (Hyperscale Fund)",
+        "description": "DLR develops powered shell campuses and either retains them in the operating portfolio or syndicates fractional interests through the Digital Core REIT (Singapore-listed) and the Hyperscale Fund JV with GI Partners. Generates development fees, management fees, and operating control.",
+        "target_customers": "Institutional capital (sovereign wealth, pension, private equity), JV partners",
+        "pricing_model": "Asset sales at ~6-8% cap rate; ongoing 1-1.5% management fee; development fee 5-7% of build cost",
+        "revenue_contribution_pct": 5.0,
+        "competitive_position": "Capital-light scaling model unique to DLR among data-center REITs; enables hyper-development without balance-sheet stress",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "DLR FY25 10-K Item 7 MD&A Joint Ventures and Capital Recycling commentary"
+        }
+      },
+      {
+        "name": "Managed services + AI/HPC support",
+        "description": "Smart-hands, remote-hands, cabling, server installation, deploy-and-decommission services; AI-ready power densities (70-130 kW/rack) plus liquid cooling support for hyperscale AI training workloads.",
+        "target_customers": "Existing colocation customers; AI/HPC workloads requiring liquid cooling and ultra-high density",
+        "pricing_model": "Time-and-materials + recurring contracts",
+        "revenue_contribution_pct": 3.0,
+        "competitive_position": "Standard across colocation operators; DLR liquid-cooling rollout matched to AI inference demand",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "DLR FY25 10-K Item 1 Services description"
+        }
+      }
+    ],
+    "customers_gtm": "Direct enterprise relationships with hyperscale cloud customers (multi-year master service agreements); channel partnerships with system integrators, network service providers, and managed-service operators for retail; JV partnerships with sovereign wealth and pension capital for capital-light scaling (Digital Core REIT Singapore, Hyperscale Fund with GI Partners). Customer concentration: top customer ~11.7% of aggregate revenue (S1: DLR FY25 10-K); top 20 customers ~51% of recurring revenue (S1: FY24 10-K reference). Seven consecutive quarters with largest signing from different hyperscaler per Q1 2026 call (S3: 2026-04-23).",
+    "industry": {
+      "overview": "The global colocation data-center market sits at the intersection of three multi-year demand dynamics: (1) hyperscale cloud + AI workload growth driving wholesale demand for multi-megawatt deployments at primary metro hubs (Northern Virginia, Dallas, Frankfurt, London, Singapore), with hyperscaler aggregate CY2026 capex at $725B (+77% YoY per Q1 CY26 earnings calls); (2) enterprise hybrid-cloud + AI inference + edge compute driving retail interconnection demand at metro-edge facilities; (3) grid power availability as the binding supply constraint, with pre-leasing timelines extended to 3-4 years and pricing rising 20-35% YoY in primary markets (S5: Cushman & Wakefield 2026 outlook). Data center REIT implied cap rates declined to ~4.4% (S5: Capright April 2026), the lowest across all asset classes, reflecting investor consensus on demand durability. Competitive structure: DLR + Equinix duopoly at hyperscale wholesale scale, with regional players (Iron Mountain, CoreSite, NTT, KDDI Telehouse, China Telecom Global, Lumen) competing in geography-specific niches; AWS, Azure, GCP, and Meta build their own at largest single-campus scale ($3-10B+ per campus). The structural tension is hyperscaler self-build pressure -- per recent commentary (S5: 2026 industry analyses), self-built hyperscale facilities offer better unit economics at 100+ MW scale and full operational control for AI workloads with custom liquid cooling and high-voltage power requirements -- offset by DLR's speed-to-power advantage at established sites with already-secured grid interconnection commitments. Regulatory environment: data-center REITs are largely benign to US federal tax policy (REIT structure provides flow-through tax treatment under IRC Section 856); state-level energy policy is the live regulatory concern with Virginia legislature periodically debating data-center power-consumption restrictions, Ireland imposing a near-moratorium on Dublin-area new builds, Frankfurt and Amsterdam managing power-grid constraints. IRA Section 48 and Section 45Q investment tax credits are largely not applicable to colocation operators (apply to project-finance solar/storage and CCS, respectively); Section 174 R&D capitalization is not relevant (REIT structure). The geopolitical tail is China-US data sovereignty: DLR has minimal direct China exposure post-divestment but the global colocation industry faces tighter cross-border data flow rules under EU GDPR, China PIPL, India DPDPA, US export-control proposals on AI compute clusters above performance thresholds.",
+      "tam": {
+        "current_year": 2026,
+        "current_tam_usd_b": 150.0,
+        "projected_year": 2030,
+        "projected_tam_usd_b": 280.0,
+        "cagr_pct": 13.3,
+        "source": {
+          "s_level": "S5",
+          "source_type": "Other",
+          "ref": "newmarketpitch.com 2026 data-center market size $150B with 12% CAGR; cross-validated against datacenterHawk + Cushman & Wakefield + IDC trackers"
+        }
+      }
+    },
+    "competitive_landscape": {
+      "peers": [
+        {
+          "name": "Equinix",
+          "ticker": "EQIX",
+          "market_cap_usd_b": 105.0,
+          "market_share_pct": 18.0,
+          "key_differentiator": "Interconnection ecosystem leader (10,000+ customers, IBX peering); enterprise + retail mix; trades at 27-29x forward P/AFFO premium",
+          "revenue_growth_pct": 9.0,
+          "ebitda_margin_pct": 48.0
+        },
+        {
+          "name": "Iron Mountain",
+          "ticker": "IRM",
+          "market_cap_usd_b": 35.0,
+          "market_share_pct": 4.0,
+          "key_differentiator": "Mixed data center + records management; data center segment growing fast off small base; less hyperscale exposure",
+          "revenue_growth_pct": 12.0,
+          "ebitda_margin_pct": 37.0
+        },
+        {
+          "name": "American Tower",
+          "ticker": "AMT",
+          "market_cap_usd_b": 105.0,
+          "market_share_pct": null,
+          "key_differentiator": "Tower REIT pivoting to data center via CoreSite acquisition; cross-listed peer; tower business different revenue dynamics",
+          "revenue_growth_pct": 4.5,
+          "ebitda_margin_pct": 58.0
+        },
+        {
+          "name": "NTT Global Data Centers",
+          "ticker": "9432.T",
+          "market_cap_usd_b": 130.0,
+          "market_share_pct": 5.0,
+          "key_differentiator": "Diversified conglomerate; data centers $5B revenue subset; Asia-Pacific strong position",
+          "revenue_growth_pct": 6.0,
+          "ebitda_margin_pct": 35.0
+        },
+        {
+          "name": "CoreSite (owned by AMT)",
+          "ticker": "AMT",
+          "market_cap_usd_b": null,
+          "market_share_pct": 2.0,
+          "key_differentiator": "Cloud-onramp + interconnection in 11 metros; subsidiary of AMT",
+          "revenue_growth_pct": 8.0,
+          "ebitda_margin_pct": 52.0
+        }
+      ],
+      "positioning_narrative": "DLR is the #2 global data center REIT by enterprise value behind Equinix, with the largest global wholesale colocation footprint (310 facilities vs EQIX ~270 IBX data centers). The structural positioning gap with EQIX is interconnection density: EQIX's 10,000+ co-located customers create a network effect that single-tenant or wholesale-heavy operators cannot replicate. DLR has been investing in PlatformDIGITAL to narrow this gap and Q1 2026 record interconnection bookings $98M (+40% YoY) suggest progress. The competitive structure is bimodal at the high end: DLR + EQIX duopoly serves hyperscaler wholesale and enterprise retail; hyperscaler self-build (Meta, MSFT, GCP, AWS owned campuses) is the structural counter-position at the 100MW+ single-customer scale. DLR's defense against self-build is (a) speed to power at established sites with grid interconnection already secured; (b) capital efficiency via Hyperscale Fund JV syndication; (c) interconnection + 0-1MW retail moat unavailable at hyperscaler-built single-tenant campuses. The valuation gap: DLR trades 23.5x forward P/AFFO vs EQIX 27-29x, a roughly 4-multiple-turn discount reflecting the interconnection-density gap and EQIX's higher recurring revenue stickiness."
+    }
+  },
+  "management": [
+    {
+      "name": "Andy Power",
+      "title": "President and CEO",
+      "tenure_years": 4,
+      "bio": "Joined Digital Realty in 2015 as Senior Vice President of Investments and Strategy; promoted to CFO in 2016; appointed President in 2021; CEO since 2022. Previously Vice President of Investment Banking at Citi covering REITs and infrastructure. Holds a B.S. in Finance from Wake Forest University. Has overseen the strategic pivot toward AI-oriented colocation and the Hyperscale Fund capital recycling model. Compensation FY25 approximately $13M (mostly equity).",
+      "compensation_usd_m": 13.0,
+      "stock_ownership_shares": 380000,
+      "background": "REIT investment banking, ex-Citi",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "DLR 2026 proxy DEF 14A 2026-04-15"
+      }
+    },
+    {
+      "name": "Matthew Mercier",
+      "title": "Executive Vice President and CFO",
+      "tenure_years": 13,
+      "bio": "Joined Digital Realty in 2013; promoted to CFO in 2022. Previously held senior finance and accounting roles at DLR including Chief Accounting Officer. Holds B.S. in Accounting from Lehigh University and M.B.A. from Cornell. CPA. Has been the CFO voice on quarterly earnings calls and capital-markets transactions including the Hyperscale Fund formation and bond issuance program.",
+      "compensation_usd_m": 5.0,
+      "stock_ownership_shares": 65000,
+      "background": "Accounting and finance, ex-DLR Chief Accounting Officer",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "DLR 2026 proxy DEF 14A 2026-04-15"
+      }
+    },
+    {
+      "name": "Greg Wright",
+      "title": "Chief Investment Officer",
+      "tenure_years": 10,
+      "bio": "Joined Digital Realty in 2016 as Chief Investment Officer with responsibility for capital deployment, M&A, and portfolio strategy. Previously at Macquarie Capital and CB Richard Ellis Investors. Holds an undergraduate degree from Williams College and an M.B.A. from Harvard. Has led the InterXion acquisition (2020, $8B), the Telx acquisition (2015), and ongoing capital recycling through the Hyperscale Fund and Digital Core REIT Singapore listing.",
+      "background": "Real estate investment, M&A; ex-Macquarie Capital, ex-CBRE Investors",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "DLR 2026 proxy DEF 14A 2026-04-15"
+      }
+    },
+    {
+      "name": "Chris Sharp",
+      "title": "Chief Technology Officer",
+      "tenure_years": 11,
+      "bio": "Joined Digital Realty in 2015 as Chief Technology Officer. Previously at Verizon Terremark and Equinix. Has led PlatformDIGITAL strategy and the interconnection product platform; oversees AI-ready infrastructure rollout including liquid cooling deployments for AI training and inference workloads.",
+      "background": "Data center infrastructure technology; ex-Verizon Terremark, ex-Equinix",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "DLR 2026 proxy DEF 14A 2026-04-15"
+      }
+    }
+  ],
+  "financials": {
+    "historical": [
+      {
+        "period": "FY23A",
+        "period_type": "historical",
+        "revenue_usd_m": 5477,
+        "revenue_growth_pct": 18.0,
+        "gross_profit_usd_m": 3286,
+        "gross_margin_pct": 60.0,
+        "ebit_usd_m": 1095,
+        "ebit_margin_pct": 20.0,
+        "net_income_gaap_usd_m": 905,
+        "eps_diluted_gaap_usd": 3.05,
+        "diluted_shares_m": 297,
+        "fcf_usd_m": 1450,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 90,
+        "buyback_usd_m": 0,
+        "buyback_offsets_sbc_ratio": 0.0
+      },
+      {
+        "period": "FY24A",
+        "period_type": "historical",
+        "revenue_usd_m": 5555,
+        "revenue_growth_pct": 1.4,
+        "gross_profit_usd_m": 3333,
+        "gross_margin_pct": 60.0,
+        "ebit_usd_m": 1167,
+        "ebit_margin_pct": 21.0,
+        "net_income_gaap_usd_m": 600,
+        "eps_diluted_gaap_usd": 1.85,
+        "diluted_shares_m": 324,
+        "fcf_usd_m": 1550,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 95,
+        "buyback_usd_m": 0,
+        "buyback_offsets_sbc_ratio": 0.0
+      },
+      {
+        "period": "FY25A",
+        "period_type": "historical",
+        "revenue_usd_m": 6110,
+        "revenue_growth_pct": 10.0,
+        "gross_profit_usd_m": 3727,
+        "gross_margin_pct": 61.0,
+        "ebit_usd_m": 1283,
+        "ebit_margin_pct": 21.0,
+        "net_income_gaap_usd_m": 590,
+        "eps_diluted_gaap_usd": 1.68,
+        "eps_diluted_non_gaap_usd": 7.39,
+        "diluted_shares_m": 351,
+        "fcf_usd_m": 1750,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 105,
+        "buyback_usd_m": 0,
+        "buyback_offsets_sbc_ratio": 0.0,
+        "segments": [
+          {
+            "name": "Hyperscale_wholesale",
+            "revenue_usd_m": 4766,
+            "gm_pct": 60.5,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "DLR FY25 10-K Item 7 MD&A segment revenue breakdown"
+            }
+          },
+          {
+            "name": "Interconnection_0to1MW",
+            "revenue_usd_m": 855,
+            "gm_pct": 75.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S2",
+              "source_type": "8-K",
+              "ref": "DLR Q4 2025 8-K interconnection segment detail"
+            }
+          },
+          {
+            "name": "Development_services_JV",
+            "revenue_usd_m": 305,
+            "gm_pct": 45.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "DLR FY25 10-K Item 7 MD&A JV and development fee revenue"
+            }
+          },
+          {
+            "name": "Managed_services",
+            "revenue_usd_m": 184,
+            "gm_pct": 50.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "DLR FY25 10-K Item 7 MD&A managed services"
+            }
+          }
+        ]
+      }
+    ],
+    "ltm": {
+      "period": "LTM_Q1FY26",
+      "period_type": "ltm",
+      "revenue_usd_m": 6260,
+      "revenue_growth_pct": 11.0,
+      "gross_profit_usd_m": 3819,
+      "gross_margin_pct": 61.0,
+      "ebit_usd_m": 1377,
+      "ebit_margin_pct": 22.0,
+      "net_income_gaap_usd_m": 645,
+      "eps_diluted_gaap_usd": 1.83,
+      "eps_diluted_non_gaap_usd": 7.57,
+      "diluted_shares_m": 351,
+      "fcf_usd_m": 1820,
+      "fcf_includes_sbc_addback": false,
+      "sbc_usd_m": 108,
+      "buyback_usd_m": 0,
+      "buyback_offsets_sbc_ratio": 0.0,
+      "segments": [
+        {
+          "name": "Hyperscale_wholesale",
+          "revenue_usd_m": 4883,
+          "gm_pct": 60.5,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S2",
+            "source_type": "8-K",
+            "ref": "DLR Q1 2026 8-K + FY25 10-K Note 13 LTM run-rate"
+          }
+        },
+        {
+          "name": "Interconnection_0to1MW",
+          "revenue_usd_m": 876,
+          "gm_pct": 75.0,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S2",
+            "source_type": "8-K",
+            "ref": "DLR Q1 2026 8-K interconnection"
+          }
+        },
+        {
+          "name": "Development_services_JV",
+          "revenue_usd_m": 313,
+          "gm_pct": 45.0,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S1",
+            "source_type": "10-K",
+            "ref": "DLR FY25 10-K Item 7 MD&A"
+          }
+        },
+        {
+          "name": "Managed_services",
+          "revenue_usd_m": 188,
+          "gm_pct": 50.0,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S1",
+            "source_type": "10-K",
+            "ref": "DLR FY25 10-K Item 7 MD&A"
+          }
+        }
+      ]
+    },
+    "projected": [
+      {
+        "period": "FY26E",
+        "period_type": "projected",
+        "revenue_usd_m": 6700,
+        "revenue_growth_pct": 9.7,
+        "gross_profit_usd_m": 4087,
+        "gross_margin_pct": 61.0,
+        "ebit_usd_m": 1474,
+        "ebit_margin_pct": 22.0,
+        "net_income_gaap_usd_m": 700,
+        "eps_diluted_gaap_usd": 1.95,
+        "eps_diluted_non_gaap_usd": 8.1,
+        "diluted_shares_m": 353,
+        "fcf_usd_m": 1950,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 115,
+        "buyback_usd_m": 0
+      },
+      {
+        "period": "FY27E",
+        "period_type": "projected",
+        "revenue_usd_m": 7400,
+        "revenue_growth_pct": 10.4,
+        "gross_profit_usd_m": 4514,
+        "gross_margin_pct": 61.0,
+        "ebit_usd_m": 1628,
+        "ebit_margin_pct": 22.0,
+        "net_income_gaap_usd_m": 810,
+        "eps_diluted_gaap_usd": 2.27,
+        "eps_diluted_non_gaap_usd": 8.95,
+        "diluted_shares_m": 357,
+        "fcf_usd_m": 2150,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 125,
+        "buyback_usd_m": 0
+      },
+      {
+        "period": "FY28E",
+        "period_type": "projected",
+        "revenue_usd_m": 8150,
+        "revenue_growth_pct": 10.1,
+        "gross_profit_usd_m": 4971,
+        "gross_margin_pct": 61.0,
+        "ebit_usd_m": 1793,
+        "ebit_margin_pct": 22.0,
+        "net_income_gaap_usd_m": 930,
+        "eps_diluted_gaap_usd": 2.58,
+        "eps_diluted_non_gaap_usd": 9.85,
+        "diluted_shares_m": 361,
+        "fcf_usd_m": 2380,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 136,
+        "buyback_usd_m": 0
+      },
+      {
+        "period": "FY29E",
+        "period_type": "projected",
+        "revenue_usd_m": 8900,
+        "revenue_growth_pct": 9.2,
+        "gross_profit_usd_m": 5430,
+        "gross_margin_pct": 61.0,
+        "ebit_usd_m": 1958,
+        "ebit_margin_pct": 22.0,
+        "net_income_gaap_usd_m": 1050,
+        "eps_diluted_gaap_usd": 2.88,
+        "eps_diluted_non_gaap_usd": 10.65,
+        "diluted_shares_m": 365,
+        "fcf_usd_m": 2620,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 148,
+        "buyback_usd_m": 0
+      },
+      {
+        "period": "FY30E",
+        "period_type": "projected",
+        "revenue_usd_m": 9650,
+        "revenue_growth_pct": 8.4,
+        "gross_profit_usd_m": 5887,
+        "gross_margin_pct": 61.0,
+        "ebit_usd_m": 2123,
+        "ebit_margin_pct": 22.0,
+        "net_income_gaap_usd_m": 1180,
+        "eps_diluted_gaap_usd": 3.2,
+        "eps_diluted_non_gaap_usd": 11.4,
+        "diluted_shares_m": 369,
+        "fcf_usd_m": 2850,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 160,
+        "buyback_usd_m": 0
+      }
+    ],
+    "revenue_by_product": [
+      {
+        "product": "Hyperscale wholesale colocation",
+        "by_period": {
+          "FY24A": 4338,
+          "FY25A": 4766,
+          "FY26E": 5226,
+          "FY27E": 5772,
+          "FY28E": 6357
+        }
+      },
+      {
+        "product": "Interconnection + 0-1MW retail (PlatformDIGITAL)",
+        "by_period": {
+          "FY24A": 778,
+          "FY25A": 855,
+          "FY26E": 938,
+          "FY27E": 1100,
+          "FY28E": 1280
+        }
+      },
+      {
+        "product": "Development services + JV management fees",
+        "by_period": {
+          "FY24A": 278,
+          "FY25A": 305,
+          "FY26E": 335,
+          "FY27E": 370,
+          "FY28E": 410
+        }
+      },
+      {
+        "product": "Managed services + smart-hands",
+        "by_period": {
+          "FY24A": 161,
+          "FY25A": 184,
+          "FY26E": 201,
+          "FY27E": 220,
+          "FY28E": 240
+        }
+      }
+    ],
+    "revenue_by_geography": [
+      {
+        "region": "North America",
+        "by_period": {
+          "FY24A": 3889,
+          "FY25A": 4277,
+          "FY26E": 4690,
+          "FY27E": 5180,
+          "FY28E": 5705
+        }
+      },
+      {
+        "region": "EMEA",
+        "by_period": {
+          "FY24A": 1111,
+          "FY25A": 1222,
+          "FY26E": 1340,
+          "FY27E": 1480,
+          "FY28E": 1630
+        }
+      },
+      {
+        "region": "Asia Pacific",
+        "by_period": {
+          "FY24A": 555,
+          "FY25A": 611,
+          "FY26E": 670,
+          "FY27E": 740,
+          "FY28E": 815
+        }
+      }
+    ]
+  },
+  "gm_taxonomy": {
+    "entries": [
+      {
+        "type": "T1_consolidated",
+        "name": "Consolidated NOI margin (REIT analog of GM; net operating income / total revenue) FY25",
+        "value_range": "65-66%",
+        "source": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "DLR FY25 10-K Item 7 MD&A: same-capital cash NOI growth 7.7%; consolidated NOI margin approximately 65% on $6.11B revenue"
+        }
+      },
+      {
+        "type": "T2_segment",
+        "name": "Hyperscale wholesale segment NOI margin FY25 (multi-MW build-to-suit + turnkey)",
+        "value_range": "60-62%",
+        "source": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "DLR FY25 10-K Item 7 MD&A segment breakdown: hyperscale wholesale NOI margin approximately 60.5% on segment revenue $4.77B"
+        }
+      },
+      {
+        "type": "T3_sub_segment",
+        "name": "Interconnection + 0-1MW retail sub-segment NOI margin (PlatformDIGITAL) FY25",
+        "value_range": "73-77%",
+        "source": {
+          "s_level": "S2",
+          "source_type": "8-K",
+          "ref": "DLR Q1 2026 8-K interconnection segment detail; record $98M Q1 bookings at structurally higher margin"
+        }
+      },
+      {
+        "type": "T4_analyst_modeled",
+        "name": "FY27E modeled blended NOI margin (mix shift toward interconnection)",
+        "value_range": "66-68%",
+        "source": {
+          "s_level": "S5",
+          "source_type": "Other",
+          "ref": "Internal model: mix shift assumption from 14% interconnection FY25 to 17% FY27E lifts blended NOI margin from 65% to 67%"
+        }
+      },
+      {
+        "type": "T5_marginal",
+        "name": "Incremental next-development NOI yield (Charlotte 200MW AI inference lease unit economics)",
+        "value_range": "9-11% stabilized cash yield",
+        "source": {
+          "s_level": "S5",
+          "source_type": "Capright Real Estate",
+          "ref": "Capright development cap rates 4.25-6.25%; unleveraged IRR 7.0-8.5%; DLR Charlotte estimate based on $1.3B build cost + 200MW capacity at ~$200/kW/month run-rate"
+        }
+      }
+    ],
+    "reconciliation_consolidated_vs_implied_bp": 35.0
+  },
+  "scenarios_ref": "outputs/DLR_scenarios.json",
+  "valuation": {
+    "methods": [
+      {
+        "method": "DCF",
+        "implied_price_usd": 192.0,
+        "price_range_low_usd": 165.0,
+        "price_range_high_usd": 225.0,
+        "weight_pct": 35,
+        "weighted_value_usd": 67.2,
+        "key_assumptions": {
+          "wacc_pct": 7.5,
+          "terminal_growth_pct": 3.0,
+          "explicit_forecast_years": 10,
+          "exit_multiple_check_p_affo": 22
+        },
+        "narrative": "10y explicit DCF on AFFO with terminal growth 3.0% and WACC 7.5% (REIT-appropriate, reflecting cost of debt 5.1% + cost of equity 9.3% at beta 0.85). Discounts FY26E-FY35E AFFO trajectory $7.40 -> $11.80 and 22x exit P/AFFO sanity check on FY35E AFFO."
+      },
+      {
+        "method": "Trading_comps",
+        "implied_price_usd": 186.0,
+        "price_range_low_usd": 165.0,
+        "price_range_high_usd": 215.0,
+        "weight_pct": 30,
+        "weighted_value_usd": 55.8,
+        "key_assumptions": {
+          "peer_set": "EQIX (27-29x), IRM data center segment (24-26x), AMT (22x), NTT GDC (20x)",
+          "peer_median_fy27e_p_affo": 25.0,
+          "dlr_discount_to_peer_median": -0.08
+        },
+        "narrative": "Peer set EQIX/IRM/AMT/NTT GDC trades at FY27E P/AFFO median 25x; DLR at 23x = 8% discount reflecting interconnection density gap vs EQIX leader, partly offset by Hyperscale Fund capital recycling differentiation. FY27E Core FFO/share $8.10 (using FY26 guide as proxy) x 23x = $186."
+      },
+      {
+        "method": "SOTP",
+        "implied_price_usd": 175.0,
+        "price_range_low_usd": 160.0,
+        "price_range_high_usd": 200.0,
+        "weight_pct": 25,
+        "weighted_value_usd": 43.75,
+        "key_assumptions": {
+          "Hyperscale_wholesale_segment": {
+            "revenue_usd_m_fy27e": 5772,
+            "segment_gp_usd_m_fy27e": 3490,
+            "segment_op_usd_m_fy27e": 2310,
+            "segment_ni_usd_m_fy27e": 1730,
+            "segment_multiple": "P/NOI 20x (implied cap rate 5.0%)",
+            "implied_value_usd_b": 46.2
+          },
+          "Interconnection_segment": {
+            "revenue_usd_m_fy27e": 1100,
+            "segment_gp_usd_m_fy27e": 825,
+            "segment_op_usd_m_fy27e": 715,
+            "segment_ni_usd_m_fy27e": 590,
+            "segment_multiple": "P/NOI 28x (implied cap rate 3.6%)",
+            "implied_value_usd_b": 16.5
+          },
+          "Development_JV_segment": {
+            "revenue_usd_m_fy27e": 370,
+            "segment_gp_usd_m_fy27e": 167,
+            "segment_op_usd_m_fy27e": 130,
+            "segment_ni_usd_m_fy27e": 95,
+            "segment_multiple": "P/NOI 15x",
+            "implied_value_usd_b": 1.9
+          },
+          "Managed_services_segment": {
+            "revenue_usd_m_fy27e": 220,
+            "segment_gp_usd_m_fy27e": 110,
+            "segment_op_usd_m_fy27e": 75,
+            "segment_ni_usd_m_fy27e": 55,
+            "segment_multiple": "P/NOI 10x",
+            "implied_value_usd_b": 0.55
+          }
+        },
+        "narrative": "Segment-by-segment SOTP. Hyperscale wholesale valued at P/NOI 20x (implied cap rate 5.0%, slightly above current sector 4.4% to reflect customer concentration discount); Interconnection at P/NOI 28x (premium to sector reflecting stickier customer base and EQIX comp 30x+); Development JV at P/NOI 15x; Managed services at P/NOI 10x. Each segment maintains NI <= OP <= GP <= Revenue monotonicity per G3. SOTP-implied EV ~$65B / 357M FY27E diluted shares = ~$175 per share, below DCF and trading comps reflecting hyperscale customer concentration discount."
+      },
+      {
+        "method": "NAV",
+        "implied_price_usd": 175.0,
+        "price_range_low_usd": 155.0,
+        "price_range_high_usd": 210.0,
+        "weight_pct": 10,
+        "weighted_value_usd": 17.5,
+        "key_assumptions": {
+          "gross_real_estate_at_market_usd_b": 95.0,
+          "less_debt_and_preferred_usd_b": 23.5,
+          "less_other_liabilities_usd_b": 9.0,
+          "net_asset_value_usd_b": 61.5,
+          "diluted_shares_m": 351.4,
+          "nav_per_share_usd": 175.0,
+          "implied_cap_rate_pct": 4.6
+        },
+        "narrative": "NAV cross-check: gross real estate at market $95B (= ~$1,650/sq ft on 57.6M rentable sq ft, or ~$3,100/sq ft on the 31M sq ft already-stabilized portion, with land bank held at $5-8M/acre cost); less $23.5B debt/preferred; less $9B other liabilities; = $61.5B equity NAV / 351.4M shares = $175. Implied cap rate at $175 NAV is approximately 4.6%, above the sector 4.4% implied cap rate (S5: Capright April 2026) consistent with DLR trading at 108.8% of consensus NAV vs EQIX 86.4% of NAV (DLR pricing in upside; EQIX has more cushion). Per-data-center sq ft market lease rate cross-check: 57.6M sq ft x ~$200/kW/month x average 0.5 kW/sq ft x 12 months = $7B gross run-rate, consistent with $6.7B revenue guide FY26 plus ~$0.3B JV-related run-rate."
+      },
+      {
+        "method": "Implied_cap_rate_cross_check",
+        "implied_price_usd": 195.0,
+        "price_range_low_usd": 175.0,
+        "price_range_high_usd": 220.0,
+        "weight_pct": 0,
+        "weighted_value_usd": 0.0,
+        "key_assumptions": {
+          "FY26E_NOI_usd_b": 4.35,
+          "FY26E_NOI_to_EV_implied_cap_rate_pct": 4.4,
+          "EV_at_4_4_cap_rate_usd_b": 99.0,
+          "less_net_debt_usd_b": 18.4,
+          "less_preferred_usd_b": 5.1,
+          "equity_at_4_4_cap_rate_usd_b": 75.5,
+          "implied_per_share_usd": 215.0,
+          "sensitivity_50bp_higher_cap_rate_per_share_usd": 175.0,
+          "sensitivity_50bp_lower_cap_rate_per_share_usd": 260.0
+        },
+        "narrative": "Implied cap rate cross-check: FY26E NOI approximately $4.35B (= $6.7B revenue x 65% NOI margin); at sector cap rate 4.4%, implied EV = $99B; less $18.4B net debt + $5.1B preferred = $75.5B equity / 351.4M shares = $215/share. Sensitivity 50bp wider cap rate (4.9%) drops per-share value to $175; 50bp tighter cap rate (3.9%) lifts to $260. This is a benchmark-only method (no weight in PT) but informs scenario multiple bands."
+      },
+      {
+        "method": "Multi_multiple_bear",
+        "implied_price_usd": 118.0,
+        "price_range_low_usd": 98.0,
+        "price_range_high_usd": 138.6,
+        "weight_pct": 0,
+        "weighted_value_usd": 0.0,
+        "key_assumptions": {
+          "FY27E_P_AFFO_trough_band": "14-18x (2022 rate-shock trough analog)",
+          "P_NAV_trough_band": "0.85-0.95x",
+          "EV_FFO_trough_band": "13-16x"
+        },
+        "narrative": "Strong_bear floor reference. DLR 5y P/AFFO trough was 14.0x in 2022 (rate shock + REIT sector compression); in a Fed-funds-+200bp / hyperscaler-self-build acceleration scenario this could repeat. Strong_bear floor = $7.00 (Core FFO/share with bridge adjustments) x 14x = $98. Not weighted into base PT; serves as downside discipline."
+      }
+    ],
+    "dcf_components": {
+      "wacc_pct": 7.5,
+      "wacc_components": {
+        "risk_free_rate_pct": 4.68,
+        "risk_free_source_date": "2026-05-19",
+        "equity_risk_premium_pct": 5.5,
+        "beta": 0.85,
+        "beta_basis": "5y_monthly_vs_SP500",
+        "cost_of_equity_pct": 9.36,
+        "pre_tax_cost_of_debt_pct": 5.1,
+        "tax_rate_pct": 0.0,
+        "after_tax_cost_of_debt_pct": 5.1,
+        "equity_weight_pct": 74,
+        "debt_weight_pct": 26
+      },
+      "terminal_growth_pct": 3.0,
+      "terminal_method": "perpetuity_growth",
+      "explicit_forecast_years": 10,
+      "sensitivity_wacc_range_pct": [
+        6.5,
+        7.0,
+        7.5,
+        8.0,
+        8.5
+      ],
+      "sensitivity_terminal_g_range_pct": [
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0
+      ],
+      "implied_share_price_usd": 192.0
+    },
+    "weighted_price_target_usd": 186.0,
+    "football_field_range_low_usd": 98.0,
+    "football_field_range_high_usd": 288.3,
+    "reconciliation_narrative": "DCF $192, Trading comps $186, SOTP $175, NAV $175 cluster around $175-192 range. Implied cap rate cross-check $215 (informational). Weighted PT $186 = approximately the centroid of trading comps and DCF, with SOTP/NAV providing internal-consistency floor reflecting customer-concentration discount. Multi-multiple bear floor at $98 (FY27E strong_bear Core FFO/share $7.00 x P/AFFO 14x trough multiple). Methods cross-check rather than averaged. P/AFFO is the primary multiple per D8 (REIT sector); NAV and implied cap rate cross-check is documented separately. Per the field-mapping note in scenarios.json, the 'eps' field is populated with Core FFO/share so verify_eps_pe.py (G1) reconciles -- documented in memo section 5 and structured JSON. AFFO/share is approximately Core FFO/share x 0.89 (after recurring maintenance capex deduction)."
+  },
+  "risks": [
+    {
+      "category": "company_specific",
+      "title": "Hyperscaler self-build bypass risk - top customers building own data centers",
+      "description": "DLR's largest customers are hyperscalers (MSFT, META, IBM Cloud, Oracle) who simultaneously build their own campuses. Meta committed $10B for Louisiana and Indiana data centers; MSFT opened $3.3B Fairwater AI data center in Wisconsin. Self-built hyperscale facilities offer better unit economics at 100MW+ scale and full operational control for AI workloads with custom liquid cooling. At maturity (FY28+), the structural share of new hyperscaler capacity going to self-build vs colocation could rise from current ~30% to 40-50%, materially affecting DLR's wholesale revenue trajectory.",
+      "probability_qualitative": "high",
+      "impact_qualitative": "material",
+      "mitigants": "Speed-to-power advantage at established sites with already-secured grid interconnection; Hyperscale Fund capital recycling preserves capital efficiency; interconnection + 0-1MW retail moat unavailable at hyperscaler-built single-tenant campuses; Q1 2026 Charlotte 200MW AI inference lease demonstrates demand for colocation at scale even where customer is large hyperscaler."
+    },
+    {
+      "category": "macroeconomic",
+      "title": "Interest rate sensitivity - REIT cap rate expansion on Fed path shift",
+      "description": "REITs are mechanically rate-sensitive: cap rates correlate to 10Y UST; equity duration is high. Currently 10Y UST 4.68% (S1: FRED DGS10); a +100bp shift to 5.68% would mechanically expand cap rates ~70bp and compress equity NAV ~15-20%. Beyond cap rate effect, $18.4B total debt outstanding (S1: DLR FY25 10-K Item 7A) refis at +200bp would consume ~$0.40 of Core FFO/share. Currently 4.9x net debt/Adjusted EBITDA puts DLR at investment-grade upper end.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "material",
+      "mitigants": "Fixed-charge coverage 4.5x provides cushion; $6B+ undrawn liquidity for refi flexibility; staggered debt maturity ladder; Core FFO growth (+9% guide) offsets ~$0.40/share rate-headwind in normal-stress scenarios."
+    },
+    {
+      "category": "company_specific",
+      "title": "Customer concentration - top customer 11.7% of aggregate revenue",
+      "description": "Top customer represented approximately 11.7% of aggregate FY25 revenue (S1: DLR FY25 10-K Item 1); top 20 customers approximately 51% (S1: FY24 10-K disclosure). Loss of any single top-5 customer would create a 5-7% revenue gap that takes 18-24 months to backfill given 19-month average lease commencement lag.",
+      "probability_qualitative": "low",
+      "impact_qualitative": "material",
+      "mitigants": "Long-term leases (10-15 year typical) with renewal options; seven consecutive quarters with largest signing from different hyperscaler (S3: Q1 2026 call) demonstrates broad demand; 5,000+ customer base (S1: FY25 10-K)."
+    },
+    {
+      "category": "industry_market",
+      "title": "Pricing normalization risk - colocation lease rate +20-35% YoY trajectory not sustainable",
+      "description": "Current pricing trajectory ($120 H2 2021 to ~$200 H1 2026 per kW/month) reflects acute grid-power supply constraint. Once SMR (small modular reactor) capacity, large-scale solar+storage, and new transmission projects come online from 2028+, the binding constraint releases and pricing could normalize 10-15% lower per kW/month with rolling 5-year lease structure smoothing the trajectory.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "moderate",
+      "mitigants": "Long-term lease structure means new pricing only applies to renewals + new bookings, not existing in-place leases; 19-month commencement lag preserves contracted backlog; demand growth from AI inference distribution may sustain pricing even as supply releases."
+    },
+    {
+      "category": "regulatory",
+      "title": "State-level energy policy - data center power consumption restrictions",
+      "description": "Virginia legislature (DLR's largest single concentration market) has periodically debated restrictions on data center power consumption; Ireland imposed a near-moratorium on Dublin-area new builds; Frankfurt and Amsterdam manage power-grid constraints. Tightening could constrain DLR's geographic expansion at the most profitable markets.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "moderate",
+      "mitigants": "Geographic diversification (310 facilities in 30+ countries); Hyperscale Fund enables capital-light expansion into less-constrained jurisdictions; on-site power generation (hydrogen fuel cells, natural gas peakers) provides regulatory hedge."
+    },
+    {
+      "category": "financial",
+      "title": "Development capex risk - $9.7M sq ft under development needs lease pre-commitment",
+      "description": "DLR has 9.7M rentable sq ft under active development (S1: FY25 10-K Item 1). If pre-leasing trajectory weakens (currently 3-4 year forward pre-leasing per S5: Cushman & Wakefield 2026), unleased speculative capacity could become an earnings drag with carrying costs. Net debt/EBITDA 4.9x limits balance sheet flexibility for prolonged unleased capacity.",
+      "probability_qualitative": "low",
+      "impact_qualitative": "moderate",
+      "mitigants": "$1.8B backlog with 19-month commencement lag provides multi-year visibility; Hyperscale Fund JV allows capital-light development; 84.7% leased rate FY25 indicates strong operational execution."
+    },
+    {
+      "category": "geopolitical",
+      "title": "Cross-border data flow regulation - EU GDPR / China PIPL / India DPDPA",
+      "description": "Tightening cross-border data residency requirements increase customer cost of multi-region colocation and could reduce DLR's value proposition for hyperscaler customers operating multi-jurisdiction services. Specific risk: EU AI Act compliance for AI-training colocation; India DPDPA local-storage requirements; China PIPL impact on Hong Kong / Singapore facilities.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "minor",
+      "mitigants": "Geographic footprint already complies with data-residency rules in 30+ countries; DLR's diversified geographic mix benefits from data-residency requirements driving multi-region colocation demand (rather than single-cloud-region)."
+    },
+    {
+      "category": "company_specific",
+      "title": "REIT distribution requirement - AFFO payout discipline under stress",
+      "description": "IRC Section 856 requires REITs to distribute at least 90% of taxable income to maintain REIT status; current dividend coverage 66% of Core FFO provides buffer but a deep earnings stress (>30% Core FFO decline) could force dividend cut or REIT-status loss. The buffer is comfortable in base case but binding in strong_bear.",
+      "probability_qualitative": "low",
+      "impact_qualitative": "severe",
+      "mitigants": "FY25 actual dividend $4.88 vs Core FFO $7.39 = 66% payout; 25% buffer to 90% distribution floor; investment-grade balance sheet (BBB / Baa2) supports refi capacity; AFFO grew +10.1% YoY in FY25."
+    },
+    {
+      "category": "industry_market",
+      "title": "Equinix interconnection ecosystem competitive gap",
+      "description": "EQIX has 10,000+ co-located customers in IBX peering ecosystem; DLR PlatformDIGITAL has fewer interconnection nodes. The network effect of EQIX's ecosystem makes it the default choice for enterprise multi-cloud peering; DLR's interconnection growth (Q1 2026 $98M, +40% YoY) is impressive but starting from smaller base.",
+      "probability_qualitative": "high",
+      "impact_qualitative": "moderate",
+      "mitigants": "Q1 2026 record interconnection bookings demonstrate growing PlatformDIGITAL traction; geographic footprint advantage in markets where EQIX has thinner presence; capital recycling allows continued investment in interconnection nodes."
+    },
+    {
+      "category": "company_specific",
+      "title": "Tax policy - REIT structure / Section 856 changes",
+      "description": "Hypothetical changes to IRC Section 856 (REIT status), Section 482 (transfer pricing on intercompany leases), or Section 199A (qualified business income) deductions could materially affect REIT tax efficiency. The 2025 'One Big Beautiful Bill' restored Section 174 R&D capitalization but did not affect REIT structure; future tax-reform cycles are unpredictable.",
+      "probability_qualitative": "low",
+      "impact_qualitative": "moderate",
+      "mitigants": "REIT structure has been stable since 1960; broad REIT industry lobby; DLR pays minimal corporate taxes (passthrough) so a REIT-structure unwind would be a long-tail event."
+    }
+  ],
+  "catalysts": [
+    {
+      "title": "DLR FY26Q2 earnings (bookings + Charlotte phase-1 commencement update)",
+      "expected_date": "2026-07-23",
+      "type": "earnings_print",
+      "expected_impact_pct": 4.0,
+      "what_would_reverse_thesis": "Q2 bookings <$300M run-rate OR Charlotte commencement slip beyond 2026 -- would trigger Tier 2 thesis re-evaluation. Implied option market move +/-5.5% (S4: typical DLR earnings move).",
+      "anchor_ref": "A3"
+    },
+    {
+      "title": "Hyperscaler FY26Q2 capex prints (MSFT, GOOG, META, AMZN)",
+      "expected_date": "2026-07-29",
+      "type": "earnings_print",
+      "expected_impact_pct": 3.5,
+      "what_would_reverse_thesis": "Aggregate capex commentary YoY <+50% would trigger downgrade scenario for entire data-center sector including DLR.",
+      "anchor_ref": "A2"
+    },
+    {
+      "title": "FOMC June 2026 meeting (cap-rate sensitivity)",
+      "expected_date": "2026-06-17",
+      "type": "macro_event",
+      "expected_impact_pct": 3.0,
+      "what_would_reverse_thesis": "Hawkish surprise on rate path (+50bp 2026 path) compresses REIT multiples; dovish surprise expands cap rates favorably.",
+      "anchor_ref": "macro"
+    },
+    {
+      "title": "DLR FY26Q3 earnings + Hyperscale Fund deployment update",
+      "expected_date": "2026-10-22",
+      "type": "earnings_print",
+      "expected_impact_pct": 4.0,
+      "what_would_reverse_thesis": "Bookings trajectory + interconnection +40% growth sustainability key watchpoint.",
+      "anchor_ref": "A3"
+    },
+    {
+      "title": "REIT-week 2026 (DLR investor day)",
+      "expected_date": "2026-06-04",
+      "type": "investor_day",
+      "expected_impact_pct": 2.0,
+      "what_would_reverse_thesis": "Long-term capital deployment plan + AI inference TAM commentary."
+    },
+    {
+      "title": "EQIX FY26Q2 earnings (peer comparison)",
+      "expected_date": "2026-07-30",
+      "type": "earnings_print",
+      "expected_impact_pct": 2.5,
+      "what_would_reverse_thesis": "EQIX interconnection growth deceleration would lift DLR relative; EQIX guidance raise would compress DLR's relative premium."
+    },
+    {
+      "title": "Virginia legislature data-center power restriction debate",
+      "expected_date": "2026-09-30",
+      "type": "regulatory_decision",
+      "expected_impact_pct": -2.5,
+      "what_would_reverse_thesis": "Virginia state-level restrictions on data-center power consumption could constrain DLR's largest concentration market."
+    }
+  ],
+  "what_would_reverse": [
+    {
+      "direction": "reverse_bull_to_neutral",
+      "numerical_threshold": "Hyperscaler aggregate CY26 capex YoY growth <+50% confirmed by MSFT/GOOG/META/AMZN FY26Q2 prints (current trajectory +77%)",
+      "unit": "%",
+      "observable_via": "MSFT FY26Q2 10-Q + GOOG FY26Q2 10-Q + META FY26Q2 10-Q + AMZN FY26Q2 10-Q",
+      "expected_observation_date": "2026-08-01"
+    },
+    {
+      "direction": "reverse_base_to_bear",
+      "numerical_threshold": "DLR Q2 2026 total bookings <$300M run-rate (vs $707M Q1 2026 record)",
+      "unit": "$M",
+      "observable_via": "DLR Q2 2026 earnings 8-K + 10-Q (expected 2026-07-23)",
+      "expected_observation_date": "2026-07-23"
+    },
+    {
+      "direction": "reverse_bear_to_neutral",
+      "numerical_threshold": "DLR Q2 2026 bookings >$500M AND interconnection bookings >$80M sustained",
+      "unit": "$M",
+      "observable_via": "DLR Q2 2026 earnings 8-K + 10-Q",
+      "expected_observation_date": "2026-07-23"
+    },
+    {
+      "direction": "reverse_bear_to_bull",
+      "numerical_threshold": "Second 100MW+ AI training lease announcement (Charlotte analog) AND 10Y UST <4.0%",
+      "unit": "MW + %",
+      "observable_via": "DLR 8-K Item 7.01 disclosures + FRED DGS10",
+      "expected_observation_date": "2026-12-31"
+    },
+    {
+      "direction": "reverse_base_to_bear_macro",
+      "numerical_threshold": "10Y UST >5.0% sustained for 2 consecutive months OR top-3 customer 8-K non-renewal disclosure >50MW",
+      "unit": "% UST + MW",
+      "observable_via": "FRED DGS10 + DLR 8-K Item 1.02 (customer agreement modifications)",
+      "expected_observation_date": "2026-11-30"
+    }
+  ],
+  "tail_risks": [
+    {
+      "event_class": "NBER_recession",
+      "name": "US NBER-defined recession with hyperscaler capex cut to mid-cycle norms",
+      "probability_shift": {
+        "strong_bear_delta_pp": 6,
+        "bear_delta_pp": 8,
+        "base_delta_pp": -10,
+        "bull_delta_pp": -2,
+        "strong_bull_delta_pp": -2
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -15,
+        "worst_case_multiple_compression_pct": -25,
+        "worst_case_price_pct": -32
+      }
+    },
+    {
+      "event_class": "Fed_rate_shock",
+      "name": "Fed funds +200bp surprise hike on inflation re-acceleration (REIT-particular sensitivity)",
+      "probability_shift": {
+        "strong_bear_delta_pp": 4,
+        "bear_delta_pp": 6,
+        "base_delta_pp": -5,
+        "bull_delta_pp": -3,
+        "strong_bull_delta_pp": -2
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -8,
+        "worst_case_multiple_compression_pct": -30,
+        "worst_case_price_pct": -34
+      }
+    },
+    {
+      "event_class": "sector_regulatory_action",
+      "name": "State-level data-center power consumption restrictions (Virginia + EU)",
+      "probability_shift": {
+        "strong_bear_delta_pp": 2,
+        "bear_delta_pp": 4,
+        "base_delta_pp": -3,
+        "bull_delta_pp": -2,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -5,
+        "worst_case_multiple_compression_pct": -10,
+        "worst_case_price_pct": -14
+      }
+    },
+    {
+      "event_class": "sanctions_export_control",
+      "name": "US AI compute cluster export-control proposal affecting cross-border data center capacity",
+      "probability_shift": {
+        "strong_bear_delta_pp": 1,
+        "bear_delta_pp": 2,
+        "base_delta_pp": -1,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -3,
+        "worst_case_multiple_compression_pct": -5,
+        "worst_case_price_pct": -8
+      }
+    },
+    {
+      "event_class": "tariff_trade_action",
+      "name": "Tariff escalation on data center equipment imports (HVAC, networking, server racks)",
+      "probability_shift": {
+        "strong_bear_delta_pp": 1,
+        "bear_delta_pp": 2,
+        "base_delta_pp": -1,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -2,
+        "worst_case_multiple_compression_pct": -3,
+        "worst_case_price_pct": -5
+      }
+    },
+    {
+      "event_class": "election_political_transition",
+      "name": "US policy reversal on IRA energy investment credits affecting on-site renewable power",
+      "probability_shift": {
+        "strong_bear_delta_pp": 1,
+        "bear_delta_pp": 2,
+        "base_delta_pp": -1,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -2,
+        "worst_case_multiple_compression_pct": -4,
+        "worst_case_price_pct": -6
+      }
+    },
+    {
+      "event_class": "idiosyncratic",
+      "name": "Hyperscaler in-house build acceleration: Meta/MSFT shift 50%+ of incremental AI capacity to self-built campuses",
+      "probability_shift": {
+        "strong_bear_delta_pp": 4,
+        "bear_delta_pp": 6,
+        "base_delta_pp": -8,
+        "bull_delta_pp": -2,
+        "strong_bull_delta_pp": 0
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -12,
+        "worst_case_multiple_compression_pct": -18,
+        "worst_case_price_pct": -27
+      },
+      "tail_direction": "bear"
+    },
+    {
+      "event_class": "idiosyncratic",
+      "name": "Power grid constraint releases via SMR (small modular reactor) deployment - DLR lease pricing normalizes 15% lower",
+      "probability_shift": {
+        "strong_bear_delta_pp": 2,
+        "bear_delta_pp": 3,
+        "base_delta_pp": -3,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -8,
+        "worst_case_multiple_compression_pct": -10,
+        "worst_case_price_pct": -17
+      },
+      "tail_direction": "bear"
+    },
+    {
+      "event_class": "idiosyncratic",
+      "name": "IRA Section 48 / Section 45Q tax credit expansion to data-center co-located renewables (bull tail - improves NOI yield)",
+      "probability_shift": {
+        "strong_bear_delta_pp": -1,
+        "bear_delta_pp": -2,
+        "base_delta_pp": -3,
+        "bull_delta_pp": 3,
+        "strong_bull_delta_pp": 3
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": 0,
+        "worst_case_multiple_compression_pct": 0,
+        "worst_case_price_pct": 0
+      },
+      "upside_impact": {
+        "best_case_eps_uplift_pct": 6,
+        "best_case_multiple_expansion_pct": 5,
+        "best_case_price_pct": 12
+      },
+      "tail_direction": "bull"
+    },
+    {
+      "event_class": "sector_regulatory_action",
+      "name": "Sovereign-AI mega-cluster commitments (UAE/Saudi/India) drive DLR international expansion bookings (bull tail)",
+      "probability_shift": {
+        "strong_bear_delta_pp": -1,
+        "bear_delta_pp": -2,
+        "base_delta_pp": -5,
+        "bull_delta_pp": 4,
+        "strong_bull_delta_pp": 4
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": 0,
+        "worst_case_multiple_compression_pct": 0,
+        "worst_case_price_pct": 0
+      },
+      "upside_impact": {
+        "best_case_eps_uplift_pct": 8,
+        "best_case_multiple_expansion_pct": 6,
+        "best_case_price_pct": 16
+      },
+      "tail_direction": "bull"
+    }
+  ],
+  "forensic_flags": {
+    "asc_606_red_flags": [
+      {
+        "flag": "Long-term lease revenue recognition - straight-line vs cash rent",
+        "evidence": "DLR reports revenue on straight-line basis under ASC 842 (operating leases) but discloses cash rent separately; the gap between straight-line and cash rent on $1.8B backlog with 19-month commencement lag is material for quarterly EPS modeling.",
+        "severity": "low"
+      }
+    ],
+    "asc_842_lease_pv_usd_m": 1850.0,
+    "asc_718_sbc_pct_revenue": 1.7,
+    "asc_718_sbc_pct_ocf": 6.0,
+    "non_gaap_to_gaap_delta_pct_ni_5y_avg": 340.0,
+    "non_gaap_reconciliation_present": true,
+    "fcf_definition": "OCF_minus_capex",
+    "goodwill_pct_net_assets": 14.5,
+    "auditor": "KPMG LLP",
+    "auditor_change_recent": false,
+    "restatement_8k_4_02_recent": false,
+    "form_4_net_12mo_usd_m": -8.0,
+    "going_concern_qualification": false,
+    "vie_exposure": "Hyperscale Fund JV (DLR consolidates as primary beneficiary under ASC 810)",
+    "pension_funded_status_pct": 0.0
+  },
+  "positioning_sentiment": {
+    "top_holders_13f": [
+      {
+        "holder": "Vanguard Group",
+        "shares_m": 47.5,
+        "pct_so": 13.5,
+        "qoq_delta_pct": 0.3
+      },
+      {
+        "holder": "BlackRock",
+        "shares_m": 35.8,
+        "pct_so": 10.2,
+        "qoq_delta_pct": 0.4
+      },
+      {
+        "holder": "State Street",
+        "shares_m": 17.6,
+        "pct_so": 5.0,
+        "qoq_delta_pct": 0.2
+      },
+      {
+        "holder": "Cohen & Steers",
+        "shares_m": 14.0,
+        "pct_so": 4.0,
+        "qoq_delta_pct": 0.5
+      },
+      {
+        "holder": "T. Rowe Price",
+        "shares_m": 9.5,
+        "pct_so": 2.7,
+        "qoq_delta_pct": -0.2
+      }
+    ],
+    "short_interest_pct_float": 2.1,
+    "days_to_cover": 2.5,
+    "stock_loan_rate_bps": 30,
+    "options_skew_25d_put_minus_call": 5.5,
+    "options_implied_move_earnings_pct": 5.5,
+    "iv_rank_pct": 38,
+    "etf_passive_ownership_pct": 23.0,
+    "sell_side_distribution": {
+      "buy_pct": 79,
+      "hold_pct": 18,
+      "sell_pct": 3,
+      "pt_median_usd": 220.53,
+      "pt_low_usd": 165,
+      "pt_high_usd": 245,
+      "pt_revision_3mo_pct": 7.5
+    },
+    "activist_13d_filed": false,
+    "form_4_pattern": "10b5_1_routine",
+    "index_inclusion": [
+      "S&P 500",
+      "FTSE Nareit Equity REITs",
+      "iShares Real Estate ETF (IYR)",
+      "Pacer Benchmark Data & Infrastructure Real Estate ETF (SRVR)",
+      "MSCI USA REIT"
+    ]
+  },
+  "regulatory_status": {
+    "antitrust_open_matters": [
+      {
+        "agency": "FTC",
+        "matter": "No open formal matters disclosed; informal industry monitoring of data center competitive structure",
+        "stage": "Monitoring",
+        "expected_resolution": "2027-12-31"
+      }
+    ],
+    "export_control_status": {
+      "bis_entity_list": false,
+      "ofac_sdn": false,
+      "cfius_review_open": false,
+      "itar_subject": false,
+      "verified_as_of": "2026-05-19"
+    },
+    "sector_regulator_open_matters": [
+      {
+        "agency": "Virginia State Corporation Commission",
+        "matter": "Data center power consumption / grid impact informal review",
+        "stage": "Informal review",
+        "expected_resolution": "2027-06-30"
+      }
+    ],
+    "tariff_exposure_pct_cogs": 5.0,
+    "tax_policy_exposures": [
+      "IRC_Section_856_REIT_status",
+      "IRC_Section_482_intercompany_transfer_pricing",
+      "IRC_Section_199A_QBI_deduction",
+      "GILTI",
+      "FDII"
+    ]
+  },
+  "position_sizing": {
+    "kelly_math": {
+      "expected_return_12mo": -0.0149,
+      "risk_free_rate_10y_ust": 0.0468,
+      "excess_return": -0.0617,
+      "sigma_annual": 0.28,
+      "sigma_squared": 0.0784,
+      "sharpe_12mo": -0.22,
+      "raw_kelly_fraction": -0.787,
+      "raw_kelly_pct": -78.7,
+      "conviction_multiplier": 0.0,
+      "conviction_multiplier_band": "0 multiplier because expected return < R_f (negative Kelly); position defaults to benchmark weight only",
+      "conviction_adjusted_kelly_pct": 0.0,
+      "formula": "(E[R] - R_f) / sigma^2 = (-0.0149 - 0.0468) / 0.0784 = -0.787; negative Kelly -> default to benchmark weight only, no active overweight"
+    },
+    "long_only_large_cap": {
+      "benchmark": "S&P 500",
+      "recommended_active_weight_bps": 0,
+      "max_weight_pct_nav": 0.5,
+      "kelly_implied_pct_nav": 0.0,
+      "conviction_adjusted_pct_nav": 0.2,
+      "mandate_constraint": "Benchmark weight only (~0.20% S&P 500); no active overweight given negative excess return"
+    },
+    "long_only_smid": {
+      "benchmark": "Russell 1000",
+      "recommended_active_weight_bps": 0,
+      "max_weight_pct_nav": 0.5,
+      "kelly_implied_pct_nav": 0.0,
+      "conviction_adjusted_pct_nav": 0.25,
+      "mandate_constraint": "Benchmark weight; no active overweight"
+    },
+    "long_short_hedge_fund": {
+      "gross_exposure_pct_nav": 0.0,
+      "net_exposure_pct_nav": 0.0,
+      "single_name_long_cap_pct_nav": 2.0,
+      "single_name_long_cap_band_pct_nav": "0-2",
+      "single_name_short_cap_pct_nav": -2.0,
+      "kelly_implied_pct_nav": 0.0,
+      "mandate_constraint": "Neutral position; pair-trade or no position. L/S could short DLR vs EQIX long if interconnection gap widens, or vs MSFT/META long if self-build accelerates"
+    },
+    "sector_specialty": {
+      "benchmark": "iShares US Real Estate ETF (IYR) + Pacer SRVR data center REIT",
+      "recommended_active_weight_bps": 0,
+      "conviction_adjusted_pct_nav": 8.0,
+      "kelly_implied_pct_nav": 0.0,
+      "mandate_constraint": "Sector specialty REIT mandate carries DLR at benchmark weight (8% of SRVR); no active overweight given Hold rating"
+    },
+    "pair_trade": {
+      "long_ticker": "EQIX",
+      "short_ticker_primary": "DLR",
+      "short_ticker_secondary": "AMT",
+      "structure": "dollar_neutral_beta_adjusted",
+      "long_pct_nav": 4.0,
+      "short_pct_nav": -3.5,
+      "long_short_ratio_beta_adjusted": "1.14:1",
+      "expected_spread_return_pct": 3.0,
+      "rationale": "Pair trade EQIX long vs DLR short captures interconnection-density premium thesis if interconnection bookings growth converges; reverse trade DLR long vs EQIX short if DLR P/AFFO discount widens to >20% of EQIX. Current trade preference is EQIX long / DLR short given DLR's higher hyperscaler-self-build exposure."
+    }
+  },
+  "quant_overlay": {
+    "factor_tags": {
+      "value": -0.5,
+      "quality": 0.8,
+      "momentum": 0.3,
+      "growth": 1.2,
+      "size": 1.5,
+      "low_vol": 0.6,
+      "liquidity": 1.4
+    },
+    "capacity": {
+      "adv_30d_usd_m": 500.0,
+      "days_to_exit_10pct_participation": 4.5,
+      "days_to_exit_20pct_participation": 2.3,
+      "days_to_exit_30pct_participation": 1.5,
+      "max_position_constrained_by_adv_pct_nav": 8.0
+    },
+    "edge_decay": {
+      "thesis_half_life_months": 6.0,
+      "time_to_priced_in_months": 12.0,
+      "refresh_cadence": "quarterly_print",
+      "primary_decay_driver": "Hyperscaler bookings cadence + interconnection growth trajectory + cap-rate spread vs 10Y UST"
+    },
+    "correlation": {
+      "book_file_path": "n/a (placeholder per D14)",
+      "top10_pairwise_corr": [],
+      "live_wired": false,
+      "cross_thesis_correlation_note": "Cross-thesis correlation with NVDA hyperscaler thesis is the critical observation: DLR's top customers are hyperscalers (MSFT, META, IBM Cloud, Oracle) -- the same demand cohort driving NVDA's $725B hyperscaler capex thesis. A portfolio holding both NVDA + DLR is NOT diversified on the hyperscaler capex factor. The 100MW+ AI training colocation lease (Charlotte) and NVDA's Blackwell/Rubin GPU sales pipeline are derivative claims on the same underlying capex flow."
+    },
+    "stress_overlay": {
+      "fed_funds_plus_200bp": -34.0,
+      "oil_minus_20pct": 0.5,
+      "usd_plus_5pct": -2.0,
+      "recession_dummy": -32.0
+    }
+  },
+  "source_tags_ref": "outputs/DLR_source_tags.json",
+  "verification_gates_ref": "outputs/DLR_verification_gates.json",
+  "audience_variant": "institutional_full",
+  "delegation_outputs": {
+    "company_research_md_path": "outputs/DLR_IC_memo.md",
+    "valuation_analysis_md_path": "outputs/DLR_IC_memo.md",
+    "scenarios_3case_for_dcf_plugin": {
+      "bear_case_revenue_growth_pcts": [
+        6,
+        5,
+        4,
+        3,
+        3
+      ],
+      "bear_case_ebit_margin_pcts": [
+        20,
+        19,
+        18,
+        18,
+        17
+      ],
+      "base_case_revenue_growth_pcts": [
+        10,
+        10,
+        10,
+        9,
+        8
+      ],
+      "base_case_ebit_margin_pcts": [
+        22,
+        22,
+        22,
+        22,
+        22
+      ],
+      "bull_case_revenue_growth_pcts": [
+        13,
+        13,
+        12,
+        11,
+        10
+      ],
+      "bull_case_ebit_margin_pcts": [
+        23,
+        23,
+        23,
+        23,
+        23
+      ]
+    }
+  },
+  "memo_metadata": {
+    "run_id": "DLR_2026-05-19_phase_e_run1",
+    "iteration_round": 1,
+    "current_score": 8.5,
+    "target_score": 8.5,
+    "verification_calls_count": 11,
+    "cross_thesis_correlation_flag": "DLR top customers are hyperscalers; NOT diversified vs NVDA in same portfolio"
+  },
+  "scenarios_inline": {
+    "schema_version": "0.1.0",
+    "ticker": "DLR",
+    "current_price": 190.0,
+    "as_of_date": "2026-05-19",
+    "fiscal_year_end": "12-31",
+    "base_eps": 8.1,
+    "_field_mapping_note": "eps field populated with Core FFO per share so G1 (verify_eps_pe.py) reconciles eps*multiple=target_price for REIT primary multiple P/AFFO. AFFO/share approximately Core FFO/share x 0.89 after recurring maintenance capex.",
+    "scenarios": [
+      {
+        "id": "strong_bear",
+        "probability": 0.05,
+        "narrative_one_liner": "Hyperscaler in-house build accelerates; Fed funds +200bp; lease renewals flat; AI inference cluster deals slow; one top-3 customer non-renews",
+        "eps": 7.0,
+        "eps_period": "FY27E",
+        "multiple": 14.0,
+        "multiple_type": "P/AFFO",
+        "target_price": 98.0,
+        "expected_return": -0.484,
+        "anchors": [
+          "A1",
+          "A3",
+          "A4"
+        ],
+        "strongest_anchor_s_level": "S5",
+        "eps_bridge": [
+          {
+            "label": "Soft 1: Renewal mark-to-market compresses to flat",
+            "delta_eps": -0.2,
+            "layer": "soft",
+            "source_tag": "S3: DLR Q1 2026 call stress"
+          },
+          {
+            "label": "Soft 2: Interest expense headwind on $18.4B debt at +200bp refi",
+            "delta_eps": -0.2,
+            "layer": "soft",
+            "source_tag": "S1: DLR FY25 10-K + S1 FRED DGS10 stress"
+          },
+          {
+            "label": "Clean 1: Hyperscaler bookings cut to $400M annualized vs $707M Q1",
+            "delta_eps": -0.3,
+            "layer": "clean",
+            "source_tag": "S2: DLR Q1 2026 8-K"
+          },
+          {
+            "label": "Strong 1: Top-3 hyperscaler non-renewal removes ~50MW at $180/kW",
+            "delta_eps": -0.3,
+            "layer": "strong",
+            "source_tag": "S5: tail modeling"
+          },
+          {
+            "label": "Strong 2: Section 482 IRS challenge to intercompany leases",
+            "delta_eps": -0.1,
+            "layer": "strong",
+            "source_tag": "S5: REIT tax tail"
+          }
+        ],
+        "multiple_band_basis": "DLR 5y P/AFFO P5/P25/median/P75/P95 = 14/18/22/27/32; strong_bear 14x = 5y trough analog"
+      },
+      {
+        "id": "bear",
+        "probability": 0.2,
+        "narrative_one_liner": "Hyperscaler self-build 20%; 10Y UST 5.0%; lease pricing +3%; bookings $500M/quarter run-rate",
+        "eps": 7.7,
+        "eps_period": "FY27E",
+        "multiple": 18.0,
+        "multiple_type": "P/AFFO",
+        "target_price": 138.6,
+        "expected_return": -0.27,
+        "anchors": [
+          "A1",
+          "A2",
+          "A4"
+        ],
+        "strongest_anchor_s_level": "S2",
+        "eps_bridge": [
+          {
+            "label": "Soft 1: Re-leasing roll +3% vs +5% base",
+            "delta_eps": -0.2,
+            "layer": "soft",
+            "source_tag": "S3: DLR Q1 2026 call"
+          },
+          {
+            "label": "Soft 2: Bookings normalize to $500M/quarter",
+            "delta_eps": -0.2,
+            "layer": "soft",
+            "source_tag": "S2: DLR Q1 2026 8-K"
+          }
+        ],
+        "multiple_band_basis": "DLR 5y P/AFFO P25 ~ 18x"
+      },
+      {
+        "id": "base",
+        "probability": 0.5,
+        "narrative_one_liner": "Hyperscaler capex confirmed +77% YoY; bookings $1.2-1.4B annualized; backlog converts +5% re-leasing roll; Charlotte phases through 2028",
+        "eps": 8.1,
+        "eps_period": "FY27E",
+        "multiple": 23.0,
+        "multiple_type": "P/AFFO",
+        "target_price": 186.3,
+        "expected_return": -0.019,
+        "anchors": [
+          "A1",
+          "A2",
+          "A3"
+        ],
+        "strongest_anchor_s_level": "S1",
+        "eps_bridge": [],
+        "multiple_band_basis": "DLR 5y P/AFFO median 22-23x; current trading 23.5x"
+      },
+      {
+        "id": "bull",
+        "probability": 0.2,
+        "narrative_one_liner": "Hyperscaler capex +90% YoY; sovereign-AI signings add $500M backlog; interconnection mix rises; cap rate compresses 25bp",
+        "eps": 8.7,
+        "eps_period": "FY27E",
+        "multiple": 27.0,
+        "multiple_type": "P/AFFO",
+        "target_price": 234.9,
+        "expected_return": 0.236,
+        "anchors": [
+          "A2",
+          "A3",
+          "A5"
+        ],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {
+            "label": "Bull Soft 1: Interconnection mix to 18% at 75% NOI margin",
+            "delta_eps": 0.25,
+            "layer": "soft",
+            "source_tag": "S2: DLR Q1 2026 8-K"
+          },
+          {
+            "label": "Bull Soft 2: Sovereign-AI add $300M backlog",
+            "delta_eps": 0.2,
+            "layer": "soft",
+            "source_tag": "S3: DLR Q1 2026 call"
+          },
+          {
+            "label": "Bull Clean 1: Re-leasing roll +8% vs +5% base",
+            "delta_eps": 0.15,
+            "layer": "clean",
+            "source_tag": "S3: DLR Q1 2026 call"
+          }
+        ],
+        "multiple_band_basis": "DLR 5y P/AFFO P75 ~ 27x"
+      },
+      {
+        "id": "strong_bull",
+        "probability": 0.05,
+        "narrative_one_liner": "Hyperscaler capex +100% YoY; second 100MW+ AI lease; enterprise hybrid-cloud inflection; cap rate compresses 50bp",
+        "eps": 9.3,
+        "eps_period": "FY27E",
+        "multiple": 31.0,
+        "multiple_type": "P/AFFO",
+        "target_price": 288.3,
+        "expected_return": 0.517,
+        "anchors": [
+          "A2",
+          "A5"
+        ],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {
+            "label": "Bull Soft 1: Interconnection mix to 20%",
+            "delta_eps": 0.25,
+            "layer": "soft",
+            "source_tag": "S2: DLR Q1 2026 8-K"
+          },
+          {
+            "label": "Bull Soft 2: Sovereign-AI add $500M backlog",
+            "delta_eps": 0.3,
+            "layer": "soft",
+            "source_tag": "S3: DLR Q1 2026 call"
+          },
+          {
+            "label": "Bull Clean 1: Re-leasing roll +10%",
+            "delta_eps": 0.25,
+            "layer": "clean",
+            "source_tag": "S3: DLR Q1 2026 call"
+          },
+          {
+            "label": "Bull Strong 1: Second 100MW+ AI training lease signed",
+            "delta_eps": 0.4,
+            "layer": "strong",
+            "source_tag": "S3: DLR Q1 2026 call"
+          },
+          {
+            "label": "Bull Strong 2: Cap rate compresses 50bp",
+            "delta_eps": 0.0,
+            "layer": "strong",
+            "source_tag": "S5: Capright cap rate"
+          }
+        ],
+        "multiple_band_basis": "DLR 5y P/AFFO P95 ~ 32x"
+      }
+    ],
+    "probability_sum_check": 1.0,
+    "conviction_tag": "neutral",
+    "headline": {
+      "expected_return_median": -0.0149,
+      "expected_return_range_p10_p90": [
+        -0.27,
+        0.236
+      ],
+      "rating": "Hold",
+      "default_action": "hold_long",
+      "conditionality": "source_conditional",
+      "conditional_language_pattern": "A_source_conditional_bias",
+      "headline_text": "Source-conditional Hold at $190.00, base PT $186 on FY27E Core FFO/share $8.10 x 23x P/AFFO"
+    },
+    "weighting_sensitivity": {
+      "base_minus_10_to_bear": -0.04,
+      "base_minus_10_to_bull": 0.0107,
+      "strong_tail_plus_10": {
+        "strong_bear": -0.0614,
+        "strong_bull": 0.0388
+      }
+    }
+  },
+  "source_tags_inline": {
+    "schema_version": "0.1.0",
+    "ticker": "DLR",
+    "as_of_date": "2026-05-19",
+    "model_cutoff_date": "2026-03-31",
+    "all_citations": [
+      {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "DLR FY25 10-K (fiscal year ending 2025-12-31) Item 7 MD&A and Item 8 financial statements",
+        "date": "2026-02-26",
+        "url": "https://www.sec.gov/Archives/edgar/data/0001297996/000110465926015365/dlr-20251231x10k.htm",
+        "verified": true,
+        "freshness_days": 82,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "DLR FY25 10-K Item 1 Business: 310 data centers, 30+ countries, 57.6M rentable sq ft (9.7M under development, 4.7M held for development), 84.7% leased",
+        "date": "2026-02-26",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "DLR FY25 10-K Item 1 Business and Item 7 MD&A customer concentration: 5,000+ customers; no single customer represented more than approximately 11.7% of aggregate revenue",
+        "date": "2026-02-26",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "DLR FY25 10-K Item 8 financial statements: FY25 total revenue $6.11B (+10% YoY); FY25 Core FFO/share $7.39 (+10.1% YoY); FY25 dividend per share $4.88",
+        "date": "2026-02-26",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "DLR FY25 10-K Item 7A: Net debt-to-Adjusted EBITDA 4.9x; total debt outstanding $18.4B ($17.5B unsecured + $0.9B secured); fixed charge coverage 4.5x; debt-plus-preferred-to-total enterprise value 26.1%",
+        "date": "2026-02-26",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "8-K",
+        "ref": "DLR Q1 2026 earnings 8-K press release 2026-04-23: Q1 2026 Core FFO/share $2.04 (+15% YoY); total bookings $707M at 100% share / $423M at DLR share; backlog $1.8B; record 0-1MW + interconnection bookings $98M (+40% YoY); 200MW Charlotte AI lease signed with AA-rated hyperscaler",
+        "date": "2026-04-23",
+        "url": "https://www.sec.gov/Archives/edgar/data/0001297996/000110465926047702/dlr-20260423xex99d2.htm",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "8-K",
+        "ref": "DLR Q1 2026 earnings 8-K: full-year 2026 Core FFO/share guidance raised by $0.10 to $8.10 midpoint (implies +9% YoY growth)",
+        "date": "2026-04-23",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "8-K",
+        "ref": "DLR Q4 2025 earnings 8-K 2026-02-05: Q4 2025 Core FFO/share $1.86 (+7.5% YoY); Q4 revenue $1.63B (+13.8% YoY); FY25 same-capital cash NOI growth 7.7%",
+        "date": "2026-02-05",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "DLR 2026 proxy statement DEF 14A (executive compensation + beneficial ownership)",
+        "date": "2026-04-15",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "13F",
+        "ref": "13F top holders Q1 2026 (Vanguard, BlackRock, State Street, Cohen & Steers, T. Rowe Price)",
+        "date": "2026-05-14",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "DLR Q1 2026 earnings call 2026-04-23 (CEO Andy Power, CFO Matt Mercier): seven consecutive quarters with largest signing from different hyperscaler; record interconnection bookings; 19-month average lease commencement lag; 21% of signings AI-oriented; over 1 GW of additional land capacity secured in Q1",
+        "date": "2026-04-23",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "DLR FY26Q2 10-Q segment commentary expected 2026-08-05"
+      },
+      {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "MSFT Q1 CY26 earnings call CY2026 capex guide $190B (DLR hyperscale customer)",
+        "date": "2026-04-24",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "GOOG Q1 CY26 earnings call CY2026 capex guide $190B (raised from $175B)",
+        "date": "2026-04-29",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "META Q1 CY26 earnings call CY2026 capex guide $135B (DLR hyperscale customer)",
+        "date": "2026-04-30",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "AMZN Q1 CY26 earnings call AWS capex CY2026 $200B (DLR hyperscale customer)",
+        "date": "2026-05-01",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S4",
+        "source_type": "Visible Alpha consensus",
+        "ref": "Visible Alpha DLR FY26E Core FFO/share consensus n=19 median $8.05 range $7.85-$8.25 (post Q1 print refresh)",
+        "date": "2026-05-15",
+        "verified": true,
+        "freshness_days": 4,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S4",
+        "source_type": "Visible Alpha consensus",
+        "ref": "Visible Alpha DLR FY27E Core FFO/share consensus n=18 median $8.95 range $8.50-$9.40",
+        "date": "2026-05-15",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S4",
+        "source_type": "FactSet consensus",
+        "ref": "FactSet DLR analyst PT consensus median $220.53 n=19 buy_pct 79% (JPM $230, Scotia $222, GS $215, DB $220)",
+        "date": "2026-05-15",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S4",
+        "source_type": "Yahoo Finance consensus",
+        "ref": "Yahoo Finance DLR spot $188.50 close 2026-05-18; 5y P/AFFO range (current 23.5x; FY25 trailing 21.4x; 5y median 22.0x; 5y high 32.0x 2021; 5y low 14.0x 2022)",
+        "date": "2026-05-19",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S5",
+        "source_type": "datacenterHawk",
+        "ref": "datacenterHawk 2026 colocation pricing: average $196.25/kW/month for 250-500kW requirements H2 2025; Ashburn VA Q2 2025 $215/kW/month record high; lease rate trajectory $120 H2 2021 -> $138 H2 2022 -> $165 H2 2023 -> $184 H2 2024 -> ~$200 H1 2026",
+        "date": "2026-04-15",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S5",
+        "source_type": "Capright Real Estate",
+        "ref": "Capright data center market update April 2026: data center REIT implied cap rates ~4.4% (lowest across asset classes), down 66bp from 2022 peak; development cap rates 4.25-6.25%; unleveraged IRR 7.0-8.5%",
+        "date": "2026-04-10",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S5",
+        "source_type": "Counterpoint",
+        "ref": "Counterpoint hyperscaler capex tracker 2026/04 aggregating $725B 2026 (+77% YoY) cross-referenced to S3 transcripts",
+        "date": "2026-04-15",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S5",
+        "source_type": "Cushman Wakefield",
+        "ref": "Cushman & Wakefield data center power and lease pricing outlook 2026: pre-leasing timelines extended to 3-4 years; lease rates +20-35% YoY in primary markets",
+        "date": "2026-03-20",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      {
+        "s_level": "S1",
+        "source_type": "FRED",
+        "ref": "FRED DGS10 10-year UST yield 4.68% (REIT cap-rate spread anchor)",
+        "date": "2026-05-19",
+        "url": "https://fred.stlouisfed.org/series/DGS10",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S5",
+        "source_type": "Damodaran",
+        "ref": "Damodaran US implied equity risk premium 5.5% (May 2026 update); REIT industry beta 0.85",
+        "date": "2026-05-01",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "BIS Entity List",
+        "ref": "BIS Entity List query DLR 2026-05-19, no listing",
+        "date": "2026-05-19",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      {
+        "s_level": "S2",
+        "source_type": "OFAC SDN",
+        "ref": "OFAC SDN list query DLR 2026-05-19, no listing",
+        "date": "2026-05-19",
+        "verified": true,
+        "is_anchor_eligible": true
+      }
+    ],
+    "top_anchors": [
+      {
+        "anchor_id": "A1",
+        "claim": "DLR FY25 Core FFO/share + revenue + FY26 raised guidance",
+        "value": 8.1,
+        "unit": "$/share Core FFO FY26 guide",
+        "citation": {
+          "s_level": "S2",
+          "source_type": "8-K",
+          "ref": "DLR Q1 2026 earnings 8-K 2026-04-23: full-year 2026 Core FFO/share guidance raised by $0.10 to $8.10 midpoint (+9% YoY) supported by FY25 actual Core FFO/share $7.39 from FY25 10-K Item 7 MD&A",
+          "date": "2026-04-23",
+          "verified": true,
+          "is_anchor_eligible": true,
+          "url": "https://www.sec.gov/Archives/edgar/data/0001297996/000110465926047702/dlr-20260423xex99d2.htm"
+        },
+        "drives_scenarios": [
+          "base",
+          "bear",
+          "bull"
+        ],
+        "sensitivity_pct": 9.0
+      },
+      {
+        "anchor_id": "A2",
+        "claim": "Hyperscaler aggregate CY2026 capex YoY growth (DLR top customers concentration)",
+        "value": 77.0,
+        "unit": "%",
+        "citation": {
+          "s_level": "S3",
+          "source_type": "Earnings call transcript",
+          "ref": "MSFT Q1 CY26 ($190B) + GOOG Q1 CY26 ($190B) + META Q1 CY26 ($135B) + AMZN Q1 CY26 ($200B) aggregated $725B vs 2025 actual $410B = +77% YoY; these four are DLR top hyperscaler customers per FY25 10-K",
+          "date": "2026-05-01",
+          "verified": true,
+          "is_anchor_eligible": false,
+          "promotion_path": "Individual hyperscaler 10-Q segment-level capex filings expected by 2026-08-01"
+        },
+        "drives_scenarios": [
+          "strong_bear",
+          "bear",
+          "base",
+          "bull",
+          "strong_bull"
+        ],
+        "sensitivity_pct": 11.0
+      },
+      {
+        "anchor_id": "A3",
+        "claim": "DLR Q1 2026 total bookings + 200MW Charlotte AA-rated hyperscaler lease (record)",
+        "value": 707.0,
+        "unit": "$M annualized 100% share",
+        "citation": {
+          "s_level": "S2",
+          "source_type": "8-K",
+          "ref": "DLR Q1 2026 8-K 2026-04-23: total bookings $707M at 100% share / $423M at DLR share; 200MW Charlotte AI lease signed with AA-rated hyperscaler (largest single lease in DLR history); record 0-1MW + interconnection bookings $98M",
+          "date": "2026-04-23",
+          "verified": true,
+          "is_anchor_eligible": true
+        },
+        "drives_scenarios": [
+          "base",
+          "bull",
+          "strong_bull"
+        ],
+        "sensitivity_pct": 8.0
+      },
+      {
+        "anchor_id": "A4",
+        "claim": "DLR customer concentration: top customer percentage of aggregate revenue",
+        "value": 11.7,
+        "unit": "% of aggregate revenue",
+        "citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "DLR FY25 10-K Item 1 Business + Item 7 MD&A: no single customer represented more than approximately 11.7% of aggregate revenue; 5,000+ customers; top 20 customers approximately 51% of recurring revenue (consistent with FY24 10-K disclosure)",
+          "date": "2026-02-26",
+          "verified": true,
+          "is_anchor_eligible": true
+        },
+        "drives_scenarios": [
+          "strong_bear",
+          "bear"
+        ],
+        "sensitivity_pct": 6.0
+      },
+      {
+        "anchor_id": "A5",
+        "claim": "Backlog $1.8B + 19-month average lease commencement lag",
+        "value": 1800.0,
+        "unit": "$M backlog",
+        "citation": {
+          "s_level": "S3",
+          "source_type": "Earnings call transcript",
+          "ref": "DLR Q1 2026 earnings call 2026-04-23 (CEO Andy Power): record backlog $1.8B with approximately 19-month average lease commencement lag; over 1 GW of additional land capacity secured in Q1; visibility into multi-year revenue conversion",
+          "date": "2026-04-23",
+          "verified": true,
+          "is_anchor_eligible": false,
+          "promotion_path": "DLR FY26Q2 10-Q backlog disclosure 2026-08-05"
+        },
+        "drives_scenarios": [
+          "bull",
+          "strong_bull"
+        ],
+        "sensitivity_pct": 7.0
+      }
+    ],
+    "headline_conditionality": "source_conditional",
+    "pending_assumptions": []
+  }
+}

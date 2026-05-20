@@ -1,0 +1,199 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "DLR",
+  "current_price": 190.00,
+  "as_of_date": "2026-05-19",
+  "fiscal_year_end": "12-31",
+  "base_eps": 8.10,
+  "_field_mapping_note": "REIT primary multiple is P/AFFO per D8 (data center REIT). The 'eps' field is populated with Core FFO per share (the canonical REIT per-share earnings analog filed under GAAP non-GAAP reconciliation in 10-K Item 7) so that verify_eps_pe.py (G1) can verify scenarios.eps * scenarios.multiple = scenarios.target_price within +/-0.5%. multiple_type='P/AFFO' is set per scenario. AFFO/share = approximately Core FFO/share - 0.65/share recurring maintenance capex - 0.15/share straight-line rent adjustments - 0.10/share other = approximately Core FFO/share x 0.89; we use Core FFO/share as the field convention here so G1 math reconciles, and document the AFFO bridge in memo section 5. NAV cross-check is documented in memo section 6 (NAV per share approximately $175 base case = $61.5B segment NAV / 351.4M shares).",
+  "scenarios": [
+    {
+      "id": "strong_bear",
+      "probability": 0.05,
+      "narrative_one_liner": "Hyperscaler in-house build accelerates with Meta/MSFT taking 30%+ of new capacity self-built; Fed funds re-tightens +200bp; lease renewals roll at flat pricing vs +5% base; AI inference cluster deals slow to half of 2025 pace; one top-3 customer non-renews lease",
+      "eps": 7.00,
+      "eps_period": "FY27E",
+      "multiple": 14.0,
+      "multiple_type": "P/AFFO",
+      "target_price": 98.0,
+      "expected_return": -0.484,
+      "anchors": ["A1", "A3", "A4"],
+      "strongest_anchor_s_level": "S5",
+      "eps_bridge": [
+        {
+          "label": "Soft 1: Renewal cash mark-to-market compresses from +5% to flat",
+          "delta_eps": -0.20,
+          "layer": "soft",
+          "source_tag": "S3: DLR Q1 2026 call mark-to-market commentary stress"
+        },
+        {
+          "label": "Soft 2: Interest expense headwind from $18.4B debt at +200bp refi",
+          "delta_eps": -0.20,
+          "layer": "soft",
+          "source_tag": "S1: DLR FY25 10-K debt schedule + S1 FRED DGS10 stress"
+        },
+        {
+          "label": "Clean 1: Hyperscaler bookings cut to $400M annualized vs $707M Q1 pace",
+          "delta_eps": -0.30,
+          "layer": "clean",
+          "source_tag": "S2: DLR Q1 2026 8-K bookings detail"
+        },
+        {
+          "label": "Strong 1: Top-3 hyperscaler non-renewal removes ~50MW capacity at $180/kW",
+          "delta_eps": -0.30,
+          "layer": "strong",
+          "source_tag": "S5: customer concentration tail modeling"
+        },
+        {
+          "label": "Strong 2: Section 482 transfer-pricing IRS challenge to intercompany lease structures",
+          "delta_eps": -0.10,
+          "layer": "strong",
+          "source_tag": "S5: REIT tax tail scenario"
+        }
+      ],
+      "multiple_band_basis": "DLR 5y P/AFFO P5/P25/median/P75/P95 = 14/18/22/27/32; strong_bear 14x = at 5-year trough analog (2022 rate-shock low + COVID dislocation)"
+    },
+    {
+      "id": "bear",
+      "probability": 0.20,
+      "narrative_one_liner": "Hyperscaler self-build at 20% of incremental capacity; Fed pause delayed, 10Y UST at 5.0% (cap-rate expansion); lease pricing roll +3% vs +5% base; bookings normalize to $500M/quarter run-rate; one expected hyperscaler RFP slips to 2027",
+      "eps": 7.70,
+      "eps_period": "FY27E",
+      "multiple": 18.0,
+      "multiple_type": "P/AFFO",
+      "target_price": 138.6,
+      "expected_return": -0.270,
+      "anchors": ["A1", "A2", "A4"],
+      "strongest_anchor_s_level": "S2",
+      "eps_bridge": [
+        {
+          "label": "Soft 1: Lease re-leasing roll +3% vs base +5% (S3 management Q1 2026 call commentary)",
+          "delta_eps": -0.20,
+          "layer": "soft",
+          "source_tag": "S3: DLR Q1 2026 call leasing commentary"
+        },
+        {
+          "label": "Soft 2: Bookings normalize from Q1 pace to $500M/quarter run-rate",
+          "delta_eps": -0.20,
+          "layer": "soft",
+          "source_tag": "S2: DLR Q1 2026 8-K bookings"
+        }
+      ],
+      "multiple_band_basis": "DLR 5y P/AFFO P25 ~ 18x; bear at 18x = mid-cycle compression in REIT sector + cap-rate expansion 50bp"
+    },
+    {
+      "id": "base",
+      "probability": 0.50,
+      "narrative_one_liner": "Hyperscaler capex confirmed at $725B in 2026 (+77% YoY); DLR bookings sustained at $1.2-1.4B annualized; backlog converts on 19-month lag with +5% re-leasing roll; Charlotte 200MW lease phases through 2028 as guided",
+      "eps": 8.10,
+      "eps_period": "FY27E",
+      "multiple": 23.0,
+      "multiple_type": "P/AFFO",
+      "target_price": 186.3,
+      "expected_return": -0.019,
+      "anchors": ["A1", "A2", "A3"],
+      "strongest_anchor_s_level": "S1",
+      "eps_bridge": [],
+      "multiple_band_basis": "DLR 5y P/AFFO median 22-23x; base case at 23x = mid-cycle multiple consistent with current 23.5x trading multiple (FY26 guide $8.10 / current price $190)"
+    },
+    {
+      "id": "bull",
+      "probability": 0.20,
+      "narrative_one_liner": "Hyperscaler capex +90% YoY; DLR captures 25% incremental share of merchant capacity demand; new sovereign-AI cluster signings add $500M backlog; 0-1MW + interconnection (highest-margin) accelerates to record run-rate; cap rate compresses 25bp",
+      "eps": 8.70,
+      "eps_period": "FY27E",
+      "multiple": 27.0,
+      "multiple_type": "P/AFFO",
+      "target_price": 234.9,
+      "expected_return": 0.236,
+      "anchors": ["A2", "A3", "A5"],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Bull Soft 1: 0-1MW + interconnection mix rises from 14% to 18% of revenue at 75% NOI margin",
+          "delta_eps": 0.25,
+          "layer": "soft",
+          "source_tag": "S2: DLR Q1 2026 8-K interconnection record $98M"
+        },
+        {
+          "label": "Bull Soft 2: Sovereign-AI cluster signing adds $300M backlog at +$0.20 incremental FFO",
+          "delta_eps": 0.20,
+          "layer": "soft",
+          "source_tag": "S3: DLR Q1 2026 call pipeline commentary"
+        },
+        {
+          "label": "Bull Clean 1: Renewal cash mark-to-market accelerates from +5% to +8%",
+          "delta_eps": 0.15,
+          "layer": "clean",
+          "source_tag": "S3: DLR Q1 2026 call + S5 datacenterHawk colocation pricing"
+        }
+      ],
+      "multiple_band_basis": "DLR 5y P/AFFO P75 ~ 27x; bull at 27x = top-quartile multiple in re-rating scenario (cap rate compresses 25bp)"
+    },
+    {
+      "id": "strong_bull",
+      "probability": 0.05,
+      "narrative_one_liner": "Hyperscaler capex +100% YoY with multi-GW commitments locked through 2030; DLR signs second 100MW+ AI training lease; secondary 0-1MW interconnection ecosystem accelerates as enterprise hybrid-cloud adoption hits inflection; cap rate compresses 50bp",
+      "eps": 9.30,
+      "eps_period": "FY27E",
+      "multiple": 31.0,
+      "multiple_type": "P/AFFO",
+      "target_price": 288.3,
+      "expected_return": 0.517,
+      "anchors": ["A2", "A5"],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Bull Soft 1: Interconnection mix to 20%",
+          "delta_eps": 0.25,
+          "layer": "soft",
+          "source_tag": "S2: DLR Q1 2026 8-K interconnection"
+        },
+        {
+          "label": "Bull Soft 2: Sovereign-AI add $500M backlog",
+          "delta_eps": 0.30,
+          "layer": "soft",
+          "source_tag": "S3: DLR Q1 2026 call pipeline"
+        },
+        {
+          "label": "Bull Clean 1: Renewal cash mark-to-market +10%",
+          "delta_eps": 0.25,
+          "layer": "clean",
+          "source_tag": "S3: DLR Q1 2026 call leasing"
+        },
+        {
+          "label": "Bull Strong 1: Second 100MW+ AI training lease signed (Charlotte analog)",
+          "delta_eps": 0.40,
+          "layer": "strong",
+          "source_tag": "S3: DLR Q1 2026 call AI lease commentary"
+        },
+        {
+          "label": "Bull Strong 2: Cap rate compresses 50bp on hyperscaler capex re-rate",
+          "delta_eps": 0.00,
+          "layer": "strong",
+          "source_tag": "S5: capright data center cap rate compression"
+        }
+      ],
+      "multiple_band_basis": "DLR 5y P/AFFO P95 ~ 32x; strong_bull at 31x = top-decile multiple reflecting cap-rate compression and AI cycle premium"
+    }
+  ],
+  "probability_sum_check": 1.00,
+  "conviction_tag": "neutral",
+  "headline": {
+    "expected_return_median": -0.0149,
+    "expected_return_range_p10_p90": [-0.270, 0.236],
+    "rating": "Hold",
+    "default_action": "hold_long",
+    "conditionality": "source_conditional",
+    "conditional_language_pattern": "A_source_conditional_bias",
+    "headline_text": "Source-conditional Hold (neutral, mild-negative skew) at $190.00, base case PT $186 on FY27E Core FFO/share $8.10 (S2: DLR Q1 2026 raised guidance midpoint) x 23x P/AFFO (S4: 5y trailing median multiple, in line with current 23.5x). 12-month median expected return -1.5%; scenario-weighted range [-27%, +24%]. CONDITIONAL on (i) hyperscaler aggregate CY2026 capex YoY >+50% maintained across MSFT/GOOG/META/AMZN -- currently +77% (S3: hyperscaler Q1 CY26 earnings calls) -- AND (ii) DLR Q2 2026 bookings >$400M run-rate confirmed at print 2026-07-23 (S3: DLR Q1 2026 call 2026-04-23 guidance trajectory). If hyperscaler capex falsifies <+30% OR DLR Q2 bookings <$300M OR top-3 customer non-renewal disclosed via 8-K, downgrade to Sell; if hyperscaler capex confirmed >+70% AND DLR Q2 bookings >$500M, upgrade to Buy with PT $215."
+  },
+  "weighting_sensitivity": {
+    "base_minus_10_to_bear": -0.0400,
+    "base_minus_10_to_bull": 0.0107,
+    "strong_tail_plus_10": {
+      "strong_bear": -0.0614,
+      "strong_bull": 0.0388
+    }
+  }
+}

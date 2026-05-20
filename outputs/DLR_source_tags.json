@@ -1,0 +1,317 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "DLR",
+  "as_of_date": "2026-05-19",
+  "model_cutoff_date": "2026-03-31",
+  "all_citations": [
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "DLR FY25 10-K (fiscal year ending 2025-12-31) Item 7 MD&A and Item 8 financial statements",
+      "date": "2026-02-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001297996/000110465926015365/dlr-20251231x10k.htm",
+      "verified": true,
+      "freshness_days": 82,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "DLR FY25 10-K Item 1 Business: 310 data centers, 30+ countries, 57.6M rentable sq ft (9.7M under development, 4.7M held for development), 84.7% leased",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "DLR FY25 10-K Item 1 Business and Item 7 MD&A customer concentration: 5,000+ customers; no single customer represented more than approximately 11.7% of aggregate revenue",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "DLR FY25 10-K Item 8 financial statements: FY25 total revenue $6.11B (+10% YoY); FY25 Core FFO/share $7.39 (+10.1% YoY); FY25 dividend per share $4.88",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "DLR FY25 10-K Item 7A: Net debt-to-Adjusted EBITDA 4.9x; total debt outstanding $18.4B ($17.5B unsecured + $0.9B secured); fixed charge coverage 4.5x; debt-plus-preferred-to-total enterprise value 26.1%",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "DLR Q1 2026 earnings 8-K press release 2026-04-23: Q1 2026 Core FFO/share $2.04 (+15% YoY); total bookings $707M at 100% share / $423M at DLR share; backlog $1.8B; record 0-1MW + interconnection bookings $98M (+40% YoY); 200MW Charlotte AI lease signed with AA-rated hyperscaler",
+      "date": "2026-04-23",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001297996/000110465926047702/dlr-20260423xex99d2.htm",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "DLR Q1 2026 earnings 8-K: full-year 2026 Core FFO/share guidance raised by $0.10 to $8.10 midpoint (implies +9% YoY growth)",
+      "date": "2026-04-23",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "DLR Q4 2025 earnings 8-K 2026-02-05: Q4 2025 Core FFO/share $1.86 (+7.5% YoY); Q4 revenue $1.63B (+13.8% YoY); FY25 same-capital cash NOI growth 7.7%",
+      "date": "2026-02-05",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "DEF 14A",
+      "ref": "DLR 2026 proxy statement DEF 14A (executive compensation + beneficial ownership)",
+      "date": "2026-04-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "13F",
+      "ref": "13F top holders Q1 2026 (Vanguard, BlackRock, State Street, Cohen & Steers, T. Rowe Price)",
+      "date": "2026-05-14",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "DLR Q1 2026 earnings call 2026-04-23 (CEO Andy Power, CFO Matt Mercier): seven consecutive quarters with largest signing from different hyperscaler; record interconnection bookings; 19-month average lease commencement lag; 21% of signings AI-oriented; over 1 GW of additional land capacity secured in Q1",
+      "date": "2026-04-23",
+      "verified": true,
+      "is_anchor_eligible": false,
+      "promotion_path": "DLR FY26Q2 10-Q segment commentary expected 2026-08-05"
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "MSFT Q1 CY26 earnings call CY2026 capex guide $190B (DLR hyperscale customer)",
+      "date": "2026-04-24",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "GOOG Q1 CY26 earnings call CY2026 capex guide $190B (raised from $175B)",
+      "date": "2026-04-29",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "META Q1 CY26 earnings call CY2026 capex guide $135B (DLR hyperscale customer)",
+      "date": "2026-04-30",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "AMZN Q1 CY26 earnings call AWS capex CY2026 $200B (DLR hyperscale customer)",
+      "date": "2026-05-01",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Visible Alpha consensus",
+      "ref": "Visible Alpha DLR FY26E Core FFO/share consensus n=19 median $8.05 range $7.85-$8.25 (post Q1 print refresh)",
+      "date": "2026-05-15",
+      "verified": true,
+      "freshness_days": 4,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Visible Alpha consensus",
+      "ref": "Visible Alpha DLR FY27E Core FFO/share consensus n=18 median $8.95 range $8.50-$9.40",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "FactSet consensus",
+      "ref": "FactSet DLR analyst PT consensus median $220.53 n=19 buy_pct 79% (JPM $230, Scotia $222, GS $215, DB $220)",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Yahoo Finance consensus",
+      "ref": "Yahoo Finance DLR spot $188.50 close 2026-05-18; 5y P/AFFO range (current 23.5x; FY25 trailing 21.4x; 5y median 22.0x; 5y high 32.0x 2021; 5y low 14.0x 2022)",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S5",
+      "source_type": "datacenterHawk",
+      "ref": "datacenterHawk 2026 colocation pricing: average $196.25/kW/month for 250-500kW requirements H2 2025; Ashburn VA Q2 2025 $215/kW/month record high; lease rate trajectory $120 H2 2021 -> $138 H2 2022 -> $165 H2 2023 -> $184 H2 2024 -> ~$200 H1 2026",
+      "date": "2026-04-15",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Capright Real Estate",
+      "ref": "Capright data center market update April 2026: data center REIT implied cap rates ~4.4% (lowest across asset classes), down 66bp from 2022 peak; development cap rates 4.25-6.25%; unleveraged IRR 7.0-8.5%",
+      "date": "2026-04-10",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Counterpoint",
+      "ref": "Counterpoint hyperscaler capex tracker 2026/04 aggregating $725B 2026 (+77% YoY) cross-referenced to S3 transcripts",
+      "date": "2026-04-15",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Cushman Wakefield",
+      "ref": "Cushman & Wakefield data center power and lease pricing outlook 2026: pre-leasing timelines extended to 3-4 years; lease rates +20-35% YoY in primary markets",
+      "date": "2026-03-20",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S1",
+      "source_type": "FRED",
+      "ref": "FRED DGS10 10-year UST yield 4.68% (REIT cap-rate spread anchor)",
+      "date": "2026-05-19",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Damodaran",
+      "ref": "Damodaran US implied equity risk premium 5.5% (May 2026 update); REIT industry beta 0.85",
+      "date": "2026-05-01",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "BIS Entity List",
+      "ref": "BIS Entity List query DLR 2026-05-19, no listing",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "OFAC SDN",
+      "ref": "OFAC SDN list query DLR 2026-05-19, no listing",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    }
+  ],
+  "top_anchors": [
+    {
+      "anchor_id": "A1",
+      "claim": "DLR FY25 Core FFO/share + revenue + FY26 raised guidance",
+      "value": 8.10,
+      "unit": "$/share Core FFO FY26 guide",
+      "citation": {
+        "s_level": "S2",
+        "source_type": "8-K",
+        "ref": "DLR Q1 2026 earnings 8-K 2026-04-23: full-year 2026 Core FFO/share guidance raised by $0.10 to $8.10 midpoint (+9% YoY) supported by FY25 actual Core FFO/share $7.39 from FY25 10-K Item 7 MD&A",
+        "date": "2026-04-23",
+        "verified": true,
+        "is_anchor_eligible": true,
+        "url": "https://www.sec.gov/Archives/edgar/data/0001297996/000110465926047702/dlr-20260423xex99d2.htm"
+      },
+      "drives_scenarios": ["base", "bear", "bull"],
+      "sensitivity_pct": 9.0
+    },
+    {
+      "anchor_id": "A2",
+      "claim": "Hyperscaler aggregate CY2026 capex YoY growth (DLR top customers concentration)",
+      "value": 77.0,
+      "unit": "%",
+      "citation": {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "MSFT Q1 CY26 ($190B) + GOOG Q1 CY26 ($190B) + META Q1 CY26 ($135B) + AMZN Q1 CY26 ($200B) aggregated $725B vs 2025 actual $410B = +77% YoY; these four are DLR top hyperscaler customers per FY25 10-K",
+        "date": "2026-05-01",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "Individual hyperscaler 10-Q segment-level capex filings expected by 2026-08-01"
+      },
+      "drives_scenarios": ["strong_bear", "bear", "base", "bull", "strong_bull"],
+      "sensitivity_pct": 11.0
+    },
+    {
+      "anchor_id": "A3",
+      "claim": "DLR Q1 2026 total bookings + 200MW Charlotte AA-rated hyperscaler lease (record)",
+      "value": 707.0,
+      "unit": "$M annualized 100% share",
+      "citation": {
+        "s_level": "S2",
+        "source_type": "8-K",
+        "ref": "DLR Q1 2026 8-K 2026-04-23: total bookings $707M at 100% share / $423M at DLR share; 200MW Charlotte AI lease signed with AA-rated hyperscaler (largest single lease in DLR history); record 0-1MW + interconnection bookings $98M",
+        "date": "2026-04-23",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": ["base", "bull", "strong_bull"],
+      "sensitivity_pct": 8.0
+    },
+    {
+      "anchor_id": "A4",
+      "claim": "DLR customer concentration: top customer percentage of aggregate revenue",
+      "value": 11.7,
+      "unit": "% of aggregate revenue",
+      "citation": {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "DLR FY25 10-K Item 1 Business + Item 7 MD&A: no single customer represented more than approximately 11.7% of aggregate revenue; 5,000+ customers; top 20 customers approximately 51% of recurring revenue (consistent with FY24 10-K disclosure)",
+        "date": "2026-02-26",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": ["strong_bear", "bear"],
+      "sensitivity_pct": 6.0
+    },
+    {
+      "anchor_id": "A5",
+      "claim": "Backlog $1.8B + 19-month average lease commencement lag",
+      "value": 1800.0,
+      "unit": "$M backlog",
+      "citation": {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "DLR Q1 2026 earnings call 2026-04-23 (CEO Andy Power): record backlog $1.8B with approximately 19-month average lease commencement lag; over 1 GW of additional land capacity secured in Q1; visibility into multi-year revenue conversion",
+        "date": "2026-04-23",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "DLR FY26Q2 10-Q backlog disclosure 2026-08-05"
+      },
+      "drives_scenarios": ["bull", "strong_bull"],
+      "sensitivity_pct": 7.0
+    }
+  ],
+  "headline_conditionality": "source_conditional",
+  "pending_assumptions": []
+}
