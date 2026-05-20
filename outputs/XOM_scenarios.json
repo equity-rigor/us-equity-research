@@ -1,0 +1,279 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "XOM",
+  "current_price": 108.50,
+  "as_of_date": "2026-05-19",
+  "fiscal_year_end": "12-31",
+  "base_eps": 7.50,
+  "scenarios": [
+    {
+      "id": "strong_bear",
+      "probability": 0.05,
+      "narrative_one_liner": "WTI averages $50/bbl FY27 (sustained OPEC+ supply shock and global demand contraction); Permian capex pullback; refining margins collapse to mid-cycle trough; chemicals margins flat; Pioneer synergy capture delayed",
+      "eps": 3.50,
+      "eps_period": "FY27E",
+      "multiple": 9.0,
+      "multiple_type": "P/E",
+      "target_price": 31.50,
+      "expected_return": -0.710,
+      "anchors": [
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "strongest_anchor_s_level": "S5",
+      "eps_bridge": [
+        {
+          "label": "Soft 1: Permian unit cash cost +$2/BOE on inflation under sustained low-price discipline",
+          "delta_eps": -0.30,
+          "layer": "soft",
+          "source_tag": "S1: XOM FY25 10-K Item 7 MD&A Upstream unit cost disclosure"
+        },
+        {
+          "label": "Soft 2: Pioneer synergy capture delayed (~$1.5B/yr cumulative vs ~$3B target at run-rate)",
+          "delta_eps": -0.20,
+          "layer": "soft",
+          "source_tag": "S3: XOM Q4 FY25 call mgmt commentary on synergy timing"
+        },
+        {
+          "label": "Clean 1: WTI realization -$20/bbl from base $70 to $50 across Upstream",
+          "delta_eps": -2.40,
+          "layer": "clean",
+          "source_tag": "S5: WTI scenario stress vs EIA STEO base case"
+        },
+        {
+          "label": "Clean 2: Refining margin (Energy Products) collapse to $10/bbl cycle trough (vs $18 base)",
+          "delta_eps": -0.80,
+          "layer": "clean",
+          "source_tag": "S5: EIA refining margin stress + Q1 FY26 actual"
+        },
+        {
+          "label": "Strong 1: §232 crude export ban implemented domestically (re-direct of US barrels) capping realized WTI -$5/bbl additional",
+          "delta_eps": -0.50,
+          "layer": "strong",
+          "source_tag": "S5: USG §232 tail scenario"
+        },
+        {
+          "label": "Strong 2: Chemicals product margins compress 200bp on Asian demand contraction",
+          "delta_eps": -0.25,
+          "layer": "strong",
+          "source_tag": "S5: Asian chemicals demand stress"
+        },
+        {
+          "label": "Strong 3: Guyana production halt (1-2 quarter, Stabroek operational/political event)",
+          "delta_eps": -0.15,
+          "layer": "strong",
+          "source_tag": "S5: Guyana operational tail"
+        },
+        {
+          "label": "Strong 4: SBC + other normalization",
+          "delta_eps": 0.60,
+          "layer": "strong",
+          "source_tag": "S1: XOM FY25 10-K Note 15 SBC ASC 718"
+        }
+      ],
+      "multiple_band_basis": "XOM 10y P/E trough at $50/bbl WTI cycles (2015, 2020) = 8-10x; FY27E strong_bear 9.0x reflects sustained low-price cycle and Permian capex absorption"
+    },
+    {
+      "id": "bear",
+      "probability": 0.20,
+      "narrative_one_liner": "WTI averages $60/bbl FY27; Permian production growth slows; refining margins moderate to mid-cycle low; chemicals demand soft; Guyana ramp on track",
+      "eps": 5.50,
+      "eps_period": "FY27E",
+      "multiple": 11.0,
+      "multiple_type": "P/E",
+      "target_price": 60.50,
+      "expected_return": -0.442,
+      "anchors": [
+        "A1",
+        "A3",
+        "A5"
+      ],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Soft 1: Permian unit cash cost +$1/BOE on partial cost inflation",
+          "delta_eps": -0.15,
+          "layer": "soft",
+          "source_tag": "S1: XOM FY25 10-K Upstream unit cost"
+        },
+        {
+          "label": "Soft 2: Pioneer synergy partial (~$2.5B/yr vs $3B target)",
+          "delta_eps": -0.10,
+          "layer": "soft",
+          "source_tag": "S3: XOM Q4 FY25 call synergy commentary"
+        },
+        {
+          "label": "Clean 1: WTI realization -$10/bbl from base $70 to $60 across Upstream",
+          "delta_eps": -1.20,
+          "layer": "clean",
+          "source_tag": "S5: WTI -$10 scenario vs base"
+        },
+        {
+          "label": "Clean 2: Refining margin moderates to $15/bbl (vs $18 base)",
+          "delta_eps": -0.50,
+          "layer": "clean",
+          "source_tag": "S3: refining margin cycle commentary"
+        },
+        {
+          "label": "Soft 3: SBC + share count partial offset via FY26 buyback completion",
+          "delta_eps": -0.05,
+          "layer": "soft",
+          "source_tag": "S1: XOM FY25 10-K SBC + buyback footnotes"
+        }
+      ],
+      "multiple_band_basis": "XOM 10y P/E P25 at $60/bbl mid-cycle compression ~ 10-12x; bear 11.0x"
+    },
+    {
+      "id": "base",
+      "probability": 0.50,
+      "narrative_one_liner": "WTI averages $70/bbl FY27 (EIA STEO base; OPEC+ supply discipline + global demand growth ~1.0 MMBPD); Permian production +4-5%; Guyana ramp to ~0.85 MMBOE/d run-rate; refining margins normalize to $18/bbl; Pioneer synergies on track ~$3B",
+      "eps": 7.50,
+      "eps_period": "FY27E",
+      "multiple": 15.0,
+      "multiple_type": "P/E",
+      "target_price": 112.50,
+      "expected_return": 0.037,
+      "anchors": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "strongest_anchor_s_level": "S1",
+      "eps_bridge": [],
+      "multiple_band_basis": "XOM 5y trailing average P/E ~14x; current 14.4x on FY26 EPS; base 15.0x reflects mid-cycle multiple with Permian + Guyana growth premium"
+    },
+    {
+      "id": "bull",
+      "probability": 0.20,
+      "narrative_one_liner": "WTI averages $85/bbl FY27 (OPEC+ supply discipline tightens, Middle East risk premium, China/India demand acceleration); Permian +6%; Guyana ramps to 1.0 MMBOE/d; refining margins $22/bbl on capacity constraint; Golden Pass LNG fully online",
+      "eps": 10.00,
+      "eps_period": "FY27E",
+      "multiple": 16.0,
+      "multiple_type": "P/E",
+      "target_price": 160.00,
+      "expected_return": 0.475,
+      "anchors": [
+        "A2",
+        "A4"
+      ],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Bull Soft 1: Pioneer synergies overshoot at $3.5B/yr vs $3B base",
+          "delta_eps": 0.10,
+          "layer": "soft",
+          "source_tag": "S3: XOM Q4 FY25 call synergy upside"
+        },
+        {
+          "label": "Bull Soft 2: Guyana ramp +50K BOE/d above base via Yellowtail/Uaru FID acceleration",
+          "delta_eps": 0.20,
+          "layer": "soft",
+          "source_tag": "S3: XOM mgmt Guyana FID commentary"
+        },
+        {
+          "label": "Bull Clean 1: WTI realization +$15/bbl from base $70 to $85 across Upstream",
+          "delta_eps": 1.80,
+          "layer": "clean",
+          "source_tag": "S5: WTI +$15 scenario vs base"
+        },
+        {
+          "label": "Bull Clean 2: Refining margin to $22/bbl (vs $18 base) on capacity constraint",
+          "delta_eps": 0.40,
+          "layer": "clean",
+          "source_tag": "S3: refining capacity commentary + S5 EIA refining tracker"
+        }
+      ],
+      "multiple_band_basis": "XOM 10y P/E P75 ~ 16-17x at cycle bull conditions (2022-2023 analog); bull 16.0x"
+    },
+    {
+      "id": "strong_bull",
+      "probability": 0.05,
+      "narrative_one_liner": "WTI averages $100/bbl FY27 (Middle East kinetic supply disruption + OPEC+ holds); Permian +8%; Guyana 1.1 MMBOE/d via Hammerhead+Longtail FID; refining $25/bbl; chemicals margins re-expand; carbon-capture §45Q credits accelerating",
+      "eps": 13.50,
+      "eps_period": "FY27E",
+      "multiple": 17.0,
+      "multiple_type": "P/E",
+      "target_price": 229.50,
+      "expected_return": 1.115,
+      "anchors": [
+        "A2",
+        "A4"
+      ],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Bull Soft 1: Pioneer synergies overshoot at $3.5B/yr",
+          "delta_eps": 0.10,
+          "layer": "soft",
+          "source_tag": "S3: synergy upside"
+        },
+        {
+          "label": "Bull Soft 2: Guyana ramp +50K BOE/d above base",
+          "delta_eps": 0.20,
+          "layer": "soft",
+          "source_tag": "S3: Guyana commentary"
+        },
+        {
+          "label": "Bull Clean 1: WTI realization +$15/bbl in base bull scenario (+$15)",
+          "delta_eps": 1.80,
+          "layer": "clean",
+          "source_tag": "S5: WTI scenario"
+        },
+        {
+          "label": "Bull Clean 2: Refining margin to $22/bbl",
+          "delta_eps": 0.40,
+          "layer": "clean",
+          "source_tag": "S3: refining commentary"
+        },
+        {
+          "label": "Bull Strong 1: Additional WTI realization +$15/bbl from $85 to $100 (geopolitical shock)",
+          "delta_eps": 1.80,
+          "layer": "strong",
+          "source_tag": "S5: Middle East kinetic supply disruption tail"
+        },
+        {
+          "label": "Bull Strong 2: Chemicals margin re-expansion +200bp on tight capacity",
+          "delta_eps": 0.30,
+          "layer": "strong",
+          "source_tag": "S5: Chemicals cycle tail"
+        },
+        {
+          "label": "Bull Strong 3: §45Q carbon-capture credits accelerating; Low Carbon Solutions contribution",
+          "delta_eps": 0.40,
+          "layer": "strong",
+          "source_tag": "S3: XOM Low Carbon Solutions investor day 2026 commentary"
+        },
+        {
+          "label": "Bull Strong 4: Refining +$3/bbl additional from cycle peak",
+          "delta_eps": 1.00,
+          "layer": "strong",
+          "source_tag": "S5: refining cycle peak tail"
+        }
+      ],
+      "multiple_band_basis": "XOM 10y P/E P95 ~ 17-18x at cycle peak (2008 analog adjusted); strong_bull 17.0x"
+    }
+  ],
+  "probability_sum_check": 1.0,
+  "conviction_tag": "moderate_neutral",
+  "headline": {
+    "expected_return_median": 0.0453,
+    "expected_return_range_p10_p90": [
+      -0.442,
+      0.475
+    ],
+    "rating": "Hold",
+    "default_action": "hold",
+    "conditionality": "source_conditional",
+    "conditional_language_pattern": "A_source_conditional_bias",
+    "headline_text": "Source-conditional Hold (modestly positive bias) at $108.50, base case PT $112.50 on FY27E EPS $7.50 (S4: FactSet n=22 median $7.60) × P/E 15.0x (S4: 10y trailing average P/E ~14x; current 14.4x on FY26 EPS). 12-month median expected return +4.5%; scenario-weighted range [-44%, +48%], CONDITIONAL on (i) WTI FY27 average tracking EIA STEO base case $70/bbl ±$5 (S5: EIA STEO May 2026 forecast WTI 2027 $69.50) AND (ii) Pioneer synergy capture on track at $3B/yr run-rate (S3: XOM Q4 FY25 earnings call 2026-01-30 CFO commentary). If WTI FY27 average <$60/bbl OR Pioneer synergies fall <$2B/yr OR Guyana production halt >1 quarter, downgrade to underweight; if WTI sustains >$80/bbl AND refining margins >$20/bbl, upgrade to Buy."
+  },
+  "weighting_sensitivity": {
+    "base_minus_10_to_bear": -0.0030,
+    "base_minus_10_to_bull": 0.0891,
+    "strong_tail_plus_10": {
+      "strong_bear": -0.0294,
+      "strong_bull": 0.1532
+    }
+  }
+}

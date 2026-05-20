@@ -1,0 +1,179 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "XOM",
+  "run_id": "XOM_2026-05-19_phase_e_final",
+  "memo_path": "outputs/XOM_IC_memo.md",
+  "memo_structured_path": "outputs/XOM_structured.json",
+  "gates": [
+    {
+      "gate_id": "G1",
+      "name": "EPS \u00d7 Multiple multiplicativity",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "math",
+      "blocks_score_above": 7.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    },
+    {
+      "gate_id": "G2",
+      "name": "Segment GM reconciliation",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "math",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    },
+    {
+      "gate_id": "G3",
+      "name": "SOTP monotonicity",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "math",
+      "blocks_score_above": 7.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    },
+    {
+      "gate_id": "G4",
+      "name": "Scenario probabilities sum to 1.00",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "math",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    },
+    {
+      "gate_id": "G5",
+      "name": "Bear/bull EPS bridge reconciles",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "math",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    },
+    {
+      "gate_id": "G6",
+      "name": "Source tag declared at first use",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "source",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    },
+    {
+      "gate_id": "G7",
+      "name": "Headline conditionality matches anchor strength",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "consistency",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    },
+    {
+      "gate_id": "G8",
+      "name": "GM taxonomy box exists",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "structure",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    },
+    {
+      "gate_id": "G9",
+      "name": "What-would-reverse has numerical denominators",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "structure",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    },
+    {
+      "gate_id": "G10",
+      "name": "Anchor weighting impact table exists",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "structure",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    },
+    {
+      "gate_id": "G11",
+      "name": "Non-GAAP to GAAP reconciliation present",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "consistency",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    },
+    {
+      "gate_id": "G12",
+      "name": "SBC treatment in FCF disclosed",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "consistency",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    },
+    {
+      "gate_id": "G13",
+      "name": "Factor exposure stated",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "quant_overlay",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    },
+    {
+      "gate_id": "G14",
+      "name": "Capacity / ADV / days-to-exit stated",
+      "status": "pass",
+      "checked_at": "2026-05-20T00:04:40Z",
+      "category": "quant_overlay",
+      "blocks_score_above": 8.0,
+      "evidence": {
+        "verification_script": "scripts/verify_*.py",
+        "exit_code": 0
+      }
+    }
+  ],
+  "overall_pass": true,
+  "blocks_score_above": 10.0
+}

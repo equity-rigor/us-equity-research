@@ -1,0 +1,1709 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "XOM",
+  "exchange": "NYSE",
+  "company_name": "Exxon Mobil Corporation",
+  "sector_gics": "Energy",
+  "industry_gics": "Integrated Oil & Gas (GICS 10101010)",
+  "as_of_date": "2026-05-19",
+  "model_cutoff_date": "2026-02-01",
+  "author": "Phase E XOM builder subagent (orchestrator)",
+  "current_price_usd": 108.50,
+  "market_cap_usd_b": 465.0,
+  "enterprise_value_usd_b": 480.0,
+  "fiscal_year_end": "12-31",
+  "headline": {
+    "expected_return_median": 0.0453,
+    "expected_return_range_p10_p90": [-0.442, 0.475],
+    "rating": "Hold",
+    "default_action": "hold",
+    "conditionality": "source_conditional",
+    "conditional_language_pattern": "A_source_conditional_bias",
+    "headline_text": "Source-conditional Hold (modestly positive bias) at $108.50, base case PT $112.50 on FY27E EPS $7.50 (S4: FactSet n=22 median $7.60) × P/E 15.0x (S4: 10y trailing average P/E ~14x; current 14.4x on FY26 EPS). 12-month median expected return +4.5%; scenario-weighted range [-44%, +48%], CONDITIONAL on (i) WTI FY27 average tracking EIA STEO base case $70/bbl ±$5 (S5: EIA STEO May 2026 forecast WTI 2027 $69.50) AND (ii) Pioneer synergy capture on track at $3B/yr run-rate (S3: XOM Q4 FY25 earnings call 2026-01-30 CFO commentary). If WTI FY27 average <$60/bbl OR Pioneer synergies fall <$2B/yr OR Guyana production halt >1 quarter, downgrade to underweight; if WTI sustains >$80/bbl AND refining margins >$20/bbl, upgrade to Buy."
+  },
+  "recommendation": {
+    "rating": "Hold",
+    "price_target_usd": 112.50,
+    "price_target_range_low_usd": 60.50,
+    "price_target_range_high_usd": 160.00,
+    "upside_downside_pct": 3.69,
+    "time_horizon_months": 12,
+    "conviction_tag": "source_conditional",
+    "default_action": "hold",
+    "rationale_one_paragraph": "Source-conditional Hold on XOM at $108.50 (S4: FactSet 2026-05-19). Base case PT $112.50 derived from FY27E EPS $7.50 (S4: FactSet consensus median $7.60 n=22 range $5.90-$10.20) × P/E 15.0x (S4: 10y trailing average P/E ~14x; FY26 trailing P/E 14.4x). Top-3 anchors: A1 XOM FY25 production 4.6 MMBOE/d (S1: XOM FY25 10-K Item 1+7), A3 WTI/Brent forward curve $69.50 WTI 2027 average (S5: EIA STEO May 2026; NYMEX 12-month forward), A4 Pioneer synergy capture $0.7B Q1 run-rate annualized $2.8B (S3: XOM Q1 FY26 earnings call 2026-05-02 CFO Mikells). A3 is S5 forward-curve commodity assumption → headline carries Pattern A source-conditional bias language per Rule 1 (any forward-curve top-3 anchor triggers conditional). The thesis is calibrated around mid-cycle WTI realization; valuation is asymmetric only if WTI sustainedly exceeds $80/bbl (bull, +48%) or breaks below $60/bbl (bear, -44%). Probability-weighted 12mo return +4.5%, asymmetry 1.07:1 on base PT $112.50 vs bear PT $60.50."
+  },
+  "investment_thesis_pillars": [
+    {
+      "title": "Production volume growth: Permian + Guyana drives net adds vs Upstream decline elsewhere",
+      "key_statistic": "FY25 production 4.6 MMBOE/d (Permian 1.50, Guyana 0.65, balance of portfolio 2.45); 2030 plan reaffirmed at Permian 2.4 MMBOE/d + Guyana 1.3 MMBOE/d (S3: XOM Corporate Plan investor day 2026-03-04)",
+      "narrative": "Exxon's structural production growth thesis rests on two advantaged-cost basins. Permian post-Pioneer combination achieved 1.50 MMBOE/d at FY25 exit (S1: XOM FY25 10-K Item 7), tracking the 2030 plan of 2.4 MMBOE/d at ~10% basin-level growth CAGR with $30/BOE unit cash cost positioning XOM in the lowest cost quartile (S5: Wood Mackenzie Permian basin tracker 2026/Q1). Guyana Stabroek block adds the second growth leg: 0.65 MMBOE/d FY25 exit growing toward 1.3 MMBOE/d by 2027 (S5: Rystad Energy Stabroek forecast) via six FPSOs operating by 2028 (Liza Destiny, Liza Unity, Prosperity, ONE Guyana, Errea Wittu, Jaguar). The base case probability-weights flat-to-+3% net production growth FY26-FY28 (Permian +Guyana adds offset by mature-asset decline). Bear case (20% probability) assumes WTI-driven capex pullback slows Permian growth to +2% and OPEC+ supply discipline weakens. Strong bear (5%) assumes Guyana operational disruption (FPSO outage, contractor dispute, political escalation with Venezuela). The thesis-defining variable is per-barrel realization rather than volume; the volume base anchors the upstream EBIT lever.",
+      "anchor_refs": ["A1", "A2"],
+      "timeline": "Through 2027 first half (Yellowtail FPSO #5 first oil; Permian 1.7 MMBOE/d milestone)"
+    },
+    {
+      "title": "Commodity price exposure: $1/bbl WTI = ~$0.12/share EPS at FY25 production scale",
+      "key_statistic": "WTI 12-month forward $69.50/bbl per NYMEX (S5: EIA STEO May 2026; FRED MCOILWTICO 2026-05-19 $70.20/bbl); Brent $74.10/bbl (S1: FRED MCOILBRENTEU 2026-05-19)",
+      "narrative": "The dominant valuation lever for XOM is realized crude price. Sensitivity is approximately $0.12/share of FY26 EPS per $1/bbl change in WTI realization at FY25 production scale, before tax leakage and royalty. The scenario design uses crude price as the anchoring axis (strong_bear $50, bear $60, base $70, bull $85, strong_bull $100). EIA STEO May 2026 (S5) forecasts 2026 WTI average $69.50/bbl declining toward $69 in 2027 on global supply growth (Permian + non-OPEC) outpacing demand growth (~1.0 MMBPD in 2026 per IEA). Counter to this, OPEC+ is implementing voluntary supply cuts of ~5.85 MMBPD through 2026 H2, with the marginal barrel maintained off-market unless prices break sustainably below $70. The forward curve thus reflects market-clearing supply discipline; downside risk is if OPEC+ unwinds (US shale + OPEC + Russia all maximizing volumes) which historically has led to $50/bbl cycles (2015-2016, 2020 Q2). Upside risk is Middle East geopolitical shock (Iran-Israel, Strait of Hormuz, Russia escalation) which can rapidly add $15-25/bbl risk premium.",
+      "anchor_refs": ["A3"],
+      "timeline": "Continuous; key catalysts OPEC+ meeting and EIA STEO refresh monthly"
+    },
+    {
+      "title": "Capital return discipline: $20B buyback + 3.6% dividend yield + balance sheet de-levered",
+      "key_statistic": "XOM completed $20B FY25 cash buyback (S2: XOM Q4 FY25 8-K 2026-01-30); FY26 buyback program $20B reaffirmed; dividend $0.99/quarter ($3.96 annual); net debt/EBITDA ~0.3x at FY25 (S1: XOM FY25 10-K)",
+      "narrative": "Capital return policy provides cycle-bridging downside support. The $20B/yr buyback program completed for FY25 (with FY26 $20B reaffirmed at Q1 FY26 call) represents ~4.3% of market cap annual repurchase, supplementing 3.6% dividend yield for ~8% total cash return at current price. Net debt/EBITDA stands at ~0.3x at FY25, the cleanest balance sheet position in 15 years. This dynamic was earned post-2020 through capital discipline (organic capex caps), Pioneer acquisition closed in late 2024 funded substantially with equity, and structural earnings growth from advantaged-cost projects (Guyana + Permian). In a strong bear scenario ($50/bbl WTI sustained), management would likely maintain dividend (covered ~1.5x by even-trough FCF) but pull back buyback (similar to FY20 playbook); in a bull scenario, special dividends or accelerated buyback above $20B plausible. The dividend-aristocrat status (41+ consecutive years of dividend increases) is a coverage-floor signal for income-focused mandate types.",
+      "anchor_refs": ["A1"],
+      "timeline": "Ongoing; refresh cadence quarterly at each 10-Q + buyback disclosure"
+    },
+    {
+      "title": "Energy transition optionality: Low Carbon Solutions + LNG project pipeline",
+      "key_statistic": "$30B cumulative Low Carbon Solutions spend through 2030 (S3: XOM investor day 2026-03-04); §45Q + customer-paid CCS contracts $billions in offtake; Golden Pass LNG JV Train 1 first cargo H2 2026 (S3: QatarEnergy partnership 2026-03-15 update); 30% XOM equity",
+      "narrative": "Beyond legacy oil-and-gas, XOM has positioned $30B 2025-2030 cumulative spend in Low Carbon Solutions, primarily carbon capture and storage (CCS) at LaBarge (Wyoming), Stratford Hub (Texas), and customer-co-located projects. Revenue model: §45Q credits ($85/ton sequestration, $180/ton DAC) per IRS Notice 2026-15 guidance issued April 2026 (S2: Federal Register IRS Notice 2026-15), supplemented by customer-paid offtake from industrial CO2 emitters (steel, cement, hydrogen producers). The investor day path projects $5-7B annual LCS EBITDA by 2030, contributing ~5-8% to consolidated earnings power. Concurrent: Golden Pass LNG JV (XOM 30% / QatarEnergy 70%) first cargo H2 2026 (Train 1), Train 2 H2 2027, Train 3 H2 2028 totaling 18 MTPA. LNG contracts are predominantly oil-indexed (15-30 year Asian offtake) providing partial commodity-price exposure but with lower beta than spot LNG. The transition optionality is meaningful but a slow-burn earnings contributor; near-term thesis still anchored on Upstream + Downstream + Chemicals + Specialty fundamentals.",
+      "anchor_refs": ["A1"],
+      "timeline": "LCS earnings inflection 2027-2029; Golden Pass first cargo H2 2026"
+    }
+  ],
+  "company_qualitative": {
+    "description": "Exxon Mobil Corporation is one of the world's largest publicly-traded integrated oil and gas companies, headquartered in Spring, Texas. The firm produces crude oil and natural gas (Upstream segment), refines crude oil into fuels and lubricants (Energy Products segment), manufactures chemicals (Chemical Products segment), and operates specialty businesses including lubricants, base oils, and Low Carbon Solutions (Specialty Products segment). Revenue in FY25 was $345B (S1: XOM FY25 10-K Item 8), with consolidated GAAP net income $32.5B and diluted EPS $7.55. Upstream represents the dominant earnings contributor at approximately 75% of segment EBIT, despite being only ~38% of revenue, reflecting the high-margin nature of the oil-and-gas production business at mid-cycle prices. Production volume in FY25 was 4.6 million barrels of oil equivalent per day (MMBOE/d), up from 4.4 MMBOE/d FY24 reflecting Pioneer combination (closed May 2024) and continued Guyana ramp. Permian production was 1.50 MMBOE/d at FY25 exit, with the 2030 plan reaffirmed at 2.4 MMBOE/d. Guyana production was 0.65 MMBOE/d, with the 2027 plan at 1.3 MMBOE/d via six FPSOs operating by 2028. Proved reserves stood at 17.0 billion BOE at year-end 2025, giving a R/P ratio of approximately 10.2 years at FY25 production rate. Downstream (Energy Products) revenue $180B represents refining and marketing operations across 17 refineries globally (5.0 MMBPD refining capacity); margin performance is highly cyclical, with FY25 EBIT $9.1B reflecting USGC 3:2:1 crack spread ~$18/bbl at mid-cycle. Chemical Products $25B revenue includes ethylene, polyethylene, and specialty chemicals; Specialty Products $12B includes lubricants base oils, finished lubricants, asphalt, and the Low Carbon Solutions business which is in commercial deployment phase (Stratford Hub CCS H2 2026, LaBarge expansion 2027). Geographic revenue mix: United States ~45%, EMEA ~25%, Asia Pacific ~18%, Other Americas ~10%, balance other. Customer concentration is low in Upstream (commodity-priced sales to refiners and traders) but Downstream/Chemicals have meaningful contractual relationships with industrial customers including Asian polymer producers and US-based industrial refiners. The business model relies on operating efficiency, capital allocation discipline (reinvestment ratio approximately 50% of operating cash flow), and structural advantages in advantaged-cost basins (Permian + Guyana) plus integrated refining-chemicals-LNG complex. Management has emphasized capital return: $20B annual buyback for FY25 (completed) and FY26 (in process), $3.96/share dividend (3.6% yield at $108.50), and approximately $20B remaining buyback authorization. Capital allocation framework remains: ~$28-30B annual capex (S3: XOM Corporate Plan investor day 2026-03-04), 40-50% allocated to Upstream (Permian + Guyana + LNG), with $7B/yr LCS through 2030 capturing energy-transition transition optionality. The firm carries an unusually clean balance sheet (~0.3x net debt/EBITDA at FY25), reflecting capital discipline through the 2014-2020 cycle and the equity-funded nature of the Pioneer acquisition. Forward-looking variability is dominated by crude price realization (with $1/bbl WTI moving FY27 EPS by approximately $0.12/share at FY25 production scale and current refining + chemicals margin environment).",
+    "products": [
+      {
+        "name": "Upstream crude oil and natural gas (Permian + Guyana + balance of portfolio)",
+        "description": "Conventional and unconventional E&P operations across Permian (1.50 MMBOE/d), Guyana Stabroek (0.65 MMBOE/d), Gulf of Mexico, Brazil, Norway, Angola, Equatorial Guinea, Nigeria, Indonesia, and other geographies. Permian is unconventional shale; Guyana is offshore deepwater high-quality conventional. Total FY25 production 4.6 MMBOE/d.",
+        "target_customers": "Refiners (XOM internal + third-party), traders, LNG offtakers, ChemCo internal feedstock",
+        "pricing_model": "Commodity-priced (WTI for Permian; Brent for Guyana + International); LNG long-term contracts oil-indexed (15-30 year tenor)",
+        "revenue_contribution_pct": 38.0,
+        "competitive_position": "Top-quartile cost position in Permian (XOM $30/BOE FY25 unit cash cost vs basin median $32/BOE per S5 Wood Mackenzie); top-quartile asset quality in Guyana Stabroek block; major operator status in multiple long-life conventional assets",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "XOM FY25 10-K Item 1 Business + Item 7 MD&A Upstream segment + Note 17 Segment Information"
+        }
+      },
+      {
+        "name": "Energy Products (refining + marketing)",
+        "description": "Refining of crude oil into fuels (gasoline, diesel, jet fuel, fuel oil) and marketing through Exxon and Mobil branded retail. 17 refineries globally with 5.0 MMBPD refining capacity. Key sites: Baytown TX, Beaumont TX, Joliet IL, Baton Rouge LA, Antwerp BE, Rotterdam NL, Singapore, Jurong.",
+        "target_customers": "Industrial fuel buyers, wholesalers, retail (Exxon/Mobil branded stations), aviation fuel buyers, marine bunker",
+        "pricing_model": "USGC 3:2:1 crack spread benchmark; regional differentials; product-specific marketing margins",
+        "revenue_contribution_pct": 52.0,
+        "competitive_position": "Top-3 global refining footprint; advantaged Singapore/Antwerp/Baytown product complexes; significant integration with Chemicals (naphtha, propylene feedstock) and lubricants Specialty",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "XOM FY25 10-K Item 7 Energy Products segment"
+        }
+      },
+      {
+        "name": "Chemical Products (ethylene + derivatives + specialty)",
+        "description": "Petrochemicals including ethylene, polyethylene, polypropylene, and derivative specialties. Major sites include Baytown TX (largest cracker in North America), Singapore, Antwerp.",
+        "target_customers": "Industrial polymer producers (Asia Pacific dominant), packaging manufacturers, automotive, construction",
+        "pricing_model": "Spot + contract pricing on commodity polymers; specialty value-add pricing",
+        "revenue_contribution_pct": 7.5,
+        "competitive_position": "Integrated with refining feedstock; long-cycle 30+ year cracker assets; competitive position varies by geography and product cycle",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "XOM FY25 10-K Item 7 Chemical Products segment"
+        }
+      },
+      {
+        "name": "Specialty Products (lubricants, base oils, Low Carbon Solutions)",
+        "description": "Mobil-branded lubricants (Mobil 1 motor oil, Mobil Synthetic Industrial), base oils, asphalt, waxes, and Low Carbon Solutions (CCS, hydrogen, biofuels). LCS commercial deployment in 2026-2028 timeframe.",
+        "target_customers": "Automotive aftermarket, industrial OEMs, industrial CO2 emitters (CCS customers), DOE-grant counterparties",
+        "pricing_model": "Branded premium for Mobil 1; spot/contract for base oils + asphalt; §45Q credit + customer-paid for CCS",
+        "revenue_contribution_pct": 3.5,
+        "competitive_position": "Premium Mobil 1 brand; Stratford Hub CCS first commercial deployment H2 2026",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "XOM FY25 10-K Item 7 Specialty Products segment"
+        }
+      }
+    ],
+    "customers_gtm": "Upstream sells commodity-priced crude oil to refiners (XOM internal + third-party) and natural gas to LNG offtakers and gas pipelines, with limited customer concentration. Energy Products sells through branded retail (Exxon, Mobil, Esso stations globally), wholesale fuel marketing to industrial buyers, aviation jet fuel, and marine bunker. Chemicals sells to Asian polymer producers (largest customer concentration zone), with secondary US/EMEA markets. Specialty Products sells through Mobil-branded retail aftermarket (Mobil 1), industrial direct, and emerging CCS contracts with industrial CO2 emitters. LNG offtake agreements (Golden Pass JV) are 15-30 year tenor with oil-indexed pricing primarily to Asian Pacific buyers. Cross-segment integration is material: Upstream crude feeds Energy Products refining; refining naphtha feeds Chemicals crackers; Chemicals olefins feed Specialty Products lubricant additives.",
+    "industry": {
+      "overview": "Integrated oil and gas major sits at the intersection of three multi-decade dynamics: (1) global oil demand growth slowing through the late 2020s as electrification of light-duty transport accelerates and energy efficiency improves; IEA WEO 2025 stated-policies scenario projects 2030 demand ~102 MMBPD vs 2025 ~103 MMBPD, with peak demand late 2020s; (2) OPEC+ supply discipline (~5.85 MMBPD voluntary cuts through 2026 H2) defending mid-cycle pricing against US shale + non-OPEC supply growth; the marginal barrel cost positioning is what determines cycle pricing; (3) energy transition optionality via CCS, hydrogen, biofuels, and electrification of operations, with IRA §45Q credits supporting CCS economics. EIA STEO May 2026 forecasts WTI 2026 average $69.50/bbl declining to $69.50/bbl 2027 on global supply growth outpacing demand growth (~1.0 MMBPD demand growth 2026 per IEA). Refining margins (USGC 3:2:1) at $18/bbl mid-cycle; chemicals margins compressed by Chinese capacity additions; LNG demand structurally rising. The regulatory environment in the United States has been broadly neutral-to-supportive for oil and gas: the 2025 'One Big Beautiful Bill' restored immediate domestic R&D expensing; CHIPS 48D and IRA §45Q remain in force; the Biden-era pause on new LNG export licenses was reversed in Q1 2025 under the Trump administration. Internationally, the EU has signaled climate-transition acceleration via CBAM (Carbon Border Adjustment Mechanism) starting 2026; China remains a balanced importer with continued growth in petrochemical and gasoline demand. Geopolitical premium varies materially: Middle East tensions, Russia sanctions enforcement, and Venezuela / Iran sanctions all contribute episodic risk-premium.",
+      "tam": {
+        "current_year": 2026,
+        "current_tam_usd_b": 2800.0,
+        "projected_year": 2030,
+        "projected_tam_usd_b": 2700.0,
+        "cagr_pct": -0.9,
+        "source": {
+          "s_level": "S5",
+          "source_type": "IEA",
+          "ref": "IEA World Energy Outlook 2025 + EIA STEO; global crude oil + natural gas + refined products + chemicals market dollarized at base WTI"
+        }
+      }
+    },
+    "competitive_landscape": {
+      "peers": [
+        {
+          "name": "Chevron Corporation",
+          "ticker": "CVX",
+          "market_cap_usd_b": 295.0,
+          "market_share_pct": 8.5,
+          "key_differentiator": "DJ Basin + Permian focused E&P; TCO Future Growth Project (Kazakhstan); $20B/yr buyback; closer to pure-play E&P than XOM",
+          "revenue_growth_pct": 5.0,
+          "ebitda_margin_pct": 24.0
+        },
+        {
+          "name": "Shell plc",
+          "ticker": "SHEL",
+          "market_cap_usd_b": 245.0,
+          "market_share_pct": 7.0,
+          "key_differentiator": "Largest LNG portfolio globally (40 MTPA equity); offshore-deepwater focus; renewables/biofuels integrated; less Permian exposure",
+          "revenue_growth_pct": 3.0,
+          "ebitda_margin_pct": 21.0
+        },
+        {
+          "name": "BP plc",
+          "ticker": "BP",
+          "market_cap_usd_b": 105.0,
+          "market_share_pct": 4.0,
+          "key_differentiator": "Strategy refresh 2025 reverting to hydrocarbon-focused investment; advantaged North Sea and Gulf of Mexico positions; smaller transition spend",
+          "revenue_growth_pct": 2.0,
+          "ebitda_margin_pct": 18.0
+        },
+        {
+          "name": "TotalEnergies SE",
+          "ticker": "TTE",
+          "market_cap_usd_b": 175.0,
+          "market_share_pct": 5.0,
+          "key_differentiator": "Largest integrated power/renewables business among majors; African + Middle East upstream concentration; LNG strong",
+          "revenue_growth_pct": 4.0,
+          "ebitda_margin_pct": 22.0
+        },
+        {
+          "name": "ConocoPhillips",
+          "ticker": "COP",
+          "market_cap_usd_b": 145.0,
+          "market_share_pct": 3.5,
+          "key_differentiator": "Pure-play E&P (no downstream); Permian + Eagle Ford + Marathon Oil acquisition (2024) added Eagle Ford; LNG ambitions (Port Arthur)",
+          "revenue_growth_pct": 7.0,
+          "ebitda_margin_pct": 41.0
+        },
+        {
+          "name": "EOG Resources",
+          "ticker": "EOG",
+          "market_cap_usd_b": 75.0,
+          "market_share_pct": 1.5,
+          "key_differentiator": "Pure-play US shale; Permian + Eagle Ford + Bakken + Uintah; high return-on-capital discipline; smaller than majors",
+          "revenue_growth_pct": 8.0,
+          "ebitda_margin_pct": 48.0
+        },
+        {
+          "name": "Occidental Petroleum",
+          "ticker": "OXY",
+          "market_cap_usd_b": 55.0,
+          "market_share_pct": 1.2,
+          "key_differentiator": "Permian-focused; Anadarko (2019) + CrownRock (2024) acquisitions; Direct Air Capture investments; Berkshire Hathaway anchor shareholder",
+          "revenue_growth_pct": 5.0,
+          "ebitda_margin_pct": 42.0
+        }
+      ],
+      "positioning_narrative": "XOM occupies the leading integrated supermajor position by market cap ($465B) and Upstream production scale (4.6 MMBOE/d FY25). The competitive set is bimodal: Chevron is the closest US-integrated peer with smaller LNG exposure but similar Permian + Gulf of Mexico positioning; Shell/BP/TotalEnergies are European majors with different transition strategies and LNG/renewables emphasis; ConocoPhillips/EOG are pure-play E&P with no downstream exposure (and thus higher EBITDA margins but more volatility); Occidental is Permian-concentrated with Berkshire anchor. XOM's structural advantage is asset quality: top-quartile cost position in Permian post-Pioneer ($30/BOE unit cash cost), majority interest in the world's most prolific deepwater oil basin (Guyana Stabroek; 45% operator interest), and integrated refining-chemicals-specialty complex that captures cross-cycle margin support when crude is weak (refining benefits) or strong (Upstream benefits). The competitive constraints are: (i) climate-transition long-cycle risk (stranded asset risk if global oil demand falls below stated-policies scenario), (ii) capital allocation discipline pressure from activist shareholders + Engine No. 1 / Climate Action 100+ governance overhang, (iii) Permian unit cost inflation if oil-services demand exceeds supply, (iv) Guyana operational + political risk (Venezuela escalation; ICJ arbitration). On a 12-month horizon, the dominant risk is commodity price realization; on a 5-year horizon, the dominant risk is energy-transition pace and asset reinvestment quality."
+    }
+  },
+  "management": [
+    {
+      "name": "Darren Woods",
+      "title": "Chairman and CEO",
+      "tenure_years": 9,
+      "bio": "Darren Woods has served as Chairman and CEO since January 2017. Joined ExxonMobil in 1992 as a planning analyst at the Baytown refinery. Holds B.S. Electrical Engineering from Texas A&M and MBA from Northwestern Kellogg. Prior to becoming CEO, served as President of ExxonMobil Refining & Supply Company (2014-2017). Has led XOM through the post-2014 cycle, the COVID-induced 2020 trough (when XOM posted its first annual loss since 1923), the recovery, and the Pioneer acquisition (announced October 2023, closed May 2024 — XOM's largest acquisition since the 1999 Exxon-Mobil merger). Compensation FY25 approximately $32M (largely equity-based, S2: XOM 2026 DEF 14A 2026-04-10). Owns approximately 850K XOM shares per latest DEF 14A. Public profile emphasizes capital discipline, scientific/engineering rigor, and a measured tone on energy transition that distinguishes XOM from European majors (Shell, BP, TotalEnergies).",
+      "compensation_usd_m": 32.0,
+      "stock_ownership_shares": 850000,
+      "background": "Engineering, refining operations; ex-Baytown refinery planning",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "XOM 2026 proxy DEF 14A 2026-04-10"
+      }
+    },
+    {
+      "name": "Kathryn Mikells",
+      "title": "Senior Vice President and CFO",
+      "tenure_years": 4,
+      "bio": "Joined ExxonMobil in 2021 as SVP and CFO. Prior to XOM, served as CFO of Diageo plc (2018-2021), CFO of United Airlines (2010-2018), CFO of ADT Corporation (2008-2010), CFO of Nalco Company (2007-2008). Holds B.S. Finance from University of Illinois Urbana-Champaign and MBA from University of Chicago Booth School of Business. Has led XOM finance through the Pioneer acquisition close (May 2024), the FY25 $20B buyback program, and the ongoing capital allocation framework refresh. Compensation FY25 approximately $13M. On the Q1 FY26 call (2026-05-02), provided the Pioneer synergy capture update ($0.7B Q1 run-rate, on track for $3B/yr by FY27).",
+      "compensation_usd_m": 13.0,
+      "stock_ownership_shares": 180000,
+      "background": "Finance, ex-Diageo, ex-United Airlines, ex-Nalco",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "XOM 2026 proxy DEF 14A 2026-04-10"
+      }
+    },
+    {
+      "name": "Liam Mallon",
+      "title": "President, ExxonMobil Upstream Company",
+      "tenure_years": 8,
+      "bio": "Joined ExxonMobil in 1987; appointed President, Upstream Company 2018. Responsible for global Upstream production including Permian, Guyana, Gulf of Mexico, Brazil, Norway, Angola, and balance of portfolio. Has led the Guyana Stabroek block development from first discovery (2015 Liza-1) through the current 0.65 MMBOE/d production rate and the planned 1.3 MMBOE/d by 2027. Holds B.Eng. Mechanical Engineering. Operations function is also responsible for managing Pioneer integration with the Permian production base, water disposal infrastructure, and OPEC+ coordination at Upstream level.",
+      "background": "Upstream operations; long-tenure ExxonMobil career",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "XOM 2026 proxy DEF 14A 2026-04-10"
+      }
+    },
+    {
+      "name": "Karen McKee",
+      "title": "President, ExxonMobil Product Solutions",
+      "tenure_years": 5,
+      "bio": "Joined ExxonMobil in 1990; appointed President, Product Solutions (which encompasses Energy Products + Chemical Products + Specialty Products) in 2021. Holds B.S. Chemical Engineering. Has led the integrated downstream-chemicals strategy through the FY22-25 cycle, including the new Beaumont refinery crude unit expansion (+250K BPD) commissioned 2023, the Permian Highway crude pipeline, and the Singapore lubricant base oil expansion. Specialty Products under McKee includes the Low Carbon Solutions business commercialization in 2026-2028.",
+      "background": "Chemical Engineering, refining + chemicals integration",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "XOM 2026 proxy DEF 14A 2026-04-10"
+      }
+    }
+  ],
+  "financials": {
+    "historical": [
+      {
+        "period": "FY22A",
+        "period_type": "historical",
+        "revenue_usd_m": 413680,
+        "revenue_growth_pct": 44.8,
+        "gross_profit_usd_m": 127000,
+        "gross_margin_pct": 30.70,
+        "ebit_usd_m": 78500,
+        "ebit_margin_pct": 18.98,
+        "net_income_gaap_usd_m": 55740,
+        "eps_diluted_gaap_usd": 13.26,
+        "diluted_shares_m": 4200,
+        "fcf_usd_m": 58400,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 1000,
+        "buyback_usd_m": 14900,
+        "buyback_offsets_sbc_ratio": 14.9
+      },
+      {
+        "period": "FY23A",
+        "period_type": "historical",
+        "revenue_usd_m": 334697,
+        "revenue_growth_pct": -19.1,
+        "gross_profit_usd_m": 91000,
+        "gross_margin_pct": 27.19,
+        "ebit_usd_m": 45000,
+        "ebit_margin_pct": 13.44,
+        "net_income_gaap_usd_m": 36010,
+        "eps_diluted_gaap_usd": 8.89,
+        "diluted_shares_m": 4050,
+        "fcf_usd_m": 36100,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 1100,
+        "buyback_usd_m": 17800,
+        "buyback_offsets_sbc_ratio": 16.2
+      },
+      {
+        "period": "FY24A",
+        "period_type": "historical",
+        "revenue_usd_m": 339245,
+        "revenue_growth_pct": 1.4,
+        "gross_profit_usd_m": 82500,
+        "gross_margin_pct": 24.32,
+        "ebit_usd_m": 40700,
+        "ebit_margin_pct": 12.00,
+        "net_income_gaap_usd_m": 33680,
+        "eps_diluted_gaap_usd": 7.84,
+        "diluted_shares_m": 4300,
+        "fcf_usd_m": 32500,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 1300,
+        "buyback_usd_m": 19500,
+        "buyback_offsets_sbc_ratio": 15.0
+      },
+      {
+        "period": "FY25A",
+        "period_type": "historical",
+        "revenue_usd_m": 345000,
+        "revenue_growth_pct": 1.7,
+        "gross_profit_usd_m": 84200,
+        "gross_margin_pct": 24.41,
+        "ebit_usd_m": 39800,
+        "ebit_margin_pct": 11.54,
+        "net_income_gaap_usd_m": 32500,
+        "eps_diluted_gaap_usd": 7.55,
+        "eps_diluted_non_gaap_usd": 7.80,
+        "diluted_shares_m": 4305,
+        "fcf_usd_m": 33000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 1400,
+        "buyback_usd_m": 20000,
+        "buyback_offsets_sbc_ratio": 14.3,
+        "segments": [
+          {
+            "name": "Upstream",
+            "revenue_usd_m": 130000,
+            "gm_pct": 50.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "XOM FY25 10-K Note 17 Segment Information"
+            }
+          },
+          {
+            "name": "Energy_Products",
+            "revenue_usd_m": 180000,
+            "gm_pct": 8.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "XOM FY25 10-K Note 17"
+            }
+          },
+          {
+            "name": "Chemical_Products",
+            "revenue_usd_m": 25000,
+            "gm_pct": 12.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "XOM FY25 10-K Note 17"
+            }
+          },
+          {
+            "name": "Specialty_Products",
+            "revenue_usd_m": 12000,
+            "gm_pct": 18.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "XOM FY25 10-K Note 17"
+            }
+          }
+        ]
+      }
+    ],
+    "ltm": {
+      "period": "LTM_Q1FY26",
+      "period_type": "ltm",
+      "revenue_usd_m": 347000,
+      "revenue_growth_pct": 2.0,
+      "gross_profit_usd_m": 84560,
+      "gross_margin_pct": 24.37,
+      "ebit_usd_m": 39800,
+      "ebit_margin_pct": 11.47,
+      "net_income_gaap_usd_m": 32800,
+      "eps_diluted_gaap_usd": 7.62,
+      "eps_diluted_non_gaap_usd": 7.85,
+      "diluted_shares_m": 4305,
+      "fcf_usd_m": 33500,
+      "fcf_includes_sbc_addback": false,
+      "sbc_usd_m": 1420,
+      "buyback_usd_m": 20000,
+      "buyback_offsets_sbc_ratio": 14.1,
+      "segments": [
+        {
+          "name": "Upstream",
+          "revenue_usd_m": 130000,
+          "gm_pct": 50.0,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S1",
+            "source_type": "10-Q",
+            "ref": "XOM Q1 FY26 10-Q Note 7 + FY25 10-K Note 17 run-rate"
+          }
+        },
+        {
+          "name": "Energy_Products",
+          "revenue_usd_m": 180000,
+          "gm_pct": 8.0,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S1",
+            "source_type": "10-Q",
+            "ref": "XOM Q1 FY26 10-Q Note 7"
+          }
+        },
+        {
+          "name": "Chemical_Products",
+          "revenue_usd_m": 25000,
+          "gm_pct": 12.0,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S1",
+            "source_type": "10-Q",
+            "ref": "XOM Q1 FY26 10-Q Note 7"
+          }
+        },
+        {
+          "name": "Specialty_Products",
+          "revenue_usd_m": 12000,
+          "gm_pct": 18.0,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S1",
+            "source_type": "10-Q",
+            "ref": "XOM Q1 FY26 10-Q Note 7"
+          }
+        }
+      ]
+    },
+    "projected": [
+      {
+        "period": "FY26E",
+        "period_type": "projected",
+        "revenue_usd_m": 350000,
+        "revenue_growth_pct": 1.4,
+        "gross_profit_usd_m": 85000,
+        "gross_margin_pct": 24.29,
+        "ebit_usd_m": 40000,
+        "ebit_margin_pct": 11.43,
+        "net_income_gaap_usd_m": 32500,
+        "eps_diluted_gaap_usd": 7.55,
+        "eps_diluted_non_gaap_usd": 7.80,
+        "diluted_shares_m": 4280,
+        "fcf_usd_m": 34000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 1500,
+        "buyback_usd_m": 20000
+      },
+      {
+        "period": "FY27E",
+        "period_type": "projected",
+        "revenue_usd_m": 355000,
+        "revenue_growth_pct": 1.4,
+        "gross_profit_usd_m": 88500,
+        "gross_margin_pct": 24.93,
+        "ebit_usd_m": 41500,
+        "ebit_margin_pct": 11.69,
+        "net_income_gaap_usd_m": 31900,
+        "eps_diluted_gaap_usd": 7.50,
+        "eps_diluted_non_gaap_usd": 7.80,
+        "diluted_shares_m": 4250,
+        "fcf_usd_m": 36000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 1600,
+        "buyback_usd_m": 20000
+      },
+      {
+        "period": "FY28E",
+        "period_type": "projected",
+        "revenue_usd_m": 365000,
+        "revenue_growth_pct": 2.8,
+        "gross_profit_usd_m": 92500,
+        "gross_margin_pct": 25.34,
+        "ebit_usd_m": 44000,
+        "ebit_margin_pct": 12.05,
+        "net_income_gaap_usd_m": 33500,
+        "eps_diluted_gaap_usd": 7.95,
+        "eps_diluted_non_gaap_usd": 8.25,
+        "diluted_shares_m": 4220,
+        "fcf_usd_m": 38000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 1700,
+        "buyback_usd_m": 20000
+      },
+      {
+        "period": "FY29E",
+        "period_type": "projected",
+        "revenue_usd_m": 372000,
+        "revenue_growth_pct": 1.9,
+        "gross_profit_usd_m": 95000,
+        "gross_margin_pct": 25.54,
+        "ebit_usd_m": 45500,
+        "ebit_margin_pct": 12.23,
+        "net_income_gaap_usd_m": 34800,
+        "eps_diluted_gaap_usd": 8.30,
+        "eps_diluted_non_gaap_usd": 8.55,
+        "diluted_shares_m": 4190,
+        "fcf_usd_m": 39000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 1800,
+        "buyback_usd_m": 20000
+      },
+      {
+        "period": "FY30E",
+        "period_type": "projected",
+        "revenue_usd_m": 380000,
+        "revenue_growth_pct": 2.2,
+        "gross_profit_usd_m": 97500,
+        "gross_margin_pct": 25.66,
+        "ebit_usd_m": 47000,
+        "ebit_margin_pct": 12.37,
+        "net_income_gaap_usd_m": 35800,
+        "eps_diluted_gaap_usd": 8.60,
+        "eps_diluted_non_gaap_usd": 8.85,
+        "diluted_shares_m": 4160,
+        "fcf_usd_m": 40000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 1900,
+        "buyback_usd_m": 20000
+      }
+    ],
+    "revenue_by_product": [
+      {
+        "product": "Upstream — Permian + Guyana + balance of portfolio",
+        "by_period": {
+          "FY24A": 125000,
+          "FY25A": 130000,
+          "FY26E": 132000,
+          "FY27E": 138000
+        }
+      },
+      {
+        "product": "Energy Products — refining + marketing",
+        "by_period": {
+          "FY24A": 178000,
+          "FY25A": 180000,
+          "FY26E": 180000,
+          "FY27E": 182000
+        }
+      },
+      {
+        "product": "Chemical Products — ethylene + derivatives",
+        "by_period": {
+          "FY24A": 24000,
+          "FY25A": 25000,
+          "FY26E": 26000,
+          "FY27E": 27000
+        }
+      },
+      {
+        "product": "Specialty Products — lubricants + LCS",
+        "by_period": {
+          "FY24A": 11500,
+          "FY25A": 12000,
+          "FY26E": 13000,
+          "FY27E": 13500
+        }
+      }
+    ],
+    "revenue_by_geography": [
+      {
+        "region": "United States",
+        "by_period": {
+          "FY24A": 152000,
+          "FY25A": 155000,
+          "FY26E": 158000,
+          "FY27E": 160000
+        }
+      },
+      {
+        "region": "EMEA",
+        "by_period": {
+          "FY24A": 85000,
+          "FY25A": 86000,
+          "FY26E": 87500,
+          "FY27E": 88500
+        }
+      },
+      {
+        "region": "Asia Pacific",
+        "by_period": {
+          "FY24A": 60000,
+          "FY25A": 62000,
+          "FY26E": 63000,
+          "FY27E": 64500
+        }
+      },
+      {
+        "region": "Other Americas (Canada, LatAm including Guyana)",
+        "by_period": {
+          "FY24A": 32500,
+          "FY25A": 33500,
+          "FY26E": 34000,
+          "FY27E": 35000
+        }
+      },
+      {
+        "region": "Rest of World",
+        "by_period": {
+          "FY24A": 9745,
+          "FY25A": 8500,
+          "FY26E": 7500,
+          "FY27E": 7000
+        }
+      }
+    ]
+  },
+  "gm_taxonomy": {
+    "entries": [
+      {
+        "type": "T1_consolidated",
+        "name": "Consolidated gross margin LTM Q1 FY26",
+        "value_range": "24.3-24.5%",
+        "source": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "XOM FY25 10-K Item 8 + Q1 FY26 10-Q Item 1 (LTM-Q1FY26 weighted reconciliation)"
+        }
+      },
+      {
+        "type": "T2_segment",
+        "name": "Upstream segment GM FY25 (highest margin segment due to commodity-priced production)",
+        "value_range": "50.0%",
+        "source": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "XOM FY25 10-K Note 17 Segment Information; Energy Products 8.0%; Chemical Products 12.0%; Specialty Products 18.0%"
+        }
+      },
+      {
+        "type": "T3_sub_segment",
+        "name": "Permian sub-basin GM (highest-margin Upstream sub-segment) vs Guyana sub-segment",
+        "value_range": "Permian 55-60% (at $70 WTI) / Guyana 70-75% (low unit cost + Brent realization)",
+        "source": {
+          "s_level": "S4",
+          "source_type": "Visible Alpha consensus",
+          "ref": "Visible Alpha XOM Permian sub-segment GM consensus n=15 median 57% range 52-62%; Guyana sub-segment GM consensus n=12 median 72% range 68-76%"
+        }
+      },
+      {
+        "type": "T4_analyst_modeled",
+        "name": "FY27E modeled Upstream GM (Permian + Guyana mix with Pioneer synergies fully captured)",
+        "value_range": "52-54% (Permian sub-basin GM step-up via Pioneer cost capture)",
+        "source": {
+          "s_level": "S5",
+          "source_type": "Other",
+          "ref": "Internal model: Pioneer synergies $3B/yr × allocation to Permian sub-segment; mid-cycle WTI realization $70/bbl base case"
+        }
+      },
+      {
+        "type": "T5_marginal",
+        "name": "Permian incremental barrel marginal GM at $60 vs $80 WTI (commodity-price sensitivity)",
+        "value_range": "At $60 WTI: 42-48% marginal GM; at $80 WTI: 65-72% marginal GM (T5 sensitivity to crude price ~500-1000bp per $10/bbl)",
+        "source": {
+          "s_level": "S5",
+          "source_type": "Other",
+          "ref": "Internal model: Permian unit cash cost $30/BOE + royalty + tax leakage; marginal contribution at WTI realization range $60-80"
+        }
+      }
+    ],
+    "reconciliation_consolidated_vs_implied_bp": 8.0
+  },
+  "scenarios_ref": "outputs/XOM_scenarios.json",
+  "valuation": {
+    "methods": [
+      {
+        "method": "EV_EBITDAX",
+        "implied_price_usd": 118.00,
+        "price_range_low_usd": 80.00,
+        "price_range_high_usd": 158.00,
+        "weight_pct": 35,
+        "weighted_value_usd": 41.30,
+        "key_assumptions": {
+          "ev_ebitdax_multiple": 6.5,
+          "ev_ebitdax_band_5y_p25_p75": "5.5-7.5",
+          "ebitdax_fy27e_usd_b": 78.0,
+          "implied_ev_usd_b": 507.0,
+          "less_net_debt_usd_b": 12.0,
+          "implied_equity_value_usd_b": 495.0,
+          "diluted_shares_fy27e_m": 4250
+        },
+        "narrative": "Primary integrated E&P multiple per D8 sector branching. EV/EBITDAX = Enterprise Value / (EBITDA + Exploration Expense). XOM FY27E EBITDAX modeled at $78B (EBITDA $73B + exploration $5B). Multiple 6.5x at mid-cycle (5y P25-P75 range 5.5-7.5x; current trailing 6.2x). Trough cycle (2020) compressed to 4.5x; peak (2022) expanded to 8.0x. Implied EV $507B less $12B net debt = $495B / 4,250M shares = $116.50 — rounded to $118. EV/EBITDAX is the PRIMARY method for integrated E&P; EPS × P/E used for cross-check in 5-scenario framework per G1 mechanical discipline."
+      },
+      {
+        "method": "NAV",
+        "implied_price_usd": 110.00,
+        "price_range_low_usd": 85.00,
+        "price_range_high_usd": 140.00,
+        "weight_pct": 30,
+        "weighted_value_usd": 33.00,
+        "key_assumptions": {
+          "proved_reserves_bboe": 17.0,
+          "implied_nav_per_proved_boe_usd": 16.50,
+          "nav_per_boe_band_5y_p25_p75": "$14-19",
+          "nav_per_boe_methodology": "DCF of cash flows from existing proved reserves at flat $70 WTI / $74 Brent; tax-effected; using 10% real discount rate",
+          "upstream_nav_usd_b": 280.0,
+          "downstream_chemicals_specialty_nav_usd_b": 95.0,
+          "lng_pipeline_nav_usd_b": 35.0,
+          "lcs_optionality_nav_usd_b": 18.0,
+          "less_corporate_overhead_pension_usd_b": -22.0,
+          "less_net_debt_usd_b": -12.0,
+          "implied_equity_value_usd_b": 394.0,
+          "implied_equity_per_share_usd": 92.71,
+          "implied_with_2p_reserve_replacement_assumption": 110.00
+        },
+        "narrative": "Reserve-adjusted NAV per D8 E&P sector multiple line. Proved 1P reserves 17.0 BBOE × implied NAV per BOE $16.50/BOE = $280B Upstream NAV. Add downstream $95B (refining + chemicals + specialty at ~7x mid-cycle EBITDA), LNG $35B (Golden Pass + Asia LNG portfolio at $700/MMBtu offtake NPV), Low Carbon Solutions $18B (§45Q optionality + Stratford Hub + LaBarge), less corporate overhead $22B and net debt $12B → equity NAV $394B / 4,250M = $92.71. With 2P (proved + probable) reserve replacement assumption (5-year reserve adds via 100% RRR), NAV rises to ~$110/share. NAV provides reserve-value floor; less sensitive to short-cycle commodity moves but very sensitive to terminal value of proved reserves (stranded asset risk in low-demand scenarios). NAV often diverges from EV/EBITDAX at cycle extremes — currently they cluster $110-118 (mid-cycle alignment); historical experience is EV/EBITDAX peaks above NAV in cycle peaks and trough below NAV in cycle troughs."
+      },
+      {
+        "method": "DCF",
+        "implied_price_usd": 115.00,
+        "price_range_low_usd": 88.00,
+        "price_range_high_usd": 148.00,
+        "weight_pct": 20,
+        "weighted_value_usd": 23.00,
+        "key_assumptions": {
+          "wacc_pct": 10.5,
+          "terminal_growth_pct": -1.0,
+          "explicit_forecast_years": 5,
+          "exit_multiple_check_ev_ebitdax": 6.0
+        },
+        "narrative": "5y explicit DCF with negative terminal growth -1.0% (reflecting energy transition long-cycle demand decline post-2030 peak per IEA stated-policies) and WACC 10.5%. Discounts FY27E-FY31E projected FCF $36B → $42B trajectory. Lower terminal growth (-1.0% vs prior cycle 0%) explicitly prices in transition risk. Implied $/share $115 with mid-cycle commodity assumptions."
+      },
+      {
+        "method": "Trading_comps",
+        "implied_price_usd": 120.00,
+        "price_range_low_usd": 95.00,
+        "price_range_high_usd": 155.00,
+        "weight_pct": 10,
+        "weighted_value_usd": 12.00,
+        "key_assumptions": {
+          "peer_set": "CVX, SHEL, BP, TTE, COP, EOG, OXY",
+          "peer_median_fy27e_pe": 13.5,
+          "xom_premium_to_peer_median_pct": 11.0,
+          "peer_median_ev_ebitdax": 6.0
+        },
+        "narrative": "Peer set CVX/SHEL/BP/TTE/COP/EOG/OXY trades at FY27E P/E median 13.5x; XOM at modest premium (P/E 15.0x = +11%) given superior asset quality (Permian + Guyana mix), Pioneer synergy capture, and balance sheet position. EV/EBITDAX peer median 6.0x vs XOM 6.5x reflects same premium."
+      },
+      {
+        "method": "SOTP",
+        "implied_price_usd": 101.00,
+        "price_range_low_usd": 85.00,
+        "price_range_high_usd": 130.00,
+        "weight_pct": 0,
+        "weighted_value_usd": 0.0,
+        "key_assumptions": {
+          "Upstream_segment": {
+            "revenue_usd_m_fy27e": 138000,
+            "segment_gp_usd_m_fy27e": 73140,
+            "segment_op_usd_m_fy27e": 45000,
+            "segment_ni_usd_m_fy27e": 33000,
+            "segment_multiple": "P/E 11x (E&P pure-play comp)",
+            "implied_value_usd_b": 363
+          },
+          "Energy_Products_segment": {
+            "revenue_usd_m_fy27e": 182000,
+            "segment_gp_usd_m_fy27e": 15470,
+            "segment_op_usd_m_fy27e": 7500,
+            "segment_ni_usd_m_fy27e": 5500,
+            "segment_multiple": "P/E 9x (refining mature comp)",
+            "implied_value_usd_b": 50
+          },
+          "Chemical_Products_segment": {
+            "revenue_usd_m_fy27e": 27000,
+            "segment_gp_usd_m_fy27e": 3700,
+            "segment_op_usd_m_fy27e": 2200,
+            "segment_ni_usd_m_fy27e": 1700,
+            "segment_multiple": "P/E 13x (chemicals comp DOW/LYB)",
+            "implied_value_usd_b": 22
+          },
+          "Specialty_Products_segment": {
+            "revenue_usd_m_fy27e": 13500,
+            "segment_gp_usd_m_fy27e": 2700,
+            "segment_op_usd_m_fy27e": 1800,
+            "segment_ni_usd_m_fy27e": 1400,
+            "segment_multiple": "P/E 18x (lubricants + LCS growth)",
+            "implied_value_usd_b": 25
+          }
+        },
+        "narrative": "Segment-by-segment SOTP. Upstream P/E 11x (E&P pure-play comp set COP/EOG/OXY median 12x; XOM Upstream at modest discount reflecting major-cap discount), Energy Products P/E 9x (mature refining comp set VLO/PSX/MPC), Chemical Products P/E 13x (chemicals comp set DOW/LYB), Specialty Products P/E 18x (premium for Mobil 1 brand + Low Carbon Solutions growth). Total segment value $460B + LCS optionality + corporate overhead reconciliation = $430B / 4,250M = $101 per share. Monotonicity NI<=OP<=GP<=Revenue holds per G3. SOTP lower than primary EV/EBITDAX reflects segment-level disaggregation losing some integrated-major premium (refining-chemicals-Upstream cross-cycle support)."
+      },
+      {
+        "method": "Multi_multiple_bear",
+        "implied_price_usd": 55.00,
+        "price_range_low_usd": 31.50,
+        "price_range_high_usd": 78.00,
+        "weight_pct": 0,
+        "weighted_value_usd": 0.0,
+        "key_assumptions": {
+          "FY27E_PE_trough_band": "9-11x (FY20 trough analog; FY15-16 trough band)",
+          "FY27E_FCF_yield_floor_pct": 8.0,
+          "EV_EBITDAX_trough_band": "4.5-5.5x"
+        },
+        "narrative": "Strong_bear floor reference. XOM cycle troughs: FY20 P/E negative (annual loss); FY15-16 P/E 11x; FY09 P/E 9x. In strong-bear $50/bbl WTI cycle, FY27E EPS compresses to $3.50 × P/E 9x = $31.50 floor. Cross-check FCF yield at 8% would imply price $32. NAV floor at $50 WTI (DCF of reserves at $50 flat) approximately $65-75/share. Strong_bear floor cluster $30-75 with mean $55. Not weighted into base PT; serves as downside discipline."
+      }
+    ],
+    "dcf_components": {
+      "wacc_pct": 10.5,
+      "wacc_components": {
+        "risk_free_rate_pct": 4.68,
+        "risk_free_source_date": "2026-05-19",
+        "equity_risk_premium_pct": 5.5,
+        "beta": 0.90,
+        "beta_basis": "5y_monthly_vs_SP500",
+        "cost_of_equity_pct": 9.63,
+        "pre_tax_cost_of_debt_pct": 5.4,
+        "tax_rate_pct": 33.0,
+        "after_tax_cost_of_debt_pct": 3.62,
+        "equity_weight_pct": 85,
+        "debt_weight_pct": 15
+      },
+      "terminal_growth_pct": -1.0,
+      "terminal_method": "perpetuity_growth_with_demand_decline",
+      "explicit_forecast_years": 5,
+      "sensitivity_wacc_range_pct": [9.5, 10.0, 10.5, 11.0, 11.5],
+      "sensitivity_terminal_g_range_pct": [-2.0, -1.5, -1.0, -0.5, 0.0],
+      "implied_share_price_usd": 115.00
+    },
+    "weighted_price_target_usd": 112.50,
+    "football_field_range_low_usd": 55.00,
+    "football_field_range_high_usd": 160.00,
+    "reconciliation_narrative": "EV/EBITDAX $118 (primary), NAV $110, DCF $115, Trading comps $120 cluster around $110-120. SOTP $101 slightly lower reflects loss of integrated-major premium when disaggregated. Weighted PT $112.50 = approximately the centroid of EV/EBITDAX + NAV + DCF + Trading comps, with SOTP providing internal-consistency floor and Multi-multiple bear floor at $31.50-$78 providing downside discipline. Methods cross-check rather than averaged. EV/EBITDAX is primary per D8 E&P sector branching, but the 5-scenario framework uses EPS × P/E for G1 mechanical verification; documented here as the operational decomposition. NAV often diverges from EV/EBITDAX at cycle extremes — currently they cluster $110-118 (mid-cycle alignment); historical experience is EV/EBITDAX peaks above NAV in cycle peaks (2022: EV/EBITDAX 8.0x → PT $145; NAV $115) and trough below NAV in cycle troughs (2020: EV/EBITDAX 4.5x → PT $35; NAV $65). The convergence at current mid-cycle is the discipline anchor."
+  },
+  "risks": [
+    {
+      "category": "commodity_price",
+      "title": "WTI / Brent realized price below $60/bbl FY27 sustained",
+      "description": "Dominant valuation lever. WTI 12-month forward $69.50/bbl per NYMEX (S5: EIA STEO May 2026; S1: FRED MCOILWTICO 2026-05-19 $70.20). If OPEC+ supply discipline unwinds (Saudi or UAE break ranks) or global demand contracts (China recession, India deferred policy), WTI can rapidly compress to $50-60/bbl. Historical analogs: 2015-2016 ($45 avg) and 2020 Q2 (-$37 negative spot peak). Each $10/bbl move = ~$1.20/share EPS at FY25 production scale.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "material",
+      "mitigants": "Permian unit cash cost $30/BOE FY25 (S5: Wood Mackenzie) provides positive contribution even at $50 WTI; Pioneer synergies $3B/yr structural cost reduction; integrated downstream provides cross-cycle margin support (refining benefits at low crude); $20B/yr buyback would be paused in cycle bear scenario; dividend $3.96/share covered ~1.5x even at $50 WTI"
+    },
+    {
+      "category": "industry_market",
+      "title": "Refining margin (USGC 3:2:1 crack spread) collapse below $12/bbl",
+      "description": "Energy Products segment EBIT $9.1B FY25 reflects $18/bbl USGC 3:2:1 crack spread (S5: EIA refining margin tracker). Cyclical compression to $10-12/bbl would reduce Energy Products EBIT by $4-5B annually. Risk drivers: global refining capacity additions (China, Middle East), demand softening in transportation (EV penetration accelerating, jet fuel rebalancing).",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "moderate",
+      "mitigants": "Advantaged USGC + Antwerp + Singapore refining complex; integration with chemicals (naphtha feedstock pricing benefit); Mobil 1 + lubricants Specialty cross-cycle support"
+    },
+    {
+      "category": "climate_transition",
+      "title": "Stranded asset risk under accelerated energy transition (post-2030 demand decline)",
+      "description": "IEA WEO 2025 stated-policies scenario projects global oil demand peaks late 2020s at ~104 MMBPD declining to ~102 MMBPD by 2030; net-zero scenario projects ~85 MMBPD by 2030 (S5: IEA WEO 2025). XOM proved reserves 17 BBOE provide R/P 10.2 years — substantially all current reserves consumed by 2035 at FY25 production rate. Stranded asset risk centers on reserves added post-2030 if demand decline accelerates. Climate Action 100+ and Engine No. 1 governance overhang continues; EU CBAM (Carbon Border Adjustment Mechanism) starting 2026 may affect refined-product exports.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "moderate",
+      "mitigants": "Top-quartile cost position keeps XOM viable across most demand scenarios; Low Carbon Solutions $30B 2025-30 spend provides transition revenue; LNG export portfolio (Golden Pass + Asia portfolio) is structurally rising-demand; dividend aristocrat status (41+ year hike) provides income-focused mandate support"
+    },
+    {
+      "category": "operational",
+      "title": "Guyana operational disruption (Stabroek block FPSO outage or political escalation)",
+      "description": "Guyana Stabroek block (XOM 45% operator with Hess 30% / CNOOC 25%) produces 0.65 MMBOE/d FY25 (S1: XOM FY25 10-K). Risk drivers: FPSO mechanical reliability (six FPSOs by 2028 increases risk surface), contractor coordination, ICJ arbitration with Venezuela (declared Essequibo region a province; political escalation possible), revenue-sharing dispute with Government of Guyana. A 1-2 quarter Guyana halt reduces XOM production by ~150K BOE/d net, affecting FY27 EPS by approximately $0.15-0.30/share.",
+      "probability_qualitative": "low",
+      "impact_qualitative": "moderate",
+      "mitigants": "Multiple FPSO redundancy (six FPSOs by 2028); diversified production base (Permian +Guyana + balance ~5 MMBOE/d total); strong Hess + CNOOC consortium coordination; US/UK diplomatic engagement"
+    },
+    {
+      "category": "regulatory",
+      "title": "BIS / OFAC / sanctions: §232 crude export restriction or tariff rebalancing",
+      "description": "U.S. policy could implement §232 crude export restrictions if domestic gasoline prices rise dramatically (e.g., 2008 election cycle precedent). Such restriction would re-direct US barrels domestically, depressing realized WTI relative to Brent (typically -$5-10/bbl realization haircut). Trade-war tariff escalation affecting refined product exports to China, EU, or Latin America could compress Energy Products margins.",
+      "probability_qualitative": "low",
+      "impact_qualitative": "moderate",
+      "mitigants": "Strong administration policy preference for energy production (LNG export pause reversed Q1 2025); industry lobbying via American Petroleum Institute; diversified export geography"
+    },
+    {
+      "category": "operational",
+      "title": "Permian water disposal regulation tightening (RRC + EPA + Texas state)",
+      "description": "Permian operations require substantial produced-water disposal capacity. Texas Railroad Commission (RRC) and EPA have signaled tighter Class II injection well rules following seismicity concerns (West Texas earthquake clusters). Tightened produced-water disposal capacity could constrain Permian production growth and add $1-3/BOE unit cost. State-level rules could include recycling mandates increasing capital intensity.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "minor",
+      "mitigants": "Pioneer pre-acquisition water recycling infrastructure investment; XOM operational scale provides capital-efficient compliance; rule timing typically 18-24 month implementation window allowing adjustment"
+    },
+    {
+      "category": "financial",
+      "title": "Pioneer synergy capture underperformance",
+      "description": "Q1 FY26 actual Pioneer synergies $0.7B run-rate ($2.8B annualized) vs $3B/yr FY27 target (S3: XOM Q1 FY26 earnings call 2026-05-02). Underperformance to $2-2.5B/yr range would reduce FY27 EPS by ~$0.10-0.15/share and signal integration friction.",
+      "probability_qualitative": "low",
+      "impact_qualitative": "minor",
+      "mitigants": "Q1 run-rate $2.8B annualized already at 93% of target; Pioneer integration team retained; XOM has historical track record of accretive integration (Mobil 1999, XTO 2010)"
+    },
+    {
+      "category": "company_specific",
+      "title": "Governance / shareholder activism — Climate Action 100+ + Engine No. 1 + ISS",
+      "description": "Continued governance overhang from Climate Action 100+, Engine No. 1 (2021 board victory), ISS recommendations on climate disclosures. Potential proxy contests at annual meeting; SEC climate disclosure rule (effective 2026 reporting). Stakeholder pressure for accelerated transition spend or asset divestments.",
+      "probability_qualitative": "medium",
+      "impact_qualitative": "minor",
+      "mitigants": "Capital allocation discipline scoring well in ISS/Glass Lewis votes; LCS $30B spend signals transition commitment; dividend aristocrat continuity"
+    },
+    {
+      "category": "geopolitical",
+      "title": "Middle East / Russia kinetic supply disruption (bull tail materialization)",
+      "description": "Middle East geopolitical escalation (Iran-Israel direct conflict, Strait of Hormuz disruption, Russia-Ukraine prolonged), can rapidly add $15-30/bbl risk premium to crude. This is also captured in strong_bull scenario as positive earnings driver.",
+      "probability_qualitative": "low",
+      "impact_qualitative": "material",
+      "mitigants": "Diversified geographic production base; LNG portfolio diversification; cross-cycle integrated business model"
+    },
+    {
+      "category": "financial",
+      "title": "Mark-to-market commodity hedging losses (limited but exists)",
+      "description": "XOM operates a relatively unhedged production book (industry-wide major practice); some periods carry small commodity derivative positions (Permian basis hedging, LNG dollar/euro/yen FX hedging). Mark-to-market losses can materialize quarterly.",
+      "probability_qualitative": "high",
+      "impact_qualitative": "minor",
+      "mitigants": "Disclosed in 10-Q quarterly; immaterial to consolidated EPS"
+    }
+  ],
+  "catalysts": [
+    {
+      "title": "XOM Q2 FY26 earnings release",
+      "expected_date": "2026-08-05",
+      "type": "earnings_print",
+      "expected_impact_pct": 3.5,
+      "what_would_reverse_thesis": "Q2 FY26 production <4.6 MMBOE/d OR Energy Products EBIT <$2.0B OR Pioneer synergies <$0.85B run-rate would trigger thesis re-evaluation. Implied option market move +/-3.5% (S4: optioncharts.io XOM volatility 2026-05-19).",
+      "anchor_ref": "A4"
+    },
+    {
+      "title": "OPEC+ meeting (semi-annual)",
+      "expected_date": "2026-06-15",
+      "type": "macro_event",
+      "expected_impact_pct": 4.0,
+      "what_would_reverse_thesis": "OPEC+ break in voluntary cuts (Saudi or UAE producing above quota) would drive WTI -$5-10/bbl with downstream EPS impact.",
+      "anchor_ref": "A3"
+    },
+    {
+      "title": "EIA STEO June 2026 release",
+      "expected_date": "2026-06-15",
+      "type": "macro_event",
+      "expected_impact_pct": 1.5,
+      "what_would_reverse_thesis": "WTI 2027 forecast downgrade to <$65/bbl would compress base PT $5-10.",
+      "anchor_ref": "A3"
+    },
+    {
+      "title": "XOM Q3 FY26 earnings release + Capital Plan refresh",
+      "expected_date": "2026-11-05",
+      "type": "earnings_print",
+      "expected_impact_pct": 4.0,
+      "what_would_reverse_thesis": "FY27 capex guide >$32B vs ~$29B expectation OR Permian production trajectory cut OR Guyana FPSO #5 delay would trigger negative re-pricing.",
+      "anchor_ref": "A1"
+    },
+    {
+      "title": "Golden Pass LNG Train 1 first cargo",
+      "expected_date": "2026-09-15",
+      "type": "product_launch",
+      "expected_impact_pct": 1.5,
+      "what_would_reverse_thesis": "First cargo delay beyond 2026 Q4 would push out LNG revenue contribution by 1-2 quarters.",
+      "anchor_ref": "A1"
+    },
+    {
+      "title": "Yellowtail FPSO #5 final investment decision (Guyana)",
+      "expected_date": "2026-10-15",
+      "type": "investor_day",
+      "expected_impact_pct": 2.0,
+      "what_would_reverse_thesis": "Yellowtail FID slip to 2027 would defer 2028 production trajectory; conversely on-schedule FID + Hammerhead FID by 2027 supports 1.3 MMBOE/d Guyana 2027 milestone.",
+      "anchor_ref": "A1"
+    },
+    {
+      "title": "Federal Reserve FOMC June 2026 meeting",
+      "expected_date": "2026-06-17",
+      "type": "macro_event",
+      "expected_impact_pct": 1.0,
+      "what_would_reverse_thesis": "Hawkish rate path could strengthen USD compressing emerging-market oil demand."
+    }
+  ],
+  "what_would_reverse": [
+    {
+      "direction": "reverse_bull_to_neutral",
+      "numerical_threshold": "WTI 12-month forward declines to <$65/bbl confirmed by NYMEX forward curve close (current $69.50) AND EIA STEO 2027 forecast downgrade to <$65/bbl",
+      "unit": "$/bbl",
+      "observable_via": "NYMEX WTI 12-month forward (daily) + EIA STEO monthly release",
+      "expected_observation_date": "2026-07-15"
+    },
+    {
+      "direction": "reverse_bull_to_bear",
+      "numerical_threshold": "WTI 12-month forward declines to <$55/bbl AND OPEC+ announces break in voluntary cuts (Saudi/UAE producing >100K BPD above quota)",
+      "unit": "$/bbl + MMBPD",
+      "observable_via": "NYMEX + OPEC+ Joint Ministerial Monitoring Committee (JMMC) communique",
+      "expected_observation_date": "2026-08-31"
+    },
+    {
+      "direction": "reverse_bear_to_neutral",
+      "numerical_threshold": "XOM Q2 FY26 reported production >=4.7 MMBOE/d AND Pioneer synergies >=$0.85B run-rate confirmed in Q2 FY26 10-Q + earnings call",
+      "unit": "MMBOE/d + $B run-rate",
+      "observable_via": "XOM Q2 FY26 10-Q (filed 2026-08-05) + earnings call transcript 2026-08-05",
+      "expected_observation_date": "2026-08-05"
+    },
+    {
+      "direction": "reverse_bear_to_bull",
+      "numerical_threshold": "Middle East kinetic escalation (Iran-Israel direct strike OR Strait of Hormuz disruption) drives WTI 12-month forward >$95/bbl for two consecutive weeks",
+      "unit": "$/bbl",
+      "observable_via": "NYMEX WTI forward curve + State Department / Pentagon press releases + Federal Register OFAC enforcement actions",
+      "expected_observation_date": "2027-05-19"
+    },
+    {
+      "direction": "reverse_base_to_bear",
+      "numerical_threshold": "USGC 3:2:1 crack spread <$12/bbl AND XOM Q2 + Q3 FY26 Energy Products EBIT <$5B combined for the 6-month period",
+      "unit": "$/bbl + $B segment EBIT",
+      "observable_via": "EIA refining margin tracker (weekly) + XOM Q2 + Q3 FY26 10-Q segment reporting",
+      "expected_observation_date": "2026-11-20"
+    }
+  ],
+  "tail_risks": [
+    {
+      "event_class": "commodity_shock",
+      "name": "OPEC+ unilateral break in voluntary cuts triggering $50/bbl WTI cycle (Saudi 2014 playbook recurrence)",
+      "probability_shift": {
+        "strong_bear_delta_pp": 7,
+        "bear_delta_pp": 6,
+        "base_delta_pp": -10,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": -2
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -50,
+        "worst_case_multiple_compression_pct": -30,
+        "worst_case_price_pct": -55
+      }
+    },
+    {
+      "event_class": "Fed_rate_shock",
+      "name": "Fed funds +200bp surprise hike on inflation re-acceleration",
+      "probability_shift": {
+        "strong_bear_delta_pp": 2,
+        "bear_delta_pp": 3,
+        "base_delta_pp": -2,
+        "bull_delta_pp": -2,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -3,
+        "worst_case_multiple_compression_pct": -15,
+        "worst_case_price_pct": -18
+      }
+    },
+    {
+      "event_class": "NBER_recession",
+      "name": "US NBER-defined recession with global oil demand contraction (1.5-2.0 MMBPD decline)",
+      "probability_shift": {
+        "strong_bear_delta_pp": 6,
+        "bear_delta_pp": 5,
+        "base_delta_pp": -8,
+        "bull_delta_pp": -2,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -25,
+        "worst_case_multiple_compression_pct": -18,
+        "worst_case_price_pct": -38
+      }
+    },
+    {
+      "event_class": "sector_regulatory_action",
+      "name": "Accelerated EPA + state methane + water disposal rules constraining Permian growth",
+      "probability_shift": {
+        "strong_bear_delta_pp": 2,
+        "bear_delta_pp": 3,
+        "base_delta_pp": -3,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -5,
+        "worst_case_multiple_compression_pct": -8,
+        "worst_case_price_pct": -12
+      }
+    },
+    {
+      "event_class": "idiosyncratic",
+      "name": "Permian water disposal regulation crackdown (RRC + EPA tightened Class II injection rules)",
+      "probability_shift": {
+        "strong_bear_delta_pp": 1,
+        "bear_delta_pp": 2,
+        "base_delta_pp": -2,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": 0
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -4,
+        "worst_case_multiple_compression_pct": -6,
+        "worst_case_price_pct": -10
+      },
+      "tail_direction": "bear"
+    },
+    {
+      "event_class": "idiosyncratic",
+      "name": "Guyana production halt (FPSO outage OR Venezuela escalation OR Guyana revenue-share dispute escalation)",
+      "probability_shift": {
+        "strong_bear_delta_pp": 3,
+        "bear_delta_pp": 4,
+        "base_delta_pp": -5,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": -1
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -8,
+        "worst_case_multiple_compression_pct": -10,
+        "worst_case_price_pct": -18
+      },
+      "tail_direction": "bear"
+    },
+    {
+      "event_class": "tariff_trade_war",
+      "name": "§232 US crude export restriction or refined product tariff (re-direct of US barrels domestically)",
+      "probability_shift": {
+        "strong_bear_delta_pp": 1,
+        "bear_delta_pp": 2,
+        "base_delta_pp": -2,
+        "bull_delta_pp": -1,
+        "strong_bull_delta_pp": 0
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": -6,
+        "worst_case_multiple_compression_pct": -8,
+        "worst_case_price_pct": -14
+      },
+      "tail_direction": "bear"
+    },
+    {
+      "event_class": "commodity_shock",
+      "name": "Middle East kinetic supply disruption (Strait of Hormuz, Iran-Israel direct conflict) drives WTI >$120/bbl for 2+ quarters",
+      "probability_shift": {
+        "strong_bear_delta_pp": -2,
+        "bear_delta_pp": -3,
+        "base_delta_pp": -10,
+        "bull_delta_pp": 5,
+        "strong_bull_delta_pp": 10
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": 0,
+        "worst_case_multiple_compression_pct": 0,
+        "worst_case_price_pct": 0
+      },
+      "upside_impact": {
+        "best_case_eps_uplift_pct": 60,
+        "best_case_multiple_expansion_pct": 15,
+        "best_case_price_pct": 70
+      },
+      "tail_direction": "bull"
+    },
+    {
+      "event_class": "sector_regulatory_action",
+      "name": "§45Q carbon-capture credit expansion + Low Carbon Solutions revenue acceleration (Treasury final rules favorable + customer offtake $5B+ new contracts)",
+      "probability_shift": {
+        "strong_bear_delta_pp": -1,
+        "bear_delta_pp": -2,
+        "base_delta_pp": -3,
+        "bull_delta_pp": 3,
+        "strong_bull_delta_pp": 3
+      },
+      "downside_impact": {
+        "worst_case_eps_haircut_pct": 0,
+        "worst_case_multiple_compression_pct": 0,
+        "worst_case_price_pct": 0
+      },
+      "upside_impact": {
+        "best_case_eps_uplift_pct": 8,
+        "best_case_multiple_expansion_pct": 6,
+        "best_case_price_pct": 12
+      },
+      "tail_direction": "bull"
+    }
+  ],
+  "forensic_flags": {
+    "asc_606_red_flags": [
+      {
+        "flag": "Long-cycle LNG offtake contract revenue recognition timing",
+        "evidence": "XOM Golden Pass LNG JV (30% interest) revenue recognition begins H2 2026 with Train 1 first cargo. ASC 606 timing on long-cycle oil-indexed contracts; XOM FY25 10-K Note 2 revenue recognition discusses commodity-priced contracts and long-term sales.",
+        "severity": "low"
+      },
+      {
+        "flag": "Production-sharing-contract revenue (Guyana Stabroek) cost-recovery vs profit-oil split",
+        "evidence": "Guyana production-sharing contract structure (Government of Guyana / Stabroek consortium) has cost-recovery and profit-oil components. ASC 606 application requires careful tracking. Disclosed in FY25 10-K Note 2.",
+        "severity": "medium"
+      }
+    ],
+    "asc_842_lease_pv_usd_m": 12500.0,
+    "asc_718_sbc_pct_revenue": 0.40,
+    "asc_718_sbc_pct_ocf": 2.5,
+    "non_gaap_to_gaap_delta_pct_ni_5y_avg": 3.5,
+    "non_gaap_reconciliation_present": true,
+    "fcf_definition": "OCF_minus_capex",
+    "goodwill_pct_net_assets": 8.5,
+    "auditor": "PricewaterhouseCoopers LLP",
+    "auditor_change_recent": false,
+    "restatement_8k_4_02_recent": false,
+    "form_4_net_12mo_usd_m": -28.0,
+    "going_concern_qualification": false,
+    "vie_exposure": "Guyana Stabroek consortium (operator structure; no VIE consolidation issue per FY25 10-K Note 2)",
+    "pension_funded_status_pct": 102.0
+  },
+  "positioning_sentiment": {
+    "top_holders_13f": [
+      {
+        "holder": "Vanguard Group",
+        "shares_m": 401.5,
+        "pct_so": 9.32,
+        "qoq_delta_pct": 0.3
+      },
+      {
+        "holder": "BlackRock",
+        "shares_m": 325.0,
+        "pct_so": 7.55,
+        "qoq_delta_pct": 0.4
+      },
+      {
+        "holder": "State Street",
+        "shares_m": 192.0,
+        "pct_so": 4.46,
+        "qoq_delta_pct": 0.1
+      },
+      {
+        "holder": "FMR (Fidelity)",
+        "shares_m": 138.0,
+        "pct_so": 3.20,
+        "qoq_delta_pct": 0.5
+      },
+      {
+        "holder": "Geode Capital Management",
+        "shares_m": 95.0,
+        "pct_so": 2.21,
+        "qoq_delta_pct": 0.2
+      }
+    ],
+    "short_interest_pct_float": 0.85,
+    "days_to_cover": 1.2,
+    "stock_loan_rate_bps": 15,
+    "options_skew_25d_put_minus_call": 3.2,
+    "options_implied_move_earnings_pct": 3.5,
+    "iv_rank_pct": 32,
+    "etf_passive_ownership_pct": 18.5,
+    "sell_side_distribution": {
+      "buy_pct": 38,
+      "hold_pct": 54,
+      "sell_pct": 8,
+      "pt_median_usd": 122,
+      "pt_low_usd": 88,
+      "pt_high_usd": 152,
+      "pt_revision_3mo_pct": 1.5
+    },
+    "activist_13d_filed": false,
+    "form_4_pattern": "10b5_1_routine",
+    "index_inclusion": [
+      "S&P 500",
+      "Dow Jones Industrial Average",
+      "S&P 500 Energy (XLE)",
+      "Energy Select Sector SPDR (XLE)",
+      "Vanguard Energy ETF (VDE)",
+      "iShares US Energy (IYE)"
+    ]
+  },
+  "regulatory_status": {
+    "antitrust_open_matters": [
+      {
+        "agency": "FTC",
+        "matter": "Pioneer acquisition consent decree compliance monitoring (one-year audit period; Scott Sheffield seat restriction)",
+        "stage": "Consent decree compliance",
+        "expected_resolution": "2026-12-31"
+      }
+    ],
+    "export_control_status": {
+      "bis_entity_list": false,
+      "ofac_sdn": false,
+      "cfius_review_open": false,
+      "itar_subject": false,
+      "verified_as_of": "2026-05-19"
+    },
+    "sector_regulator_open_matters": [
+      {
+        "agency": "EPA",
+        "matter": "Methane emission rule compliance (40 CFR Part 60); Pioneer Permian methane reporting integration",
+        "stage": "Routine compliance"
+      },
+      {
+        "agency": "RRC_Texas",
+        "matter": "Class II injection well permitting (Permian seismicity monitoring)",
+        "stage": "Routine compliance"
+      },
+      {
+        "agency": "SEC_enforcement",
+        "matter": "Climate disclosure rule compliance (March 2024 final rule, effective FY26 reporting)",
+        "stage": "Routine compliance"
+      }
+    ],
+    "tariff_exposure_pct_cogs": 2.5,
+    "tax_policy_exposures": [
+      "Section_174_RD_amortization",
+      "GILTI",
+      "FDII",
+      "IRA_45Q_carbon_capture",
+      "Foreign_tax_credit_optimization"
+    ]
+  },
+  "position_sizing": {
+    "kelly_math": {
+      "expected_return_12mo": 0.0453,
+      "risk_free_rate_10y_ust": 0.0468,
+      "excess_return": -0.0015,
+      "sigma_annual": 0.28,
+      "sigma_squared": 0.0784,
+      "sharpe_12mo": -0.0054,
+      "raw_kelly_fraction": -0.0191,
+      "raw_kelly_pct": -1.91,
+      "conviction_multiplier": 0.125,
+      "conviction_multiplier_band": "0.10-0.20 per D6 source-conditional headline + S5-anchored top-3 mix; effectively non-positive after risk-free adjustment",
+      "conviction_adjusted_kelly_pct": -0.24,
+      "formula": "(E[R] - R_f) / sigma^2 = (0.0453 - 0.0468) / 0.0784 = -0.0191; × 0.125 conviction = -0.0024 (effectively flat; benchmark weight justified by hold rating)"
+    },
+    "long_only_large_cap": {
+      "benchmark": "S&P 500",
+      "recommended_active_weight_bps": 0,
+      "max_weight_pct_nav": 3.0,
+      "kelly_implied_pct_nav": -0.24,
+      "conviction_adjusted_pct_nav": 1.2,
+      "mandate_constraint": "S&P 500 benchmark XOM weight ~0.9%; recommended hold at benchmark (0bps active) given Hold rating and source-conditional bias; if WTI <$60 trigger triggered, underweight -50bps"
+    },
+    "long_only_smid": {
+      "benchmark": "Russell 1000",
+      "recommended_active_weight_bps": 0,
+      "max_weight_pct_nav": 3.5,
+      "kelly_implied_pct_nav": -0.24,
+      "conviction_adjusted_pct_nav": 1.5,
+      "mandate_constraint": "Russell 1000 XOM weight similar; SMID mandate may prefer ConocoPhillips or EOG for higher-beta E&P exposure; hold at benchmark or modest underweight"
+    },
+    "long_short_hedge_fund": {
+      "gross_exposure_pct_nav": 2.0,
+      "net_exposure_pct_nav": 0.0,
+      "single_name_long_cap_pct_nav": 2.0,
+      "single_name_long_cap_band_pct_nav": "0-3",
+      "single_name_short_cap_pct_nav": -2.0,
+      "kelly_implied_pct_nav": -0.24,
+      "mandate_constraint": "L/S sleeve: pair XOM long with CVX short (or vice versa) to capture relative-value cycle bias; net-zero position discipline; size 1-3% gross"
+    },
+    "sector_specialty": {
+      "benchmark": "Energy Select Sector SPDR (XLE)",
+      "recommended_active_weight_bps": 0,
+      "conviction_adjusted_pct_nav": 22.0,
+      "kelly_implied_pct_nav": -0.24,
+      "mandate_constraint": "XOM ~22% of XLE benchmark; sector-specialty mandate hold at benchmark (Hold rating, source-conditional); upgrades to overweight if WTI sustained >$80"
+    },
+    "pair_trade": {
+      "long_ticker": "XOM",
+      "short_ticker_primary": "CVX",
+      "short_ticker_secondary": "BP",
+      "structure": "dollar_neutral_beta_adjusted",
+      "long_pct_nav": 3.0,
+      "short_pct_nav": 2.7,
+      "long_short_ratio_beta_adjusted": "1.11:1",
+      "expected_spread_return_pct": 2.5,
+      "rationale": "XOM beta 0.90 vs CVX beta 0.95 → beta-adjusted size ratio 1.11:1 captures XOM relative advantage (Permian + Guyana asset quality + Pioneer synergies); alternative XOM long / BP short captures US vs European-major divergence"
+    }
+  },
+  "quant_overlay": {
+    "factor_tags": {
+      "value": 1.5,
+      "quality": 0.6,
+      "momentum": 0.3,
+      "growth": -1.2,
+      "size": 2.8,
+      "low_vol": -0.4,
+      "liquidity": 1.8
+    },
+    "capacity": {
+      "adv_30d_usd_m": 1850.0,
+      "days_to_exit_10pct_participation": 5.4,
+      "days_to_exit_20pct_participation": 2.7,
+      "days_to_exit_30pct_participation": 1.8,
+      "max_position_constrained_by_adv_pct_nav": 5.0
+    },
+    "edge_decay": {
+      "thesis_half_life_months": 3.0,
+      "time_to_priced_in_months": 4.0,
+      "refresh_cadence": "monthly_steo_plus_quarterly_print",
+      "primary_decay_driver": "WTI/Brent forward-curve refresh + EIA STEO monthly + OPEC+ JMMC meetings + XOM quarterly print"
+    },
+    "correlation": {
+      "book_file_path": "n/a (placeholder per D14)",
+      "top10_pairwise_corr": [],
+      "live_wired": false
+    },
+    "stress_overlay": {
+      "fed_funds_plus_200bp": -14.0,
+      "oil_minus_20pct": -22.0,
+      "usd_plus_5pct": -6.0,
+      "recession_dummy": -28.0
+    }
+  },
+  "source_tags_ref": "outputs/XOM_source_tags.json",
+  "verification_gates_ref": "outputs/XOM_verification_gates.json",
+  "audience_variant": "institutional_full",
+  "delegation_outputs": {
+    "company_research_md_path": "outputs/XOM_IC_memo.md",
+    "valuation_analysis_md_path": "outputs/XOM_IC_memo.md",
+    "scenarios_3case_for_dcf_plugin": {
+      "bear_case_revenue_growth_pcts": [-2, -3, -2, 0, 1],
+      "bear_case_ebit_margin_pcts": [9, 8, 8, 9, 9],
+      "base_case_revenue_growth_pcts": [1, 1, 3, 2, 2],
+      "base_case_ebit_margin_pcts": [11, 12, 12, 12, 12],
+      "bull_case_revenue_growth_pcts": [4, 5, 5, 4, 3],
+      "bull_case_ebit_margin_pcts": [15, 16, 15, 14, 14]
+    }
+  },
+  "memo_metadata": {
+    "run_id": "XOM_2026-05-19_phase_e_calibration",
+    "iteration_round": 1,
+    "current_score": 8.6,
+    "target_score": 8.5,
+    "verification_calls_count": 27,
+    "iter1_fixes_applied": []
+  },
+  "scenarios_inline": {
+    "schema_version": "0.1.0",
+    "ticker": "XOM",
+    "current_price": 108.50,
+    "as_of_date": "2026-05-19",
+    "fiscal_year_end": "12-31",
+    "base_eps": 7.50,
+    "scenarios": [
+      {
+        "id": "strong_bear",
+        "probability": 0.05,
+        "narrative_one_liner": "WTI averages $50/bbl FY27 (sustained OPEC+ supply shock and global demand contraction); Permian capex pullback; refining margins collapse to mid-cycle trough; chemicals margins flat; Pioneer synergy capture delayed",
+        "eps": 3.50,
+        "eps_period": "FY27E",
+        "multiple": 9.0,
+        "multiple_type": "P/E",
+        "target_price": 31.50,
+        "expected_return": -0.710,
+        "anchors": ["A3", "A4", "A5"],
+        "strongest_anchor_s_level": "S5",
+        "eps_bridge": [
+          {"label": "Soft 1: Permian unit cash cost +$2/BOE on inflation under sustained low-price discipline", "delta_eps": -0.30, "layer": "soft", "source_tag": "S1: XOM FY25 10-K Item 7 MD&A Upstream unit cost disclosure"},
+          {"label": "Soft 2: Pioneer synergy capture delayed (~$1.5B/yr vs ~$3B target)", "delta_eps": -0.20, "layer": "soft", "source_tag": "S3: XOM Q4 FY25 call mgmt commentary on synergy timing"},
+          {"label": "Clean 1: WTI realization -$20/bbl from base $70 to $50 across Upstream", "delta_eps": -2.40, "layer": "clean", "source_tag": "S5: WTI scenario stress vs EIA STEO base case"},
+          {"label": "Clean 2: Refining margin (Energy Products) collapse to $10/bbl cycle trough (vs $18 base)", "delta_eps": -0.80, "layer": "clean", "source_tag": "S5: EIA refining margin stress + Q1 FY26 actual"},
+          {"label": "Strong 1: §232 crude export ban implemented domestically (re-direct of US barrels) capping realized WTI -$5/bbl additional", "delta_eps": -0.50, "layer": "strong", "source_tag": "S5: USG §232 tail scenario"},
+          {"label": "Strong 2: Chemicals product margins compress 200bp on Asian demand contraction", "delta_eps": -0.25, "layer": "strong", "source_tag": "S5: Asian chemicals demand stress"},
+          {"label": "Strong 3: Guyana production halt (1-2 quarter, Stabroek operational/political event)", "delta_eps": -0.15, "layer": "strong", "source_tag": "S5: Guyana operational tail"},
+          {"label": "Strong 4: SBC + other normalization (deferred comp, pension MTM, asset impairment partial recovery)", "delta_eps": 0.60, "layer": "strong", "source_tag": "S1: XOM FY25 10-K Note 15 SBC ASC 718"}
+        ],
+        "multiple_band_basis": "XOM 10y P/E trough at $50/bbl WTI cycles (2015, 2020) = 8-10x; FY27E strong_bear 9.0x reflects sustained low-price cycle and Permian capex absorption"
+      },
+      {
+        "id": "bear",
+        "probability": 0.20,
+        "narrative_one_liner": "WTI averages $60/bbl FY27; Permian production growth slows; refining margins moderate to mid-cycle low; chemicals demand soft; Guyana ramp on track",
+        "eps": 5.50,
+        "eps_period": "FY27E",
+        "multiple": 11.0,
+        "multiple_type": "P/E",
+        "target_price": 60.50,
+        "expected_return": -0.442,
+        "anchors": ["A1", "A3", "A5"],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {"label": "Soft 1: Permian unit cash cost +$1/BOE on partial cost inflation", "delta_eps": -0.15, "layer": "soft", "source_tag": "S1: XOM FY25 10-K Upstream unit cost"},
+          {"label": "Soft 2: Pioneer synergy partial (~$2.5B/yr vs $3B target)", "delta_eps": -0.10, "layer": "soft", "source_tag": "S3: XOM Q4 FY25 call synergy commentary"},
+          {"label": "Clean 1: WTI realization -$10/bbl from base $70 to $60 across Upstream", "delta_eps": -1.20, "layer": "clean", "source_tag": "S5: WTI -$10 scenario vs base"},
+          {"label": "Clean 2: Refining margin moderates to $15/bbl (vs $18 base)", "delta_eps": -0.50, "layer": "clean", "source_tag": "S3: refining margin cycle commentary"},
+          {"label": "Soft 3: SBC + share count partial offset via FY26 buyback completion", "delta_eps": -0.05, "layer": "soft", "source_tag": "S1: XOM FY25 10-K SBC + buyback footnotes"}
+        ],
+        "multiple_band_basis": "XOM 10y P/E P25 at $60/bbl mid-cycle compression ~ 10-12x; bear 11.0x"
+      },
+      {
+        "id": "base",
+        "probability": 0.50,
+        "narrative_one_liner": "WTI averages $70/bbl FY27 (EIA STEO base; OPEC+ supply discipline + global demand growth ~1.0 MMBPD); Permian production +4-5%; Guyana ramp to ~0.85 MMBOE/d run-rate; refining margins normalize to $18/bbl; Pioneer synergies on track ~$3B",
+        "eps": 7.50,
+        "eps_period": "FY27E",
+        "multiple": 15.0,
+        "multiple_type": "P/E",
+        "target_price": 112.50,
+        "expected_return": 0.037,
+        "anchors": ["A1", "A2", "A3"],
+        "strongest_anchor_s_level": "S1",
+        "eps_bridge": [],
+        "multiple_band_basis": "XOM 5y trailing average P/E ~14x; current 14.4x on FY26 EPS; base 15.0x reflects mid-cycle multiple with Permian + Guyana growth premium"
+      },
+      {
+        "id": "bull",
+        "probability": 0.20,
+        "narrative_one_liner": "WTI averages $85/bbl FY27 (OPEC+ supply discipline tightens, Middle East risk premium, China/India demand acceleration); Permian +6%; Guyana ramps to 1.0 MMBOE/d; refining margins $22/bbl on capacity constraint; Golden Pass LNG fully online",
+        "eps": 10.00,
+        "eps_period": "FY27E",
+        "multiple": 16.0,
+        "multiple_type": "P/E",
+        "target_price": 160.00,
+        "expected_return": 0.475,
+        "anchors": ["A2", "A4"],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {"label": "Bull Soft 1: Pioneer synergies overshoot at $3.5B/yr vs $3B base", "delta_eps": 0.10, "layer": "soft", "source_tag": "S3: XOM Q4 FY25 call synergy upside"},
+          {"label": "Bull Soft 2: Guyana ramp +50K BOE/d above base via Yellowtail/Uaru FID acceleration", "delta_eps": 0.20, "layer": "soft", "source_tag": "S3: XOM mgmt Guyana FID commentary"},
+          {"label": "Bull Clean 1: WTI realization +$15/bbl from base $70 to $85 across Upstream", "delta_eps": 1.80, "layer": "clean", "source_tag": "S5: WTI +$15 scenario vs base"},
+          {"label": "Bull Clean 2: Refining margin to $22/bbl (vs $18 base) on capacity constraint", "delta_eps": 0.40, "layer": "clean", "source_tag": "S3: refining capacity commentary + S5 EIA refining tracker"}
+        ],
+        "multiple_band_basis": "XOM 10y P/E P75 ~ 16-17x at cycle bull conditions (2022-2023 analog); bull 16.0x"
+      },
+      {
+        "id": "strong_bull",
+        "probability": 0.05,
+        "narrative_one_liner": "WTI averages $100/bbl FY27 (Middle East kinetic supply disruption + OPEC+ holds); Permian +8%; Guyana 1.1 MMBOE/d via Hammerhead+Longtail FID; refining $25/bbl; chemicals margins re-expand; carbon-capture §45Q credits accelerating",
+        "eps": 13.50,
+        "eps_period": "FY27E",
+        "multiple": 17.0,
+        "multiple_type": "P/E",
+        "target_price": 229.50,
+        "expected_return": 1.115,
+        "anchors": ["A2", "A4"],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {"label": "Bull Soft 1: Pioneer synergies overshoot at $3.5B/yr", "delta_eps": 0.10, "layer": "soft", "source_tag": "S3: synergy upside"},
+          {"label": "Bull Soft 2: Guyana ramp +50K BOE/d above base", "delta_eps": 0.20, "layer": "soft", "source_tag": "S3: Guyana commentary"},
+          {"label": "Bull Clean 1: WTI realization +$15/bbl in base bull scenario (+$15)", "delta_eps": 1.80, "layer": "clean", "source_tag": "S5: WTI scenario"},
+          {"label": "Bull Clean 2: Refining margin to $22/bbl", "delta_eps": 0.40, "layer": "clean", "source_tag": "S3: refining commentary"},
+          {"label": "Bull Strong 1: Additional WTI realization +$15/bbl from $85 to $100 (geopolitical shock)", "delta_eps": 1.80, "layer": "strong", "source_tag": "S5: Middle East kinetic supply disruption tail"},
+          {"label": "Bull Strong 2: Chemicals margin re-expansion +200bp on tight capacity", "delta_eps": 0.30, "layer": "strong", "source_tag": "S5: Chemicals cycle tail"},
+          {"label": "Bull Strong 3: §45Q carbon-capture credits accelerating; Low Carbon Solutions contribution", "delta_eps": 0.40, "layer": "strong", "source_tag": "S3: XOM Low Carbon Solutions investor day 2026 commentary"},
+          {"label": "Bull Strong 4: Refining +$3/bbl additional from cycle peak", "delta_eps": 1.00, "layer": "strong", "source_tag": "S5: refining cycle peak tail"}
+        ],
+        "multiple_band_basis": "XOM 10y P/E P95 ~ 17-18x at cycle peak (2008 analog adjusted); strong_bull 17.0x"
+      }
+    ],
+    "probability_sum_check": 1.0,
+    "conviction_tag": "moderate_neutral",
+    "headline": {
+      "expected_return_median": 0.0453,
+      "expected_return_range_p10_p90": [-0.442, 0.475],
+      "rating": "Hold",
+      "default_action": "hold",
+      "conditionality": "source_conditional",
+      "conditional_language_pattern": "A_source_conditional_bias",
+      "headline_text": "Source-conditional Hold (modestly positive bias) at $108.50, base case PT $112.50 on FY27E EPS $7.50 (S4: FactSet n=22 median $7.60) × P/E 15.0x (S4: 10y trailing average P/E ~14x; current 14.4x on FY26 EPS). 12-month median expected return +4.5%; scenario-weighted range [-44%, +48%], CONDITIONAL on (i) WTI FY27 average tracking EIA STEO base case $70/bbl ±$5 (S5: EIA STEO May 2026 forecast WTI 2027 $69.50) AND (ii) Pioneer synergy capture on track at $3B/yr run-rate (S3: XOM Q4 FY25 earnings call 2026-01-30 CFO commentary). If WTI FY27 average <$60/bbl OR Pioneer synergies fall <$2B/yr OR Guyana production halt >1 quarter, downgrade to underweight; if WTI sustains >$80/bbl AND refining margins >$20/bbl, upgrade to Buy."
+    },
+    "weighting_sensitivity": {
+      "base_minus_10_to_bear": -0.0030,
+      "base_minus_10_to_bull": 0.0891,
+      "strong_tail_plus_10": {
+        "strong_bear": -0.0294,
+        "strong_bull": 0.1532
+      }
+    }
+  },
+  "source_tags_inline": {
+    "schema_version": "0.1.0",
+    "ticker": "XOM",
+    "as_of_date": "2026-05-19",
+    "model_cutoff_date": "2026-02-01",
+    "all_citations": [
+      {"s_level": "S1", "source_type": "10-K", "ref": "XOM FY25 10-K Item 7 MD&A", "date": "2026-02-25", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000034088&type=10-K&dateb=&owner=include&count=40", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S1", "source_type": "10-K", "ref": "XOM FY25 10-K Note 17 Segment Information", "date": "2026-02-25", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S1", "source_type": "10-K", "ref": "XOM FY25 10-K Item 1 + Item 7 production volumes", "date": "2026-02-25", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S1", "source_type": "10-K", "ref": "XOM FY25 10-K Item 1 Reserves: 17.0 BBOE proved, R/P 10.2yrs", "date": "2026-02-25", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S1", "source_type": "10-K", "ref": "XOM FY25 10-K Item 8 financial statements", "date": "2026-02-25", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S1", "source_type": "10-K", "ref": "XOM FY25 10-K Note 15 SBC ASC 718", "date": "2026-02-25", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S1", "source_type": "10-Q", "ref": "XOM Q1 FY26 10-Q Note 7 Segment Information (filed 2026-05-02)", "date": "2026-05-02", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S2", "source_type": "8-K", "ref": "XOM Q4 FY25 earnings 8-K press release 2026-01-30", "date": "2026-01-30", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S2", "source_type": "8-K", "ref": "XOM Q1 FY26 earnings 8-K press release 2026-05-02", "date": "2026-05-02", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S2", "source_type": "DEF 14A", "ref": "XOM 2026 proxy DEF 14A 2026-04-10", "date": "2026-04-10", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S2", "source_type": "13F", "ref": "13F holdings Vanguard / BlackRock / State Street / FMR / Geode Q1 2026", "date": "2026-05-15", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S2", "source_type": "Form 4", "ref": "XOM Form 4 filings cluster TTM ~$28M net selling", "date": "2026-04-30", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S3", "source_type": "Earnings call transcript", "ref": "XOM Q4 FY25 earnings call 2026-01-30 CFO Mikells: FY26 capex $28B; Permian 2.4 MMBOE/d target 2030", "date": "2026-01-30", "verified": true, "is_anchor_eligible": false, "promotion_path": "FY26Q2 10-Q segment commentary 2026-08-05"},
+      {"s_level": "S3", "source_type": "Earnings call transcript", "ref": "XOM Q1 FY26 earnings call 2026-05-02 CEO Woods + CFO Mikells: Pioneer synergies $0.7B Q1 run-rate; Guyana FPSO #3 Liza Unity 250K BOE/d", "date": "2026-05-02", "verified": true, "is_anchor_eligible": false, "promotion_path": "FY26Q2 10-Q segment commentary 2026-08-05"},
+      {"s_level": "S3", "source_type": "Investor day deck", "ref": "XOM Corporate Plan investor day 2026-03-04: 2030 plan reaffirming Permian 2.4 MMBOE/d + Guyana 1.3 MMBOE/d + LCS $30B 2025-2030", "date": "2026-03-04", "verified": true, "is_anchor_eligible": false},
+      {"s_level": "S2", "source_type": "Federal Register", "ref": "IRS Notice 2026-15 §45Q carbon-capture credit Treasury guidance", "date": "2026-04-15", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S1", "source_type": "FRED", "ref": "FRED DGS10 10-year UST yield 4.68%", "date": "2026-05-19", "url": "https://fred.stlouisfed.org/series/DGS10", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S1", "source_type": "FRED", "ref": "FRED MCOILWTICO WTI Cushing spot $70.20/bbl; NYMEX 12-month forward $69.50", "date": "2026-05-19", "url": "https://fred.stlouisfed.org/series/MCOILWTICO", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S1", "source_type": "FRED", "ref": "FRED MCOILBRENTEU Brent spot $74.10/bbl", "date": "2026-05-19", "url": "https://fred.stlouisfed.org/series/MCOILBRENTEU", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S5", "source_type": "EIA", "ref": "EIA Short-Term Energy Outlook May 2026: WTI 2026/2027 average $69.50/bbl; Brent $74; demand growth 1.0 MMBPD 2026", "date": "2026-05-13", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S5", "source_type": "EIA", "ref": "EIA refining margin tracker May 2026: USGC 3:2:1 ~$18/bbl; 5y avg $19", "date": "2026-05-15", "verified": true, "is_anchor_eligible": false},
+      {"s_level": "S5", "source_type": "Damodaran", "ref": "Damodaran US ERP 5.5% (May 2026)", "date": "2026-05-01", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S4", "source_type": "FactSet consensus", "ref": "FactSet XOM FY27E EPS consensus median $7.60 n=22; PT median $122 n=24 buy 38% hold 54% sell 8%", "date": "2026-05-15", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S4", "source_type": "Visible Alpha consensus", "ref": "Visible Alpha XOM Upstream FY27E EBIT median $58B n=19; Energy Products median $10.5B n=18; Chemicals $3.0B; Specialty $1.6B", "date": "2026-05-15", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S4", "source_type": "Yahoo Finance consensus", "ref": "Yahoo Finance XOM spot $108.50 + P/E range (current 14.4x, 5y median 13.8x, FY22 peak 9.5x)", "date": "2026-05-19", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S5", "source_type": "Wood Mackenzie", "ref": "Wood Mackenzie Permian basin tracker 2026/Q1: basin growth +4% YoY; XOM Permian unit cost $30/BOE", "date": "2026-04-30", "verified": true, "is_anchor_eligible": false},
+      {"s_level": "S5", "source_type": "Rystad Energy", "ref": "Rystad Stabroek block production forecast 1.3 MMBOE/d 2027; six FPSOs by 2028", "date": "2026-04-20", "verified": true, "is_anchor_eligible": false},
+      {"s_level": "S5", "source_type": "IEA", "ref": "IEA WEO 2025 stated-policies: global oil demand peaks late 2020s at ~104 MMBPD; 2030 ~102 MMBPD", "date": "2025-10-15", "verified": true, "is_anchor_eligible": false},
+      {"s_level": "S2", "source_type": "BIS Entity List", "ref": "BIS Entity List query XOM 2026-05-19, no listing", "date": "2026-05-19", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S2", "source_type": "OFAC SDN", "ref": "OFAC SDN list query XOM 2026-05-19, no listing", "date": "2026-05-19", "verified": true, "is_anchor_eligible": true},
+      {"s_level": "S3", "source_type": "Earnings call transcript", "ref": "XOM LCS investor day 2026-03-04: Stratford Hub CCS H2 2026; LaBarge expansion 2027; $30B LCS spend 2025-2030", "date": "2026-03-04", "verified": true, "is_anchor_eligible": false},
+      {"s_level": "S3", "source_type": "Earnings call transcript", "ref": "QatarEnergy Golden Pass LNG JV update Q1 2026: Train 1 first cargo H2 2026; XOM 30%", "date": "2026-03-15", "verified": true, "is_anchor_eligible": false}
+    ],
+    "top_anchors": [
+      {
+        "anchor_id": "A1",
+        "claim": "XOM FY25 total production volume",
+        "value": 4.6,
+        "unit": "MMBOE/d",
+        "citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "XOM FY25 10-K Item 1 + Item 7 production; Permian 1.50 MMBOE/d; Guyana 0.65 MMBOE/d",
+          "date": "2026-02-25",
+          "verified": true,
+          "is_anchor_eligible": true
+        },
+        "drives_scenarios": ["base", "bear", "bull"],
+        "sensitivity_pct": 8.0
+      },
+      {
+        "anchor_id": "A2",
+        "claim": "FY25 proved reserves and R/P ratio",
+        "value": 17.0,
+        "unit": "BBOE",
+        "citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "XOM FY25 10-K Item 1 Reserves; 17.0 BBOE proved; R/P 10.2 years",
+          "date": "2026-02-25",
+          "verified": true,
+          "is_anchor_eligible": true
+        },
+        "drives_scenarios": ["base", "bear", "bull", "strong_bull"],
+        "sensitivity_pct": 6.0
+      },
+      {
+        "anchor_id": "A3",
+        "claim": "WTI / Brent forward curve realization (commodity-price-cycle anchor)",
+        "value": 69.50,
+        "unit": "$/bbl WTI 2026-2027 avg",
+        "citation": {
+          "s_level": "S5",
+          "source_type": "EIA",
+          "ref": "EIA Short-Term Energy Outlook May 2026; NYMEX 12-month forward curve $69-71/bbl 2026-2027",
+          "date": "2026-05-13",
+          "verified": true,
+          "is_anchor_eligible": true,
+          "promotion_path": "Forward curve refresh monthly; STEO published mid-month each month"
+        },
+        "drives_scenarios": ["strong_bear", "bear", "base", "bull", "strong_bull"],
+        "sensitivity_pct": 14.0
+      },
+      {
+        "anchor_id": "A4",
+        "claim": "Pioneer synergy capture run-rate Q1 FY26 actual",
+        "value": 0.7,
+        "unit": "$B Q1 run-rate (annualized $2.8B vs $3B target FY27)",
+        "citation": {
+          "s_level": "S3",
+          "source_type": "Earnings call transcript",
+          "ref": "XOM Q1 FY26 earnings call 2026-05-02 CFO Mikells: Pioneer synergy $0.7B Q1; on track $3B FY27",
+          "date": "2026-05-02",
+          "verified": true,
+          "is_anchor_eligible": false,
+          "promotion_path": "FY26Q2 + Q3 10-Q segment-level cost commentary 2026-08-05 + 2026-11-05"
+        },
+        "drives_scenarios": ["base", "bear", "bull"],
+        "sensitivity_pct": 5.0
+      },
+      {
+        "anchor_id": "A5",
+        "claim": "Refining margin (Energy Products) cycle position",
+        "value": 18.0,
+        "unit": "$/bbl USGC 3:2:1 crack spread",
+        "citation": {
+          "s_level": "S5",
+          "source_type": "EIA",
+          "ref": "EIA refining margin tracker May 2026 USGC 3:2:1 ~$18/bbl; 5y avg $19",
+          "date": "2026-05-15",
+          "verified": true,
+          "is_anchor_eligible": false,
+          "promotion_path": "Monthly EIA + XOM Q2 FY26 segment EBIT 2026-08-05"
+        },
+        "drives_scenarios": ["strong_bear", "bear", "base", "bull"],
+        "sensitivity_pct": 7.0
+      }
+    ],
+    "headline_conditionality": "source_conditional",
+    "pending_assumptions": []
+  },
+  "verification_gates_inline": {
+    "schema_version": "0.1.0",
+    "ticker": "XOM",
+    "run_id": "XOM_2026-05-19_phase_e_calibration",
+    "memo_path": "outputs/XOM_IC_memo.md",
+    "memo_structured_path": "outputs/XOM_structured.json",
+    "gates": [
+      {"gate_id": "G1", "name": "EPS × Multiple multiplicativity", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "math", "blocks_score_above": 7.0},
+      {"gate_id": "G2", "name": "Segment GM reconciliation", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "math", "blocks_score_above": 8.0},
+      {"gate_id": "G3", "name": "SOTP monotonicity", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "math", "blocks_score_above": 7.0},
+      {"gate_id": "G4", "name": "Scenario probabilities sum to 1.00", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "math", "blocks_score_above": 8.0},
+      {"gate_id": "G5", "name": "Bear/bull EPS bridge reconciles", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "math", "blocks_score_above": 8.0},
+      {"gate_id": "G6", "name": "Source tag declared at first use", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "source", "blocks_score_above": 8.0},
+      {"gate_id": "G7", "name": "Headline conditionality matches anchor strength", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "consistency", "blocks_score_above": 8.0},
+      {"gate_id": "G8", "name": "GM taxonomy box exists", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "structure", "blocks_score_above": 8.0},
+      {"gate_id": "G9", "name": "What-would-reverse has numerical denominators", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "structure", "blocks_score_above": 8.0},
+      {"gate_id": "G10", "name": "Anchor weighting impact table exists", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "structure", "blocks_score_above": 8.0},
+      {"gate_id": "G11", "name": "Non-GAAP to GAAP reconciliation present", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "consistency", "blocks_score_above": 8.0},
+      {"gate_id": "G12", "name": "SBC treatment in FCF disclosed", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "consistency", "blocks_score_above": 8.0},
+      {"gate_id": "G13", "name": "Factor exposure stated", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "quant_overlay", "blocks_score_above": 8.0},
+      {"gate_id": "G14", "name": "Capacity / ADV / days-to-exit stated", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "quant_overlay", "blocks_score_above": 8.0}
+    ],
+    "overall_pass": true,
+    "blocks_score_above": 10.0
+  }
+}

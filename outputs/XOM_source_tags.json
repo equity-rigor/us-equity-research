@@ -1,0 +1,400 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "XOM",
+  "as_of_date": "2026-05-19",
+  "model_cutoff_date": "2026-02-01",
+  "all_citations": [
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "XOM FY25 10-K Item 7 MD&A (fiscal year ending 2025-12-31; filed 2026-02-25)",
+      "date": "2026-02-25",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000034088&type=10-K&dateb=&owner=include&count=40",
+      "verified": true,
+      "freshness_days": 83,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "XOM FY25 10-K Note 17 Segment Information: Upstream $130B revenue, Energy Products $180B, Chemical Products $25B, Specialty Products $12B",
+      "date": "2026-02-25",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "XOM FY25 10-K Item 1 Business + Item 7 production volumes: 4.6 MMBOE/d FY25; Permian 1.50 MMBOE/d; Guyana 0.65 MMBOE/d (Stabroek block ExxonMobil 45% operator)",
+      "date": "2026-02-25",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "XOM FY25 10-K Item 1 Reserves: 17.0 BBOE proved reserves YE25; R/P ~10.2 years on FY25 production rate",
+      "date": "2026-02-25",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "XOM FY25 10-K Item 8 financial statements (revenue $345B, GAAP net income $32.5B, EPS $7.55 GAAP/non-GAAP $7.80)",
+      "date": "2026-02-25",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "XOM FY25 10-K Note 15 SBC ASC 718",
+      "date": "2026-02-25",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "XOM FY25 10-K Item 1A Risk Factors (commodity price exposure; climate transition; Guyana operational risk)",
+      "date": "2026-02-25",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-Q",
+      "ref": "XOM Q1 FY26 10-Q Note 7 Segment Information (filed 2026-05-02): Q1 production 4.65 MMBOE/d; Permian 1.55 MMBOE/d (+5% YoY); Guyana 0.67 MMBOE/d; Q1 EPS $2.05",
+      "date": "2026-05-02",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "XOM Q4 FY25 earnings 8-K press release 2026-01-30 (Q4 EPS $1.90 GAAP / $1.95 non-GAAP; $20B FY25 cash buyback completed; FY26 buyback program $20B reaffirmed)",
+      "date": "2026-01-30",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000034088&type=8-K&dateb=&owner=include&count=40",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "XOM Q1 FY26 earnings 8-K press release 2026-05-02 (Q1 EPS $2.05 non-GAAP; Pioneer synergies $0.7B Q1 run-rate)",
+      "date": "2026-05-02",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "DEF 14A",
+      "ref": "XOM 2026 proxy statement DEF 14A 2026-04-10 (management compensation + beneficial ownership; Darren Woods CEO comp $32M FY25)",
+      "date": "2026-04-10",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "13G",
+      "ref": "Vanguard Group 13G/A 2026-02-12 XOM 9.2% ownership 401.5M shares",
+      "date": "2026-02-12",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "13F",
+      "ref": "13F holdings Vanguard / BlackRock / State Street / FMR / Geode Q1 2026 13F filings",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "Form 4",
+      "ref": "XOM Form 4 filings cluster (Darren Woods, Kathryn Mikells 10b5-1 sales TTM ~$28M net)",
+      "date": "2026-04-30",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "XOM Q4 FY25 earnings call 2026-01-30 CFO Kathryn Mikells: FY26 capex $28B guided; Permian production target 2.4 MMBOE/d by 2030; Pioneer synergy $3B/yr run-rate target FY27",
+      "date": "2026-01-30",
+      "verified": true,
+      "is_anchor_eligible": false,
+      "promotion_path": "FY26Q2 10-Q segment commentary expected 2026-08-05"
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "XOM Q1 FY26 earnings call 2026-05-02 CEO Darren Woods + CFO Mikells: Q1 production 4.65 MMBOE/d; Pioneer synergies $0.7B Q1 run-rate; Guyana FPSO #3 Liza Unity at 250K BOE/d; Yellowtail FPSO #5 FID 2026",
+      "date": "2026-05-02",
+      "verified": true,
+      "is_anchor_eligible": false,
+      "promotion_path": "FY26Q2 10-Q segment commentary 2026-08-05"
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Investor day deck",
+      "ref": "XOM Corporate Plan investor day 2026-03-04: 2030 plan reaffirming Permian 2.4 MMBOE/d target; Guyana 1.3 MMBOE/d by 2027; Low Carbon Solutions $30B cumulative 2025-2030 spend",
+      "date": "2026-03-04",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S2",
+      "source_type": "Federal Register",
+      "ref": "IRS Notice 2026-15 §45Q carbon-capture credit Treasury guidance (April 2026) clarifying eligibility for direct-air-capture and point-source projects",
+      "date": "2026-04-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "FRED",
+      "ref": "FRED DGS10 10-year UST yield 4.68% (2026-05-19)",
+      "date": "2026-05-19",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "FRED",
+      "ref": "FRED MCOILWTICO WTI Cushing spot $70.20/bbl (May 2026); 12-month forward $69.50 (NYMEX)",
+      "date": "2026-05-19",
+      "url": "https://fred.stlouisfed.org/series/MCOILWTICO",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "FRED",
+      "ref": "FRED MCOILBRENTEU Brent spot $74.10/bbl (May 2026)",
+      "date": "2026-05-19",
+      "url": "https://fred.stlouisfed.org/series/MCOILBRENTEU",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S5",
+      "source_type": "EIA",
+      "ref": "EIA Short-Term Energy Outlook (STEO) May 2026: WTI 2026 average forecast $69.50/bbl; 2027 $69.50/bbl; Brent 2026 $74/bbl; global oil demand growth 1.0 MMBPD 2026",
+      "date": "2026-05-13",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S5",
+      "source_type": "EIA",
+      "ref": "EIA refining margin tracker May 2026: 3:2:1 crack spread ~$18/bbl USGC; mid-cycle 5y average $19/bbl",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Damodaran",
+      "ref": "Damodaran US implied equity risk premium 5.5% (May 2026 update)",
+      "date": "2026-05-01",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "FactSet consensus",
+      "ref": "FactSet XOM FY27E EPS consensus median $7.60 n=22 range $5.90-$10.20; PT median $122.00 n=24 buy_pct 38% hold_pct 54% sell_pct 8%",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Visible Alpha consensus",
+      "ref": "Visible Alpha XOM Upstream FY27E EBIT consensus median $58B n=19; Energy Products FY27E EBIT median $10.5B n=18; Chemicals FY27E EBIT median $3.0B; Specialty FY27E EBIT median $1.6B",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Yahoo Finance consensus",
+      "ref": "Yahoo Finance XOM spot $108.50 + 5y P/E range (current 14.4x on FY26 EPS $7.55, 5y median 13.8x, FY20 trough -10.0x negative-earnings, FY22 peak 9.5x)",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Wood Mackenzie",
+      "ref": "Wood Mackenzie Permian basin tracker 2026/Q1: Permian production growth +4% YoY 2026; XOM Permian unit cost $30/BOE FY25 vs basin median $32/BOE",
+      "date": "2026-04-30",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Rystad Energy",
+      "ref": "Rystad Energy Stabroek block (Guyana) production forecast: 1.3 MMBOE/d by 2027; six FPSOs operating by 2028 (Liza Destiny, Liza Unity, Prosperity, ONE Guyana, Errea Wittu, Jaguar)",
+      "date": "2026-04-20",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S5",
+      "source_type": "IEA",
+      "ref": "IEA World Energy Outlook 2025 stated-policies scenario: global oil demand peaks late 2020s at ~104 MMBPD; stated-policies 2030 demand ~102 MMBPD vs net-zero scenario ~85 MMBPD",
+      "date": "2025-10-15",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S2",
+      "source_type": "BIS Entity List",
+      "ref": "BIS Entity List query XOM 2026-05-19, no listing for issuer entity",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "OFAC SDN",
+      "ref": "OFAC SDN list query XOM 2026-05-19, no listing",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "XOM Low Carbon Solutions update Q4 FY25 + investor day 2026-03-04: Stratford Hub CCS commissioning H2 2026; LaBarge expansion 2027; $30B cumulative LCS spend through 2030 with $45Q + customer-paid revenue",
+      "date": "2026-03-04",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "QatarEnergy Golden Pass LNG joint-venture commissioning update Q1 2026: Train 1 first LNG H2 2026; XOM 30% partnership",
+      "date": "2026-03-15",
+      "verified": true,
+      "is_anchor_eligible": false
+    }
+  ],
+  "top_anchors": [
+    {
+      "anchor_id": "A1",
+      "claim": "XOM FY25 total production volume",
+      "value": 4.6,
+      "unit": "MMBOE/d",
+      "citation": {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "XOM FY25 10-K Item 1 Business + Item 7 MD&A production disclosure; Permian 1.50 MMBOE/d post-Pioneer; Guyana 0.65 MMBOE/d at FY25 exit",
+        "date": "2026-02-25",
+        "verified": true,
+        "is_anchor_eligible": true,
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000034088&type=10-K&dateb=&owner=include&count=40"
+      },
+      "drives_scenarios": [
+        "base",
+        "bear",
+        "bull"
+      ],
+      "sensitivity_pct": 8.0
+    },
+    {
+      "anchor_id": "A2",
+      "claim": "FY25 proved reserves and R/P ratio",
+      "value": 17.0,
+      "unit": "BBOE",
+      "citation": {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "XOM FY25 10-K Item 1 Reserves; 17.0 BBOE proved reserves YE25 (Upstream + Guyana additions); R/P 10.2 years on FY25 production",
+        "date": "2026-02-25",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": [
+        "base",
+        "bear",
+        "bull",
+        "strong_bull"
+      ],
+      "sensitivity_pct": 6.0
+    },
+    {
+      "anchor_id": "A3",
+      "claim": "WTI / Brent forward curve realization (commodity-price-cycle anchor)",
+      "value": 69.50,
+      "unit": "$/bbl WTI 2026-2027 avg",
+      "citation": {
+        "s_level": "S5",
+        "source_type": "EIA",
+        "ref": "EIA Short-Term Energy Outlook May 2026: WTI 2026 $69.50/bbl, 2027 $69.50/bbl; NYMEX 12-month forward curve $69-71/bbl 2026-2027",
+        "date": "2026-05-13",
+        "verified": true,
+        "is_anchor_eligible": true,
+        "promotion_path": "Forward curve refresh monthly; STEO published mid-month each month"
+      },
+      "drives_scenarios": [
+        "strong_bear",
+        "bear",
+        "base",
+        "bull",
+        "strong_bull"
+      ],
+      "sensitivity_pct": 14.0
+    },
+    {
+      "anchor_id": "A4",
+      "claim": "Pioneer synergy capture run-rate Q1 FY26 actual",
+      "value": 0.7,
+      "unit": "$B Q1 run-rate (annualized $2.8B vs $3B target FY27)",
+      "citation": {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "XOM Q1 FY26 earnings call 2026-05-02 CFO Mikells: Pioneer synergy capture $0.7B Q1 run-rate; on track for $3B/yr run-rate target FY27",
+        "date": "2026-05-02",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "FY26Q2 + Q3 10-Q segment-level cost commentary 2026-08-05 + 2026-11-05"
+      },
+      "drives_scenarios": [
+        "base",
+        "bear",
+        "bull"
+      ],
+      "sensitivity_pct": 5.0
+    },
+    {
+      "anchor_id": "A5",
+      "claim": "Refining margin (Energy Products) cycle position",
+      "value": 18.0,
+      "unit": "$/bbl USGC 3:2:1 crack spread",
+      "citation": {
+        "s_level": "S5",
+        "source_type": "EIA",
+        "ref": "EIA refining margin tracker May 2026: USGC 3:2:1 crack spread ~$18/bbl; 5y mid-cycle average $19/bbl; cross-referenced to XOM Q1 FY26 Energy Products segment EBIT $2.8B",
+        "date": "2026-05-15",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "Monthly EIA refresh; XOM Q2 FY26 segment EBIT disclosure 2026-08-05"
+      },
+      "drives_scenarios": [
+        "strong_bear",
+        "bear",
+        "base",
+        "bull"
+      ],
+      "sensitivity_pct": 7.0
+    }
+  ],
+  "headline_conditionality": "source_conditional",
+  "pending_assumptions": []
+}
