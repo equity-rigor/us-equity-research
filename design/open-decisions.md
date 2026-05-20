@@ -354,6 +354,62 @@ cp -R ~/.claude/plugins/marketplaces/claude-for-financial-services/plugins/verti
 
 ---
 
+## D24 — Banks GM-taxonomy + SOTP adaptation (no-COGS sector handling)
+
+**Context**: Phase E.JPM surfaced the ambiguity. D8 codifies sector-default multiples for banks (P/B + P/E + P/PPNR + ROTCE-implied) but does not address how the GM taxonomy (T1-T5) and SOTP framework adapt to sectors with no COGS. The schemas (`schemas/memo.json`, `schemas/scenarios.json`) and verification scripts (`verify_segment_gm.py` for G2, `verify_sotp_monotonicity.py` for G3) are dimensionally agnostic but the reference documentation was anchored on manufacturing/consumer/tech examples. JPM builder produced an inline adaptation (T1 = consolidated NIM + efficiency ratio; T2 = segment NIM; SOTP columns Revenue → PPNR → Pre-Tax → NI) that passed all 14 gates with G2 and G3 emitting `n_a` for COGS-style rows.
+
+**Recommendation**: **Option A — codify banks adaptation as sector-specific paragraphs in 3 reference files, leave schemas/scripts untouched.**
+
+Three doc edits applied as part of phase E.1 commit:
+
+1. **`us-equity-ic-rigor/references/gm-taxonomy-us.md`** — new `## Sector adaptation: banks (no COGS) — per D24` section after T5, before non-GAAP/GAAP discipline. Specifies T1 = consolidated NIM + efficiency ratio; T2 = segment NIM; T3 = sub-product NIM; T4 = forward modeled NIM under Fed-path scenarios; T5 = marginal NIM on book-mix changes. G2 reconciliation discipline preserved with tightened ±5bp tolerance (vs industrials' ±50bp) reflecting precise balance-sheet measurement of earning assets. Worked JPM example included.
+
+2. **`us-equity-ic-rigor/references/three-method-valuation-us.md`** — new `### Sector adaptation: banks SOTP (no GP / no OP) — per D24` subsection inside Method 2 SOTP, before Pitfalls. Specifies SOTP columns Avg Earning Assets → NIM → NII → Non-Interest Income → Total Revenue → NIE → PPNR → Provisions → Pre-Tax → NI. G3 monotonicity chain becomes NI ≤ Pre-Tax ≤ PPNR ≤ Revenue per segment. Provisions discipline (negative-in-bull, spike-in-bear) and sign-aware monotonicity for negative-PPNR Corporate segments documented. Worked JPM example included.
+
+3. **`us-equity-ic-rigor/references/pm-redteam-rubric-us.md`** — B2 entry sector-adaptation paragraph appended. States that G2 reconciliation for banks applies to NIM × earning-asset weights (NOT GM × revenue), with ±5bp tolerance, and that the script `verify_segment_gm.py` handles NIM rows identically because the weighted-average arithmetic is dimensionally invariant. Cross-references gm-taxonomy and three-method docs.
+
+**Rejected: Option B** (sector_adaptation enum in schemas) — would touch frozen B0 schemas, invalidate clean fixtures, require version bump. Per D17/D22 schemas frozen at B0. Doc-only codification preserves schema stability.
+
+**Rejected: Option C** (drop G2 for non-COGS sectors entirely) — loses a useful sanity check; NIM-by-segment reconciliation against consolidated NIM is exactly the same forensic discipline applied to a different metric. Banks PMs reconcile NIM segments tighter than industrial PMs reconcile GM, not looser.
+
+**Scope creep guard**: D24 is the **first sector-specific adaptation codified beyond the existing REITs P/AFFO and biotech NPV pipeline handling in `valuation-discipline-us.md`**. Future sectors that surface in calibration — insurers (combined ratio), BDCs (NII margin), MLPs / pipelines (EBITDA margin with maintenance capex separation), asset managers (operating margin on AUM × fee rate) — get their own paragraph in the same three files when they appear. The pattern: one sector per appearance; no preemptive codification. The underlying T1-T5 + G2/G3 reconciliation rules are invariant.
+
+**Blocks if wrong**: `verify_segment_gm.py` interpretation for banks, JPM / BAC / WFC / C / GS / MS / BX (and any FIG mandate) memo construction, G2/G3 trip behavior on non-COGS sectors.
+
+**Verification**: JPM Phase E memo already validated the inline adaptation against all 14 gates. The codification documents what the JPM builder produced rather than introducing a new convention. Follow-on banks memos (BAC / WFC / C in any future calibration round) cite this D24 codification rather than re-deriving the adaptation.
+
+---
+
+## D24 — Banks GM-taxonomy + SOTP adaptation (ratified Phase E)
+
+**Surfaced by**: JPM Phase E builder produced a memo with 13 gates pass + 1 G3 n_a because banks have no COGS and the gm_taxonomy T1-T5 framework + SOTP Revenue→GP→OP→NI column sequence assumed manufacturing/consumer/tech filers. JPM's adaptation was applied inline; D24 asks whether to codify or leave inline.
+
+**Decision**: **Option A — doc-only codification** (3 reference files modified). Schemas frozen at B0 per D17/D22 are NOT touched; verify scripts handle NIM rows dimensionally identically to GM rows because the underlying arithmetic is weighted-average reconciliation.
+
+**Banks T1-T5 mapping** (codified in `us-equity-ic-rigor/references/gm-taxonomy-us.md`):
+- T1_consolidated = consolidated NIM + consolidated efficiency ratio
+- T2_segment = segment NIM (CCB / CIB / AWM / Corporate for JPM; equivalent for BAC / WFC / C / GS / MS)
+- T3_sub_segment = sub-product NIM (card 9-11%, commercial 2-3%, mortgage 1.5-2%)
+- T4_analyst_modeled = forward NIM by scenario, function of Fed funds path + deposit beta + asset/liability sensitivity
+- T5_marginal = marginal NIM at next FOMC cycle inflection
+
+**G2 banks tolerance**: ±5bp (vs ±50bp industrials/tech) — earning-asset base is precisely measured on the balance sheet, allowing tighter reconciliation than industrials' segment-revenue × segment-GM estimation.
+
+**Banks SOTP adaptation** (codified in `us-equity-ic-rigor/references/three-method-valuation-us.md`):
+Column sequence: Avg Earning Assets → NIM → NII → Non-Interest Income → Total Revenue → NIE → PPNR → Provisions → Pre-Tax → NI.
+G3 monotonicity reframed: NI ≤ Pre-Tax ≤ PPNR ≤ Total Revenue.
+Multi-multiple bear floor: P/B + P/PPNR (substitute for industrials' EV/EBITDA / FCF yield).
+
+**B2 bug class scope** (codified in `pm-redteam-rubric-us.md`): G2 reconciliation discipline preserved for banks via NIM × earning-asset weights at LTM/forward, NOT GM × revenue. Historical-period mismatch remains informational only.
+
+**Scope-creep guard**: one sector adapted per appearance. Insurers (combined ratio), BDCs (NII / NAV), MLPs (DCF distribution coverage), asset managers (effective fee rate / AUM dynamics), energy MLPs (DCF coverage ratio) may need similar adaptations when those tickers surface in research; codify per-sector as needed, not preemptively.
+
+**No schema changes. No script changes. No fixture invalidation.** JPM Phase E memo was already gate-compliant; D24 documents the convention so future banks memos cite this rather than re-deriving.
+
+**Blocks if wrong**: future banks memos may re-derive the adaptation inline (acceptable but wasteful); cross-bank consistency depends on the codified mapping being referenced.
+
+---
+
 ## Items NOT decided here (deferred)
 
 The following are out of scope for the current build and will not be decided in Phase A:

@@ -59,6 +59,39 @@ The reality is that those numbers reference four different concepts pointing to 
   - Derivation path: ASP per Blackwell unit ($35-45K range, S5 supply chain) − BOM cost ($7-9K, S5 component tracker) − fab + assembly + test (~$2K) − warranty / support reserve (~$1K) → margin ~ 76-80%. Plus packaging and HBM allocation noise.
 - **Critical constraint**: **always a derivation; always S5-tagged**; the derivation path must be written down. PM red-team challenges T5 margins because they're modeled, not reported.
 
+## Sector adaptation: banks (no COGS) — per D24
+
+Banks have no COGS and no gross margin in the manufacturing/consumer/tech sense. The T1-T5 taxonomy adapts to **NIM (net interest margin) × efficiency ratio** as the margin analog. The reconciliation discipline (G2 weighted check, ±50bp tolerance, LTM/forward scope) is preserved; only the underlying metric changes.
+
+**Mapping**:
+
+- **T1_consolidated** = **consolidated NIM** and **consolidated efficiency ratio** as reported on the income statement / financial supplement. NIM = (net interest income / average earning assets). Efficiency ratio = (non-interest expense / total revenue [NII + non-interest income]). Both belong in the §6.0 box as T1 rows. Source: S1 (10-K Item 8 + earnings supplement); S2 (10-Q).
+- **T2_segment** = **segment NIM** (CCB / CIB / AWM / Corporate for JPM; equivalent for BAC / WFC / C) plus **segment efficiency ratio** if disclosed. Source: S1 (10-K segment note per ASC 280); S3 (IR earnings supplement Schedule). G2 reconciliation: Σ(segment_avg_earning_assets × segment_NIM) / Σ(segment_avg_earning_assets) ≈ consolidated NIM within ±5bp on LTM/forward (banks reconcile tighter than industrials because the asset base is precisely measured).
+- **T3_sub_segment** = sub-product NIM (e.g., **card revolving NIM ≈ 9-11%** vs **commercial loan NIM ≈ 2-3%** vs **mortgage NIM ≈ 1.5-2%**). Source: S3 (call commentary), S4 (sell-side decomp), S5 (FDIC Call Reports for granular product NIM peer comparison).
+- **T4_analyst_modeled** = forward NIM under each scenario, typically a function of Fed funds path + deposit beta + asset-sensitive vs liability-sensitive positioning. Always flagged "modeled" or "E" suffix. Source: S4 (consensus) OR self-modeled.
+- **T5_marginal** = NIM on the marginal dollar of asset growth (typically driven by mix between high-NIM card additions vs low-NIM securities portfolio expansion) OR efficiency ratio at the marginal revenue dollar (operating leverage). Always a derivation; S5-tagged with explicit derivation path.
+
+**Why both NIM AND efficiency ratio**: NIM captures revenue quality on the interest book; efficiency ratio captures the cost-to-serve. Quoting only NIM misses ROTCE drag from a fat opex base; quoting only efficiency ratio misses asset-yield differentiation. Both are required in the §6.0 taxonomy box for banks.
+
+**G2 scope for banks** (mirrors the industrial G2 scope rule): LTM and forward segment NIM × earning-asset weights reconciliation against consolidated NIM is the canonical check; historical period reconciliation routinely diverges by 5-15bp (vs industrials' 50-150bp) due to mid-year segment-reporting reorganizations and securities portfolio reclassifications, and historical mismatches are forensic-flag-only, not G2-trip. The script `verify_segment_gm.py` treats `gm_taxonomy_type` = `T1_consolidated` / `T2_segment` for NIM rows identically to its existing GP/revenue check; the modeler stores NIM in the `value` field with units `%` and the script's reconciliation arithmetic is dimensionally identical.
+
+**Worked example (JPM Phase E)**:
+
+| Type | Name | Value (range) | Source |
+|---|---|---|---|
+| T1 | Consolidated NIM | 2.55% (LTM Q4'25) | S1: JPM 2025 10-K Item 8 |
+| T1 | Consolidated efficiency ratio | 54.2% (LTM Q4'25) | S1: JPM 2025 10-K Item 8 |
+| T2 | CCB segment NIM | 3.85% (LTM) | S1: JPM 2025 10-K Segment Note |
+| T2 | CIB segment NIM | 1.75% (LTM) | S1: JPM 2025 10-K Segment Note |
+| T2 | AWM segment NIM | n/a — fee-based; report efficiency ratio 70% instead | S3: JPM IR supplement |
+| T3 | Card revolving NIM | 10.2% | S3: JPM 2025 Q3 call + S5: FDIC card peer data |
+| T4 | FY27E modeled consolidated NIM | 2.55% base / 2.75% bull / 2.30% bear | self-modeled forward under Fed path scenarios |
+| T5 | Marginal NIM on card book growth | 9-11% (vs 2.55% blended) | derivation: incremental card balance NIM less COE allocation |
+
+The §6.0 GM taxonomy box header for banks reads "**Margin taxonomy — NIM + efficiency ratio** (T1-T5 per D24 banks adaptation)" instead of "GM taxonomy".
+
+**Other no-COGS sectors**: D24 is the first sector adaptation codified. REITs (P/AFFO, NOI margin), insurers (combined ratio = (loss ratio + expense ratio)), asset managers (operating margin on AUM × fee rate), BDCs (NII margin), MLPs / pipelines (EBITDA margin with maintenance capex separation) will need their own adaptations if those sectors surface in calibration. Each adaptation is a sector-specific paragraph in this file; the underlying T1-T5 taxonomy + G2 reconciliation scope rules are invariant.
+
 ## US-specific addition: non-GAAP vs GAAP parallel discipline
 
 Most US companies report **GAAP GM** (as required by Reg G + Item 10(e)) and **non-GAAP GM** (excludes SBC, acquired intangible amortization, restructuring charges, etc.) **separately**. Both belong in the GM taxonomy box as distinct T1 entries, tagged "GAAP" or "non-GAAP" explicitly.

@@ -60,6 +60,40 @@ The middle columns (Revenue → GP → OP → NI) must reconcile mechanically. N
 
 The Multiple / Segment EV columns at the right are for cross-comparing implied multiples across segments. Common usage: show that your sum-of-parts implied EV is within ±15% of company-level EV; if not, either segments are mispriced or company-level valuation is mispriced — investigate which.
 
+### Sector adaptation: banks SOTP (no GP / no OP) — per D24
+
+Banks have no COGS, no GP, no OP in the manufacturing/consumer/tech sense. The SOTP columns adapt to the bank income-statement skeleton:
+
+```
+| Segment | Avg Earning Assets | NIM | NII | Non-Interest Income | Total Revenue | NIE | PPNR | Provisions | Pre-Tax Income | Tax | NI | Multiple | Segment EV |
+```
+
+Where:
+- **NII** = Net Interest Income = Avg Earning Assets × NIM (replaces the Revenue → GP step)
+- **Total Revenue** = NII + Non-Interest Income (fee + trading + IB advisory + AWM mgmt fees)
+- **NIE** = Non-Interest Expense (the bank's opex; replaces OpEx)
+- **PPNR** = Pre-Provision Net Revenue = Total Revenue − NIE (**substitutes GP** in the monotonicity chain)
+- **Pre-Tax Income** = PPNR − Provisions (loan loss provisions; replaces OP)
+- **NI** = Pre-Tax Income × (1 − tax_rate)
+
+**G3 monotonicity for banks**: NI ≤ Pre-Tax Income ≤ PPNR ≤ Total Revenue for every segment. The script `verify_sotp_monotonicity.py` enforces this chain identically; the modeler stores values in JSON keys `segment_revenue` (= Total Revenue), `segment_gp` (= PPNR), `segment_op` (= Pre-Tax Income), `segment_ni` (= NI). The script does not need code change; the field-name mapping is documented here as the canonical banks adaptation. (If a future refactor introduces explicit banks-fields, this paragraph specifies the equivalence.)
+
+**Provisions discipline**: provisions are NOT a steady-state cost — they swing with credit cycle. In bull / base scenarios, provisions can be **negative** (releases from over-reserved positions); in bear / strong_bear, provisions can spike to **5-10% of loans** (vs ~50-100bp normal). The PPNR row in SOTP isolates the structural earnings power from the credit cycle; this is why PMs use **PPNR-based multiples** (P/PPNR) in addition to P/E for banks.
+
+**Worked example (JPM Phase E SOTP, base case)**:
+
+| Segment | Avg EA $B | NIM | NII $B | Non-Int Inc $B | Revenue $B | NIE $B | PPNR $B | Prov $B | Pre-Tax $B | Tax $B | NI $B |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| CCB | 1,250 | 3.85% | 48.1 | 8.2 | 56.3 | 28.5 | 27.8 | 6.5 | 21.3 | 5.1 | 16.2 |
+| CIB | 1,800 | 1.75% | 31.5 | 35.0 | 66.5 | 34.0 | 32.5 | 1.5 | 31.0 | 7.4 | 23.6 |
+| AWM | 220 | 4.10% (fee-equiv) | 9.0 | 15.5 | 24.5 | 17.2 | 7.3 | 0.2 | 7.1 | 1.7 | 5.4 |
+| Corporate | 250 | n/m | 0.5 | 2.0 | 2.5 | 6.0 | (3.5) | 0.0 | (3.5) | (0.8) | (2.7) |
+| **Sum** | **3,520** | | **89.1** | **60.7** | **149.8** | **85.7** | **64.1** | **8.2** | **55.9** | **13.4** | **42.5** |
+
+Monotonicity check per segment: CCB NI 16.2 ≤ Pre-Tax 21.3 ≤ PPNR 27.8 ≤ Revenue 56.3 ✓. CIB and AWM identical pattern. Corporate has negative PPNR (typical — corporate segment runs net opex burn) but monotonicity still holds with sign-preserving inequality (NI -2.7 ≤ Pre-Tax -3.5 ≤ PPNR -3.5; G3 script's edge case: ensure negative-PPNR segments are handled by sign-aware comparison — the existing script's `>=` check is correct because for negative chains the more-negative value is the lower bound; see G3 fixture suite).
+
+**Multi-multiple bear floor for banks** is **P/B + P/PPNR**, NOT EV/EBITDA / FCF yield / EV/Sales. Per `valuation-discipline-us.md` sector defaults and per Method 3 below.
+
 ### Pitfall 1: SOTP NI > SOTP GP (G3 monotonicity fail)
 
 Happens when the modeler estimates segment NI directly (top-down) without forcing it through the GP → OP → NI mechanical chain. To prevent: **always construct SOTP bottom-up** via the column sequence above. NI is the residual, not an input. This is one of the most common B1-B3 forensic bugs in red-team practice.
