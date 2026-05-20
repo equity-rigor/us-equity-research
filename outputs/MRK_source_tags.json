@@ -1,0 +1,394 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "MRK",
+  "as_of_date": "2026-05-19",
+  "model_cutoff_date": "2025-12-31",
+  "all_citations": [
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "Merck & Co., Inc. FY2025 10-K Item 7 MD&A (fiscal year ending 2025-12-31); total revenue $65,011M; Pharmaceutical $58,142M; Animal Health $6,354M; GAAP GM 74.8%; GAAP R&D $15,789M",
+      "date": "2026-02-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000310158/000031015826000063/mrk-20251231.htm",
+      "verified": true,
+      "freshness_days": 82,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "Merck FY2025 10-K Item 7 product disclosure: Keytruda $31,680M; Welireg $716M; Capvaxive $759M; Winrevair $1,400M; Januvia/Janumet $2,500M; Gardasil $5,200M",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "Merck FY2025 10-K Item 1A Risk Factors — Keytruda US loss-of-exclusivity language and biosimilar entry timing 2028",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "Merck FY2025 10-K Note on income taxes — Section 174 R&D capitalization (Tax Cuts and Jobs Act amendment; foreign R&D 15-year amortization; partial domestic restoration under 2025 OBBBA)",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "Merck FY2025 10-K segment footnote — Pharmaceutical vs Animal Health segment profit reconciliation; FY25 Animal Health +8% YoY ex-FX",
+      "date": "2026-02-26",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "Merck Q4 2025 earnings 8-K press release; Q4 revenue $16.4B; Keytruda Q4 $8.4B; Welireg Q4 $220M (+37% YoY); FY26 guidance $65.5-67.0B / non-GAAP EPS $5.00-5.15 (includes ~$3.65 Cidara charge)",
+      "date": "2026-02-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000310158/000110465925008863/tm255059d1_ex99-1.htm",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "Merck Q1 2026 earnings 8-K press release 2026-04-30; Q1 revenue $16.3B (+5%); Keytruda Q1 $8.03B (+12%); Welireg $199M (+43%); Capvaxive $142M (+31%); Winrevair $525M; subQ Keytruda Qlex $128M; FY26 guidance raised to $65.8-67.0B / $5.04-5.16 EPS",
+      "date": "2026-04-30",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "Merck 8-K 2025-09-19 announcing FDA approval of Keytruda Qlex (subcutaneous pembrolizumab + berahyaluronidase alfa-pmph) across solid tumor indications",
+      "date": "2025-09-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "Merck 8-K 2025-10-07 completion of Verona Pharma acquisition ($10B; Ohtuvayre/ensifentrine COPD asset)",
+      "date": "2025-10-07",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "Merck 8-K Q1 2026 Cidara Therapeutics acquisition closing — ~$9B charge / -$3.62 per share GAAP impact",
+      "date": "2026-04-30",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "DEF 14A",
+      "ref": "Merck 2026 proxy DEF 14A (management compensation + beneficial ownership)",
+      "date": "2026-04-08",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "Merck Q4 2025 earnings call 2026-02-03 — CFO commentary on Keytruda peak ~$35B by 2028, subQ Qlex US launch, $70B+ non-risk-adjusted pipeline opportunity through mid-2030s",
+      "date": "2026-02-03",
+      "verified": true,
+      "is_anchor_eligible": false,
+      "promotion_path": "Pipeline NPV granularity moves to S2 only as individual asset BLA/8-K approvals land"
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "Merck Q1 2026 earnings call 2026-04-30 — management commentary on Keytruda Qlex conversion trajectory, Welireg international launch, Cidara strategic rationale; raised FY26 guide",
+      "date": "2026-04-30",
+      "verified": true,
+      "is_anchor_eligible": false,
+      "promotion_path": "Merck Q1 FY26 10-Q expected 2026-05-08 (post-print filing)"
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "Merck investor day commentary on $50B+ pipeline NPV (risk-adjusted) / $70B+ non-risk-adjusted — 20 potential new blockbusters in development",
+      "date": "2025-04-15",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S2",
+      "source_type": "Federal Register",
+      "ref": "CMS Medicare Drug Price Negotiation Program fact sheet — Januvia 2026 maximum fair price $113/30-day supply (-79% vs 2023 list); effective 2026-01-01",
+      "date": "2024-08-15",
+      "url": "https://www.cms.gov/files/document/fact-sheet-negotiated-prices-initial-price-applicability-year-2026.pdf",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "FDA approval",
+      "ref": "FDA approval of pembrolizumab + berahyaluronidase alfa-pmph subcutaneous (Keytruda Qlex) 2025-09-19 across solid tumor indications",
+      "date": "2025-09-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "FDA priority review",
+      "ref": "FDA Priority Review accepted for ifinatamab deruxtecan (I-DXd, Daiichi Sankyo / Merck) BLA for ES-SCLC; PDUFA date 2026-10-10",
+      "date": "2026-03-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Visible Alpha consensus",
+      "ref": "Visible Alpha MRK FY26E non-GAAP EPS consensus median $5.10 (ex-Cidara $8.75 normalized) range $4.85-5.30",
+      "date": "2026-05-15",
+      "verified": true,
+      "freshness_days": 4,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Visible Alpha consensus",
+      "ref": "Visible Alpha MRK FY27E non-GAAP EPS consensus median $9.25 (normalized post-Cidara) range $8.80-9.70",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "FactSet consensus",
+      "ref": "FactSet MRK analyst PT consensus median $108 n=27; buy_pct 52%; range $80-145",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Yahoo Finance consensus",
+      "ref": "Yahoo Finance MRK spot $112.56 2026-05-19; 5y P/E range current 15.1x forward / trailing 14.5x / 5y median 13.8x / FY24 trough 11.2x",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "FactSet beta calc",
+      "ref": "FactSet MRK 30-day ADV $1,020M (9.05M shares × $112.56); beta 0.34 (5y monthly vs S&P 500)",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "FRED",
+      "ref": "FRED DGS10 10-year UST yield 4.42% as of 2026-05-19",
+      "date": "2026-05-19",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Damodaran",
+      "ref": "Damodaran US implied equity risk premium 5.5% (May 2026 update); pharma industry beta median 0.78",
+      "date": "2026-05-01",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S5",
+      "source_type": "DrugPatentWatch",
+      "ref": "DrugPatentWatch Keytruda composition-of-matter patent expiry 2028; BPCIA reference-product exclusivity through September 2026; biosimilar approvals 2027-2028 expected",
+      "date": "2025-12-20",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S5",
+      "source_type": "EvaluatePharma",
+      "ref": "EvaluatePharma pembrolizumab biosimilar competitive landscape — top developers include Amgen, Pfizer/Hospira, Celltrion, Henlius/Organon; FDA approvals expected 2027-2028 with launches H2 2028 onward",
+      "date": "2026-03-10",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S5",
+      "source_type": "EvaluatePharma",
+      "ref": "EvaluatePharma 2030 pembrolizumab base-case revenue forecast $18B (vs 2028 peak ~$35B) reflecting ~50% LOE revenue cliff over 24 months post-LOE",
+      "date": "2026-03-10",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S5",
+      "source_type": "GlobalData",
+      "ref": "GlobalData pharma forward P/E peer set median 13.5x (PFE 8.9x; BMY 9.5x; ABBV 14.1x; JNJ 21.1x; LLY 27.0x; MRK 13.0x) FactSet 2026-05-15",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S2",
+      "source_type": "BIS Entity List",
+      "ref": "BIS Entity List query MRK 2026-05-19, no listing for issuer entity",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "OFAC SDN",
+      "ref": "OFAC SDN list query MRK 2026-05-19, no listing",
+      "date": "2026-05-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "Federal Register",
+      "ref": "Federal Register CMS final guidance for IPAY 2027 Medicare drug price negotiation (announcing 15 additional drugs; potential Keytruda inclusion as Part B nominal candidate cycle 2027/2028)",
+      "date": "2026-01-31",
+      "verified": true,
+      "is_anchor_eligible": true
+    }
+  ],
+  "top_anchors": [
+    {
+      "anchor_id": "A1",
+      "claim": "Merck FY2025 Keytruda revenue",
+      "value": 31680,
+      "unit": "$M",
+      "citation": {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "Merck FY2025 10-K Item 7 MD&A product disclosure: Keytruda $31,680M FY25 (+7% YoY vs $29,482M FY24)",
+        "date": "2026-02-26",
+        "verified": true,
+        "is_anchor_eligible": true,
+        "url": "https://www.sec.gov/Archives/edgar/data/0000310158/000031015826000063/mrk-20251231.htm"
+      },
+      "drives_scenarios": [
+        "strong_bear",
+        "bear",
+        "base",
+        "bull",
+        "strong_bull"
+      ],
+      "sensitivity_pct": 18.0
+    },
+    {
+      "anchor_id": "A2",
+      "claim": "Merck Q1 2026 Keytruda revenue + growth rate (FY26 trajectory anchor)",
+      "value": 8030,
+      "unit": "$M",
+      "citation": {
+        "s_level": "S2",
+        "source_type": "8-K",
+        "ref": "Merck Q1 2026 earnings 8-K press release 2026-04-30 — Keytruda Q1 2026 $8.03B (+12% YoY), beating consensus $7.78B; subQ Qlex contribution $128M",
+        "date": "2026-04-30",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": [
+        "bear",
+        "base",
+        "bull"
+      ],
+      "sensitivity_pct": 10.0
+    },
+    {
+      "anchor_id": "A3",
+      "claim": "Keytruda US loss-of-exclusivity expected 2028 (biosimilar entry; composition-of-matter patent expiry)",
+      "value": "2028 LOE",
+      "unit": "date",
+      "citation": {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "Merck Q4 2025 earnings call 2026-02-03 management commentary on Keytruda peak ~$35B by 2028; S1 10-K Item 1A Risk Factors corroborates LOE language; S5 EvaluatePharma forecasts $18B 2030 base case",
+        "date": "2026-02-03",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "S3->S2 as actual biosimilar BLA/approval timing prints in 2027-2028"
+      },
+      "drives_scenarios": [
+        "strong_bear",
+        "bear",
+        "base",
+        "bull",
+        "strong_bull"
+      ],
+      "sensitivity_pct": 25.0
+    },
+    {
+      "anchor_id": "A4",
+      "claim": "Pipeline-replacement opportunity (non-risk-adjusted; management framing) over mid-2030s",
+      "value": 70000,
+      "unit": "$M",
+      "citation": {
+        "s_level": "S3",
+        "source_type": "Earnings call transcript",
+        "ref": "Merck investor day + Q4 2025 call commentary — 20 potential new blockbusters; $70B+ non-risk-adjusted commercial opportunity through mid-2030s (up from $50B prior view)",
+        "date": "2025-04-15",
+        "verified": true,
+        "is_anchor_eligible": false,
+        "promotion_path": "Asset-level probabilistic NPV builds risk-adjusted to ~$25-35B by 2030; promotion to S2 as Phase 3 readouts land"
+      },
+      "drives_scenarios": [
+        "bull",
+        "strong_bull",
+        "base"
+      ],
+      "sensitivity_pct": 15.0
+    },
+    {
+      "anchor_id": "A5",
+      "claim": "subQ Keytruda Qlex Q1 2026 initial launch revenue",
+      "value": 128,
+      "unit": "$M",
+      "citation": {
+        "s_level": "S2",
+        "source_type": "8-K",
+        "ref": "Merck Q1 2026 8-K press release — Keytruda Qlex contribution $128M in Q1 2026 (first full quarter post FDA approval 2025-09-19); supports LOE defense thesis",
+        "date": "2026-04-30",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": [
+        "bear",
+        "base",
+        "bull"
+      ],
+      "sensitivity_pct": 8.0
+    },
+    {
+      "anchor_id": "A6",
+      "claim": "Januvia IRA Medicare maximum fair price effective 2026-01-01 (-79% vs 2023 list)",
+      "value": -79.0,
+      "unit": "%",
+      "citation": {
+        "s_level": "S2",
+        "source_type": "Federal Register",
+        "ref": "CMS Medicare Drug Price Negotiation Program — Januvia 2026 MFP $113/30-day supply; -79% from $527 2023 list; effective 2026-01-01 (S2 federal-register; corroborated by Merck Q4 2025 8-K disclosure)",
+        "date": "2024-08-15",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": [
+        "strong_bear",
+        "bear"
+      ],
+      "sensitivity_pct": 4.0
+    }
+  ],
+  "headline_conditionality": "source_conditional",
+  "pending_assumptions": []
+}

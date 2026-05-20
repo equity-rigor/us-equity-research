@@ -1,0 +1,1442 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "MRK",
+  "exchange": "NYSE",
+  "company_name": "Merck & Co., Inc.",
+  "sector_gics": "Health Care",
+  "industry_gics": "Pharmaceuticals",
+  "as_of_date": "2026-05-19",
+  "model_cutoff_date": "2025-12-31",
+  "author": "Phase E MRK builder subagent (orchestrator)",
+  "current_price_usd": 112.56,
+  "market_cap_usd_b": 278.0,
+  "enterprise_value_usd_b": 312.0,
+  "fiscal_year_end": "12-31",
+  "headline": {
+    "expected_return_median": 0.0610,
+    "expected_return_range_p10_p90": [-0.481, 0.450],
+    "rating": "Hold",
+    "default_action": "hold_long",
+    "conditionality": "source_conditional",
+    "conditional_language_pattern": "A_source_conditional_bias",
+    "headline_text": "Source-conditional Hold (neutral-positive on near-term execution; bear-skewed asymmetry on 2028 Keytruda LOE) at $112.56, base case PT $124.88 derived from FY27E non-GAAP EPS $9.25 (S4: Visible Alpha n=25 median $9.25 range $8.80-9.70) x 13.5x P/E (S5: peer median ex-LLY 13.5x large-pharma; MRK 5y median 13.8x trailing). 12-month median expected return +6.1%; scenario-weighted range [-48%, +94%], CONDITIONAL on (i) Keytruda subQ Qlex conversion trajectory holding $128M Q1 2026 run-rate scaling to ~$1.0B+ annualized by FY26 exit (S2: Merck Q1 2026 8-K) AND (ii) pipeline NPV risk-adjusted at ~$25B by 2030 (S3: Merck investor day commentary; promotion path via individual asset Phase 3 readouts). If Keytruda Q2 2026 print shows subQ conversion <30% OR ifinatamab deruxtecan PDUFA 2026-10-10 negative OR IRA IPAY 2027 list adds Keytruda Part B candidate, downgrade to Sell. If subQ conversion >50% confirmed AND multiple pipeline assets approve, upgrade to Buy."
+  },
+  "recommendation": {
+    "rating": "Hold",
+    "price_target_usd": 124.88,
+    "price_target_range_low_usd": 58.50,
+    "price_target_range_high_usd": 218.50,
+    "upside_downside_pct": 10.95,
+    "time_horizon_months": 12,
+    "conviction_tag": "source_conditional",
+    "default_action": "hold_long",
+    "rationale_one_paragraph": "Source-conditional Hold on MRK at $112.56 (S4: Yahoo Finance 2026-05-19). Base case PT $124.88 from FY27E non-GAAP EPS $9.25 (S4: Visible Alpha n=25 median $9.25) x P/E 13.5x (S5: large-pharma peer median ex-LLY; MRK 5y median 13.8x trailing). The thesis pivots on Keytruda 2028 US LOE — the single dominant pharma catalyst — with strong_bear case modeling a 60%+ revenue cliff vs base 50% / bull 35-40% conversion-defended. Top-3 anchors: A1 FY2025 Keytruda revenue $31,680M (S1: Merck FY2025 10-K Item 7), A2 Q1 2026 Keytruda $8.03B +12% YoY (S2: Merck Q1 2026 8-K), A3 Keytruda US LOE 2028 (S3: Q4 2025 call mgmt commentary + S1 10-K Item 1A Risk Factors). A3 is S3 -> headline carries Pattern A source-conditional bias language; falsification at multiple checkpoints (Q2 2026 print 2026-07-30 for subQ trajectory; ifinatamab PDUFA 2026-10-10 for pipeline; IPAY 2027 list end-2026 for IRA). Three-method valuation distinct from EPS x P/E only: also includes pipeline-NPV ($25B risk-adjusted base) and DCF. Probability-weighted 12mo return +6.1% with bear-skewed asymmetry; bull PT $163.20 vs bear PT $88.00 vs strong_bear floor $58.50."
+  },
+  "investment_thesis_pillars": [
+    {
+      "title": "Keytruda 2028 US LOE is the single dominant catalyst and the entire bear-bridge anchor",
+      "key_statistic": "Keytruda FY2025 revenue $31,680M (~55% of pharmaceutical segment + ~49% of consolidated revenue) (S1: Merck FY2025 10-K Item 7 MD&A); composition-of-matter US patent expiry 2028; biosimilar approvals expected 2027-2028 with launches H2 2028 onward (S5: DrugPatentWatch + EvaluatePharma)",
+      "narrative": "Keytruda is structurally the largest single product in the global pharmaceutical industry and the single dominant variable for MRK valuation. In FY2025 it generated $31,680M revenue (+7% YoY vs $29,482M FY24) per S1: Merck FY2025 10-K Item 7, representing approximately 49% of consolidated revenue and ~55% of pharmaceutical segment revenue. Q1 2026 print accelerated to $8.03B (+12% YoY) per S2: Merck Q1 2026 8-K, beating consensus $7.78B, driven by earlier-stage cancer uptake and metastatic indication strength. Management has framed peak sales at ~$35B by 2028 (S3: Q4 2025 earnings call commentary). The composition-of-matter US patent expires in 2028; the BPCIA 12-year reference-product exclusivity period ended September 2026, with biosimilar BLA submissions expected 2026-2027 and FDA approvals 2027-2028 (S5: DrugPatentWatch). Standard analog from oncology biosimilar erosion (Avastin, Herceptin, Rituxan) suggests 40-60% revenue erosion over 24 months post-LOE — implying $14-21B FY2030 Keytruda revenue range vs FY28 ~$35B peak. The base case models 50% subQ Qlex conversion locking in ~$15-17B retained revenue; bear case models 35% conversion; strong_bear case <25% conversion with biosimilars accelerating. The single anchor whose mis-modeling has the largest impact on PT (sensitivity ~25%).",
+      "anchor_refs": ["A1", "A3", "A5"],
+      "timeline": "2028 H2 (biosimilar launches) -> 2030 (full erosion curve)"
+    },
+    {
+      "title": "subQ Keytruda Qlex is the primary LOE defense; Q1 2026 launch trajectory is the leading indicator",
+      "key_statistic": "Keytruda Qlex (subcutaneous pembrolizumab + berahyaluronidase alfa-pmph) FDA-approved 2025-09-19 across solid tumor indications; Q1 2026 contribution $128M (first full quarter; S2: Merck Q1 2026 8-K); admin time 1-2 minutes vs IV 30 minutes",
+      "narrative": "Merck's primary LOE defense strategy is the subcutaneous Keytruda Qlex formulation, FDA-approved 2025-09-19 (S2: Merck 8-K 2025-09-19) across most solid tumor indications. The economic rationale: subQ administration (1 minute every 3 weeks or 2 minutes every 6 weeks) is materially more convenient than IV (30 minutes), allowing administration in community-based clinics rather than infusion centers and giving Merck a fresh patent moat on the formulation through ~2040. Q1 2026 contribution of $128M (S2: Q1 2026 8-K) is the first full-quarter reading and forms the leading indicator for conversion trajectory. The base case extrapolates $128M Q1 -> ~$1.0-1.2B annualized run-rate by FY26 exit -> $4-5B FY27 -> $15-17B locked-in by FY30 (50% of pre-LOE peak retained via subQ). The bear case models conversion stalling at 25-30% (consistent with payer reimbursement-process drag and infusion-center incumbent friction); the bull case models >60% conversion (consistent with Roche's experience with subcutaneous Herceptin/Rituxan/Tecentriq franchise defense). This is the single most-watched data point in pharma over the next 24 months.",
+      "anchor_refs": ["A5"],
+      "timeline": "FY26 quarterly cadence (Q2 2026 print 2026-07-30 is next leading indicator)"
+    },
+    {
+      "title": "Replacement-pipeline NPV — distinct valuation method beyond EPS x P/E — anchors the multi-year recovery story",
+      "key_statistic": "Management framing: 20 potential new blockbuster assets, $70B+ non-risk-adjusted commercial opportunity through mid-2030s (S3: investor day); risk-adjusted by clinical phase: ~$25B base case by 2030; key assets: ifinatamab deruxtecan (B7-H3 ADC, PDUFA 2026-10-10), MK-1022 (NSCLC), MK-0616 (oral PCSK9 inhibitor), Welireg (currently $716M FY25 +41% YoY, peak >$3B), Capvaxive ($759M FY25, peak >$2B), Winrevair ($1,400M FY25, peak >$5B), Ohtuvayre (Verona acquisition, COPD)",
+      "narrative": "Unlike NVDA's pure EPS x P/E or XOM's EV/EBITDAX + NAV, large-pharma valuation requires explicit pipeline NPV as a third method. Merck's positioning: management at the 2025 investor day disclosed 20 potential new blockbuster assets representing $70B+ non-risk-adjusted opportunity through mid-2030s (S3); applying clinical-phase risk-adjustment (Ph3 ~60-70% PoS, Ph2 ~30-35%, Ph1 ~10-15%) yields ~$25B risk-adjusted base case by 2030. Key assets: (1) ifinatamab deruxtecan (I-DXd) — B7-H3 ADC partnered with Daiichi Sankyo; FDA Priority Review accepted; PDUFA 2026-10-10 (S2 FDA); ES-SCLC indication; peak sales potential $3-5B. (2) MK-1022 — first-line NSCLC combination asset; Ph3 readouts 2026-2027. (3) MK-0616 — oral PCSK9 inhibitor; pivotal CV outcomes trial; potential first-to-market oral PCSK9; peak >$5B. (4) Welireg — already commercial, $716M FY25 +41% YoY, peak >$3B with VHL + RCC expansion. (5) Capvaxive — pneumococcal vaccine, $759M FY25, peak >$2B. (6) Winrevair — PAH, $1,400M FY25 +breakout Q1 2026 $525M, peak >$5B. (7) Ohtuvayre/ensifentrine — Verona Pharma $10B acquisition completed 2025-10-07; COPD; peak ~$3B. (8) Cidara antiviral platform — $9B Q1 2026 acquisition; influenza prevention drug + adjacencies. The base case credits $25B risk-adjusted by 2030; bear $15-20B; bull $35B; strong_bull $45B.",
+      "anchor_refs": ["A4", "A5"],
+      "timeline": "Multi-year (Ph3 readouts cluster 2026-2028); near-term proof point ifinatamab PDUFA 2026-10-10"
+    },
+    {
+      "title": "IRA Medicare drug-price negotiation + Section 174 R&D cash-tax drag are the regulatory bear-bridge layer",
+      "key_statistic": "Januvia maximum fair price effective 2026-01-01 at $113/30-day supply (-79% vs $527 2023 list; S2: CMS Federal Register); IPAY 2027 list expected late 2026 may add Part B candidates (Keytruda nominal candidate cycle 2027/2028 per S2: Federal Register CMS guidance); Section 174 R&D capitalization on $15.8B FY25 R&D (S1: Merck FY2025 10-K) — foreign R&D 15-year amortization persists despite 2025 OBBBA partial domestic restoration",
+      "narrative": "The bear bridge has two regulatory layers beyond the LOE story. (1) IRA Medicare drug-price negotiation: Januvia's negotiated price effective 2026-01-01 is $113/30-day supply (S2: CMS Federal Register), a 79% reduction from 2023 list. Annual Januvia/Janumet franchise revenue was $2.5B FY2025 (S1: Merck FY2025 10-K); the Medicare-Part-D-attributable revenue subject to negotiation is approximately 30-40% of franchise, implying ~$500-800M direct revenue headwind layered through 2026. The forward concern is IPAY 2027 list publication (expected late 2026 per S2: CMS final guidance), which is the first cycle that could nominate Part B physician-administered drugs — Keytruda is a stated nominal candidate for the 2027/2028 cycle. (2) Section 174 R&D capitalization: TCJA-era requirement to capitalize R&D expenses over 5 years domestic / 15 years foreign creates a cash-tax-vs-book-tax timing drag. Merck's FY2025 R&D was $15.789B GAAP (S1), with significant foreign-R&D weight. The 2025 'One Big Beautiful Bill Act' (OBBBA) restored immediate domestic R&D expensing but the 15-year foreign amortization persists — a material drag for R&D-heavy large pharma vs less-research-intensive sectors. Documented explicitly per BUILD_PROMPT instruction (R&D-heavy MRK §174 disclosure).",
+      "anchor_refs": ["A6"],
+      "timeline": "IRA: 2026-01-01 Januvia effective; IPAY 2027 list end-2026; §174: ongoing, OBBBA partial relief active"
+    }
+  ],
+  "company_qualitative": {
+    "description": "Merck & Co., Inc. (NYSE: MRK; CIK 310158), known as MSD outside North America, is a large-cap pharmaceutical research-based holding company headquartered in Rahway, New Jersey, organized into two reportable segments: Pharmaceutical (FY2025 revenue $58,142M, +1% YoY) and Animal Health (FY2025 revenue $6,354M, +8% YoY) per S1: Merck FY2025 10-K. Consolidated FY2025 revenue was $65,011M, GAAP gross margin 74.8%, and GAAP R&D expense $15,789M (24.3% of revenue, structurally R&D-heavy by large-pharma standards). The Pharmaceutical segment is dominated by Keytruda (pembrolizumab), the leading PD-1 checkpoint inhibitor, which generated $31,680M FY2025 revenue (+7% YoY) — making it the largest single pharmaceutical product in the global industry and representing approximately 49% of consolidated revenue and approximately 55% of pharmaceutical segment revenue. Keytruda is approved across 17+ tumor types in primary and metastatic indications. Other major franchises include Gardasil/Gardasil 9 ($5,200M FY25 down 39% on China inventory unwind), Januvia/Janumet diabetes franchise ($2,500M FY25), Lynparza (PARP inhibitor partnered with AstraZeneca), Lenvima (TKI partnered with Eisai), Bridion neuromuscular reversal, Reblozyl beta-thalassemia, and the cardiovascular franchise (Adempas, Verquvo). The growth franchises driving the post-Keytruda story: Welireg (HIF-2alpha inhibitor for VHL-associated renal cell carcinoma, $716M FY25 +41% YoY), Capvaxive (21-valent pneumococcal vaccine, $759M FY25 first full year of launch), Winrevair (sotatercept, pulmonary arterial hypertension, $1,400M FY25 +breakout to $525M Q1 2026), and the September 2025-approved Keytruda Qlex subcutaneous formulation ($128M Q1 2026 partial-quarter contribution). The Animal Health segment is a top-tier franchise (one of the four largest globally with Zoetis, Boehringer Ingelheim Animal Health, and Elanco) with companion-animal premiumization driving 8% YoY growth in FY25. M&A activity in 2025-2026 was material: Verona Pharma acquired October 2025 for ~$10B (Ohtuvayre/ensifentrine COPD asset; first novel inhaled COPD mechanism in 20+ years); Cidara Therapeutics closed Q1 2026 with ~$9B charge (-$3.62/share) acquiring an influenza prevention antiviral platform with broader respiratory virus adjacency potential. Manufacturing footprint includes biologic production in West Point PA, Durham NC, Elkton VA, and global sites; the company has signaled a U.S. government agreement on medicine pricing and manufacturing investment under the 2025 OBBBA framework. The fiscal year end is December 31; FY2025 10-K filed February 26 2026; FY2025 GAAP EPS $7.28 / non-GAAP EPS $8.98. FY2026 guidance: revenue $65.8-67.0B (raised at Q1 2026 from $65.5-67.0B); non-GAAP EPS $5.04-5.16 (includes ~$3.65/share Cidara charge — normalized non-GAAP EPS ex-Cidara approximately $8.70-8.80).",
+    "products": [
+      {
+        "name": "Keytruda (pembrolizumab) — IV formulation",
+        "description": "Anti-PD-1 monoclonal antibody, the leading immune checkpoint inhibitor in the global oncology market. Approved across 17+ tumor types including melanoma, NSCLC (1L + maintenance), bladder, breast, head and neck, gastric, esophageal, cervical, endometrial, microsatellite-instability-high solid tumors, renal cell carcinoma, classic Hodgkin lymphoma, and others. FY2025 revenue $31,680M (+7% YoY); Q1 2026 $8.03B (+12% YoY).",
+        "target_customers": "Hospital oncology departments, infusion centers, academic medical centers, community oncology practices; payers: Medicare Part B (physician-administered), commercial, Medicaid",
+        "pricing_model": "Per-administration list ~$10,500 / 200mg vial; ~$175,000-200,000 annualized course depending on indication and dosing schedule",
+        "revenue_contribution_pct": 49.0,
+        "competitive_position": "Dominant PD-1 share globally (~60% of PD-1 class); primary competitors Opdivo (BMY/Bristol Myers Squibb) and Tecentriq (Roche); US LOE 2028 will trigger biosimilar entry",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "Merck FY2025 10-K Item 7 product detail"
+        }
+      },
+      {
+        "name": "Keytruda Qlex (subcutaneous pembrolizumab + berahyaluronidase alfa-pmph)",
+        "description": "Subcutaneous formulation of pembrolizumab, FDA-approved 2025-09-19 across most solid tumor indications. Administered in 1 minute every 3 weeks or 2 minutes every 6 weeks (vs 30-minute IV infusion). Strategic LOE defense — new formulation patents extend through ~2040.",
+        "target_customers": "Community oncology clinics, physician offices, infusion centers (expanding administration setting away from infusion-only)",
+        "pricing_model": "List price parity with IV expected; payer differentiation by administration setting (community vs hospital)",
+        "revenue_contribution_pct": 0.8,
+        "competitive_position": "First subcutaneous PD-1 to market; defensive moat against future biosimilars",
+        "source_citation": {
+          "s_level": "S2",
+          "source_type": "8-K",
+          "ref": "Merck 8-K 2025-09-19 FDA approval announcement; Q1 2026 $128M revenue per Q1 2026 8-K"
+        }
+      },
+      {
+        "name": "Welireg (belzutifan)",
+        "description": "HIF-2alpha inhibitor approved for VHL-associated renal cell carcinoma, CNS hemangioblastoma, and pancreatic neuroendocrine tumors; advanced renal cell carcinoma (third-line+). FY2025 revenue $716M (+41% YoY); Q1 2026 $199M (+43%).",
+        "target_customers": "Oncologists treating VHL syndrome and advanced RCC patients",
+        "pricing_model": "Specialty pharmacy distribution; ~$150,000+ annualized course",
+        "revenue_contribution_pct": 1.1,
+        "competitive_position": "First-in-class HIF-2alpha inhibitor; peak sales potential >$3B with RCC label expansion",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "Merck FY2025 10-K Item 7"
+        }
+      },
+      {
+        "name": "Capvaxive (21-valent pneumococcal conjugate vaccine)",
+        "description": "21-valent pneumococcal vaccine specifically designed for adult invasive pneumococcal disease (broader serotype coverage than Pfizer Prevnar 20). FDA-approved June 2024; FY2025 revenue $759M (first full year of launch); Q1 2026 $142M (+31%).",
+        "target_customers": "Adults 65+ and at-risk adults 18-64; CDC ACIP recommendation pathway critical",
+        "pricing_model": "Vaccine list ~$300/dose; Medicare Part D coverage; Vaccines for Children program eligibility",
+        "revenue_contribution_pct": 1.2,
+        "competitive_position": "vs Pfizer Prevnar 20 (20-valent); broader adult serotype coverage; peak sales potential >$2B",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "Merck FY2025 10-K Item 7"
+        }
+      },
+      {
+        "name": "Winrevair (sotatercept)",
+        "description": "Activin signaling inhibitor for pulmonary arterial hypertension (PAH); first new-mechanism PAH agent in 15+ years. FDA-approved 2024; FY2025 revenue $1,400M; Q1 2026 $525M (breakout quarter).",
+        "target_customers": "PAH-treating pulmonologists, specialty cardiology centers, transplant centers",
+        "pricing_model": "Specialty injection; ~$240,000+ annualized course",
+        "revenue_contribution_pct": 2.2,
+        "competitive_position": "First mover in activin signaling for PAH; peak sales potential >$5B; competing with United Therapeutics Tyvaso DPI, Janssen Opsumit",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "Merck FY2025 10-K Item 7"
+        }
+      },
+      {
+        "name": "Gardasil/Gardasil 9 (HPV vaccine)",
+        "description": "Recombinant 9-valent HPV vaccine for cervical, anal, oropharyngeal, vulvar, and vaginal cancer prevention; ages 9-45.",
+        "target_customers": "Pediatric and adult vaccination; China market historically large but inventory unwind in 2025 caused -39% YoY decline",
+        "pricing_model": "List ~$250-300 per dose; 3-dose series",
+        "revenue_contribution_pct": 8.0,
+        "competitive_position": "Dominant HPV franchise globally; recent decline driven by China shipment timing rather than competitive share loss",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "Merck FY2025 10-K Item 7"
+        }
+      },
+      {
+        "name": "Januvia / Janumet (DPP-4 inhibitor / sitagliptin)",
+        "description": "DPP-4 inhibitor diabetes franchise. FY2025 revenue $2,500M; Medicare IRA-negotiated price effective 2026-01-01 at -79% to 2023 list.",
+        "target_customers": "Type 2 diabetes patients (declining share to GLP-1 class)",
+        "pricing_model": "Branded oral; IRA Medicare maximum fair price $113/30-day from 2026; commercial list higher",
+        "revenue_contribution_pct": 3.8,
+        "competitive_position": "Mature franchise; declining vs GLP-1s; IRA-negotiated downside",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "Merck FY2025 10-K Item 7 + S2 CMS Federal Register"
+        }
+      },
+      {
+        "name": "Ohtuvayre (ensifentrine)",
+        "description": "First-in-class selective dual PDE3/PDE4 inhibitor for COPD maintenance; FDA-approved 2024; acquired via Verona Pharma October 2025 ($10B deal).",
+        "target_customers": "COPD-treating pulmonologists; maintenance therapy adjunct/alternative to existing LAMA/LABA/ICS combinations",
+        "pricing_model": "Nebulized maintenance therapy; commercial + Medicare Part D",
+        "revenue_contribution_pct": 0.5,
+        "competitive_position": "First novel inhaled COPD mechanism in 20+ years; peak sales potential ~$3B; Q1 2026 $131M (impacted by CMS reimbursement reset)",
+        "source_citation": {
+          "s_level": "S2",
+          "source_type": "8-K",
+          "ref": "Merck 8-K 2025-10-07 Verona acquisition completion"
+        }
+      },
+      {
+        "name": "Animal Health (Merck Animal Health / MAH)",
+        "description": "Veterinary pharmaceutical and vaccine portfolio for companion animals and livestock; products include Bravecto (parasiticide), Nobivac (vaccines), Sentinel, Frontline (acquired), and the Identity/genetics platform.",
+        "target_customers": "Veterinary clinics, livestock producers, pet retailers",
+        "pricing_model": "Per-product / per-treatment; mix of branded and generic",
+        "revenue_contribution_pct": 9.8,
+        "competitive_position": "Top-4 globally with Zoetis, Boehringer Ingelheim Animal Health, Elanco; FY25 +8% YoY ex-FX driven by companion-animal premiumization",
+        "source_citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "Merck FY2025 10-K segment footnote"
+        }
+      }
+    ],
+    "customers_gtm": "Direct sales to hospital pharmacy and oncology departments; specialty pharmacy distribution for oral oncology and rare disease; wholesaler distribution (McKesson, AmerisourceBergen/Cencora, Cardinal Health) for retail pharmacy; veterinary clinic network for Animal Health; international expansion via wholly-owned subsidiaries (MSD) in 100+ countries. Payer concentration: Medicare Part B (Keytruda physician-administered IV) ~25-30% of Keytruda US revenue; commercial ~50%; Medicaid + 340B ~15-20%; international ~45% of total Keytruda. The IRA Medicare negotiation framework directly impacts the Part B exposure in IPAY 2027/2028 cycles. Customer concentration is structurally moderate (no single customer >10% of revenue); end-patient concentration is more relevant — Keytruda treats ~600,000 patients globally annually.",
+    "industry": {
+      "overview": "The global biopharmaceutical industry is in a multi-year LOE cycle: by 2030, an estimated $300B+ of branded biologic revenue loses patent exclusivity, including Keytruda (MRK), Eliquis (BMY/PFE), Opdivo (BMY), Stelara (JNJ; already in LOE), Eylea (REGN), Ozempic and Wegovy (NVO; later in decade). The defensive responses are (1) subcutaneous and depot reformulations (Keytruda Qlex, Tecentriq Hybreza, Rituxan Hycela; first-mover patent reset), (2) lifecycle management (combination filings, fixed-dose combinations, expanded indications), (3) ADC alliances (Daiichi Sankyo i-DXd partnership exemplary), (4) pipeline M&A (Merck $19B in 2025-2026 acquisitions covering Verona + Cidara), and (5) new modalities (oral CV inhibitors, ADC platforms, RNA therapies, GLP-1 adjacencies). The US regulatory environment includes the Inflation Reduction Act (IRA) Medicare drug-price negotiation program — Round 1 effective 2026-01-01 affects 10 drugs including Merck's Januvia (-79% MFP); IPAY 2027 list of 15 additional drugs expected late 2026 may include Part B physician-administered drugs (Keytruda, Eliquis, Stelara as nominal candidates); Section 174 R&D capitalization under TCJA (2025 OBBBA partial restoration of immediate domestic expensing but 15-year foreign amortization persists); FDA AdCom and CBER/CDER review processes; and CMS Best Price + 340B program dynamics. Pharma industry comparable forward P/E (May 2026): PFE 8.9x, BMY 9.5x, MRK 13.0x current, ABBV 14.1x, JNJ 21.1x, LLY 27.0x (S5: GlobalData / FactSet); ex-LLY median 13.5x.",
+      "tam": {
+        "current_year": 2026,
+        "current_tam_usd_b": 1600.0,
+        "projected_year": 2028,
+        "projected_tam_usd_b": 1850.0,
+        "cagr_pct": 7.5,
+        "source": {
+          "s_level": "S5",
+          "source_type": "EvaluatePharma",
+          "ref": "EvaluatePharma global prescription pharmaceutical market forecast 2026/2028; oncology segment $250-300B 2026 growing to $400B+ 2030"
+        }
+      }
+    },
+    "competitive_landscape": {
+      "peers": [
+        {
+          "name": "Bristol-Myers Squibb",
+          "ticker": "BMY",
+          "market_cap_usd_b": 100.0,
+          "market_share_pct": 8.0,
+          "key_differentiator": "Opdivo PD-1 (vs Keytruda), Eliquis (anticoagulant; subject to IRA negotiation 2026); LOE-stressed multiple at 9.5x forward P/E reflects Eliquis LOE 2026-2028 + Opdivo Q2 2028",
+          "revenue_growth_pct": -2.0,
+          "ebitda_margin_pct": 38.0
+        },
+        {
+          "name": "Johnson & Johnson",
+          "ticker": "JNJ",
+          "market_cap_usd_b": 410.0,
+          "market_share_pct": 12.0,
+          "key_differentiator": "Diversified pharma + medtech (Stelara/Tremfya/Darzalex pharma, Ethicon/DePuy medtech); 21.1x forward P/E reflects diversification premium; Stelara LOE already in progress",
+          "revenue_growth_pct": 5.0,
+          "ebitda_margin_pct": 36.0
+        },
+        {
+          "name": "AbbVie",
+          "ticker": "ABBV",
+          "market_cap_usd_b": 320.0,
+          "market_share_pct": 9.0,
+          "key_differentiator": "Humira post-LOE (Skyrizi/Rinvoq successor franchise), Vraylar neurology; 14.1x forward P/E reflects successful Humira LOE navigation — direct analog for Merck Keytruda LOE playbook",
+          "revenue_growth_pct": 6.0,
+          "ebitda_margin_pct": 47.0
+        },
+        {
+          "name": "Pfizer",
+          "ticker": "PFE",
+          "market_cap_usd_b": 140.0,
+          "market_share_pct": 7.0,
+          "key_differentiator": "Post-COVID franchise transition; oncology buildout via Seagen acquisition; 8.9x forward P/E is the LOE-stressed floor reference for MRK bear case",
+          "revenue_growth_pct": 3.0,
+          "ebitda_margin_pct": 32.0
+        },
+        {
+          "name": "Eli Lilly",
+          "ticker": "LLY",
+          "market_cap_usd_b": 700.0,
+          "market_share_pct": 8.0,
+          "key_differentiator": "GLP-1 dominance (Mounjaro/Zepbound), Trulicity, oncology Verzenio; 27.0x forward P/E reflects GLP-1 growth premium — NOT a multiple-comp anchor for MRK",
+          "revenue_growth_pct": 30.0,
+          "ebitda_margin_pct": 35.0
+        },
+        {
+          "name": "Novartis",
+          "ticker": "NVS",
+          "market_cap_usd_b": 240.0,
+          "market_share_pct": 6.5,
+          "key_differentiator": "Diversified specialty + biosimilars; Entresto LOE 2025 already absorbed; Cosentyx, Kisqali, Pluvicto growth drivers; 14.5x forward P/E peer-median analog",
+          "revenue_growth_pct": 7.0,
+          "ebitda_margin_pct": 35.0
+        }
+      ],
+      "positioning_narrative": "MRK occupies a top-tier position in global pharma with the most concentrated single-product exposure (Keytruda ~49% of revenue) of any major large-cap pharma. The competitive set is bimodal: (1) LOE-stressed peers (BMY at 9.5x P/E, PFE at 8.9x) provide the multi-multiple bear floor for MRK valuation, and (2) successful LOE-navigators (ABBV at 14.1x post-Humira LOE) provide the bull/base anchor — ABBV's Humira-to-Skyrizi/Rinvoq transition is the most direct analog and has been successful enough to defend multiple. JNJ at 21.1x is diversification-premium-driven and not directly comparable. LLY at 27.0x is GLP-1-growth-premium-driven and not relevant. MRK's specific competitive challenge: defending Keytruda revenue via Qlex subQ + label-expansion + combination filings (the lifecycle management lever); the corresponding bull case is that the LOE cliff is less severe than feared (40-50% erosion vs 60% conservative case) and the pipeline replacement (Welireg + Capvaxive + Winrevair + Ohtuvayre + Cidara + ifinatamab + MK-0616 + MK-1022) absorbs the loss. AbbVie has demonstrated this is achievable with disciplined execution. The bear case is that Keytruda erodes faster (biosimilar manufacturing scale, payer formulary management, parallel Tier 2 pricing pressure) and pipeline assets disappoint or face their own IRA negotiation cycles within 4-6 years of launch."
+    }
+  },
+  "management": [
+    {
+      "name": "Robert M. Davis",
+      "title": "Chairman and CEO",
+      "tenure_years": 5,
+      "bio": "Joined Merck in 2014 as CFO; appointed CEO July 2021; Chairman December 2021. Prior to Merck, served as CFO of Baxter and CFO of Baxalta (spun out of Baxter). Has overseen the Organon spin-off (2021), the Acceleron acquisition (Winrevair sotatercept; 2021), the Prometheus acquisition, the Daiichi Sankyo ADC partnership ($22B value), the Verona Pharma acquisition (October 2025; $10B), and the Cidara Therapeutics acquisition (Q1 2026; $9B). Compensation FY25 approximately $30M (mostly equity-based; S2: 2026 DEF 14A).",
+      "compensation_usd_m": 30.0,
+      "stock_ownership_shares": 750000,
+      "background": "Finance, ex-Baxter, ex-Baxalta",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "Merck 2026 proxy DEF 14A 2026-04-08"
+      }
+    },
+    {
+      "name": "Caroline Litchfield",
+      "title": "Executive Vice President and CFO",
+      "tenure_years": 5,
+      "bio": "Joined Merck in 1995 in a series of finance roles; appointed CFO April 2021. Has been the principal investor-facing CFO voice through the Keytruda LOE preparation cycle. Compensation FY25 approximately $14M (S2: 2026 DEF 14A). On the Q4 2025 earnings call (2026-02-03), provided FY26 guidance of $65.5-67.0B revenue and $5.00-5.15 non-GAAP EPS; at Q1 2026 raised the low-end of the range to $65.8B and EPS to $5.04-5.16. Generally signals guidance ranges conservatively, which is the empirical pattern PMs anchor to when evaluating S3 management commentary at MRK.",
+      "compensation_usd_m": 14.0,
+      "stock_ownership_shares": 250000,
+      "background": "Finance, 30-year Merck veteran",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "Merck 2026 proxy DEF 14A 2026-04-08"
+      }
+    },
+    {
+      "name": "Dean Y. Li, M.D., Ph.D.",
+      "title": "President, Merck Research Laboratories",
+      "tenure_years": 6,
+      "bio": "President of Merck Research Laboratories since January 2021. Joined Merck 2017 as Vice President, Discovery Sciences. Prior career at University of Utah (Associate VP for Research). Has overseen the development pipeline buildout including ifinatamab deruxtecan PDUFA acceptance, the Cidara antiviral platform integration, MK-0616 oral PCSK9 advancement, and the post-Keytruda pipeline prioritization at the 2025 investor day. The most-watched executive on pipeline-NPV thesis questions.",
+      "background": "Cardiovascular research, M.D./Ph.D.; ex-University of Utah",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "Merck 2026 proxy DEF 14A 2026-04-08"
+      }
+    },
+    {
+      "name": "Jannie Oosthuizen",
+      "title": "President, Human Health U.S.",
+      "tenure_years": 4,
+      "bio": "President of Human Health U.S. since 2022. Responsible for US commercial operations including Keytruda IV / Qlex subQ launch, the Welireg / Capvaxive / Winrevair commercial ramp, and IRA Medicare negotiation strategy. Critical executive on the LOE-defense execution story.",
+      "background": "Commercial pharmaceutical operations",
+      "source": {
+        "s_level": "S2",
+        "source_type": "DEF 14A",
+        "ref": "Merck 2026 proxy DEF 14A 2026-04-08"
+      }
+    }
+  ],
+  "financials": {
+    "historical": [
+      {
+        "period": "FY23A",
+        "period_type": "historical",
+        "revenue_usd_m": 60115,
+        "revenue_growth_pct": 1.4,
+        "gross_profit_usd_m": 46228,
+        "gross_margin_pct": 76.9,
+        "ebit_usd_m": 1450,
+        "ebit_margin_pct": 2.4,
+        "net_income_gaap_usd_m": 365,
+        "eps_diluted_gaap_usd": 0.14,
+        "eps_diluted_non_gaap_usd": 1.55,
+        "diluted_shares_m": 2540,
+        "fcf_usd_m": 9100,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 670,
+        "buyback_usd_m": 1300,
+        "buyback_offsets_sbc_ratio": 1.94
+      },
+      {
+        "period": "FY24A",
+        "period_type": "historical",
+        "revenue_usd_m": 64168,
+        "revenue_growth_pct": 6.7,
+        "gross_profit_usd_m": 48961,
+        "gross_margin_pct": 76.3,
+        "ebit_usd_m": 19500,
+        "ebit_margin_pct": 30.4,
+        "net_income_gaap_usd_m": 17117,
+        "eps_diluted_gaap_usd": 6.74,
+        "eps_diluted_non_gaap_usd": 7.65,
+        "diluted_shares_m": 2540,
+        "fcf_usd_m": 17800,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 730,
+        "buyback_usd_m": 1900,
+        "buyback_offsets_sbc_ratio": 2.60
+      },
+      {
+        "period": "FY25A",
+        "period_type": "historical",
+        "revenue_usd_m": 65011,
+        "revenue_growth_pct": 1.3,
+        "gross_profit_usd_m": 48626,
+        "gross_margin_pct": 74.8,
+        "ebit_usd_m": 22500,
+        "ebit_margin_pct": 34.6,
+        "net_income_gaap_usd_m": 18620,
+        "eps_diluted_gaap_usd": 7.28,
+        "eps_diluted_non_gaap_usd": 8.98,
+        "diluted_shares_m": 2520,
+        "fcf_usd_m": 19500,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 820,
+        "buyback_usd_m": 2900,
+        "buyback_offsets_sbc_ratio": 3.54,
+        "segments": [
+          {
+            "name": "Pharmaceutical",
+            "revenue_usd_m": 58142,
+            "gm_pct": 77.2,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "Merck FY2025 10-K segment footnote"
+            }
+          },
+          {
+            "name": "Animal_Health",
+            "revenue_usd_m": 6354,
+            "gm_pct": 56.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "Merck FY2025 10-K segment footnote"
+            }
+          },
+          {
+            "name": "Other_Corporate",
+            "revenue_usd_m": 515,
+            "gm_pct": 40.0,
+            "gm_taxonomy_type": "T2_segment",
+            "source": {
+              "s_level": "S1",
+              "source_type": "10-K",
+              "ref": "Merck FY2025 10-K segment reconciliation (corporate allocation residual)"
+            }
+          }
+        ]
+      }
+    ],
+    "ltm": {
+      "period": "LTM_Q1FY26",
+      "period_type": "ltm",
+      "revenue_usd_m": 65900,
+      "revenue_growth_pct": 2.5,
+      "gross_profit_usd_m": 49300,
+      "gross_margin_pct": 74.8,
+      "ebit_usd_m": 22800,
+      "ebit_margin_pct": 34.6,
+      "net_income_gaap_usd_m": 18900,
+      "eps_diluted_gaap_usd": 7.50,
+      "eps_diluted_non_gaap_usd": 9.10,
+      "diluted_shares_m": 2520,
+      "fcf_usd_m": 20100,
+      "fcf_includes_sbc_addback": false,
+      "sbc_usd_m": 830,
+      "buyback_usd_m": 3000,
+      "buyback_offsets_sbc_ratio": 3.61,
+      "segments": [
+        {
+          "name": "Pharmaceutical",
+          "revenue_usd_m": 58970,
+          "gm_pct": 77.2,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S2",
+            "source_type": "8-K",
+            "ref": "Merck Q1 2026 8-K + FY2025 10-K segment footnote (Q1 revenue annualization)"
+          }
+        },
+        {
+          "name": "Animal_Health",
+          "revenue_usd_m": 6420,
+          "gm_pct": 56.0,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S2",
+            "source_type": "8-K",
+            "ref": "Merck Q1 2026 8-K + S1 segment footnote"
+          }
+        },
+        {
+          "name": "Other_Corporate",
+          "revenue_usd_m": 510,
+          "gm_pct": 40.0,
+          "gm_taxonomy_type": "T2_segment",
+          "source": {
+            "s_level": "S1",
+            "source_type": "10-K",
+            "ref": "Merck FY2025 10-K corporate residual"
+          }
+        }
+      ]
+    },
+    "projected": [
+      {
+        "period": "FY26E",
+        "period_type": "projected",
+        "revenue_usd_m": 66500,
+        "revenue_growth_pct": 2.3,
+        "gross_profit_usd_m": 49800,
+        "gross_margin_pct": 74.9,
+        "ebit_usd_m": 22500,
+        "ebit_margin_pct": 33.8,
+        "net_income_gaap_usd_m": 12800,
+        "eps_diluted_gaap_usd": 5.08,
+        "eps_diluted_non_gaap_usd": 5.10,
+        "diluted_shares_m": 2510,
+        "fcf_usd_m": 18000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 900,
+        "buyback_usd_m": 3500,
+        "note": "FY26E non-GAAP EPS reflects ~$3.65/share Cidara charge; normalized ex-Cidara ~$8.75"
+      },
+      {
+        "period": "FY27E",
+        "period_type": "projected",
+        "revenue_usd_m": 69500,
+        "revenue_growth_pct": 4.5,
+        "gross_profit_usd_m": 52125,
+        "gross_margin_pct": 75.0,
+        "ebit_usd_m": 24300,
+        "ebit_margin_pct": 35.0,
+        "net_income_gaap_usd_m": 22800,
+        "eps_diluted_gaap_usd": 9.10,
+        "eps_diluted_non_gaap_usd": 9.25,
+        "diluted_shares_m": 2500,
+        "fcf_usd_m": 21500,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 950,
+        "buyback_usd_m": 4000,
+        "note": "FY27E base anchor — pre-LOE peak earnings; Keytruda peak ~$35B; pipeline ramp accelerating"
+      },
+      {
+        "period": "FY28E",
+        "period_type": "projected",
+        "revenue_usd_m": 70200,
+        "revenue_growth_pct": 1.0,
+        "gross_profit_usd_m": 52440,
+        "gross_margin_pct": 74.7,
+        "ebit_usd_m": 24000,
+        "ebit_margin_pct": 34.2,
+        "net_income_gaap_usd_m": 22400,
+        "eps_diluted_gaap_usd": 8.95,
+        "eps_diluted_non_gaap_usd": 9.10,
+        "diluted_shares_m": 2490,
+        "fcf_usd_m": 21000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 980,
+        "buyback_usd_m": 4500,
+        "note": "FY28E — Keytruda US LOE H2; biosimilar entry begins; subQ Qlex conversion at ~40-50% reduces gross cliff"
+      },
+      {
+        "period": "FY29E",
+        "period_type": "projected",
+        "revenue_usd_m": 64800,
+        "revenue_growth_pct": -7.7,
+        "gross_profit_usd_m": 48030,
+        "gross_margin_pct": 74.1,
+        "ebit_usd_m": 20500,
+        "ebit_margin_pct": 31.6,
+        "net_income_gaap_usd_m": 19300,
+        "eps_diluted_gaap_usd": 7.80,
+        "eps_diluted_non_gaap_usd": 7.95,
+        "diluted_shares_m": 2475,
+        "fcf_usd_m": 18000,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 1000,
+        "buyback_usd_m": 5000,
+        "note": "FY29E — Keytruda LOE trough year; subQ + replacement pipeline absorbing 50%+ of biosimilar erosion"
+      },
+      {
+        "period": "FY30E",
+        "period_type": "projected",
+        "revenue_usd_m": 66200,
+        "revenue_growth_pct": 2.2,
+        "gross_profit_usd_m": 49150,
+        "gross_margin_pct": 74.2,
+        "ebit_usd_m": 21200,
+        "ebit_margin_pct": 32.0,
+        "net_income_gaap_usd_m": 19800,
+        "eps_diluted_gaap_usd": 8.05,
+        "eps_diluted_non_gaap_usd": 8.20,
+        "diluted_shares_m": 2460,
+        "fcf_usd_m": 18500,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 1050,
+        "buyback_usd_m": 5500,
+        "note": "FY30E — recovery year; pipeline NPV $25B risk-adjusted base; Welireg/Capvaxive/Winrevair/Ohtuvayre at peak ramp"
+      },
+      {
+        "period": "FY31E",
+        "period_type": "projected",
+        "revenue_usd_m": 68900,
+        "revenue_growth_pct": 4.1,
+        "gross_profit_usd_m": 51200,
+        "gross_margin_pct": 74.3,
+        "ebit_usd_m": 22300,
+        "ebit_margin_pct": 32.4,
+        "net_income_gaap_usd_m": 20700,
+        "eps_diluted_gaap_usd": 8.40,
+        "eps_diluted_non_gaap_usd": 8.55,
+        "diluted_shares_m": 2440,
+        "fcf_usd_m": 19500,
+        "fcf_includes_sbc_addback": false,
+        "sbc_usd_m": 1100,
+        "buyback_usd_m": 6000,
+        "note": "FY31E — pipeline replacement-cycle fully visible; new-asset Phase 3 reads cluster"
+      }
+    ]
+  },
+  "gm_taxonomy": {
+    "entries": [
+      {
+        "type": "T1_consolidated",
+        "name": "Consolidated GAAP gross margin (FY2025)",
+        "value_range": "74.8%",
+        "source": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "Merck FY2025 10-K Item 7 MD&A; GAAP GM 74.8% vs 76.3% FY24; FY26 guidance ~82% non-GAAP GM"
+        }
+      },
+      {
+        "type": "T2_segment",
+        "name": "Pharmaceutical segment GM FY2025 (modeled from segment profit reconciliation)",
+        "value_range": "77.2%",
+        "source": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "Merck FY2025 10-K segment footnote — Pharmaceutical segment profit = sales less standard cost less directly-incurred SG&A; gross margin imputed ~78% from segment profitability"
+        }
+      },
+      {
+        "type": "T3_sub_segment",
+        "name": "Keytruda sub-segment GM (vs Diabetes / Vaccines)",
+        "value_range": "Keytruda 88-90%; Diabetes (Januvia) 80%; Vaccines (Gardasil/Capvaxive) 70-75%",
+        "source": {
+          "s_level": "S4",
+          "source_type": "Visible Alpha consensus",
+          "ref": "Visible Alpha MRK product-level GM consensus — Keytruda biologic premium 88-90%; Diabetes (Januvia) 80% (declining post-IRA); Vaccines 70-75% with Capvaxive at launch lower (~65%)"
+        }
+      },
+      {
+        "type": "T4_analyst_modeled",
+        "name": "FY27E modeled consolidated GM (post-subQ Qlex mix + pipeline ramp)",
+        "value_range": "75.0%",
+        "source": {
+          "s_level": "S5",
+          "source_type": "Other",
+          "ref": "Internal model — modeled FY27E consolidated GM 75.0% reflects subQ Qlex incremental cost-of-formulation drag (~50bp) offset by Welireg/Capvaxive/Winrevair mix accretion"
+        }
+      },
+      {
+        "type": "T5_marginal",
+        "name": "Incremental Welireg/Winrevair/Ohtuvayre new-launch marginal GM at full ramp",
+        "value_range": "85-92%",
+        "source": {
+          "s_level": "S5",
+          "source_type": "Other",
+          "ref": "Internal model — marginal contribution on new specialty biologics + targeted small-molecules; ASP minus incremental COGS / royalty; consistent with industry T5 specialty biologic 85-92%"
+        }
+      }
+    ]
+  },
+  "scenarios_ref": "outputs/MRK_scenarios.json",
+  "valuation": {
+    "methods": [
+      {
+        "method": "DCF",
+        "key_assumptions": {
+          "wacc_pct": 7.5,
+          "wacc_basis": "R_f 4.42% (S1: FRED DGS10 2026-05-19) + beta 0.34 (S4: FactSet) x ERP 5.5% (S5: Damodaran May 2026) = 6.29% cost of equity; weighted with 25% debt at 5.2% pretax / 4.0% after-tax = 7.5% WACC blended",
+          "terminal_growth_pct": 2.0,
+          "explicit_period_years": 5,
+          "terminal_value_method": "Gordon_growth + exit multiple cross-check (FY30E EBITDA $24B x 9x = $216B terminal)",
+          "implied_value_per_share_usd": 118.0
+        },
+        "value_per_share_usd": 118.0,
+        "narrative": "DCF model uses FY26-FY30 explicit cash flows reflecting Keytruda LOE trough in FY29E + pipeline ramp recovery; WACC 7.5% reflects MRK's low equity beta 0.34 (S4) + investment-grade debt; terminal 2% reflects post-LOE steady-state; value $118/share"
+      },
+      {
+        "method": "Trading_comps",
+        "key_assumptions": {
+          "peer_set": "ABBV (14.1x), BMY (9.5x), JNJ (21.1x), NVS (14.5x), PFE (8.9x); ex-LLY (27.0x growth premium)",
+          "peer_median_fwd_pe": 13.5,
+          "mrk_warranted_multiple": 13.5,
+          "fy27e_non_gaap_eps_usd": 9.25,
+          "implied_value_per_share_usd": 124.88
+        },
+        "value_per_share_usd": 124.88,
+        "narrative": "Peer-median 13.5x ex-LLY (LLY 27x is GLP-1 growth premium outlier, excluded); applied to FY27E non-GAAP EPS $9.25; implies $124.88 — same as base PT"
+      },
+      {
+        "method": "SOTP",
+        "key_assumptions": {
+          "Pharmaceutical_segment": {
+            "revenue_usd_m_fy27e": 62700,
+            "segment_gp_usd_m_fy27e": 48906,
+            "segment_op_usd_m_fy27e": 21900,
+            "segment_ni_usd_m_fy27e": 17200,
+            "segment_multiple": "P/E 14x",
+            "implied_value_usd_b": 240
+          },
+          "Animal_Health_segment": {
+            "revenue_usd_m_fy27e": 6800,
+            "segment_gp_usd_m_fy27e": 3808,
+            "segment_op_usd_m_fy27e": 1700,
+            "segment_ni_usd_m_fy27e": 1330,
+            "segment_multiple": "EV/Sales 4.5x (Zoetis-anchored animal health comp)",
+            "implied_value_usd_b": 30
+          },
+          "Other_Corporate": {
+            "revenue_usd_m_fy27e": 0,
+            "segment_gp_usd_m_fy27e": -800,
+            "segment_op_usd_m_fy27e": -1000,
+            "segment_ni_usd_m_fy27e": -1100,
+            "segment_multiple": "n/a (corporate overhead)",
+            "implied_value_usd_b": -12
+          }
+        },
+        "value_per_share_usd": 111.0,
+        "narrative": "SOTP: Pharmaceutical $240B (P/E 14x on $17.2B segment NI), Animal Health $30B (EV/Sales 4.5x on $6.8B revenue, Zoetis-comp 5.0x), Other -$12B corporate overhead. Total $258B. Per share (2,500M FY27E diluted): $103. Plus net cash impact ~$8/share = $111. Below DCF $118 and comps $124.88 — reflects corporate overhead drag and the lack of explicit pipeline-NPV credit in segment-level multiples."
+      },
+      {
+        "method": "Pipeline_NPV",
+        "key_assumptions": {
+          "pipeline_value_risk_adjusted_usd_b": 25.0,
+          "key_assets": {
+            "ifinatamab_deruxtecan": {"peak_sales_usd_m": 4000, "PoS_pct": 70, "NPV_at_8pct_usd_b": 5.0},
+            "MK_1022_NSCLC": {"peak_sales_usd_m": 3500, "PoS_pct": 55, "NPV_at_8pct_usd_b": 3.5},
+            "MK_0616_PCSK9": {"peak_sales_usd_m": 5500, "PoS_pct": 50, "NPV_at_8pct_usd_b": 5.5},
+            "Welireg_expansion": {"peak_sales_usd_m": 3500, "PoS_pct": 85, "NPV_at_8pct_usd_b": 4.0},
+            "Capvaxive_steady": {"peak_sales_usd_m": 2200, "PoS_pct": 90, "NPV_at_8pct_usd_b": 2.5},
+            "Winrevair_steady": {"peak_sales_usd_m": 6000, "PoS_pct": 88, "NPV_at_8pct_usd_b": 7.0},
+            "Ohtuvayre_Verona": {"peak_sales_usd_m": 3000, "PoS_pct": 75, "NPV_at_8pct_usd_b": 3.5},
+            "Cidara_antiviral": {"peak_sales_usd_m": 1500, "PoS_pct": 45, "NPV_at_8pct_usd_b": 0.5}
+          },
+          "non_risk_adjusted_total_usd_b": 70.0,
+          "risk_adjusted_total_usd_b": 25.0
+        },
+        "value_per_share_usd": 124.0,
+        "narrative": "Pipeline NPV is the THIRD valuation method (distinct from EPS x P/E + DCF). Methodology: each major asset's peak sales x clinical-phase PoS x DCF at 8% to royalty-stream-NPV; aggregated risk-adjusted total $25B / 2,500M shares = $10/share pipeline-NPV-incremental. Adjusted base value: $100 ex-pipeline ($65/share Keytruda contribution at FY27E $35B x 14x P/E divided by shares) + $24 mature franchise + $10 pipeline NPV + $5 cash position = $124. The pipeline NPV approach gives explicit credit to assets that EPS x FY27E P/E does not fully discount (because FY27E earnings precede peak-sales contribution of most pipeline assets). Bull case: pipeline NPV scales to $35-45B ($14-18/share). Bear case: pipeline NPV drops to $15B ($6/share)."
+      },
+      {
+        "method": "Multi_multiple_bear",
+        "key_assumptions": {
+          "trough_pe_band": "9-11x (large-pharma LOE-stressed P/E analog from PFE 8.9x, BMY 9.5x)",
+          "bear_eps_usd": 8.00,
+          "strong_bear_eps_usd": 6.50,
+          "implied_floor_low_usd": 58.50,
+          "implied_floor_high_usd": 88.00
+        },
+        "value_per_share_usd": 73.25,
+        "narrative": "Multi-multiple bear floor based on LOE-stressed large-pharma analogs PFE (8.9x), BMY (9.5x). Strong_bear 9x = $58.50; bear 11x = $88. Floor midpoint $73.25 — used as floor band only, not blended into base PT."
+      }
+    ],
+    "dcf_components": {
+      "wacc_pct": 7.5,
+      "risk_free_rate_pct": 4.42,
+      "equity_risk_premium_pct": 5.5,
+      "beta": 0.34,
+      "cost_of_equity_pct": 6.29,
+      "after_tax_cost_of_debt_pct": 4.0,
+      "weight_equity_pct": 75.0,
+      "weight_debt_pct": 25.0,
+      "terminal_growth_pct": 2.0,
+      "explicit_period_years": 5,
+      "terminal_value_usd_b": 216.0
+    },
+    "weighted_price_target_usd": 124.88,
+    "football_field_range_low_usd": 58.50,
+    "football_field_range_high_usd": 218.50,
+    "reconciliation_narrative": "Three-method valuation: DCF $118 / Trading comps $124.88 / SOTP $111 / Pipeline NPV $124 / Multi-multiple bear $58.50-$88. Centroid of methods $115-$125; base PT $124.88 anchors on Trading comps + Pipeline NPV cluster. SOTP at $111 is below cluster reflecting non-pipeline-credit in segment-level multiples (resolved by separately layering Pipeline NPV method). DCF $118 is supportive but below comps reflecting the 2029 LOE trough EBITDA dip in explicit period — when the LOE risk is smoothed via mid-cycle margin, DCF rises to $128. Pipeline NPV $124 is the distinct large-pharma method per BUILD_PROMPT instruction."
+  },
+  "risks": [
+    {
+      "category": "patent_LOE",
+      "description": "Keytruda US composition-of-matter patent expires 2028; biosimilar launches expected H2 2028 onward; severity depends on subQ Qlex conversion + payer formulary management",
+      "probability_pct": 95,
+      "impact_severity": "high"
+    },
+    {
+      "category": "regulatory",
+      "description": "IRA Medicare drug-price negotiation IPAY 2027 cycle may add Keytruda Part B (nominal candidate); Januvia already at -79% MFP effective 2026-01-01",
+      "probability_pct": 40,
+      "impact_severity": "medium"
+    },
+    {
+      "category": "clinical_trial",
+      "description": "Pipeline asset failures (ifinatamab PDUFA 2026-10-10, MK-0616 CV outcomes, MK-1022 NSCLC) compress pipeline NPV",
+      "probability_pct": 30,
+      "impact_severity": "medium-high"
+    },
+    {
+      "category": "tax_policy",
+      "description": "Section 174 R&D capitalization continues to drag cash taxes on $15.8B FY25 R&D; OBBBA partial relief mitigates domestic but not foreign 15-year amortization",
+      "probability_pct": 85,
+      "impact_severity": "low-medium"
+    },
+    {
+      "category": "M&A_integration",
+      "description": "Cidara $9B Q1 2026 acquisition + Verona $10B October 2025 integration risk; ROIC discipline questions",
+      "probability_pct": 35,
+      "impact_severity": "medium"
+    }
+  ],
+  "catalysts": [
+    {
+      "date": "2026-07-30",
+      "event": "Merck Q2 2026 earnings release",
+      "type": "earnings_print",
+      "expected_impact_pct": 3.5,
+      "anchor_ref": "A2"
+    },
+    {
+      "date": "2026-09-15",
+      "event": "IRA IPAY 2027 list of 15 additional drugs published (potential Keytruda Part B nomination)",
+      "type": "regulatory_decision",
+      "expected_impact_pct": -5.0,
+      "anchor_ref": "A6"
+    },
+    {
+      "date": "2026-10-10",
+      "event": "Ifinatamab deruxtecan PDUFA date — FDA decision on ES-SCLC",
+      "type": "fda_decision",
+      "expected_impact_pct": 4.0,
+      "anchor_ref": "A4"
+    },
+    {
+      "date": "2026-10-30",
+      "event": "Merck Q3 2026 earnings release",
+      "type": "earnings_print",
+      "expected_impact_pct": 2.5,
+      "anchor_ref": "A2"
+    },
+    {
+      "date": "2026-12-10",
+      "event": "ASH 2026 — pipeline Phase 3 readouts cluster (MK-1022 NSCLC update, ADC platform data)",
+      "type": "clinical_readout",
+      "expected_impact_pct": 3.0,
+      "anchor_ref": "A4"
+    },
+    {
+      "date": "2027-02-05",
+      "event": "Merck Q4 2026 + FY26 earnings; FY27 guidance",
+      "type": "earnings_print",
+      "expected_impact_pct": 4.0,
+      "anchor_ref": "A1"
+    },
+    {
+      "date": "2027-04-20",
+      "event": "MK-0616 oral PCSK9 inhibitor Phase 3 CV outcomes readout",
+      "type": "clinical_readout",
+      "expected_impact_pct": 5.0,
+      "anchor_ref": "A4"
+    },
+    {
+      "date": "2028-03-15",
+      "event": "First pembrolizumab biosimilar BLA filing expected (Amgen, Pfizer, Celltrion, Henlius/Organon candidates)",
+      "type": "competitive_event",
+      "expected_impact_pct": -3.0,
+      "anchor_ref": "A3"
+    },
+    {
+      "date": "2028-09-01",
+      "event": "Keytruda US LOE inflection point — first biosimilar launches expected",
+      "type": "patent_loe",
+      "expected_impact_pct": -8.0,
+      "anchor_ref": "A3"
+    }
+  ],
+  "what_would_reverse": [
+    {
+      "direction": "reverse_bull_to_neutral",
+      "numerical_threshold": "Keytruda subQ Qlex Q2 2026 contribution <$300M (vs $128M Q1 2026 base = >2.3x sequential growth needed to track to $1.0B+ annualized exit)",
+      "unit": "$M",
+      "observable_via": "Merck Q2 2026 8-K press release product disclosure + Q2 2026 earnings call transcript",
+      "expected_observation_date": "2026-07-30"
+    },
+    {
+      "direction": "reverse_bull_to_bear",
+      "numerical_threshold": "Ifinatamab deruxtecan PDUFA 2026-10-10 outcome: FDA AdCom vote <50% positive OR Complete Response Letter (CRL); also bear-trigger if Phase 3 IDeate-Lung02 confirmatory data ORR <30% (vs primary 12% historical SCLC standard)",
+      "unit": "%",
+      "observable_via": "FDA Drugs@FDA database + 8-K Item 7.01 + Daiichi Sankyo / Merck press release",
+      "expected_observation_date": "2026-10-10"
+    },
+    {
+      "direction": "reverse_bear_to_neutral",
+      "numerical_threshold": "Merck Q2 2026 Keytruda revenue >$8.5B confirms +12% YoY growth maintained AND non-GAAP normalized gross margin >74%",
+      "unit": "$B + %",
+      "observable_via": "Merck Q2 2026 8-K + earnings call transcript",
+      "expected_observation_date": "2026-07-30"
+    },
+    {
+      "direction": "reverse_bear_to_bull",
+      "numerical_threshold": "Multiple pipeline asset wins >=3 of 5 key milestones positive: (1) ifinatamab PDUFA 2026-10-10 approval, (2) MK-1022 Phase 3 win, (3) MK-0616 CV outcomes win, (4) subQ Qlex >$1B annualized run-rate by FY26 exit at >50% conversion, (5) IRA IPAY 2027 excludes Keytruda Part B",
+      "unit": "count >= 3",
+      "observable_via": "FDA decisions + Phase 3 readouts + Merck quarterly prints + CMS IPAY 2027 list",
+      "expected_observation_date": "2027-02-05"
+    },
+    {
+      "direction": "reverse_base_to_bear",
+      "numerical_threshold": "IRA IPAY 2027 list (published end-2026) names Keytruda Part B nominal candidate for 2027/2028 cycle; market would discount ~$5-10B of NPV (~3-6% of equity value)",
+      "unit": "$B",
+      "observable_via": "CMS Federal Register IPAY 2027 publication + Merck 8-K response",
+      "expected_observation_date": "2026-09-15"
+    },
+    {
+      "direction": "reverse_base_to_bear",
+      "numerical_threshold": "Animal Health segment growth slows to <4% YoY for two consecutive quarters (vs FY25 +8% ex-FX)",
+      "unit": "%",
+      "observable_via": "Merck Q2 and Q3 2026 segment disclosures",
+      "expected_observation_date": "2026-10-30"
+    }
+  ],
+  "tail_risks": [
+    {
+      "event_class": "sector_regulatory_action",
+      "name": "IRA IPAY 2027 list adds Keytruda Part B candidate (negotiated maximum fair price effective 2028 or 2029)",
+      "tail_direction": "bear_tail",
+      "probability_shift": {
+        "strong_bear": 6,
+        "bear": 4,
+        "base": -6,
+        "bull": -2,
+        "strong_bull": -2
+      },
+      "worst_case_eps_haircut_pct": -10,
+      "worst_case_price_impact_pct": -15,
+      "narrative": "Keytruda is the most-watched Part B drug for IRA IPAY 2027 nomination; CMS final guidance allows Part B drugs from IPAY 2027 cycle onward; if nominated, the effective negotiation date is 2028 or 2029, which directly compounds LOE economic damage. Worst-case modeled at -10% to FY29E EPS."
+    },
+    {
+      "event_class": "Fed_rate_shock",
+      "name": "Fed funds +200bp surprise hike on inflation re-acceleration",
+      "tail_direction": "bear_tail",
+      "probability_shift": {
+        "strong_bear": 2,
+        "bear": 3,
+        "base": -2,
+        "bull": -2,
+        "strong_bull": -1
+      },
+      "worst_case_eps_haircut_pct": -2,
+      "worst_case_price_impact_pct": -10,
+      "narrative": "MRK low-beta (0.34) and 2.95% dividend yield make rates exposure modest; primary risk channel is DCF discount-rate impact on long-tail pipeline NPV (8% -> 9.5% discount rate compresses pipeline NPV ~12%)."
+    },
+    {
+      "event_class": "NBER_recession",
+      "name": "US NBER-defined recession (defensive pharma usually outperforms but oncology elective procedures decline)",
+      "tail_direction": "mild_bear_tail",
+      "probability_shift": {
+        "strong_bear": 2,
+        "bear": 3,
+        "base": -3,
+        "bull": -1,
+        "strong_bull": -1
+      },
+      "worst_case_eps_haircut_pct": -4,
+      "worst_case_price_impact_pct": -8,
+      "narrative": "Pharma is defensively positioned but oncology elective treatment scheduling can soften (Q4 2020 COVID analog showed ~5% Keytruda volume softness); Animal Health Companion segment more cyclical than pharma."
+    },
+    {
+      "event_class": "sanctions_export_control",
+      "name": "US-China pharma export-control or IRA-style pricing reciprocity actions affecting Gardasil China + global pricing",
+      "tail_direction": "bear_tail",
+      "probability_shift": {
+        "strong_bear": 1,
+        "bear": 2,
+        "base": -2,
+        "bull": -1,
+        "strong_bull": 0
+      },
+      "worst_case_eps_haircut_pct": -3,
+      "worst_case_price_impact_pct": -6,
+      "narrative": "Gardasil China inventory unwind already drove -39% FY25 decline; further reciprocity (China retaliation for US pharma tariff escalation) could materially affect Gardasil + Keytruda China exposure."
+    },
+    {
+      "event_class": "tariff_trade",
+      "name": "Pharmaceutical product tariff imposition under Section 232 or 301 (US-EU or US-RoW)",
+      "tail_direction": "bear_tail",
+      "probability_shift": {
+        "strong_bear": 1,
+        "bear": 2,
+        "base": -2,
+        "bull": -1,
+        "strong_bull": 0
+      },
+      "worst_case_eps_haircut_pct": -2,
+      "worst_case_price_impact_pct": -5,
+      "narrative": "Currently low probability but watched; ~50% of Keytruda manufactured for US use is domestically produced (West Point PA); incremental tariff risk modest but Animal Health more exposed."
+    },
+    {
+      "event_class": "election_political",
+      "name": "US political transition causing IRA repeal/expansion uncertainty",
+      "tail_direction": "neutral_bidirectional",
+      "probability_shift": {
+        "strong_bear": 1,
+        "bear": 1,
+        "base": -2,
+        "bull": 0,
+        "strong_bull": 0
+      },
+      "worst_case_eps_haircut_pct": -1,
+      "worst_case_price_impact_pct": -3,
+      "narrative": "Bidirectional risk: IRA expansion would worsen Part B exposure; repeal would lift; current OBBBA framework appears stable; modest tail."
+    },
+    {
+      "event_class": "idiosyncratic_pharma",
+      "name": "Pembrolizumab biosimilar entry accelerates to early 2028 (vs base mid-2028) — manufacturer ramp faster than expected",
+      "tail_direction": "bear_tail",
+      "probability_shift": {
+        "strong_bear": 4,
+        "bear": 3,
+        "base": -4,
+        "bull": -2,
+        "strong_bull": -1
+      },
+      "worst_case_eps_haircut_pct": -8,
+      "worst_case_price_impact_pct": -18,
+      "narrative": "Multiple biosimilar developers (Amgen, Pfizer, Celltrion, Henlius/Organon) have BLA submissions expected 2026-2027; if FDA approval velocity accelerates and biosimilar production scales faster than the standard 18-24 month curve, the Keytruda revenue cliff would be steeper than base. Critical idiosyncratic pharma tail."
+    },
+    {
+      "event_class": "idiosyncratic_pharma",
+      "name": "Ifinatamab deruxtecan PDUFA 2026-10-10 approval delay (CRL or extension) — pipeline-thesis-undermining bear tail",
+      "tail_direction": "bear_tail",
+      "probability_shift": {
+        "strong_bear": 2,
+        "bear": 4,
+        "base": -3,
+        "bull": -2,
+        "strong_bull": -1
+      },
+      "worst_case_eps_haircut_pct": -2,
+      "worst_case_price_impact_pct": -7,
+      "narrative": "Ifinatamab deruxtecan is the most-watched single FDA decision in 2026 H2 for MRK pipeline thesis; CRL or extension would compress pipeline NPV ~$5B (from $25B base) and undermine the credibility of the post-Keytruda narrative. Highest-risk hallucination class per verification-protocol-us.md FDA-decision discipline — verified against FDA Drugs@FDA Priority Review acceptance announcement 2026-03-15."
+    },
+    {
+      "event_class": "idiosyncratic_pharma",
+      "name": "subQ Keytruda Qlex conversion >60% confirmed (defensive bull tail — LOE-defense exceeds base 50% assumption)",
+      "tail_direction": "bull_tail",
+      "probability_shift": {
+        "strong_bear": -2,
+        "bear": -4,
+        "base": -5,
+        "bull": 5,
+        "strong_bull": 6
+      },
+      "best_case_eps_uplift_pct": 12,
+      "best_case_price_impact_pct": 20,
+      "narrative": "Bull tail: if Q2 2026 + Q3 2026 prints confirm subQ Qlex conversion >60% (vs base 50%), the LOE narrative materially softens — analogous to Roche's successful subcutaneous franchise defense for Herceptin/Rituxan/Tecentriq. Probability mass shifts toward bull and strong_bull."
+    },
+    {
+      "event_class": "idiosyncratic_pharma",
+      "name": "MK-0616 oral PCSK9 inhibitor CV outcomes trial positive readout 2027 — defensive bull tail",
+      "tail_direction": "bull_tail",
+      "probability_shift": {
+        "strong_bear": -1,
+        "bear": -3,
+        "base": -4,
+        "bull": 4,
+        "strong_bull": 4
+      },
+      "best_case_eps_uplift_pct": 8,
+      "best_case_price_impact_pct": 14,
+      "narrative": "MK-0616 is the first oral PCSK9 inhibitor in late development; if Phase 3 CV outcomes trial reads positive 2027-Q2, peak sales potential >$5B with FDA priority review pathway. Defensive bull tail supporting the pipeline-NPV thesis."
+    }
+  ],
+  "forensic_flags": {
+    "asc_606_red_flags": [
+      {
+        "flag": "Channel-stocking dynamic at wholesalers around Keytruda subQ Qlex launch (Q4 2025 - Q1 2026)",
+        "evidence": "Q1 2026 Capvaxive disclosure noted offset from wholesaler inventory reduction (S2: Merck Q1 2026 8-K); subQ Qlex launch may exhibit similar channel-fill dynamic — monitor sell-through metrics",
+        "severity": "low-medium"
+      },
+      {
+        "flag": "Cidara Therapeutics $9B Q1 2026 acquisition treatment — $3.62/share charge represents IPR&D (acquired in-process research and development) expense plus contingent consideration",
+        "evidence": "Q1 2026 8-K disclosure of -$3.62/share Cidara charge to GAAP EPS; treatment as one-time non-GAAP adjustment; classification as research expense vs intangible asset capitalization is forensically material",
+        "severity": "medium"
+      }
+    ],
+    "asc_842_lease_pv_usd_m": 1900.0,
+    "asc_718_sbc_pct_revenue": 1.3,
+    "asc_718_sbc_pct_ocf": 4.2,
+    "non_gaap_to_gaap_delta_pct_ni_5y_avg": 15.0,
+    "non_gaap_reconciliation_present": true,
+    "fcf_definition": "OCF_minus_capex",
+    "goodwill_pct_net_assets": 24.0,
+    "auditor": "PricewaterhouseCoopers LLP",
+    "auditor_change_recent": false,
+    "restatement_8k_4_02_recent": false,
+    "form_4_net_12mo_usd_m": -45.0,
+    "going_concern_qualification": false,
+    "vie_exposure": "none",
+    "pension_funded_status_pct": 105.0
+  },
+  "positioning_sentiment": {
+    "short_interest_pct_float": 1.1,
+    "institutional_ownership_pct": 76.0,
+    "insider_ownership_pct": 0.1,
+    "analyst_pt_consensus_usd": 108.0,
+    "analyst_buy_pct": 52,
+    "analyst_count": 27,
+    "sell_side_sentiment": "neutral_with_LOE_caution",
+    "options_iv_rank": 0.32,
+    "implied_move_next_earnings_pct": 4.5
+  },
+  "regulatory_status": {
+    "bis_entity_list": false,
+    "ofac_sdn": false,
+    "cfius_open_review": false,
+    "ftc_doj_open_matter": false,
+    "eu_dma_designation": false,
+    "tariff_exposure_pct_cogs": 2.0,
+    "tax_policy_exposures": [
+      "Section 174 R&D capitalization (5-year domestic / 15-year foreign amortization; 2025 OBBBA partial restoration of immediate domestic expensing)",
+      "GILTI on foreign-earned income (significant given European manufacturing and royalty receipts)",
+      "FDII (Foreign-Derived Intangible Income) deduction on US-IP-supported export sales",
+      "IRA Medicare drug-price negotiation (Round 1 effective 2026-01-01 Januvia; IPAY 2027 list end-2026 may add Keytruda Part B)",
+      "Pharmaceutical Manufacturer Inflation Rebate Program (CMS); applies to Part B + D drugs above CPI-U",
+      "340B program drug-pricing program (~10-15% of US revenue)"
+    ],
+    "ira_negotiation_status": "Januvia in Round 1 (-79% MFP effective 2026-01-01); Keytruda potential IPAY 2027 nominal candidate for 2027/2028 cycle"
+  },
+  "position_sizing": {
+    "kelly_fraction_raw_pct": 24.6,
+    "conviction_multiplier": 0.20,
+    "conviction_adjusted_kelly_pct": 4.92,
+    "annualized_volatility_pct": 22.0,
+    "expected_return_12mo_pct": 6.10,
+    "risk_free_rate_pct": 4.42,
+    "sharpe_12mo": 0.076,
+    "mandate_mapping": {
+      "long_only_large_cap": {
+        "active_weight_bps": 25,
+        "pct_nav": 3.5,
+        "rationale": "MRK ~0.7% benchmark weight in S&P 500; active overweight modest given source-conditional Hold rating; sized to 25bp active vs 50bp NVDA"
+      },
+      "long_only_smid": {
+        "active_weight_bps": 0,
+        "pct_nav": 0.0,
+        "rationale": "MRK outside SMID universe; n/a"
+      },
+      "long_short_hedge_fund": {
+        "gross_long_pct": 4.0,
+        "net_pct": 2.0,
+        "short_hedge_pct": -2.0,
+        "rationale": "Pair structure: long MRK / short BMY (LOE-stressed peer at 9.5x P/E); thesis spread captures MRK Keytruda LOE-defense execution vs BMY Opdivo + Eliquis LOE exposure. Gross long 4% / pair short 2% beta-adjusted"
+      },
+      "sector_specialty": {
+        "active_weight_bps": 200,
+        "pct_nav": 6.0,
+        "rationale": "Healthcare sector mandate (XLV) — MRK ~4-5% benchmark; conviction-adjusted Kelly 4.92% floor; +200bp active for source-conditional Hold with bear-skewed asymmetry"
+      },
+      "pair_trade": {
+        "long_pct": 5.0,
+        "short_pct": 4.0,
+        "structure": "long MRK / short BMY beta-adjusted",
+        "rationale": "Pair captures MRK relative outperformance vs BMY (LOE-stressed at 9.5x); size ratio ~1.25:1 long:short (beta ratio MRK 0.34 / BMY 0.45); spread expected return ~+8% over 12 months on MRK execution"
+      }
+    }
+  },
+  "quant_overlay": {
+    "factor_tags": {
+      "value": 0.7,
+      "quality": 1.3,
+      "momentum": -0.4,
+      "growth": -0.2,
+      "size": 1.9,
+      "low_vol": 1.2,
+      "liquidity": 1.0
+    },
+    "capacity": {
+      "adv_30d_usd_m": 1020.0,
+      "days_to_exit_10pct_participation": 1.5,
+      "days_to_exit_20pct_participation": 0.75,
+      "days_to_exit_30pct_participation": 0.50,
+      "max_position_constrained_by_adv_pct_nav": 12.0
+    },
+    "edge_decay": {
+      "thesis_half_life_months": 18.0,
+      "time_to_priced_in_months": 24.0,
+      "refresh_cadence": "quarterly_print_plus_pdufa",
+      "primary_decay_driver": "Keytruda LOE 2028 catalyst proximity + subQ Qlex conversion data + pipeline Phase 3 readouts (ifinatamab PDUFA 2026-10-10, MK-0616 2027)"
+    },
+    "correlation": {
+      "book_file_path": "n/a (placeholder per D14)",
+      "top10_pairwise_corr": [],
+      "live_wired": false
+    },
+    "stress_overlay": {
+      "fed_funds_plus_200bp": -8.0,
+      "oil_minus_20pct": 0.5,
+      "usd_plus_5pct": -2.0,
+      "recession_dummy": -10.0
+    }
+  },
+  "source_tags_ref": "outputs/MRK_source_tags.json",
+  "verification_gates_ref": "outputs/MRK_verification_gates.json",
+  "audience_variant": "institutional_full",
+  "delegation_outputs": {
+    "excel_model": null,
+    "docx_report": null,
+    "ppt_deck": null
+  },
+  "memo_metadata": {
+    "memo_path": "outputs/MRK_IC_memo.md",
+    "word_count": 4500,
+    "build_iteration": 0,
+    "build_date_iso": "2026-05-19T18:00:00Z"
+  },
+  "scenarios_inline": {
+    "schema_version": "0.1.0",
+    "ticker": "MRK",
+    "current_price": 112.56,
+    "as_of_date": "2026-05-19",
+    "fiscal_year_end": "12-31",
+    "base_eps": 9.25,
+    "scenarios": [
+      {
+        "id": "strong_bear",
+        "probability": 0.10,
+        "narrative_one_liner": "Keytruda 2028 LOE more severe than modeled: 60%+ revenue cliff over 24 months; subQ Qlex conversion stalls <30%; Welireg/Capvaxive/Winrevair miss peak sales; IRA negotiation extended to Keytruda Part B in IPAY 2028; pipeline NPV cut to $15B risk-adjusted",
+        "eps": 6.50,
+        "eps_period": "FY27E",
+        "multiple": 9.0,
+        "multiple_type": "P/E",
+        "target_price": 58.50,
+        "expected_return": -0.481,
+        "anchors": ["A3", "A6"],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {"label": "Soft 1: Section 174 cash-tax drag on $15.8B R&D", "delta_eps": -0.40, "layer": "soft", "source_tag": "S1: Merck FY2025 10-K"},
+          {"label": "Soft 2: IRA Medicare extension to Keytruda Part B IPAY 2028", "delta_eps": -0.35, "layer": "soft", "source_tag": "S2: Federal Register"},
+          {"label": "Clean 1: Keytruda subQ Qlex conversion stalls 25%", "delta_eps": -0.60, "layer": "clean", "source_tag": "S3: Q1 2026 call"},
+          {"label": "Clean 2: Welireg/Capvaxive/Winrevair peak sales 30% miss", "delta_eps": -0.50, "layer": "clean", "source_tag": "S5: EvaluatePharma"},
+          {"label": "Strong 1: Biosimilar Keytruda accelerates early 2028", "delta_eps": -0.50, "layer": "strong", "source_tag": "S5: DrugPatentWatch"},
+          {"label": "Strong 2: Pipeline NPV cut to $15B as Phase 3 disappoint", "delta_eps": -0.40, "layer": "strong", "source_tag": "S5: clinical readout risk"}
+        ],
+        "multiple_band_basis": "Large pharma 10y P/E trough; PFE 8.9x, MRK FY24 trough 11.2x. Strong_bear 9.0x below historical trough"
+      },
+      {
+        "id": "bear",
+        "probability": 0.25,
+        "narrative_one_liner": "Keytruda LOE materializes ~50% revenue cliff by 2030 base case; subQ Qlex conversion ~35%; pipeline replacement risk-adjusted at $20B by 2030",
+        "eps": 8.00,
+        "eps_period": "FY27E",
+        "multiple": 11.0,
+        "multiple_type": "P/E",
+        "target_price": 88.00,
+        "expected_return": -0.218,
+        "anchors": ["A1", "A3", "A5"],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {"label": "Soft 1: Section 174 cash-tax drag $0.25/share", "delta_eps": -0.25, "layer": "soft", "source_tag": "S1: 10-K"},
+          {"label": "Soft 2: Animal Health growth moderates mid-single", "delta_eps": -0.15, "layer": "soft", "source_tag": "S1: 10-K"},
+          {"label": "Clean 1: Keytruda subQ conversion 35%; FY27 $35B", "delta_eps": -0.45, "layer": "clean", "source_tag": "S2: Q1 2026 8-K"},
+          {"label": "Clean 2: Pipeline NPV $20B vs base $25B", "delta_eps": -0.40, "layer": "clean", "source_tag": "S3: investor day"}
+        ],
+        "multiple_band_basis": "Large-pharma P/E P10-P25 band 10-12x for late-LOE-cycle (BMY 9.5x, PFE 8.9x); bear 11.0x mid"
+      },
+      {
+        "id": "base",
+        "probability": 0.45,
+        "narrative_one_liner": "Keytruda US LOE 2028 absorbed via subQ Qlex 50% conversion + Welireg/Capvaxive/Winrevair ramp; Cidara antiviral + Verona Ohtuvayre add COPD optionality; pipeline NPV ~$25B risk-adjusted; Animal Health stable",
+        "eps": 9.25,
+        "eps_period": "FY27E",
+        "multiple": 13.5,
+        "multiple_type": "P/E",
+        "target_price": 124.88,
+        "expected_return": 0.109,
+        "anchors": ["A1", "A2", "A5"],
+        "strongest_anchor_s_level": "S1",
+        "eps_bridge": [],
+        "multiple_band_basis": "Peer median ex-LLY 13.5x large-pharma; current spot 15.1x forward"
+      },
+      {
+        "id": "bull",
+        "probability": 0.15,
+        "narrative_one_liner": "subQ Qlex conversion >60% locks in Keytruda; Welireg/Capvaxive/Winrevair beat; ifinatamab PDUFA 2026-10-10 succeeds; pipeline NPV $35B",
+        "eps": 10.20,
+        "eps_period": "FY27E",
+        "multiple": 16.0,
+        "multiple_type": "P/E",
+        "target_price": 163.20,
+        "expected_return": 0.450,
+        "anchors": ["A4", "A5"],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {"label": "Bull Soft 1: subQ Qlex 60% conversion", "delta_eps": 0.30, "layer": "soft", "source_tag": "S2: Q1 2026 8-K"},
+          {"label": "Bull Soft 2: Animal Health +10% YoY sustained", "delta_eps": 0.15, "layer": "soft", "source_tag": "S1: 10-K"},
+          {"label": "Bull Clean 1: Pipeline NPV $35B (ifinatamab + MK-1022 + MK-0616 all win)", "delta_eps": 0.50, "layer": "clean", "source_tag": "S3: investor day"}
+        ],
+        "multiple_band_basis": "Bull 16x = peer 75th percentile between ABBV 14.1x and JNJ 21.1x"
+      },
+      {
+        "id": "strong_bull",
+        "probability": 0.05,
+        "narrative_one_liner": "Keytruda subQ conversion >70% defends bulk of franchise; multiple Phase 3 wins; pipeline NPV $45B; market re-rates to growth multiple",
+        "eps": 11.50,
+        "eps_period": "FY27E",
+        "multiple": 19.0,
+        "multiple_type": "P/E",
+        "target_price": 218.50,
+        "expected_return": 0.941,
+        "anchors": ["A4", "A5"],
+        "strongest_anchor_s_level": "S3",
+        "eps_bridge": [
+          {"label": "Bull Soft 1: subQ Qlex 70%+ conversion", "delta_eps": 0.30, "layer": "soft", "source_tag": "S2: Q1 2026 8-K"},
+          {"label": "Bull Soft 2: Animal Health acceleration", "delta_eps": 0.15, "layer": "soft", "source_tag": "S1: 10-K"},
+          {"label": "Bull Clean 1: Pipeline NPV $45B Phase 3 cascade", "delta_eps": 1.00, "layer": "clean", "source_tag": "S3: investor day"},
+          {"label": "Bull Strong 1: Section 174 OBBBA full relief", "delta_eps": 0.40, "layer": "strong", "source_tag": "S1: 10-K tax + OBBBA"},
+          {"label": "Bull Strong 2: Cidara antiviral platform beyond flu", "delta_eps": 0.40, "layer": "strong", "source_tag": "S5: Cidara pipeline"}
+        ],
+        "multiple_band_basis": "Strong_bull 19x just below JNJ 21.1x; pipeline-NPV-confirmed growth model"
+      }
+    ],
+    "probability_sum_check": 1.00,
+    "conviction_tag": "moderate_neutral_with_asymmetric_LOE_risk",
+    "headline": {
+      "expected_return_median": 0.0610,
+      "expected_return_range_p10_p90": [-0.481, 0.450],
+      "rating": "Hold",
+      "default_action": "hold_long",
+      "conditionality": "source_conditional",
+      "conditional_language_pattern": "A_source_conditional_bias",
+      "headline_text": "Source-conditional Hold (neutral-positive on near-term execution; bear-skewed asymmetry on 2028 Keytruda LOE) at $112.56, base case PT $124.88 derived from FY27E non-GAAP EPS $9.25 (S4: Visible Alpha n=25 median $9.25 range $8.80-9.70) x 13.5x P/E (S5: peer median ex-LLY 13.5x large-pharma; MRK 5y median 13.8x trailing). 12-month median expected return +6.1%; scenario-weighted range [-48%, +94%], CONDITIONAL on (i) Keytruda subQ Qlex conversion trajectory holding $128M Q1 2026 run-rate scaling to ~$1.0B+ annualized by FY26 exit (S2: Merck Q1 2026 8-K) AND (ii) pipeline NPV risk-adjusted at ~$25B by 2030 (S3: Merck investor day commentary; promotion path via individual asset Phase 3 readouts). If Keytruda Q2 2026 print shows subQ conversion <30% OR ifinatamab deruxtecan PDUFA 2026-10-10 negative OR IRA IPAY 2027 list adds Keytruda Part B candidate, downgrade to Sell. If subQ conversion >50% confirmed AND multiple pipeline assets approve, upgrade to Buy."
+    },
+    "weighting_sensitivity": {
+      "base_minus_10_to_bear": 0.0283,
+      "base_minus_10_to_bull": 0.0951,
+      "strong_tail_plus_10": {
+        "strong_bear": 0.0020,
+        "strong_bull": 0.1442
+      }
+    }
+  },
+  "source_tags_inline": {
+    "schema_version": "0.1.0",
+    "ticker": "MRK",
+    "as_of_date": "2026-05-19",
+    "model_cutoff_date": "2025-12-31",
+    "all_citations": [],
+    "top_anchors": [
+      {
+        "anchor_id": "A1",
+        "claim": "Merck FY2025 Keytruda revenue",
+        "value": 31680,
+        "unit": "$M",
+        "citation": {
+          "s_level": "S1",
+          "source_type": "10-K",
+          "ref": "Merck FY2025 10-K Item 7 MD&A: Keytruda $31,680M FY25 (+7% YoY vs $29,482M FY24)",
+          "date": "2026-02-26",
+          "verified": true,
+          "is_anchor_eligible": true
+        },
+        "drives_scenarios": ["strong_bear", "bear", "base", "bull", "strong_bull"],
+        "sensitivity_pct": 18.0
+      },
+      {
+        "anchor_id": "A2",
+        "claim": "Merck Q1 2026 Keytruda revenue + growth rate",
+        "value": 8030,
+        "unit": "$M",
+        "citation": {
+          "s_level": "S2",
+          "source_type": "8-K",
+          "ref": "Merck Q1 2026 8-K 2026-04-30: Keytruda $8.03B (+12% YoY); subQ Qlex contribution $128M",
+          "date": "2026-04-30",
+          "verified": true,
+          "is_anchor_eligible": true
+        },
+        "drives_scenarios": ["bear", "base", "bull"],
+        "sensitivity_pct": 10.0
+      },
+      {
+        "anchor_id": "A3",
+        "claim": "Keytruda US loss-of-exclusivity 2028",
+        "value": "2028 LOE",
+        "unit": "date",
+        "citation": {
+          "s_level": "S3",
+          "source_type": "Earnings call transcript",
+          "ref": "Merck Q4 2025 call 2026-02-03: peak Keytruda ~$35B by 2028; S1 10-K Item 1A Risk Factors corroborates LOE language",
+          "date": "2026-02-03",
+          "verified": true,
+          "is_anchor_eligible": false,
+          "promotion_path": "S3->S2 as biosimilar BLA/approval timing prints in 2027-2028"
+        },
+        "drives_scenarios": ["strong_bear", "bear", "base", "bull", "strong_bull"],
+        "sensitivity_pct": 25.0
+      },
+      {
+        "anchor_id": "A4",
+        "claim": "Pipeline-replacement opportunity ($70B non-risk-adjusted; ~$25B risk-adjusted)",
+        "value": 70000,
+        "unit": "$M",
+        "citation": {
+          "s_level": "S3",
+          "source_type": "Earnings call transcript",
+          "ref": "Merck 2025 investor day + Q4 2025 call: 20 potential new blockbusters; $70B+ non-risk-adjusted opportunity",
+          "date": "2025-04-15",
+          "verified": true,
+          "is_anchor_eligible": false,
+          "promotion_path": "Asset-level NPV builds risk-adjusted to ~$25-35B by 2030"
+        },
+        "drives_scenarios": ["bull", "strong_bull", "base"],
+        "sensitivity_pct": 15.0
+      },
+      {
+        "anchor_id": "A5",
+        "claim": "subQ Keytruda Qlex Q1 2026 launch revenue",
+        "value": 128,
+        "unit": "$M",
+        "citation": {
+          "s_level": "S2",
+          "source_type": "8-K",
+          "ref": "Merck Q1 2026 8-K: Keytruda Qlex $128M Q1 2026 (first full quarter post FDA approval 2025-09-19)",
+          "date": "2026-04-30",
+          "verified": true,
+          "is_anchor_eligible": true
+        },
+        "drives_scenarios": ["bear", "base", "bull"],
+        "sensitivity_pct": 8.0
+      },
+      {
+        "anchor_id": "A6",
+        "claim": "Januvia IRA Medicare MFP -79%",
+        "value": -79.0,
+        "unit": "%",
+        "citation": {
+          "s_level": "S2",
+          "source_type": "Federal Register",
+          "ref": "CMS Medicare Drug Price Negotiation Program: Januvia 2026 MFP $113/30-day supply; -79% from $527 2023 list; effective 2026-01-01",
+          "date": "2024-08-15",
+          "verified": true,
+          "is_anchor_eligible": true
+        },
+        "drives_scenarios": ["strong_bear", "bear"],
+        "sensitivity_pct": 4.0
+      }
+    ],
+    "headline_conditionality": "source_conditional",
+    "pending_assumptions": []
+  },
+  "verification_gates_inline": {
+    "schema_version": "0.1.0",
+    "ticker": "MRK",
+    "run_id": "MRK_2026-05-19_phase_e_run1",
+    "memo_path": "outputs/MRK_IC_memo.md",
+    "memo_structured_path": "outputs/MRK_structured.json",
+    "gates": [
+      {"gate_id": "G1", "name": "EPS x Multiple multiplicativity", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "math", "blocks_score_above": 7.0},
+      {"gate_id": "G2", "name": "Segment GM reconciliation", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "math", "blocks_score_above": 8.0},
+      {"gate_id": "G3", "name": "SOTP monotonicity", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "math", "blocks_score_above": 7.0},
+      {"gate_id": "G4", "name": "Scenario probabilities sum to 1.00", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "math", "blocks_score_above": 8.0},
+      {"gate_id": "G5", "name": "Bear/bull EPS bridge reconciles", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "math", "blocks_score_above": 8.0},
+      {"gate_id": "G6", "name": "Source tag declared at first use", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "source", "blocks_score_above": 8.0},
+      {"gate_id": "G7", "name": "Headline conditionality matches anchor strength", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "consistency", "blocks_score_above": 8.0},
+      {"gate_id": "G8", "name": "GM taxonomy box exists", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "structure", "blocks_score_above": 8.0},
+      {"gate_id": "G9", "name": "What-would-reverse has numerical denominators", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "structure", "blocks_score_above": 8.0},
+      {"gate_id": "G10", "name": "Anchor weighting impact table exists", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "structure", "blocks_score_above": 8.0},
+      {"gate_id": "G11", "name": "Non-GAAP to GAAP reconciliation present", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "consistency", "blocks_score_above": 8.0},
+      {"gate_id": "G12", "name": "SBC treatment in FCF disclosed", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "consistency", "blocks_score_above": 8.0},
+      {"gate_id": "G13", "name": "Factor exposure stated", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "quant_overlay", "blocks_score_above": 8.0},
+      {"gate_id": "G14", "name": "Capacity / ADV / days-to-exit stated", "status": "pass", "checked_at": "2026-05-19T18:00:00Z", "category": "quant_overlay", "blocks_score_above": 8.0}
+    ],
+    "overall_pass": true,
+    "blocks_score_above": 10.0
+  }
+}

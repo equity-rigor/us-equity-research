@@ -1,0 +1,236 @@
+{
+  "schema_version": "0.1.0",
+  "ticker": "MRK",
+  "current_price": 112.56,
+  "as_of_date": "2026-05-19",
+  "fiscal_year_end": "12-31",
+  "base_eps": 9.25,
+  "scenarios": [
+    {
+      "id": "strong_bear",
+      "probability": 0.10,
+      "narrative_one_liner": "Keytruda 2028 LOE more severe than modeled: 60%+ revenue cliff over 24 months; subQ Qlex conversion stalls <30%; Welireg/Capvaxive/Winrevair miss peak sales; IRA negotiation extended to Keytruda Part B in IPAY 2028; pipeline NPV cut to $15B risk-adjusted",
+      "eps": 6.50,
+      "eps_period": "FY27E",
+      "multiple": 9.0,
+      "multiple_type": "P/E",
+      "target_price": 58.50,
+      "expected_return": -0.481,
+      "anchors": [
+        "A3",
+        "A6"
+      ],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Soft 1: Section 174 cash-tax drag on $15.8B R&D (foreign portion 15-yr amortization persists; OBBBA domestic relief partial)",
+          "delta_eps": -0.40,
+          "layer": "soft",
+          "source_tag": "S1: Merck FY2025 10-K income tax footnote"
+        },
+        {
+          "label": "Soft 2: IRA Medicare negotiation extension to Keytruda Part B in IPAY 2028 list (named candidate cycle for 2027/2028)",
+          "delta_eps": -0.35,
+          "layer": "soft",
+          "source_tag": "S2: Federal Register CMS final guidance IPAY 2027"
+        },
+        {
+          "label": "Clean 1: Keytruda subQ Qlex conversion stalls at 25% vs base 50% (slower payer reimbursement adoption)",
+          "delta_eps": -0.60,
+          "layer": "clean",
+          "source_tag": "S3: Merck Q1 2026 call subQ launch commentary"
+        },
+        {
+          "label": "Clean 2: Welireg/Capvaxive/Winrevair combined peak sales 30% below base assumption",
+          "delta_eps": -0.50,
+          "layer": "clean",
+          "source_tag": "S5: EvaluatePharma launch trajectory tracker"
+        },
+        {
+          "label": "Strong 1: Biosimilar Keytruda launches accelerate to early 2028 (vs base mid-2028)",
+          "delta_eps": -0.50,
+          "layer": "strong",
+          "source_tag": "S5: DrugPatentWatch + EvaluatePharma biosimilar developer pipeline"
+        },
+        {
+          "label": "Strong 2: Pipeline NPV cut as Phase 3 readouts disappoint (ifinatamab deruxtecan AdCom adverse, MK-0616 PCSK9 fails CV outcomes)",
+          "delta_eps": -0.40,
+          "layer": "strong",
+          "source_tag": "S5: clinical readout risk modeling"
+        }
+      ],
+      "multiple_band_basis": "Large pharma 10y P/E trough analog: PFE current 8.9x; MRK FY24 trough 11.2x. Strong_bear 9.0x reflects severe biosimilar erosion + IRA Part B extension below historical trough."
+    },
+    {
+      "id": "bear",
+      "probability": 0.25,
+      "narrative_one_liner": "Keytruda LOE materializes ~50% revenue cliff by 2030 base case; subQ Qlex conversion ~35% (below 50% target); pipeline replacement risk-adjusted at $20B by 2030; IRA pressure continues on legacy assets",
+      "eps": 8.00,
+      "eps_period": "FY27E",
+      "multiple": 11.0,
+      "multiple_type": "P/E",
+      "target_price": 88.00,
+      "expected_return": -0.218,
+      "anchors": [
+        "A1",
+        "A3",
+        "A5"
+      ],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Soft 1: Section 174 cash-tax drag persists at $0.25/share",
+          "delta_eps": -0.25,
+          "layer": "soft",
+          "source_tag": "S1: Merck FY2025 10-K"
+        },
+        {
+          "label": "Soft 2: Animal Health growth moderates to mid-single-digit (vs FY25 +8% ex-FX)",
+          "delta_eps": -0.15,
+          "layer": "soft",
+          "source_tag": "S1: Merck FY25 10-K segment note"
+        },
+        {
+          "label": "Clean 1: Keytruda subQ conversion ~35% vs base 50%; FY27 Keytruda revenue $35B vs base $37B",
+          "delta_eps": -0.45,
+          "layer": "clean",
+          "source_tag": "S2: Merck Q1 2026 8-K subQ contribution + S3 Q1 call commentary"
+        },
+        {
+          "label": "Clean 2: Pipeline NPV risk-adjusted to $20B by 2030 (vs base $25B; ~80% of bull-case assets fail to meet peak sales)",
+          "delta_eps": -0.40,
+          "layer": "clean",
+          "source_tag": "S3: Merck investor day + S5 EvaluatePharma"
+        }
+      ],
+      "multiple_band_basis": "Large-pharma P/E P10-P25 band 10-12x for late-LOE-cycle names (BMY 9.5x, PFE 8.9x analogs); bear 11.0x mid of band"
+    },
+    {
+      "id": "base",
+      "probability": 0.45,
+      "narrative_one_liner": "Keytruda US LOE 2028 absorbed via subQ Qlex 50% conversion + Welireg/Capvaxive/Winrevair ramp; Cidara antiviral + Verona Ohtuvayre add COPD optionality; pipeline NPV ~$25B risk-adjusted; Animal Health stable",
+      "eps": 9.25,
+      "eps_period": "FY27E",
+      "multiple": 13.5,
+      "multiple_type": "P/E",
+      "target_price": 124.88,
+      "expected_return": 0.109,
+      "anchors": [
+        "A1",
+        "A2",
+        "A5"
+      ],
+      "strongest_anchor_s_level": "S1",
+      "eps_bridge": [],
+      "multiple_band_basis": "Large-pharma forward P/E peer median 13.5x (PFE 8.9x, BMY 9.5x, ABBV 14.1x, JNJ 21.1x, LLY 27.0x; ex-LLY median 13.5x); MRK 13.5x = peer median consistent with diversified-late-cycle pharma profile; current spot 15.1x forward / 14.5x trailing"
+    },
+    {
+      "id": "bull",
+      "probability": 0.15,
+      "narrative_one_liner": "subQ Qlex conversion >60% locks in Keytruda revenue retention; Welireg/Capvaxive/Winrevair beat peak-sales targets; ifinatamab deruxtecan PDUFA 2026-10-10 succeeds + AdCom positive; pipeline NPV $35B; OBBBA Section 174 full relief",
+      "eps": 10.20,
+      "eps_period": "FY27E",
+      "multiple": 16.0,
+      "multiple_type": "P/E",
+      "target_price": 163.20,
+      "expected_return": 0.450,
+      "anchors": [
+        "A4",
+        "A5"
+      ],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Bull Soft 1: subQ Qlex conversion to 60% locks in ~$2.5B more retained Keytruda revenue vs base",
+          "delta_eps": 0.30,
+          "layer": "soft",
+          "source_tag": "S2: Merck Q1 2026 8-K Qlex $128M Q1 run-rate"
+        },
+        {
+          "label": "Bull Soft 2: Animal Health +10% YoY sustained on companion-animal premium pricing",
+          "delta_eps": 0.15,
+          "layer": "soft",
+          "source_tag": "S1: Merck FY25 10-K Animal Health"
+        },
+        {
+          "label": "Bull Clean 1: Pipeline NPV +$10B vs base ($35B risk-adjusted by 2030; ifinatamab deruxtecan + MK-1022 + MK-0616 all succeed)",
+          "delta_eps": 0.50,
+          "layer": "clean",
+          "source_tag": "S3: investor day pipeline disclosure"
+        }
+      ],
+      "multiple_band_basis": "Bull 16x = peer 75th-percentile multiple (between ABBV 14.1x and JNJ 21.1x), justified by pipeline replacement-cycle confidence"
+    },
+    {
+      "id": "strong_bull",
+      "probability": 0.05,
+      "narrative_one_liner": "Keytruda subQ Qlex conversion >70% effectively defends bulk of franchise post-LOE; multiple Phase 3 wins (MK-1022 NSCLC, MK-0616 CV outcomes, ifinatamab); pipeline NPV $45B risk-adjusted; AdCom green-light cascade; market re-rates MRK to large-pharma growth multiple",
+      "eps": 11.50,
+      "eps_period": "FY27E",
+      "multiple": 19.0,
+      "multiple_type": "P/E",
+      "target_price": 218.50,
+      "expected_return": 0.941,
+      "anchors": [
+        "A4",
+        "A5"
+      ],
+      "strongest_anchor_s_level": "S3",
+      "eps_bridge": [
+        {
+          "label": "Bull Soft 1: subQ Qlex 70%+ conversion + Welireg/Capvaxive/Winrevair beat",
+          "delta_eps": 0.30,
+          "layer": "soft",
+          "source_tag": "S2: Q1 2026 launch trajectory"
+        },
+        {
+          "label": "Bull Soft 2: Animal Health acceleration on portfolio premiumization",
+          "delta_eps": 0.15,
+          "layer": "soft",
+          "source_tag": "S1: FY25 10-K"
+        },
+        {
+          "label": "Bull Clean 1: Pipeline NPV +$20B vs base on Phase 3 win cascade",
+          "delta_eps": 1.00,
+          "layer": "clean",
+          "source_tag": "S3: investor day"
+        },
+        {
+          "label": "Bull Strong 1: Section 174 OBBBA full relief unlocks $0.50/share cash-tax tailwind",
+          "delta_eps": 0.40,
+          "layer": "strong",
+          "source_tag": "S1: 10-K tax note + 2025 OBBBA legislative tracking"
+        },
+        {
+          "label": "Bull Strong 2: Cidara antiviral platform succeeds beyond influenza prevention (RSV/COVID adjacency)",
+          "delta_eps": 0.40,
+          "layer": "strong",
+          "source_tag": "S5: Cidara development pipeline"
+        }
+      ],
+      "multiple_band_basis": "Strong_bull 19x just below JNJ 21.1x; re-rating reflects pipeline-NPV-confirmed growth model + Animal Health franchise quality"
+    }
+  ],
+  "probability_sum_check": 1.00,
+  "conviction_tag": "moderate_neutral_with_asymmetric_LOE_risk",
+  "headline": {
+    "expected_return_median": 0.0610,
+    "expected_return_range_p10_p90": [
+      -0.481,
+      0.450
+    ],
+    "rating": "Hold",
+    "default_action": "hold_long",
+    "conditionality": "source_conditional",
+    "conditional_language_pattern": "A_source_conditional_bias",
+    "headline_text": "Source-conditional Hold (neutral-positive on near-term execution; bear-skewed asymmetry on 2028 Keytruda LOE) at $112.56, base case PT $124.88 derived from FY27E non-GAAP EPS $9.25 (S4: Visible Alpha n=25 median $9.25 range $8.80-9.70) × 13.5x P/E (S5: peer median ex-LLY 13.5x large-pharma; MRK 5y median 13.8x trailing). 12-month median expected return +5.1%; scenario-weighted range [-48%, +94%], CONDITIONAL on (i) Keytruda subQ Qlex conversion trajectory holding $128M Q1 2026 run-rate → ~$1.0B+ annualized by FY26 exit (S2: Merck Q1 2026 8-K) AND (ii) pipeline NPV risk-adjusted at ~$25B by 2030 (S3: Merck investor day commentary; promotion path via individual asset Phase 3 readouts). If Keytruda Q2 2026 print shows subQ conversion <30% OR ifinatamab deruxtecan PDUFA 2026-10-10 negative OR IRA IPAY 2027 list adds Keytruda Part B candidate, downgrade to Sell. If subQ conversion >50% confirmed AND multiple pipeline assets approve, upgrade to Buy."
+  },
+  "weighting_sensitivity": {
+    "base_minus_10_to_bear": 0.0283,
+    "base_minus_10_to_bull": 0.0951,
+    "strong_tail_plus_10": {
+      "strong_bear": 0.0020,
+      "strong_bull": 0.1442
+    }
+  }
+}
