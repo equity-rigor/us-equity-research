@@ -46,6 +46,10 @@ cp -R us-equity-research us-equity-ic-rigor ~/.claude/plugins/
 
 ## Quick start
 
+Two invocation paths — both work, pick whichever fits the moment.
+
+### Path A — auto-discovered skills (probabilistic trigger)
+
 ```
 You: "Build me a thesis on NVDA"
 → Triggers us-equity-research skill (matches ticker pattern + thesis intent)
@@ -58,6 +62,25 @@ You: "Score this memo. Push it from 8.x to 9.x."
 → Runs 14 verification gates G1-G14 + scores against the PM rubric
 → Returns gate-by-gate findings + iteration plan
 ```
+
+### Path B — explicit slash commands (deterministic trigger, v0.1.1+)
+
+```
+/us-equity-research:research NVDA
+→ Runs Phase 0 only. Produces outputs/NVDA_structured.json
+   + outputs/NVDA_Research_Document_<date>.md. Does NOT shape into IC memo.
+
+/us-equity-ic-rigor:ic-memo NVDA
+→ Chains Phase 0 (delegates to us-equity-research) → Phases 1-3 → enforces
+   all 14 verification gates → produces full IC memo + structured JSON outputs.
+
+/us-equity-ic-rigor:red-team NVDA [target-score]
+→ Phase 4 only. Assumes outputs/NVDA_IC_memo.md + structured JSON exist.
+   Runs all 14 gates, scores against pm-redteam-rubric, produces ordered
+   push-from-N-to-N+1 fix list. Default target score 8.5 per D20.
+```
+
+The slash commands and the auto-discovery triggers point at the same underlying skills — they are different entry points to identical pipelines. Use the slash commands when you want deterministic invocation (e.g. in a daily research routine); use the conversational triggers when the request is naturally phrased.
 
 ## Standing context
 

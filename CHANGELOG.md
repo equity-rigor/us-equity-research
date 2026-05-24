@@ -4,6 +4,45 @@ All notable changes to this project will be documented in this file. Format
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) +
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] — 2026-05-24
+
+### Added — slash command surface
+
+Both plugins now expose deterministic slash-command entry points alongside
+the existing auto-discovered skill triggers. Same underlying pipelines,
+explicit invocation:
+
+- `us-equity-research/commands/research.md` — `/us-equity-research:research [ticker]`
+  runs Phase 0 fundamental research and stops. Does not chain into IC
+  memo construction unless the user's request implies it.
+- `us-equity-ic-rigor/commands/ic-memo.md` — `/us-equity-ic-rigor:ic-memo
+  [ticker]` chains Phase 0 → Phases 1-3 → enforces all 14 verification
+  gates → produces full IC memo + 4 structured JSON artifacts.
+- `us-equity-ic-rigor/commands/red-team.md` — `/us-equity-ic-rigor:red-team
+  [ticker] [target-score]` runs Phase 4 only; assumes IC memo outputs
+  exist; produces gate sweep + rubric score + ordered push-from-N-to-N+1
+  fix list. Default target 8.5 per D20.
+
+### Rationale
+
+Auto-discovery via SKILL.md description matching works but is probabilistic
+— the loader scores prompt similarity against every available skill's
+description and can miss when the prompt phrasing is unusual. Slash
+commands give a deterministic entry point for daily research routines
+where invocation reliability matters more than natural language fit.
+
+The set is deliberately minimal (3 commands, not 9) — each maps to a
+distinct phase boundary. Anthropic's `claude-for-financial-services/
+equity-research` ships 9 commands; that surface is already available
+when that plugin is installed, so duplicating it adds menu noise without
+adding capability.
+
+### Non-breaking
+
+No schema changes. No SKILL.md changes. No verify_*.py changes. Auto-
+discovery triggers still work exactly as in 0.1.0. The 198 pytest tests
+still pass — slash commands are scaffolding files, not executable code.
+
 ## [0.1.0] — 2026-05-20
 
 ### Added — initial release
