@@ -41,9 +41,11 @@ Phase 1   Initial deep-dive (5 specialists in parallel)
    |
 Phase 1.5 Refresh round (only if Phase 1 agents failed to use web tools)
    |
-Phase 2   Deepening + Forensic + Red Team (5 agents in parallel)
+Phase 2   Deepening + Forensic + Red Team + Consensus (6 agents in parallel; A-Consensus new in v0.2.0)
    |      A2 Forensic continuation, A3 Customer/commercial pipeline,
-   |      A3-Peers Competitive comparison, R Red Team v1, A6 Channel pulse
+   |      A3-Peers Competitive comparison, R Red Team v1, A6 Channel pulse,
+   |      A-Consensus Variance identification (forces G15-eligible variance or
+   |      "consensus-anchored" labeling per `consensus-variance-us.md`)
    |      -> PM synthesis -> Phase 2 Integrated Brief (v3)
    |
 Phase 3   Valuation + Final synthesis (4 agents in parallel)
@@ -65,9 +67,10 @@ Final     Multi-audience deliverables
 
 Phase reference files (read on demand, not at skill load):
 
-- `references/phase-1-deep-dive-us.md` — Five specialist agent prompts for Phase 1
-- `references/phase-2-continuation-us.md` — Five agent prompts for Phase 2
+- `references/phase-1-deep-dive-us.md` — Five specialist agent prompts for Phase 1 + sector-conditional Bank Discipline augmentation under FS (new in v0.2.0; gated by G16 for sector=Financials/Banks)
+- `references/phase-2-continuation-us.md` — Six agent prompts for Phase 2 (A2/A3/A3-Peers/R/A6 + A-Consensus new in v0.2.0); A6 includes revision velocity discipline (new in v0.2.0; G17)
 - `references/phase-3-valuation-us.md` — Four agent prompts for Phase 3
+- `references/consensus-variance-us.md` — **(new in v0.2.0)** Variance taxonomy, evidence-required matrix, sizing rule, calibration. Gated by G15.
 - `references/verification-protocol-us.md` — Web verification methodology
 - `references/us-data-sources.md` — EDGAR, FRED, Federal Register, regulators, free vs premium tiering
 - `references/source-stratification-us.md` — S1-S5 + Pending taxonomy ported to US filings
@@ -76,7 +79,7 @@ Phase reference files (read on demand, not at skill load):
 - `references/positioning-sentiment-us.md` — 13F clusters, Form 4 patterns, 13D activists, short interest + DTC, options skew, ETF passive %, index inclusion
 - `references/valuation-discipline-us.md` — Sector-default multiple table (P/E, EV/EBITDA, P/B, AFFO, ARR + Rule of 40, NPV pipeline, EBITDAX, etc.) per D8
 - `references/monitoring-framework-us.md` — Catalyst calendar, Tier 1/2/3 triggers, kill criteria, earnings cycle
-- `references/ic-memo-template-us.md` — Full 12-section institutional memo template
+- `references/ic-memo-template-us.md` — Full institutional memo template (v0.2.0 adds §CONSENSUS VARIANCE & REVISION VELOCITY between INVESTMENT THESIS and VALUATION FRAMEWORK; adds Bank Metrics subsection under KEY FINANCIAL DATA)
 - `references/lp-letter-template.md` — 1-2 page LP communication variant
 - `references/earnings-prep-template.md` — Night-before earnings checklist
 - `references/earnings-flash-template.md` — T+30min same-day structured response
@@ -104,7 +107,7 @@ Before dispatching any agents, capture:
 2. **Mandate**: Long-only large-cap / long-only SMID / L/S hedge fund / sector specialty / pair-trade structure (per D3). Drives which sizing column gets featured in the headline.
 3. **Horizon**: 12-month primary + 24-month secondary (default per D2). Earnings prep / flash use 3-6 month horizon.
 4. **Data access tier**: EDGAR-only (default) / premium hooks enabled (with env var indication).
-5. **Sector**: GICS Level-2 or Level-4 — drives the primary valuation multiple per the `valuation-discipline-us.md` sector table (D8). E.g., NVDA = Tech > Semis > P/E primary; JPM = Financials > Diversified Banks > P/B + ROE-implied P/B; XOM = Energy > Integrated > EV/EBITDAX + FCF yield; MRK = Healthcare > Pharma > EV/Sales + NPV pipeline; AMT = REITs > Tower > P/AFFO + NAV.
+5. **Sector**: GICS Level-2 or Level-4 — drives the primary valuation multiple per the `valuation-discipline-us.md` sector table (D8). E.g., NVDA = Tech > Semis > P/E primary; JPM = Financials > Diversified Banks > P/B + ROE-implied P/B; XOM = Energy > Integrated > EV/EBITDAX + FCF yield; MRK = Healthcare > Pharma > EV/Sales + NPV pipeline; AMT = REITs > Tower > P/AFFO + NAV. **Load-bearing in v0.2.0+**: sector ∈ {Financials/Banks, Diversified Banks, Regional Banks, Investment Banking & Brokerage, Insurance, BDC} triggers the FS-Banks Augmentation in Phase 1 and bank-specific G16 verification. Incorrect sector classification cascades into wrong specialist activation — cross-check ticker against NASDAQ Symbol Directory or company 10-K cover page Item 1 if uncertain.
 6. **Pair-trade flag** (if applicable): partner ticker, pair-spread benchmark, expected hedge ratio.
 
 Default if unspecified: long-only L/S-friendly, 12mo primary + 24mo secondary, EDGAR-only, sector inferred from ticker.
@@ -141,9 +144,9 @@ Re-dispatch failed agents with explicit, mandatory instructions:
 
 After refresh, write v2 of the Integrated Brief with corrections clearly documented.
 
-## Phase 2: Deepening + Forensic + Red Team
+## Phase 2: Deepening + Forensic + Red Team + Consensus
 
-Dispatch five in parallel. Phase 2 is set up based on Phase 1 findings — the agents target specific gaps and tensions surfaced.
+Dispatch **six** in parallel (A-Consensus added v0.2.0). Phase 2 is set up based on Phase 1 findings — the agents target specific gaps and tensions surfaced.
 
 | Agent | Specialist | Output |
 |---|---|---|
@@ -151,7 +154,8 @@ Dispatch five in parallel. Phase 2 is set up based on Phase 1 findings — the a
 | **A3** | Customer / commercial pipeline | Customer wins/losses; product roadmap; ASP and unit dynamics; major contracts (10-K Item 1.01 disclosures); customer concentration % (10-K risk factors); net retention / churn for SaaS; pipeline coverage for biotech. |
 | **A3-Peers** | Competitive comparison | Side-by-side vs 2-3 closest peers (GICS sub-industry); relative valuation; pair-trade framing; segment-level peer comparison. Optional delegation to `financial-analysis:comps-analysis` for Excel comps artifact if user requested and plugin installed (see `references/tool-composition-us.md`). |
 | **R** | Red Team v1 | Strongest bear case in good faith; base-rate analysis on peer industry (e.g., what % of high-growth SaaS at 80x EV/ARR retained that multiple 24mo later?); specific kill criteria with numerical denominators; identify the strongest S1-S2 fact the bull case ignores. |
-| **A6** | Channel pulse | Monitoring framework; weekly / monthly tracking dashboard; Tier 1/2/3 trigger structure; pre-announcement risk; sell-side estimate revision dashboard; 13F filing-window awareness (mid-Feb, mid-May, mid-Aug, mid-Nov); Form 4 alert thresholds. |
+| **A6** | Channel pulse + revision velocity (G17) | Monitoring framework; weekly / monthly tracking dashboard; Tier 1/2/3 trigger structure; pre-announcement risk; 13F filing-window awareness (mid-Feb, mid-May, mid-Aug, mid-Nov); Form 4 alert thresholds. **v0.2.0**: load-bearing earnings revision velocity disclosure (1m/3m/6m FY1 EPS delta + breadth + peer comparison + pre-print drift) per G17. Cross with crowding score to surface revision-down/crowded-long short setups and revision-up/crowded-short squeeze setups. |
+| **A-Consensus** (new v0.2.0) | Consensus variance identification (G15) | Pull FactSet / Visible Alpha / Bloomberg EE consensus snapshot; for each material disagreement on revenue / margin / multiple / scenario-weight / catalyst-timing, classify variance type, evidence with S1-S3 sources per `consensus-variance-us.md` evidence matrix, size impact in pp on scenario weights. If no defensible variance: recommend "consensus-anchored" labeling and Hold rating ceiling. The agent that forces the memo to claim edge specifically or admit absence honestly. |
 
 Phase 2 typically surfaces material bear data points that Phase 1 missed — e.g., for NVDA: a meaningful Form 4 cluster of C-suite selling, a non-GAAP-to-GAAP gap widening to 35% of net income, a specific 8-K Item 1.01 customer-contract loss, or a pending FTC/DOJ investigation surfaced in Federal Register. Synthesize into v3 of the Integrated Brief.
 
@@ -186,7 +190,7 @@ Process:
 4. **Verify management guidance against the earnings call transcript, NOT the press release.** Companies sometimes provide different ranges on the call vs in the 8-K Item 7.01 press release. The call is the authoritative S3 source for guidance per delta matrix §11.
 5. Specifically verify any "designated on regulatory list" / "company X said Y" / "specific dollar amount" claims — these are highest-risk hallucinations. For Entity List status, query bis.doc.gov/index.php/policy-guidance/lists-of-parties-of-concern/entity-list. For OFAC SDN, query sanctionssearch.ofac.treas.gov. For FDA action letters, query fda.gov/drugs/development-approval-process-drugs.
 6. Dispatch an independent sanity-check sub-agent that re-verifies using its own web searches — do not trust the prior verification.
-7. Run the 14 verification gates (G1-G10 inherited from china-equity-ic-rigor; G11-G14 US-specific: non-GAAP/GAAP reconciliation, FCF SBC treatment, Barra factor exposure stated, capacity / ADV days-to-exit stated). Per `schemas/verification_gates.json` — a memo cannot claim score >8.0 with any gate failing.
+7. Run the **17** verification gates (G1-G10 inherited from china-equity-ic-rigor; G11-G14 US-specific: non-GAAP/GAAP reconciliation, FCF SBC treatment, Barra factor exposure stated, capacity / ADV days-to-exit stated; **G15-G17 added v0.2.0**: G15 consensus variance declared or "consensus-anchored" labeled, G16 bank-specific AOCI bridge + CET1 walk + NIM trajectory + stress capital context when sector=Banks, G17 revision velocity 3m FY1 EPS delta + breadth disclosed when n_analysts ≥ 5). Per `schemas/verification_gates.json` — a memo cannot claim score >8.0 with any gate failing.
 8. If verification finds material errors, update the IC memo and document the correction.
 
 For verification methodology and the standard checklist, read `references/verification-protocol-us.md`.

@@ -387,6 +387,134 @@ Length: 4,000+ words plus tables. Per delta matrix §11, verify guidance against
 earnings call transcript, NOT press release.
 ```
 
+### FS-Banks Augmentation — Conditional on Phase 0 sector ∈ {Financials/Banks, Diversified Banks, Regional Banks, Investment Banking & Brokerage, Insurance, BDC}
+
+**This section is load-bearing for any depository institution, BDC, life/P&C insurer, or broker-dealer. If sector = Financials/Banks and this augmentation is not executed, Phase 1 fails and Phase 1.5 refresh is mandatory.** Bank discipline is the largest single sector gap in v0.1.x and the single most common LLM failure on US equities — banks fail catastrophically under generic income-statement-and-cash-flow analysis because the balance sheet *is* the engine, capital adequacy *is* the constraint, and earnings quality reduces to the AOCI bridge + reserve build trajectory + NIM path. v0.2.0 closes this via the discipline below, verified by Plugin 2 gate **G16**.
+
+The augmentation is additive to the standard FS prompt — execute the standard FS prompt AND the bank-specific extensions below. Output goes into the same FS deliverable, with bank-specific findings in a dedicated "Bank-Specific Forensics" section.
+
+**Bank-specific filings to pull (in addition to 10-K / 10-Q / DEF 14A):**
+
+- **FR Y-9C** (Consolidated Financial Statements for Holding Companies) via Federal Reserve at chicagofed.org/research/data/bhc-data — quarterly, ~3-4 week lag. The Y-9C is the regulator-grade BHC balance sheet and contains line items not in the 10-Q (e.g., line-item RWA breakdown, regulatory capital line items at the BHC level).
+- **Call Report (FFIEC 031/041)** via FFIEC at cdr.ffiec.gov for the lead bank subsidiary — quarterly, ~30 day lag. Contains loan-level Schedule RC-N (past due / nonaccrual) and Schedule RC-O (deposit insurance assessment base) detail not in the 10-Q.
+- **FR Y-14A** (annual capital stress disclosure) — published as part of Dodd-Frank stress test results, second half each year. Discloses CCAR / DFAST stress capital trajectory under severely adverse macro.
+- **Stress Capital Buffer (SCB) determination letter** — published by Fed Q3 each year, sets Category I/II/III bank capital requirement for the next 4 quarters.
+- **CCAR / DFAST results** — annual release in late Q1 / early Q2; pre-tax net income, PPNR, ACL, AOCI under severely adverse and adverse scenarios. The CCAR severely adverse stress capital trajectory is the binding constraint on capital return for Category I-IV banks.
+- **For insurers**: NAIC Schedule D (investment portfolio detail) and statutory financial statements via individual state insurance department websites. Statutory accounting (SAP) differs materially from GAAP — statutory equity ≈ GAAP equity less DAC less AOCI for life insurers; P&C reserves on SAP basis are larger than GAAP. Solvency II disclosures for European primaries' US subs available via parent's Pillar 3 disclosure.
+
+**Required bank-specific deliverables (extend the standard FS sections):**
+
+**B-1. AOCI bridge and tangible-book reconciliation.** This is the SVB lesson and the single largest analytical gap in v0.1.x bank work. For any bank with material AFS securities portfolio (most regional banks; many G-SIBs to a lesser extent):
+
+   - Report AFS portfolio book value, fair value, and accumulated OCI mark in $B and as % of tangible common equity (TCE). Pull from 10-Q Schedule of AFS Securities or Y-9C Schedule HC-B.
+   - Report HTM portfolio book value vs fair value separately. HTM is held at amortized cost on the balance sheet but the fair-value disclosure is required in 10-Q footnotes; the gap is the *unrealized HTM loss*, which is NOT in AOCI but is real economic loss and limits balance-sheet flexibility (selling the HTM book to fund deposit outflows triggers OCI taint that flushes the gap into earnings).
+   - Compute tangible book bridge: reported TBVPS → mark-to-market TBVPS = reported TBVPS − (HTM unrealized loss × (1 − tax rate)) / diluted shares. Track YoY change.
+   - For Category III/IV banks specifically: AOCI opt-out election status. Most regional banks elected to opt out under the 2019 tailoring rules — AOCI does not flow through CET1 capital, which masks balance-sheet impairment. Disclose whether opt-out applies and what reported CET1 would be without the opt-out.
+   - SVB pattern: HTM unrealized loss > 25% of TCE and depositor uninsured concentration > 60% of deposits is the canonical pre-failure signature. Flag if either threshold crossed.
+   - S-tag discipline: AFS fair value = S1 (10-K Schedule), AOCI mark = S1, HTM fair value = S1 (10-K footnote), tangible book bridge = S1-computed.
+
+**B-2. CET1 walk with operational risk RWA decomposition.** Regulatory capital is the binding constraint. Walk consists of:
+
+   - Starting CET1 (period-prior 10-Q or Y-9C Schedule HC-R Part I)
+   - + Net income attributable to common (period)
+   - − Common dividends declared
+   - − Net share repurchases
+   - − AOCI flow (for AOCI-non-opt-out banks: Category I/II/III above $700B asset size)
+   - − Goodwill/intangibles changes (acquisition tail, impairment)
+   - − DTA disallowance changes (under Basel III, certain DTAs are CET1 deductible above thresholds)
+   - = Ending CET1
+   - ÷ Ending RWA
+   - = CET1 ratio
+   - For Category I-III banks: decompose RWA into credit RWA, market RWA, operational RWA. Operational RWA under Basel III standardized approach (Internal Loss Multiplier + Business Indicator Component) is now disclosed; Basel III Endgame proposes a flat ORWA based on revenue + losses without the ILM offset. The current proposal as of v0.2.0 issuance (May 2026): US final rule on Endgame implementation has been deferred to mid-2027 effective date with phase-in to 2030; track Federal Register for the final rule.
+   - For Category IV banks: simplified standardized credit RWA only; no formal market or ORWA decomposition required pre-Endgame, but post-Endgame Category IV becomes subject to the standardized framework.
+
+   **Stress capital buffer (SCB) overlay.** Required CET1 = 4.5% minimum + 2.5% capital conservation buffer + SCB (bank-specific, from Fed determination letter) + GSIB surcharge (Category I only, 1.0%-4.5% from Methodology 2). For most large regionals, total required CET1 lands at 8-10%; for G-SIBs, 11-13.5%. The buffer above required = capital return capacity. Track quarterly.
+
+   S-tag discipline: CET1 ratio = S1 (10-K / 10-Q / Y-9C), SCB = S2 (Fed determination letter), CCAR severely adverse trough = S2 (Fed CCAR release), GSIB surcharge = S2 (Fed Methodology 2 disclosure).
+
+**B-3. NIM and deposit-beta sensitivity grid.** Net interest margin is the dominant earnings driver for most US depositories. The discipline:
+
+   - 5-year NIM trajectory with peer benchmark (peer = same-bucket comparator: large regional vs large regional, G-SIB vs G-SIB, super-community vs super-community).
+   - **Asset-side repricing**: walk the loan and securities book by repricing speed. Floating-rate commercial loans reprice within 90 days; fixed-rate residential mortgage and longer-duration securities reprice on amortization schedule. Disclose the % of earning assets repricing within 12 months. Bank 10-K Item 7A market-risk disclosure typically shows a 100bp instantaneous shift sensitivity table — pull this.
+   - **Liability-side repricing (deposit beta)**: this is the load-bearing sensitivity. Deposit beta = Δ(deposit rate paid) / Δ(Fed Funds rate over the cycle). Cumulative cycle deposit beta typically lands 30-55% for retail-heavy banks, 55-80% for commercial-heavy banks. Disclose: (a) reported through-cycle deposit beta from earnings call commentary (S3), (b) current quarter incremental deposit beta, (c) mix shift between interest-bearing and non-interest-bearing deposits.
+   - **NIM bridge for the most recent quarter**: prior-quarter NIM → asset-side delta (bp) + liability-side delta (bp) + mix delta (bp) + day-count adjustment + accretion (PCD loan accretion if recent M&A; loss-share runoff) = current-quarter NIM. Each bridge item cited to S3 (call) or S2 (10-Q).
+   - **Forward NIM scenario**: under current forward curve (S5: FRED `DFF` + OIS curve), what is the NIM 4 quarters forward? Most banks disclose NIM directional bias in earnings commentary (S3).
+   - **Deposit-beta normalization timing**: this is the variance flashpoint vs Street. Street typically over-models deposit-beta sticky-down (deposit rates fall slower than Fed Funds when cycle turns). For names where the actual deposit composition is concentrated in money-market and HY savings (rate-sensitive), beta normalization is faster than Street model. This is a recurring Type 5 (timing) consensus variance — see `consensus-variance-us.md`.
+
+   S-tag discipline: reported NIM = S1, deposit beta = S3 (call) or S1-computed, forward curve = S5 (FRED), peer comparison = S4 (FactSet bank coverage).
+
+**B-4. CECL allowance methodology and reserve build trajectory.** Under ASC 326 (CECL), the allowance for credit losses (ACL) is a lifetime-loss forward-looking estimate, not the prior incurred-loss model. ACL trajectory is now an earnings driver in its own right.
+
+   - ACL as % of loans HFI (held for investment) — 5-year trajectory; peer comparison
+   - ACL by loan category (10-K Note "Allowance for Credit Losses"): C&I, CRE, residential mortgage, consumer, credit card, auto. CRE concentration is the post-2022 watch item — track CRE ACL specifically.
+   - Reserve build/release as % of quarterly PPNR (pre-provision net revenue). A 50bp ACL build on $400B of loans = $2B provision expense — for a bank with $5B quarterly PPNR, that's 40% of PPNR. Reserve release is the symmetric earnings boost. Flag if 4-quarter rolling provision is materially above or below peer median — release-driven earnings beats are low-quality (Street typically models normalized provision).
+   - Day-2 CECL adoption impact (one-time CET1 hit at 2020 transition, phased in over 5 years through 2024 — 100% phased in as of v0.2.0). Document.
+   - Office CRE specifically (the late-2023/2024/2025 watch sub-category): exposure $ + LTV + GeoConcentration if disclosed in 10-K Item 7. Many regionals disclose office CRE in MD&A as separate sub-bucket; pull explicitly.
+
+   S-tag discipline: ACL = S1, by-category breakdown = S1 (10-K Note) or S2 (10-Q Note), provision expense = S1, peer ACL ratio = S4.
+
+**B-5. OCI roll-through and tangible book volatility.** AOCI changes flow through OCI on the comprehensive income statement, then accumulate on the balance sheet. For AOCI-flow-through banks (Category I-III above $700B): AOCI changes hit CET1 directly. For AOCI-opt-out banks (Category III below $700B + Category IV): AOCI sits on balance sheet but does not affect CET1.
+
+   - Quarterly OCI volatility: track AOCI delta vs benchmark 10Y UST move. AFS-heavy banks: AOCI delta ≈ −(modified duration of AFS book) × (10Y UST move bp) × (AFS book size). A 100bp 10Y move on a $20B AFS book with 5-year modified duration = −$1B AOCI hit, ~5% of TCE for a $20B-TCE regional. Disclose the sensitivity grid.
+   - For G-SIBs with large derivative books: AOCI also includes cash-flow hedge mark-to-market. Disclose hedge program structure (10-K Note "Derivatives") and whether it offsets balance-sheet duration risk.
+   - Tangible book per share (TBVPS) trajectory: 5-year track vs peer. TBVPS growth = ROE × (1 − payout) − OCI drag. OCI drag has been 100-300bp on TBVPS growth for most regionals 2022-2024 and will reverse symmetrically when rates fall.
+
+**B-6. Stress-test capital trajectory under CCAR / DFAST severely adverse.** For Category I-IV banks (any bank above $100B in assets), CCAR / DFAST severely adverse scenario disclosure is the binding capital return ceiling. The discipline:
+
+   - Pull most recent DFAST / CCAR severely adverse scenario disclosure (Fed publishes in Q2 each year; bank publishes its own midcycle disclosure with 10-K Item 7A).
+   - Report stress capital trough (lowest CET1 ratio across the 9-quarter projection) and 4Q PPNR + 4Q ACL + 4Q AOCI under stress.
+   - Stress capital buffer (SCB) = max(2.5%, peak-to-trough decline + planned dividend over next 4 quarters). The Fed's SCB determination letter sets this number for the bank for the following year.
+   - **Capital return capacity** = (Actual CET1 − Required CET1) × RWA × (next 4 quarters of net income accretion factor). This is the buyback + dividend ceiling. Track quarterly.
+   - For non-CCAR banks (under $100B): disclose own internal stress testing methodology and capital adequacy framework. Smaller community banks rely on Tier 1 leverage ratio (>8% well-capitalized PCA threshold) more than CET1.
+
+   S-tag discipline: CCAR / DFAST results = S2 (Fed release / bank 8-K), SCB = S2 (Fed determination letter), required CET1 = S2 (Fed regulation).
+
+**B-7. Category tiering and regulatory currency.** US bank regulation post-2019 tailoring: banks are placed in Category I-IV based on asset size, cross-jurisdictional activity, weighted short-term wholesale funding, non-bank assets, and off-balance-sheet exposure. Each category triggers different regulatory requirements:
+
+   - **Category I** (G-SIBs: JPM, BAC, C, WFC, GS, MS) — full Basel III standards, LCR, NSFR, TLAC, GSIB surcharge under both Method 1 and Method 2 (use higher), AOCI flows through CET1, biennial CCAR, semi-annual DFAST. SCB minimum 2.5%, no GSIB cap.
+   - **Category II** ($700B+ assets or cross-jurisdictional): similar to Category I but no GSIB surcharge.
+   - **Category III** ($250-700B): SCB applies, modified LCR (85% of full requirement), no NSFR public requirement, AOCI opt-out available, biennial CCAR.
+   - **Category IV** ($100-250B): SCB applies, no LCR public requirement, AOCI opt-out, biennial DFAST (no CCAR public release pre-2024 but disclosure required post-Senior Officer Letter).
+   - Below $100B: "tailored" — community bank leverage ratio (CBLR) elections common (use 9% Tier 1 leverage in lieu of full Basel III stack).
+
+   Pull current category from the most recent 10-K Item 1 or DEF 14A Compensation Discussion (often referenced for stress testing context). Re-categorization triggers (asset growth crossing $100B, $250B, $700B thresholds) drive multi-year capital requirements increases — this is the central planning question for any large regional approaching a category boundary (e.g., FITB / KEY / MTB at ~$100B; USB / TFC / PNC at ~$500B).
+
+**B-8. Basel III Endgame status and timing.** The Federal Reserve's Basel III Endgame proposal (originally proposed July 2023, re-proposed September 2024 after industry pushback) implements the final Basel III standards in the US. Key impacts: standardized credit RWA replaces the Advanced IRB model for Category I-II banks (increases RWA materially for large banks); operational RWA based on Internal Loss Multiplier × Business Indicator Component (with ILM floored at 1.0 in re-proposed rule — was variable in original); market risk RWA under FRTB. As of v0.2.0 issuance (May 2026): final rule is in interagency review with effective date most likely July 1, 2027, phase-in to 2030. Track Federal Register for final rule publication. **Currency caveat: this section dates fastest in the file — refresh quarterly.**
+
+**B-9. Insurance-specific extensions** (if sector = Insurance, BDC, or PE-affiliated specialty finance):
+
+   - Statutory accounting (SAP) vs GAAP delta — for life insurers, statutory equity ≈ GAAP equity less DAC less goodwill less AOCI. RBC (Risk-Based Capital) ratio is the regulatory capital ratio (>300% well-capitalized). Pull RBC from statutory statements.
+   - Reserve methodology: for life insurers, principle-based reserving (PBR) under VM-20 vs formulaic reserves. PBR adoption increases reserves for term life; decreases reserves for universal life with secondary guarantees.
+   - Asset duration mismatch: life insurer asset duration vs liability duration. Most life insurers run 30-90% asset-liability duration matched; the gap is the interest-rate exposure.
+   - For P&C: combined ratio (loss ratio + expense ratio); reserve development (favorable / adverse); catastrophe loss exposure (Florida wind, California wildfire, Gulf hurricane); reinsurance program structure.
+   - BDCs: NAV trajectory, NII coverage of dividend, non-accrual % of fair value (>5% = elevated stress), PIK income % of total income (>30% = quality concern).
+
+**B-10. Anti-patterns specific to bank work (LLM and junior-analyst failure modes):**
+
+   - Applying P/E to a bank without adjusting for AOCI normalization. P/E on stressed earnings during AOCI bleed-out periods over-rewards the discount; AOCI reversal as rates fall produces low-quality TBVPS growth that does not deserve full multiple.
+   - Treating ROTCE as a primary multiplier without checking what's in ROTCE (release-driven? trading-driven? PPNR-driven?). Composition matters.
+   - Anchoring on absolute CET1 ratio without contextualizing required CET1 (SCB + GSIB surcharge). A 12% CET1 ratio is excess capital for a Category IV bank (required ~8%) but inadequate buffer for a G-SIB (required ~13%).
+   - Ignoring the HTM unrealized loss (because it's not in AOCI). HTM losses are real economic losses that constrain balance-sheet flexibility.
+   - Treating deposit beta as constant. It is highly path-dependent — early in the cycle, beta is low; late in the cycle, beta accelerates; on the down-cycle, beta is sticky down then accelerates.
+   - Confusing "office CRE" with "total CRE." Office is the watch sub-bucket; total CRE includes multifamily / industrial / retail with very different default trajectories.
+
+**G16 gate enforcement.** Plugin 2 gate **G16** validates that any memo with `sector` ∈ {Financials/Banks, Diversified Banks, Regional Banks, Investment Banking & Brokerage, Insurance, BDC} contains:
+
+   (a) AOCI bridge (B-1) — explicit fair value of AFS securities + AOCI mark + HTM unrealized loss disclosed; mark-to-market TBVPS computed,
+   (b) CET1 walk (B-2) — explicit period-over-period CET1 ratio with bridge,
+   (c) NIM trajectory (B-3) — explicit 5-year NIM trajectory + deposit-beta disclosure,
+   (d) Stress capital context (B-6) — explicit SCB + capital-return capacity.
+
+If any of (a)-(d) is absent for a Banks-sector memo, G16 fails and `blocks_score_above` = 7.0. See Plugin 2 `verify_bank_metrics.py` for the verifier.
+
+**Validation tickers for the bank discipline (v0.2.0 self-test set):**
+- **JPM** (Category I G-SIB): full-stack discipline including GSIB surcharge.
+- **USB** (Category III): SCB + AOCI opt-out + CRE concentration + recent acquisition (Union Bank).
+- **MTB** (Category IV, ~$200B): Category IV simplifications + heavy CRE exposure (35-40% of loans).
+- **SCHW** (broker-dealer with bank sub): broker-dealer plus depository plus AOCI-heavy AFS book — the post-SVB bank-sub-of-broker case.
+
+For Sprint 1 v0.2.0 acceptance, JPM is the required validation re-run (see CHANGELOG).
+
 ---
 
 ## PM Synthesis After Phase 1 — Integrated Brief

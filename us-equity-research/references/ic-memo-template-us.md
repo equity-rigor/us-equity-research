@@ -59,6 +59,67 @@ NVDA as the running example where useful.
 
 [Continue for 3-5 legs per memo.json minItems/maxItems]
 
+## CONSENSUS VARIANCE & REVISION VELOCITY (new in v0.2.0 — required for any non-Hold rating)
+
+This section gates the rating per Plugin 2 gate **G15**. Discipline per `consensus-variance-us.md`. If no defensible non-consensus view exists, the memo must self-label "consensus-anchored" in the §RECOMMENDATION headline and rating ≤ Hold; otherwise this section enumerates each declared variance with magnitude, evidence, and sized impact.
+
+### Consensus snapshot
+
+| Line item | Consensus median | Source | n_analysts | Range (low–high) | Our number | Δ (%/bp) | Material? (Y/N) |
+|---|---|---|---|---|---|---|---|
+| FY[N+1] Revenue $M | | S4: [src + date] | | | | | |
+| FY[N+1] EPS non-GAAP $ | | S4: [src + date] | | | | | |
+| FY[N+1] GM % | | S4: [src + date] | | | | | |
+| FY[N+1] OPM % | | S4: [src + date] | | | | | |
+| Forward P/E (or sector multiple) | | S4 / 5y trailing | | | | | |
+| 12-month PT median $ | | S4: [src + date] | | | | | |
+| Rating mix (Buy / Hold / Sell %) | | S4: [src + date] | | | n/a | n/a | n/a |
+
+### Declared variances (per G15 — at least one required for non-Hold rating; sizing impact ≥2.0pp for at least one)
+
+For each variance below: type ∈ {Revenue, Margin, Multiple, Scenario-weight, Timing}.
+
+**Variance 1 — [type]**
+- Line item: [specific FY1/FY2/FY3 revenue / margin / multiple / scenario-weight / catalyst-timing line]
+- Our number vs consensus: [your number] vs [consensus number] = [+/- X%/bp]
+- Evidence (per `consensus-variance-us.md` evidence matrix — required S-levels for each type):
+  - [S1 / S2 / S3 citation 1 with full ref + URL + date]
+  - [S1 / S2 / S3 citation 2 — for margin variance, the explicit bridge step is shown here]
+  - [Triangulation point consensus has not yet weighted — what specifically Street is missing]
+- Sizing impact (per formula in `consensus-variance-us.md`): magnitude [X%] × probability_of_being_right [Y%] × scenario_sensitivity [Z%] = **[N] pp** shift in [scenario] probability vs consensus-implied
+- Why consensus has not yet incorporated: [one-sentence operational mechanism — e.g. "Street's Q1 FY27 EPS revision occurred pre-call; the call transcript revealed the deposit beta inflection that mechanically shifts NIM trajectory; Street typically takes 2-6 weeks to re-incorporate post-call into median EPS"]
+- Red Team challenge: [what falsification would look like + the trigger event/date that would resolve]
+
+**Variance 2 — [type]** (if applicable)
+[Same structure]
+
+**Variance 3 — [type]** (if applicable)
+[Same structure]
+
+### If no defensible variance: "Consensus-anchored" disclosure
+
+If zero load-bearing variances can be declared (or all declared variances have sizing_impact_pp < 2.0), the memo:
+- Self-labels in §RECOMMENDATION headline as "**consensus-anchored**"
+- Rating ceiling: Hold
+- Headline_conditionality = `range_only` per `source-stratification-us.md`
+- G15 status: n_a (Hold rating exempts the gate); rating cap enforced by G15 logic instead
+
+### Revision velocity snapshot (per G17 — required disclosure if n_analysts ≥ 5)
+
+| Window | FY1 EPS revision (%) | Direction | Breadth ((up−down)/N) | Comparison vs peer median |
+|---|---|---|---|---|
+| 1-month | | | | |
+| 3-month | | | | |
+| 6-month | | | | |
+
+| Window | FY2 EPS revision (%) | PT revision (%) | Pre-print drift (last earnings -30d to -1d) |
+|---|---|---|---|
+| 3-month | | | |
+
+**Revision velocity interpretation**: [Two sentences. Direction + magnitude + breadth. Cross with crowding score from §positioning_sentiment to identify highest-signal conjunction (revision-down + crowded-long = short setup; revision-up + crowded-short = squeeze setup). If n_analysts < 5: state "G17 = n_a, coverage too thin for revision velocity signal" and proceed.]
+
+**Sources for this section**: all consensus data is S4-tagged per `source-stratification-us.md`. Variance-supporting evidence is S1-S3 per the evidence matrix. Revision velocity data is S4-derived.
+
 ## VALUATION FRAMEWORK
 
 ### Scenario probabilities and per-share IV (5-scenario per scenarios.json)
@@ -123,6 +184,90 @@ Probabilities sum to 1.00 ± 0.01 per G4. EPS period consistent across rows per 
 - [Regulatory designations: Entity List status / OFAC SDN / CFIUS posture / ITAR / antitrust open matters — verified within run]
 - [Tax exposures from regulatory_status: BEAT / GILTI / FDII / Section 174 / Pillar 2 / CAMT / IRA 45X/48 / CHIPS 48D / R&D Credit Section 41]
 - [Pension funded status %, material lease PV, VIE exposure, going-concern qualification status]
+
+### Bank-specific metrics (CONDITIONAL — required if sector ∈ {Financials/Banks, Diversified Banks, Regional Banks, Investment Banking & Brokerage, Insurance, BDC}; gated by Plugin 2 G16)
+
+Full discipline in `phase-1-deep-dive-us.md` §FS-Banks Augmentation. This subsection is required for any depository / broker-dealer / insurer / BDC memo and surfaces the load-bearing metrics that generic income-statement analysis misses for banks. G16 verifies presence of (a) AOCI bridge, (b) CET1 walk, (c) NIM trajectory, (d) stress capital context.
+
+**(a) AOCI bridge and tangible book reconciliation**
+
+| Item | $B | Source | % of TCE |
+|---|---|---|---|
+| AFS securities book value | | S1: [10-K Schedule, Y-9C HC-B] | |
+| AFS securities fair value | | S1: [same] | |
+| AOCI mark (AFS) | | S1: [10-K Equity, Y-9C HC-R] | |
+| HTM securities book value | | S1: [10-K Note] | |
+| HTM securities fair value | | S1: [10-K Note "Fair Value Measurements"] | |
+| HTM unrealized loss (not in AOCI) | | S1-computed | |
+| Reported TBVPS $ | | S1 | n/a |
+| Mark-to-market TBVPS $ (TBVPS − HTM unrealized loss × (1−tax)/diluted shares) | | S1-computed | n/a |
+| Depositor uninsured concentration (% of total deposits) | | S2: [10-Q deposit composition note] | n/a |
+
+**SVB-pattern flag**: HTM unrealized loss > 25% TCE AND uninsured concentration > 60% → flag as pre-failure signature. [Yes/No + reasoning]
+
+**(b) CET1 walk with operational RWA decomposition**
+
+| Item | $B / % | Source |
+|---|---|---|
+| Starting CET1 (prior period) | | S2: prior 10-Q / Y-9C |
+| + Net income to common | | S1/S2 |
+| − Common dividends | | S2 |
+| − Net share repurchases | | S2 |
+| − AOCI flow (only for Category I-III above $700B AOCI-flow-through) | | S2 |
+| − Goodwill/intangibles delta | | S2 |
+| − DTA disallowance delta | | S2 |
+| = Ending CET1 ratio (%) | | S1-computed |
+| Credit RWA $ | | S2: Y-9C HC-R Part II |
+| Market RWA $ (Category I-II only) | | S2: Y-9C HC-R Part II |
+| Operational RWA $ (Category I-II; expanding to III/IV under Basel III Endgame) | | S2 |
+| Total RWA $ | | S2 |
+| **AOCI opt-out election status** (Category III ≤$700B, Category IV) | Yes / No | S1: 10-K |
+| **Reported CET1 ratio (%)** | | S1 |
+| **Pro-forma CET1 ratio without AOCI opt-out (%)** (if opt-out applies) | | S1-computed |
+
+**(c) Stress capital buffer (SCB) and capital return capacity**
+
+| Item | Value | Source |
+|---|---|---|
+| SCB (current, from Fed determination letter) | %  | S2: Fed letter, [date] |
+| GSIB surcharge (Category I only, Method 1 + Method 2 — use higher) | % | S2: Fed Methodology disclosure |
+| Required CET1 (4.5% + 2.5% CCB + SCB + GSIB) | % | computed |
+| Actual CET1 | % | S1 |
+| **Capital return capacity (Actual − Required) × RWA × (1 + 4Q NI accretion)** | $B | computed |
+| Most recent CCAR/DFAST severely adverse CET1 trough | % | S2: Fed CCAR/DFAST release |
+
+**(d) NIM and deposit beta trajectory**
+
+| Period | NIM (%) | Reported deposit beta (cumulative cycle) | Asset side delta (bp QoQ) | Liability side delta (bp QoQ) | Mix delta (bp QoQ) |
+|---|---|---|---|---|---|
+| Q[N-4] | | | | | |
+| Q[N-3] | | | | | |
+| Q[N-2] | | | | | |
+| Q[N-1] | | | | | |
+| Q[N] (latest) | | | | | |
+| Forward 4Q (mgmt commentary / curve-implied) | | | | | |
+
+**Asset repricing**: % of earning assets repricing within 12 months = [X%]. Source: S1: 10-K Item 7A market-risk disclosure.
+
+**Deposit composition**: non-interest-bearing % = [X%]; money-market + HY savings % = [Y%]. (Rate-sensitive deposit beta is the binding constraint on NIM down-cycle.)
+
+**(e) CECL and reserve trajectory** (additional disclosure)
+
+| Period | ACL / loans HFI (%) | Office CRE ACL (%) | Reserve build/release ($B) | Provision / PPNR (%) |
+|---|---|---|---|---|
+| Q[N-4] | | | | |
+| Q[N] | | | | |
+
+CRE concentration: Total CRE / total loans = [%]; Office CRE / total loans = [%]; Office CRE / TCE = [%]. (Office CRE / TCE > 50% is the regulatory watch threshold post-2023.)
+
+**(f) Bank category and regulatory currency**
+
+- Bank Category: [I / II / III / IV / Below $100B]
+- Assets at period end: $[X]B; threshold to next category: $[Y]B (gap [Z%])
+- Basel III Endgame status (as of memo date): [In final rule review / Implementation effective YYYY-MM-DD / Phase-in to YYYY] (cite Federal Register)
+- Live SCB date: [next determination letter expected YYYY-Q[N]]
+
+**G16 declaration**: ☐ All four required disclosures (AOCI bridge / CET1 walk / NIM trajectory / Stress capital) present. ☐ G16 status: pass / fail / n_a (n_a only if sector ∉ Financials).
 
 ## RISKS AND KILL CRITERIA
 

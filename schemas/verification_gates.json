@@ -2,13 +2,13 @@
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://us-equity-research.local/schemas/verification_gates.json",
   "title": "Verification Gates — US",
-  "description": "10 verification gates inherited from china-equity-ic-rigor (G1-G10), plus 4 US-specific additions (G11-G14) from delta matrix Layer 10 (B11-B14). A memo cannot claim score >8.0 with any gate failing. Run via Phase C scripts; results captured here for human-readable audit trail.",
-  "schema_version": "0.1.0",
+  "description": "17 verification gates total (v0.2.0): G1-G10 inherited from china-equity-ic-rigor, G11-G14 US-specific from delta matrix Layer 10, G15-G17 added in v0.2.0 (Sprint 1: consensus variance, bank discipline, revision velocity). A memo cannot claim score >8.0 with any non-n_a gate failing. Run via Phase C scripts; results captured here for human-readable audit trail. Schema accepts both 0.1.0 (14-gate) and 0.2.0 (17-gate) for grandfathering.",
+  "schema_version": "0.2.0",
   "type": "object",
   "definitions": {
     "gate_id": {
       "type": "string",
-      "enum": ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "G10", "G11", "G12", "G13", "G14"]
+      "enum": ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "G10", "G11", "G12", "G13", "G14", "G15", "G16", "G17"]
     },
     "gate_status": {
       "type": "string",
@@ -73,7 +73,7 @@
   "required": ["schema_version", "ticker", "run_id", "gates", "overall_pass", "blocks_score_above"],
   "additionalProperties": false,
   "properties": {
-    "schema_version": {"type": "string", "const": "0.1.0"},
+    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0"]},
     "ticker": {"type": "string"},
     "run_id": {
       "type": "string",
@@ -91,8 +91,8 @@
       "type": "array",
       "items": {"$ref": "#/definitions/gate_check"},
       "minItems": 14,
-      "maxItems": 14,
-      "description": "All 14 gates must appear (even if status=n_a)."
+      "maxItems": 17,
+      "description": "Gate count depends on schema_version: v0.1.0 = exactly 14 (G1-G14); v0.2.0 = exactly 17 (G1-G17 with G15-G17 = consensus_variance, bank_metrics, revision_velocity). All declared gates must appear in the array (even if status=n_a). Verifier scripts enforce the exact-count constraint per schema_version."
     },
     "overall_pass": {
       "type": "boolean",
@@ -162,6 +162,18 @@
         "G14": {
           "type": "string",
           "const": "[US-specific, B14] Capacity / ADV / days-to-exit stated — for the recommended position size, days-to-exit at 10%/20%/30% participation against name's 30-day ADV is shown. Required per D13. Verified by scripts/verify_quant_overlay.py."
+        },
+        "G15": {
+          "type": "string",
+          "const": "[v0.2.0] Consensus variance — for any non-Hold rating (Strong Buy / Buy / Sell / Strong Sell), memo must declare ≥1 load-bearing entry in source_tags consensus_variance block: type ∈ {revenue, margin, multiple, scenario_weight, timing}, ≥1 evidence_ref at S1-S3 (not all-S4 or all-S5), sizing_impact_pp ≥ 2.0. Hold ratings AND self-labeled 'consensus-anchored' memos in headline = n_a. Names with n_analysts<5 = n_a. Verified by scripts/verify_consensus_variance.py. blocks_score_above = 7.0 on fail. Full discipline in references/consensus-variance-us.md."
+        },
+        "G16": {
+          "type": "string",
+          "const": "[v0.2.0] Bank discipline — for sector ∈ {Financials/Banks, Diversified Banks, Regional Banks, Investment Banking & Brokerage, Insurance, BDC}, memo must contain all four required disclosures: (a) AOCI bridge (AFS book vs fair value + AOCI mark + HTM unrealized loss + MTM TBVPS), (b) CET1 walk (period-over-period bridge), (c) NIM trajectory (5y + deposit beta), (d) Stress capital context (SCB + capital return capacity + CCAR/DFAST trough). n_a for non-bank sectors. Verified by scripts/verify_bank_metrics.py. blocks_score_above = 7.0 on fail. Full discipline in phase-1-deep-dive-us.md §FS-Banks Augmentation."
+        },
+        "G17": {
+          "type": "string",
+          "const": "[v0.2.0] Revision velocity — memo must declare in source_tags revision_velocity block: 3-month FY1 EPS revision % + direction + breadth ((up-down)/N). Optional but recommended: 1m and 6m windows, FY2 revision, PT revision, pre-print drift, peer median comparison. n_a if n_analysts < 5 (revision velocity not load-bearing for thin coverage). Verified by scripts/verify_revision_velocity.py. blocks_score_above = 7.5 on fail. Discipline in phase-2-continuation-us.md §A6 Earnings Revision Velocity subsection."
         }
       }
     }

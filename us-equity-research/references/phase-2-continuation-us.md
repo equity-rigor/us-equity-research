@@ -1,8 +1,8 @@
 # Phase 2: Deepening + Forensic + Red Team (US)
 
-Phase 2 dispatches five agents in parallel. Unlike Phase 1 (see `phase-1-deep-dive-us.md`), Phase 2 agents are **set up specifically based on Phase 1 findings** — they target the gaps and tensions surfaced in the Phase 1 Integrated Brief.
+Phase 2 dispatches **six** agents in parallel (was five through v0.1.x; A-Consensus added in v0.2.0). Unlike Phase 1 (see `phase-1-deep-dive-us.md`), Phase 2 agents are **set up specifically based on Phase 1 findings** — they target the gaps and tensions surfaced in the Phase 1 Integrated Brief.
 
-The five Phase 2 specialists: A2 (forensic continuation), A3 (customer / commercial pipeline), A3-Peers (competitive comparison), R (Red Team v1), A6 (channel pulse / monitoring framework setup). Dispatch in one message; parallel Agent tool calls.
+The six Phase 2 specialists: A2 (forensic continuation), A3 (customer / commercial pipeline), A3-Peers (competitive comparison), R (Red Team v1), A6 (channel pulse / monitoring framework setup), **A-Consensus (consensus variance identification — new in v0.2.0)**. Dispatch in one message; parallel Agent tool calls.
 
 Each agent receives the Phase 1 Integrated Brief + Phase 1 workpapers + specific Phase 1 anomalies + the Phase 0 hypothesis tree.
 
@@ -372,8 +372,220 @@ Deliverables (each populated for THIS name and sector):
    FOMC if rate-sensitive, stock move >5σ unexplained. Specific numerical
    thresholds per trigger.
 
-Format as tactical playbook. Length 2,500 words.
+7) **EARNINGS REVISION VELOCITY** (new v0.2.0 — load-bearing per G17):
+
+   Treat FY1 EPS revision direction and magnitude as a first-class signal,
+   not a passive footnote. Pull from Visible Alpha / FactSet / Bloomberg EE
+   if available; if EDGAR-only mode, reconstruct from openinsider.com +
+   Yahoo Finance + StockAnalysis.com analyst snapshot.
+
+   Required disclosures (each as specific number with source):
+   - **1-month FY1 EPS revision delta** — % change in consensus FY1 EPS
+     median over trailing 30 days. Direction (up / down) + magnitude.
+   - **3-month FY1 EPS revision delta** — same over trailing 90 days. This
+     is the primary revision-momentum window.
+   - **6-month FY1 EPS revision delta** — same over trailing 180 days.
+     Provides the cycle context.
+   - **Breadth** — of N covering analysts, how many revised UP vs DOWN
+     in the trailing 3-month window. Breadth ratio = (up − down) / N.
+     |Breadth| > 0.5 = directional consensus shift; |breadth| < 0.2 = no
+     directional consensus shift (mean reversion likely).
+   - **FY2 EPS revision delta** — same disclosure for FY2; the FY1 vs FY2
+     spread is informative (FY1 down + FY2 stable = near-term miss but
+     structural intact; FY1 down + FY2 down = structural concern).
+   - **Pre-print revisions** — what were the revisions in the 30 days
+     BEFORE the most recent earnings print? Pre-print revisions are
+     higher-information than the immediate-post-print snap (post-print
+     snap is mechanical re-base; pre-print drift signals real
+     analyst-discovered news).
+   - **PT revision pattern** — separate from EPS revisions, track PT median
+     direction + breadth. PT revisions lag EPS revisions by 2-6 weeks
+     typically; PT revision absence after material EPS revision is a
+     latency signal (Street has not fully priced in the EPS change).
+   - **Comparison to peer revision trend** — name's revision delta vs
+     peer-set median revision delta. Out-revising peers = differentiation;
+     under-revising peers = relative weakness.
+   - **Coverage size caveat** — if N covering analysts < 10, revision
+     velocity is high-variance and down-weighted in scoring. If N < 5,
+     revision velocity is not load-bearing (skip the breadth metric).
+     **Revision velocity G17 = n_a for any name with N < 5.**
+
+   **Integration with positioning crowding score** (from `positioning-
+   sentiment-us.md`): revision-down + crowded-long (4-component crowding
+   score ≥6/8) = strongest short-side technical setup. Revision-up +
+   crowded-short = strongest squeeze setup. Document the conjunction
+   explicitly in the brief — this conjunction is the highest-signal
+   combination of fundamental and positioning data the framework
+   produces.
+
+   S-tag discipline: revision data = S4 (consensus aggregator); breadth
+   computation = S4-derived; pre-print drift = S4-derived; peer median =
+   S4. Do not cite revisions as S1-S2; they are by construction sell-side
+   data.
+
+   **G17 enforcement.** Plugin 2 gate G17 validates that the memo declares
+   3-month FY1 EPS revision delta with direction, magnitude, and breadth.
+   If absent and N ≥ 5, G17 fails and blocks_score_above = 7.5. See Plugin
+   2 `verify_revision_velocity.py`.
+
+Format as tactical playbook. Length 2,500 words (+ ~400 for revision
+velocity section = 2,900 total).
 ```
+
+---
+
+## A-Consensus — Where Consensus Is Wrong (new in v0.2.0)
+
+**Mandate**: Identify and quantify specific numerical disagreements with sell-side consensus on FY1/FY2/FY3 revenue, EPS, margins, forward multiple, and scenario weights. Full discipline per `consensus-variance-us.md`. Verified by Plugin 2 gate **G15**.
+
+**Why this agent exists.** Before v0.2.0, the framework was disciplined about *downweighting* sell-side consensus (S4) — but had no explicit specialist whose job was to *break* from it. Memos with non-Hold ratings could be assembled from sound forensic and positioning work without ever declaring where the analyst disagrees with FactSet median EPS or with the implied bear/bull dispersion. A-Consensus closes that gap. The agent forces the analyst to either declare a specific variance backed by S1-S3 evidence with sized scenario impact, or admit the memo is consensus-anchored and accept the labeling consequence (headline says so; G15 = n_a for Hold; rating ceiling of Hold for any anchor stack that's all-S4).
+
+**Prompt template**:
+
+```
+You are the Consensus Variance specialist analyzing [COMPANY] ([TICKER]).
+Today is [DATE]. WebFetch + WebSearch extensively — minimum 20 calls.
+Discipline per `consensus-variance-us.md`. Your output gates whether the
+memo can carry a non-Hold rating (G15).
+
+YOUR JOB: identify the specific number(s) where the analyst team (you +
+PM) disagrees with the Visible Alpha / FactSet / Bloomberg EE consensus,
+classify the variance, evidence it, and size its impact on scenario
+weights. If no such variance can be defensibly declared, your job is to
+say so plainly and recommend a "consensus-anchored" headline label.
+
+Step 1 — Pull the consensus snapshot:
+  a) FY1 / FY2 / FY3 consensus median revenue (segment if disclosed)
+  b) FY1 / FY2 / FY3 consensus median EPS (GAAP if available; non-GAAP
+     standard for Street)
+  c) FY1 / FY2 / FY3 consensus median EBITDA + GM + OPM
+  d) PT median + range + standard deviation; n_analysts
+  e) Rating distribution (Buy / Hold / Sell %); 3m and 6m revision trend
+  f) Implied scenario dispersion from PT range: bear (P10) / base (median)
+     / bull (P90); compare to your A7 scenario weights
+
+  S-tag: all consensus data is S4. Free-aggregator fallback if no Visible
+  Alpha: Yahoo Finance analyst snapshot + StockAnalysis.com + Refinitiv
+  IBES proxy via openinsider.com adjacency.
+
+Step 2 — Material disagreement screen:
+  For each of revenue / margin / multiple / scenario-weights / catalyst-
+  timing, identify whether your model materially differs from consensus.
+  Material thresholds:
+    - Revenue / EPS: >2% vs Street median
+    - Margin (GM / OPM / EBITDA margin): >50bp
+    - Multiple: >5% of Street median
+    - Scenario weight: >5pp probability shift
+    - Catalyst timing: >1 quarter
+
+  Below-threshold differences are noise. Do not declare them.
+
+Step 3 — For each material disagreement, classify the variance type:
+  Type 1 — Revenue variance
+  Type 2 — Margin variance
+  Type 3 — Multiple variance
+  Type 4 — Scenario-weight variance
+  Type 5 — Timing / catalyst variance
+
+  Full taxonomy + evidence requirements + anti-patterns: read
+  `consensus-variance-us.md` before declaring.
+
+Step 4 — For each declared variance, gather evidence per the
+  evidence-required matrix in `consensus-variance-us.md`:
+    - Type 1: ≥1× S2 or S3 + triangulation point consensus is missing
+    - Type 2: ≥1× S2 + ≥1× S3 + explicit bridge from consensus margin
+    - Type 3: peer-set re-rating mechanism + historical precedent
+    - Type 4: base-rate analysis from analog set
+    - Type 5: specific date or window + operational mechanism
+
+  ANTI-PATTERNS THAT FAIL G15:
+    - Generic directional claim ("Street is too bullish")
+    - Repackaged base case (your number ≈ Street median)
+    - S4-only support (consensus on consensus)
+    - "Consensus is anchoring on outdated data" without specific S1-S3
+      source consensus has not incorporated
+    - Variance as rating restatement ("Buy reflects above-consensus
+      view")
+
+Step 5 — Size each variance per the formula in `consensus-variance-us.md`:
+  sizing_impact_pp = variance_magnitude_pct × probability_of_being_right
+                     × scenario_sensitivity
+
+  Variances with sizing_impact_pp < 2.0 are decorative — do not declare
+  them as load-bearing. Either size them up (substantiate with stronger
+  evidence) or drop them.
+
+Step 6 — Calibration check:
+  How many load-bearing variances did you declare? Base rate from v0.1.x
+  self-test calibration: 1-3 declared variances per name is the normal
+  range for a non-Hold rated memo. 0 declared = consensus-anchored,
+  rating ≤ Hold. >5 declared = likely manufactured variances, examine
+  whether you're inventing edge to avoid the Hold rating (PM-grade
+  failure mode). The honest base rate is 1-2 well-evidenced variances
+  for ~30-50% of names; the other 50-70% are honestly consensus-
+  anchored.
+
+Step 7 — Determine recommended headline framing:
+  - If ≥1 load-bearing variance declared AND total sized impact > 5pp on
+    headline scenario probabilities: rating can be non-Hold; headline can
+    be source-conditional or even unconditional depending on top-3 anchor
+    S-levels.
+  - If 0 variances declared OR all variances < 2pp impact: rating must be
+    Hold; headline must include "consensus-anchored" label.
+  - Edge case: name has n_analysts < 5 → G15 = n_a; flag "no consensus
+    baseline" and use peer-implied benchmarking instead.
+
+Step 8 — Hand to R-v2:
+  Red Team v2 is required to attack each declared variance specifically.
+  Provide R-v2 with the variance list and your evidence base; R-v2's job
+  is to find the strongest counter to each one.
+
+Deliverables:
+
+1) Consensus snapshot table (FY1/FY2/FY3 revenue/EPS/EBITDA/GM/OPM +
+   PT median/range/SD + rating mix + n_analysts), all S4-tagged.
+
+2) Material disagreement matrix: for each line item, your number vs
+   consensus, % difference, material? (Y/N).
+
+3) Declared variances (one block per variance):
+   - Variance type (1-5)
+   - Line item + your number vs consensus number
+   - Magnitude % + direction
+   - Evidence list (each S-tagged S1-S3 per type requirement)
+   - Sizing impact (pp on scenario weights)
+   - Why consensus has not yet incorporated this evidence
+   - Red Team challenge questions (what would falsify)
+
+4) Calibration check: count of load-bearing variances; honesty audit
+   ("am I manufacturing variances?").
+
+5) Recommended headline framing for PM synthesis.
+
+6) Output JSON block conforming to schemas/source_tags.json
+   consensus_variance field for downstream A7 and G15 verification.
+
+Length: 2,000 words. Do not pad. The discipline rewards specificity
+over volume.
+
+Citation: every variance must cite at least one primary or
+near-primary source (S1, S2, S3). Variances supported only by
+S4 (consensus on consensus) or only by S5 (alt-data without
+filing-level confirmation) fail G15 by construction.
+
+Honesty requirement: if no defensible variance exists, say so
+plainly. The framework treats "consensus-anchored Hold" as a
+legitimate, scored outcome — not a failure. Manufactured
+variances are the failure.
+```
+
+**Common A-Consensus output patterns** (calibrated against v0.1.x self-test set):
+
+- **NVDA-class (high consensus PT, narrow dispersion, your model close to base)** — most often produces 1 timing variance (Blackwell-to-Rubin ramp) and 1 scenario-weight variance (probability of mid-cycle ASP compression). Multiple variance is hard because hyperscaler capex anchors the multiple — variance must point to specific procurement disclosures Street has not yet weighted.
+- **MRK-class (LOE overhang, wide PT dispersion, your model in the upper half)** — most often produces 1 timing variance (IRA Round 2 publication timing + Keytruda exclusion probability), 1 multiple variance (peer re-rating mechanism), 1 scenario-weight variance (LOE depth).
+- **JPM-class (bank, narrow dispersion, consensus very calibrated)** — most often produces 1 margin variance (NIM trajectory via deposit beta normalization timing) and 1 multiple variance (TBV multiple re-rating mechanism via AOCI reversal). Revenue variance is rare because bank revenue is largely a function of rate + asset growth + fee mix, all of which Street tracks closely.
+- **XOM-class (cyclical, wide commodity-driven dispersion, top-3 anchor is S5 commodity curve)** — most often produces 1 timing variance (Pioneer synergy realization timing) and 1 scenario-weight variance (commodity tail). The S5 commodity-curve anchor forces source_conditional headline regardless; A-Consensus is the second-tier disagreement.
+- **DLR-class (REIT, AFFO multiple, narrow dispersion)** — most often consensus-anchored Hold. The analytically honest output is to recommend "consensus-anchored" labeling. If A-Consensus consistently manufactures variances for DLR-class names, the discipline is breaking.
 
 ---
 
@@ -397,7 +609,11 @@ Phase 2 typically surfaces material new findings — bullish and bearish. Write 
 
 7. **Red Team adjudication** — R agent ran in Phase 2. Take bear case seriously without capitulating. If R's bear PT is $X, PM-adjudicated bear PT typically $X + 5-20% of bear range, depending on quality of R's anchors. Document explicitly.
 
+7b. **Consensus variance adjudication (new in v0.2.0)** — A-Consensus output: list declared variances (type + magnitude + sizing impact pp). PM decision: which variances does the brief accept as load-bearing, which does the brief reject as decorative/unevidenced, which does the brief promote from "decorative" to "load-bearing" with additional evidence? If 0 variances survive PM scrutiny, the brief must self-label "consensus-anchored" and the recommendation ceiling drops to Hold (G15 enforced downstream). Document the adjudication trail — for each declared variance, write one paragraph: accepted / rejected / promoted, with reasoning.
+
 8. **Updated kill criteria** — refined Tier 1 triggers from A6's framework.
+
+8b. **Revision velocity snapshot (new in v0.2.0)** — from A6's revision velocity block: 3-month FY1 EPS revision delta + breadth + comparison to peer revision trend. Cross with positioning crowding score (`positioning-sentiment-us.md`) to surface the highest-signal conjunction: revision-down + crowded-long (short-side setup) or revision-up + crowded-short (squeeze setup). One paragraph; specific numbers.
 
 9. **Phase 3 priorities** — gates Phase 3 valuation (`phase-3-valuation-us.md`):
    - Specific normalized P&L to model

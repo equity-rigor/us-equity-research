@@ -2,11 +2,11 @@
 
 > Institutional buy-side fundamental research framework for US-listed equities, with a PM-grade red-team rigor layer.
 
-![License](https://img.shields.io/badge/license-MIT-blue) ![Version](https://img.shields.io/badge/version-0.1.0-green) ![Tests](https://img.shields.io/badge/pytest-198%20passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue) ![Version](https://img.shields.io/badge/version-0.2.0-green) ![Tests](https://img.shields.io/badge/pytest-198%20passing-brightgreen)
 
 ## What this is
 
-A two-plugin framework for doing single-name fundamental work on US equities at institutional buy-side quality. Plugin one (`us-equity-research`) orchestrates a multi-agent workflow that produces a Markdown IC memo and structured JSON outputs from a single ticker. Plugin two (`us-equity-ic-rigor`) layers a 14-gate PM red-team review on top of that output, applying the kind of mechanical checks (segment GM ties to consolidated, EPS × multiple ties to target price, scenario probabilities sum to 1.00, non-GAAP reconciles to GAAP, FCF includes SBC) that catch the bugs that actually kill IC memos.
+A two-plugin framework for doing single-name fundamental work on US equities at institutional buy-side quality. Plugin one (`us-equity-research`) orchestrates a multi-agent workflow that produces a Markdown IC memo and structured JSON outputs from a single ticker. Plugin two (`us-equity-ic-rigor`) layers a 17-gate PM red-team review (was 14 through v0.1.x; v0.2.0 adds G15 consensus variance / G16 bank discipline / G17 revision velocity) on top of that output, applying the kind of mechanical checks (segment GM ties to consolidated, EPS × multiple ties to target price, scenario probabilities sum to 1.00, non-GAAP reconciles to GAAP, FCF includes SBC, non-Hold ratings declare specific consensus variance with S1-S3 evidence, bank memos disclose AOCI bridge + CET1 walk + NIM trajectory + stress capital context) that catch the bugs that actually kill IC memos.
 
 The framework is designed for buy-side analysts, quant-fundamental researchers, and PM-track associates who need disciplined single-name workflows with verified citations on every numeric claim. It composes with the `claude-for-financial-services` marketplace plugins from Anthropic FSI — delegating Excel DCF, Excel comps, and polished 30-50pg DOCX assembly to those plugins when installed — but produces Markdown + JSON outputs as the single source of truth regardless.
 
@@ -14,8 +14,8 @@ The framework is designed for buy-side analysts, quant-fundamental researchers, 
 
 | Plugin | Role | Phase coverage |
 |---|---|---|
-| `us-equity-research` | Multi-agent orchestrator | Phase 0 (setup) → Phase 1 (5 parallel discovery specialists) → Phase 2 (5 deepening specialists) → Phase 3 (4 valuation specialists) → verification → IC memo assembly |
-| `us-equity-ic-rigor` | PM red-team layer | 14 verification gates (G1-G14) + 5-scenario probabilistic framework + 5-band rating per D1 + position sizing across 5 mandate types |
+| `us-equity-research` | Multi-agent orchestrator | Phase 0 (setup) → Phase 1 (5 parallel discovery specialists; FS-Banks Augmentation when sector=Banks per v0.2.0) → Phase 2 (**6** deepening specialists as of v0.2.0; A-Consensus added) → Phase 3 (4 valuation specialists) → verification → IC memo assembly |
+| `us-equity-ic-rigor` | PM red-team layer | 17 verification gates (G1-G17 as of v0.2.0; G15 consensus variance / G16 bank discipline / G17 revision velocity added) + 5-scenario probabilistic framework + 5-band rating per D1 + position sizing across 5 mandate types |
 
 The two plugins compose: run `us-equity-research` to produce the raw IC memo + structured JSON; then run `us-equity-ic-rigor` to score it against the rubric and surface mechanical defects across the gates.
 
@@ -59,7 +59,7 @@ You: "Build me a thesis on NVDA"
 
 You: "Score this memo. Push it from 8.x to 9.x."
 → Triggers us-equity-ic-rigor skill (matches "score this memo" + "push X to Y")
-→ Runs 14 verification gates G1-G14 + scores against the PM rubric
+→ Runs 17 verification gates G1-G17 (as of v0.2.0) + scores against the PM rubric
 → Returns gate-by-gate findings + iteration plan
 ```
 
@@ -72,11 +72,12 @@ You: "Score this memo. Push it from 8.x to 9.x."
 
 /us-equity-ic-rigor:ic-memo NVDA
 → Chains Phase 0 (delegates to us-equity-research) → Phases 1-3 → enforces
-   all 14 verification gates → produces full IC memo + structured JSON outputs.
+   all 17 verification gates (v0.2.0+) → produces full IC memo + structured JSON outputs.
 
 /us-equity-ic-rigor:red-team NVDA [target-score]
 → Phase 4 only. Assumes outputs/NVDA_IC_memo.md + structured JSON exist.
-   Runs all 14 gates, scores against pm-redteam-rubric, produces ordered
+   Runs all applicable gates (17 as of v0.2.0; v0.1.x memos grandfathered to 14),
+   scores against pm-redteam-rubric, produces ordered
    push-from-N-to-N+1 fix list. Default target score 8.5 per D20.
 ```
 
@@ -86,7 +87,7 @@ The slash commands and the auto-discovery triggers point at the same underlying 
 
 A condensed reference; see `design/build-log.md` for full design history.
 
-- **14 verification gates G1-G14**: G1 EPS × P/E reconcile, G2 segment GM reconcile, G3 SOTP NI ≤ GP, G4 scenario probabilities sum to 1.00, G5 bear bridge reconcile, G6 unsourced specifics, G7 unconditional S3-anchored headlines, G8 mixed GM definitions, G9 missing what-would-reverse denominators, G10 missing anchor sensitivity, G11 non-GAAP without GAAP reconciliation, G12 SBC excluded from FCF without flag, G13 missing Barra factor exposure, G14 missing capacity / ADV / days-to-exit. G11-G14 are US-specific additions over the China A-share precedent.
+- **17 verification gates G1-G17** (as of v0.2.0): G1 EPS × P/E reconcile, G2 segment GM reconcile, G3 SOTP NI ≤ GP, G4 scenario probabilities sum to 1.00, G5 bear bridge reconcile, G6 unsourced specifics, G7 unconditional S3-anchored headlines, G8 mixed GM definitions, G9 missing what-would-reverse denominators, G10 missing anchor sensitivity, G11 non-GAAP without GAAP reconciliation, G12 SBC excluded from FCF without flag, G13 missing Barra factor exposure, G14 missing capacity / ADV / days-to-exit, **G15 non-Hold rating without declared load-bearing consensus variance or "consensus-anchored" headline label** (v0.2.0), **G16 Banks-sector memo without AOCI bridge + CET1 walk + NIM trajectory + stress capital context** (v0.2.0), **G17 revision velocity not disclosed when n_analysts ≥ 5** (v0.2.0). G11-G14 are US-specific additions over the China A-share precedent; G15-G17 are v0.2.0 Sprint 1 additions closing the "where is consensus wrong" / "banks aren't depository institutions to this framework" / "revisions aren't first-class" gaps. v0.1.x memos with `schema_version="0.1.0"` are grandfathered to the 14-gate set.
 - **5 scenarios** (per `schemas/scenarios.json`): `strong_bear` / `bear` / `base` / `bull` / `strong_bull`. Probabilities must sum to 1.00 within ±0.01.
 - **5 mandate types** (per D3): `long_only_large_cap` / `long_only_smid` / `long_short_hedge_fund` / `sector_specialty` / `pair_trade`. Position sizing rubric in `us-equity-ic-rigor/references/position-sizing-us.md`.
 - **6 source levels** (per `schemas/source_tags.json`): `S1` (audited primary) / `S2` (auditor / regulator) / `S3` (reputable secondary) / `S4` (industry / vendor) / `S5` (commentary / opinion) / `Pending` (placeholder). `Pending` cannot anchor an unconditional headline (G7).
@@ -162,7 +163,7 @@ This project was developed and tested against `claude-for-financial-services` ma
 │   ├── SKILL.md
 │   ├── references/                        # 10 rigor refs (S1-S5, scenarios, GM taxonomy, bridges, A0, sizing, rubric, quant overlay, ...)
 │   └── templates/                         # opinion letter checklist + IC debate script template
-├── scripts/                               # 13 verification scripts (G1-G14) + pytest fixtures
+├── scripts/                               # 16 verification scripts (G1-G17 as of v0.2.0; G13+G14 share verify_quant_overlay.py) + pytest fixtures
 │   └── tests/                             # 13 test files, 198 tests
 ├── outputs/                               # Phase E IC memos (NVDA / JPM / XOM / MRK / DLR) + structured JSON
 ├── reference/                             # gitignored upstream plugin source (D23)

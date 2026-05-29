@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://us-equity-research.local/schemas/memo.json",
   "title": "US Equity IC Memo — Structured Representation",
-  "description": "Umbrella schema for the full structured IC memo. Designed as a strict superset of the implicit input contract for equity-research:initiating-coverage Task 5 (which has no formal JSON schema; its contract is at the file-format layer). Sub-schemas referenced via $ref: source_tags.json (S1-S5), scenarios.json (5-scenario block), verification_gates.json (14 gates). Buy-side rigor additions: GM taxonomy, bear bridge, what-would-reverse, position sizing by mandate, quant overlay (Barra factors, capacity, edge decay).",
-  "schema_version": "0.1.0",
+  "description": "Umbrella schema for the full structured IC memo. Designed as a strict superset of the implicit input contract for equity-research:initiating-coverage Task 5 (which has no formal JSON schema; its contract is at the file-format layer). Sub-schemas referenced via $ref: source_tags.json (S1-S5 + v0.2.0 consensus_variance / revision_velocity / bank_metrics), scenarios.json (5-scenario block), verification_gates.json (14 gates in 0.1.0; 17 gates in 0.2.0). Buy-side rigor additions: GM taxonomy, bear bridge, what-would-reverse, position sizing by mandate, quant overlay (Barra factors, capacity, edge decay). v0.2.0 grandfathers v0.1.0 memos by accepting both schema_version values.",
+  "schema_version": "0.2.0",
   "type": "object",
   "definitions": {
     "company_qualitative": {
@@ -439,7 +439,7 @@
     "delegation_outputs"
   ],
   "properties": {
-    "schema_version": {"type": "string", "const": "0.1.0"},
+    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0"]},
     "ticker": {"type": "string", "pattern": "^[A-Z]{1,5}(\\.[A-Z]{1,3})?$"},
     "exchange": {"type": "string", "enum": ["NYSE", "Nasdaq", "AMEX", "OTC", "TSX", "LSE"]},
     "company_name": {"type": "string"},
