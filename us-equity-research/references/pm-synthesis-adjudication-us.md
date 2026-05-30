@@ -1,0 +1,89 @@
+# PM Synthesis Adjudication — Codifying the Black Box
+
+This file codifies the weighting principles that previously lived as tribal knowledge in the PM's head. The discipline solves two problems at once.
+
+The first is *internal*: when specialists return conflicting conclusions — A1 industry-bullish but FS forensic-bearish, A5 regulatory-clean but A8 positioning-crowded — the PM Synthesis brief at the end of each Phase needs to adjudicate. Through v0.2.0 the adjudication was treated as a black box. The reader saw the inputs (specialist outputs) and the output (synthesis brief) but not the reasoning chain that connected them. This made the resulting recommendation un-auditable post-facto and made R-v2 attacks generic ("could be wrong" rather than "this specific conflict was resolved incorrectly").
+
+The second is *external*: Plugin 2's G20 (added in Sprint 2 Item 6) verifies that R-v2 attempted a structured attack against each declared consensus variance from `consensus-variance-us.md` and that the attack was rebutted or modified with documented reasoning. G20 cannot operate on an unstructured PM brief. The `adjudication_trail` schema defined below provides the machine-readable structure G20 consumes.
+
+The two use cases — specialist conflict resolution and R-v2 variance attack — share enough structure that they live in the same array with a `type` discriminator. This file documents both.
+
+## Weighting principles when specialists conflict
+
+Five principles, applied in priority order. Higher-priority principles dominate when they fire; lower-priority principles fill in around them.
+
+**1. Forensic dominates structural conclusions.** If FS surfaces material weakness — going-concern qualification (10-K Item 9A), restatement within 5 years (8-K Item 4.02), ASC 606 channel-stuffing canary (DSO + ≥7d YoY with revenue acceleration), SBC > 25% of revenue sustained 5 years, non-GAAP/GAAP gap > 25% of net income sustained 5 years, auditor change Big-4 → mid-tier — AND industry/cycle (A1) is bullish, **FS dominates and the rating ceiling is Hold until the forensic concern is remediated.** This is non-negotiable. A structurally bullish stock with a real forensic flag is uninvestable on a fundamental thesis; the forensic flag is the disconfirming evidence that must be addressed before any upside scenario is credible. Forensic dominance is the reason the FS specialist is designated "the most important Phase 1 agent" in `phase-1-deep-dive-us.md`.
+
+**2. Regulatory dominates if material.** If A5 (regulatory desk) surfaces specific stage progression — Federal Register Entity List addition published, FTC HSR Second Request consent decree issued, FDA CRL issued, ITC §337 import-ban granted, SEC Wells Notice received — AND A1 is bullish, A5 dominates. The framework's stage discipline (`regulatory-desk-us.md`) gates this: generic "regulatory risk" or "potential investigation" is not material; specific *stage progression* with a *Federal Register or agency docket citation* is. Pre-stage rumors (lawmaker letter requests, preliminary inquiries) do not trigger this principle — they go into pending_assumptions per `source-stratification-us.md`. The bar for regulatory dominance is high precisely because the regulatory desk produces many false positives if the bar is loose.
+
+**3. Industry/cycle is the base-case anchor.** A1 provides the structural prior on TAM, growth, mid-cycle margins, competitive intensity. Other agents adjust around this anchor — they do not invert it on their own. If A1 is mid-cycle constructive and A8 is positioning-crowded-long, the result is a *smaller position size* (per positioning's role below), not a *sell rating*. If A1 is bullish and A3 (customer pipeline) is bearish on near-term, the result is *delayed entry timing* (per channel's role below), not a flip to bear. Inversion of the A1 anchor requires either Principle 1 (forensic) or Principle 2 (regulatory) firing — A8 / A3 / A6 alone do not invert.
+
+**4. Positioning is technical overlay.** A8 (positioning/sentiment) surfaces 13F crowding, short interest, Form 4 insider patterns, options skew, ETF passive percentage, sell-side consensus distribution. These adjust *position size*, not the *directional view*. Crowded-long is a sizing discount, not a sell signal. Crowded-short + thesis evidence is a sizing premium, not a buy signal in isolation. The framework's position-sizing discipline in `us-equity-ic-rigor/references/position-sizing-us.md` codifies this: the conviction multiplier and the factor crowding discount both flow through A8 output. A8 conflict with A1 ("industry is bullish but positioning is crowded") resolves by sizing down, not by changing the rating.
+
+**5. Channel/revision is timing.** A6 channel pulse + revision velocity (v0.2.0+) signal *when* the position should be entered or exited, not *whether*. Revision-down + crowded-long is the highest-signal conjunction for a short-side technical setup, but the conjunction sets up *timing*, not *thesis*. The directional view comes from A1 + FS + A5. A6 conflict with A1 ("industry is constructive but FY1 EPS revisions are -8% over 3 months") resolves by deferring entry, not by flipping the rating.
+
+These five principles are sequenced because they map to the priority order in which a PM actually thinks. Forensic / regulatory are disconfirming; industry is base-case; positioning and channel are overlays. When you encounter a conflict, ask: which principle applies? The answer tells you which agent dominates and what the resolution looks like.
+
+## Adjudication patterns (worked examples)
+
+**Pattern A — Forensic dominates Industry.** A1 reports semi cycle constructive, +25% DC GPU revenue YoY visible in hyperscaler capex. FS reports SBC 32% of revenue 5-year average, buyback-to-SBC ratio 0.4x (dilution masked, real economic dilution exceeding cash return). Adjudication: FS dominates per Principle 1. Rating ceiling Hold until either (a) SBC normalizes to < 20% of revenue sustained two quarters, or (b) buyback-to-SBC ratio crosses 1.5x sustained two quarters. Document in adjudication_trail with entry_type=specialist_conflict, conflicting_agents=[A1, FS], dominant_agent=FS, resolution paragraph naming the specific remediation triggers.
+
+**Pattern B — Regulatory dominates Industry.** A1 reports semi cycle constructive. A5 reports BIS Entity List addition for Hopper-class GPUs published in Federal Register 2026-08-15, with specific volume / page / effective date cited. Adjudication: A5 dominates per Principle 2. Rating ceiling Hold pending CHIPS Act §48D exemption ruling expected Q4 2026 OR until Hopper-equivalent China revenue confirmed < $X B in next 10-Q. Document with conflicting_agents=[A1, A5], dominant_agent=A5.
+
+**Pattern C — Forensic adjusts Customer pipeline.** A3 reports top-3 hyperscaler procurement guidance +30% YoY through FY27 per Q1 FY27 conference call transcripts (S3). FS reports the largest customer (Microsoft, 19% of revenue per 10-K risk factors) has not signed any incremental contract per 10-K Item 1.01 disclosure schedule (S1). Adjudication: FS does not dominate A3 here — A3 is a forward-looking pipeline read and FS is a backward-looking disclosure check; both are S1-S3 evidence. Resolution: discount A3's growth read by the probability that Microsoft's announced capex translates to NVDA-specific revenue rather than diversification across AMD / Intel / custom silicon. Document with conflicting_agents=[A3, FS], dominant_agent=null (no dominance — both inputs blended into a probability-weighted view), resolution paragraph naming the blending method.
+
+**Pattern D — Red Team v1 vs bull thesis.** R-v1 produces bear PT $80 (40% downside from $135 spot). PM internal view: bear is real but R-v1 is over-aggressive on the multiple compression (assumes P/E goes to 15x; historical trough multiple is 22x). Adjudication: R-v1's bear PT discounted to $95 (adjusted multiple back to 18x with structural justification: thesis-break scenarios in the historical analog set traded at 18-22x, not 15x). Document with entry_type=specialist_conflict, conflicting_agents=[R, PM], dominant_agent=PM (with explicit reasoning), resolution paragraph showing the historical analog discount.
+
+**Pattern E — A-Consensus variance survives R-v2 attack.** A-Consensus declares Type 2 (margin variance): we model FY27 GM 71.2% vs Visible Alpha median 73.8%, bridged with -150bp DC mix shift + -80bp Blackwell-to-Rubin ASP step + +30bp 2nm yield uplift. R-v2 attacks on dimension 1 (evidence credibility): the Q4 FY26 transcript citation for the ASP step is post-Q&A informal commentary, not pre-prepared remarks, S3 but at the weak end of S3. PM resolution: cite the Q1 FY27 transcript prepared remarks (also S3) where the same ASP step was repeated in IR commentary; A-Consensus variance survives. Document with entry_type=variance_attack, target_variance_id=V2 (the margin variance), attack_type=evidence_credibility, attack_outcome=rebutted, rebuttal_evidence_refs naming the Q1 FY27 prepared remarks transcript.
+
+## R-v2 attack methodology — the 5-point checklist
+
+G20 (added in Sprint 2 Item 6) requires that at least one declared consensus variance from `consensus-variance-us.md` was attacked by R-v2 along one of these five dimensions, with the attack rebutted in the adjudication_trail. The five dimensions are deliberately not exhaustive — they are the attack types R-v2 must default to before considering more creative attacks.
+
+**1. Evidence credibility.** Is the S1-S3 source actually as informative as the variance claims? An S3 earnings call transcript with formal CFO commentary on a numerical guidance range is high-information; an S3 transcript with off-the-cuff Q&A response is lower-information. An S2 10-Q footnote with explicit disclosure is high-information; an S2 8-K Item 7.01 press release attachment is medium. Attack: "the variance claims S2 evidence but the source is closer to S3 in informational content." Rebuttal: cite a stronger source for the same claim OR concede the variance to S3 strength.
+
+**2. Triangulation completeness.** Is there a credible alternative read of the same source data that consensus may have applied? Variances often claim "consensus has not incorporated this evidence." Counter-claim: consensus has incorporated it but reached a different conclusion via legitimate disagreement. Attack: "Street's coverage notes from broker X dated within 30 days of the cited source explicitly discuss the same evidence and conclude differently." Rebuttal: show that the broker note misses a specific component of the evidence OR concede the variance is a *disagreement* not an *omission* (which weakens the variance per `consensus-variance-us.md` anti-pattern #6).
+
+**3. Base-rate sanity.** Historical analog set — is the proposed deviation magnitude actually unusual? Scenario-weight variances (Type 4) are most vulnerable here. Attack: "your scenario-weight variance says bull case probability is 12% vs Street-implied 30%; among 12 analogous transitions in the historical set, 4 produced the bull outcome — base rate is 33%, not 12%." Rebuttal: refine the analog set (these 12 are not analogous because [specific structural reason]; the truly analogous subset is 4 of which 0 produced the bull outcome) OR concede the magnitude.
+
+**4. Catalyst dependency.** Does the variance require a specific event to play out as the analyst describes? Timing variances (Type 5) are most vulnerable. Attack: "your variance assumes Pioneer synergy run-rate Q2 FY28 vs consensus Q4 FY27; the path requires linear ramp from Q1 FY26's $0.7B; what's the probability the ramp is non-linear (front-loaded or back-loaded)?" Rebuttal: cite specific management commentary on the ramp shape OR concede that the timing variance has an explicit non-linearity risk that compresses the sizing.
+
+**5. Timing arbitrage.** Is consensus genuinely missing this, or is it priced via a different mechanism — implied vol term structure, options gamma exposure, prime-broker book positioning, short-borrow rates — that fundamental consensus does not track? Attack: "the variance is priced into the front-end implied vol skew; the 3-month 25-delta put pricing implies a 35% probability of the bear scenario, in line with our model. The 'opportunity' you describe is actually priced in the derivatives market, just not in the sell-side fundamental notes." Rebuttal: explain why the derivative pricing reflects different risk than the fundamental thesis OR concede that the variance is real on the fundamental side but already-priced elsewhere (which materially reduces sizing).
+
+## Schema and integration
+
+The adjudication_trail array in memo.json supports two entry types via a `type` discriminator:
+
+- **`specialist_conflict`** — used for PM synthesis adjudication of conflicting specialist findings (Patterns A-D above).
+- **`variance_attack`** — used for R-v2 structured attacks against declared consensus variances (Pattern E and the 5-point checklist above).
+
+Schema entries are documented inline in `schemas/memo.json` definitions/adjudication_trail_entry. The G20 verifier (Sprint 2 Item 6) reads `adjudication_trail[].type == "variance_attack"` entries and requires at least one entry per declared consensus_variance to have `attack_outcome ∈ {rebutted, modified}` (conceded variances are removed from the load-bearing set per `consensus-variance-us.md` discipline, so they don't need attack entries).
+
+## Anti-patterns
+
+**"PM judgment trumps specialist" without reasoning.** An adjudication trail entry with `dominant_agent: PM` and `resolution: "PM judgment"` is non-information. The resolution paragraph must name the specific reasoning that led the PM to override the specialist. Acceptable: "PM discounts R-v1 multiple compression to 18x based on historical trough multiple in 4 analog cases (Pascal-Volta 2018, Volta-Ampere 2020, Ampere-Hopper 2023, Hopper-Blackwell 2024); none traded below 18x trough." Rejected: "PM thinks R-v1 is too aggressive."
+
+**Generic R-v2 attacks.** "The variance might be wrong" is not an attack. The attack must specify which of the 5 dimensions (or a documented additional dimension), with concrete evidence. Generic attacks are scored as no-attempt for G20 purposes.
+
+**Variance survival declared without rebuttal evidence.** An entry with `attack_outcome: rebutted` and no `rebuttal_evidence_refs` fails G20. The rebuttal must cite specific S1-S3 evidence that addresses the attack. "Analyst stands by the variance" is not a rebuttal.
+
+**Adjudication trail entries with no resolution.** An entry with `conflicting_agents` populated but `resolution` empty fails G20. The resolution paragraph is the load-bearing content; the agent list is metadata around it.
+
+## Calibration
+
+Honest base rate from running this discipline:
+
+- Survival rate for declared consensus variances under R-v2 attack: **40-50%** in a well-run process. Half the time R-v2 finds a specific dimension where the variance is weaker than the analyst thought, and the variance is modified (sized down) or conceded (removed from load-bearing set). The other half survives intact or with minor refinement.
+- Variance survival rate > 70% across a coverage list: the variance discipline is too weak — R-v2 is not attacking aggressively enough. Reframe attacks to default to the strongest of the 5 dimensions for each variance type (e.g., default to base-rate sanity for scenario-weight variances; default to evidence credibility for revenue variances).
+- Variance survival rate < 30%: the variance discipline is too strong — the analyst is conceding too easily. The PM should explicitly override R-v2 when the rebuttal evidence is genuinely stronger; document the override per Pattern D.
+- Specialist conflict trail entries per memo: typically 3-7 in a non-trivial run. Memos with 0-2 entries are either trivially conflict-free (uncommon for institutional names) or the trail is being under-documented.
+
+## Cross-references
+
+- `consensus-variance-us.md` — variance taxonomy, evidence-required matrix, sizing rule (the variances that R-v2 attacks live here)
+- `phase-1-deep-dive-us.md` — specialist agent prompts (the agents whose conflicts get adjudicated)
+- `phase-2-continuation-us.md` — A-Consensus + R Red Team v1 + R-v2 (the agents whose work gets trailed)
+- `phase-3-valuation-us.md` — R-v2 dispatch + final synthesis (the phase where most adjudication trail entries are written)
+- `schemas/memo.json` definitions/adjudication_trail_entry — machine-readable schema
+- Plugin 2 `scripts/verify_view_defensibility.py` — G20 verifier (Sprint 2 Item 6) that consumes adjudication_trail
+- Plugin 2 `pm-redteam-rubric-us.md` — rubric scoring (B15-B17 mapping pending Sprint 3 update)

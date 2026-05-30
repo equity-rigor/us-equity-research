@@ -49,6 +49,12 @@ SIZING_LOAD_BEARING_PP = 2.0
 PRIMARY_S_LEVELS = {"S1", "S2", "S3"}
 HOLD_RATINGS = {"Hold"}
 CONSENSUS_ANCHORED_PATTERN = re.compile(r"consensus[\s\-]anchored", re.IGNORECASE)
+# v0.3.0 — derived-value recomputation tolerance per audit Issue #3.
+# The formula in consensus-variance-us.md:
+#   sizing_impact_pp = magnitude_pct * probability_pct * sensitivity_pct / 10000
+# (since each factor is in %, multiplying three % values and dividing by
+# 10000 converts to percentage points: 20% × 60% × 8% = 0.96pp)
+SIZING_RECOMPUTE_TOLERANCE_PP = 0.1
 
 
 def _print_status(status: str, **kwargs: Any) -> None:
@@ -156,6 +162,53 @@ def verify(memo_json: dict[str, Any], memo_md: str, source_tags: dict[str, Any] 
             blocks_score_above=7.0,
         )
         return 2
+
+    # Branch 5 (v0.3.0): derived-value recomputation.
+    # For each variance with magnitude_pct, probability_right_pct, and
+    # scenario_sensitivity_pct all populated, recompute
+    # sizing_impact_pp = magnitude × probability × sensitivity / 10000
+    # and verify the declared value matches within ±0.1pp. Catches
+    # the audit-flagged failure mode where authors write internally
+    # inconsistent variance math (declared sizing_impact_pp != formula).
+    for idx, v in enumerate(variances):
+        magnitude = v.get("magnitude_pct")
+        prob = v.get("probability_right_pct")
+        sens = v.get("scenario_sensitivity_pct")
+        declared = v.get("sizing_impact_pp")
+        if not all(isinstance(x, (int, float)) for x in (magnitude, prob, sens, declared)):
+            continue  # Optional fields missing — skip recomputation.
+        expected = (abs(magnitude) * prob * sens) / 10000.0
+        # Signed sizing: variance with positive magnitude shifts scenario
+        # probability up; negative magnitude shifts down. Take absolute
+        # value of magnitude for the recomputation (sign carried in
+        # the declared value).
+        if abs(abs(declared) - expected) > SIZING_RECOMPUTE_TOLERANCE_PP:
+            vid = v.get("variance_id") or v.get("line_item") or f"index_{idx}"
+            _print_status(
+                "fail",
+                failure_reason=(
+                    f"variance {vid!r} declares sizing_impact_pp="
+                    f"{declared:.3f} but recomputed from "
+                    f"magnitude_pct={magnitude} × probability_right_pct="
+                    f"{prob} × scenario_sensitivity_pct={sens} / 10000 = "
+                    f"{expected:.3f} (tolerance ±{SIZING_RECOMPUTE_TOLERANCE_PP}pp). "
+                    "Internal inconsistency in variance math."
+                ),
+                remediation_required=(
+                    "Either correct the declared sizing_impact_pp to match "
+                    "the formula, OR adjust magnitude / probability / "
+                    "sensitivity inputs to reflect the intended scenario "
+                    "shift. Per consensus-variance-us.md: sizing_impact_pp = "
+                    "magnitude_pct × probability_right_pct × "
+                    "scenario_sensitivity_pct / 10000."
+                ),
+                offending_variance=vid,
+                declared_sizing_impact_pp=f"{declared:.3f}",
+                recomputed_sizing_impact_pp=f"{expected:.3f}",
+                delta_pp=f"{abs(abs(declared) - expected):.3f}",
+                blocks_score_above=7.0,
+            )
+            return 3
 
     types_declared = sorted({v.get("type", "?") for v in load_bearing})
     total_sizing = sum(

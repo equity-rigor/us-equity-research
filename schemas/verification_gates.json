@@ -2,13 +2,13 @@
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://us-equity-research.local/schemas/verification_gates.json",
   "title": "Verification Gates — US",
-  "description": "17 verification gates total (v0.2.0): G1-G10 inherited from china-equity-ic-rigor, G11-G14 US-specific from delta matrix Layer 10, G15-G17 added in v0.2.0 (Sprint 1: consensus variance, bank discipline, revision velocity). A memo cannot claim score >8.0 with any non-n_a gate failing. Run via Phase C scripts; results captured here for human-readable audit trail. Schema accepts both 0.1.0 (14-gate) and 0.2.0 (17-gate) for grandfathering.",
-  "schema_version": "0.2.0",
+  "description": "20 verification gates total as of v0.3.0: G1-G10 inherited from china-equity-ic-rigor, G11-G14 US-specific from delta matrix Layer 10, G15-G17 added v0.2.0 (Sprint 1: consensus variance, bank discipline, revision velocity), G18-G20 added v0.3.0 (Sprint 2 rigor hardening: cross-doc Barra consistency, Plugin-1-to-Plugin-2 provenance, view defensibility). A memo cannot claim score >8.0 with any non-n_a gate failing. Run via Phase C scripts; results captured here for human-readable audit trail. Schema accepts 0.1.0 (14-gate), 0.2.0 (17-gate), and 0.3.0 (20-gate) for grandfathering.",
+  "schema_version": "0.3.0",
   "type": "object",
   "definitions": {
     "gate_id": {
       "type": "string",
-      "enum": ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "G10", "G11", "G12", "G13", "G14", "G15", "G16", "G17"]
+      "enum": ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "G10", "G11", "G12", "G13", "G14", "G15", "G16", "G17", "G18", "G19", "G20"]
     },
     "gate_status": {
       "type": "string",
@@ -73,7 +73,7 @@
   "required": ["schema_version", "ticker", "run_id", "gates", "overall_pass", "blocks_score_above"],
   "additionalProperties": false,
   "properties": {
-    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0"]},
+    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0", "0.3.0"]},
     "ticker": {"type": "string"},
     "run_id": {
       "type": "string",
@@ -91,8 +91,8 @@
       "type": "array",
       "items": {"$ref": "#/definitions/gate_check"},
       "minItems": 14,
-      "maxItems": 17,
-      "description": "Gate count depends on schema_version: v0.1.0 = exactly 14 (G1-G14); v0.2.0 = exactly 17 (G1-G17 with G15-G17 = consensus_variance, bank_metrics, revision_velocity). All declared gates must appear in the array (even if status=n_a). Verifier scripts enforce the exact-count constraint per schema_version."
+      "maxItems": 20,
+      "description": "Gate count depends on schema_version: v0.1.0 = exactly 14 (G1-G14); v0.2.0 = exactly 17 (G1-G17 with G15-G17 = consensus_variance, bank_metrics, revision_velocity); v0.3.0 = exactly 20 (G1-G20 with G18 = quant cross-doc consistency, G19 = Plugin-1-to-Plugin-2 provenance, G20 = view defensibility). All declared gates must appear in the array (even if status=n_a). Verifier scripts enforce the exact-count constraint per schema_version."
     },
     "overall_pass": {
       "type": "boolean",
@@ -174,6 +174,18 @@
         "G17": {
           "type": "string",
           "const": "[v0.2.0] Revision velocity — memo must declare in source_tags revision_velocity block: 3-month FY1 EPS revision % + direction + breadth ((up-down)/N). Optional but recommended: 1m and 6m windows, FY2 revision, PT revision, pre-print drift, peer median comparison. n_a if n_analysts < 5 (revision velocity not load-bearing for thin coverage). Verified by scripts/verify_revision_velocity.py. blocks_score_above = 7.5 on fail. Discipline in phase-2-continuation-us.md §A6 Earnings Revision Velocity subsection."
+        },
+        "G18": {
+          "type": "string",
+          "const": "[v0.3.0] Quant overlay cross-document consistency — within a single memo, the structured quant_overlay.factor_tags block in memo.json must match any Markdown narrative reference to the same Barra factor within ±0.2 tolerance. Closes the audit finding that NVDA's Momentum z-score appeared as +1.8 in quant-overlay-us.md but +2.3 in position-sizing-us.md (pre-v0.3.0 example files). Catches authors who quote z-scores in prose that diverge from structured block — common LLM failure mode where the prose is regenerated without re-reading structured data. n_a if no Markdown factor references found. Verified by scripts/verify_quant_cross_doc_consistency.py. blocks_score_above = 7.5 on fail. Discipline in us-equity-ic-rigor/references/quant-overlay-us.md §'Honest framing' (v0.3.0 disclaimer)."
+        },
+        "G19": {
+          "type": "string",
+          "const": "[v0.3.0] Plugin 1 to Plugin 2 provenance — memo_metadata must reference an outputs/<ticker>_manifest.json file produced by Plugin 1's orchestrator at end of Phase 3, containing run_id (UUID), agent_provenance (hash per specialist output), web_search_log (list of url+timestamp+response_hash), phase_timing. Plugin 2 gate runner verifies manifest exists, contains all required fields, and that verification_calls_count >= 12 per D9. Memos without manifest accepted via explicit --hand-authored flag with WARNING printed in score block and blocks_score_above capped at 7.5. Closes audit finding that Plugin 1 to Plugin 2 handoff is pure filename convention with no provenance enforcement. Verified by scripts/verify_provenance_manifest.py. blocks_score_above = 7.5 on fail (or absent manifest without hand-authored flag)."
+        },
+        "G20": {
+          "type": "string",
+          "const": "[v0.3.0] View defensibility — for any rubric score above 8.5, three conjunctive conditions must hold: (a) headline expected_return differs from S4 consensus PT-implied return by >= 8 percentage points absolute; (b) at least one declared consensus_variance entry has >=1 evidence_ref at S1 or S2 (not S3, not S4); (c) the memo's adjudication_trail contains at least one entry where R-v2 attempted a structured attack against the declared variance per the 5-point attack checklist in pm-synthesis-adjudication-us.md and the attack was rebutted with documented reasoning. Pushes the rubric from grading structural completeness to grading view survival. Caps score at 8.5 on fail (not 7.0 — G20 is rubric-discriminating not memo-killing). n_a for memos with rating=Hold or with headline self-labeled 'consensus-anchored'. Verified by scripts/verify_view_defensibility.py."
         }
       }
     }

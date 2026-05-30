@@ -172,7 +172,7 @@ Conviction discount for factor crowding:
 - Two factors with |z| >1.5: discount by 0.6×
 - Three or more factors with |z| >1.5: discount by 0.5×
 
-NVDA at writing: Momentum +2.3, Growth +2.0, Size +2.5, Liquidity +0.5, Quality +0.3, Value −1.2, Low-Vol −1.1. Three factors with |z| >1.5 → conviction multiplier additionally × 0.5. Stacked on the prior 0.125× → **0.063×**. Conviction-adjusted Kelly = 0.052 × 0.063 = **0.33% of NAV**.
+NVDA at writing (per the canonical fixture in `quant-overlay-us.md` §"7 Barra-style factors"): Momentum +1.8, Growth +2.5, Size +3.0, Liquidity +2.0, Quality +1.2, Value −1.5, Low-Vol +0.2. Four factors with |z| > 1.5 (Momentum +1.8, Growth +2.5, Size +3.0, Liquidity +2.0) — well above the 3-factor threshold → conviction multiplier additionally × 0.5. Stacked on the prior 0.125× → **0.063×**. Conviction-adjusted Kelly = 0.052 × 0.063 = **0.33% of NAV**. **Cross-doc consistency (G18, v0.3.0)**: any memo using this skill must keep the Barra z-scores consistent between the structured `quant_overlay.barra_factor_tags` block in `memo.json` and any Markdown narrative reference, within ±0.2 tolerance. Pre-v0.3.0 versions of this file carried divergent NVDA values (Momentum +2.3 / Growth +2.0 / Size +2.5 / Liquidity +0.5) which contradicted `quant-overlay-us.md`; reconciled as of v0.3.0 to the canonical set.
 
 ## Re-sizing triggers
 
@@ -201,7 +201,7 @@ A memo with full position sizing has:
 
 ## Sample disclosure language for memo
 
-> "**Position sizing.** 12M σ = 24.0% (Q 12.0% / M 6.9% / W 3.3%). E[R] = +9.4%; Sharpe = 0.21 (vs FRED DGS10 R_f 4.3%). Raw Kelly = 0.089 (8.9% NAV). Source-conditional headline σ inflation ×1.3 → adjusted σ² = 0.097, adjusted Kelly = 0.052. Conviction multiplier 0.125× (S1-S3 anchor mix per Source Stratification box; heavy A0 tail asymmetry per §8 — × 0.5 tail discount). Factor crowding discount × 0.5 (Momentum +2.3, Growth +2.0, Size +2.5 per §11 Quant Overlay). **Conviction-adjusted Kelly = 0.33% NAV**.
+> "**Position sizing.** 12M σ = 24.0% (Q 12.0% / M 6.9% / W 3.3%). E[R] = +9.4%; Sharpe = 0.21 (vs FRED DGS10 R_f 4.3%). Raw Kelly = 0.089 (8.9% NAV). Source-conditional headline σ inflation ×1.3 → adjusted σ² = 0.097, adjusted Kelly = 0.052. Conviction multiplier 0.125× (S1-S3 anchor mix per Source Stratification box; heavy A0 tail asymmetry per §8 — × 0.5 tail discount). Factor crowding discount × 0.5 (Momentum +1.8, Growth +2.5, Size +3.0, Liquidity +2.0 per §11 Quant Overlay; four factors above |z| = 1.5 threshold). **Conviction-adjusted Kelly = 0.33% NAV**.
 >
 > **By mandate:**
 > - Long-only large-cap (S&P 500): +33 bps active weight (NVDA at ~6.33% NAV vs ~6.0% bench).

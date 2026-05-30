@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://us-equity-research.local/schemas/manifest.json",
+  "title": "Plugin 1 Provenance Manifest — US",
+  "description": "Provenance manifest written by Plugin 1's orchestrator at end of Phase 3. Captures run_id, agent provenance (which specialists ran, what they produced, hashes of outputs), web search log (every WebSearch + WebFetch call made during verification per D9), phase timing, and hashes of output files. Plugin 2 gate G19 verifies presence and integrity of this manifest. Added in v0.3.0 to close the audit finding that Plugin 1 to Plugin 2 handoff was pure filename convention with no provenance enforcement — a hand-authored memo could pass all 17 gates without Plugin 1 ever being invoked. G19 raises the bar by requiring (a) manifest file exists at the path declared in memo.json memo_metadata.manifest_ref, (b) all required fields populated, (c) verification_calls_count >= 12 per D9, (d) output file hashes match actual files on disk. Hand-authored memos can still pass with explicit --hand-authored flag but score is capped at 7.5. Not a cryptographic integrity system — a determined adversary can forge a consistent fake manifest. The defense is against lazy hand-authoring and against confusing Plugin 1-produced output with hand-authored output in a multi-analyst setting.",
+  "schema_version": "0.3.0",
+  "type": "object",
+  "required": [
+    "manifest_version",
+    "ticker",
+    "run_id",
+    "created_at",
+    "plugin_versions",
+    "phase_timing",
+    "agent_provenance",
+    "web_search_log",
+    "verification_calls_count",
+    "outputs_produced"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "type": "string",
+      "const": "0.3.0",
+      "description": "Manifest schema version. v0.3.0 = initial release in Sprint 2."
+    },
+    "ticker": {
+      "type": "string",
+      "pattern": "^[A-Z]{1,5}(\\.[A-Z]{1,3})?$",
+      "description": "Ticker the manifest pertains to. Must match the memo's ticker."
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "description": "UUID v4 generated at Phase 0 start. Used to disambiguate concurrent or repeat runs on the same ticker."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when manifest was written (end of Phase 3)."
+    },
+    "plugin_versions": {
+      "type": "object",
+      "required": ["us_equity_research", "us_equity_ic_rigor"],
+      "additionalProperties": false,
+      "properties": {
+        "us_equity_research": {
+          "type": "string",
+          "description": "Plugin 1 version at run time, e.g. '0.3.0'"
+        },
+        "us_equity_ic_rigor": {
+          "type": "string",
+          "description": "Plugin 2 version at run time, e.g. '0.3.0'"
+        }
+      }
+    },
+    "phase_timing": {
+      "type": "object",
+      "required": ["phase_0", "phase_1", "phase_2", "phase_3", "verification"],
+      "additionalProperties": false,
+      "properties": {
+        "phase_0": {"$ref": "#/definitions/phase_timing_entry"},
+        "phase_1": {"$ref": "#/definitions/phase_timing_entry"},
+        "phase_1_5": {"$ref": "#/definitions/phase_timing_entry", "description": "Optional — only present if Phase 1 refresh round was triggered."},
+        "phase_2": {"$ref": "#/definitions/phase_timing_entry"},
+        "phase_3": {"$ref": "#/definitions/phase_timing_entry"},
+        "verification": {"$ref": "#/definitions/phase_timing_entry"}
+      }
+    },
+    "agent_provenance": {
+      "type": "array",
+      "minItems": 15,
+      "description": "One entry per specialist agent dispatched. v0.3.0: minimum 15 (Phase 1: A1+A4+A5+A8+FS=5; Phase 2: A2+A3+A3-Peers+R+A6+A-Consensus=6; Phase 3: A7+Mirror+TopicForensic+Rv2=4). Mirror is skipped for non-pair-trade names — the entry should still appear with status='skipped'.",
+      "items": {"$ref": "#/definitions/agent_provenance_entry"}
+    },
+    "web_search_log": {
+      "type": "array",
+      "minItems": 12,
+      "description": "Every WebSearch + WebFetch call made during the run. Minimum 12 per D9 (verification phase requirement). Each entry hashes the response body so the verifier can detect post-hoc edits.",
+      "items": {"$ref": "#/definitions/web_search_entry"}
+    },
+    "verification_calls_count": {
+      "type": "integer",
+      "minimum": 12,
+      "description": "Total count of WebSearch + WebFetch calls in the verification phase only (not Phase 1-3 specialist calls). D9 minimum."
+    },
+    "outputs_produced": {
+      "type": "array",
+      "minItems": 4,
+      "description": "List of structured output files Plugin 1 produced for downstream consumption by Plugin 2. Minimum 4: <ticker>_IC_memo.md, <ticker>_structured.json, <ticker>_source_tags.json, <ticker>_scenarios.json. Plus optionally <ticker>_verification_gates.json (if Plugin 2 already ran). Each file path + sha256 hash so G19 can verify hash-on-disk matches.",
+      "items": {"$ref": "#/definitions/output_file_entry"}
+    },
+    "orchestrator_notes": {
+      "type": "string",
+      "description": "Optional freeform notes from the orchestrator. Reserved for future use (e.g., 'Phase 1.5 triggered because A5 returned framework-only'). Not enforced by G19."
+    }
+  },
+  "definitions": {
+    "phase_timing_entry": {
+      "type": "object",
+      "required": ["start", "end"],
+      "additionalProperties": false,
+      "properties": {
+        "start": {"type": "string", "format": "date-time"},
+        "end": {"type": "string", "format": "date-time"},
+        "elapsed_seconds": {"type": "number", "minimum": 0}
+      }
+    },
+    "agent_provenance_entry": {
+      "type": "object",
+      "required": ["agent_id", "phase", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "enum": [
+            "A1", "A4", "A5", "A8", "FS",
+            "A2", "A3", "A3-Peers", "R", "A6", "A-Consensus",
+            "A7", "Mirror", "Topic-Forensic", "R-v2"
+          ],
+          "description": "Specialist identifier per phase-1/2/3 reference files."
+        },
+        "phase": {
+          "type": "integer",
+          "enum": [1, 2, 3],
+          "description": "Which phase this agent ran in. Phase 1.5 refresh agents reuse their original phase number."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["completed", "skipped", "failed_then_refreshed", "framework_only"],
+          "description": "completed = ran with web tools and returned substantive output. skipped = not applicable (e.g., Mirror for non-pair-trade). failed_then_refreshed = framework-only output triggered Phase 1.5 refresh; this entry reflects post-refresh output. framework_only = returned framework without web tool usage and was NOT refreshed (rare; should be flagged in orchestrator_notes)."
+        },
+        "output_path": {
+          "type": "string",
+          "description": "Path to the specialist's output file (typically in outputs/workpapers/). Required if status=completed or failed_then_refreshed."
+        },
+        "output_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "description": "SHA-256 of the specialist's output file content. Required if status=completed or failed_then_refreshed."
+        },
+        "tool_uses_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total tool invocations the specialist made (WebSearch + WebFetch + Read + others)."
+        },
+        "web_calls_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "WebSearch + WebFetch invocations specifically. Used to detect framework-only runs (web_calls_count == 0 with status=completed is a flag)."
+        }
+      }
+    },
+    "web_search_entry": {
+      "type": "object",
+      "required": ["tool", "query_or_url", "timestamp"],
+      "additionalProperties": false,
+      "properties": {
+        "tool": {
+          "type": "string",
+          "enum": ["WebSearch", "WebFetch", "EDGAR_full_text", "FRED_API", "XBRL_company_facts"],
+          "description": "Which tool was used. EDGAR / FRED / XBRL are tracked separately because they have structured APIs distinct from generic WebSearch / WebFetch."
+        },
+        "query_or_url": {
+          "type": "string",
+          "description": "WebSearch query string, or WebFetch / EDGAR / FRED / XBRL URL."
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "response_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "description": "SHA-256 of the response body. Detects post-hoc manifest forgery."
+        },
+        "used_by_agent": {
+          "type": "string",
+          "description": "Which agent issued the call (matches agent_provenance.agent_id values plus 'verification' for verification-phase calls)."
+        },
+        "phase": {
+          "type": "integer",
+          "enum": [1, 2, 3, 4],
+          "description": "1/2/3 = research phases. 4 = verification phase."
+        }
+      }
+    },
+    "output_file_entry": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Path relative to the repo root, e.g. 'outputs/NVDA_IC_memo.md'."
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "size_bytes": {"type": "integer", "minimum": 0},
+        "file_type": {
+          "type": "string",
+          "enum": ["ic_memo_md", "structured_json", "source_tags_json", "scenarios_json", "verification_gates_json", "workpaper_md", "manifest_json"],
+          "description": "Type label so G19 can verify all required artifact types are present."
+        }
+      }
+    }
+  }
+}

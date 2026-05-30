@@ -399,11 +399,13 @@ These drive the next research cycle. If any item resolves in a verifiable way be
 ### Appendix C — Verification report reference
 
 Link: `outputs/<TICKER>_verification_gates.json`
-Pass tally: [N of 14 gates pass]. Any fail must be reflected in §Recommendation conviction tag.
+Pass tally: [N of 20 gates pass as of v0.3.0; v0.2.0 memos report N of 17; v0.1.x grandfathered to N of 14]. Any fail must be reflected in §Recommendation conviction tag.
 
-### Appendix D — Quant overlay (mandatory per D13)
+### Appendix D — Quant overlay — directional estimates (not derived from calibrated factor model)
 
-**Factor tags (Barra-style z-scores, −3 to +3)**:
+**Honest framing (v0.3.0).** The factor tags below are directional estimates constructed from publicly available proxies (B/P, E/P, FCF/EV from XBRL company facts; 12-month return; cross-sectional GICS sub-industry medians), not regression outputs from a calibrated multi-factor model (Barra USE4, Axioma, MSCI Beacon). The conviction multipliers and edge-decay fields are decreed institutional rules of thumb, not backtest-calibrated. Do not size positions in a real book against these numbers without an overlay from a calibrated feed. Full disclaimer in `us-equity-ic-rigor/references/quant-overlay-us.md` §"Honest framing." G18 (v0.3.0) verifies that any z-scores quoted in narrative prose elsewhere in the memo match this structured block within ±0.2 tolerance.
+
+**Factor tags (Barra-style z-scores, −3 to +3; canonical structured block — narrative must match within ±0.2 per G18)**:
 - Value: [z]
 - Quality: [z]
 - Momentum: [z]

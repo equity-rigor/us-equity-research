@@ -203,11 +203,50 @@ def verify(memo_json: dict[str, Any], source_tags: dict[str, Any] | None) -> int
         )
         return 2
 
+    # v0.3.0: derived-value recomputation per audit Issue #3.
+    # Per source_tags.json bank_metrics schema, required_cet1_pct is
+    # documented as "Computed: 4.5 + 2.5 + scb + gsib_surcharge". G16
+    # was previously checking presence-only; v0.3.0 also verifies the
+    # arithmetic matches. Tolerance ±0.05% reflects realistic rounding
+    # in Fed determination letters and GSIB Method 2 disclosures.
+    cet1_recompute_tolerance = 0.05
+    required_cet1 = bm.get("required_cet1_pct")
+    scb = bm.get("scb_pct")
+    gsib = bm.get("gsib_surcharge_pct", 0.0)  # default 0 for non-G-SIBs
+    if isinstance(required_cet1, (int, float)) and isinstance(scb, (int, float)):
+        if not isinstance(gsib, (int, float)):
+            gsib = 0.0
+        expected_required_cet1 = 4.5 + 2.5 + scb + gsib
+        delta = abs(required_cet1 - expected_required_cet1)
+        if delta > cet1_recompute_tolerance:
+            _print_status(
+                "fail",
+                failure_reason=(
+                    f"required_cet1_pct={required_cet1:.2f} does not reconcile "
+                    f"to 4.5 + 2.5 (CCB) + scb_pct={scb:.2f} + "
+                    f"gsib_surcharge_pct={gsib:.2f} = "
+                    f"{expected_required_cet1:.2f} (delta {delta:.2f}, "
+                    f"tolerance ±{cet1_recompute_tolerance:.2f})"
+                ),
+                remediation_required=(
+                    "Either correct required_cet1_pct to match the formula, "
+                    "or correct the scb_pct / gsib_surcharge_pct inputs. "
+                    "Per source_tags.json bank_metrics schema, required_cet1_pct "
+                    "MUST equal 4.5 + 2.5 + scb_pct + gsib_surcharge_pct."
+                ),
+                declared_required_cet1=f"{required_cet1:.2f}",
+                recomputed_required_cet1=f"{expected_required_cet1:.2f}",
+                delta=f"{delta:.2f}",
+                blocks_score_above=7.0,
+            )
+            return 3
+
     _print_status(
         "pass",
         sector_gics=memo_json.get("sector_gics", ""),
         bank_category=category,
         groups_verified="AOCI_bridge, CET1_walk, NIM_trajectory, stress_capital",
+        cet1_arithmetic="verified" if isinstance(required_cet1, (int, float)) else "skipped_optional",
     )
     return 0
 

@@ -27,6 +27,30 @@ If the user provides only a ticker without an explicit research request, ask: "L
 
 Trigger boundaries: when the user asks for a polished sell-side-format 30-50pg initiation DOCX, that's `equity-research:initiating-coverage`'s territory — this skill produces the structured content and delegates Task 5 at the end. When the user asks for a post-print earnings update DOCX ("Q3 update for NVDA"), `equity-research:earnings-analysis` is preferred. This skill owns pre-print earnings prep, IC memos, kill memos, LP letters, and the verification rigor.
 
+## Scope and Limitations (read before invoking on a name that doesn't fit the fundamental-thesis pattern)
+
+This skill is **fundamental, single-name, US-listed equity research**. Its 17-gate rigor, scenario discipline, and multi-agent specialization are calibrated to that use case. It is NOT appropriate for several adjacent use cases that look superficially similar but have different load-bearing inputs. Invoking the skill on these will produce output that is well-structured, gate-clean, and category-wrong.
+
+**Out of scope — use a different tool, or supplement this output substantially:**
+
+- **Pure event-driven trades** where alpha lives in the timing of a single binary event — FDA decision (PDUFA / AdCom), FTC ruling, Fed pivot, M&A close-or-block, ITC §337 ruling. The fundamental analysis here is downstream of the event prediction; this skill cannot predict event outcomes or model implied-probability mispricing in derivatives.
+- **Pure technical / momentum / mean-reversion trades** where alpha lives in price action, volume profile, support/resistance, or quantitative trend signals. The skill's positioning_sentiment block is a snapshot, not a price-series model.
+- **Pair-trade-on-flow** where alpha lives in spread convergence / basis dynamics / leg correlation / borrow costs / hedge ratio drift, not in fundamental dispersion between the two legs. The skill handles fundamental pair-trade framing (e.g., long NVDA short AMD on share-shift thesis); it does NOT handle a pair where the trade is about basis or technical convergence (e.g., long PLTR short COIN on factor crowding).
+- **Activist / proxy-fight situations** where alpha lives in voting math, shareholder agreement structure (ROFR, drag-along, tag-along), 13D group formation, or board-composition arithmetic. The skill's regulatory_status block touches 13D filings but does not model voting outcomes.
+- **Pre-IPO / private market analysis** — different disclosure regime (no 10-K, no XBRL), different valuation conventions (last-round mark, secondary trades, 409A), different deal-by-deal terms. Use a private-market skill.
+- **Bond / credit-side analysis** — different fundamental priorities (downside skew, covenant structure, capital stack seniority, default-recovery distributions). Use a credit skill.
+- **Pre-revenue biotech where the bet is binary clinical outcome** — Phase 3 readout / FDA decision dominates the rNPV. Until v0.4.0 ships the biotech-rNPV reference file, the skill handles such names poorly; even after, single-binary-readout names lean closer to event-driven than fundamental.
+- **Catalyst-driven momentum on a name where you have no view on the catalyst** — if the question is "should I buy NVDA into earnings" and the answer requires modeling consensus positioning, options-implied move, prime-broker book positioning, and dealer GEX, this skill produces well-disciplined but irrelevant fundamental analysis.
+
+**Within scope but with named limitations** (the skill produces output but the output is incomplete by construction):
+
+- **Names where alpha lives in positioning** (crowded long, crowded short, factor exposure cascade) — the skill's positioning_sentiment captures 13F clusters, short interest, options skew, and ETF passive %, but not real-time order flow, dark-pool prints, prime-broker book data, or live factor crowding. For such names the skill is informative but not load-bearing.
+- **Cyclicals at inflection** — the skill cannot mechanically call the cycle turn. Reference content (book-to-bill, SAAR, rig count, channel inventory months) is gestural through v0.3.0; v0.4.0+ may extend. Until then, treat cyclical inflection calls as analyst judgment with framework support, not framework outputs.
+- **Small-cap with thin disclosure** (<3 covering analysts, <$500M cap, <2 segments disclosed in 10-K Item 7) — the skill degrades gracefully into headline-conditionality "range_only" labeling per G7, but the underlying alpha case is undercooked. Use peer-comparative and channel-check methods more heavily than the skill prescribes.
+- **Non-US issuers via ADR** — the skill accepts 20-F filings and notes ADR-vs-ordinary share treatment in Phase 0, but does NOT model China VIE structure, F-share accounting nuances, or jurisdiction-specific governance overlays. For ADRs of names with material VIE exposure (BABA, JD, BIDU, NTES, etc.), supplement with the china-equity-research skill.
+
+**Honest framing.** A 9.0-scored output from this skill on an in-scope name is institutionally defensible fundamental analysis. A 9.0-scored output on an out-of-scope name is well-structured wrong-category work. The framework cannot detect out-of-scope use itself — that determination is the user's. When in doubt, use the categorization above before invoking.
+
 ## Workflow Overview
 
 The full workflow has three sequential research phases, a mandatory independent verification phase, and a final synthesis. Total elapsed time depends on user urgency, but a serious deep-dive is roughly two hours of orchestrated agent execution.
@@ -71,6 +95,7 @@ Phase reference files (read on demand, not at skill load):
 - `references/phase-2-continuation-us.md` — Six agent prompts for Phase 2 (A2/A3/A3-Peers/R/A6 + A-Consensus new in v0.2.0); A6 includes revision velocity discipline (new in v0.2.0; G17)
 - `references/phase-3-valuation-us.md` — Four agent prompts for Phase 3
 - `references/consensus-variance-us.md` — **(new in v0.2.0)** Variance taxonomy, evidence-required matrix, sizing rule, calibration. Gated by G15.
+- `references/pm-synthesis-adjudication-us.md` — **(new in v0.3.0)** Weighting principles for specialist conflict adjudication (Forensic dominates structural; Regulatory dominates if material; Industry is base-case; Positioning is technical overlay; Channel is timing). R-v2 attack methodology (5-point checklist: evidence credibility, triangulation completeness, base-rate sanity, catalyst dependency, timing arbitrage). Adjudication trail schema. Consumed by G20 (Sprint 2 Item 6).
 - `references/verification-protocol-us.md` — Web verification methodology
 - `references/us-data-sources.md` — EDGAR, FRED, Federal Register, regulators, free vs premium tiering
 - `references/source-stratification-us.md` — S1-S5 + Pending taxonomy ported to US filings
@@ -177,6 +202,51 @@ Phase 3 typically reveals that initial Red Team was either too aggressive or too
 After Phase 3, write the IC Memo (English). For structure see `references/ic-memo-template-us.md`. Hand off to `us-equity-ic-rigor` for PM red-team scoring on the 6-9 rubric (B11-B14 US-specific bugs included).
 
 For full Phase 3 agent prompts, read `references/phase-3-valuation-us.md`.
+
+## Manifest generation (v0.3.0+, end of Phase 3, before Verification Phase)
+
+Starting in v0.3.0, the orchestrator (you, running this skill) **must** produce a provenance manifest at the end of Phase 3. The manifest is what makes Plugin 2's claim "layers rigor on top of Plugin 1" architecturally true rather than editorially true — without it, a hand-authored memo can pass all 20 verification gates without ever invoking this skill. Plugin 2 gate **G19** verifies the manifest exists, has the right shape, declares >= 12 verification calls, references >= 15 specialist agents, and has valid SHA-256 hashes against the output files on disk.
+
+**Incremental logging during the run.** From Phase 0 start through Verification Phase end, maintain a seed file at `outputs/<ticker>_manifest_seed.json` with this growing structure:
+
+```json
+{
+  "run_id": "<UUID v4 generated at Phase 0 start>",
+  "plugin_versions": {"us_equity_research": "0.3.0", "us_equity_ic_rigor": "0.3.0"},
+  "phase_timing": {
+    "phase_0": {"start": "<ISO 8601>", "end": "<ISO 8601>"},
+    "phase_1": {"start": "...", "end": "..."},
+    "phase_1_5": {"start": "...", "end": "..."},
+    "phase_2": {"start": "...", "end": "..."},
+    "phase_3": {"start": "...", "end": "..."},
+    "verification": {"start": "...", "end": "..."}
+  },
+  "web_search_log": [
+    {"tool": "WebSearch", "query_or_url": "...", "timestamp": "...", "response_hash": "<sha256>", "used_by_agent": "A1", "phase": 1}
+  ],
+  "verification_calls_count": 0,
+  "orchestrator_notes": "Phase 1.5 triggered because A5 returned framework-only (web_calls_count==0)"
+}
+```
+
+Append to `web_search_log` after each WebSearch / WebFetch / EDGAR / FRED / XBRL call. Increment `verification_calls_count` for each call made during Phase 4 (Verification Phase) specifically. Note phase start / end timestamps at boundaries.
+
+**Specialist workpaper convention.** Each Phase 1/2/3 specialist agent writes its workpaper to `outputs/workpapers/<ticker>_phase<N>_<AGENT_ID>.md` (e.g., `outputs/workpapers/NVDA_phase1_FS.md`, `outputs/workpapers/NVDA_phase2_A-Consensus.md`). The manifest writer scans this directory to build `agent_provenance`. Workpapers under 500 bytes are flagged `framework_only` automatically — if Phase 1.5 was triggered and refreshed the agent, ensure the refreshed workpaper overwrites the framework-only stub (it should).
+
+**Manifest write step (end of Phase 3).** Run:
+
+```bash
+python scripts/write_manifest.py \
+    --ticker <TICKER> \
+    --outputs-dir outputs/ \
+    --seed outputs/<TICKER>_manifest_seed.json
+```
+
+This writes `outputs/<TICKER>_manifest.json` conforming to `schemas/manifest.json`. The script computes SHA-256 over each output file, assembles agent_provenance from the workpapers directory, merges with the seed, and writes the final manifest. If the seed is missing it falls back to placeholder values and emits warnings to stderr — that manifest will fail G19, which is intentional.
+
+**Cross-link from memo.** Set `memo_metadata.manifest_ref` in the structured memo to `"outputs/<TICKER>_manifest.json"`. G19 reads this path during verification.
+
+**Hand-authored escape hatch.** If you (the analyst, not the orchestrator) are writing a memo by hand without running this skill, set `memo_metadata.hand_authored: true` in the structured memo. G19 will pass with a WARNING and the rubric score is capped at 7.5. This is the honest path for analysts who want to use the gates on their own work product without pretending it came from Plugin 1.
 
 ## Verification Phase (MANDATORY)
 

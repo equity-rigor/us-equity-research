@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://us-equity-research.local/schemas/memo.json",
   "title": "US Equity IC Memo — Structured Representation",
-  "description": "Umbrella schema for the full structured IC memo. Designed as a strict superset of the implicit input contract for equity-research:initiating-coverage Task 5 (which has no formal JSON schema; its contract is at the file-format layer). Sub-schemas referenced via $ref: source_tags.json (S1-S5 + v0.2.0 consensus_variance / revision_velocity / bank_metrics), scenarios.json (5-scenario block), verification_gates.json (14 gates in 0.1.0; 17 gates in 0.2.0). Buy-side rigor additions: GM taxonomy, bear bridge, what-would-reverse, position sizing by mandate, quant overlay (Barra factors, capacity, edge decay). v0.2.0 grandfathers v0.1.0 memos by accepting both schema_version values.",
-  "schema_version": "0.2.0",
+  "description": "Umbrella schema for the full structured IC memo. Designed as a strict superset of the implicit input contract for equity-research:initiating-coverage Task 5 (which has no formal JSON schema; its contract is at the file-format layer). Sub-schemas referenced via $ref: source_tags.json (S1-S5 + v0.2.0 consensus_variance / revision_velocity / bank_metrics), scenarios.json (5-scenario block), verification_gates.json (14 gates in 0.1.0; 17 gates in 0.2.0; 20 gates in 0.3.0), manifest.json (v0.3.0 Plugin 1 provenance manifest). Buy-side rigor additions: GM taxonomy, bear bridge, what-would-reverse, position sizing by mandate, quant overlay (Barra factors, capacity, edge decay). v0.3.0 additions: adjudication_trail, sotp_segment definition, memo_metadata.manifest_ref + memo_metadata.hand_authored. Grandfathers v0.1.0 and v0.2.0 memos by accepting all three schema_version values.",
+  "schema_version": "0.3.0",
   "type": "object",
   "definitions": {
     "company_qualitative": {
@@ -182,9 +182,113 @@
         "price_range_high_usd": {"type": "number"},
         "weight_pct": {"type": "number", "description": "Weight in weighted-average price target. All methods' weights sum to 100."},
         "weighted_value_usd": {"type": "number"},
-        "key_assumptions": {"type": "object"},
+        "key_assumptions": {
+          "type": "object",
+          "description": "Method-specific inputs. For SOTP, each property is a segment-name -> sotp_segment object. v0.3.0 G3 (strict) requires every SOTP segment to have either the full industrial chain [Revenue, GP, OP, NI] or the full banks chain per D24 [PPNR, Pre-Tax, NI]. Pre-v0.3.0 G3 was lenient (n_a on incomplete shape) — grandfathered."
+        },
         "narrative": {"type": "string"}
       }
+    },
+    "adjudication_trail_entry": {
+      "type": "object",
+      "description": "(v0.3.0+) Single entry in the PM adjudication trail. Two types share this schema via the type discriminator. Full discipline in references/pm-synthesis-adjudication-us.md.",
+      "required": ["type", "resolution"],
+      "additionalProperties": false,
+      "properties": {
+        "entry_id": {
+          "type": "string",
+          "description": "Short ID like 'AT1', 'AT2' used for cross-reference"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["specialist_conflict", "variance_attack"],
+          "description": "specialist_conflict = PM resolved conflicting specialist findings (Patterns A-D in pm-synthesis-adjudication-us.md). variance_attack = R-v2 attacked a declared consensus_variance (Pattern E + 5-point checklist)."
+        },
+        "phase": {
+          "type": "integer",
+          "enum": [1, 2, 3],
+          "description": "Which phase the adjudication occurred in. Most variance_attack entries occur in Phase 3 (R-v2 runs); most specialist_conflict entries in Phase 1 PM Synthesis or Phase 2 PM Synthesis."
+        },
+        "conflicting_agents": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["A1", "A4", "A5", "A8", "FS", "A2", "A3", "A3-Peers", "R", "A6", "A-Consensus", "A7", "Mirror", "Topic-Forensic", "R-v2", "PM"]
+          },
+          "minItems": 2,
+          "description": "Agents whose conclusions conflicted. Used by specialist_conflict entries. PM appears in this list when PM overrode a specialist (Pattern D)."
+        },
+        "claim_in_dispute": {
+          "type": "string",
+          "description": "Plain-English statement of the disputed claim. Required for specialist_conflict entries. E.g., 'Industry cycle constructive (A1) vs FS material weakness in SBC trajectory (FS)' or 'Bear PT $80 (R-v1) vs PM internal view $95'."
+        },
+        "dominant_agent": {
+          "type": ["string", "null"],
+          "description": "Which agent's view prevailed. Use null when the resolution blended both inputs rather than picking a dominant. For variance_attack entries, this field is unused (use target_variance_id instead)."
+        },
+        "resolution": {
+          "type": "string",
+          "minLength": 50,
+          "description": "Required. The reasoning paragraph that led to the resolution. Must be specific — generic 'PM judgment' is rejected by G20 per pm-synthesis-adjudication-us.md anti-patterns. Cite specific evidence, specific analog cases, or specific quantitative discounts."
+        },
+        "supporting_evidence_refs": {
+          "type": "array",
+          "items": {"$ref": "source_tags.json#/definitions/citation"},
+          "description": "Citations (S1-S5) that support the resolution. Required for variance_attack entries with outcome=rebutted (rebuttal_evidence_refs). Strongly recommended for specialist_conflict entries."
+        },
+        "target_variance_id": {
+          "type": "string",
+          "description": "For variance_attack entries, the variance_id of the declared consensus_variance being attacked (from source_tags.json consensus_variance[].variance_id). G20 verifies that every load-bearing variance has at least one variance_attack entry referencing it."
+        },
+        "attack_type": {
+          "type": "string",
+          "enum": ["evidence_credibility", "triangulation_completeness", "base_rate_sanity", "catalyst_dependency", "timing_arbitrage", "other"],
+          "description": "For variance_attack entries, which of the 5 attack dimensions (per pm-synthesis-adjudication-us.md). 'other' is allowed for documented additional dimensions but G20 may down-weight 'other' attacks vs the 5 canonical types."
+        },
+        "attack_description": {
+          "type": "string",
+          "description": "For variance_attack entries, what R-v2 specifically attacked. E.g., 'The Q4 FY26 transcript citation for the ASP step is post-Q&A informal commentary, not pre-prepared remarks; S3 but at the weak end.'"
+        },
+        "attack_outcome": {
+          "type": "string",
+          "enum": ["rebutted", "modified", "conceded"],
+          "description": "For variance_attack entries. rebutted = variance survives intact with documented rebuttal evidence. modified = variance survives but sizing/magnitude was adjusted (document the adjustment). conceded = variance removed from load-bearing set; the corresponding consensus_variance entry should have load_bearing=false after adjudication."
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"type": {"const": "specialist_conflict"}}},
+          "then": {"required": ["conflicting_agents", "claim_in_dispute"]}
+        },
+        {
+          "if": {"properties": {"type": {"const": "variance_attack"}}},
+          "then": {"required": ["target_variance_id", "attack_type", "attack_description", "attack_outcome"]}
+        }
+      ]
+    },
+
+    "sotp_segment": {
+      "type": "object",
+      "description": "(v0.3.0+) Canonical shape for an SOTP segment row. Used inside valuation_method.key_assumptions for method='SOTP'. Either the industrial chain (segment_revenue + segment_gp + segment_op + segment_ni) OR the banks chain per D24 (segment_ppnr + segment_pretax + segment_ni) must be fully populated. The verifier verify_sotp_monotonicity.py enforces shape completeness for schema_version='0.3.0' memos.",
+      "oneOf": [
+        {
+          "required": ["segment_revenue", "segment_gp", "segment_op", "segment_ni"],
+          "properties": {
+            "segment_revenue": {"type": "number", "description": "Segment revenue, $M"},
+            "segment_gp": {"type": "number", "description": "Segment gross profit, $M"},
+            "segment_op": {"type": "number", "description": "Segment operating profit, $M"},
+            "segment_ni": {"type": "number", "description": "Segment net income, $M"}
+          }
+        },
+        {
+          "required": ["segment_ppnr", "segment_pretax", "segment_ni"],
+          "properties": {
+            "segment_ppnr": {"type": "number", "description": "Banks D24 mapping: segment pre-provision net revenue, $M (occupies top of monotonicity ladder)"},
+            "segment_pretax": {"type": "number", "description": "Banks D24 mapping: segment pre-tax income, $M"},
+            "segment_ni": {"type": "number", "description": "Segment net income, $M"}
+          }
+        }
+      ]
     },
     "dcf_components": {
       "type": "object",
@@ -439,7 +543,7 @@
     "delegation_outputs"
   ],
   "properties": {
-    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0"]},
+    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0", "0.3.0"]},
     "ticker": {"type": "string", "pattern": "^[A-Z]{1,5}(\\.[A-Z]{1,3})?$"},
     "exchange": {"type": "string", "enum": ["NYSE", "Nasdaq", "AMEX", "OTC", "TSX", "LSE"]},
     "company_name": {"type": "string"},
@@ -578,6 +682,12 @@
       "description": "D4: dropped retail variant. Bilingual mode also dropped."
     },
 
+    "adjudication_trail": {
+      "type": "array",
+      "description": "(v0.3.0+) Sequence of PM adjudication decisions made during the run. Two entry types via the `type` discriminator: `specialist_conflict` (PM resolved conflicting specialist findings) and `variance_attack` (R-v2 attacked a declared consensus_variance and the attack was rebutted, modified, or conceded). Codified in references/pm-synthesis-adjudication-us.md. Consumed by Plugin 2 G20 (view-defensibility gate) in Sprint 2 Item 6: every declared load-bearing consensus_variance must have at least one corresponding variance_attack entry with outcome in {rebutted, modified}. Optional in 0.3.0 schema (memos with rating=Hold or self-labeled consensus-anchored do not need adjudication entries for G20 to pass).",
+      "items": {"$ref": "#/definitions/adjudication_trail_entry"}
+    },
+
     "delegation_outputs": {
       "type": "object",
       "description": "Intermediate artifacts written for optional delegation to financial-analysis and equity-research plugins. Per D21 / tool-composition-us.md.",
@@ -606,7 +716,15 @@
         "iteration_round": {"type": "integer", "minimum": 0, "description": "PM red-team round number"},
         "current_score": {"type": "number", "minimum": 0, "maximum": 10},
         "target_score": {"type": "number", "minimum": 0, "maximum": 10},
-        "verification_calls_count": {"type": "integer", "minimum": 12, "description": "D9: minimum 12 WebSearch+WebFetch calls per memo"}
+        "verification_calls_count": {"type": "integer", "minimum": 12, "description": "D9: minimum 12 WebSearch+WebFetch calls per memo"},
+        "manifest_ref": {
+          "type": "string",
+          "description": "(v0.3.0+) Path to the Plugin 1 provenance manifest, e.g. 'outputs/NVDA_manifest.json'. The manifest conforms to schemas/manifest.json. Required for G19 to pass without --hand-authored flag. Absent or pointing to a missing file -> G19 fails (or n_a if --hand-authored set, with score cap at 7.5)."
+        },
+        "hand_authored": {
+          "type": "boolean",
+          "description": "(v0.3.0+) Explicit declaration that this memo was hand-authored (not produced by Plugin 1's orchestrator). When true, G19 passes with WARNING and the rubric is capped at 7.5. Default false. The honest path for analysts who want to use the gates on a memo they wrote by hand."
+        }
       }
     }
   }

@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://us-equity-research.local/schemas/source_tags.json",
   "title": "Source Stratification (S1-S5 + Pending) — US",
-  "description": "Schema for source-stratified citations in US-equity IC memos. Every specific number (revenue, GM, segment share, customer concentration, capacity, ADV, beta, etc.) MUST carry one of these tags at first appearance per the discipline in references/source-stratification-us.md. Ported and Americanized from china-equity-ic-rigor. v0.2.0 adds optional `consensus_variance` block tied to gate G15.",
-  "schema_version": "0.2.0",
+  "description": "Schema for source-stratified citations in US-equity IC memos. Every specific number (revenue, GM, segment share, customer concentration, capacity, ADV, beta, etc.) MUST carry one of these tags at first appearance per the discipline in references/source-stratification-us.md. Ported and Americanized from china-equity-ic-rigor. v0.2.0 adds optional `consensus_variance` block tied to gate G15. v0.3.0 adds optional up_revisions_3m + down_revisions_3m fields to revision_velocity for G17 breadth recomputation; consensus_variance entries can include probability_right_pct and scenario_sensitivity_pct for G15 sizing_impact_pp recomputation.",
+  "schema_version": "0.3.0",
   "type": "object",
   "definitions": {
     "s_level": {
@@ -114,7 +114,7 @@
   "required": ["schema_version", "all_citations", "top_anchors", "headline_conditionality"],
   "additionalProperties": false,
   "properties": {
-    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0"]},
+    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0", "0.3.0"]},
     "ticker": {"type": "string", "pattern": "^[A-Z]{1,5}(\\.[A-Z]{1,3})?$"},
     "as_of_date": {"type": "string", "format": "date"},
     "model_cutoff_date": {
@@ -232,6 +232,16 @@
           "minimum": -1.0,
           "maximum": 1.0,
           "description": "(up_revisions - down_revisions) / n_analysts over trailing 90 days. |breadth| > 0.5 = directional consensus shift."
+        },
+        "up_revisions_3m": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "(v0.3.0+) Count of analysts who revised FY1 EPS estimate UP in trailing 90 days. Optional, but if both up_revisions_3m and down_revisions_3m are populated alongside n_analysts, G17 (v0.3.0) recomputes breadth_3m = (up - down) / N and verifies match within ±0.02."
+        },
+        "down_revisions_3m": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "(v0.3.0+) Count of analysts who revised FY1 EPS estimate DOWN in trailing 90 days. Used in G17 breadth recomputation when paired with up_revisions_3m and n_analysts."
         },
         "pre_print_drift_pct": {
           "type": "number",

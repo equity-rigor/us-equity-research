@@ -18,7 +18,19 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from pydantic import BaseModel, Field, ValidationError
+try:
+    from pydantic import BaseModel, Field, ValidationError
+except ModuleNotFoundError:
+    # Stdlib-only fallback for environments without pydantic.
+    # Production has pydantic; this branch keeps regression tests runnable.
+    class ValidationError(Exception):  # type: ignore[no-redef]
+        pass
+    def Field(default=None, **_kwargs):  # type: ignore[no-redef]
+        return default
+    class BaseModel:  # type: ignore[no-redef]
+        def __init__(self, **kwargs):
+            for k, v in kwargs.items():
+                setattr(self, k, v)
 
 # Inversion forgiven only if BOTH: delta<=$10M AND delta<=0.5% of larger.
 ABS_TOL_USD_M = 10.0
@@ -95,14 +107,65 @@ def _inversion_fails(higher: float, lower: float) -> tuple[bool, float, float]:
     return (True, delta, rel)
 
 
-def verify(memo: dict[str, Any]) -> tuple[int, list[str]]:
-    sotp = _find_sotp_method(memo)
-    if sotp is None:
-        return (0, ["gate_id: G3", "status: n_a", "reason: No SOTP method in valuation.methods[]"])
-    segments = _collect_segments(sotp)
-    if not segments:
-        return (0, ["gate_id: G3", "status: n_a", "reason: SOTP present but no segment rows"])
+def _collect_segments_strict(sotp: dict[str, Any]) -> tuple[list[SOTPSegment], list[str]]:
+    """v0.3.0 strict mode: require complete segment shape.
 
+    A segment is complete if it has EITHER:
+      (a) Industrial: Revenue + GP + OP + NI (all 4)
+      (b) Banks per D24: PPNR + Pre-Tax + NI (all 3)
+    Partial segments are excluded and listed in warnings. If the
+    resulting verified set is empty, G3 fails per audit Issue #3(c).
+    """
+    ka = sotp.get("key_assumptions")
+    if not isinstance(ka, dict):
+        return ([], ["key_assumptions missing or not a dict"])
+    segments: list[SOTPSegment] = []
+    warnings: list[str] = []
+    for name, p in ka.items():
+        if not isinstance(p, dict):
+            continue
+        def _find(substr: str) -> float | None:
+            for k, v in p.items():
+                if substr in str(k).lower():
+                    return _coerce_float(v)
+            return None
+        rev = _find("revenue")
+        gp = _find("segment_gp")
+        op = _find("segment_op")
+        ni = _find("segment_ni")
+        ppnr = _find("ppnr")
+        pretax = _find("pre_tax") if _find("pre_tax") is not None else _find("pretax")
+        industrial_complete = all(x is not None for x in (rev, gp, op, ni))
+        banks_complete = all(x is not None for x in (ppnr, pretax, ni))
+        if industrial_complete:
+            segments.append(SOTPSegment(name=name, revenue=rev, gp=gp, op=op, ni=ni))
+        elif banks_complete:
+            # D24 banks mapping: PPNR -> Pre-Tax -> NI replaces
+            # Revenue -> GP -> OP -> NI. PPNR occupies the top two
+            # rungs of the industrial chain so existing monotonicity
+            # logic carries through.
+            segments.append(SOTPSegment(
+                name=name,
+                revenue=ppnr,
+                gp=ppnr,
+                op=pretax,
+                ni=ni,
+            ))
+        else:
+            present = [
+                lbl for lbl, v in (
+                    ("Revenue", rev), ("GP", gp), ("OP", op), ("NI", ni),
+                    ("PPNR", ppnr), ("Pre-Tax", pretax),
+                ) if v is not None
+            ]
+            warnings.append(
+                f'segment "{name}" has incomplete shape (only [{", ".join(present) or "none"}] present); '
+                "v0.3.0 requires industrial [Revenue, GP, OP, NI] OR banks [PPNR, Pre-Tax, NI] complete"
+            )
+    return (segments, warnings)
+
+
+def _run_monotonicity(segments: list[SOTPSegment], prefix_msgs: list[str]) -> tuple[int, list[str]]:
     failures: list[str] = []
     for seg in segments:
         chain = [("Revenue", seg.revenue), ("GP", seg.gp), ("OP", seg.op), ("NI", seg.ni)]
@@ -118,9 +181,10 @@ def verify(memo: dict[str, Any]) -> tuple[int, list[str]]:
                     f"{ll}=${lv:,.0f}M > {hl}=${hv:,.0f}M "
                     f"(delta ${delta:,.0f}M, {rel * 100:.2f}%)"
                 )
-
     if not failures:
-        return (0, ["gate_id: G3", "status: pass", f"segments_checked: {len(segments)}"])
+        msgs = ["gate_id: G3", "status: pass", f"segments_checked: {len(segments)}"]
+        msgs.extend(prefix_msgs)
+        return (0, msgs)
     msgs = [
         "gate_id: G3",
         "status: fail",
@@ -128,7 +192,54 @@ def verify(memo: dict[str, Any]) -> tuple[int, list[str]]:
         "remediation_required: valuation.methods[SOTP].key_assumptions",
     ]
     msgs.extend(f"additional_failure: {x}" for x in failures[1:])
+    msgs.extend(prefix_msgs)
     return (1, msgs)
+
+
+def verify(memo: dict[str, Any]) -> tuple[int, list[str]]:
+    schema_version = memo.get("schema_version", "0.1.0")
+    sotp = _find_sotp_method(memo)
+    if sotp is None:
+        return (0, ["gate_id: G3", "status: n_a", "reason: No SOTP method in valuation.methods[]"])
+
+    # v0.3.0+: strict segment-shape enforcement per audit Issue #3(c).
+    # Pre-v0.3.0 memos keep the lenient _collect_segments behavior for
+    # backwards compatibility (grandfather rule).
+    if schema_version == "0.3.0":
+        segments, shape_warnings = _collect_segments_strict(sotp)
+        if not segments:
+            reason = (
+                "SOTP present but no complete segment rows (v0.3.0 strict). "
+                "Every segment must declare the full industrial chain "
+                "[Revenue, GP, OP, NI] OR the full banks chain per D24 "
+                "[PPNR, Pre-Tax, NI]. Pre-v0.3.0 memos passed n_a here "
+                "silently — v0.3.0 fails to close the audit-flagged gap "
+                "(verify_sotp_monotonicity covered ~half its stated scope)."
+            )
+            if shape_warnings:
+                reason += " Incomplete segments: " + "; ".join(shape_warnings[:3])
+                if len(shape_warnings) > 3:
+                    reason += f" (+{len(shape_warnings) - 3} more)"
+            return (1, [
+                "gate_id: G3",
+                "status: fail",
+                f"failure_reason: {reason}",
+                "remediation_required: populate the full monotonicity ladder for every SOTP segment per memo.json definitions/sotp_segment",
+                "blocks_score_above: 7.0",
+            ])
+        prefix: list[str] = []
+        if shape_warnings:
+            prefix.append(
+                f"warning: {len(shape_warnings)} segment(s) excluded for "
+                "incomplete shape: " + "; ".join(shape_warnings[:3])
+            )
+        return _run_monotonicity(segments, prefix)
+
+    # Pre-v0.3.0 legacy path: lenient _collect_segments + lenient n_a.
+    segments = _collect_segments(sotp)
+    if not segments:
+        return (0, ["gate_id: G3", "status: n_a", "reason: SOTP present but no segment rows (pre-v0.3.0 lenient grandfathered)"])
+    return _run_monotonicity(segments, prefix_msgs=[])
 
 
 def _parse_args(argv: list[str]) -> Path:

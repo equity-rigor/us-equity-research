@@ -59,12 +59,25 @@ Self-contained per Phase-C pre-stagger discipline: stdlib + pydantic v2.
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
 from typing import NamedTuple
 
-from pydantic import BaseModel, ConfigDict
+try:
+    from pydantic import BaseModel, ConfigDict
+except ModuleNotFoundError:
+    # pydantic is the project's standard envelope for verifier scripts
+    # (per "Self-contained per Phase-C pre-stagger discipline: stdlib +
+    # pydantic v2" in the script docstring). The VerificationResult
+    # envelope below is reserved for downstream JSON capture; the active
+    # verify()/main() paths use print() directly, so a stub-out is safe
+    # for environments without pydantic. Production should have pydantic
+    # installed; this branch keeps regression tests runnable without it.
+    BaseModel = object  # type: ignore[assignment,misc]
+    def ConfigDict(**_kwargs):  # type: ignore[no-redef]
+        return None
 
 GATE_ID = "G6"
 
@@ -85,6 +98,68 @@ REVENUE_ANCHOR = re.compile(
     re.IGNORECASE,
 )
 
+# v0.3.0 expanded pattern set per audit finding. The pre-v0.3.0 verifier
+# only checked the revenue anchor (~5% of G6's stated scope). v0.3.0
+# adds GM, customer concentration / segment share, ADV, capacity, beta
+# — bringing coverage to the full G6 scope per source-stratification-us.md.
+
+# Pattern 2 — Gross margin: "75% gross margin", "73.8% GM",
+# "gross margin of 71.5%". Operating margin / EBITDA margin are not
+# in G6 per the gate spec — only GM is enumerated.
+GM_PATTERN = re.compile(
+    r"(?:\d+(?:\.\d+)?\s*%\s+(?:gross\s+margin|GM)\b"
+    r"|(?:gross\s+margin|GM)\s+of\s+\d+(?:\.\d+)?\s*%)",
+    re.IGNORECASE,
+)
+
+# Pattern 3 — Customer concentration / segment share / market share:
+# "top-3 customers represent 42%", "Microsoft 18% of revenue",
+# "DC segment 78%", "market share of 45%", "customer concentration > 30%".
+SHARE_PATTERN = re.compile(
+    r"(?:top[-\s]?\d+\s+(?:customers?|hyperscalers?|partners?)\s+"
+    r"(?:account|represent|comprise|=|are)\s+\S{0,40}?\d+(?:\.\d+)?\s*%"
+    r"|customer\s+concentration\s+(?:of|at|>|<)?\s*\d+(?:\.\d+)?\s*%"
+    r"|\b\d+(?:\.\d+)?\s*%\s+of\s+(?:revenue|sales|business|FY\d{2,4})"
+    r"|\bmarket\s+share\s+(?:of\s+)?\d+(?:\.\d+)?\s*%"
+    r"|\bsegment\s+share\s+(?:of\s+)?\d+(?:\.\d+)?\s*%)",
+    re.IGNORECASE,
+)
+
+# Pattern 4 — Capacity: sector-specific units. Data centers (MW/GW/MWh),
+# E&P (bpd, BOE/d, mmcfd), manufacturing (units/year, tons/year), fabs.
+CAPACITY_PATTERN = re.compile(
+    r"\b\d+(?:\.\d+)?\s*"
+    r"(?:MW|GW|TW|MWh|GWh|kW|bpd|BOE/d|MMcf/d|MMcfd|"
+    r"units?\s*/\s*(?:year|month|day|quarter)|"
+    r"tons?\s*/\s*year|wafers?\s*/\s*month|"
+    r"barrels?\s*/\s*day)\b",
+    re.IGNORECASE,
+)
+
+# Pattern 5 — ADV (average daily volume) in dollar terms.
+ADV_PATTERN = re.compile(
+    r"(?:\$\d+(?:\.\d+)?\s*[BMK]?\s+ADV"
+    r"|(?:30|60|90)[-\s]?day\s+ADV[:\s]+\$\d+(?:\.\d+)?\s*[BMK]?"
+    r"|\bADV[:\s]+\$\d+(?:\.\d+)?\s*[BMK]?)",
+    re.IGNORECASE,
+)
+
+# Pattern 6 — Beta: "beta 1.4", "beta of 0.85", "5y beta = 1.2".
+BETA_PATTERN = re.compile(
+    r"\bbeta\s+(?:of\s+|=\s+)?\d+(?:\.\d+)?\b",
+    re.IGNORECASE,
+)
+
+# All G6 anchor patterns paired with a category label for failure messages.
+G6_PATTERNS: list[tuple[str, "re.Pattern[str]"]] = [
+    ("revenue", REVENUE_ANCHOR),
+    ("gross_margin", GM_PATTERN),
+    ("share_concentration", SHARE_PATTERN),
+    ("capacity", CAPACITY_PATTERN),
+    ("adv", ADV_PATTERN),
+    ("beta", BETA_PATTERN),
+]
+
 # Search window (chars after the anchor phrase end) within which we
 # require an S-tag to appear. 80 chars covers in-line citations like
 # "(S1: NVDA FY25 10-K Item 7 MD&A)" while remaining tight enough to
@@ -96,6 +171,7 @@ class _Finding(NamedTuple):
     line_no: int
     offending_phrase: str
     full_sentence: str
+    category: str = "revenue"
 
 
 class VerificationResult(BaseModel):
@@ -138,14 +214,25 @@ def _sentence_containing(text: str, offset: int) -> str:
 
 
 def _scan_revenue_anchors(text: str) -> list[_Finding]:
-    """Find $X B/M in FYNN ... revenue phrases lacking adjacent S-tag."""
+    """Legacy single-pattern scan retained for backwards-compat callers.
+
+    For v0.3.0 the active scanner is _scan_all_g6_categories() which runs
+    all six pattern categories (revenue, GM, share/concentration,
+    capacity, ADV, beta). This wrapper retained only because nvda_v0
+    fixture cross-sensitivity tests reference the function name directly.
+    """
+    return _scan_one_pattern(text, "revenue", REVENUE_ANCHOR)
+
+
+def _scan_one_pattern(
+    text: str, category: str, pattern: "re.Pattern[str]"
+) -> list[_Finding]:
+    """Run one G6 category pattern and return untagged matches."""
     findings: list[_Finding] = []
-    for match in REVENUE_ANCHOR.finditer(text):
+    for match in pattern.finditer(text):
         phrase = match.group(0)
         after_end = match.end()
         window = text[after_end : after_end + TAG_WINDOW_CHARS]
-        # The tag may also appear within the matched phrase itself for
-        # tightly written sentences — check both.
         combined = phrase + window
         if S_TAG_PATTERN.search(combined):
             continue
@@ -154,8 +241,25 @@ def _scan_revenue_anchors(text: str) -> list[_Finding]:
                 line_no=_line_of_offset(text, match.start()),
                 offending_phrase=phrase,
                 full_sentence=_sentence_containing(text, match.start()),
+                category=category,
             )
         )
+    return findings
+
+
+def _scan_all_g6_categories(text: str) -> list[_Finding]:
+    """Run all six G6 anchor pattern categories.
+
+    v0.3.0 expansion. Pre-v0.3.0 the verifier ran only the revenue
+    pattern (~5% of G6's stated scope). This function runs all six
+    per the gate spec in source-stratification-us.md.
+    """
+    findings: list[_Finding] = []
+    for category, pattern in G6_PATTERNS:
+        findings.extend(_scan_one_pattern(text, category, pattern))
+    # Sort findings by line number so failure messages report in
+    # document order (not pattern-iteration order).
+    findings.sort(key=lambda f: f.line_no)
     return findings
 
 
@@ -164,20 +268,26 @@ def _print_fail(findings: list[_Finding]) -> None:
     print(f"gate_id: {GATE_ID}")
     print("status: fail")
     print(
-        "failure_reason: Specific number "
-        f'"{first.offending_phrase}" appears without S-tag citation '
-        f"at first appearance (line ~{first.line_no})"
+        f"failure_reason: Specific number "
+        f'"{first.offending_phrase}" (category={first.category}) appears '
+        f"without S-tag citation at first appearance (line ~{first.line_no})"
     )
     print(
         "remediation_required: add (S1|S2|S3|S4|S5|Pending: <ref>) "
         f"immediately after the phrase on line ~{first.line_no} per "
         "references/source-stratification-us.md Rule 1"
     )
+    print(f"offending_category: {first.category}")
     print(f"offending_line: {first.line_no}")
     print(f"offending_phrase: {first.offending_phrase}")
     print(f"context: {first.full_sentence}")
     if len(findings) > 1:
         print(f"additional_findings: {len(findings) - 1}")
+        # Report category breakdown for additional findings.
+        by_cat: dict[str, int] = {}
+        for f in findings[1:]:
+            by_cat[f.category] = by_cat.get(f.category, 0) + 1
+        print(f"additional_findings_by_category: {by_cat}")
         for extra in findings[1:]:
             print(
                 f"  line {extra.line_no}: {extra.offending_phrase} "
@@ -185,20 +295,43 @@ def _print_fail(findings: list[_Finding]) -> None:
             )
 
 
-def verify(memo_md_text: str) -> int:
-    """Return 0 on pass, non-zero on fail. Prints structured G6 evidence."""
+def verify(memo_md_text: str, schema_version: str = "0.1.0") -> int:
+    """Return 0 on pass, non-zero on fail. Prints structured G6 evidence.
+
+    v0.3.0 strict mode (when memo declares schema_version="0.3.0"):
+    runs all six G6 anchor pattern categories (revenue, GM,
+    share/concentration, capacity, ADV, beta) per the gate spec in
+    source-stratification-us.md.
+
+    Pre-v0.3.0 legacy mode (default; v0.1.x and v0.2.0 memos): runs
+    only the revenue anchor pattern (~5% of G6's stated scope). This
+    matches the pre-v0.3.0 verifier behavior so the existing NVDA v0
+    fixture matrix continues to pass without modification. The
+    expanded G6 coverage is opt-in via schema_version="0.3.0" — the
+    same grandfathering pattern used by G3, G15, G16, G17, G18, G19,
+    G20.
+    """
     clean_text = _strip_code_blocks(memo_md_text)
-    findings = _scan_revenue_anchors(clean_text)
+    if schema_version == "0.3.0":
+        findings = _scan_all_g6_categories(clean_text)
+        categories = ", ".join(cat for cat, _ in G6_PATTERNS)
+        pass_msg = (
+            f"scanned_anchors: all G6 categories checked ({categories}); "
+            "v0.3.0 strict mode."
+        )
+    else:
+        findings = _scan_revenue_anchors(clean_text)
+        pass_msg = (
+            "scanned_anchors: revenue first-appearance pattern checked "
+            f"(pre-v0.3.0 legacy mode; schema_version={schema_version}); "
+            "all matches carry an S-tag."
+        )
     if findings:
         _print_fail(findings)
         return 1
     print(f"gate_id: {GATE_ID}")
     print("status: pass")
-    print(
-        "scanned_anchors: revenue first-appearance pattern checked; "
-        "all matches carry an S-tag within "
-        f"{TAG_WINDOW_CHARS}-char window."
-    )
+    print(pass_msg)
     return 0
 
 
@@ -221,8 +354,11 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         default=None,
         help=(
-            "(Unused for G6 — accepted for uniform calling contract per "
-            "scripts/tests/fixtures/nvda_v0/bug-script-matrix.md.)"
+            "Optional. If provided and the memo declares "
+            "schema_version='0.3.0', G6 runs in strict mode (all 6 "
+            "anchor pattern categories). Otherwise legacy mode "
+            "(revenue pattern only) preserves backwards compatibility "
+            "with the NVDA v0 fixture matrix."
         ),
     )
     args = parser.parse_args(argv)
@@ -241,7 +377,20 @@ def main(argv: list[str] | None = None) -> int:
         print(f"failure_reason: cannot read memo Markdown: {exc}")
         return 7
 
-    return verify(memo_md_text)
+    schema_version = "0.1.0"
+    if args.memo_json is not None and args.memo_json.is_file():
+        try:
+            memo_json = json.loads(args.memo_json.read_text(encoding="utf-8"))
+            declared = memo_json.get("schema_version")
+            if isinstance(declared, str):
+                schema_version = declared
+        except (OSError, json.JSONDecodeError):
+            # Soft-fail: malformed JSON falls through to legacy mode
+            # rather than erroring out G6, which would break the
+            # uniform calling contract.
+            pass
+
+    return verify(memo_md_text, schema_version=schema_version)
 
 
 if __name__ == "__main__":

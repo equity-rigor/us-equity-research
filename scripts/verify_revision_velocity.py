@@ -155,11 +155,58 @@ def verify(memo_json: dict[str, Any], source_tags: dict[str, Any] | None) -> int
         )
         return 2
 
+    # v0.3.0: derived-value recomputation per audit Issue #3.
+    # When up_revisions_3m + down_revisions_3m + n_analysts are all
+    # populated, recompute breadth_3m = (up - down) / N and verify the
+    # declared value matches within ±0.02 tolerance (covers rounding of
+    # breadth to two decimal places when (up-down)/N produces an
+    # irrational result, e.g., 7/22 = 0.318...).
+    breadth_recompute_tolerance = 0.02
+    up_3m = rv.get("up_revisions_3m")
+    down_3m = rv.get("down_revisions_3m")
+    declared_breadth = rv.get("breadth_3m")
+    if (
+        isinstance(up_3m, int)
+        and isinstance(down_3m, int)
+        and isinstance(n_analysts, int)
+        and n_analysts > 0
+        and isinstance(declared_breadth, (int, float))
+    ):
+        expected_breadth = (up_3m - down_3m) / n_analysts
+        delta = abs(declared_breadth - expected_breadth)
+        if delta > breadth_recompute_tolerance:
+            _print_status(
+                "fail",
+                failure_reason=(
+                    f"breadth_3m={declared_breadth:.3f} does not reconcile "
+                    f"to (up_revisions_3m={up_3m} - down_revisions_3m="
+                    f"{down_3m}) / n_analysts={n_analysts} = "
+                    f"{expected_breadth:.3f} (delta {delta:.3f}, "
+                    f"tolerance ±{breadth_recompute_tolerance:.2f})"
+                ),
+                remediation_required=(
+                    "Either correct breadth_3m to (up - down) / N, OR "
+                    "correct the up_revisions_3m / down_revisions_3m / "
+                    "n_analysts inputs to reflect the actual revision "
+                    "panel composition."
+                ),
+                declared_breadth=f"{declared_breadth:.3f}",
+                recomputed_breadth=f"{expected_breadth:.3f}",
+                delta=f"{delta:.3f}",
+                blocks_score_above=7.5,
+            )
+            return 3
+
     _print_status(
         "pass",
         n_analysts=n_analysts if n_analysts is not None else "unspecified",
         fy1_eps_revision_3m_pct=rv["fy1_eps_revision_3m_pct"],
         breadth_3m=rv["breadth_3m"],
+        breadth_arithmetic=(
+            "verified"
+            if all(isinstance(rv.get(k), int) for k in ("up_revisions_3m", "down_revisions_3m"))
+            else "skipped_optional"
+        ),
     )
     return 0
 

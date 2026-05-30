@@ -4,6 +4,237 @@ All notable changes to this project will be documented in this file. Format
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) +
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] — 2026-05-29
+
+### Sprint 2 — Rigor hardening (closing the systemic audit findings)
+
+This release closes the four highest-severity findings from the cross-plugin
+systemic audit that ran after v0.2.0. Where Sprint 1 (v0.2.0) added new
+analytical content (A-Consensus, bank discipline, revision velocity),
+Sprint 2 (v0.3.0) tightens the verification stack itself — making the
+gates do what they claim to do.
+
+### Added — three new verification gates (G18 / G19 / G20)
+
+- **G18 — Quant overlay cross-document consistency** (`scripts/verify_quant_cross_doc_consistency.py`).
+  Within a single memo, the structured `quant_overlay.factor_tags` block in
+  `memo.json` must match any Markdown narrative reference to the same Barra
+  factor within ±0.2 tolerance. Catches authors who quote z-scores in prose
+  that diverge from structured block — common LLM failure mode where the
+  prose is regenerated without re-reading structured data. Pre-v0.3.0 Plugin 2
+  reference files had NVDA Momentum at +1.8 in `quant-overlay-us.md` but +2.3
+  in `position-sizing-us.md`; G18 catches the same disease at memo runtime.
+  Cap at 7.5 on fail. n_a if no Markdown factor references found.
+- **G19 — Plugin 1 to Plugin 2 provenance manifest** (`scripts/verify_provenance_manifest.py`).
+  Closes the audit finding that the Plugin 1 → Plugin 2 handoff was pure
+  filename convention with no provenance enforcement (a hand-authored memo
+  could pass all 17 gates without Plugin 1 ever being invoked). Plugin 1
+  now writes `outputs/<ticker>_manifest.json` at end of Phase 3 containing
+  run_id (UUID), agent_provenance (≥15 entries with SHA-256 hashes per
+  workpaper), web_search_log (≥12 entries with response hashes), phase_timing,
+  and `outputs_produced` with SHA-256 hashes per file. G19 verifies the
+  manifest exists, has all required fields, and that declared file hashes
+  **match actual on-disk hashes** (catches lazy hand-authoring + post-hoc
+  editing). Hand-authored escape hatch: set `memo_metadata.hand_authored=true`,
+  G19 passes with WARNING + rubric capped at 7.5. Cap at 7.5 on fail.
+- **G20 — View defensibility** (`scripts/verify_view_defensibility.py`).
+  Closes the audit's highest-severity finding: the rubric was grading
+  structural completeness, not view quality. A consensus-hugging memo with
+  perfect mechanical execution scored 9.0+ under v0.2.0. G20 requires three
+  conjunctive conditions for any rubric score above 8.5:
+  - (a) Headline `recommendation.upside_downside_pct` differs from S4
+    consensus PT-implied return by at least 8 absolute percentage points
+  - (b) At least one load-bearing `consensus_variance` has at least one
+    `evidence_ref` at S1 or S2 (G15 accepted S1-S3; G20 tightens to require
+    primary-source evidence on the strongest claim)
+  - (c) `adjudication_trail` contains at least one entry with
+    `type='variance_attack'`, `target_variance_id` pointing to a
+    load-bearing variance, `attack_type` in the 5 canonical dimensions
+    (evidence_credibility / triangulation_completeness / base_rate_sanity /
+    catalyst_dependency / timing_arbitrage), and `attack_outcome` in
+    {rebutted, modified}
+  Caps at 8.5 on fail (NOT 7.0 — G20 is rubric-discriminating, not
+  memo-killing). n_a for Hold ratings, consensus-anchored headlines, thin
+  coverage.
+
+### Added — Scope and limitations sections in both SKILL.md files
+
+Both `us-equity-research/SKILL.md` and `us-equity-ic-rigor/SKILL.md` now
+carry explicit "Scope and limitations" sections that name the use cases
+the framework is category-wrong for (pure event-driven trades, pure
+technical/momentum/mean-reversion, pair-trade-on-flow, activist/proxy-fight,
+pre-IPO/private market, bond/credit). The Plugin 2 section additionally
+distinguishes what the rubric CAN tell you (math consistency, source-tag
+discipline, definitional rigor) from what it CANNOT (whether the analyst
+correctly identified the load-bearing assumption, whether the declared
+variance is defensible, whether Barra z-scores are derived from a
+calibrated factor model). Prevents the single largest category of misuse
+by making the scoping explicit before invocation.
+
+### Added — Plugin 1 manifest generation workflow
+
+Plugin 1 SKILL.md now carries an end-of-Phase-3 step instructing the
+orchestrator to maintain a `outputs/<ticker>_manifest_seed.json` during
+the run (logging WebSearch/WebFetch calls with response hashes, phase
+timing, verification_calls_count, orchestrator_notes) and to run
+`scripts/write_manifest.py --ticker <T> --outputs-dir outputs/ --seed
+outputs/<T>_manifest_seed.json` at end of Phase 3. The manifest writer
+walks the workpapers directory, computes SHA-256 over each output file,
+assembles `agent_provenance`, and emits a manifest conforming to
+`schemas/manifest.json`. Without the seed, the script emits warnings and
+writes a placeholder manifest that fails G19 (intentional degraded path).
+
+### Added — quant overlay honest demote
+
+`us-equity-ic-rigor/references/quant-overlay-us.md` now opens with an
+"Honest framing" section explicitly stating: factor tags are directional
+estimates, not regression outputs from a calibrated factor model;
+conviction multipliers are decreed institutional rules of thumb, not
+backtest-calibrated; do not size positions in a real book against these
+numbers without an overlay from a calibrated feed. Reconciled the NVDA
+example values between `quant-overlay-us.md` (canonical) and
+`position-sizing-us.md` (was divergent on five of seven factors).
+
+### Added — PM synthesis adjudication trail discipline
+
+New reference file `us-equity-research/references/pm-synthesis-adjudication-us.md`
+(89 lines, 7 sections) codifies what was previously tribal knowledge: the
+weighting principles when specialists conflict (Forensic dominates
+structural; Regulatory dominates if material; Industry is base-case anchor;
+Positioning is technical overlay; Channel is timing), worked adjudication
+patterns A-E, the R-v2 5-point attack methodology (evidence credibility,
+triangulation completeness, base-rate sanity, catalyst dependency, timing
+arbitrage), and the adjudication_trail schema. G20 consumes this discipline.
+
+### Changed — verifier script rigor (closing audit Issue #3)
+
+Three sub-fixes tightening the existing G3 / G6 / G15 / G16 / G17 verifiers:
+
+- **G6 expansion**: `scripts/verify_source_tags.py` regex coverage grew from
+  1 pattern (~5% of stated scope) to 6 patterns covering full G6 enumeration:
+  revenue, gross margin, share/customer concentration, capacity (MW/GW/bpd/
+  units), ADV, beta. Per-category failure attribution with category
+  breakdown in additional findings. **Strict mode is opt-in via
+  schema_version="0.3.0"** to preserve backwards compatibility with the
+  NVDA v0 fixture matrix — pre-v0.3.0 memos (and memos invoked without
+  --memo-json) run the original revenue-only pattern. v0.3.0 memos that
+  pass the JSON via the orchestrator's uniform calling contract get the
+  full 6-pattern coverage. Same grandfather pattern used by G3 / G15 / G16 /
+  G17 / G18 / G19 / G20.
+- **G15 derived-value recomputation**: `verify_consensus_variance.py` now
+  recomputes `sizing_impact_pp = magnitude_pct × probability_right_pct ×
+  scenario_sensitivity_pct / 10000` when the three optional inputs are
+  populated and fails on ±0.1pp drift. Catches authors who write internally
+  inconsistent variance math.
+- **G16 derived-value recomputation**: `verify_bank_metrics.py` now
+  recomputes `required_cet1_pct = 4.5 + 2.5 (CCB) + scb_pct +
+  gsib_surcharge_pct` and fails on ±0.05% drift. Works for Cat I (with
+  gsib_surcharge_pct) and Cat II-IV (gsib defaults 0).
+- **G17 derived-value recomputation**: `verify_revision_velocity.py` now
+  recomputes `breadth_3m = (up_revisions_3m - down_revisions_3m) /
+  n_analysts` when optional `up_revisions_3m` and `down_revisions_3m`
+  fields are populated; fails on ±0.02 drift. Backward-compatible when
+  fields absent.
+- **G3 SOTP strict enforcement**: `verify_sotp_monotonicity.py` v0.3.0
+  fails on incomplete segment shape (previously silently returned n_a
+  on segments missing GP or OP levels). Recognizes both industrial chain
+  (Revenue/GP/OP/NI) and D24 banks chain (PPNR/Pre-Tax/NI). Pre-v0.3.0
+  memos grandfathered via schema_version check.
+
+### Added — new schemas
+
+- `schemas/manifest.json` (new 5th schema, ~190 lines). Defines the
+  Plugin 1 provenance manifest structure: run_id, plugin_versions,
+  phase_timing, agent_provenance (≥15 entries with workpaper hashes),
+  web_search_log (≥12 entries with response hashes), verification_calls_count,
+  outputs_produced (with file hashes). Required `schema_version` const "0.3.0".
+
+### Changed — existing schemas (additive only, grandfather-compatible)
+
+- `schemas/memo.json` — schema_version enum now includes "0.3.0". Added
+  optional top-level `adjudication_trail` (array of variance_attack /
+  specialist_conflict entries with two-type discriminator and conditional
+  required fields via `allOf` `if/then`). Added new definition
+  `adjudication_trail_entry` with 5-dimension attack_type enum and
+  3-outcome attack_outcome enum. Added new definition `sotp_segment` with
+  `oneOf` constraint documenting industrial and banks chains. Added
+  optional `memo_metadata.manifest_ref` and `memo_metadata.hand_authored`.
+- `schemas/source_tags.json` — schema_version enum now includes "0.3.0".
+  Added optional `revision_velocity.up_revisions_3m` and `down_revisions_3m`
+  for G17 breadth recomputation.
+- `schemas/verification_gates.json` — schema_version "0.3.0". gate_id
+  enum extended G14 → G20. `gates` array minItems/maxItems range relaxed
+  from 14-17 to 14-20. `gate_definitions` reference catalog adds G18 /
+  G19 / G20 const descriptions.
+- `schemas/scenarios.json` — schema_version enum now includes "0.3.0"
+  (no field changes; bump for consistency).
+
+### Backwards compatibility
+
+v0.1.x and v0.2.0 memos validate clean against v0.3.0 schemas. Gates added
+in each version are grandfathered:
+- v0.1.x memos (schema_version="0.1.0"): G15-G20 skipped, logged as
+  `skipped: grandfathered_v0_1`.
+- v0.2.0 memos (schema_version="0.2.0"): G18-G20 skipped, logged as
+  `skipped: grandfathered_v0_2`.
+- v0.3.0 memos run the full 20-gate set.
+
+The five Phase E calibration memos (NVDA / JPM / MRK / XOM / DLR) remain
+in the `outputs/` directory unchanged and continue to validate as
+`schema_version="0.1.0"`.
+
+### Files added
+
+- `us-equity-research/references/pm-synthesis-adjudication-us.md` (89 lines)
+- `schemas/manifest.json` (~190 lines)
+- `scripts/verify_quant_cross_doc_consistency.py` (~180 lines)
+- `scripts/verify_provenance_manifest.py` (~210 lines)
+- `scripts/verify_view_defensibility.py` (~210 lines)
+- `scripts/write_manifest.py` (~165 lines)
+
+### Files modified
+
+- `us-equity-research/SKILL.md` (Scope and Limitations section; Manifest
+  generation section; reference list updated for pm-synthesis-adjudication-us.md)
+- `us-equity-ic-rigor/SKILL.md` (Scope and Limitations section with what
+  rubric CAN/CANNOT tell; gates list extended G17 → G20; scripts catalog
+  updated)
+- `us-equity-ic-rigor/references/quant-overlay-us.md` (Honest framing
+  disclaimer)
+- `us-equity-ic-rigor/references/position-sizing-us.md` (NVDA examples
+  reconciled to canonical set; G18 cross-reference)
+- `us-equity-research/references/ic-memo-template-us.md` (Appendix D
+  relabeled with honest framing paragraph and G18 cross-reference)
+- `scripts/verify_source_tags.py` (G6 expansion: 1 pattern → 6)
+- `scripts/verify_consensus_variance.py` (G15 sizing_impact_pp recompute)
+- `scripts/verify_bank_metrics.py` (G16 required_cet1_pct recompute)
+- `scripts/verify_revision_velocity.py` (G17 breadth_3m recompute)
+- `scripts/verify_sotp_monotonicity.py` (G3 strict shape enforcement +
+  banks D24 mapping recognition)
+- `schemas/memo.json`, `schemas/source_tags.json`,
+  `schemas/verification_gates.json`, `schemas/scenarios.json`
+  (additive-only changes; schema_version enum extensions)
+- `us-equity-research/.claude-plugin/plugin.json`,
+  `us-equity-ic-rigor/.claude-plugin/plugin.json` (version 0.2.0 → 0.3.0)
+- `README.md` (gate count 17 → 20; v0.3.0 description)
+
+### Deferred to Sprint 3 (v0.4.0) and beyond
+
+Per the planning discussion, Sprint 3 returns to the coverage expansion
+work originally scoped for Sprint 2:
+- Biotech rNPV per asset (new reference file, schema biotech_pipeline
+  block, G21, validation on SRPT / BMRN)
+- Special situations template (spin / SPAC / post-bk / busted IPO /
+  going-private; new reference file, schema situation_type enum, G22)
+- Pre-IC primary research mechanism (reframed AUM-agnostically per user
+  direction — no $50K specificity)
+- B15-B20 rubric documentation in pm-redteam-rubric-us.md (gate
+  remediation discipline; deferred from v0.2.0 / v0.3.0)
+- G15-G20 fixture matrix (15 fixtures per gate, cross-sensitivity validation)
+- v0.1.x memo data drift cleanup (NVDA direction enum, JPM gm_taxonomy
+  reconciliation null, MRK tail_risks shape, XOM default_action enum,
+  DLR valuation methods shape)
+
 ## [0.2.0] — 2026-05-29
 
 ### Sprint 1 of post-v0.1.x improvement roadmap
