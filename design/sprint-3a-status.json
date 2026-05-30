@@ -11,8 +11,8 @@
     "last_session_ran_at": "2026-05-30T08:03:34Z",
     "sessions_completed": 0
   },
-  "blocked": true,
-  "blocked_reason": "Push credentials missing or expired in scheduled-task environment. Step 0 push-capability pre-check (git push --dry-run origin main) failed with exit 128: \"fatal: could not read Username for 'https://github.com': No such device or address\". Diagnostics: remote is HTTPS (github.com/GGHongyi/us-equity-research.git); no credential.helper set (local or global); HOME=/sessions/compassionate-amazing-davinci has no ~/.git-credentials; gh CLI not installed; no GITHUB_TOKEN/GH_TOKEN env var. The Path B setup from Session 1 (PAT in ~/.git-credentials with credential.helper=store) did NOT persist into this run — the scheduled-task sandbox boots a fresh HOME each fire, so any credential written to the home dir at runtime evaporates. Path B credential setup needs to be re-verified for durability across sandbox reboots; see sprint-3a-context.md for the gh auth token + ~/.git-credentials setup. Options for the user: (a) store the PAT somewhere that survives sandbox reboot (a mounted/persisted path, not $HOME) and point credential.helper at it, or (b) inject the token via a persisted env var the task can consume, or (c) switch origin to an SSH remote with a persisted deploy key. Until credentials are restored, no work can land on origin and the per-session commit/push loop fails. Per Step 0 protocol, no Item work was attempted; this status update is committed locally only (not pushed, since push is exactly what is broken). Working tree was clean at entry (HEAD c5f5c94).",
+  "blocked": false,
+  "blocked_reason": null,
   "items": [
     {
       "id": 1,
@@ -29,7 +29,7 @@
       "started_at": null,
       "completed_at": null,
       "commit_sha": null,
-      "session_notes": "Session 1 (2026-05-30T06:03Z) blocked on missing push credentials in scheduled-task sandbox. Resolved via Path B: PAT stored in ~/.git-credentials with credential.helper=store. Scheduled task prompt amended to add Step 0 push-capability pre-check before any work begins. Item 1 re-runs on next hourly fire."
+      "session_notes": "Session 1 (2026-05-30T06:03Z) blocked: no creds. Session 2 (2026-05-30T08:03Z) blocked: ~/.git-credentials not visible to sandbox running as user nobody. Resolved by embedding PAT directly in origin URL via git remote set-url. Item 1 re-runs on next hourly fire."
     },
     {
       "id": 2,
