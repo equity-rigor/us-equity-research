@@ -1,0 +1,108 @@
+{
+  "sprint": "3a",
+  "title": "R-v2 Adversarial Isolation",
+  "version_target": "0.4.0",
+  "context_file": "design/sprint-3a-context.md",
+  "schedule": {
+    "task_id": "us-equity-research-sprint-3a",
+    "cron": "0 * * * *",
+    "timezone": "user_local",
+    "next_session_scheduled_for": null,
+    "last_session_ran_at": null,
+    "sessions_completed": 0
+  },
+  "blocked": false,
+  "blocked_reason": null,
+  "items": [
+    {
+      "id": 1,
+      "title": "Isolated R-v2 subagent spawn pattern",
+      "status": "pending",
+      "estimated_agent_sessions": 3,
+      "deliverables": [
+        "us-equity-research/references/r-v2-isolated-attack-us.md (new, ~250 lines)",
+        "us-equity-research/references/phase-3-valuation-us.md (R-v2 section update)",
+        "us-equity-research/references/phase-2-continuation-us.md (A-Consensus output structure note)"
+      ],
+      "spec_ref": "design/sprint-3a-context.md#item-1",
+      "commit_message": "Sprint 3a Item 1: isolated R-v2 subagent spawn pattern + 5-point attack methodology documentation",
+      "started_at": null,
+      "completed_at": null,
+      "commit_sha": null,
+      "session_notes": null
+    },
+    {
+      "id": 2,
+      "title": "Schema augmentation for adversarial isolation tracking",
+      "status": "pending",
+      "estimated_agent_sessions": 1,
+      "deliverables": [
+        "schemas/memo.json (adjudication_trail_entry adds attacker_model, attacker_context_isolation, attacker_independent_source_reads)",
+        "us-equity-research/references/pm-synthesis-adjudication-us.md (Adversarial isolation tracking subsection)",
+        "All 4 schemas (memo/source_tags/verification_gates/scenarios) schema_version enums extended to include 0.4.0"
+      ],
+      "spec_ref": "design/sprint-3a-context.md#item-2",
+      "commit_message": "Sprint 3a Item 2: schema additions for attacker_model + attacker_context_isolation + attacker_independent_source_reads",
+      "started_at": null,
+      "completed_at": null,
+      "commit_sha": null,
+      "session_notes": null
+    },
+    {
+      "id": 3,
+      "title": "G20-augment verifier check for adversarial isolation",
+      "status": "pending",
+      "estimated_agent_sessions": 1,
+      "deliverables": [
+        "scripts/verify_view_defensibility.py (graduated rigor scale: 8.5-9.0 = v0.3.0 conditions, 9.0+ adds adversarial isolation + model diversity check)",
+        "Smoke test 6 branches: v0.3.0 pass, v0.4.0 8.7 no isolation pass, v0.4.0 9.2 no isolation fail, v0.4.0 9.2 same model fail, v0.4.0 9.2 different model pass, v0.4.0 9.5 all conditions met pass"
+      ],
+      "spec_ref": "design/sprint-3a-context.md#item-3",
+      "commit_message": "Sprint 3a Item 3: G20 graduated rigor scale for 9.0+ claims (adversarial isolation + model diversity)",
+      "started_at": null,
+      "completed_at": null,
+      "commit_sha": null,
+      "session_notes": null
+    },
+    {
+      "id": 4,
+      "title": "Plugin 1 orchestrator wiring documentation",
+      "status": "pending",
+      "estimated_agent_sessions": 1,
+      "deliverables": [
+        "us-equity-research/SKILL.md Phase 3 section (R-v2 subagent dispatch instructions)",
+        "us-equity-research/SKILL.md reference-files list (add r-v2-isolated-attack-us.md)",
+        "us-equity-research/SKILL.md Common Failure Modes section (R-v2 spawn failure handling)"
+      ],
+      "spec_ref": "design/sprint-3a-context.md#item-4",
+      "commit_message": "Sprint 3a Item 4: Plugin 1 orchestrator wiring for isolated R-v2 subagent dispatch",
+      "started_at": null,
+      "completed_at": null,
+      "commit_sha": null,
+      "session_notes": null
+    },
+    {
+      "id": 5,
+      "title": "Smoke test full pipeline + Sprint 3a wrap + ship v0.4.0",
+      "status": "pending",
+      "estimated_agent_sessions": 1,
+      "deliverables": [
+        "scripts/tests/fixtures/r-v2-isolation/ (synthetic test fixtures: weak_variance.json, medium_variance.json, expected_attack_dimensions.json)",
+        "Full G20 v0.4.0 graduated rigor smoke test (6 branches)",
+        "Both plugin.json versions 0.3.0 -> 0.4.0",
+        "CHANGELOG.md v0.4.0 entry",
+        "README.md updates (gate count unchanged, graduated rigor scale documented, version badge 0.3.0 -> 0.4.0)",
+        "design/sprint-3a-status.json final update with sessions_completed=5, schedule.next_session_scheduled_for=null",
+        "Self-disable the scheduled task via mcp__scheduled-tasks__update_scheduled_task(enabled=false)",
+        "pytest 198 passing check",
+        "git tag v0.4.0, push origin main, push origin --tags"
+      ],
+      "spec_ref": "design/sprint-3a-context.md#item-5",
+      "commit_message": "v0.4.0 Sprint 3a: R-v2 adversarial isolation + graduated rigor scale",
+      "started_at": null,
+      "completed_at": null,
+      "commit_sha": null,
+      "session_notes": null
+    }
+  ]
+}
