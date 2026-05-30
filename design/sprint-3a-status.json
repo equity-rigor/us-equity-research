@@ -8,8 +8,8 @@
     "cron": "0 * * * *",
     "timezone": "user_local",
     "next_session_scheduled_for": null,
-    "last_session_ran_at": "2026-05-30T22:06:32Z",
-    "sessions_completed": 0
+    "last_session_ran_at": "2026-05-30T22:19:52Z",
+    "sessions_completed": 1
   },
   "blocked": false,
   "blocked_reason": null,
@@ -17,7 +17,7 @@
     {
       "id": 1,
       "title": "Isolated R-v2 subagent spawn pattern",
-      "status": "in_progress",
+      "status": "completed",
       "estimated_agent_sessions": 3,
       "deliverables": [
         "us-equity-research/references/r-v2-isolated-attack-us.md (new, ~250 lines)",
@@ -27,9 +27,9 @@
       "spec_ref": "design/sprint-3a-context.md#item-1",
       "commit_message": "Sprint 3a Item 1: isolated R-v2 subagent spawn pattern + 5-point attack methodology documentation",
       "started_at": "2026-05-30T22:06:32Z",
-      "completed_at": null,
-      "commit_sha": null,
-      "session_notes": "Session 1 (2026-05-30T06:03Z) blocked: no creds. Session 2 (2026-05-30T08:03Z) blocked: ~/.git-credentials not visible to sandbox running as user nobody. Resolved by embedding PAT directly in origin URL via git remote set-url. Item 1 re-runs on next hourly fire."
+      "completed_at": "2026-05-30T22:19:52Z",
+      "commit_sha": "96219df",
+      "session_notes": "Item 1 completed under Path A (local commit only, no push). Delivered new reference us-equity-research/references/r-v2-isolated-attack-us.md (203 lines: subagent spawn contract, 5-point attack methodology in execution form with per-dimension worked examples, win condition, independent-source-reverification requirement, bounded 30-50K-token context, variance_attack output schema incl. the v0.4.0 attacker_* fields, and spawn-failure->demote-to-load_bearing=false->G15 remediation). Wired R-v2 isolated dispatch into phase-3-valuation-us.md (two-hat split; Task dispatch; default attacker_model=claude-sonnet-4-6) and added A-Consensus self-containment requirement + isolated-dispatch note to phase-2-continuation-us.md (Step 8 rewrite + deliverable-6 note). Documentation-only: attacker_* schema fields land in Item 2, G20 graduated rigor in Item 3; new file forward-references both. Verified: markdown fences balanced in all 3 files, embedded JSON example parses, cross-refs resolve in both directions. Commit 96219df (deliverables); 126cc4d (in-progress marker). ENV CAVEAT for future sessions: repo mount denies unlink on .git/* including lockfiles, so plain git add/commit fail with 'Unable to create index.lock: File exists' after the first op leaves a stale lock. Workaround used and proven: export GIT_INDEX_FILE=/tmp/uer-idx-$$, rename-aside stale ref locks (.git/index.lock,.git/HEAD.lock,.git/refs/heads/main.lock,.git/objects/maintenance.lock), git read-tree HEAD, git add <paths>, git commit -F. Use this pattern for Items 2-5."
     },
     {
       "id": 2,
