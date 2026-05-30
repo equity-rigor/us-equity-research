@@ -535,10 +535,23 @@ Step 7 — Determine recommended headline framing:
   - Edge case: name has n_analysts < 5 → G15 = n_a; flag "no consensus
     baseline" and use peer-implied benchmarking instead.
 
-Step 8 — Hand to R-v2:
+Step 8 — Hand to R-v2 (isolated subagent, v0.4.0):
   Red Team v2 is required to attack each declared variance specifically.
-  Provide R-v2 with the variance list and your evidence base; R-v2's job
-  is to find the strongest counter to each one.
+  As of v0.4.0, R-v2's variance-attack pass runs as a STRUCTURALLY
+  ISOLATED subagent: it receives ONLY your machine-readable
+  consensus_variance entries plus source_tags.top_anchors — NOT this
+  narrative, NOT the PM brief, NOT the bull thesis. R-v2 rebuilds each
+  variance's argument from the citations alone and attacks the rebuilt
+  version.
+  Consequence for you: every consensus_variance entry MUST be
+  self-contained. Each evidence_ref must be retrievable by URL or full
+  citation (filing + section + page/locator); no implicit references to
+  prior PM-brief content, no "as discussed above," no reliance on prose
+  R-v2 will never see. A variance whose support lives in narrative R-v2
+  cannot read will be reconstructed as weaker than you intended — or
+  will not reconstruct at all, which R-v2 scores as an un-attackable
+  (therefore decorative) variance and the orchestrator demotes to
+  load_bearing=false. Full spawn contract in `r-v2-isolated-attack-us.md`.
 
 Deliverables:
 
@@ -564,6 +577,10 @@ Deliverables:
 
 6) Output JSON block conforming to schemas/source_tags.json
    consensus_variance field for downstream A7 and G15 verification.
+   Each entry must be SELF-CONTAINED for the isolated R-v2 pass: every
+   evidence_ref retrievable by URL or full citation (filing + section +
+   locator), no implicit reference to narrative R-v2 will not see (per
+   Step 8 and `r-v2-isolated-attack-us.md`).
 
 Length: 2,000 words. Do not pad. The discipline rewards specificity
 over volume.
