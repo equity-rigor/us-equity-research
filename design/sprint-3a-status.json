@@ -11,13 +11,13 @@
     "last_session_ran_at": "2026-05-30T06:03:46Z",
     "sessions_completed": 0
   },
-  "blocked": false,
-  "blocked_reason": null,
+  "blocked": true,
+  "blocked_reason": "Infrastructure precondition failure in the scheduled-task environment, two independent issues, both fatal to the per-session commit+push loop. (1) NO PUSH CREDENTIALS: no credential.helper, no ~/.git-credentials, no SSH key at ~/.ssh, no gh CLI, no GH_TOKEN/GITHUB_TOKEN env. git push origin main fails with: could not read Username for https://github.com. The v0.3.0 + Sprint-3a-setup commits reached origin only via a manual push from the user's own machine; this sandbox has never had push auth. (2) MOUNT DENIES DELETE: rm in the repo returns EPERM (Operation not permitted). git commits still SUCCEED via rename-based index update, but each leaves a stuck .git/*.lock (index.lock, HEAD.lock, objects/maintenance.lock) that blocks the next git op until renamed aside, plus uncleanable .stuck.* cruft. ACTION NEEDED before re-enabling: (a) provide push credentials to this environment, either a PAT wired through a credential helper, or an SSH key plus switching origin to git@github.com:GGHongyi/us-equity-research.git; (b) ideally grant delete permission on the repo mount so git can clean its own lock files. After fixing, set blocked=false and the next run starts Item 1 fresh. No Item 1 deliverables were written this session. Local commits from this session (3c2c64f 'in progress' + the block commit) are on the user's machine but UNPUSHED; the user should verify origin/main after restoring auth.",
   "items": [
     {
       "id": 1,
       "title": "Isolated R-v2 subagent spawn pattern",
-      "status": "in_progress",
+      "status": "pending",
       "estimated_agent_sessions": 3,
       "deliverables": [
         "us-equity-research/references/r-v2-isolated-attack-us.md (new, ~250 lines)",
@@ -26,10 +26,10 @@
       ],
       "spec_ref": "design/sprint-3a-context.md#item-1",
       "commit_message": "Sprint 3a Item 1: isolated R-v2 subagent spawn pattern + 5-point attack methodology documentation",
-      "started_at": "2026-05-30T06:03:46Z",
+      "started_at": null,
       "completed_at": null,
       "commit_sha": null,
-      "session_notes": null
+      "session_notes": "Session 1 (2026-05-30T06:03Z) halted at the in-progress stage before any substantive work. Root cause is environmental, not the item spec: git push has no credentials in this sandbox, and the repo mount denies unlink so git leaves stuck *.lock files after every write. Local commits work via rename but cannot reach origin. Reset to pending; after the user restores push auth and clears blocked, this item re-runs cleanly. See blocked_reason for the full diagnosis and remediation steps."
     },
     {
       "id": 2,
