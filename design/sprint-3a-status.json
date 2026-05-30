@@ -8,7 +8,7 @@
     "cron": "0 * * * *",
     "timezone": "user_local",
     "next_session_scheduled_for": null,
-    "last_session_ran_at": null,
+    "last_session_ran_at": "2026-05-30T06:03:46Z",
     "sessions_completed": 0
   },
   "blocked": false,
@@ -17,7 +17,7 @@
     {
       "id": 1,
       "title": "Isolated R-v2 subagent spawn pattern",
-      "status": "pending",
+      "status": "in_progress",
       "estimated_agent_sessions": 3,
       "deliverables": [
         "us-equity-research/references/r-v2-isolated-attack-us.md (new, ~250 lines)",
@@ -26,7 +26,7 @@
       ],
       "spec_ref": "design/sprint-3a-context.md#item-1",
       "commit_message": "Sprint 3a Item 1: isolated R-v2 subagent spawn pattern + 5-point attack methodology documentation",
-      "started_at": null,
+      "started_at": "2026-05-30T06:03:46Z",
       "completed_at": null,
       "commit_sha": null,
       "session_notes": null
