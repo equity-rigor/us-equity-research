@@ -1,0 +1,44 @@
+{
+  "_doc": "Manual annotation (Sprint 3a Item 5a) of the canonical R-v2 attack dimensions a competent isolated red team SHOULD land on each fixture variance. This file is an answer key for evaluating a real R-v2 run; it is NOT consumed by any verifier gate. The 5 canonical dimensions are evidence_credibility, triangulation_completeness, base_rate_sanity, catalyst_dependency, timing_arbitrage (verify_view_defensibility.py CANONICAL_ATTACK_TYPES). 'other' is schema-legal but G20 down-weights it.",
+  "_sizing_note": "sizing_impact_pp is set to the Item 5 spec value 4.0 (>= the 2.0 load-bearing threshold for G15 and G20). The schema's 'magnitude_pct x (probability_right_pct/100) x (scenario_sensitivity_pct/100)' relation is an illustrative heuristic and is NOT enforced by any verifier; in these fixtures the components are chosen so (a) magnitude_pct reconciles with our_value vs consensus_value and (b) the product equals ~4.0. weak: 20.0 x 0.50 x 0.40 = 4.00. medium: 16.67 x 0.60 x 0.40 = 4.00.",
+  "_pipeline_contract": "weak_variance.json is load-bearing (G15 pass) but S3-only, so it FAILS G20 v0.3.0 condition (b) and caps the memo at 8.5 before any 9.0+ graduated check is reached. medium_variance.json carries S2 evidence and PASSES condition (b); it is the variance that should survive an isolated attack to support a defensible >8.5 (and, with adversarial isolation + model diversity, >9.0) view.",
+  "variances": {
+    "V_weak": {
+      "fixture": "weak_variance.json",
+      "line_item": "FY27 networking (Spectrum-X / NVLink) revenue",
+      "evidence_max_s_level": "S3",
+      "g15_v0_2_0": "pass (sizing_impact_pp 4.0 >= 2.0; >=1 evidence_ref at S1-S3)",
+      "g20_v0_3_0_condition_b": "FAIL (no evidence_ref at S1 or S2; S3-only)",
+      "expected_attack_dimensions": [
+        "evidence_credibility",
+        "triangulation_completeness",
+        "base_rate_sanity"
+      ],
+      "rationale": {
+        "evidence_credibility": "Sole support is an S3 earnings-call transcript -- management's own forward characterization of attach rate, not an audited or filed figure. R-v2 attacks the self-serving provenance and the absence of any primary-source corroboration.",
+        "triangulation_completeness": "Single source at a single S-level. No S1/S2 filing and no independent S5 channel-check (Omdia/Counterpoint) corroborate the networking attach-rate claim.",
+        "base_rate_sanity": "A +20% revenue premium to Street on a line consensus revises fast. Base rate of sustaining a beat of that magnitude into the next two prints is low; R-v2 demands the analog set and a reason this time differs."
+      },
+      "expected_outcome_if_unattacked": "Memo capped at 8.5: condition (b) fails before the 9.0+ graduated check is evaluated.",
+      "expected_outcome_if_attack_lands": "If R-v2's evidence_credibility / triangulation attack is conceded, the variance is demoted (load_bearing=false) and G15 may then fail for lack of a defensible load-bearing variance."
+    },
+    "V_med": {
+      "fixture": "medium_variance.json",
+      "line_item": "FY27 datacenter compute revenue",
+      "evidence_max_s_level": "S2",
+      "g15_v0_2_0": "pass",
+      "g20_v0_3_0_condition_b": "PASS (>=1 evidence_ref at S2 -- 10-Q segment disclosure)",
+      "expected_attack_dimensions": [
+        "base_rate_sanity",
+        "catalyst_dependency",
+        "timing_arbitrage"
+      ],
+      "rationale": {
+        "base_rate_sanity": "+16.7% to consensus DC compute revenue on a >$200B base -- R-v2 tests this against the historical distribution of NVDA datacenter beats and the law of large numbers, not just the filing.",
+        "catalyst_dependency": "Variance leans on a specific Blackwell/Rubin ramp cadence; R-v2 probes whether the edge survives a one-quarter slip in the ramp.",
+        "timing_arbitrage": "The S2 disclosure is already filed, so Street revisions are imminent -- R-v2 argues the variance is a timing artifact that decays by the next consensus refresh rather than a durable level reset."
+      },
+      "evidence_credibility_note": "NOT expected to land cleanly: the S2 10-Q is a filed primary source, so an evidence_credibility attack should be rebutted. This is the variance that SHOULD survive (attack_outcome rebutted/modified) to anchor a defensible view; it is the load-bearing variance a 9.0+ claim must show surviving an isolated, model-diverse R-v2 attack."
+    }
+  }
+}

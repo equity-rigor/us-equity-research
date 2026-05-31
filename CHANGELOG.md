@@ -4,6 +4,106 @@ All notable changes to this project will be documented in this file. Format
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) +
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] — 2026-05-30
+
+### Sprint 3a — R-v2 adversarial isolation + graduated rigor scale
+
+v0.3.0's G20 closed the "rubric grades structure, not view" finding by
+requiring a surviving R-v2 `variance_attack` for any score above 8.5. But
+v0.3.0's R-v2 ran inside the orchestrator session — the A-Consensus reasoning
+trace, the PM brief, and the bull narrative all sat in its context. That is
+the writer arguing with itself, and a model is a weak adversary against its
+own prior. Sprint 3a makes R-v2 a structurally independent attacker within
+Claude-only infrastructure (no GPT/Gemini) and discriminates the top of the
+rubric on whether that independence was actually exercised.
+
+### Added — isolated R-v2 subagent spawn pattern (Item 1)
+
+New reference `us-equity-research/references/r-v2-isolated-attack-us.md`. The
+orchestrator dispatches R-v2 via the Task tool at end of Phase 2 with a
+prompt containing ONLY the structured `consensus_variance` JSON, the
+`source_tags.top_anchors` JSON, the 5-point attack methodology, the
+adversarial framing + win condition, and tool access (WebSearch / WebFetch /
+EDGAR). It MUST NOT contain A-Consensus's narrative, the PM brief, the bull
+thesis, or the memo draft. The win condition is explicit: a run that
+concludes "the variances look reasonable" is FAILED; the incentive is to find
+what the analyst missed, with an independent source re-read per attack point.
+A bounded ~30-50K-token context forces R-v2 to attack 3-4 variances hard
+rather than 20 thinly. `phase-3-valuation-us.md` and
+`phase-2-continuation-us.md` are wired for the isolated dispatch plus the
+A-Consensus self-containment requirement (every `evidence_ref` retrievable by
+URL or full citation; no implicit references to prior-brief content).
+
+### Added — adversarial isolation tracking fields (Item 2)
+
+`schemas/memo.json` `adjudication_trail_entry` gains three optional fields on
+`variance_attack` entries: `attacker_model` (free-form model id, e.g.
+"claude-sonnet-4-6"), `attacker_context_isolation` (bool — true if R-v2 ran
+isolated without the A-Consensus trace), and `attacker_independent_source_reads`
+(int ≥ 0 — independent WebFetch/WebSearch reads for this variance,
+distinguishing ≥3-read thorough attacks from shallow ones). Additive-only:
+none are required, so v0.1.x / v0.2.0 / v0.3.0 memos and field-less v0.4.0
+`variance_attack` entries validate clean. `schema_version` enums in
+memo / source_tags / scenarios / verification_gates extended to include
+"0.4.0"; document-level metadata `schema_version` bumped to 0.4.0 in memo.json
+only (the sole schema that gained its own fields).
+
+### Added — G20 graduated rigor scale (Item 3)
+
+`scripts/verify_view_defensibility.py` keeps the v0.3.0 conditions
+(a)+(b)+(c) as the 8.5–9.0 gate and adds a graduated tier: a memo that
+*claims* `memo_metadata.current_score` strictly above 9.0 must additionally
+show ≥1 surviving `variance_attack` on a load-bearing variance with
+`attacker_context_isolation == true` AND `attacker_model != writer_model`
+(`memo_metadata.author_model`; literal string inequality, no semver parse).
+Missing isolation, missing model diversity, or an undeterminable writer model
+each cap the claim at 9.0 — NOT 8.5; the 8.5–9.0 band stays earned by the
+v0.3.0 conditions. Fixed a latent bug in passing: the prior schema_version
+branch would have silently skipped G20 on every v0.4.0 memo. The runnable set
+is now {0.3.0, 0.4.0}; distinct exit codes 8 / 9 / 10 attribute
+undeterminable-writer / no-isolated-attack / attacker-shares-writer-model.
+
+### Added — Plugin 1 orchestrator wiring + isolation fixtures (Items 4, 5)
+
+`us-equity-research/SKILL.md` Phase 3 now specifies the R-v2 Task dispatch
+(`description="R-v2 isolated adversarial attack"`, no `subagent_type`, default
+attacker model "claude-sonnet-4-6" for cross-size diversity vs the Opus
+orchestrator), the expected `adjudication_trail` output, and the spawn-failure
+enforcement loop: if R-v2 finds zero attack points on a load-bearing variance,
+the orchestrator demotes it (`load_bearing=false`) and re-runs G15 — a
+variance no isolated red team can dent is defensible; one that cannot be
+attacked on any specific dimension is decorative. New fixtures in
+`scripts/tests/fixtures/r-v2-isolation/` (weak = S3-only, fails G20(b);
+medium = S2, passes G20(b); `expected_attack_dimensions.json` answer key) and
+`scripts/tests/smoke_g20_graduated_rigor.py` — 10 branches: the 6 required
+(Item 3 Deliverable 3c) plus 9.0-boundary / pre-0.3.0 grandfather /
+undeterminable-writer / additive-cap (a 9.0+ claim failing condition (b) still
+caps at 8.5) guards.
+
+### Test surface
+
+198 pytest tests still passing — unchanged. Sprint 3a added no `test_*`
+modules; the G20 graduated rigor is covered by the standalone smoke harness
+`scripts/tests/smoke_g20_graduated_rigor.py`, run directly and deliberately
+not collected by pytest (filename is not `test_`-prefixed) so the committed
+count stays at 198. `verification_gates.json` gate_id enum unchanged at
+G1–G20 (Sprint 3a tightened G20, added no gate numbers; `gates` maxItems 20).
+
+### Honest framing — what landed vs what is still loose
+
+- The 9.0+ tier trusts SELF-REPORTED `attacker_*` fields. A memo can assert
+  `attacker_context_isolation=true` and a diverse `attacker_model` without the
+  orchestrator having actually spawned an isolated subagent. True isolation
+  provenance — subagent id, bounded-context trace, and the attacker's
+  independent web reads logged to the manifest and cross-checked against
+  `web_search_log` — is unbuilt. The gate raises the cost of faking a 9.0+; it
+  does not make one impossible. Candidate for a later sprint.
+- Narrative prose in the SKILL.md files still carries stale gate-count
+  phrasing in places ("17 gates", "14 gates") predating the G18–G20 additions.
+  The machine-checked artifact (`verification_gates.json`) is correctly
+  G1–G20. Cosmetic documentation debt, flagged not swept, to avoid prose churn
+  in a wrap session.
+
 ## [0.3.0] — 2026-05-29
 
 ### Sprint 2 — Rigor hardening (closing the systemic audit findings)

@@ -1,0 +1,28 @@
+{
+  "variance_id": "V_med",
+  "type": "revenue",
+  "line_item": "FY27 datacenter compute revenue",
+  "our_value": 245.0,
+  "consensus_value": 210.0,
+  "unit": "$B",
+  "magnitude_pct": 16.67,
+  "probability_right_pct": 60,
+  "scenario_sensitivity_pct": 40.0,
+  "sizing_impact_pp": 4.0,
+  "evidence_refs": [
+    {
+      "s_level": "S2",
+      "source_type": "10-Q",
+      "ref": "NVDA FY26Q1 10-Q (filed 2026-05-29) Note 14 segment disclosure, Compute & Networking",
+      "date": "2026-05-29",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001045810&type=10-Q&dateb=&owner=include&count=40",
+      "verified": true,
+      "verification_query": "NVIDIA 10-Q FY26Q1 datacenter compute segment revenue Note 14",
+      "is_anchor_eligible": true
+    }
+  ],
+  "why_consensus_missed": "The FY26Q1 10-Q broke out compute vs networking for the first time at this granularity; the implied compute exit-rate annualizes above the Street's FY27 datacenter line, which was set on the prior aggregated disclosure.",
+  "drives_scenarios": ["strong_bull", "bull", "base"],
+  "red_team_challenge": "If the filed exit-rate reflects a one-time Blackwell pull-forward rather than a durable run-rate, the FY27 compute premium to consensus is a timing artifact, not a level reset.",
+  "load_bearing": true
+}

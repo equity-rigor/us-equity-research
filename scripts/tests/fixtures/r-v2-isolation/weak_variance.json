@@ -1,0 +1,27 @@
+{
+  "variance_id": "V_weak",
+  "type": "revenue",
+  "line_item": "FY27 networking (Spectrum-X / NVLink) revenue",
+  "our_value": 42.0,
+  "consensus_value": 35.0,
+  "unit": "$B",
+  "magnitude_pct": 20.0,
+  "probability_right_pct": 50,
+  "scenario_sensitivity_pct": 40.0,
+  "sizing_impact_pp": 4.0,
+  "evidence_refs": [
+    {
+      "s_level": "S3",
+      "source_type": "Earnings call transcript",
+      "ref": "NVDA FY26Q1 earnings call 2026-05-28 ~37min mark, networking attach-rate commentary",
+      "date": "2026-05-28",
+      "verified": true,
+      "verification_query": "NVIDIA FY26Q1 Spectrum-X networking revenue attach rate guidance",
+      "is_anchor_eligible": false
+    }
+  ],
+  "why_consensus_missed": "Street's last networking revision predated the FY26Q1 call where management first quantified the Spectrum-X attach rate on Blackwell racks; consensus still models networking as a low-attach accessory line.",
+  "drives_scenarios": ["bull", "base"],
+  "red_team_challenge": "If the attach rate management cited is order-mix rather than installed-base durable, the +$7B premium to consensus compresses to <$2B by FY27.",
+  "load_bearing": true
+}
