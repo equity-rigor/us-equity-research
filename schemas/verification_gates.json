@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://us-equity-research.local/schemas/verification_gates.json",
   "title": "Verification Gates — US",
-  "description": "20 verification gates total as of v0.3.0: G1-G10 inherited from china-equity-ic-rigor, G11-G14 US-specific from delta matrix Layer 10, G15-G17 added v0.2.0 (Sprint 1: consensus variance, bank discipline, revision velocity), G18-G20 added v0.3.0 (Sprint 2 rigor hardening: cross-doc Barra consistency, Plugin-1-to-Plugin-2 provenance, view defensibility). A memo cannot claim score >8.0 with any non-n_a gate failing. Run via Phase C scripts; results captured here for human-readable audit trail. Schema accepts 0.1.0 (14-gate), 0.2.0 (17-gate), and 0.3.0 (20-gate) for grandfathering.",
+  "description": "20 verification gates total as of v0.3.0: G1-G10 inherited from china-equity-ic-rigor, G11-G14 US-specific from delta matrix Layer 10, G15-G17 added v0.2.0 (Sprint 1: consensus variance, bank discipline, revision velocity), G18-G20 added v0.3.0 (Sprint 2 rigor hardening: cross-doc Barra consistency, Plugin-1-to-Plugin-2 provenance, view defensibility). A memo cannot claim score >8.0 with any non-n_a gate failing. Run via Phase C scripts; results captured here for human-readable audit trail. Schema accepts 0.1.0 (14-gate), 0.2.0 (17-gate), 0.3.0 (20-gate), and 0.4.0 (20-gate; no new gate numbers — Sprint 3a tightens G20 into a graduated rigor scale for 9.0+ claims) for grandfathering.",
   "schema_version": "0.3.0",
   "type": "object",
   "definitions": {
@@ -73,7 +73,7 @@
   "required": ["schema_version", "ticker", "run_id", "gates", "overall_pass", "blocks_score_above"],
   "additionalProperties": false,
   "properties": {
-    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0", "0.3.0"]},
+    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0", "0.3.0", "0.4.0"]},
     "ticker": {"type": "string"},
     "run_id": {
       "type": "string",

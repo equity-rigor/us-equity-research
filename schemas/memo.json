@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://us-equity-research.local/schemas/memo.json",
   "title": "US Equity IC Memo — Structured Representation",
-  "description": "Umbrella schema for the full structured IC memo. Designed as a strict superset of the implicit input contract for equity-research:initiating-coverage Task 5 (which has no formal JSON schema; its contract is at the file-format layer). Sub-schemas referenced via $ref: source_tags.json (S1-S5 + v0.2.0 consensus_variance / revision_velocity / bank_metrics), scenarios.json (5-scenario block), verification_gates.json (14 gates in 0.1.0; 17 gates in 0.2.0; 20 gates in 0.3.0), manifest.json (v0.3.0 Plugin 1 provenance manifest). Buy-side rigor additions: GM taxonomy, bear bridge, what-would-reverse, position sizing by mandate, quant overlay (Barra factors, capacity, edge decay). v0.3.0 additions: adjudication_trail, sotp_segment definition, memo_metadata.manifest_ref + memo_metadata.hand_authored. Grandfathers v0.1.0 and v0.2.0 memos by accepting all three schema_version values.",
-  "schema_version": "0.3.0",
+  "description": "Umbrella schema for the full structured IC memo. Designed as a strict superset of the implicit input contract for equity-research:initiating-coverage Task 5 (which has no formal JSON schema; its contract is at the file-format layer). Sub-schemas referenced via $ref: source_tags.json (S1-S5 + v0.2.0 consensus_variance / revision_velocity / bank_metrics), scenarios.json (5-scenario block), verification_gates.json (14 gates in 0.1.0; 17 gates in 0.2.0; 20 gates in 0.3.0), manifest.json (v0.3.0 Plugin 1 provenance manifest). Buy-side rigor additions: GM taxonomy, bear bridge, what-would-reverse, position sizing by mandate, quant overlay (Barra factors, capacity, edge decay). v0.3.0 additions: adjudication_trail, sotp_segment definition, memo_metadata.manifest_ref + memo_metadata.hand_authored. v0.4.0 additions: adjudication_trail_entry adds optional attacker_model / attacker_context_isolation / attacker_independent_source_reads for R-v2 adversarial-isolation tracking (Sprint 3a). Grandfathers v0.1.0, v0.2.0, and v0.3.0 memos by accepting all four schema_version values.",
+  "schema_version": "0.4.0",
   "type": "object",
   "definitions": {
     "company_qualitative": {
@@ -191,7 +191,7 @@
     },
     "adjudication_trail_entry": {
       "type": "object",
-      "description": "(v0.3.0+) Single entry in the PM adjudication trail. Two types share this schema via the type discriminator. Full discipline in references/pm-synthesis-adjudication-us.md.",
+      "description": "(v0.3.0+) Single entry in the PM adjudication trail. Two types share this schema via the type discriminator. Full discipline in references/pm-synthesis-adjudication-us.md. (v0.4.0+) variance_attack entries may additionally carry attacker_model, attacker_context_isolation, and attacker_independent_source_reads for adversarial-isolation tracking; see that reference's 'Adversarial isolation tracking (v0.4.0)' subsection.",
       "required": ["type", "resolution"],
       "additionalProperties": false,
       "properties": {
@@ -253,6 +253,19 @@
           "type": "string",
           "enum": ["rebutted", "modified", "conceded"],
           "description": "For variance_attack entries. rebutted = variance survives intact with documented rebuttal evidence. modified = variance survives but sizing/magnitude was adjusted (document the adjustment). conceded = variance removed from load-bearing set; the corresponding consensus_variance entry should have load_bearing=false after adjudication."
+        },
+        "attacker_model": {
+          "type": "string",
+          "description": "(v0.4.0+) For variance_attack entries: free-form identifier of the model that produced this attack (e.g. 'claude-opus-4-6', 'claude-opus-4-8', 'claude-sonnet-4-6', 'claude-opus-4-8-with-extended-thinking'). Set by the orchestrator when it spawns the isolated R-v2 subagent. G20's v0.4.0 graduated rigor scale compares this against the writer/author model: a score claim above 9.0 requires attacker_model != writer_model on >=1 surviving variance_attack entry (literal string inequality, not semantic-version parse)."
+        },
+        "attacker_context_isolation": {
+          "type": "boolean",
+          "description": "(v0.4.0+) For variance_attack entries: true if R-v2 was spawned as an isolated subagent WITHOUT the A-Consensus reasoning trace, PM Synthesis brief, bull-thesis narrative, or memo draft in its context — seeing only the structured consensus_variance JSON, the source_tags.top_anchors JSON, and the 5-point attack methodology. False or absent = R-v2 ran inside the orchestrator session alongside A-Consensus. G20 (v0.4.0) requires true on >=1 surviving variance_attack entry for any score claim above 9.0. Discipline in references/r-v2-isolated-attack-us.md."
+        },
+        "attacker_independent_source_reads": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "(v0.4.0+) For variance_attack entries: count of independent WebFetch / WebSearch / EDGAR retrievals R-v2 made specifically to verify or attack THIS variance. Distinguishes thorough attacks (>=3 independent reads) from shallow ones; each read should also be recorded in the manifest web_search_log."
         }
       },
       "allOf": [
@@ -543,7 +556,7 @@
     "delegation_outputs"
   ],
   "properties": {
-    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0", "0.3.0"]},
+    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0", "0.3.0", "0.4.0"]},
     "ticker": {"type": "string", "pattern": "^[A-Z]{1,5}(\\.[A-Z]{1,3})?$"},
     "exchange": {"type": "string", "enum": ["NYSE", "Nasdaq", "AMEX", "OTC", "TSX", "LSE"]},
     "company_name": {"type": "string"},
