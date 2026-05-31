@@ -27,8 +27,19 @@ Logic:
            file on disk (the critical integrity check — detects post-
            hoc file editing or fake manifest)
   4. Grandfathered for v0.1.0 and v0.2.0 memos (manifest didn't exist
-     then). If memo.schema_version != "0.3.0", G19 = skipped with
-     reason='grandfathered_pre_v0_3'.
+     then). G19 runs for schema_version in {0.3.0, 0.4.0}; anything
+     outside that set is skipped with reason='grandfathered_pre_v0_3'.
+
+v0.4.0 fix (Sprint 3b Item 0): the original gate was the literal
+`schema_version != "0.3.0"`, which silently skipped G19 — and with it
+the manifest requirement and the on-disk sha256 integrity check — on
+every v0.4.0 memo. That is the same latent skip bug Item 3 caught and
+fixed in G20 (verify_view_defensibility.py) but did not sweep into this
+sibling verifier, so shipping v0.4.0 disabled provenance enforcement on
+the new schema version. The gate now tests membership in
+RUNNABLE_SCHEMA_VERSIONS. The manifest schema is unchanged in v0.4.0, so
+a v0.4.0 memo legitimately references a manifest_version=="0.3.0"
+manifest; only the memo-side schema gate widened.
 
 Usage:
     python scripts/verify_provenance_manifest.py --memo-json <memo.json>
@@ -52,6 +63,16 @@ MIN_WEB_SEARCH_LOG = 12
 MIN_AGENT_PROVENANCE = 15
 HAND_AUTHORED_CAP = 7.5
 FAIL_CAP = 7.5
+# Memo schema_versions for which G19 runs. Pre-0.3.0 memos predate the
+# manifest and are grandfathered (skipped). v0.4.0 (Sprint 3b fix) is added
+# here because the prior literal `schema_version != "0.3.0"` silently skipped
+# G19 on every v0.4.0 memo — the same latent bug Item 3 fixed in G20's
+# verify_view_defensibility.py but left unpatched in this sibling verifier,
+# which disabled provenance + on-disk-hash integrity enforcement for the exact
+# schema version v0.4.0 made current. The manifest schema itself is unchanged,
+# so v0.4.0 memos still validate against a manifest_version=="0.3.0" manifest
+# (see the manifest_version check below); only the memo-side gate is widened.
+RUNNABLE_SCHEMA_VERSIONS = {"0.3.0", "0.4.0"}
 
 
 def _print_status(status: str, **kwargs: Any) -> None:
@@ -71,7 +92,7 @@ def _sha256_file(path: Path) -> str:
 
 def verify(memo_json: dict[str, Any], memo_json_path: Path) -> int:
     schema_version = memo_json.get("schema_version", "0.1.0")
-    if schema_version != "0.3.0":
+    if schema_version not in RUNNABLE_SCHEMA_VERSIONS:
         _print_status(
             "skipped",
             reason=f"grandfathered_pre_v0_3 (schema_version={schema_version})",
