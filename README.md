@@ -72,11 +72,11 @@ You: "Score this memo. Push it from 8.x to 9.x."
 
 /us-equity-ic-rigor:ic-memo NVDA
 → Chains Phase 0 (delegates to us-equity-research) → Phases 1-3 → enforces
-   all 17 verification gates (v0.2.0+) → produces full IC memo + structured JSON outputs.
+   all 20 verification gates (v0.3.0+) → produces full IC memo + structured JSON outputs.
 
 /us-equity-ic-rigor:red-team NVDA [target-score]
 → Phase 4 only. Assumes outputs/NVDA_IC_memo.md + structured JSON exist.
-   Runs all applicable gates (17 as of v0.2.0; v0.1.x memos grandfathered to 14),
+   Runs all applicable gates (20 as of v0.3.0+; v0.1.x grandfathered to 14, v0.2.0 to 17),
    scores against pm-redteam-rubric, produces ordered
    push-from-N-to-N+1 fix list. Default target score 8.5 per D20.
 ```
@@ -163,8 +163,8 @@ This project was developed and tested against `claude-for-financial-services` ma
 │   ├── SKILL.md
 │   ├── references/                        # 10 rigor refs (S1-S5, scenarios, GM taxonomy, bridges, A0, sizing, rubric, quant overlay, ...)
 │   └── templates/                         # opinion letter checklist + IC debate script template
-├── scripts/                               # 16 verification scripts (G1-G17 as of v0.2.0; G13+G14 share verify_quant_overlay.py) + pytest fixtures
-│   └── tests/                             # 13 test files, 198 tests
+├── scripts/                               # verification scripts (G1-G20; G13+G14 share verify_quant_overlay.py) + pytest fixtures
+│   └── tests/                             # 16 test files, 229 tests
 ├── outputs/                               # Phase E IC memos (NVDA / JPM / XOM / MRK / DLR) + structured JSON
 ├── reference/                             # gitignored upstream plugin source (D23)
 ├── templates/                             # gitignored China A-share precedent templates

@@ -29,7 +29,7 @@ Trigger boundaries: when the user asks for a polished sell-side-format 30-50pg i
 
 ## Scope and Limitations (read before invoking on a name that doesn't fit the fundamental-thesis pattern)
 
-This skill is **fundamental, single-name, US-listed equity research**. Its 17-gate rigor, scenario discipline, and multi-agent specialization are calibrated to that use case. It is NOT appropriate for several adjacent use cases that look superficially similar but have different load-bearing inputs. Invoking the skill on these will produce output that is well-structured, gate-clean, and category-wrong.
+This skill is **fundamental, single-name, US-listed equity research**. Its 20-gate rigor, scenario discipline, and multi-agent specialization are calibrated to that use case. It is NOT appropriate for several adjacent use cases that look superficially similar but have different load-bearing inputs. Invoking the skill on these will produce output that is well-structured, gate-clean, and category-wrong.
 
 **Out of scope — use a different tool, or supplement this output substantially:**
 
@@ -80,7 +80,7 @@ Phase 3   Valuation + Final synthesis (4 agents in parallel)
    |      -> PM synthesis -> IC Memo (English)
    |
 Verify    Independent web verification (mandatory, never skip)
-   |      12+ WebSearch+WebFetch calls; EDGAR full-text search; 14 gates
+   |      12+ WebSearch+WebFetch calls; EDGAR full-text search; 20 gates
    |      -> Verification Report with source matrix and structured JSON
    |
 Final     Multi-audience deliverables
@@ -356,7 +356,7 @@ The skill is comprehensive but not autonomous. Pause to ask the user when:
 1. After Phase 0 if mandate, sector, or data access is unclear and defaults would materially shift the answer (e.g., pair-trade benchmark, ADR vs US-domiciled treatment).
 2. After Phase 1 if a major agent failed and refresh would take significant time, OR if FS forensics surfaced a material restatement or going-concern flag that changes the entire frame.
 3. Before Phase 2 if Phase 1 surfaced an unexpected showstopper — fraud allegation, suspended trading, pending acquisition, surprise Entity List addition.
-4. Before final IC memo if verification surfaced material errors that change the directional view, or if any of the 14 verification gates fails and remediation requires user input.
+4. Before final IC memo if verification surfaced material errors that change the directional view, or if any of the 20 verification gates fails and remediation requires user input.
 5. Before invoking artifact delegation (Excel DCF / comps / polished DOCX) — these are opt-in per D21; ask whether user wants them.
 6. Whenever a major decision point hinges on user-specific context (risk tolerance, liquidity needs, existing book exposure, factor correlations).
 
