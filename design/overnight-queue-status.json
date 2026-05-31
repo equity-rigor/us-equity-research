@@ -1,0 +1,92 @@
+{
+  "queue": "overnight-autonomy",
+  "context_file": "design/overnight-queue-context.md",
+  "owner": "hg2670@columbia.edu",
+  "path_a": "local commits only; user pushes manually on wake",
+  "schedule": {
+    "task_id": "us-equity-overnight-queue",
+    "cron": "0 * * * *",
+    "last_session_ran_at": "2026-05-31T06:00:00Z",
+    "sessions_completed": 0
+  },
+  "blocked": false,
+  "blocked_reason": null,
+  "tasks": [
+    {
+      "id": "T1",
+      "title": "Sprint 3c independent-estimator spec",
+      "kind": "design_doc",
+      "status": "completed",
+      "deliverables": ["design/sprint-3c-context.md"],
+      "commit_message": "Sprint 3c draft: consensus-independent estimator spec (Phase-1 keystone)",
+      "commit_sha": "2f56313",
+      "session_notes": "Done in the interactive setup session, not by the scheduler."
+    },
+    {
+      "id": "T2",
+      "title": "G18 cross-doc consistency test",
+      "kind": "test",
+      "status": "completed",
+      "deliverables": ["scripts/tests/test_verify_quant_cross_doc_consistency.py"],
+      "commit_message": "Add G18 test: quant cross-doc consistency (the last untested audit gate)",
+      "commit_sha": "76d2d34",
+      "session_notes": "Done in the interactive setup session. Full scripts/tests suite now 229 passing (was 223)."
+    },
+    {
+      "id": "T3",
+      "title": "Live-tracking (Phase 2) forward-calibration spec",
+      "kind": "design_doc",
+      "status": "pending",
+      "deliverables": ["design/live-tracking-spec.md"],
+      "spec_ref": "design/overnight-queue-context.md#T3",
+      "commit_message": "overnight T3: live-tracking (Phase 2) forward-calibration spec",
+      "commit_sha": null,
+      "session_notes": null
+    },
+    {
+      "id": "T4",
+      "title": "Harness Track-C overfitting controls (DSR, purged k-fold, PBO)",
+      "kind": "code_and_tests",
+      "status": "pending",
+      "deliverables": ["backtest/harness/stats_trackc.py", "backtest/tests/test_stats_trackc.py"],
+      "spec_ref": "design/overnight-queue-context.md#T4",
+      "commit_message": "overnight T4: Track-C overfitting controls (DSR, purged k-fold, PBO)",
+      "commit_sha": null,
+      "session_notes": null
+    },
+    {
+      "id": "T5",
+      "title": "Harness rank-IC + factor-neutralization metrics",
+      "kind": "code_and_tests",
+      "status": "pending",
+      "deliverables": ["backtest/harness/metrics_ic.py", "backtest/tests/test_metrics_ic.py"],
+      "spec_ref": "design/overnight-queue-context.md#T5",
+      "commit_message": "overnight T5: rank-IC + factor-neutralization metrics",
+      "commit_sha": null,
+      "session_notes": null
+    },
+    {
+      "id": "T6",
+      "title": "FrameworkRunner integration design",
+      "kind": "design_doc",
+      "status": "pending",
+      "deliverables": ["design/frameworkrunner-integration.md"],
+      "spec_ref": "design/overnight-queue-context.md#T6",
+      "commit_message": "overnight T6: FrameworkRunner integration design",
+      "commit_sha": null,
+      "session_notes": null
+    },
+    {
+      "id": "T7",
+      "title": "Reconcile stale gate counts to G1-G20 (preserve lineage refs)",
+      "kind": "doc_fix",
+      "status": "pending",
+      "deliverables": ["us-equity-research/SKILL.md", "us-equity-ic-rigor/SKILL.md", "README.md"],
+      "spec_ref": "design/overnight-queue-context.md#T7",
+      "commit_message": "overnight T7: reconcile stale gate counts to G1-G20 (preserve lineage refs)",
+      "commit_sha": null,
+      "session_notes": null
+    }
+  ],
+  "pending_user_push": "On wake: git push origin main. Local main is many commits ahead of origin (v0.4.0 base 1eca962). Review the design/ docs and the backtest/ harness before pushing if desired; everything is Path A local-only."
+}
