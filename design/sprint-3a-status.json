@@ -8,7 +8,7 @@
     "cron": "0 * * * *",
     "timezone": "user_local",
     "next_session_scheduled_for": null,
-    "last_session_ran_at": "2026-05-31T02:12:46Z",
+    "last_session_ran_at": "2026-05-31T03:09:25Z",
     "sessions_completed": 4
   },
   "blocked": false,
@@ -84,7 +84,7 @@
     {
       "id": 5,
       "title": "Smoke test full pipeline + Sprint 3a wrap + ship v0.4.0",
-      "status": "pending",
+      "status": "in_progress",
       "estimated_agent_sessions": 1,
       "deliverables": [
         "scripts/tests/fixtures/r-v2-isolation/ (synthetic test fixtures: weak_variance.json, medium_variance.json, expected_attack_dimensions.json)",
@@ -99,7 +99,7 @@
       ],
       "spec_ref": "design/sprint-3a-context.md#item-5",
       "commit_message": "v0.4.0 Sprint 3a: R-v2 adversarial isolation + graduated rigor scale",
-      "started_at": null,
+      "started_at": "2026-05-31T03:09:25Z",
       "completed_at": null,
       "commit_sha": null,
       "session_notes": null
