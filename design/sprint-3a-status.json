@@ -8,7 +8,7 @@
     "cron": "0 * * * *",
     "timezone": "user_local",
     "next_session_scheduled_for": null,
-    "last_session_ran_at": "2026-05-30T22:19:52Z",
+    "last_session_ran_at": "2026-05-31T00:08:20Z",
     "sessions_completed": 1
   },
   "blocked": false,
@@ -34,7 +34,7 @@
     {
       "id": 2,
       "title": "Schema augmentation for adversarial isolation tracking",
-      "status": "pending",
+      "status": "in_progress",
       "estimated_agent_sessions": 1,
       "deliverables": [
         "schemas/memo.json (adjudication_trail_entry adds attacker_model, attacker_context_isolation, attacker_independent_source_reads)",
@@ -43,7 +43,7 @@
       ],
       "spec_ref": "design/sprint-3a-context.md#item-2",
       "commit_message": "Sprint 3a Item 2: schema additions for attacker_model + attacker_context_isolation + attacker_independent_source_reads",
-      "started_at": null,
+      "started_at": "2026-05-31T00:08:20Z",
       "completed_at": null,
       "commit_sha": null,
       "session_notes": null
