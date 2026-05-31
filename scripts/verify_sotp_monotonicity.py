@@ -36,6 +36,14 @@ except ModuleNotFoundError:
 ABS_TOL_USD_M = 10.0
 REL_TOL = 0.005
 
+# Schema versions that run the v0.3.0+ strict segment-shape enforcement.
+# This MUST be a set, not a literal `== "0.3.0"` test: the latter silently
+# routed every v0.4.0 memo to the lenient pre-0.3.0 path, downgrading this
+# critical (7.0-cap) gate on the schema version v0.4.0 made current. Same
+# systemic root as the G19 skip bug — `== "0.3.0"` used as a strict-mode
+# switch and not updated on the version bump. Extend this set on each bump.
+STRICT_SCHEMA_VERSIONS = {"0.3.0", "0.4.0"}
+
 
 class SOTPSegment(BaseModel):
     name: str
@@ -204,8 +212,9 @@ def verify(memo: dict[str, Any]) -> tuple[int, list[str]]:
 
     # v0.3.0+: strict segment-shape enforcement per audit Issue #3(c).
     # Pre-v0.3.0 memos keep the lenient _collect_segments behavior for
-    # backwards compatibility (grandfather rule).
-    if schema_version == "0.3.0":
+    # backwards compatibility (grandfather rule). v0.4.0 must run strict —
+    # see STRICT_SCHEMA_VERSIONS note above for why this is a set, not `==`.
+    if schema_version in STRICT_SCHEMA_VERSIONS:
         segments, shape_warnings = _collect_segments_strict(sotp)
         if not segments:
             reason = (

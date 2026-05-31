@@ -9,6 +9,7 @@ Total: 15 fixture parameterizations; pytest -q must pass.
 """
 from __future__ import annotations
 
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -69,3 +70,43 @@ def test_flag_form_supported() -> None:
         text=True,
     )
     assert proc.returncode == 0, f"flag form failed on clean.json: {proc.stderr}"
+
+
+# --- v0.4.0 strict-mode routing (regression guard for the G19-class bug) ---
+# The strict segment-shape check was gated on `schema_version == "0.3.0"`, so a
+# v0.4.0 memo silently reverted to the lenient pre-0.3.0 path. An incomplete
+# segment (only Revenue + GP) is excluded under strict (=> no complete segments
+# => fail) but accepted under lenient (>=2 fields => monotonic pass). Routing is
+# therefore observable from the exit code alone.
+
+_INCOMPLETE_SEGMENT_MEMO = {
+    "valuation": {
+        "methods": [
+            {
+                "method": "SOTP",
+                "key_assumptions": {
+                    "SegA": {"SegA_revenue": 100.0, "SegA_segment_gp": 60.0},
+                },
+            }
+        ]
+    },
+}
+
+
+@pytest.mark.parametrize(
+    "schema_version,expected_rc",
+    [
+        ("0.2.0", 0),  # legacy: lenient -> pass
+        ("0.3.0", 1),  # strict -> fail (incomplete segment)
+        ("0.4.0", 1),  # the fix: v0.4.0 must run strict, not legacy
+    ],
+)
+def test_strict_mode_routes_v040(tmp_path: Path, schema_version: str, expected_rc: int) -> None:
+    memo = dict(_INCOMPLETE_SEGMENT_MEMO, schema_version=schema_version)
+    mj = tmp_path / "memo.json"
+    mj.write_text(json.dumps(memo), encoding="utf-8")
+    rc = _run(mj)
+    assert rc == expected_rc, (
+        f"G3 schema_version={schema_version}: expected exit {expected_rc}, got {rc} "
+        f"(v0.4.0 must route to strict, not the lenient pre-0.3.0 path)"
+    )

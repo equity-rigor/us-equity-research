@@ -81,6 +81,14 @@ except ModuleNotFoundError:
 
 GATE_ID = "G6"
 
+# Schema versions that run the v0.3.0+ strict mode (all 6 G6 anchor
+# categories). MUST be a set, not a literal `== "0.3.0"` test: the latter
+# silently routed every v0.4.0 memo to legacy mode (revenue anchor only,
+# ~5% of G6's stated scope), so unsourced GM / share / capacity / ADV / beta
+# numbers passed unflagged. Same systemic root as the G19 skip bug. Extend
+# this set on each version bump.
+STRICT_SCHEMA_VERSIONS = {"0.3.0", "0.4.0"}
+
 # Tag pattern per D16: (S1|S2|S3|S4|S5|Pending): <ref>
 # Match the OPEN paren + tag-prefix + colon — sufficient signal that an
 # S-tag is starting (we don't need to greedy-match the ref).
@@ -298,21 +306,22 @@ def _print_fail(findings: list[_Finding]) -> None:
 def verify(memo_md_text: str, schema_version: str = "0.1.0") -> int:
     """Return 0 on pass, non-zero on fail. Prints structured G6 evidence.
 
-    v0.3.0 strict mode (when memo declares schema_version="0.3.0"):
-    runs all six G6 anchor pattern categories (revenue, GM,
-    share/concentration, capacity, ADV, beta) per the gate spec in
+    v0.3.0+ strict mode (when memo declares schema_version in
+    STRICT_SCHEMA_VERSIONS = {"0.3.0", "0.4.0"}): runs all six G6
+    anchor pattern categories (revenue, GM, share/concentration,
+    capacity, ADV, beta) per the gate spec in
     source-stratification-us.md.
 
     Pre-v0.3.0 legacy mode (default; v0.1.x and v0.2.0 memos): runs
     only the revenue anchor pattern (~5% of G6's stated scope). This
     matches the pre-v0.3.0 verifier behavior so the existing NVDA v0
     fixture matrix continues to pass without modification. The
-    expanded G6 coverage is opt-in via schema_version="0.3.0" — the
-    same grandfathering pattern used by G3, G15, G16, G17, G18, G19,
-    G20.
+    expanded G6 coverage is keyed on STRICT_SCHEMA_VERSIONS — a set,
+    not a literal `== "0.3.0"`, because the literal silently dropped
+    v0.4.0 memos back to legacy mode (the G19-class skip bug).
     """
     clean_text = _strip_code_blocks(memo_md_text)
-    if schema_version == "0.3.0":
+    if schema_version in STRICT_SCHEMA_VERSIONS:
         findings = _scan_all_g6_categories(clean_text)
         categories = ", ".join(cat for cat, _ in G6_PATTERNS)
         pass_msg = (
