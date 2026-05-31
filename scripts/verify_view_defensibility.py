@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 """
 verify_view_defensibility.py — Gate G20 (view defensibility for memos
-claiming a rubric score above 8.5).
+claiming a rubric score above 8.5; v0.4.0 adds a graduated rigor scale
+that further discriminates claims above 9.0).
 
 Added in v0.3.0. Closes the audit Issue #1 (highest severity): the
 17-gate verification stack grades structural completeness, not view
 quality. A consensus-hugging memo with perfect mechanical execution
 scored 9.0+ under v0.2.0. G20 raises the bar by requiring three
-conjunctive conditions for any score above 8.5.
+conjunctive conditions for any score above 8.5. v0.4.0 (Sprint 3a)
+adds a graduated rigor scale: claims above 9.0 must additionally
+survive an *isolated, model-diverse* red-team attack — R-v2 spawned as
+a subagent without the A-Consensus reasoning trace in its context, and
+running under a different model than the writer.
 
 Logic:
 
@@ -45,10 +50,29 @@ Logic:
          variances are removed from the load-bearing set.
 
   5. v0.1.x and v0.2.0 memos grandfathered (G20 = skipped,
-     reason='grandfathered_pre_v0_3').
+     reason='grandfathered_pre_v0_3'). v0.3.0 memos run conditions
+     (a)+(b)+(c) only. v0.4.0 memos run (a)+(b)+(c) AND the graduated
+     rigor scale below.
 
-Caps score at 8.5 on fail (not 7.0 — G20 is rubric-discriminating
-not memo-killing).
+v0.4.0 graduated rigor scale (Sprint 3a Item 3):
+
+  The v0.3.0 conditions cap any memo at 9.0. A claim *above* 9.0 is
+  discriminated further — the surviving attack must come from a
+  structurally independent red team, not the writer arguing with
+  itself:
+
+    - Claimed score (memo_metadata.current_score) in (8.5, 9.0]: the
+      v0.3.0 conditions are sufficient; no isolation requirement.
+    - Claimed score strictly above 9.0: additionally require >=1
+      surviving variance_attack on a load-bearing variance with
+      attacker_context_isolation == true AND attacker_model !=
+      writer_model (memo_metadata.author_model), literal string
+      inequality. Missing isolation, missing model diversity, or an
+      undeterminable writer model each cap the score at 9.0.
+
+Caps score at 8.5 on fail of the v0.3.0 conditions (a)/(b)/(c); caps
+at 9.0 on fail of the v0.4.0 graduated 9.0+ check (not 7.0 — G20 is
+rubric-discriminating, not memo-killing).
 
 Usage:
     python scripts/verify_view_defensibility.py \\
@@ -83,6 +107,10 @@ HOLD_RATINGS = {"Hold"}
 CONSENSUS_ANCHORED_PATTERN = re.compile(r"consensus[\s\-]anchored", re.IGNORECASE)
 N_ANALYSTS_THIN_THRESHOLD = 5
 FAIL_CAP = 8.5
+# v0.4.0 (Sprint 3a Item 3): graduated rigor scale.
+RUNNABLE_SCHEMA_VERSIONS = {"0.3.0", "0.4.0"}
+GRADUATED_SCORE_THRESHOLD = 9.0  # claims strictly above this require adversarial isolation + model diversity
+GRADUATED_FAIL_CAP = 9.0  # a 9.0+ claim failing isolation/diversity is capped here (NOT 8.5; the 8.5-9.0 band is earned by the v0.3.0 conditions)
 
 
 def _print_status(status: str, **kwargs: Any) -> None:
@@ -193,11 +221,46 @@ def _attack_survives_for_load_bearing(
     return (False, "")
 
 
+def _extract_claimed_score(memo_json: dict[str, Any]) -> float | None:
+    """The score the memo claims to have achieved (memo_metadata.current_score).
+
+    target_score is the aspirational PM red-team target and is deliberately NOT
+    used: the graduated rigor scale discriminates on what the memo *claims*, not
+    on what it is reaching for.
+    """
+    md = memo_json.get("memo_metadata")
+    if isinstance(md, dict):
+        s = md.get("current_score")
+        if isinstance(s, (int, float)) and not isinstance(s, bool):
+            return float(s)
+    return None
+
+
+def _extract_writer_model(memo_json: dict[str, Any]) -> str | None:
+    """The model that authored the memo / ran the A-Consensus writer pass.
+
+    Canonical source is memo_metadata.author_model, which Plugin 1's orchestrator
+    sets to the model it ran the writer pass under. memo_metadata carries no
+    additionalProperties:false, so this field is schema-legal with no Item 3
+    schema change. The provenance manifest's plugin_versions are plugin *version*
+    strings (e.g. "0.4.0"), NOT model identifiers, so they are not a valid
+    writer-model source; if author_model is absent the writer model is treated
+    as undeterminable and a 9.0+ claim cannot clear the model-diversity check.
+    """
+    md = memo_json.get("memo_metadata")
+    if isinstance(md, dict):
+        for key in ("author_model", "writer_model"):
+            v = md.get(key)
+            if isinstance(v, str) and v.strip():
+                return v.strip()
+    return None
+
+
 def verify(
     memo_json: dict[str, Any], memo_md: str, source_tags: dict[str, Any] | None
 ) -> int:
     schema_version = memo_json.get("schema_version", "0.1.0")
-    if schema_version != "0.3.0":
+    if schema_version not in RUNNABLE_SCHEMA_VERSIONS:
         _print_status(
             "skipped",
             reason=f"grandfathered_pre_v0_3 (schema_version={schema_version})",
@@ -326,12 +389,139 @@ def verify(
         )
         return 5
 
+    # --- v0.4.0 graduated rigor scale (Sprint 3a Item 3) ------------------
+    # v0.3.0 memos stop here: conditions (a)+(b)+(c) ARE the gate, ceiling 9.0.
+    # A v0.4.0 memo that *claims* a score strictly above 9.0 must additionally
+    # show >=1 surviving variance_attack on a load-bearing variance produced
+    # under adversarial isolation by a model different from the writer. Claims
+    # <=9.0 are unaffected (the v0.3.0 conditions earn the 8.5-9.0 band).
+    graduated_note = (
+        "n_a (v0.3.0 schema; graduated 9.0+ check applies to v0.4.0 memos only)"
+    )
+    if schema_version == "0.4.0":
+        claimed_score = _extract_claimed_score(memo_json)
+        if claimed_score is None or claimed_score <= GRADUATED_SCORE_THRESHOLD:
+            shown = claimed_score if claimed_score is not None else "undeclared"
+            graduated_note = (
+                f"n_a (claimed score {shown} <= {GRADUATED_SCORE_THRESHOLD}; "
+                "8.5-9.0 band earned by v0.3.0 conditions)"
+            )
+        else:
+            load_bearing_ids = {
+                v.get("variance_id") or v.get("line_item") for v in load_bearing
+            }
+            surviving_attacks = [
+                e
+                for e in adjudication_trail
+                if isinstance(e, dict)
+                and e.get("type") == "variance_attack"
+                and e.get("attack_type") in CANONICAL_ATTACK_TYPES
+                and e.get("attack_outcome") in SURVIVING_OUTCOMES
+                and e.get("target_variance_id") in load_bearing_ids
+            ]
+            writer_model = _extract_writer_model(memo_json)
+            if writer_model is None:
+                _print_status(
+                    "fail",
+                    failure_reason=(
+                        f"memo claims score {claimed_score} > "
+                        f"{GRADUATED_SCORE_THRESHOLD} but no writer/author model "
+                        "is declared (memo_metadata.author_model absent). The "
+                        "v0.4.0 graduated rigor scale requires attacker_model != "
+                        "writer_model on a surviving isolated variance_attack; "
+                        "without a declared writer model that inequality cannot "
+                        "be verified, so the 9.0+ tier is not granted."
+                    ),
+                    remediation_required=(
+                        "Set memo_metadata.author_model to the model that ran "
+                        "A-Consensus / authored the memo (e.g. 'claude-opus-4-8') "
+                        "and run the isolated R-v2 subagent under a different "
+                        "model (default 'claude-sonnet-4-6'). See "
+                        "references/r-v2-isolated-attack-us.md."
+                    ),
+                    blocks_score_above=GRADUATED_FAIL_CAP,
+                    claimed_score=claimed_score,
+                )
+                return 8
+            isolated_attacks = [
+                e
+                for e in surviving_attacks
+                if e.get("attacker_context_isolation") is True
+            ]
+            if not isolated_attacks:
+                _print_status(
+                    "fail",
+                    failure_reason=(
+                        f"memo claims score {claimed_score} > "
+                        f"{GRADUATED_SCORE_THRESHOLD} but no surviving "
+                        "variance_attack on a load-bearing variance was produced "
+                        "under adversarial isolation (attacker_context_isolation="
+                        "true). The v0.3.0 G20 conditions are met (ceiling 9.0), "
+                        "but the 9.0+ tier requires R-v2 to have run as an "
+                        "isolated subagent without the A-Consensus reasoning "
+                        "trace in its context."
+                    ),
+                    remediation_required=(
+                        "Spawn R-v2 as an isolated subagent per "
+                        "references/r-v2-isolated-attack-us.md and record "
+                        "attacker_context_isolation=true on its surviving "
+                        "variance_attack entries. A 9.0+ claim is not granted on "
+                        "a same-context self-attack."
+                    ),
+                    blocks_score_above=GRADUATED_FAIL_CAP,
+                    claimed_score=claimed_score,
+                    surviving_attacks=len(surviving_attacks),
+                )
+                return 9
+            diverse_isolated = [
+                e
+                for e in isolated_attacks
+                if isinstance(e.get("attacker_model"), str)
+                and e["attacker_model"].strip()
+                and e["attacker_model"].strip() != writer_model
+            ]
+            if not diverse_isolated:
+                _print_status(
+                    "fail",
+                    failure_reason=(
+                        f"memo claims score {claimed_score} > "
+                        f"{GRADUATED_SCORE_THRESHOLD} and an isolated surviving "
+                        "variance_attack exists, but its attacker_model equals "
+                        f"the writer/author model ({writer_model!r}). The 9.0+ "
+                        "tier requires model diversity: an attacker sharing the "
+                        "writer's model and training is not a structurally "
+                        "independent red team. Literal string inequality is "
+                        "required."
+                    ),
+                    remediation_required=(
+                        "Run the isolated R-v2 subagent under a model different "
+                        "from the writer (e.g. writer 'claude-opus-4-8', attacker "
+                        "'claude-sonnet-4-6') and record the distinct "
+                        "attacker_model on the surviving variance_attack entry."
+                    ),
+                    blocks_score_above=GRADUATED_FAIL_CAP,
+                    claimed_score=claimed_score,
+                    writer_model=writer_model,
+                    isolated_attacks=len(isolated_attacks),
+                )
+                return 10
+            exemplar_attack = diverse_isolated[0]
+            graduated_note = (
+                f"satisfied (claimed {claimed_score} > "
+                f"{GRADUATED_SCORE_THRESHOLD}; isolated attacker_model="
+                f"{exemplar_attack.get('attacker_model')!r} != writer_model="
+                f"{writer_model!r} on target "
+                f"{exemplar_attack.get('target_variance_id')!r})"
+            )
+
     _print_status(
         "pass",
+        schema_version=schema_version,
         differentiation_pp=f"{differentiation:.2f}",
         load_bearing_variance_with_s1_or_s2=exemplar.get("line_item") if exemplar else None,
         surviving_attack_target=target,
         adjudication_trail_entries=len(adjudication_trail),
+        graduated_rigor=graduated_note,
     )
     return 0
 
