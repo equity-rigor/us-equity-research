@@ -8,11 +8,12 @@
     "cron": "0 * * * *",
     "timezone": "user_local",
     "next_session_scheduled_for": null,
-    "last_session_ran_at": "2026-05-31T03:09:25Z",
-    "sessions_completed": 4
+    "last_session_ran_at": "2026-05-31T03:24:58Z",
+    "sessions_completed": 5
   },
   "blocked": false,
   "blocked_reason": null,
+  "pending_user_push": "Run 'git push origin main && git push origin v0.4.0' to ship v0.4.0 to origin. Local main is 15 commits ahead of last-known origin/main (b9799cf); the scheduler sandbox cannot fetch, so after a real fetch verify with 'git status' -- if you pushed mid-sprint the delta differs and git reconciles on push. The v0.4.0 tag was created LOCALLY only (Path A) and must be pushed explicitly.",
   "items": [
     {
       "id": 1,
@@ -84,7 +85,7 @@
     {
       "id": 5,
       "title": "Smoke test full pipeline + Sprint 3a wrap + ship v0.4.0",
-      "status": "in_progress",
+      "status": "completed",
       "estimated_agent_sessions": 1,
       "deliverables": [
         "scripts/tests/fixtures/r-v2-isolation/ (synthetic test fixtures: weak_variance.json, medium_variance.json, expected_attack_dimensions.json)",
@@ -100,9 +101,9 @@
       "spec_ref": "design/sprint-3a-context.md#item-5",
       "commit_message": "v0.4.0 Sprint 3a: R-v2 adversarial isolation + graduated rigor scale",
       "started_at": "2026-05-31T03:09:25Z",
-      "completed_at": null,
-      "commit_sha": null,
-      "session_notes": null
+      "completed_at": "2026-05-31T03:24:58Z",
+      "commit_sha": "da570cd",
+      "session_notes": "Item 5 (wrap) completed under Path A -- local commit only, no push. Deliverables: scripts/tests/fixtures/r-v2-isolation/ (weak_variance.json load-bearing S3-only so G15 passes and G20(b) fails; medium_variance.json S2 so G20(b) passes; expected_attack_dimensions.json answer key of canonical R-v2 dimensions per variance) -- both variance fixtures validate against the source_tags.json consensus_variance item schema, magnitude_pct reconciles with our/consensus, and the schema's illustrative magnitude x prob x sensitivity product ties to sizing_impact_pp=4.0. scripts/tests/smoke_g20_graduated_rigor.py is a standalone (non-test_-prefixed, uncollected) harness that builds synthetic memos from the committed fixtures and asserts the G20 v0.4.0 graduated rigor scale across 10 branches (the 6 required from Item 3 Deliverable 3c plus 9.0-boundary, pre-0.3.0 grandfather, undeterminable-writer, and additive-cap guards): 10/10 green. Both plugin.json bumped 0.3.0->0.4.0; CHANGELOG.md v0.4.0 entry added; README.md version badge ->0.4.0, graduated rigor documented, and the self-contradictory gate enumeration (header claimed G1-G20 but listed only G1-G17 -- the line Item 4 flagged) resolved by adding G18-G20. KEY UNBLOCK: this session ran the full pytest ship gate for real -- 198 passing -- the first Sprint 3a session to do so. Items 2-4 could not because /sessions was at 100% (ENOSPC on ~/.local from pip --user) AND the v0.1-v0.2 verifier scripts hard-import pydantic (not the optional shim), so a bare sandbox crashes every verifier subprocess (166/198 failed on first baseline run). Fix: pip install pytest 9.0.3 + pydantic 2.13.4 --target=/tmp/pylibs on the root fs (1.7G free) and run with PYTHONPATH=/tmp/pylibs; HEAD was already 198-green once pydantic was present, proving Items 1-4 introduced no regression. v0.4.0 tagged LOCALLY (Path A, not pushed); scheduled task self-disabled via update_scheduled_task(enabled=false). Local main is 15 commits ahead of last-known origin/main b9799cf; user runs git push origin main && git push origin v0.4.0. HONEST GAPS: (1) G20's 9.0+ tier trusts self-reported attacker_* fields -- a memo can assert attacker_context_isolation=true plus a diverse attacker_model without an isolated subagent ever having run; true isolation provenance (subagent id, bounded-context trace, attacker web reads cross-checked vs manifest web_search_log) is unbuilt and is a later-sprint candidate. (2) SKILL.md narrative prose still carries stale gate-count phrasing (17 gates / 14 gates) predating G18-G20; verification_gates.json is correctly G1-G20; cosmetic debt flagged not swept to avoid wrap-session prose churn. GIT ENV: prior sessions' alt-GIT_INDEX_FILE commits left the real .git/index stale, so git status showed MM on all Item 1-4 files -- illusory; working tree verified byte-identical to HEAD before proceeding. Lock workaround reused (alt GIT_INDEX_FILE in /tmp, rename-aside stale .git/index.lock + HEAD.lock + maintenance.lock, read-tree HEAD, add explicit deliverable paths, commit -F); mount denies unlink on .git/* so post-commit unlink warnings on tmp_obj / HEAD.lock are benign (commits verified via fsck --connectivity-only, all clean). Deliverables commit da570cd; in-progress marker 61b1e39."
     }
   ]
 }
