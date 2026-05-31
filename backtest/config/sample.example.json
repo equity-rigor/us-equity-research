@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "note": "SYNTHETIC example sample for the scaffold demo only. NOT a real backtest sample. A production sample is drawn stratified and survivorship-free per the pre-registration; the five existing showcase memos have zero evidentiary weight (anecdotes, not a sample).",
+    "stratification_keys": ["sector", "size_bucket", "regime"]
+  },
+  "cases": [
+    {"case_id": "c001", "ticker": "AAA", "as_of_date": "2023-02-15", "horizon_months": 12, "sector": "tech", "size_bucket": "large", "regime": "low_vol"},
+    {"case_id": "c002", "ticker": "BBB", "as_of_date": "2023-03-10", "horizon_months": 12, "sector": "financials", "size_bucket": "large", "regime": "low_vol"},
+    {"case_id": "c003", "ticker": "CCC", "as_of_date": "2023-05-20", "horizon_months": 12, "sector": "energy", "size_bucket": "mid", "regime": "high_dispersion"},
+    {"case_id": "c004", "ticker": "DDD", "as_of_date": "2023-06-30", "horizon_months": 12, "sector": "healthcare", "size_bucket": "large", "regime": "low_vol"},
+    {"case_id": "c005", "ticker": "EEE", "as_of_date": "2023-08-12", "horizon_months": 12, "sector": "tech", "size_bucket": "mid", "regime": "high_vol"},
+    {"case_id": "c006", "ticker": "FFF", "as_of_date": "2023-09-25", "horizon_months": 12, "sector": "industrials", "size_bucket": "mid", "regime": "high_dispersion"},
+    {"case_id": "c007", "ticker": "GGG", "as_of_date": "2023-11-05", "horizon_months": 12, "sector": "consumer", "size_bucket": "small", "regime": "high_vol"},
+    {"case_id": "c008", "ticker": "HHH", "as_of_date": "2024-01-18", "horizon_months": 12, "sector": "financials", "size_bucket": "large", "regime": "low_vol"},
+    {"case_id": "c009", "ticker": "III", "as_of_date": "2024-02-28", "horizon_months": 12, "sector": "energy", "size_bucket": "mid", "regime": "high_dispersion"},
+    {"case_id": "c010", "ticker": "JJJ", "as_of_date": "2024-04-09", "horizon_months": 12, "sector": "tech", "size_bucket": "large", "regime": "high_vol"},
+    {"case_id": "c011", "ticker": "KKK", "as_of_date": "2024-05-22", "horizon_months": 12, "sector": "healthcare", "size_bucket": "small", "regime": "low_vol"},
+    {"case_id": "c012", "ticker": "LLL", "as_of_date": "2024-07-01", "horizon_months": 12, "sector": "industrials", "size_bucket": "mid", "regime": "high_dispersion"}
+  ]
+}
