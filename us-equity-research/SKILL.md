@@ -96,6 +96,7 @@ Phase reference files (read on demand, not at skill load):
 - `references/phase-3-valuation-us.md` — Four agent prompts for Phase 3
 - `references/consensus-variance-us.md` — **(new in v0.2.0)** Variance taxonomy, evidence-required matrix, sizing rule, calibration. Gated by G15.
 - `references/pm-synthesis-adjudication-us.md` — **(new in v0.3.0)** Weighting principles for specialist conflict adjudication (Forensic dominates structural; Regulatory dominates if material; Industry is base-case; Positioning is technical overlay; Channel is timing). R-v2 attack methodology (5-point checklist: evidence credibility, triangulation completeness, base-rate sanity, catalyst dependency, timing arbitrage). Adjudication trail schema. Consumed by G20 (Sprint 2 Item 6).
+- `references/r-v2-isolated-attack-us.md` — **(new in v0.4.0)** Isolated R-v2 subagent spawn contract: structural-independence rationale, the 5-point attack methodology in execution form, win condition, independent-source re-verification requirement, bounded context window, the `variance_attack` output schema with the `attacker_*` fields, and the spawn-failure → demote → G15 remediation path. Dispatched at the Phase 2→3 boundary; consumed by G20's graduated rigor scale (Sprint 3a).
 - `references/verification-protocol-us.md` — Web verification methodology
 - `references/us-data-sources.md` — EDGAR, FRED, Federal Register, regulators, free vs premium tiering
 - `references/source-stratification-us.md` — S1-S5 + Pending taxonomy ported to US filings
@@ -195,13 +196,37 @@ Dispatch four in parallel.
 | **A7** | Valuation + quant overlay | DCF (WACC = Rf from 10Y UST via FRED `DGS10` + Damodaran implied US ERP + 5y weekly beta vs S&P 500 + after-tax cost of debt; terminal growth 2.0-2.5%; 5y explicit forecast or 3y + 7y fade for high-growth or 10y normalized for cyclicals); peer multiples per sector default (D8); SOTP if multi-segment; precedent M&A if relevant; **5-scenario probabilistic framework** with each scenario carrying its own EPS path, multiple, and bridge (per `schemas/scenarios.json`); **quant overlay** (Barra factor tags, capacity / ADV / days-to-exit at 10%/20%/30% participation, edge decay, correlation placeholder, stress overlay — mandatory per D13); position sizing across 5 mandate types (D3). Optional delegation to `financial-analysis:dcf-model` for Excel DCF artifact (see `references/tool-composition-us.md`); the 5-scenario block collapses to 3-case (Bear = strong_bear+bear weighted; Base; Bull = bull+strong_bull weighted) at the delegation boundary. |
 | **Mirror** | Full analysis on top peer | If pair-trade is part of thesis; verify peer-side fundamentals at same S1-S2 rigor as primary leg; reconcile pair spread expectation. |
 | **[Topic]-Forensic** | Specific deep-dive on identified risk | E.g., specific 10-K Note V item, specific subsidiary's VIE structure, specific regulatory matter (FDA CRL trajectory, FTC Second Request signal, OFAC SDN sub-list), specific contractual obligation, specific patent litigation at ITC §337 or Delaware Chancery. |
-| **R-v2** | Refreshed Red Team | Update bear case with Phase 2 findings; recalibrate scenario weights; surface what-would-reverse triggers with numerical denominators (e.g., "DC revenue growth <X% for two consecutive quarters" not "growth slows"). |
+| **R-v2** | Refreshed Red Team | Update bear case with Phase 2 findings; recalibrate scenario weights; surface what-would-reverse triggers with numerical denominators (e.g., "DC revenue growth <X% for two consecutive quarters" not "growth slows"). **v0.4.0**: the structured variance-attack pass — one `variance_attack` adjudication-trail entry per consensus variance, the input to G20 — runs as a structurally isolated subagent, dispatched per the subsection below, not inline. |
 
 Phase 3 typically reveals that initial Red Team was either too aggressive or too lenient — recalibrate. Mirror analysis often shows the relative-value thesis is more nuanced than headline multiples suggest.
 
 After Phase 3, write the IC Memo (English). For structure see `references/ic-memo-template-us.md`. Hand off to `us-equity-ic-rigor` for PM red-team scoring on the 6-9 rubric (B11-B14 US-specific bugs included).
 
 For full Phase 3 agent prompts, read `references/phase-3-valuation-us.md`.
+
+### R-v2 isolated adversarial attack — subagent dispatch (v0.4.0)
+
+R-v2 wears two hats. Hat (1), the bear-case / bear-PT refresh in the table above, may run inline in the orchestrator session. Hat (2), the structured attack that writes one `variance_attack` adjudication-trail entry per consensus variance (the input G20 reads), runs as a **structurally isolated subagent** as of v0.4.0 — not inline. Isolation is structural, not cross-vendor: the framework is Claude-only, and independence comes from a hard context partition (R-v2 sees machine-readable variance claims and their citations, never the narrative that justifies them) plus optional intra-family model diversity (a different Claude model for the attacker than for the writer).
+
+Dispatch hat (2) once the Phase 2 PM synthesis has **locked** the `consensus_variance` set — each variance marked `load_bearing` true/false — and before the IC memo draft exists. Use the Task tool with no `subagent_type` (default general-purpose agent):
+
+```
+Task(
+  description = "R-v2 isolated adversarial attack",
+  prompt = render(references/r-v2-isolated-attack-us.md template, {
+    ticker:                  <TICKER>,
+    consensus_variance_json: <locked load_bearing variances, from source_tags.json>,
+    source_tags_top_anchors: <top_anchors block, from source_tags.json>,
+    attacker_model_choice:   "claude-sonnet-4-6"
+  })
+)
+```
+
+The orchestrator declares `attacker_model_choice`; the default `claude-sonnet-4-6` gives cross-size diversity against the Opus-class orchestrator that runs A-Consensus and writes the memo. Declaring a model distinct from the writer is what lets a memo clear G20's graduated-rigor bar for a claimed score **above 9.0** — the 8.5-9.0 band still clears on the v0.3.0 G20 conditions alone. The rendered prompt carries only the locked `consensus_variance` JSON, the `source_tags.top_anchors` JSON, the 5-point attack methodology, and the explicit win condition; it withholds A-Consensus's narrative, the PM synthesis briefs (Integrated Brief v1/v2/v3), the bull-thesis narrative, and any memo draft. R-v2 attacks claims and citations, never the arguments behind them.
+
+**Expected output and integration.** R-v2 returns a JSON array of `adjudication_trail_entry` objects (`type="variance_attack"`, one per variance attacked), each conforming to `schemas/memo.json` `definitions/adjudication_trail_entry` and carrying the v0.4.0 fields `attacker_model`, `attacker_context_isolation=true`, and `attacker_independent_source_reads`. The orchestrator parses the array and appends each entry to the memo's `adjudication_trail` — these are exactly the entries G20 reads during the Verification Phase.
+
+**Failure path (structural enforcement, not cosmetic).** If the spawn fails, the orchestrator retries once, then records the failure in `orchestrator_notes` and treats every load-bearing variance as un-attacked. If R-v2 returns zero attack points on a load-bearing variance — including a blanket "the variances look reasonable," which the win condition defines as a FAILED run, not variance strength — the orchestrator flags that variance `load_bearing = false` and re-runs G15. G15 may then fail, because the memo can be left without any load-bearing variance carrying adequate S1-S3 evidence and a non-Hold rating is no longer supportable; the analyst must surface a real variance with real evidence or accept the consensus-anchored Hold. This is the intended enforcement loop — isolation pushes back on manufactured edge rather than rubber-stamping it. The full spawn contract, structured-payload spec, per-dimension execution guidance, output schema, and remediation path are in `references/r-v2-isolated-attack-us.md`.
 
 ## Manifest generation (v0.3.0+, end of Phase 3, before Verification Phase)
 
@@ -321,6 +346,8 @@ These are the recurring traps. Watch for them.
 **Confusing rating with sizing.** "Buy" rating does not equal "core position." A Buy with limited conviction is a half-weight position. State both explicitly and explain the gap. The 5-band rating per D1 reflects 12mo expected return; the per-mandate sizing per D3 reflects conviction times volatility times capacity.
 
 **Anchoring guidance to the press release instead of the transcript.** Companies sometimes give different ranges on the call vs in the 8-K Item 7.01 press release. Verify against the transcript per delta matrix §11.
+
+**R-v2 spawn fails or returns weak attacks (v0.4.0).** If the isolated R-v2 cannot find specific attack points on a declared consensus variance, the structural enforcement is to demote the variance, not to soften R-v2's requirements. A variance that no isolated red team can find a specific weakness in is, by construction, defensible — keep it load-bearing. A variance that cannot be attacked on any of the five canonical dimensions is, by construction, decorative or unfalsifiable — demote it (`load_bearing = false`), which may then fail G15 and pull the rating back toward a consensus-anchored Hold. Both outcomes are correct. The wrong move is to relax the win condition so R-v2 "passes" a variance it could not actually break — that re-imports the very contamination the isolated dispatch exists to remove. See the Phase 3 R-v2 dispatch subsection and `references/r-v2-isolated-attack-us.md`.
 
 ## When to Stop and Ask the User
 
