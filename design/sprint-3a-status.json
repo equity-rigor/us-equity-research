@@ -8,8 +8,8 @@
     "cron": "0 * * * *",
     "timezone": "user_local",
     "next_session_scheduled_for": null,
-    "last_session_ran_at": "2026-05-31T00:08:20Z",
-    "sessions_completed": 1
+    "last_session_ran_at": "2026-05-31T00:18:15Z",
+    "sessions_completed": 2
   },
   "blocked": false,
   "blocked_reason": null,
@@ -34,7 +34,7 @@
     {
       "id": 2,
       "title": "Schema augmentation for adversarial isolation tracking",
-      "status": "in_progress",
+      "status": "completed",
       "estimated_agent_sessions": 1,
       "deliverables": [
         "schemas/memo.json (adjudication_trail_entry adds attacker_model, attacker_context_isolation, attacker_independent_source_reads)",
@@ -44,9 +44,9 @@
       "spec_ref": "design/sprint-3a-context.md#item-2",
       "commit_message": "Sprint 3a Item 2: schema additions for attacker_model + attacker_context_isolation + attacker_independent_source_reads",
       "started_at": "2026-05-31T00:08:20Z",
-      "completed_at": null,
-      "commit_sha": null,
-      "session_notes": null
+      "completed_at": "2026-05-31T00:18:15Z",
+      "commit_sha": "d7b0ae0",
+      "session_notes": "Item 2 completed under Path A (local commit only, no push). Added the three optional v0.4.0 adversarial-isolation fields to schemas/memo.json definitions/adjudication_trail_entry: attacker_model (string), attacker_context_isolation (boolean), attacker_independent_source_reads (integer >=0). Declared explicitly because the entry is additionalProperties:false; none are added to required (base or the variance_attack allOf branch), so v0.1.0-v0.3.0 memos and field-less v0.4.0 variance_attack entries still validate. Extended schema_version enums to include 0.4.0 in memo/source_tags/scenarios/verification_gates. Bumped document-level metadata schema_version 0.3.0->0.4.0 ONLY in memo.json (the sole schema that gained its own fields) per the existing convention where scenarios.json metadata stays 0.1.0 despite its enum already listing 0.2.0/0.3.0; source_tags/scenarios/verification_gates metadata left unchanged (enum-only), manifest.json untouched (const 0.3.0). Added 'Adversarial isolation tracking (v0.4.0)' subsection to us-equity-research/references/pm-synthesis-adjudication-us.md (per-field semantics, when-to-populate, honest framing, 9.0+ requirement). Verified with a jsonschema 3.2.0 harness (43/43 checks): all 5 schemas parse; grandfathering proven on a clean baseline (clean.json's 2 pre-existing null market_share_pct values pruned -- unrelated to Item 2) validating against BOTH pre- and post-edit memo.json; restamped 0.1.0/0.2.0/0.3.0/0.4.0 all validate; new fields validate when present/partial/absent; pre-edit schema REJECTS them via additionalProperties:false (proving the additive change was necessary); negatives (string bool, -1, 2.5, integer model, undeclared key) fail correctly; gate_id enum==catalog (20 gates, maxItems 20); all scripts AST-parse. Deliverables commit d7b0ae0; in-progress marker 25cb570. CAVEAT: pytest could not run in the scheduler sandbox (not installed; pip blocked by ENOSPC on /sessions/.local) -- Item 2 changed zero .py files and no test does full-schema memo validation, so the 198-test suite is unaffected; Item 5 runs the full pytest gate before tagging v0.4.0. For Items 3-5 keep using Item 1's git lockfile workaround (export GIT_INDEX_FILE=/tmp/...; rename-aside stale .git/*.lock; git read-tree HEAD; git add explicit deliverable paths; git commit -F msgfile) and stage explicit paths to avoid the recurring design/.synctest_* sync-probe artifact and the status file."
     },
     {
       "id": 3,
