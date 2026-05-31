@@ -8,7 +8,7 @@
     "cron": "0 * * * *",
     "timezone": "user_local",
     "next_session_scheduled_for": null,
-    "last_session_ran_at": "2026-05-31T01:18:30Z",
+    "last_session_ran_at": "2026-05-31T02:07:17Z",
     "sessions_completed": 3
   },
   "blocked": false,
@@ -67,7 +67,7 @@
     {
       "id": 4,
       "title": "Plugin 1 orchestrator wiring documentation",
-      "status": "pending",
+      "status": "in_progress",
       "estimated_agent_sessions": 1,
       "deliverables": [
         "us-equity-research/SKILL.md Phase 3 section (R-v2 subagent dispatch instructions)",
@@ -76,7 +76,7 @@
       ],
       "spec_ref": "design/sprint-3a-context.md#item-4",
       "commit_message": "Sprint 3a Item 4: Plugin 1 orchestrator wiring for isolated R-v2 subagent dispatch",
-      "started_at": null,
+      "started_at": "2026-05-31T02:07:17Z",
       "completed_at": null,
       "commit_sha": null,
       "session_notes": null
