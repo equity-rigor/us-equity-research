@@ -8,8 +8,8 @@
     "cron": "0 * * * *",
     "timezone": "user_local",
     "next_session_scheduled_for": null,
-    "last_session_ran_at": "2026-05-31T01:11:13Z",
-    "sessions_completed": 2
+    "last_session_ran_at": "2026-05-31T01:18:30Z",
+    "sessions_completed": 3
   },
   "blocked": false,
   "blocked_reason": null,
@@ -51,7 +51,7 @@
     {
       "id": 3,
       "title": "G20-augment verifier check for adversarial isolation",
-      "status": "in_progress",
+      "status": "completed",
       "estimated_agent_sessions": 1,
       "deliverables": [
         "scripts/verify_view_defensibility.py (graduated rigor scale: 8.5-9.0 = v0.3.0 conditions, 9.0+ adds adversarial isolation + model diversity check)",
@@ -60,9 +60,9 @@
       "spec_ref": "design/sprint-3a-context.md#item-3",
       "commit_message": "Sprint 3a Item 3: G20 graduated rigor scale for 9.0+ claims (adversarial isolation + model diversity)",
       "started_at": "2026-05-31T01:11:13Z",
-      "completed_at": null,
-      "commit_sha": null,
-      "session_notes": null
+      "completed_at": "2026-05-31T01:18:30Z",
+      "commit_sha": "8bae97b",
+      "session_notes": "Item 3 completed under Path A (local commit only, no push). Extended scripts/verify_view_defensibility.py with the v0.4.0 G20 graduated rigor scale. Generalized the schema_version branch to RUNNABLE_SCHEMA_VERSIONS={0.3.0,0.4.0}: the prior 'if schema_version != 0.3.0 skip' would have silently skipped G20 on every v0.4.0 memo (latent bug fixed, not merely an addition). On top of the UNCHANGED v0.3.0 conditions (a) differentiation, (b) S1/S2 evidence, (c) surviving attack, a v0.4.0 memo claiming current_score strictly above 9.0 must additionally show >=1 surviving variance_attack on a load-bearing variance with attacker_context_isolation==true AND attacker_model != writer_model (literal string inequality, no semver parse). Claimed score = memo_metadata.current_score (target_score deliberately ignored as aspirational). writer_model = memo_metadata.author_model, schema-legal because memo_metadata has no additionalProperties:false (no Item 3 schema change needed); manifest plugin_versions are version strings not model identifiers so they are NOT a writer-model source, and an undeterminable writer model caps a 9.0+ claim at 9.0 (red-team default). Distinct exit codes 8/9/10 = undeterminable-writer / no-isolated-attack / attacker-shares-writer-model, all blocks_score_above=9.0 (NOT 8.5; the 8.5-9.0 band stays earned by the v0.3.0 conditions). Smoke (inline, /tmp synthetic fixtures, mirrors v0.3.0 pattern, no committed pytest): 9/9 branches = the 6 required plus pre-0.3.0 grandfather skip, the 9.0 boundary (confirms strict >9.0 trigger), and writer-undeterminable; plus 3/3 regression guards proving the graduated check is additive (a v0.4.0 9.2 claim failing any v0.3.0 condition still caps at 8.5, exit 3/4/5). Sanity: 5 schemas parse, all scripts AST-parse, gate_id enum G1-G20 with gates.maxItems 20 intact, verification_gates.json unchanged vs HEAD. Deliverables commit 8bae97b; in-progress marker 7c0dddb. CAVEAT: pytest unavailable in scheduler sandbox (no module; pip ENOSPC) so the 198-test gate is deferred to Item 5; Item 3 touched one .py with no committed test referencing it, suite unaffected. Orchestrator wiring that spawns the isolated R-v2 subagent and populates the attacker_* fields is Item 4 (this item only enforces the gate). Git lockfile workaround reused from Items 1-2: rename-aside stale .git/*.lock, GIT_INDEX_FILE=/tmp alt index, read-tree HEAD, add explicit deliverable paths, commit -F; mount still denies unlink on .git/* so post-commit lock warnings are benign."
     },
     {
       "id": 4,
