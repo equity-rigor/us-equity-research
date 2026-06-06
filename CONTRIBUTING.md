@@ -29,10 +29,10 @@ If you want to contribute code:
 2. Fork the repo, branch from `main`, make the change.
 3. Match the existing code style:
    - Verifier scripts: stdlib + pydantic v2, with the `try: from pydantic import ... except ModuleNotFoundError` shim for environments without pydantic.
-   - Schema changes: **additive-only with grandfathering**. Any change that breaks v0.1.x / v0.2.0 / v0.3.0 / v0.4.0 memo validation is a non-starter. New optional fields fine; new required fields require v1.0.0 with migration script.
+   - Schema changes: **additive-only with grandfathering**. Any change that breaks v0.1.x / v0.2.0 / v0.3.0 / v0.4.0 / v0.5.0 memo validation is a non-starter. New optional fields fine; new required fields require v1.0.0 with migration script.
    - Reference files (Markdown): dense prose, no excessive bulleting, red-team voice. Match the existing tone.
 4. All new verifier scripts must include smoke tests covering pass / fail / n_a / grandfathered paths. See `scripts/verify_consensus_variance.py` smoke test patterns in commit history.
-5. Run `pytest -q` before submitting. The 198 baseline must continue passing.
+5. Run `pytest -q` before submitting. The 284 baseline must continue passing (v0.5.0+). If your change touches `scripts/` or `schemas/` at repo root, also run `bash scripts/sync_plugin_files.sh` to refresh the plugin copies; CI fails if they drift from canonical sources.
 
 ## What I will NOT accept
 

@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://us-equity-research.local/schemas/scenarios.json",
+  "title": "5-Scenario Probabilistic Framework — US",
+  "description": "Schema for the 5-scenario block (strong_bear / bear / base / bull / strong_bull) with weights summing to 1.00 ± 0.01. Each scenario has its own EPS path AND its own multiple AND its own narrative bridge. EPS × multiple = target_price must verify within rounding. Ported from china-equity-ic-rigor (强空/空头/基础/多头/强多), English-localized, with US-specific sector branching for multiple type.",
+  "schema_version": "0.1.0",
+  "type": "object",
+  "definitions": {
+    "scenario_id": {
+      "type": "string",
+      "enum": ["strong_bear", "bear", "base", "bull", "strong_bull"],
+      "description": "Five required scenarios. Order convention: strong_bear (P10 tail) → strong_bull (P90 tail). Maps to China 强空/空头/基础/多头/强多."
+    },
+    "multiple_type": {
+      "type": "string",
+      "enum": [
+        "P/E", "EV/EBITDA", "EV/Sales", "EV/FCF", "P/B", "P/AFFO",
+        "EV/ARR", "Rule_of_40_PS", "P/AUM", "EV/EBITDAX", "EV/EBITDAR",
+        "P/PPNR", "ROTCE_implied_PB", "NAV", "NPV_pipeline", "SOTP",
+        "PEG", "Implied_cap_rate", "Other"
+      ],
+      "description": "Per-sector valuation primary multiple. P/E for mature; EV/EBITDA for leveraged industrial; EV/Sales/EV/ARR for high-growth SaaS; P/B for banks/insurers; P/AFFO/NAV for REITs; NPV_pipeline for pre-revenue biotech; EV/EBITDAX for E&P; EV/EBITDAR for airlines; P/AUM for asset managers."
+    },
+    "anchor_ref": {
+      "type": "string",
+      "description": "Reference to anchor_id in source_tags.json (e.g. 'A1', 'B2'). Links scenario to the specific anchor(s) driving it."
+    },
+    "eps_bridge_step": {
+      "type": "object",
+      "description": "One named adjustment in the bear-bridge or bull-symmetric construction. Sum of all steps from base to scenario EPS must equal (base_eps - scenario_eps) within rounding.",
+      "required": ["label", "delta_eps", "source_tag"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Named adjustment, e.g. 'DC revenue miss -10%', 'GPM compression -200bp from mix', 'SBC headwind +$2B', 'Buyback offset -50%', 'Tax rate normalization +200bp', 'Section 174 R&D amortization headwind'"
+        },
+        "delta_eps": {
+          "type": "number",
+          "description": "Change to base EPS in $/share, signed. Negative for bear adjustments."
+        },
+        "layer": {
+          "type": "string",
+          "enum": ["soft", "clean", "strong"],
+          "description": "Soft = high-uncertainty assumption; Clean = directly derivable from named anchor; Strong = stressed/tail. See bear-bridge-us.md."
+        },
+        "source_tag": {
+          "type": "string",
+          "description": "S-level + ref tag for the assumption driving this adjustment (e.g. 'S3: NVDA FY24Q4 call guidance')"
+        }
+      }
+    },
+    "scenario": {
+      "type": "object",
+      "required": ["id", "probability", "narrative_one_liner", "eps", "multiple", "multiple_type", "target_price", "expected_return", "anchors", "strongest_anchor_s_level"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"$ref": "#/definitions/scenario_id"},
+        "probability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Probability weight for this scenario. All five must sum to 1.00 ±0.01."
+        },
+        "narrative_one_liner": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Single-sentence narrative for the scenario, e.g. 'Hyperscaler DC capex flat YoY, Blackwell ASP +30% absorbed, AMD MI400 stays below 10% share'"
+        },
+        "narrative_long": {
+          "type": "string",
+          "description": "Optional 2-4 sentence expansion of the scenario world"
+        },
+        "eps": {
+          "type": "number",
+          "description": "Scenario EPS (FY+1 or FY+2 — must be consistent across all 5 rows). USD per share."
+        },
+        "eps_period": {
+          "type": "string",
+          "pattern": "^(FY\\d{2,4}E?|CY\\d{4}E?|NTM)$",
+          "description": "Period the EPS refers to (e.g. 'FY26E', 'CY2026E', 'NTM'). Must be identical across all 5 scenarios."
+        },
+        "multiple": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Valuation multiple applied in this scenario (e.g. 22.0 for P/E of 22x)."
+        },
+        "multiple_type": {"$ref": "#/definitions/multiple_type"},
+        "target_price": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Computed target price = eps × multiple (for P/E) or appropriate transformation per multiple_type. Verified by verify_eps_pe.py to multiply within rounding."
+        },
+        "expected_return": {
+          "type": "number",
+          "description": "(target_price - current_price) / current_price. Signed decimal (e.g. -0.20 for -20%)."
+        },
+        "anchors": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/anchor_ref"},
+          "minItems": 1,
+          "description": "Anchor IDs (from source_tags.json) driving this scenario. The narrative must be consistent with these anchors."
+        },
+        "strongest_anchor_s_level": {
+          "type": "string",
+          "enum": ["S1", "S2", "S3", "S4", "S5", "Pending"],
+          "description": "Highest-quality S-level among this scenario's anchors. If any scenario relies on Pending, it cannot be a top probability mass."
+        },
+        "eps_bridge": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/eps_bridge_step"},
+          "description": "Named bridge from base_eps to this scenario's eps. For id='base' may be empty."
+        },
+        "multiple_band_basis": {
+          "type": "string",
+          "description": "Historical justification for the multiple, e.g. 'NVDA 5y P/E P5/P25/median/P75/P95 = 28/35/45/58/72; bear PE 25 = below P5 (2022 trough analog)'"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "required": ["schema_version", "ticker", "current_price", "as_of_date", "scenarios", "headline"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0", "0.3.0", "0.4.0"]},
+    "ticker": {"type": "string", "pattern": "^[A-Z]{1,5}(\\.[A-Z]{1,3})?$"},
+    "current_price": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Reference price used for return calculation. USD."
+    },
+    "as_of_date": {"type": "string", "format": "date"},
+    "fiscal_year_end": {
+      "type": "string",
+      "description": "Company fiscal year end, e.g. '01-31' for NVDA"
+    },
+    "base_eps": {
+      "type": "number",
+      "description": "Base scenario EPS — anchor point for bear/bull bridges. Same as scenarios[id='base'].eps."
+    },
+    "scenarios": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/scenario"},
+      "minItems": 5,
+      "maxItems": 5,
+      "description": "Exactly 5 scenarios. Must include one each of strong_bear, bear, base, bull, strong_bull."
+    },
+    "probability_sum_check": {
+      "type": "number",
+      "description": "Sum of all 5 probabilities. Must equal 1.00 ±0.01. Computed by verify_scenario_weights.py."
+    },
+    "conviction_tag": {
+      "type": "string",
+      "enum": ["high_bull", "moderate_bull", "mild_bull", "neutral", "mild_bear", "moderate_bear", "high_bear", "source_conditional", "reactive"],
+      "description": "Maps probability distribution to conviction. high_bull = >50% on bull+strong_bull; moderate_bull = 35-50%; etc. source_conditional fires when any top-3 anchor is S3 or weaker."
+    },
+    "headline": {
+      "type": "object",
+      "required": ["expected_return_median", "expected_return_range_p10_p90", "rating", "default_action", "conditionality"],
+      "additionalProperties": false,
+      "properties": {
+        "expected_return_median": {
+          "type": "number",
+          "description": "Σ(P × return) — probability-weighted expected return over 12 months."
+        },
+        "expected_return_range_p10_p90": {
+          "type": "array",
+          "items": {"type": "number"},
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "[P10 return, P90 return] of the discrete distribution. With 5 scenarios these usually land on scenario boundaries."
+        },
+        "rating": {
+          "type": "string",
+          "enum": ["Strong Buy", "Buy", "Hold", "Sell", "Strong Sell"],
+          "description": "5-band rating per D1. Strong Buy ≥+20%; Buy +10 to +20%; Hold ±10%; Sell -10 to -20%; Strong Sell ≤-20%."
+        },
+        "default_action": {
+          "type": "string",
+          "enum": ["initiate_long", "add_long", "hold_long", "trim_long", "exit_long", "initiate_short", "add_short", "hold_short", "cover_short", "no_action", "spread_long_short"],
+          "description": "Implementation guidance separate from rating. A 'Buy' rating with 'hold_long' default_action is valid (e.g., already at target weight)."
+        },
+        "conditionality": {
+          "type": "string",
+          "enum": ["unconditional", "source_conditional", "range_only"],
+          "description": "Must match headline_conditionality in source_tags.json. Verified by verify_headline_conditionality.py."
+        },
+        "conditional_language_pattern": {
+          "type": "string",
+          "enum": ["A_source_conditional_bias", "B_if_then_event", "C_anchored_to_filing", "D_consensus_range", "none"],
+          "description": "Which conditional language pattern was applied. None only valid when conditionality='unconditional'."
+        },
+        "headline_text": {
+          "type": "string",
+          "minLength": 30,
+          "description": "The exact headline sentence as it will appear in the memo, including all conditional language."
+        }
+      }
+    },
+    "weighting_sensitivity": {
+      "type": "object",
+      "description": "Anchor weighting impact table — required for Phase 4 IC defense. Shows how headline shifts if probability mass moves ±10pp.",
+      "properties": {
+        "base_minus_10_to_bear": {"type": "number", "description": "Headline median if base -10pp, bear +10pp"},
+        "base_minus_10_to_bull": {"type": "number", "description": "Headline median if base -10pp, bull +10pp"},
+        "strong_tail_plus_10": {"type": "object", "properties": {"strong_bear": {"type": "number"}, "strong_bull": {"type": "number"}}}
+      }
+    }
+  }
+}

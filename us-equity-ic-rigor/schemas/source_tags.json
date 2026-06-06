@@ -1,0 +1,319 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://us-equity-research.local/schemas/source_tags.json",
+  "title": "Source Stratification (S1-S5 + Pending) — US",
+  "description": "Schema for source-stratified citations in US-equity IC memos. Every specific number (revenue, GM, segment share, customer concentration, capacity, ADV, beta, etc.) MUST carry one of these tags at first appearance per the discipline in references/source-stratification-us.md. Ported and Americanized from china-equity-ic-rigor. v0.2.0 adds optional `consensus_variance` block tied to gate G15. v0.3.0 adds optional up_revisions_3m + down_revisions_3m fields to revision_velocity for G17 breadth recomputation; consensus_variance entries can include probability_right_pct and scenario_sensitivity_pct for G15 sizing_impact_pp recomputation.",
+  "schema_version": "0.3.0",
+  "type": "object",
+  "definitions": {
+    "s_level": {
+      "type": "string",
+      "enum": ["S1", "S2", "S3", "S4", "S5", "Pending"],
+      "description": "S1=audited 10-K/20-F (PCAOB-audited, SOX 404). S2=10-Q/8-K/DEF 14A/S-1/S-3/S-4/13D/13G/13F/Form 4/6-K. S3=earnings call transcript, mgmt guidance, investor day, IR commentary. S4=Visible Alpha/FactSet/Bloomberg/Refinitiv IBES consensus, sell-side notes; or free aggregator (Yahoo Finance, StockAnalysis.com). S5=Gartner/IDC/IHS Markit/Counterpoint/Omdia/Yipit/Second Measure/Placer.ai/expert network. Pending=unverified, rumor, post-cutoff unverified — CANNOT be a headline anchor."
+    },
+    "us_source_type": {
+      "type": "string",
+      "enum": [
+        "10-K", "10-Q", "8-K", "DEF 14A", "S-1", "S-3", "S-4", "20-F", "6-K",
+        "13D", "13G", "13F", "Form 3", "Form 4", "Form 5", "N-PORT",
+        "Earnings call transcript", "Earnings press release", "Investor day deck", "Mgmt guidance", "Non-deal roadshow notes",
+        "Visible Alpha consensus", "FactSet consensus", "Bloomberg EE", "Refinitiv IBES", "Capital IQ Pro",
+        "Yahoo Finance consensus", "StockAnalysis.com", "WSJ Markets", "AlphaSense", "Motley Fool transcript", "SeekingAlpha",
+        "Gartner", "IDC", "IHS Markit / S&P Global", "NielsenIQ", "Circana", "Counterpoint", "Omdia",
+        "Yipit", "Second Measure", "Earnest Analytics", "M Science", "Placer.ai", "SimilarWeb", "AppFigures",
+        "GLG", "Tegus", "AlphaSights", "Third Bridge",
+        "FRED", "BEA", "BLS", "Census Bureau", "Federal Reserve", "Treasury", "EIA", "CBO",
+        "USTR", "FTC", "DOJ Antitrust", "State AG", "EU CMA", "UK CMA",
+        "BIS Entity List", "OFAC SDN", "CFIUS", "ITAR (State Dept)",
+        "FDA", "FCC", "FERC", "NHTSA", "EPA", "FAA", "CFPB", "OCC", "FDIC", "Fed banking",
+        "PACER", "CourtListener", "ITC §337", "PCAOB inspection",
+        "Damodaran", "Trade press", "Independent research", "Substack",
+        "Other"
+      ],
+      "description": "Document/data type. Drives default S-level via decision rule: any 10-K/20-F = S1; 10-Q/8-K/DEF14A/etc = S2; transcript/guidance = S3; consensus aggregator = S4; alt-data/expert network = S5."
+    },
+    "citation": {
+      "type": "object",
+      "required": ["s_level", "source_type", "ref"],
+      "additionalProperties": false,
+      "properties": {
+        "s_level": {"$ref": "#/definitions/s_level"},
+        "source_type": {"$ref": "#/definitions/us_source_type"},
+        "ref": {
+          "type": "string",
+          "description": "Specific reference. Examples: 'NVDA 2024 10-K Item 7', 'NVDA FY24Q3 10-Q Note 4', 'NVDA FY24Q4 earnings call 2025-02-26 ~22min mark', 'Visible Alpha NVDA DC rev FY26E n=42 median $X range $Y-$Z', 'Gartner DC GPU forecast 2026/03', 'OFAC SDN list query 2026-05-14'"
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Source publication or filing date (ISO 8601)"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "EDGAR direct URL (sec.gov/cgi-bin/browse-edgar?...) or primary-source URL. Required for any S1-S2 citation."
+        },
+        "verified": {
+          "type": "boolean",
+          "description": "True if cross-cutoff verification confirmed via WebSearch/WebFetch within the current run. Required true for any post-knowledge-cutoff S1-S5 number."
+        },
+        "verification_query": {
+          "type": "string",
+          "description": "The exact WebSearch query string or EDGAR full-text search query used"
+        },
+        "freshness_days": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Days between source publication date and memo author date. S4 consensus freshness_days > 14 should be flagged."
+        },
+        "is_anchor_eligible": {
+          "type": "boolean",
+          "description": "True if eligible to be a headline anchor. Default: true for S1-S2; false for S3-S5 unless reinforced by independent source; always false for Pending."
+        },
+        "promotion_path": {
+          "type": "string",
+          "description": "For S3-S5: what verifiable event would graduate to a stronger S-level (e.g., 'Next 10-Q filing 2026-08-15 expected to confirm segment split')."
+        }
+      }
+    },
+    "anchor": {
+      "type": "object",
+      "description": "A specific number that drives the headline thesis. The top 3 anchors determine headline conditionality.",
+      "required": ["claim", "value", "unit", "citation", "drives_scenarios"],
+      "additionalProperties": false,
+      "properties": {
+        "anchor_id": {"type": "string", "description": "Short ID like 'A1', 'B2', etc. used for cross-reference in scenario table"},
+        "claim": {
+          "type": "string",
+          "description": "Plain-English claim, e.g. 'NVDA Q4 FY26 datacenter revenue', 'NVDA Hopper-to-Blackwell ASP uplift', 'NVDA gross margin guide ex-mix'"
+        },
+        "value": {"type": ["number", "string"]},
+        "unit": {
+          "type": "string",
+          "enum": ["$M", "$B", "$K", "%", "bps", "x", "shares_M", "shares_B", "days", "units_M", "units_K", "count", "ratio", "USD", "Other"],
+          "description": "Unit of the value. Note: $M vs $B confusion is a B1-class forensic bug — be explicit."
+        },
+        "citation": {"$ref": "#/definitions/citation"},
+        "drives_scenarios": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["strong_bear", "bear", "base", "bull", "strong_bull"]
+          },
+          "minItems": 1,
+          "description": "Which scenarios this anchor drives. An anchor that drives 'base' but not 'bull' is a base-case fixture; an anchor that drives 'strong_bull' and not 'base' is a tail-only assumption."
+        },
+        "sensitivity_pct": {
+          "type": "number",
+          "description": "Approximate % change in headline 12mo expected return per 10% change in this anchor's value. Useful for the anchor weighting impact table."
+        }
+      }
+    }
+  },
+  "type": "object",
+  "required": ["schema_version", "all_citations", "top_anchors", "headline_conditionality"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0", "0.3.0", "0.4.0"]},
+    "ticker": {"type": "string", "pattern": "^[A-Z]{1,5}(\\.[A-Z]{1,3})?$"},
+    "as_of_date": {"type": "string", "format": "date"},
+    "model_cutoff_date": {
+      "type": "string",
+      "format": "date",
+      "description": "The Claude knowledge cutoff used at run time. Anchors dated after this require verified=true."
+    },
+    "all_citations": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/citation"},
+      "description": "Every specific number cited in the memo, in order of first appearance. Used by verify_source_tags.py to scan memo Markdown for unsourced specifics."
+    },
+    "top_anchors": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {"$ref": "#/definitions/anchor"},
+      "description": "The top 3-5 anchors that drive the headline thesis. The first three determine headline conditionality per Rule 1 in source-stratification-us.md."
+    },
+    "headline_conditionality": {
+      "type": "string",
+      "enum": ["unconditional", "source_conditional", "range_only"],
+      "description": "Computed from top-3 anchors: 'unconditional' if all S1-S2; 'source_conditional' if any S3 in top-3; 'range_only' if any S4-S5 in top-3. Verified by verify_headline_conditionality.py (Phase C)."
+    },
+    "pending_assumptions": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/citation"},
+      "description": "Pending (unverified) claims explicitly excluded from headline anchoring. Allowed in 'Pending Assumptions' section of memo; never in headline or scenario weighting."
+    },
+    "consensus_variance": {
+      "type": "array",
+      "description": "(v0.2.0+) Declared consensus variances per `consensus-variance-us.md`. Gates G15. Required (non-empty with ≥1 load-bearing entry) for any non-Hold rating unless memo is self-labeled 'consensus-anchored' in headline. Empty array OR absent is valid for Hold-rated or consensus-anchored memos.",
+      "items": {
+        "type": "object",
+        "required": ["type", "line_item", "our_value", "consensus_value", "magnitude_pct", "evidence_refs", "sizing_impact_pp"],
+        "additionalProperties": false,
+        "properties": {
+          "variance_id": {"type": "string", "description": "Short ID like 'V1', 'V2' used for cross-reference in scenarios."},
+          "type": {
+            "type": "string",
+            "enum": ["revenue", "margin", "multiple", "scenario_weight", "timing"],
+            "description": "Variance type per the taxonomy in consensus-variance-us.md."
+          },
+          "line_item": {
+            "type": "string",
+            "description": "Specific line: 'FY27 datacenter revenue', 'FY26 gross margin', 'forward P/E', 'bull scenario probability', 'Pioneer synergy run-rate timing'."
+          },
+          "our_value": {"type": ["number", "string"]},
+          "consensus_value": {"type": ["number", "string"]},
+          "unit": {
+            "type": "string",
+            "description": "Unit of the value: $M, $B, %, x, months, etc. Same unit conventions as anchors."
+          },
+          "magnitude_pct": {
+            "type": "number",
+            "description": "Magnitude of disagreement as percent (signed: positive if our number > consensus; negative if our number < consensus)."
+          },
+          "probability_right_pct": {
+            "type": "number",
+            "minimum": 5,
+            "maximum": 95,
+            "description": "Analyst's subjective probability of being right vs consensus. Range-bound 5%-95% — outside this range is over-claim."
+          },
+          "scenario_sensitivity_pct": {
+            "type": "number",
+            "description": "% NPV impact per 10% change in this line item (from anchor sensitivity_pct in the same memo's source_tags)."
+          },
+          "sizing_impact_pp": {
+            "type": "number",
+            "description": "Computed: magnitude_pct × probability_right_pct × scenario_sensitivity_pct. Variances with <2.0pp are decorative and fail G15 if claimed as load-bearing."
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {"$ref": "#/definitions/citation"},
+            "minItems": 1,
+            "description": "Supporting citations. Must satisfy the evidence matrix in consensus-variance-us.md: revenue/margin = ≥1× S2 or S3 + triangulation; multiple = peer-set re-rating mechanism + historical precedent; scenario_weight = base-rate analysis from analog set; timing = ≥1× S2/S3 docket + operational mechanism."
+          },
+          "why_consensus_missed": {
+            "type": "string",
+            "description": "One-sentence operational mechanism explaining why consensus has not yet incorporated this evidence. E.g. 'Street's last EPS revision was pre-call; the call transcript revealed the deposit beta inflection.'"
+          },
+          "drives_scenarios": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["strong_bear", "bear", "base", "bull", "strong_bull"]
+            },
+            "minItems": 1,
+            "description": "Which scenario weights this variance shifts."
+          },
+          "red_team_challenge": {
+            "type": "string",
+            "description": "Specific falsification criterion + the trigger event/date that would resolve the variance. Required for R-v2 to attack."
+          },
+          "load_bearing": {
+            "type": "boolean",
+            "description": "True if sizing_impact_pp ≥ 2.0 AND ≥1 evidence_ref is S1-S3. False = decorative variance, not counted for G15."
+          }
+        }
+      }
+    },
+    "revision_velocity": {
+      "type": "object",
+      "description": "(v0.2.0+) Earnings revision velocity snapshot per A6 + G17. Required disclosure when n_analysts >= 5. All numbers are S4-derived (FactSet / Visible Alpha / Bloomberg EE / free aggregator).",
+      "additionalProperties": false,
+      "properties": {
+        "n_analysts": {"type": "integer", "minimum": 0},
+        "fy1_eps_revision_1m_pct": {"type": "number", "description": "% change in consensus FY1 EPS median over trailing 30 days"},
+        "fy1_eps_revision_3m_pct": {"type": "number", "description": "% change in consensus FY1 EPS median over trailing 90 days. Primary momentum window."},
+        "fy1_eps_revision_6m_pct": {"type": "number", "description": "% change in consensus FY1 EPS median over trailing 180 days"},
+        "fy2_eps_revision_3m_pct": {"type": "number"},
+        "pt_revision_3m_pct": {"type": "number", "description": "% change in consensus PT median over trailing 90 days"},
+        "breadth_3m": {
+          "type": "number",
+          "minimum": -1.0,
+          "maximum": 1.0,
+          "description": "(up_revisions - down_revisions) / n_analysts over trailing 90 days. |breadth| > 0.5 = directional consensus shift."
+        },
+        "up_revisions_3m": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "(v0.3.0+) Count of analysts who revised FY1 EPS estimate UP in trailing 90 days. Optional, but if both up_revisions_3m and down_revisions_3m are populated alongside n_analysts, G17 (v0.3.0) recomputes breadth_3m = (up - down) / N and verifies match within ±0.02."
+        },
+        "down_revisions_3m": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "(v0.3.0+) Count of analysts who revised FY1 EPS estimate DOWN in trailing 90 days. Used in G17 breadth recomputation when paired with up_revisions_3m and n_analysts."
+        },
+        "pre_print_drift_pct": {
+          "type": "number",
+          "description": "FY1 EPS revision in the 30 days before the most recent earnings print. Pre-print is higher-information than post-print snap."
+        },
+        "peer_median_revision_3m_pct": {
+          "type": "number",
+          "description": "Peer-set median 3m FY1 EPS revision for comparison."
+        },
+        "g17_status": {
+          "type": "string",
+          "enum": ["disclosed", "n_a_thin_coverage"],
+          "description": "n_a_thin_coverage if n_analysts < 5."
+        }
+      }
+    },
+    "bank_metrics": {
+      "type": "object",
+      "description": "(v0.2.0+) Bank-specific metrics per FS-Banks Augmentation in phase-1-deep-dive-us.md + G16. Required disclosure when sector ∈ {Financials/Banks, Diversified Banks, Regional Banks, Investment Banking & Brokerage, Insurance, BDC}. All numbers S1 (10-K), S2 (10-Q / Y-9C / Call Report / Fed releases) unless noted.",
+      "additionalProperties": false,
+      "properties": {
+        "bank_category": {
+          "type": "string",
+          "enum": ["I", "II", "III", "IV", "below_100b", "n_a_non_depository"],
+          "description": "Category I-IV per US bank tailoring rules. below_100b = community bank tier. n_a_non_depository = broker-dealer / insurer / BDC."
+        },
+        "assets_usd_b": {"type": "number"},
+        "afs_book_value_usd_b": {"type": "number"},
+        "afs_fair_value_usd_b": {"type": "number"},
+        "aoci_mark_usd_b": {"type": "number", "description": "Signed; negative is unrealized loss."},
+        "htm_book_value_usd_b": {"type": "number"},
+        "htm_fair_value_usd_b": {"type": "number"},
+        "htm_unrealized_loss_usd_b": {"type": "number", "description": "Computed: htm_book - htm_fair. Not in AOCI but real economic loss."},
+        "tbvps_reported_usd": {"type": "number"},
+        "tbvps_mtm_usd": {"type": "number", "description": "Reported TBVPS less HTM unrealized loss × (1-tax) / diluted shares"},
+        "uninsured_deposit_concentration_pct": {"type": "number"},
+        "svb_pattern_flag": {
+          "type": "boolean",
+          "description": "True if HTM unrealized loss > 25% TCE AND uninsured concentration > 60%."
+        },
+        "cet1_ratio_pct": {"type": "number"},
+        "cet1_ratio_pro_forma_no_opt_out_pct": {"type": "number", "description": "Only for AOCI opt-out banks; required CET1 if opt-out reversed."},
+        "aoci_opt_out": {"type": "boolean"},
+        "scb_pct": {"type": "number", "description": "Stress Capital Buffer from Fed determination letter."},
+        "gsib_surcharge_pct": {"type": "number", "description": "Category I only; higher of Method 1 / Method 2."},
+        "required_cet1_pct": {"type": "number", "description": "Computed: 4.5 + 2.5 + scb + gsib_surcharge."},
+        "capital_return_capacity_usd_b": {"type": "number"},
+        "nim_latest_pct": {"type": "number"},
+        "nim_5y_trajectory": {
+          "type": "array",
+          "items": {"type": "number"},
+          "minItems": 5,
+          "maxItems": 20,
+          "description": "Trailing quarterly NIM values, oldest first."
+        },
+        "deposit_beta_cumulative_cycle_pct": {"type": "number"},
+        "asset_repricing_12m_pct": {"type": "number", "description": "% of earning assets repricing within 12 months."},
+        "noninterest_bearing_deposits_pct": {"type": "number"},
+        "rate_sensitive_deposits_pct": {"type": "number", "description": "MMA + HY savings + brokered as % of total deposits."},
+        "acl_to_loans_pct": {"type": "number"},
+        "office_cre_acl_pct": {"type": "number"},
+        "office_cre_to_tce_pct": {"type": "number", "description": ">50% = regulatory watch threshold post-2023."},
+        "ccar_dfast_severely_adverse_cet1_trough_pct": {"type": "number"},
+        "basel_iii_endgame_status": {
+          "type": "string",
+          "description": "Free-text status as of memo date — 'In final rule review', 'Effective YYYY-MM-DD, phase-in to YYYY', etc."
+        },
+        "g16_status": {
+          "type": "string",
+          "enum": ["pass", "fail", "n_a"]
+        }
+      }
+    }
+  }
+}

@@ -4,6 +4,120 @@ All notable changes to this project will be documented in this file. Format
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) +
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] — 2026-06-06
+
+### Sprint 4 — Verifier reachability fix + consolidated output convention
+
+Two related fixes that surfaced together from the end-to-end MU run on
+2026-06-06. Both close gaps the v0.4.0 framework was advertising but not
+actually delivering for users who install via the marketplace and run from
+outside the cloned repo.
+
+### Fixed — CRITICAL: Verifier scripts now reachable from plugin install (Item 8)
+
+Prior versions (v0.1.0 through v0.4.0) distributed only the plugin directories
+via the marketplace; the repo-root `scripts/` and `schemas/` directories were
+NOT copied into `~/.claude/plugins/<plugin>/<version>/`. When users invoked
+the framework from any directory outside the cloned repo, the agent could not
+reach `scripts/verify_*.py` and silently degraded to LLM-graded "analytical"
+gate evaluation. This silently nullified the framework's 20-gate verification
+claim for typical install flows.
+
+**Fix:** Each plugin directory now bundles its own `scripts/` and `schemas/`
+subdirectories, synced from the canonical repo-root sources via
+`scripts/sync_plugin_files.sh`. CI fails if the sync is stale (see
+`scripts/tests/test_plugin_file_sync.py`). SKILL.md and command files now use
+explicit `${CLAUDE_PLUGIN_ROOT}/scripts/verify_*.py` paths. Both SKILL.md
+files have a new anti-degradation preamble at the top that forbids silent
+fallback to analytical evaluation.
+
+**Operator-explicit override path:** If a user is in a sandboxed environment
+where Python scripts genuinely cannot be reached, they can authorize an
+analytical-only run by stating "I understand the verifiers won't run; proceed
+analytically anyway." The agent must then set
+`memo_metadata.gates_evaluated_analytically: true` in the structured JSON,
+include a visible disclaimer in the IC memo header, set every gate's
+`evaluation_method` to `analytical_llm` in verification_gates.json, and cap
+the rubric score at 7.5. This makes degradation loud, not silent.
+
+**Discovery:** Found during MU end-to-end run 2026-06-06. The MU run's
+manifest documented the degradation directly: "Manifest hand-assembled
+because plugin scripts/write_manifest.py + schemas/ are absent in working
+dir." Honest disclosure of the degradation by the orchestrator is what
+surfaced the bug; the framework's own provenance discipline caught its own
+packaging defect.
+
+### Changed — Consolidated structured.json output convention (Item 9)
+
+The v0.4.x convention required Phase 3 to write five separate JSON files
+per memo (`<TICKER>_structured.json`, `_source_tags.json`, `_scenarios.json`,
+`_verification_gates.json`, `_manifest.json`). The MU run naturally
+consolidated `source_tags` and `scenarios` as nested sub-objects inside
+`structured.json` rather than splitting them — and the result was easier to
+read, easier to verify, and equally machine-parseable.
+
+**New v0.5.0+ convention:** four files per memo, not five:
+
+- `<TICKER>_IC_memo.md` — human-readable memo (unchanged)
+- `<TICKER>_structured.json` — consolidated machine-readable representation
+  containing memo_metadata + recommendation + source_tags + scenarios +
+  consensus_variance + quant_overlay + bear_eps_bridge + what_would_reverse +
+  position_sizing + adjudication_trail (all inline; no sidecars)
+- `<TICKER>_verification_gates.json` — verifier audit trail (Phase 4 output)
+- `<TICKER>_manifest.json` — provenance manifest (G19 input)
+
+Plus optional `<TICKER>_redteam_round_N.md` for each PM red-team iteration.
+
+**Backward compatibility:** v0.1.x through v0.4.x memos using the five-file
+split convention remain valid. Verifier scripts continue to accept separate
+`--source-tags-json` and `--scenarios-json` arguments for grandfathered runs.
+Future verifier behavior reads sub-objects from the consolidated structured
+JSON first, falling back to separate files if not found.
+
+### Added — v0.5.0 schema additions
+
+- `schemas/memo.json` schema_version enum extended to include "0.5.0".
+- `schemas/memo.json` adds `memo_metadata.gates_evaluated_analytically`
+  boolean field (default false) for the operator-explicit override path.
+- `schemas/verification_gates.json` schema_version enum extended to include
+  "0.5.0".
+- `schemas/verification_gates.json` adds per-gate `evaluation_method` enum
+  field (`programmatic_script` | `analytical_llm` | `manual_review`).
+  Required for v0.5.0+ memos; missing field on pre-v0.5.0 memos is
+  grandfathered as `programmatic_script` (the assumed default).
+
+All changes are strictly additive. Existing v0.1.0-v0.4.0 memos validate
+clean against the v0.5.0 schemas without modification.
+
+### Added — sync infrastructure
+
+- `scripts/sync_plugin_files.sh` — maintains plugin copies of repo-root
+  scripts and schemas. `bash scripts/sync_plugin_files.sh` applies the sync;
+  `--check` mode reports drift and exits 1 (used by CI).
+- `scripts/tests/test_plugin_file_sync.py` — pytest module verifying
+  SHA-256 match of plugin copies against repo-root sources. Fails CI if any
+  plugin script or schema drifts from canonical source. 7 test functions
+  covering source dirs exist, plugin dirs exist, plugin scripts/ exists,
+  plugin schemas/ exists, script content match, schema content match, no
+  orphan files.
+- `design/sprint-4-item-8-verifier-reachability.md` — design doc explaining
+  root cause, alternatives considered, and chosen approach.
+- `design/sprint-4-item-8-skill-preamble.md` — the SKILL.md preamble text +
+  insertion points + companion edits documentation.
+
+### Migration — v0.4.0 → v0.5.0
+
+Users on v0.4.0 should run `/plugin update equity-rigor/us-equity-research`
+to receive the bundled scripts/schemas and the updated SKILL.md preambles.
+No memo content migration required; all v0.4.0 outputs validate clean against
+v0.5.0 schemas.
+
+If you wrote a v0.4.0 memo with self-graded gates because the verifier
+scripts weren't reachable (the MU run pattern), set
+`memo_metadata.gates_evaluated_analytically: true` and add the disclaimer
+manually before re-validating. The v0.5.0 verifiers respect the field; an
+honest pre-existing analytical run does not need to be redone, only labeled.
+
 ## [0.4.0] — 2026-05-30
 
 ### Sprint 3a — R-v2 adversarial isolation + graduated rigor scale

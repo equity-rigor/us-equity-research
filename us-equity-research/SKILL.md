@@ -3,6 +3,35 @@ name: us-equity-research
 description: Conduct institutional buy-side fundamental research on a single-name US-listed equity using a multi-agent workflow with mandatory web verification, S1-S5 source stratification, and 5-scenario probabilistic valuation. Use this skill whenever the user provides a US ticker (1-5 uppercase chars on NYSE/Nasdaq/AMEX/OTC such as NVDA, AAPL, JPM, XOM, MRK, BRK.B, AMZN) and asks for fundamental analysis, an investment thesis, a stock pitch, an IC memo, buy-side research, a 10-K read, an earnings prep, a kill thesis, a long/short pair-trade structure, or any institutional-grade deep-dive. Triggers include "is X a buy", "build me a thesis on", "stock pitch for X", "buy-side research on X", "IC memo for X", "fundamental analysis of X", "earnings prep for X", "kill thesis on X", "10-K read on X", "pair-trade structure long X short Y", "long X short Y", "fundamental work on X". Also triggers on sector phrases including "AI infrastructure", "datacenter capex", "energy transition", "biotech pipeline", "SaaS Rule of 40", "bank stress capital", "REIT AFFO", "E&P FCF yield". In scope: US-domiciled common equity and foreign-issuer ADRs (Toyota, Spotify, BABA, Nestlé). Out of scope: PE deals (use lbo-model), sell-side initiation report format (use equity-research:initiating-coverage directly), retail-investor commentary (FINRA Rule 2210 scope). Default mode is EDGAR-only and free-aggregator data; optional premium hooks (Visible Alpha, Capital IQ, AlphaSense, Bloomberg) gate behind explicit user signaling. Optional polished Excel DCF, Excel comps, and 30-50pg DOCX outputs delegate to financial-analysis and equity-research plugins when installed.
 ---
 
+## CRITICAL: Verifier Script Path Resolution
+
+This plugin bundles its verifier scripts at `${CLAUDE_PLUGIN_ROOT}/scripts/` and JSON schemas at `${CLAUDE_PLUGIN_ROOT}/schemas/`. All `scripts/verify_*.py` and `scripts/write_manifest.py` references in this SKILL resolve to that location.
+
+### Execution requirements (non-negotiable)
+
+**1. Use the explicit plugin-root path for every script invocation.**
+
+```bash
+python ${CLAUDE_PLUGIN_ROOT}/scripts/verify_eps_pe.py --memo-json outputs/<TICKER>_structured.json
+python ${CLAUDE_PLUGIN_ROOT}/scripts/write_manifest.py --ticker <TICKER> --outputs-dir outputs/
+```
+
+If `${CLAUDE_PLUGIN_ROOT}` is not set in the current Claude Code version, the plugin is installed at `~/.claude/plugins/<plugin-name>/<version>/` (e.g., `~/.claude/plugins/us-equity-research/0.5.0/`). Use that absolute path as a fallback.
+
+**2. NEVER fall back to "evaluate gates analytically."**
+
+If you cannot reach a verifier script for any reason (file not found, permission denied, Python import error, missing pydantic dependency, etc.), STOP execution of the current phase. Report the error to the user with the exact command attempted, the exact error message returned, and a request to either (a) clone the repo at `https://github.com/equity-rigor/us-equity-research` and run Claude Code from that directory, OR (b) manually copy the missing scripts to the plugin install location.
+
+Do NOT proceed to produce a memo with gate statuses you judged yourself. Self-graded gates are not gates. They are LLM opinions about LLM output.
+
+**3. The verifier scripts are this framework's distinguishing feature.** A memo produced without programmatic verification has no claim to the "20-gate verification" rigor advertised in the README. Self-graded gates produce a memo of the same quality as a careful prompt template — useful, but not what was promised.
+
+**4. Operator-explicit override (the only allowed degradation path).** If the user explicitly says "I understand the verifiers won't run; proceed analytically anyway," THEN you may produce the memo with analytically-judged gate statuses. In that case you MUST set `memo_metadata.gates_evaluated_analytically: true` in `<TICKER>_structured.json`, include the disclaimer *"Gate statuses in this memo were evaluated analytically by the language model; the programmatic verifier scripts did not execute for this output"* in the IC memo header, set every gate's `evaluation_method` field to `"analytical_llm"`, and cap the rubric score at 7.5 regardless of mechanical compliance.
+
+This preamble was added in v0.5.0 after the v0.4.0 MU run (2026-06-06) revealed the framework was silently degrading to LLM-analytical gate evaluation when verifier scripts were not reachable from the user's working directory. The structural mechanism preventing silent degradation is this preamble plus the bundled `scripts/` and `schemas/` directories inside each plugin.
+
+---
+
 # US Single-Name Equity Research Workflow
 
 A multi-phase, multi-agent fundamental research framework for US-listed equities. Produces IC-memo-grade output with mandatory web verification, integrated red team, S1-S5 source stratification, 5-scenario probabilistic valuation, and explicit position sizing across mandate types. Designed to compose with the buy-side PM rigor layer `us-equity-ic-rigor` and to delegate Excel/DOCX artifact construction to marketplace plugins `financial-analysis` and `equity-research` when installed.
@@ -261,7 +290,7 @@ Append to `web_search_log` after each WebSearch / WebFetch / EDGAR / FRED / XBRL
 **Manifest write step (end of Phase 3).** Run:
 
 ```bash
-python scripts/write_manifest.py \
+python ${CLAUDE_PLUGIN_ROOT}/scripts/write_manifest.py \
     --ticker <TICKER> \
     --outputs-dir outputs/ \
     --seed outputs/<TICKER>_manifest_seed.json
