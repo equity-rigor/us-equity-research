@@ -39,3 +39,6 @@ point72-*
 
 # External communications drafts — local-only; do not commit pre-publication marketing copy
 design/external-comms/
+
+# Construction-phase prompt — local archive only; contradicts portfolio-piece framing
+BUILD_PROMPT.md
