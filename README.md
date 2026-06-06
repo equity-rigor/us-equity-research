@@ -2,7 +2,7 @@
 
 > Institutional buy-side fundamental research framework for US-listed equities, with a PM-grade red-team rigor layer.
 
-![License](https://img.shields.io/badge/license-MIT-blue) ![Version](https://img.shields.io/badge/version-0.5.1-green) ![Tests](https://img.shields.io/badge/pytest-266%20passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue) ![Version](https://img.shields.io/badge/version-0.5.2-green) ![Tests](https://img.shields.io/badge/pytest-266%20passing-brightgreen)
 
 > **Disclaimer.** This repository is software released under the MIT license. The calibration memos in `examples/` are plugin self-test artifacts demonstrating the framework's output format only — they are NOT investment advice or recommendations, and they do NOT reflect any current or past employment. The author is a graduate student; these artifacts were not produced in connection with any buy-side, sell-side, or research employer. The framework's 20 verification gates catch mechanical and definitional defects (math reconciles, sources are stratified, segment GM ties to consolidated, etc.); they do NOT validate the predictive value of any view expressed in any memo. Numerical thresholds throughout the framework (8pp differentiation for G20, 2.0pp variance sizing for G15, ±0.2 Barra tolerance for G18, etc.) are author-asserted, not empirically calibrated against forward returns. No backtest of any framework component exists as of the current version. Use at your own discretion.
 
@@ -42,10 +42,18 @@ Same commands work in Cowork chat: `/plugin marketplace add`, `/plugin install`.
 ### Development / manual install
 
 ```bash
-git clone <this-repo-url>
+git clone https://github.com/equity-rigor/us-equity-research.git
 cd us-equity-research
 cp -R us-equity-research us-equity-ic-rigor ~/.claude/plugins/
 ```
+
+Note: v0.5.0+ plugin install via `/plugin marketplace add` is the recommended
+path because the marketplace install correctly bundles `scripts/` and `schemas/`
+inside each plugin directory (Sprint 4 Item 8). The manual `cp -R` above still
+works for development but you'll need to copy `scripts/` and `schemas/` into
+each plugin too, or run Claude Code from this repo root so the bundled copies
+inside `us-equity-research/scripts/` and `us-equity-ic-rigor/scripts/` are
+reachable.
 
 ## Quick start
 
@@ -168,12 +176,14 @@ This project was developed and tested against `claude-for-financial-services` ma
 │   └── templates/                         # opinion letter checklist + IC debate script template
 ├── scripts/                               # verification scripts (G1-G20; G13+G14 share verify_quant_overlay.py) + pytest fixtures
 │   └── tests/                             # 18 test files (283 collected, 266 passed, 17 skipped; v0.5.1 adds schema-version regression meta-test)
-├── outputs/                               # Phase E IC memos (NVDA / JPM / XOM / MRK / DLR) + structured JSON
+├── examples/                              # Phase E v0.1.x calibration memos (NVDA / JPM / XOM / MRK / DLR) + v0.5.1 flagship (MU)
 ├── reference/                             # gitignored upstream plugin source (D23)
 ├── templates/                             # gitignored China A-share precedent templates
+├── .claude/                               # project-level Claude Code settings (permissions.allow for safe commands)
+├── .github/workflows/                     # CI: pytest.yml + lint.yml
+├── pyproject.toml                         # Python package manifest (us-equity-research-verifiers)
 ├── README.md
-├── CHANGELOG.md
-└── BUILD_PROMPT.md
+└── CHANGELOG.md
 ```
 
 ## Contributing

@@ -1,6 +1,21 @@
-# Examples — Plugin Self-Test Calibration Memos
+# Examples — Plugin Self-Test Memos
 
-This directory contains the five calibration memos produced during the framework's v0.1.0 calibration phase. They demonstrate the orchestrator's output format end-to-end on real US-listed equities and exercise the verification gates available at v0.1.x.
+This directory contains two cohorts of example memos:
+
+| Cohort | Tickers | Schema | Gates exercised | When |
+|---|---|---|---|---|
+| **v0.5.1 flagship** (`v0.5.1/`) | MU | v0.4.0 | G1-G20 (analytically evaluated; see disclosure) | 2026-06-06 |
+| **v0.1.x calibration set** (root of `examples/`) | NVDA, JPM, MRK, XOM, DLR | v0.1.0 | G1-G14 (grandfathered) | 2026-05-19 |
+
+The v0.5.1 flagship is the framework's most current end-to-end example and the one to point a skeptical reader at. It exercises G15 (consensus variance), G17 (revision velocity), G19 (provenance manifest), and G20 (view defensibility with isolated R-v2 attack). See `v0.5.1/README.md` for the honest provenance disclosure — that run pre-dated the Sprint 4 Item 8 verifier-reachability fix and its gates were analytically evaluated by the LLM rather than by Python script execution; the disclosure is itself part of the framework's discipline pattern.
+
+The v0.1.x calibration set is what's described in the rest of this README. They were produced during the original Phase E framework calibration and exercise only G1-G14. They are grandfathered to schema_version="0.1.0" and the v0.2.0+ gates are skipped per design (see `schemas/memo.json` schema_version enum).
+
+---
+
+# Original v0.1.x calibration set documentation
+
+This directory's `*_IC_memo.md`, `*_structured.json`, `*_scenarios.json`, `*_source_tags.json`, and `*_verification_gates.json` files at the root level (not in subdirectories) contain the five calibration memos produced during the framework's v0.1.0 calibration phase. They demonstrate the orchestrator's output format end-to-end on real US-listed equities and exercise the verification gates available at v0.1.x.
 
 ## Important disclaimers (read first)
 

@@ -30,7 +30,7 @@ Detection rule: if the user requests an Excel or DOCX output AND the correspondi
 
 > "Excel DCF / Excel comps / polished DOCX outputs require installing `financial-analysis@claude-for-financial-services` and `equity-research@claude-for-financial-services`. Producing Markdown + JSON only."
 
-If the user never asks for Excel/DOCX, no detection check is needed and no note is emitted. This is the **EDGAR-only portability principle** (per BUILD_PROMPT and D5): the plugin works standalone.
+If the user never asks for Excel/DOCX, no detection check is needed and no note is emitted. This is the **EDGAR-only portability principle** (per D5 in `design/open-decisions.md`): the plugin works standalone.
 
 ---
 

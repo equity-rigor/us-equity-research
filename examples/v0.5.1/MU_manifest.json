@@ -1,0 +1,59 @@
+{
+  "run_id": "mu-20260606-phase0-3-icmemo-rt2",
+  "ticker": "MU",
+  "plugin_versions": {"us_equity_research": "0.4.0", "us_equity_ic_rigor": "0.4.0"},
+  "hand_authored": false,
+  "generated_note": "Manifest hand-assembled because plugin scripts/write_manifest.py + schemas/ are absent in working dir; conforms to schemas/manifest.json shape (run_id, phase_timing, web_search_log, agent_provenance, output hashes).",
+  "phase_timing": {
+    "phase_0": {"note": "Setup, identifier + primary-financial verification, hypothesis tree"},
+    "phase_1": {"note": "5 specialists parallel (A1/A4/A5/A8/FS)"},
+    "phase_1_5": {"note": "not triggered — all Phase-1 agents used 20-28 web/EDGAR calls"},
+    "phase_2": {"note": "6 agents parallel (A2/A3/A3-Peers/R/A6/A-Consensus)"},
+    "phase_3": {"note": "3 agents (A7 valuation / topic-forensic GM-cliff / isolated R-v2)"},
+    "verification": {"note": "consolidated independent re-verification + Broadcom/price recheck"}
+  },
+  "verification_calls_count": 40,
+  "verification_calls_note": ">=12 required (D9); 40+ executed across orchestrator + specialists",
+  "web_search_log_summary": [
+    {"tool": "SEC XBRL companyconcept", "target": "Revenue/GrossProfit/NetIncome/Capex/D&A/Equity/AR", "phase": 0, "used_by": "orchestrator+FS"},
+    {"tool": "WebFetch/curl", "target": "data.sec.gov submissions CIK0000723125", "phase": 0, "used_by": "orchestrator"},
+    {"tool": "WebSearch", "target": "FQ2'26 / FQ3'26 guide / HBM", "phase": 0, "used_by": "orchestrator"},
+    {"tool": "WebSearch+Fetch", "target": "TrendForce DRAM/NAND/HBM pricing + share", "phase": 1, "used_by": "A1"},
+    {"tool": "SEC XBRL+WebSearch", "target": "capex/fab map/CHIPS", "phase": 1, "used_by": "A4"},
+    {"tool": "WebFetch", "target": "BIS/Federal Register/OFAC/MOFCOM/CHIPS", "phase": 1, "used_by": "A5"},
+    {"tool": "WebSearch", "target": "price/valuation/short interest/Form 4/13F", "phase": 1, "used_by": "A8"},
+    {"tool": "SEC XBRL+filings", "target": "5yr financials/NRV/SBC/inventory/auditor", "phase": 1, "used_by": "FS"},
+    {"tool": "SEC 10-Q", "target": "Note 5 AR / Note 15 tax / Note 17 concentration / 8-K guide", "phase": 2, "used_by": "A2"},
+    {"tool": "WebSearch", "target": "consensus FY26/27, Wells Fargo through-cycle EPS", "phase": 2, "used_by": "A-Consensus"},
+    {"tool": "WebSearch", "target": "SK Hynix/Samsung comps + HBM share", "phase": 2, "used_by": "A3-Peers"},
+    {"tool": "WebSearch", "target": "HBM SCA structure / customer roster / roadmap", "phase": 2, "used_by": "A3"},
+    {"tool": "WebSearch", "target": "revision velocity / catalyst calendar / China supply", "phase": 2, "used_by": "A6"},
+    {"tool": "WebSearch", "target": "base-rate cycle history / glut timing / Broadcom signal", "phase": 2, "used_by": "R"},
+    {"tool": "WebSearch", "target": "FRED DGS10 / Damodaran ERP / beta / SK Hynix multiple", "phase": 3, "used_by": "A7"},
+    {"tool": "WebSearch", "target": "independent re-verify: Broadcom AI +143%, fab timing, CXMT, 10b5-1, FY27 EPS", "phase": 3, "used_by": "R-v2 isolated"},
+    {"tool": "WebSearch", "target": "verification: Broadcom cause + MU 6/5 close $864.01", "phase": "verification", "used_by": "orchestrator"}
+  ],
+  "agent_provenance": [
+    {"id": "A1", "role": "industry & cycle", "phase": 1, "tool_uses": 20},
+    {"id": "A4", "role": "capacity & capex", "phase": 1, "tool_uses": 21},
+    {"id": "A5", "role": "regulatory & policy", "phase": 1, "tool_uses": 28},
+    {"id": "A8", "role": "positioning & sentiment", "phase": 1, "tool_uses": 27},
+    {"id": "FS", "role": "forensic accounting", "phase": 1, "tool_uses": 25},
+    {"id": "A2", "role": "forensic continuation", "phase": 2, "tool_uses": 13},
+    {"id": "A3", "role": "customer/commercial pipeline", "phase": 2, "tool_uses": 19},
+    {"id": "A3-Peers", "role": "competitive comps", "phase": 2, "tool_uses": 15},
+    {"id": "R", "role": "red team v1", "phase": 2, "tool_uses": 15},
+    {"id": "A6", "role": "channel + revision velocity", "phase": 2, "tool_uses": 13},
+    {"id": "A-Consensus", "role": "consensus variance", "phase": 2, "tool_uses": 18},
+    {"id": "A7", "role": "valuation + 5-scenario + quant", "phase": 3, "tool_uses": 13},
+    {"id": "TopicForensic", "role": "GM-fade / depreciation cliff deep-dive", "phase": 3, "tool_uses": 19},
+    {"id": "R-v2", "role": "isolated adversarial attack (sonnet, context-partitioned)", "phase": 3, "tool_uses": 10, "attacker_model": "claude-sonnet-4-6", "context_isolation": true},
+    {"id": "PM", "role": "orchestrator synthesis + verification + memo + redteam", "phase": "all", "tool_uses": "n/a"}
+  ],
+  "agent_count": 15,
+  "output_files": [
+    {"path": "outputs/MU_IC_memo.md", "sha256": "dcd0d47d137ba05fec042881e522eecc667ca2f49c61cc5606c94db604f68eea"},
+    {"path": "outputs/MU_structured.json", "sha256": "20f49fd9c1270122cc711128bb04a6614b0fa04b2bf6f84f643424abed11cdfc"}
+  ],
+  "orchestrator_notes": "Phase 1.5 not triggered (all Phase-1 agents web-verified). Isolated R-v2 corrected 2 factual claims (Broadcom AI-capex-plateau inverted; insider 10b5-1 signal dropped) and refuted the deferred-tax-benefit hypothesis. Round-2 fixes applied per MU_redteam_round_1.md: GM taxonomy box, anchor-weighting + A0 sum-to-zero, 3-layer bear bridge, factor z-scores, SOTP 4th lens, EV reconciled to $626, bull PT to 832."
+}

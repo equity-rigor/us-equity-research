@@ -4,6 +4,79 @@ All notable changes to this project will be documented in this file. Format
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) +
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.2] — 2026-06-06
+
+### Sprint 4 wrap — Doc consistency (Item 1) + MU flagship example (Item 3)
+
+Two final hygiene items that close out Sprint 4. No code changes, no schema
+changes. Pure docs + a committed example artifact.
+
+### Added — MU flagship example committed at `examples/v0.5.1/`
+
+The MU end-to-end run from 2026-06-06 is now committed as the framework's
+v0.5.1 flagship example. Five files: `MU_IC_memo.md` (24K institutional
+memo), `MU_structured.json` (consolidated machine-readable representation),
+`MU_manifest.json` (provenance manifest), `MU_redteam_round_1.md` and
+`MU_redteam_round_2.md` (PM red-team iteration cycle, 7.5 → 8.9 score arc).
+
+`examples/v0.5.1/README.md` provides the honest provenance disclosure: this
+was a v0.4.0-era run that PRE-DATED the Sprint 4 Item 8 verifier-reachability
+fix. The gates were evaluated analytically by the LLM because the v0.4.0
+plugin install didn't bundle the verifier scripts and the agent could not
+reach them from the user's working directory. The manifest discloses this
+directly ("Manifest hand-assembled because plugin scripts/write_manifest.py
++ schemas/ are absent in working dir"). v0.5.1+ runs will execute the actual
+Python verifier scripts via `${CLAUDE_PLUGIN_ROOT}/scripts/...`.
+
+The example is still committed despite the lineage because:
+1. It is the framework's most analytically complete public output.
+2. It demonstrates the red-team iteration mechanism working as designed.
+3. The honest disclosure of degradation is itself an artifact worth preserving.
+4. The analytical content is independent of how gate statuses were determined.
+
+This directly answers the deep-research report's critique that "the modern
+framework is described as if validated, but the public examples are
+explicitly pre-modern." The MU run exercises G15, G17, G19, and G20 —
+exactly the gates the v0.1.x calibration set does not.
+
+`examples/README.md` updated to distinguish the v0.5.1 flagship cohort
+(MU, exercises G1-G20) from the v0.1.x calibration set (NVDA/JPM/MRK/XOM/DLR,
+exercises G1-G14 only, grandfathered).
+
+### Fixed — README install snippet and project structure
+
+- `README.md` development manual install snippet: `git clone <this-repo-url>`
+  was a placeholder. Replaced with the actual URL `https://github.com/equity-rigor/us-equity-research.git`
+  plus a v0.5.0+ note that the marketplace install is recommended because
+  it correctly bundles `scripts/` and `schemas/` inside each plugin
+  directory (Sprint 4 Item 8 fix).
+- `README.md` project structure tree: removed the orphaned
+  `└── BUILD_PROMPT.md` entry (file was removed pre-v0.5.0 to prevent
+  publication-safety issues per the maintainer-name-disclosure concern in
+  Sprint 4 Item 7 design). Replaced with current top-level files
+  (`pyproject.toml`, `.claude/`, `.github/workflows/`).
+- `README.md` outputs/ → examples/ in the project structure tree (memos
+  relocated to `examples/` in Sprint 4 publish prep; tree was not updated
+  at that time).
+- `us-equity-research/references/tool-composition-us.md` line 33:
+  "per BUILD_PROMPT and D5" → "per D5 in `design/open-decisions.md`"
+  (BUILD_PROMPT removed; the design rationale now lives in the design
+  notes directly).
+- `us-equity-ic-rigor/SKILL.md` line 145: "per BUILD_PROMPT Phase E
+  failure handling" → "per the Phase E failure-handling discipline
+  documented in `design/phase-e-calibration-summary.md`" (same reasoning).
+
+Design-internal `design/skill-composition.md` and `design/file-ownership.md`
+still reference BUILD_PROMPT because those documents are themselves
+historical design notes from the construction phase — leaving the references
+intact as accurate history of what they were authored against.
+
+### Migration — v0.5.1 → v0.5.2
+
+Zero migration impact. No code changes, no schema changes. Tests still pass
+at the v0.5.1 baseline (266 passed, 17 skipped). Users on v0.5.1 don't need
+to update unless they want the polished docs and the committed MU example.
+
 ## [0.5.1] — 2026-06-06
 
 ### Sprint 4 — Privacy, UX, CI, regression coverage

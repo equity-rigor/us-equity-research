@@ -1,0 +1,170 @@
+{
+  "memo_metadata": {
+    "ticker": "MU",
+    "company": "Micron Technology, Inc.",
+    "exchange": "NASDAQ",
+    "cik": "0000723125",
+    "sic": "3674",
+    "fiscal_year_end": "late August",
+    "as_of_date": "2026-06-06",
+    "price_asof": "2026-06-05 close",
+    "workflow": "us-equity-research v0.4.0",
+    "data_tier": "EDGAR-only",
+    "mandate_framing": "long-only L/S-friendly",
+    "horizon": "12mo primary / 24mo secondary",
+    "hand_authored": false,
+    "manifest_ref": "outputs/MU_manifest.json",
+    "redteam_rounds": ["outputs/MU_redteam_round_1.md", "outputs/MU_redteam_round_2.md"]
+  },
+  "recommendation": {
+    "rating": "Sell",
+    "rating_band_note": "Prob-weighted -27.5% return is in Strong Sell band (<-20%); tempered to Sell on contested magnitude, locked 2026, and 28% bull-case mass",
+    "conviction": "3/5 (low-moderate)",
+    "price": 864.01,
+    "market_cap_b": 974,
+    "ev_b": 968,
+    "target_12mo": 626,
+    "target_12mo_basis": "probability-weighted expected value",
+    "fair_value_range": [400, 715],
+    "target_24mo": 550,
+    "target_24mo_note": "bimodal: cycle-turn ~350 vs HBM-regime ~1050",
+    "preferred_expression": "Pair: LONG SK Hynix (000660.KS) / SHORT MU, beta-neutral",
+    "catalyst_gate": "FQ3'26 print 2026-06-24"
+  },
+  "verified_financials_s1": {
+    "FQ2_25": {"rev_b": 8.053, "gaap_gm_pct": 36.8, "ni_b": 1.583},
+    "FY2025": {"rev_b": 37.378, "gaap_gm_pct": 39.8, "ni_b": 8.539, "capex_b": 15.857, "ocf_b": 17.525, "dna_b": 8.352},
+    "FQ1_26": {"rev_b": 13.643, "gaap_gm_pct": 56.0, "ni_b": 5.240, "capex_b": 5.389},
+    "FQ2_26": {"rev_b": 23.860, "gross_profit_b": 17.755, "gaap_gm_pct": 74.4, "op_income_b": 16.135, "ni_gaap_b": 13.785, "eps_gaap": 12.07, "eps_nongaap": 12.20, "nongaap_gm_pct": 74.9, "adj_fcf_b": 6.9, "tax_rate_pct": 14.7, "trade_receivables_b": 15.389, "dso_days": 58},
+    "FQ3_26_guide": {"rev_b": 33.5, "rev_pm_b": 0.75, "gm_pct": 81, "eps_gaap": 18.90, "eps_nongaap": 19.15, "reports": "2026-06-24", "status": "not_yet_reported"},
+    "balance_sheet_FQ2_26": {"total_assets_b": 101.5, "equity_b": 72.5, "bvps": 63.5, "cash_b": 13.9, "total_debt_b": 10.1, "net_cash_b": 6, "shares_dil_m": 1140, "goodwill_b": 1.15},
+    "capex_history_b": {"FY23": 7.676, "FY24": 8.386, "FY25": 15.857, "FY26E": 25},
+    "customer_concentration": "one customer 13% of 1H26 revenue (HBM/cloud unit); top-10 ~50%; data-center ~50% of revenue (10-Q Note 17)",
+    "auditor": "PwC since 1984; no restatement/going-concern/goodwill impairment",
+    "earnings_quality": "clean; FY23 NRV write-down benefit exhausted ($0 FY25/26); inventory flat-to-down while rev doubled; SBC trivial (2.6% rev)"
+  },
+  "consensus_s2": {
+    "FY26E": {"rev_b": 110, "eps": 58.87, "fwd_pe": 14.7, "rev_dispersion_b": [72, 120]},
+    "FY27E": {"rev_b": 172, "eps": 102, "fwd_pe": 8.2},
+    "pt_range": {"low": 249, "median": 575, "average": 739, "high": 1750},
+    "rating_dist": "44 analysts, ~Strong Buy (Buy ~85%); Goldman ~235-400 lone caution; UBS 1625",
+    "revision_velocity": "FY26 EPS ~35 -> 58.87 (+72%), entire move a step-function at 3/18 print, flat 4 weeks since; bull case migrated estimates->multiple = LATE"
+  },
+  "edge_assessment_g15": {
+    "direction": "consensus-anchored (do not claim direction edge)",
+    "defensible_edge_1": "normalized mid-cycle gross margin / through-cycle EPS (Street under-modeled FY27-28 GM fade)",
+    "defensible_edge_2": "positioning: price above consensus PTs into fragile AI tape",
+    "non_edges": "HBM4 share (minor), cycle-turn timing (asymmetry to size, not edge to claim)"
+  },
+  "gm_bridge_g8": {
+    "basis": "GAAP",
+    "peak_gm_pct": 81,
+    "components": {"cyclical_asp_premium_pts": [30, 33], "hbm_structural_mix_pts": [5, 8], "operating_leverage_low_dna_pts": [6, 9], "structural_floor_pts": [40, 43]},
+    "depreciation_cliff": "D&A 8.35B (FY25) -> ~15-16B (FY28-29), +7B step = ~7-9 pts GM drag regardless of price",
+    "normalized_gm_pct": [44, 45],
+    "normalized_gm_year": "FY28-29",
+    "net_verdict": "depreciation cliff (~7pts) modestly outweighs HBM mix uplift (~4pts); GM caps below 50s",
+    "normalized_eps": {"at_50b_rev": [11, 13], "at_90b_rev": 25, "at_110b_rev_50gm": 37},
+    "key_insight": "the bull/bear EPS gap is the REVENUE-BASE assumption, not the margin. GM is the symptom; revenue durability is the disease."
+  },
+  "valuation": {
+    "wacc_pct": 13.0,
+    "wacc_inputs": {"rf_pct": 4.46, "erp_pct": 4.75, "beta": 1.9, "after_tax_kd_pct": 5.0, "equity_weight_pct": 96},
+    "dcf_normalized_fv": 145,
+    "dcf_range": [120, 185],
+    "dcf_note": "explicit-cycle fade; peak-FCF DCF rejected; used as gravity anchor not point estimate",
+    "scenarios": [
+      {"name": "strong_bear", "narrative": "classic bust; HBM digestion 2027; GM->~30%", "eps": 25, "multiple": 9, "pt": 225, "prob": 0.15, "floor_caveat": "R-v2: true floor 110-190 at 6-8x trough multiple; 225 conservative"},
+      {"name": "bear", "narrative": "HBM softens into 2027; MU #2/~20% share squeezed; normalize ~35", "eps": 35, "multiple": 11, "pt": 385, "prob": 0.25},
+      {"name": "base", "narrative": "peak FY28 then normalizes; blend; modest HBM premium", "eps": 55, "multiple": 13, "pt": 715, "prob": 0.32},
+      {"name": "bull", "narrative": "HBM plateau extends; MU holds 20%+; FY27 ~104 partly de-risked", "eps": 104, "multiple": 8, "pt": 832, "prob": 0.20},
+      {"name": "strong_bull", "narrative": "memory secularly re-rates (UBS case); growth multiple", "eps": 115, "multiple": 11, "pt": 1265, "prob": 0.08}
+    ],
+    "prob_sum": 1.00,
+    "prob_weighted_ev": 626,
+    "expected_return_pct": -27.5,
+    "four_method_reconcile": {"dcf": 145, "comps": [385, 550], "pb_midcycle": [254, 480], "sotp": 120, "central": 400, "pb_current": 13.6, "pb_note": "historical extreme; peak ~4x", "spread_note": "normalized methods (DCF 145, SOTP 120) cluster low; peak methods (comps 385-550, base 715) cluster high; gap = cycle-risk premium"},
+    "sotp_normalized": {"dc_hbm": {"rev_b": 28, "gm_pct": 50, "op_b": 10.5, "nopat_b": 9.0, "mult": 11, "ev_b": 99}, "commodity": {"rev_b": 22, "gm_pct": 35, "op_b": 5.2, "nopat_b": 4.4, "mult": 7, "ev_b": 31}, "total_ev_b": 130, "net_cash_b": 6, "equity_b": 136, "per_share": 120, "g3_monotonic": true},
+    "anchor_weighting_g10": [
+      {"shift": "base-10pp -> bear+10pp", "ev": 593, "delta": -33},
+      {"shift": "base-10pp -> bull+10pp", "ev": 638, "delta": 12},
+      {"shift": "base-10pp -> strong_bear+10pp", "ev": 577, "delta": -49},
+      {"shift": "base-10pp -> strong_bull+10pp", "ev": 681, "delta": 55}
+    ],
+    "anchor_weighting_note": "headline most sensitive to strong_bull weight (+55/10pp); even max bullish shift leaves EV 681 (-21% vs spot)"
+  },
+  "a0_tail_map_g10": [
+    {"event": "AI-capex digestion + 2H27 supply collide", "dir": "down", "shifts": {"strong_bear": 10, "bear": 6, "base": -8, "bull": -5, "strong_bull": -3}, "sum": 0},
+    {"event": "CAC ban expansion / China retaliation", "dir": "down", "shifts": {"strong_bear": 8, "bear": 5, "base": -7, "bull": -4, "strong_bull": -2}, "sum": 0},
+    {"event": "HBM customer-concentration shock (1 cust 13%)", "dir": "down", "shifts": {"strong_bear": 6, "bear": 4, "base": -4, "bull": -4, "strong_bull": -2}, "sum": 0},
+    {"event": "BIS adds CXMT to Entity List", "dir": "up", "shifts": {"strong_bear": -3, "bear": -5, "base": -2, "bull": 6, "strong_bull": 4}, "sum": 0},
+    {"event": "HBM4 share gain toward 25%+ on Vera Rubin", "dir": "up", "shifts": {"strong_bear": -2, "bear": -4, "base": -2, "bull": 5, "strong_bull": 3}, "sum": 0},
+    {"event": "AI memory secularly de-cyclicalizes", "dir": "up", "shifts": {"strong_bear": -4, "bear": -6, "base": -4, "bull": 6, "strong_bull": 8}, "sum": 0}
+  ],
+  "gm_taxonomy_g8": {"T1_gaap_pct": 74.4, "T1_gaap_guide_pct": 81, "T1_nongaap_pct": 74.9, "T2_segment": {"CDBU": 74.3, "CMBU": 74.2, "MCBU": 79, "AEBU": 68.3}, "T4_modeled_normalized_pct": [44, 45], "T5_marginal_pct": "~90%+ incremental", "headline_rests_on": "T4 (modeled)"},
+  "bear_bridge_layers_g5": {"base_eps": 55, "soft_asp_mix": -12, "soft_reversible": true, "clean_depreciation": -5, "clean_irreversible": true, "strong_share_price": -3, "bear_eps": 35, "edge_case_if_asp_holds": 47},
+  "bear_eps_bridge_g5": {
+    "base_eps": 55,
+    "steps": [{"driver": "ASP reversion (2 contiguous qtr roll)", "delta": -12}, {"driver": "depreciation cliff +7B D&A", "delta": -5}, {"driver": "HBM4 share/price give-back", "delta": -3}],
+    "bear_eps": 35,
+    "bear_pt": 385
+  },
+  "what_would_reverse_g9": {
+    "would_make_wrong": ["FQ3'26 >=81% GM AND FQ4 guide flat-to-up AND hyperscaler capex guidance rises vs ~725B 2026 plan", "HBM SCAs confirmed take-or-pay with price floors", "MU HBM4 share climbs toward 25%+ (vs ~20-21%)", "through-cycle revenue base resets to $90B+"],
+    "would_confirm_bear": ["DRAM/NAND contract price down QoQ for 2 consecutive months", "HBM4 share confirmed <20% (Samsung gaining)", "revision velocity turns negative (first FY26/27 EPS cut)", "AR/DSO sustains >58d / AR ~15.4B without revenue catch-up", "CXMT crosses ~10% DRAM share / industry ~6M wpm by late-2027"]
+  },
+  "quant_overlay": {
+    "barra_zscores": {"value": -1.5, "quality": -0.5, "momentum": 2.7, "growth": 1.8, "size": 2.5, "low_vol": -2.0, "liquidity": 1.5, "method": "estimated vs factor portfolios"},
+    "buyback_offset_to_sbc_ratio": 0.0,
+    "sbc_pct_revenue": 2.6,
+    "max_position_constrained_by_adv_pct_nav": "not binding (conviction-driven, not liquidity)",
+    "adv_b_per_day": [5, 10],
+    "days_to_exit_500m": {"p10": 0.71, "p20": 0.36, "p30": 0.24},
+    "capacity_verdict": "non-constraint; risk is timing not liquidity",
+    "edge_decay": "positioning edge ~2-3 week half-life into 6/24; structural thesis 4-8 quarters (horizon mismatch)",
+    "stress_minus20_ai": "MU -26% to -30% (~605-640)"
+  },
+  "position_sizing_d3": {
+    "long_only_lc": "UW -30 to -50 bps active",
+    "long_only_smid": "N/A (out of universe)",
+    "ls_hedge_fund": "small net short via pair; gross 1.5-2%, net slightly short",
+    "sector_specialty": "UW vs SOX, hold core; -100 to -150 bps on MU",
+    "pair_trade": "LONG 000660.KS / SHORT MU, ~1:1 beta-neutral, 1-1.5% gross/leg (highest conviction)"
+  },
+  "regulatory_s1": {
+    "entity_list": "Micron NOT listed (beneficiary); YMTC listed; CXMT NOT listed (the soft spot)",
+    "china_revenue_pct": 10.1,
+    "cac_ban": "2023 critical-infrastructure ban still in effect; China revenue already impaired",
+    "section_232_tariff": "Jan 2026 25% tariff hits logic ICs only; memory excluded",
+    "chips_act": "$6.165B awarded + $275M Manassas (signed)",
+    "net_assessment": "net POSITIVE (controls choke CXMT/YMTC)",
+    "top_tail": "CAC ban expansion ~25-35% if US escalates; ~7-10% revenue at risk"
+  },
+  "red_team_g20": {
+    "isolated_attack_run": true,
+    "attacker_model": "claude-sonnet-4-6",
+    "attacker_context_isolation": true,
+    "verdicts": {
+      "claim_normalized_gm_edge": "WEAKENED (rebuilt bottom-up to 44-45%)",
+      "claim_eps_18_24_pt_210_250": "FAILED (10-12x trough multiple is a bull assumption; true floor 110-190; replaced with scenario range)",
+      "claim_hbm_structural_fuse": "WEAKENED (take-or-pay unverified; CXMT HBM3 end-2026 sourcing leverage)",
+      "claim_positioning_late_crowded": "WEAKENED (insider 10b5-1 selling DROPPED; SI 3.1% is crowded-long not short; keep 81% inst crowding)",
+      "claim_glut_broadcom_signal": "WEAKENED, Broadcom leg FAILED (AVGO AI +143% YoY, FY27 >$100B reiterated; selloff = valuation/software, not capex plateau)"
+    },
+    "corrections_propagated": ["dropped insider-selling signal", "reframed Broadcom selloff as AI valuation de-risk not demand signal", "refuted deferred-tax-benefit hypothesis"]
+  },
+  "gate_status": {
+    "G1": "pass (bull 104x8=832)", "G2": "pass (informational)", "G3": "N/A (SOTP monotonic, no inversion)", "G4": "pass", "G5": "pass (3-layer soft/clean/strong)", "G7": "pass (2027 conditional-labeled)", "G8": "pass (T1-T5 taxonomy box)", "G9": "pass", "G10": "pass (anchor-weighting + A0 sum-to-zero)", "G11": "pass", "G12": "pass (buyback-offset ratio added)", "G13": "pass (z-scores)", "G14": "pass (%NAV cap added)", "G15": "pass", "G16": "N/A (not bank)", "G17": "pass", "G19": "pass (outputs/MU_manifest.json)", "G20": "pass (isolated attack, 2 claims corrected)"
+  },
+  "key_sources": {
+    "sec_xbrl": "https://data.sec.gov/api/xbrl/companyconcept/CIK0000723125/us-gaap/{RevenueFromContractWithCustomerExcludingAssessedTax,GrossProfit,NetIncomeLoss,...}.json",
+    "fq2_26_10q": "acc 0000723125-26-000006 (mu-20260226.htm)",
+    "fq2_26_8k": "acc 0000723125-26-000004 (a2026q2ex991-pressrelease.htm)",
+    "fy2025_10k": "acc 0000723125-25-000028 (mu-20250828.htm)",
+    "price": "stockanalysis.com/stocks/mu; cnn.com/markets/stocks/MU (6/5/26 close $864.01)",
+    "broadcom": "AVGO Q2'26 8-K acc 0001730168-26-000051; cnbc.com/2026/06/03/broadcom-avgo-earnings-report-q2-2026.html",
+    "consensus": "stockanalysis.com/stocks/mu/forecast",
+    "damodaran_erp": "aswathdamodaran.substack.com (4.77% Mar 2026)",
+    "rf": "FRED DGS10 (4.46% 6/5/26)"
+  }
+}
