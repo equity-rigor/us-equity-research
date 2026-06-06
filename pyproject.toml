@@ -1,0 +1,59 @@
+[project]
+name = "us-equity-research-verifiers"
+version = "0.5.0"
+description = "Python verifier scripts for the us-equity-research / us-equity-ic-rigor Claude Code plugins. 20 mechanical/structural gates (G1-G20) that check IC memo outputs against schemas/memo.json, schemas/source_tags.json, schemas/scenarios.json, schemas/verification_gates.json, and schemas/manifest.json. Verifier scripts live at scripts/verify_*.py and exit non-zero on gate failure with structured stdout."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+keywords = [
+    "equity-research",
+    "us-equity",
+    "buy-side",
+    "ic-memo",
+    "verification-gates",
+    "pm-red-team",
+]
+dependencies = [
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.1.0",
+]
+
+[project.urls]
+Repository = "https://github.com/equity-rigor/us-equity-research"
+Issues = "https://github.com/equity-rigor/us-equity-research/issues"
+Changelog = "https://github.com/equity-rigor/us-equity-research/blob/main/CHANGELOG.md"
+
+[tool.pytest.ini_options]
+testpaths = ["scripts/tests"]
+# Exclude the standalone G20 smoke harness from pytest collection.
+# It's invokable directly as a script but is intentionally NOT a pytest
+# module — the committed `pytest -q` baseline (284 tests as of v0.5.0)
+# excludes it to keep the count auditable.
+addopts = "--ignore=scripts/tests/smoke_g20_graduated_rigor.py"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line too long (handled by formatter; reference docstrings are intentionally long)
+    "B008",  # function calls in argument defaults (used in argparse builders)
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

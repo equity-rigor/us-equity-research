@@ -4,6 +4,115 @@ All notable changes to this project will be documented in this file. Format
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) +
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.1] — 2026-06-06
+
+### Sprint 4 — Privacy, UX, CI, regression coverage
+
+A second v0.5.x release the same day as v0.5.0, bundling Sprint 4 hygiene
+items that were not strictly blocking but are credibility-critical before
+HN promotion: maintainer-email scrub, plugin-level permission defaults,
+real CI workflows, Python packaging manifest, and a schema-version
+regression meta-test that already caught two real silent-skip bugs in G19
+and G20 the moment it ran.
+
+### Fixed — Schema-version silent-skip bugs in G19 and G20
+
+The new `scripts/tests/test_schema_version_coverage.py` meta-test immediately
+caught that `verify_provenance_manifest.py` (G19) and `verify_view_defensibility.py`
+(G20) both had `RUNNABLE_SCHEMA_VERSIONS = {"0.3.0", "0.4.0"}` and would
+silently skip on the new v0.5.0 schema. This is the exact bug class that
+required Sprint 3a's G20 fix and Sprint 3b's G19 fix — recurrence demonstrates
+why the meta-test was needed. Also fixed `verify_view_defensibility.py` line
+401: `if schema_version == "0.4.0":` was a literal-equality check on the
+graduated rigor scale that would have excluded v0.5.0 memos. Replaced with
+membership against `GRADUATED_RIGOR_SCHEMA_VERSIONS = {"0.4.0", "0.5.0"}`.
+
+### Changed — Maintainer email scrubbed from all repo files (privacy)
+
+Replaced `hg2670@columbia.edu` everywhere with the GitHub no-reply pattern
+`equity-rigor@users.noreply.github.com`. Affected files: both plugin.json,
+marketplace.json, four design docs. Author name "Hongyi Gu" remains in
+LICENSE and README copyright lines (legally accurate authorship attribution
+for an MIT-licensed work).
+
+The SEC User-Agent reference in `us-equity-research/references/us-data-sources.md`
+was updated to explicitly forbid the orchestrator from hardcoding the
+maintainer email in EDGAR User-Agent headers. Going forward, Phase 0 setup
+should prompt for the user's preferred contact email or default to a
+framework-identifier form. This prevents the MU-run pattern where the
+maintainer's email was sent to SEC across user requests.
+
+### Added — Plugin-level permission auto-approve (UX)
+
+New `.claude/settings.json` at repo root with a `permissions.allow` array
+that auto-approves the safe, repetitive commands the framework makes during
+a normal memo run: SEC EDGAR fetches (URL-pattern gated), framework verifier
+scripts, read-only filesystem ops, read-only git ops, EDGAR/FRED WebFetch
+domains, WebSearch. Eliminates roughly 30-50 permission prompts per memo run
+for users who clone the repo. Marketplace-install users need to copy the
+snippet into their own `~/.claude/settings.json`; the README documents this.
+
+Conservative by design: anything not on the allowlist still prompts. Curl
+is URL-pattern gated, not blanket-allowed. Write operations (`git add`,
+`git commit`, `git push`, `rm`) all stay in the `ask` list. Sensitive paths
+(`.env`, `~/.ssh`, `~/.aws`, `~/.kube`, `~/.git-credentials`) are explicitly
+denied.
+
+### Added — Real CI workflows
+
+- `.github/workflows/pytest.yml` — runs `pytest -q` on Python 3.11 and 3.12,
+  validates all schemas as JSON, validates marketplace.json and both
+  plugin.json files, runs `bash scripts/sync_plugin_files.sh --check` to
+  catch plugin/repo-root drift.
+- `.github/workflows/lint.yml` — runs `ruff check scripts/` and `ruff format
+  --check scripts/` on Python 3.12.
+
+The README's static "tests passing" badge is no longer a marketing claim
+backed by no visible workflow — actual CI gates every push to main.
+
+### Added — Schema-version regression meta-test (Sprint 4 Item 5)
+
+`scripts/tests/test_schema_version_coverage.py` (23 new tests) walks every
+`scripts/verify_*.py` and:
+
+- Asserts no bare literal equality check like `if schema_version != "X.Y.Z":`
+  in executable code (the silent-skip bug pattern). Docstring matches are
+  excluded via AST-based docstring-range detection.
+- For verifiers that define `RUNNABLE_SCHEMA_VERSIONS`, asserts the latest
+  known schema version is in the set. If you add v0.6.0 to memo.json's
+  enum but forget to add it to a verifier's RUNNABLE_SCHEMA_VERSIONS, the
+  meta-test fails.
+- Asserts `KNOWN_SCHEMA_VERSIONS` in the test matches the enum in
+  `schemas/memo.json` — catches drift between the test and the schema.
+
+The meta-test paid for itself the moment it ran by catching G19 and G20 as
+described above.
+
+### Added — Python packaging manifest
+
+`pyproject.toml` declares the project (`us-equity-research-verifiers`, v0.5.1,
+Python 3.11+, pydantic >= 2), the dev extras (`pytest`, `ruff`), the testpaths
+pointing at `scripts/tests/`, and the ruff lint/format configuration. Allows
+`pip install -e .[dev]` from a clone for a reproducible dev environment.
+The pytest `addopts` explicitly excludes `scripts/tests/smoke_g20_graduated_rigor.py`
+from collection so the committed `pytest -q` count stays auditable.
+
+### Migration — v0.5.0 → v0.5.1
+
+No memo content migration required. No schema changes. Users on v0.5.0 should
+`/plugin update equity-rigor/us-equity-research` to receive the bug fixes
+(G19/G20 RUNNABLE_SCHEMA_VERSIONS) and the scrubbed maintainer email. Users
+who cloned the repo get the new permission auto-approve defaults
+automatically the next time they run `claude` from the repo directory.
+
+### Test baseline
+
+- v0.5.0: 284 passed (270 prior + 14 plugin-file-sync).
+- v0.5.1: **266 passed, 17 skipped** (added 23 schema-version meta-tests;
+  some sub-tests intentionally skip for verifiers without RUNNABLE_SCHEMA_VERSIONS
+  pattern, which is correct behavior — pre-version-gating verifiers like
+  G1-G10 don't need the check).
+
 ## [0.5.0] — 2026-06-06
 
 ### Sprint 4 — Verifier reachability fix + consolidated output convention

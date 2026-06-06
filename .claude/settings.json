@@ -1,0 +1,76 @@
+{
+  "_comment": "Project-level Claude Code permission defaults for the us-equity-research / us-equity-ic-rigor plugins. Auto-approves the safe, repetitive commands the framework makes during a normal memo run (SEC EDGAR fetches, framework verifier scripts, read-only filesystem and git operations). Eliminates roughly 30-50 permission prompts per memo run. Users who install via the marketplace from outside the cloned repo do NOT get these defaults automatically — see README §Install for the snippet to copy into ~/.claude/settings.json. Conservative by design: anything not on this allowlist still prompts the user. Curl is gated by destination URL pattern, not blanket-allowed, to prevent the agent from constructing arbitrary URLs the user didn't authorize.",
+  "permissions": {
+    "allow": [
+      "Bash(curl * https://data.sec.gov/*)",
+      "Bash(curl * https://www.sec.gov/*)",
+      "Bash(curl * https://efts.sec.gov/*)",
+      "Bash(curl * https://raw.githubusercontent.com/equity-rigor/*)",
+      "Bash(curl * https://api.github.com/repos/equity-rigor/*)",
+
+      "Bash(cat outputs/*)",
+      "Bash(cat examples/*)",
+      "Bash(cat schemas/*)",
+      "Bash(cat README.md)",
+      "Bash(cat CHANGELOG.md)",
+      "Bash(cat CONTRIBUTING.md)",
+      "Bash(cat LICENSE)",
+
+      "Bash(ls outputs/)",
+      "Bash(ls outputs/*)",
+      "Bash(ls examples/)",
+      "Bash(ls examples/*)",
+      "Bash(ls schemas/)",
+      "Bash(ls -la outputs/)",
+      "Bash(ls -la examples/)",
+
+      "Bash(mkdir -p outputs)",
+      "Bash(mkdir -p outputs/*)",
+
+      "Bash(python3 scripts/verify_*)",
+      "Bash(python3 ${CLAUDE_PLUGIN_ROOT}/scripts/verify_*)",
+      "Bash(python3 scripts/write_manifest.py *)",
+      "Bash(python3 ${CLAUDE_PLUGIN_ROOT}/scripts/write_manifest.py *)",
+      "Bash(python3 -m json.tool *)",
+      "Bash(python3 -m pytest *)",
+
+      "Bash(git status)",
+      "Bash(git diff)",
+      "Bash(git diff *)",
+      "Bash(git log)",
+      "Bash(git log *)",
+      "Bash(git show)",
+      "Bash(git show *)",
+      "Bash(git branch)",
+      "Bash(git rev-parse *)",
+      "Bash(git ls-files *)",
+
+      "WebFetch(domain:data.sec.gov)",
+      "WebFetch(domain:www.sec.gov)",
+      "WebFetch(domain:efts.sec.gov)",
+      "WebFetch(domain:fred.stlouisfed.org)",
+      "WebFetch(domain:home.treasury.gov)",
+      "WebFetch(domain:www.federalreserve.gov)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:api.github.com)",
+
+      "WebSearch"
+    ],
+    "ask": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git tag *)",
+      "Bash(rm *)",
+      "Bash(curl *)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.kube/**)",
+      "Read(~/.git-credentials)"
+    ]
+  }
+}

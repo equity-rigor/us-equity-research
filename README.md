@@ -2,7 +2,7 @@
 
 > Institutional buy-side fundamental research framework for US-listed equities, with a PM-grade red-team rigor layer.
 
-![License](https://img.shields.io/badge/license-MIT-blue) ![Version](https://img.shields.io/badge/version-0.5.0-green) ![Tests](https://img.shields.io/badge/pytest-284%20passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue) ![Version](https://img.shields.io/badge/version-0.5.1-green) ![Tests](https://img.shields.io/badge/pytest-266%20passing-brightgreen)
 
 > **Disclaimer.** This repository is software released under the MIT license. The calibration memos in `examples/` are plugin self-test artifacts demonstrating the framework's output format only — they are NOT investment advice or recommendations, and they do NOT reflect any current or past employment. The author is a graduate student; these artifacts were not produced in connection with any buy-side, sell-side, or research employer. The framework's 20 verification gates catch mechanical and definitional defects (math reconciles, sources are stratified, segment GM ties to consolidated, etc.); they do NOT validate the predictive value of any view expressed in any memo. Numerical thresholds throughout the framework (8pp differentiation for G20, 2.0pp variance sizing for G15, ±0.2 Barra tolerance for G18, etc.) are author-asserted, not empirically calibrated against forward returns. No backtest of any framework component exists as of the current version. Use at your own discretion.
 
@@ -167,7 +167,7 @@ This project was developed and tested against `claude-for-financial-services` ma
 │   ├── references/                        # 10 rigor refs (S1-S5, scenarios, GM taxonomy, bridges, A0, sizing, rubric, quant overlay, ...)
 │   └── templates/                         # opinion letter checklist + IC debate script template
 ├── scripts/                               # verification scripts (G1-G20; G13+G14 share verify_quant_overlay.py) + pytest fixtures
-│   └── tests/                             # 17 test files (284 tests; v0.5.0 adds 14 plugin-file-sync regression tests)
+│   └── tests/                             # 18 test files (283 collected, 266 passed, 17 skipped; v0.5.1 adds schema-version regression meta-test)
 ├── outputs/                               # Phase E IC memos (NVDA / JPM / XOM / MRK / DLR) + structured JSON
 ├── reference/                             # gitignored upstream plugin source (D23)
 ├── templates/                             # gitignored China A-share precedent templates
@@ -182,7 +182,7 @@ PRs welcome. Conventions:
 
 - **Conventional commits** with phase prefix where applicable (`phase F.3: ...`)
 - **One concept per commit** (D19)
-- **pytest** must remain green: `pytest -q` should report `284 passed` (v0.5.0 baseline; 270 prior + 14 plugin-file-sync regression tests)
+- **pytest** must remain green: `pytest -q` should report `266 passed, 17 skipped` (v0.5.1 baseline; 17 skips are intentional — verifiers without version-gating logic don't define `RUNNABLE_SCHEMA_VERSIONS`, so the meta-test correctly skips them)
 - **Schema invariants** (D17, D22) — the 4 schemas in `schemas/` are frozen; changes require explicit decision entry in `design/open-decisions.md`
 - **One owner per file** (D2) — coordinate before touching shared docs
 

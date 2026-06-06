@@ -32,7 +32,7 @@ If you want to contribute code:
    - Schema changes: **additive-only with grandfathering**. Any change that breaks v0.1.x / v0.2.0 / v0.3.0 / v0.4.0 / v0.5.0 memo validation is a non-starter. New optional fields fine; new required fields require v1.0.0 with migration script.
    - Reference files (Markdown): dense prose, no excessive bulleting, red-team voice. Match the existing tone.
 4. All new verifier scripts must include smoke tests covering pass / fail / n_a / grandfathered paths. See `scripts/verify_consensus_variance.py` smoke test patterns in commit history.
-5. Run `pytest -q` before submitting. The 284 baseline must continue passing (v0.5.0+). If your change touches `scripts/` or `schemas/` at repo root, also run `bash scripts/sync_plugin_files.sh` to refresh the plugin copies; CI fails if they drift from canonical sources.
+5. Run `pytest -q` before submitting. The v0.5.1 baseline is `266 passed, 17 skipped` — must continue passing. If your change touches `scripts/` or `schemas/` at repo root, also run `bash scripts/sync_plugin_files.sh` to refresh the plugin copies; CI fails if they drift from canonical sources. If you add a new schema_version, update `KNOWN_SCHEMA_VERSIONS` in `scripts/tests/test_schema_version_coverage.py` AND add it to every verifier's `RUNNABLE_SCHEMA_VERSIONS` set — the meta-test will fail otherwise.
 
 ## What I will NOT accept
 

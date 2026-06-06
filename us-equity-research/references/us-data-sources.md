@@ -417,7 +417,13 @@ Minimum 12 WebSearch + WebFetch calls per memo. The protocol enforces:
 - **Foreign-private-issuer (ADR) confusion**. FPIs file 20-F annually + 6-K for interim; semi-annual reporting (not quarterly). Modeling an FPI as if it filed 10-Qs leads to 6-month information gaps.
 - **Class share confusion**. GOOG (Class C, no vote) vs GOOGL (Class A, vote); BRK.A vs BRK.B (different economic + voting rights, 1/1500 economic ratio post-split); FOX vs FOXA; META has only one share class currently but historically had A/B/C distinctions. Verify which class the consensus / 13F / Form 4 is referencing.
 - **Form 4 reporting delays**. Some companies file late; check filing date vs transaction date. A Form 4 with a transaction date 30+ days before filing is a late filing — flag for §16 compliance (and rarely useful as a timely signal).
-- **EDGAR User-Agent requirement**. SEC fair-access policy requires every programmatic request to set a `User-Agent: Firstname Lastname email@example.com` header. Anonymous bulk requests get rate-limited or 403'd. When using WebFetch, this is usually handled, but custom scripts must set it.
+- **EDGAR User-Agent requirement**. SEC fair-access policy requires every programmatic request to set a `User-Agent: Identifier contact@example.com` header. Anonymous bulk requests get rate-limited or 403'd. When using WebFetch, this is usually handled, but custom scripts must set it.
+
+  **CRITICAL (v0.5.0+): never hardcode the maintainer's email in User-Agent headers.** The framework's installed maintainer email (in `plugin.json` and `marketplace.json`) is `equity-rigor@users.noreply.github.com` — a GitHub no-reply pattern that does NOT receive mail and is not a useful contact for SEC. When making EDGAR requests on behalf of a user, construct the User-Agent from:
+  1. **The user's own email** if they have supplied one in Phase 0 setup (preferred), OR
+  2. **A generic identifier** like `equity-rigor framework github.com/equity-rigor/us-equity-research` if no user email is on file.
+
+  Do NOT pull the maintainer email from `plugin.json` or `marketplace.json` into User-Agent headers — that email is metadata for plugin attribution, not a contact endpoint, and using it across many users' IPs misrepresents the requester identity to SEC under the fair-access framing. The Phase 0 setup prompt should ask the user for their preferred contact email; absent one, default to the framework-identifier form above.
 - **Index reconstitution date confusion**. S&P 500 inclusion is committee-discretionary with explicit profitability test + $14.6B float (2024); Russell rebalances rules-based annually late June; Nasdaq 100 annually December. Don't conflate.
 - **Consensus aggregator drift**. Yahoo Finance, StockAnalysis, Zacks, MarketWatch all show "consensus" but may pull from different underlying feeds (Refinitiv / Zacks-proprietary / S&P) with different snapshot times. When in doubt, cite the aggregator explicitly.
 

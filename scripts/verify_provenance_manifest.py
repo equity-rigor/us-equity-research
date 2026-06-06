@@ -72,7 +72,7 @@ FAIL_CAP = 7.5
 # schema version v0.4.0 made current. The manifest schema itself is unchanged,
 # so v0.4.0 memos still validate against a manifest_version=="0.3.0" manifest
 # (see the manifest_version check below); only the memo-side gate is widened.
-RUNNABLE_SCHEMA_VERSIONS = {"0.3.0", "0.4.0"}
+RUNNABLE_SCHEMA_VERSIONS = {"0.3.0", "0.4.0", "0.5.0"}
 
 
 def _print_status(status: str, **kwargs: Any) -> None:

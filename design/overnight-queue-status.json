@@ -1,7 +1,7 @@
 {
   "queue": "overnight-autonomy",
   "context_file": "design/overnight-queue-context.md",
-  "owner": "hg2670@columbia.edu",
+  "owner": "maintainer",
   "path_a": "local commits only; user pushes manually",
   "status": "COMPLETE — all tasks done",
   "execution_note": "T1-T2 done in the interactive setup session; T3-T7 executed LIVE (not by the scheduler) the next session at the user's request, because the overnight cron never fired (app was closed). The recurring task 'us-equity-overnight-queue' is disabled.",

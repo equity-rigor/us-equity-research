@@ -8,7 +8,7 @@ The file is self-contained — the new session can read only this document and h
 
 ## 1. Quick orientation
 
-- **User**: Hongyi Gu (`hg2670@columbia.edu`). Quant researcher / buy-side analyst. Treat as institutional, no hand-holding. Reference voice: red team, not cheerleader.
+- **User**: maintainer. Quant researcher / buy-side analyst. Treat as institutional, no hand-holding. Reference voice: red team, not cheerleader.
 - **Repo**: `https://github.com/equity-rigor/us-equity-research` (private). Local path on user's Mac: `/Users/hongyi/projects/us-equity-research`. Local path under Cowork workspace mount: depends on the session's mount mapping — confirm with `pwd` after `cd` into the workspace folder.
 - **Current state**: tagged `v0.2.0` on `main` at commit `7e82cc9`. Both plugin.json files at `0.2.0`. Origin synced. 198 pytest tests passing, no regression on G1-G14. v0.2.0 Sprint 1 is code-complete; JPM live re-run validation is pending (see §11).
 - **Tag history**: `v0.1.0` (initial release), `v0.1.1` (slash command surface), `v0.2.0` (Sprint 1).

@@ -108,7 +108,11 @@ CONSENSUS_ANCHORED_PATTERN = re.compile(r"consensus[\s\-]anchored", re.IGNORECAS
 N_ANALYSTS_THIN_THRESHOLD = 5
 FAIL_CAP = 8.5
 # v0.4.0 (Sprint 3a Item 3): graduated rigor scale.
-RUNNABLE_SCHEMA_VERSIONS = {"0.3.0", "0.4.0"}
+RUNNABLE_SCHEMA_VERSIONS = {"0.3.0", "0.4.0", "0.5.0"}
+# Schema versions where the graduated 9.0+ rigor check applies. v0.3.0 memos
+# are capped at 9.0 because the isolation fields didn't exist in the schema
+# yet. v0.4.0+ memos get the full graduated rigor scale.
+GRADUATED_RIGOR_SCHEMA_VERSIONS = {"0.4.0", "0.5.0"}
 GRADUATED_SCORE_THRESHOLD = 9.0  # claims strictly above this require adversarial isolation + model diversity
 GRADUATED_FAIL_CAP = 9.0  # a 9.0+ claim failing isolation/diversity is capped here (NOT 8.5; the 8.5-9.0 band is earned by the v0.3.0 conditions)
 
@@ -398,7 +402,7 @@ def verify(
     graduated_note = (
         "n_a (v0.3.0 schema; graduated 9.0+ check applies to v0.4.0 memos only)"
     )
-    if schema_version == "0.4.0":
+    if schema_version in GRADUATED_RIGOR_SCHEMA_VERSIONS:
         claimed_score = _extract_claimed_score(memo_json)
         if claimed_score is None or claimed_score <= GRADUATED_SCORE_THRESHOLD:
             shown = claimed_score if claimed_score is not None else "undeclared"

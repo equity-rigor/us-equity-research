@@ -7,7 +7,7 @@ item end-to-end, smoke-tests, commits LOCALLY, marks it completed, and exits.
 
 ## Orientation
 
-- **User**: Hongyi Gu. Quant researcher / buy-side analyst. Institutional depth,
+- **User**: maintainer. Quant researcher / buy-side analyst. Institutional depth,
   red-team voice, no hand-holding. State assumptions and proceed.
 - **Repo**: `/Users/hongyi/projects/us-equity-research` (bash:
   `/sessions/<id>/mnt/us-equity-research`). v0.4.0 shipped + pushed; six review/
