@@ -30,3 +30,9 @@ Thumbs.db
 # Phase E NVDA self-test outputs are committed; ad-hoc runs are not.
 # outputs/*.md  -- intentionally NOT ignored; we commit Phase E deliverables
 # outputs/*.json -- same
+
+# Personal application materials — never commit
+point72-*
+*case-study*
+*case_study*
+~/Documents/point72-app/

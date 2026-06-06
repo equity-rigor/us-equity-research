@@ -4,6 +4,8 @@
 
 ![License](https://img.shields.io/badge/license-MIT-blue) ![Version](https://img.shields.io/badge/version-0.4.0-green) ![Tests](https://img.shields.io/badge/pytest-198%20passing-brightgreen)
 
+> **Disclaimer.** This repository is software released under the MIT license. The calibration memos in `examples/` are plugin self-test artifacts demonstrating the framework's output format only — they are NOT investment advice or recommendations, and they do NOT reflect any current or past employment. The author is a graduate student; these artifacts were not produced in connection with any buy-side, sell-side, or research employer. The framework's 20 verification gates catch mechanical and definitional defects (math reconciles, sources are stratified, segment GM ties to consolidated, etc.); they do NOT validate the predictive value of any view expressed in any memo. Numerical thresholds throughout the framework (8pp differentiation for G20, 2.0pp variance sizing for G15, ±0.2 Barra tolerance for G18, etc.) are author-asserted, not empirically calibrated against forward returns. No backtest of any framework component exists as of the current version. Use at your own discretion.
+
 ## What this is
 
 A two-plugin framework for doing single-name fundamental work on US equities at institutional buy-side quality. Plugin one (`us-equity-research`) orchestrates a multi-agent workflow that produces a Markdown IC memo and structured JSON outputs from a single ticker. Plugin two (`us-equity-ic-rigor`) layers a 20-gate PM red-team review (was 14 through v0.1.x; v0.2.0 added G15 consensus variance / G16 bank discipline / G17 revision velocity; v0.3.0 added G18 quant cross-doc consistency / G19 Plugin-1-to-Plugin-2 provenance manifest / G20 view defensibility; v0.4.0 added the G20 graduated rigor scale gating score claims above 9.0) on top of that output, applying the kind of mechanical checks (segment GM ties to consolidated, EPS × multiple ties to target price, scenario probabilities sum to 1.00, non-GAAP reconciles to GAAP, FCF includes SBC, non-Hold ratings declare specific consensus variance with S1-S3 evidence, bank memos disclose AOCI bridge + CET1 walk + NIM trajectory + stress capital context, Markdown factor z-scores match structured block, hand-authored memos are flagged and capped at 7.5, memos claiming score > 8.5 must differentiate from consensus by ≥8pp AND carry S1/S2 evidence on the strongest variance AND survive a structured R-v2 attack — and, for any claim above 9.0, survive an *isolated, model-diverse* R-v2 attack) that catch the bugs that actually kill IC memos. v0.3.0 specifically closes four systemic audit findings: the rubric was grading structural completeness instead of view quality, verifier scripts were narrower than the gates they enforced, the Plugin 1 → Plugin 2 handoff had no provenance enforcement, and the quant overlay z-scores were guessed but not labeled as guesses. v0.4.0 (Sprint 3a) makes R-v2 a structurally independent subagent — spawned without the writer's reasoning trace in context and run under a different model than the writer — and adds a graduated rigor scale to G20 so that only memos surviving that isolated, model-diverse attack can claim a rubric score above 9.0.
@@ -27,9 +29,10 @@ The two plugins compose: run `us-equity-research` to produce the raw IC memo + s
 # 1. Add the optional dependencies marketplace (provides financial-analysis + equity-research)
 /plugin marketplace add anthropics/claude-for-financial-services
 
-# 2. Add this project's marketplace (publish path TBD; for development use the manual install below)
-/plugin install us-equity-research@<marketplace-when-published>
-/plugin install us-equity-ic-rigor@<marketplace-when-published>
+# 2. Add this project's marketplace
+/plugin marketplace add GGHongyi/us-equity-research
+/plugin install us-equity-research@us-equity-research
+/plugin install us-equity-ic-rigor@us-equity-research
 ```
 
 ### Cowork
