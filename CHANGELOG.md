@@ -4,6 +4,57 @@ All notable changes to this project will be documented in this file. Format
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) +
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] — 2026-06-06
+
+### Sprint 4 Item 4 — Direct tests for G15 / G16 / G17 / write_manifest.py + verifier grandfathering fixes
+
+Sprint 4 final closure. The deep-research report (and the v0.5.1 plugin-file-sync test discovery) flagged that four verifier components lacked direct pytest coverage. Writing the tests immediately surfaced TWO real verifier bugs that v0.6.0 also closes.
+
+### Fixed — G15 / G16 / G17 now grandfather v0.1.x memos
+
+The new test suite tried to assert that v0.1.0 memos (predating the v0.2.0 gates G15/G16/G17) should be skipped/grandfathered. They were not — the verifiers had no `schema_version` check at all and were firing on v0.1.0 memos that lack the required blocks. This is the inverse silent-bug-pattern flagged by Sprint 3b: not "the verifier silently skips when it shouldn't," but "the verifier silently runs when it shouldn't" on grandfathered schemas.
+
+Each of the three verifiers now declares:
+
+```python
+RUNNABLE_SCHEMA_VERSIONS = {"0.2.0", "0.3.0", "0.4.0", "0.5.0"}
+```
+
+at the top, plus an early-skip block at the start of `verify()`:
+
+```python
+if schema_version not in RUNNABLE_SCHEMA_VERSIONS:
+    _print_status("skipped", reason=f"grandfathered_pre_v0_2 (schema_version={schema_version})")
+    return 0
+```
+
+This is the same pattern used by G19 and G20 verifiers since v0.3.0. The v0.5.1 schema-version regression meta-test now passes for G15/G16/G17 too (three slots flipped from skip to pass).
+
+### Added — 42 direct verifier tests
+
+Four new test files at `scripts/tests/`:
+
+- `test_verify_consensus_variance.py` (11 tests, G15): pass with S1/S2/S3 evidence at sizing_impact_pp ≥ 2.0; n_a for Hold rating, consensus-anchored self-label, thin coverage (n_analysts < 5); fail for missing block, sub-threshold sizing, all-S4 evidence; grandfathered for v0.1.0.
+- `test_verify_bank_metrics.py` (9 tests, G16): pass with all four disclosure groups (AOCI bridge / CET1 walk / NIM trajectory / stress capital) populated with the required flat fields; fail for missing each group; n_a for non-bank sectors (Information Technology, Consumer Discretionary); grandfathered for v0.1.0. Fixtures align with the v0.3.0 derived-value recompute on `required_cet1_pct` (= 4.5 + 2.5 + scb + gsib_surcharge).
+- `test_verify_revision_velocity.py` (11 tests, G17): pass with `fy1_eps_revision_3m_pct` + `breadth_3m` in [-1, 1] + `g17_status="disclosed"`; fail for missing fields, breadth out of range, missing block; n_a for thin coverage (n_analysts < 5) and explicit `g17_status="n_a_thin_coverage"` flag; grandfathered for v0.1.0.
+- `test_write_manifest.py` (11 tests): basic manifest creation, required top-level fields, ticker match, seed run_id propagation, SHA-256 hash integrity over actual file content, agent provenance detection from workpapers/, schema validation, degraded path when seed missing (writes manifest with placeholder + warning rather than hard-failing), error path when outputs dir missing.
+
+All four files follow the existing subprocess + tmp_path fixture pattern used by `test_verify_view_defensibility.py`.
+
+### Test baseline
+
+- v0.5.1: 266 passed + 17 skipped = 283 active.
+- v0.5.2: 266 passed + 17 skipped = 283 active (no test changes; docs + flagship example only).
+- v0.6.0: **308 passed + 14 skipped = 322 active**.
+
+Net +39 active tests: +42 from the new verifier test files, -3 from the meta-test's `test_runnable_schema_versions_includes_latest` flipping from skip to pass for G15/G16/G17 (now that they have RUNNABLE_SCHEMA_VERSIONS).
+
+### Migration — v0.5.2 → v0.6.0
+
+No memo content migration required. No schema changes. The verifier behavior change is strictly additive — v0.2.0+ memos behave identically; only v0.1.0 memos that previously failed G15/G16/G17 will now skip instead. Re-validating a v0.1.0 calibration memo against v0.6.0 verifiers will show G15/G16/G17 as `skipped` with reason `grandfathered_pre_v0_2` (previously: `fail`).
+
+This closes Sprint 4. All eight items from the original Sprint 4 plan (Items 1-9 from the design doc, with Item 4 being the last) plus the deep-research report's prioritized recommendations are now shipped across v0.5.0, v0.5.1, v0.5.2, and v0.6.0. The remaining open work is strategic (v1.0.0 rubric redesign, real adversarial isolation for G20, optional backtest layer) — all documented in the design docs but not Sprint 4 scope.
+
 ## [0.5.2] — 2026-06-06
 
 ### Sprint 4 wrap — Doc consistency (Item 1) + MU flagship example (Item 3)

@@ -46,6 +46,9 @@ from pathlib import Path
 from typing import Any
 
 GATE_ID = "G16"
+# Memo schema_versions for which G16 runs. v0.1.0 predates this gate
+# (added in v0.2.0) and is grandfathered to skip.
+RUNNABLE_SCHEMA_VERSIONS = {"0.2.0", "0.3.0", "0.4.0", "0.5.0"}
 
 # Sector / industry keyword set that triggers bank discipline.
 # Match is case-insensitive substring.
@@ -138,6 +141,14 @@ def _check_group(bm: dict[str, Any], group: list[str], label: str) -> list[str]:
 
 
 def verify(memo_json: dict[str, Any], source_tags: dict[str, Any] | None) -> int:
+    schema_version = memo_json.get("schema_version", "0.1.0")
+    if schema_version not in RUNNABLE_SCHEMA_VERSIONS:
+        _print_status(
+            "skipped",
+            reason=f"grandfathered_pre_v0_2 (schema_version={schema_version})",
+        )
+        return 0
+
     if not _sector_is_bank(memo_json):
         _print_status(
             "n_a",

@@ -1,6 +1,6 @@
 {
   "name": "us-equity-research",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Conduct institutional buy-side fundamental research on a single-name US-listed equity using a multi-agent workflow with mandatory web verification, S1-S5 source stratification, and 5-scenario probabilistic valuation. Use this skill whenever the user provides a US ticker (1-5 uppercase chars on NYSE/Nasdaq/AMEX/OTC such as NVDA, AAPL, JPM, XOM, MRK, BRK.B, AMZN) and asks for fundamental analysis, an investment thesis, a stock pitch, an IC memo, buy-side research, a 10-K read, an earnings prep, a kill thesis, a long/short pair-trade structure, or any institutional-grade deep-dive. Default mode is EDGAR-only and free-aggregator data; optional premium hooks (Visible Alpha, Capital IQ, AlphaSense, Bloomberg) gate behind explicit user signaling. Optional polished Excel DCF, Excel comps, and 30-50pg DOCX outputs delegate to financial-analysis and equity-research plugins when installed.",
   "author": {
     "name": "Hongyi Gu",

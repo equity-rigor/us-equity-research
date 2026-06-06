@@ -7,7 +7,7 @@
   },
   "metadata": {
     "description": "Two-plugin framework for institutional buy-side single-name US equity research. Plugin one (us-equity-research) orchestrates a multi-agent fundamental research workflow producing IC memos and structured JSON outputs. Plugin two (us-equity-ic-rigor) layers a 20-gate PM red-team verification stack on top of that output. Composes with claude-for-financial-services for Excel DCF / Excel comps / polished DOCX delegation.",
-    "version": "0.5.2",
+    "version": "0.6.0",
     "license": "MIT",
     "homepage": "https://github.com/equity-rigor/us-equity-research"
   },
@@ -16,7 +16,7 @@
       "name": "us-equity-research",
       "source": "./us-equity-research",
       "description": "Multi-agent orchestrator for buy-side fundamental research on US equities. Phase 0 (setup) → Phase 1 (5 parallel discovery specialists, FS-Banks Augmentation when sector=Banks) → Phase 2 (6 deepening specialists including A-Consensus for variance identification) → Phase 3 (4 valuation specialists) → manifest generation → verification → IC memo assembly. EDGAR-only default mode; premium hooks (Visible Alpha, Capital IQ, AlphaSense, Bloomberg) opt-in.",
-      "version": "0.5.2",
+      "version": "0.6.0",
       "category": "research",
       "tags": ["equity-research", "us-equity", "buy-side", "fundamental-analysis", "ic-memo", "multi-agent", "edgar", "investment-thesis"]
     },
@@ -24,7 +24,7 @@
       "name": "us-equity-ic-rigor",
       "source": "./us-equity-ic-rigor",
       "description": "PM red-team rigor layer for IC memo verification. 20 gates G1-G20: math (G1/G3/G4/G5), source discipline (G6/G7/G11), structure (G8/G9/G10), quant overlay (G13/G14/G18), bank discipline (G16), consensus variance (G15), revision velocity (G17), provenance manifest with file-hash integrity (G19), view defensibility with R-v2 attack survival (G20). Score-band rubric 6.0-9.0+ with explicit caps on math/discipline failures. Composes with us-equity-research.",
-      "version": "0.5.2",
+      "version": "0.6.0",
       "category": "verification",
       "tags": ["pm-red-team", "verification-gates", "ic-rigor", "scenario-analysis", "position-sizing", "buy-side"]
     }

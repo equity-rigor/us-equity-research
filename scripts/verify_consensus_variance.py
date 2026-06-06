@@ -49,6 +49,9 @@ SIZING_LOAD_BEARING_PP = 2.0
 PRIMARY_S_LEVELS = {"S1", "S2", "S3"}
 HOLD_RATINGS = {"Hold"}
 CONSENSUS_ANCHORED_PATTERN = re.compile(r"consensus[\s\-]anchored", re.IGNORECASE)
+# Memo schema_versions for which G15 runs. v0.1.0 predates this gate
+# (added in v0.2.0) and is grandfathered to skip.
+RUNNABLE_SCHEMA_VERSIONS = {"0.2.0", "0.3.0", "0.4.0", "0.5.0"}
 # v0.3.0 — derived-value recomputation tolerance per audit Issue #3.
 # The formula in consensus-variance-us.md:
 #   sizing_impact_pp = magnitude_pct * probability_pct * sensitivity_pct / 10000
@@ -104,6 +107,14 @@ def _is_load_bearing(variance: dict[str, Any]) -> bool:
 
 
 def verify(memo_json: dict[str, Any], memo_md: str, source_tags: dict[str, Any] | None) -> int:
+    schema_version = memo_json.get("schema_version", "0.1.0")
+    if schema_version not in RUNNABLE_SCHEMA_VERSIONS:
+        _print_status(
+            "skipped",
+            reason=f"grandfathered_pre_v0_2 (schema_version={schema_version})",
+        )
+        return 0
+
     rating = (memo_json.get("recommendation") or {}).get("rating")
 
     # Branch 1: Hold rating = n_a

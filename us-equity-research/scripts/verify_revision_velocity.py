@@ -46,6 +46,9 @@ GATE_ID = "G17"
 N_ANALYSTS_THIN_THRESHOLD = 5
 BREADTH_VALID_RANGE = (-1.0, 1.0)
 REQUIRED_FIELDS = ["fy1_eps_revision_3m_pct", "breadth_3m"]
+# Memo schema_versions for which G17 runs. v0.1.0 predates this gate
+# (added in v0.2.0) and is grandfathered to skip.
+RUNNABLE_SCHEMA_VERSIONS = {"0.2.0", "0.3.0", "0.4.0", "0.5.0"}
 
 
 def _print_status(status: str, **kwargs: Any) -> None:
@@ -68,6 +71,14 @@ def _extract_revision_velocity(payload: dict[str, Any], source_tags: dict[str, A
 
 
 def verify(memo_json: dict[str, Any], source_tags: dict[str, Any] | None) -> int:
+    schema_version = memo_json.get("schema_version", "0.1.0")
+    if schema_version not in RUNNABLE_SCHEMA_VERSIONS:
+        _print_status(
+            "skipped",
+            reason=f"grandfathered_pre_v0_2 (schema_version={schema_version})",
+        )
+        return 0
+
     rv = _extract_revision_velocity(memo_json, source_tags)
 
     if rv is None:
