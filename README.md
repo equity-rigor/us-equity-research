@@ -30,7 +30,7 @@ The two plugins compose: run `us-equity-research` to produce the raw IC memo + s
 /plugin marketplace add anthropics/claude-for-financial-services
 
 # 2. Add this project's marketplace
-/plugin marketplace add GGHongyi/us-equity-research
+/plugin marketplace add equity-rigor/us-equity-research
 /plugin install us-equity-research@us-equity-research
 /plugin install us-equity-ic-rigor@us-equity-research
 ```

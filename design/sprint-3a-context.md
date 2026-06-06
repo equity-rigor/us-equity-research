@@ -5,7 +5,7 @@ This file is the self-contained briefing for any scheduled session executing Spr
 ## Quick orientation for the scheduled session
 
 - **User**: Hongyi Gu (`hg2670@columbia.edu`). Quant researcher / buy-side analyst. Institutional depth, red-team voice, no hand-holding, no clarifying questions when assumptions can be stated.
-- **Repo**: `/Users/hongyi/projects/us-equity-research` (origin: `https://github.com/GGHongyi/us-equity-research`, private).
+- **Repo**: `/Users/hongyi/projects/us-equity-research` (origin: `https://github.com/equity-rigor/us-equity-research`, private).
 - **Current state**: v0.3.0 shipped 2026-05-29 (commit `00d85b8` on `main`). Both plugins at version 0.3.0.
 - **Sprint 3a goal**: Close the adversarial isolation gap — make R-v2 a structurally independent attacker within Claude-only infrastructure (no GPT/Gemini). Per the design conversation, this is the highest-severity remaining issue after v0.3.0.
 - **Target version**: v0.4.0 (minor bump for additive changes, schema_version enum extension to include "0.4.0").

@@ -9,7 +9,7 @@ The file is self-contained — the new session can read only this document and h
 ## 1. Quick orientation
 
 - **User**: Hongyi Gu (`hg2670@columbia.edu`). Quant researcher / buy-side analyst. Treat as institutional, no hand-holding. Reference voice: red team, not cheerleader.
-- **Repo**: `https://github.com/GGHongyi/us-equity-research` (private). Local path on user's Mac: `/Users/hongyi/projects/us-equity-research`. Local path under Cowork workspace mount: depends on the session's mount mapping — confirm with `pwd` after `cd` into the workspace folder.
+- **Repo**: `https://github.com/equity-rigor/us-equity-research` (private). Local path on user's Mac: `/Users/hongyi/projects/us-equity-research`. Local path under Cowork workspace mount: depends on the session's mount mapping — confirm with `pwd` after `cd` into the workspace folder.
 - **Current state**: tagged `v0.2.0` on `main` at commit `7e82cc9`. Both plugin.json files at `0.2.0`. Origin synced. 198 pytest tests passing, no regression on G1-G14. v0.2.0 Sprint 1 is code-complete; JPM live re-run validation is pending (see §11).
 - **Tag history**: `v0.1.0` (initial release), `v0.1.1` (slash command surface), `v0.2.0` (Sprint 1).
 - **Architecture in one sentence**: two-plugin system where Plugin 1 (`us-equity-research`) is the multi-agent research orchestrator producing analysis content, Plugin 2 (`us-equity-ic-rigor`) is the PM red-team layer producing verification gates and rubric scores.
@@ -278,7 +278,7 @@ When the user invokes the new Cowork session with a starter prompt pointing here
 
 Paste this at the start of the new session:
 
-> I'm continuing work on the us-equity-research / us-equity-ic-rigor plugin system at /Users/hongyi/projects/us-equity-research (also at https://github.com/GGHongyi/us-equity-research private). v0.2.0 just shipped on 2026-05-29. Before doing anything else, read `design/session-handoff-v0_2_to_v0_3.md` in the workspace folder — it contains my preferences, the project architecture, what was just shipped (Sprint 1), the Sprint 2 plan, explicit hard-NOs, and honest limitations of what's been built. After reading the handoff file plus the files it points you to in §9 lines 1-10, report back in ≤200 words: what is the system, what just shipped, what's the immediate next item per the priority recommendation. Then wait for my direction before starting any execution work.
+> I'm continuing work on the us-equity-research / us-equity-ic-rigor plugin system at /Users/hongyi/projects/us-equity-research (also at https://github.com/equity-rigor/us-equity-research private). v0.2.0 just shipped on 2026-05-29. Before doing anything else, read `design/session-handoff-v0_2_to_v0_3.md` in the workspace folder — it contains my preferences, the project architecture, what was just shipped (Sprint 1), the Sprint 2 plan, explicit hard-NOs, and honest limitations of what's been built. After reading the handoff file plus the files it points you to in §9 lines 1-10, report back in ≤200 words: what is the system, what just shipped, what's the immediate next item per the priority recommendation. Then wait for my direction before starting any execution work.
 
 ---
 

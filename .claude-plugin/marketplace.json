@@ -3,13 +3,13 @@
   "owner": {
     "name": "Hongyi Gu",
     "email": "hg2670@columbia.edu",
-    "url": "https://github.com/GGHongyi"
+    "url": "https://github.com/equity-rigor"
   },
   "metadata": {
     "description": "Two-plugin framework for institutional buy-side single-name US equity research. Plugin one (us-equity-research) orchestrates a multi-agent fundamental research workflow producing IC memos and structured JSON outputs. Plugin two (us-equity-ic-rigor) layers a 20-gate PM red-team verification stack on top of that output. Composes with claude-for-financial-services for Excel DCF / Excel comps / polished DOCX delegation.",
     "version": "0.3.0",
     "license": "MIT",
-    "homepage": "https://github.com/GGHongyi/us-equity-research"
+    "homepage": "https://github.com/equity-rigor/us-equity-research"
   },
   "plugins": [
     {
