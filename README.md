@@ -55,6 +55,10 @@ each plugin too, or run Claude Code from this repo root so the bundled copies
 inside `us-equity-research/scripts/` and `us-equity-ic-rigor/scripts/` are
 reachable.
 
+### Skip the permission prompts
+
+A normal IC memo run fires 50-100 tool calls (15 specialists × WebSearch + WebFetch + Bash each). To skip the "Yes / Yes-once / No" prompts on every one, see [SETUP.md](./SETUP.md) — two minutes of configuration eliminates the prompts for safe, repetitive operations (SEC EDGAR, FRED, BLS, BEA, Treasury, Federal Reserve, finance aggregators, framework verifier scripts) while keeping destructive operations (`rm`, `git commit`, `git push`, `Read(.env*)`) explicitly prompted. The repo ships with a workspace-level `.claude/settings.json` that handles this automatically if you cloned. If you installed via the marketplace, SETUP.md has the snippet to drop into `~/.claude/settings.json`.
+
 ## Quick start
 
 Two invocation paths — both work, pick whichever fits the moment.

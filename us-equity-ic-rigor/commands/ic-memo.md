@@ -1,6 +1,49 @@
 ---
 description: Build a buy-side IC memo on a US-listed ticker — runs Phase 0 (delegated to us-equity-research) → Phases 1-3 (S1-S5 source stratification, 5-scenario probabilistic framework, three-method valuation reconcile, GM taxonomy T1-T5, bear EPS bridge) → enforces all 20 verification gates (G1-G20) → produces institutional-grade Markdown memo + consolidated structured JSON + provenance manifest
 argument-hint: "[ticker] [optional: thesis direction long/short/pair]"
+allowed-tools:
+  - Read
+  - Write(outputs/**)
+  - Edit(outputs/**)
+  - WebSearch
+  - WebFetch(domain:data.sec.gov)
+  - WebFetch(domain:www.sec.gov)
+  - WebFetch(domain:efts.sec.gov)
+  - WebFetch(domain:fred.stlouisfed.org)
+  - WebFetch(domain:api.fred.stlouisfed.org)
+  - WebFetch(domain:www.bls.gov)
+  - WebFetch(domain:www.bea.gov)
+  - WebFetch(domain:www.eia.gov)
+  - WebFetch(domain:home.treasury.gov)
+  - WebFetch(domain:www.federalreserve.gov)
+  - WebFetch(domain:www.fdic.gov)
+  - WebFetch(domain:www.occ.gov)
+  - WebFetch(domain:www.ftc.gov)
+  - WebFetch(domain:www.justice.gov)
+  - WebFetch(domain:ofac.treasury.gov)
+  - WebFetch(domain:www.bis.doc.gov)
+  - WebFetch(domain:finance.yahoo.com)
+  - WebFetch(domain:query1.finance.yahoo.com)
+  - WebFetch(domain:stockanalysis.com)
+  - WebFetch(domain:www.wsj.com)
+  - WebFetch(domain:www.bloomberg.com)
+  - WebFetch(domain:www.reuters.com)
+  - WebFetch(domain:www.ft.com)
+  - WebFetch(domain:seekingalpha.com)
+  - WebFetch(domain:www.fool.com)
+  - WebFetch(domain:web.archive.org)
+  - Bash(mkdir -p outputs)
+  - Bash(mkdir -p outputs/*)
+  - Bash(cat outputs/*)
+  - Bash(cat outputs/**)
+  - Bash(ls outputs/)
+  - Bash(ls outputs/*)
+  - Bash(python3 -m json.tool *)
+  - Bash(python3 scripts/verify_*)
+  - Bash(python3 ${CLAUDE_PLUGIN_ROOT}/scripts/verify_*)
+  - Bash(python3 scripts/write_manifest.py *)
+  - Bash(python3 ${CLAUDE_PLUGIN_ROOT}/scripts/write_manifest.py *)
+  - Task
 ---
 
 Load the `us-equity-ic-rigor` skill and begin the IC memo build pipeline on the ticker provided.

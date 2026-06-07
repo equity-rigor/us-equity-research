@@ -1,6 +1,45 @@
 ---
 description: Run Phase 0 buy-side fundamental research on a US-listed ticker (NYSE/Nasdaq/AMEX/OTC) — produces structured JSON + Markdown memo, mandatory web verification, S1-S5 source stratification
 argument-hint: "[ticker] [optional: scope notes]"
+allowed-tools:
+  - Read
+  - Write(outputs/**)
+  - Edit(outputs/**)
+  - WebSearch
+  - WebFetch(domain:data.sec.gov)
+  - WebFetch(domain:www.sec.gov)
+  - WebFetch(domain:efts.sec.gov)
+  - WebFetch(domain:fred.stlouisfed.org)
+  - WebFetch(domain:api.fred.stlouisfed.org)
+  - WebFetch(domain:www.bls.gov)
+  - WebFetch(domain:www.bea.gov)
+  - WebFetch(domain:www.eia.gov)
+  - WebFetch(domain:home.treasury.gov)
+  - WebFetch(domain:www.federalreserve.gov)
+  - WebFetch(domain:www.fdic.gov)
+  - WebFetch(domain:www.occ.gov)
+  - WebFetch(domain:www.ftc.gov)
+  - WebFetch(domain:www.justice.gov)
+  - WebFetch(domain:ofac.treasury.gov)
+  - WebFetch(domain:www.bis.doc.gov)
+  - WebFetch(domain:finance.yahoo.com)
+  - WebFetch(domain:query1.finance.yahoo.com)
+  - WebFetch(domain:stockanalysis.com)
+  - WebFetch(domain:www.wsj.com)
+  - WebFetch(domain:www.bloomberg.com)
+  - WebFetch(domain:www.reuters.com)
+  - WebFetch(domain:www.ft.com)
+  - WebFetch(domain:seekingalpha.com)
+  - WebFetch(domain:www.fool.com)
+  - WebFetch(domain:web.archive.org)
+  - Bash(mkdir -p outputs)
+  - Bash(mkdir -p outputs/*)
+  - Bash(cat outputs/*)
+  - Bash(cat outputs/**)
+  - Bash(ls outputs/)
+  - Bash(ls outputs/*)
+  - Bash(python3 -m json.tool *)
+  - Task
 ---
 
 Load the `us-equity-research` skill and begin Phase 0 fundamental research on the ticker provided.

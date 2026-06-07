@@ -1,6 +1,20 @@
 ---
 description: PM red-team an existing IC memo — runs all 20 verification gates (G1-G20) against outputs/{TICKER}_structured.json, scores the memo against pm-redteam-rubric-us.md (1-10 scale, B1-B17 bug categories), produces gate-failure list + score-band assessment + push-from-N-to-N+1 actionable fixes
 argument-hint: "[ticker] [optional: target score, e.g. 8.5 or 9.0]"
+allowed-tools:
+  - Read
+  - Write(outputs/**)
+  - Edit(outputs/**)
+  - Bash(cat outputs/*)
+  - Bash(cat outputs/**)
+  - Bash(ls outputs/)
+  - Bash(ls outputs/*)
+  - Bash(python3 -m json.tool *)
+  - Bash(python3 scripts/verify_*)
+  - Bash(python3 ${CLAUDE_PLUGIN_ROOT}/scripts/verify_*)
+  - Bash(python3 scripts/write_manifest.py *)
+  - Bash(python3 ${CLAUDE_PLUGIN_ROOT}/scripts/write_manifest.py *)
+  - Task
 ---
 
 Load the `us-equity-ic-rigor` skill and run Phase 4 (PM red-team) on the existing memo for the ticker provided.
