@@ -13,6 +13,7 @@ Invariants (per scripts/tests/fixtures/nvda_v0/bug-script-matrix.md):
 Parametrized over all 15 fixtures: clean + B01..B14. pytest -q exits 0 with
 15 passing tests.
 """
+
 from __future__ import annotations
 
 import subprocess
@@ -57,8 +58,10 @@ def test_verify_non_gaap(fixture_id: str) -> None:
         [
             sys.executable,
             str(SCRIPT),
-            "--memo-json", str(json_path),
-            "--memo-md", str(md_path),
+            "--memo-json",
+            str(json_path),
+            "--memo-md",
+            str(md_path),
         ],
         capture_output=True,
         text=True,
@@ -81,10 +84,7 @@ def test_verify_non_gaap(fixture_id: str) -> None:
         assert (
             "non_gaap_reconciliation_present" in result.stdout
             or "reconciliation" in result.stdout.lower()
-        ), (
-            f"B11 failure should reference reconciliation absence: "
-            f"{result.stdout!r}"
-        )
+        ), f"B11 failure should reference reconciliation absence: {result.stdout!r}"
     else:
         assert result.returncode == 0, (
             f"Fixture {fixture_id}: expected exit 0 (cross-sensitivity), "

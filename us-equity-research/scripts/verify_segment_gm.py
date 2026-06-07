@@ -18,13 +18,13 @@ Exit:   0 = pass / n_a; 1 = fail; 2 = usage / IO error.
 
 Self-contained per Phase-C pre-stagger discipline: stdlib + pydantic v2 only.
 """
+
 from __future__ import annotations
 
 import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Optional
 
 from pydantic import BaseModel, ConfigDict, ValidationError
 
@@ -49,10 +49,10 @@ class FinancialPeriod(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
     period: str
-    period_type: Optional[str] = None
-    revenue_usd_m: Optional[float] = None
-    gross_margin_pct: Optional[float] = None
-    segments: Optional[list[Segment]] = None
+    period_type: str | None = None
+    revenue_usd_m: float | None = None
+    gross_margin_pct: float | None = None
+    segments: list[Segment] | None = None
 
 
 def _collect_periods(payload: dict) -> list[FinancialPeriod]:
@@ -139,20 +139,18 @@ def emit_failure(failures: list[dict]) -> None:
     print("status: fail")
     reason = (
         f'Period "{first["period"]}" segment-weighted GM '
-        f'{first["weighted_gm_pct"]:.2f}% diverges from consolidated GM '
-        f'{first["reported_gm_pct"]:.2f}% by {first["delta_bp"]:.1f}bp '
-        f'(tolerance ±{TOL_BP:.0f}bp)'
+        f"{first['weighted_gm_pct']:.2f}% diverges from consolidated GM "
+        f"{first['reported_gm_pct']:.2f}% by {first['delta_bp']:.1f}bp "
+        f"(tolerance ±{TOL_BP:.0f}bp)"
     )
     print(f"failure_reason: {reason}")
     print(
-        f'remediation_required: financials.{first["period"]}.segments[].gm_pct '
+        f"remediation_required: financials.{first['period']}.segments[].gm_pct "
         f"OR financials.{first['period']}.gross_margin_pct"
     )
     print(f"segments_checked: {len(first['segments'])}")
     for s in first["segments"]:
-        print(
-            f"  - {s['name']}: revenue=${s['rev']:.0f}M × GM={s['gm_pct']:.2f}%"
-        )
+        print(f"  - {s['name']}: revenue=${s['rev']:.0f}M × GM={s['gm_pct']:.2f}%")
     if len(failures) > 1:
         print(f"additional_failures: {len(failures) - 1}")
         for extra in failures[1:]:
@@ -168,8 +166,12 @@ def main(argv: list[str] | None = None) -> int:
         description=__doc__ or "Verify G2 — segment GM reconciliation."
     )
     parser.add_argument("--memo-json", required=True, help="Path to structured memo JSON")
-    parser.add_argument("--memo-md", required=False, default=None,
-                        help="Path to memo Markdown (unused; accepted for uniform calling contract)")
+    parser.add_argument(
+        "--memo-md",
+        required=False,
+        default=None,
+        help="Path to memo Markdown (unused; accepted for uniform calling contract)",
+    )
     args = parser.parse_args(argv)
 
     path = Path(args.memo_json)

@@ -10,6 +10,7 @@ Usage:
 
 Exit 0 = pass or N/A; non-zero = fail.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -25,12 +26,15 @@ except ModuleNotFoundError:
     # Production has pydantic; this branch keeps regression tests runnable.
     class ValidationError(Exception):  # type: ignore[no-redef]
         pass
+
     def Field(default=None, **_kwargs):  # type: ignore[no-redef]
         return default
+
     class BaseModel:  # type: ignore[no-redef]
         def __init__(self, **kwargs):
             for k, v in kwargs.items():
                 setattr(self, k, v)
+
 
 # Inversion forgiven only if BOTH: delta<=$10M AND delta<=0.5% of larger.
 ABS_TOL_USD_M = 10.0
@@ -132,11 +136,13 @@ def _collect_segments_strict(sotp: dict[str, Any]) -> tuple[list[SOTPSegment], l
     for name, p in ka.items():
         if not isinstance(p, dict):
             continue
-        def _find(substr: str) -> float | None:
+
+        def _find(substr: str, p=p) -> float | None:
             for k, v in p.items():
                 if substr in str(k).lower():
                     return _coerce_float(v)
             return None
+
         rev = _find("revenue")
         gp = _find("segment_gp")
         op = _find("segment_op")
@@ -152,19 +158,27 @@ def _collect_segments_strict(sotp: dict[str, Any]) -> tuple[list[SOTPSegment], l
             # Revenue -> GP -> OP -> NI. PPNR occupies the top two
             # rungs of the industrial chain so existing monotonicity
             # logic carries through.
-            segments.append(SOTPSegment(
-                name=name,
-                revenue=ppnr,
-                gp=ppnr,
-                op=pretax,
-                ni=ni,
-            ))
+            segments.append(
+                SOTPSegment(
+                    name=name,
+                    revenue=ppnr,
+                    gp=ppnr,
+                    op=pretax,
+                    ni=ni,
+                )
+            )
         else:
             present = [
-                lbl for lbl, v in (
-                    ("Revenue", rev), ("GP", gp), ("OP", op), ("NI", ni),
-                    ("PPNR", ppnr), ("Pre-Tax", pretax),
-                ) if v is not None
+                lbl
+                for lbl, v in (
+                    ("Revenue", rev),
+                    ("GP", gp),
+                    ("OP", op),
+                    ("NI", ni),
+                    ("PPNR", ppnr),
+                    ("Pre-Tax", pretax),
+                )
+                if v is not None
             ]
             warnings.append(
                 f'segment "{name}" has incomplete shape (only [{", ".join(present) or "none"}] present); '
@@ -229,13 +243,16 @@ def verify(memo: dict[str, Any]) -> tuple[int, list[str]]:
                 reason += " Incomplete segments: " + "; ".join(shape_warnings[:3])
                 if len(shape_warnings) > 3:
                     reason += f" (+{len(shape_warnings) - 3} more)"
-            return (1, [
-                "gate_id: G3",
-                "status: fail",
-                f"failure_reason: {reason}",
-                "remediation_required: populate the full monotonicity ladder for every SOTP segment per memo.json definitions/sotp_segment",
-                "blocks_score_above: 7.0",
-            ])
+            return (
+                1,
+                [
+                    "gate_id: G3",
+                    "status: fail",
+                    f"failure_reason: {reason}",
+                    "remediation_required: populate the full monotonicity ladder for every SOTP segment per memo.json definitions/sotp_segment",
+                    "blocks_score_above: 7.0",
+                ],
+            )
         prefix: list[str] = []
         if shape_warnings:
             prefix.append(
@@ -247,15 +264,26 @@ def verify(memo: dict[str, Any]) -> tuple[int, list[str]]:
     # Pre-v0.3.0 legacy path: lenient _collect_segments + lenient n_a.
     segments = _collect_segments(sotp)
     if not segments:
-        return (0, ["gate_id: G3", "status: n_a", "reason: SOTP present but no segment rows (pre-v0.3.0 lenient grandfathered)"])
+        return (
+            0,
+            [
+                "gate_id: G3",
+                "status: n_a",
+                "reason: SOTP present but no segment rows (pre-v0.3.0 lenient grandfathered)",
+            ],
+        )
     return _run_monotonicity(segments, prefix_msgs=[])
 
 
 def _parse_args(argv: list[str]) -> Path:
     p = argparse.ArgumentParser(description="Verify SOTP monotonicity (G3).")
     p.add_argument("--memo-json", required=True, help="Path to structured memo JSON")
-    p.add_argument("--memo-md", required=False, default=None,
-                   help="Path to memo Markdown (unused by G3; accepted for uniform calling contract)")
+    p.add_argument(
+        "--memo-md",
+        required=False,
+        default=None,
+        help="Path to memo Markdown (unused by G3; accepted for uniform calling contract)",
+    )
     a = p.parse_args(argv)
     return Path(a.memo_json)
 
@@ -264,17 +292,26 @@ def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
     memo_path = _parse_args(argv)
     if not memo_path.exists():
-        print(f"gate_id: G3\nstatus: fail\nfailure_reason: memo JSON not found at {memo_path}", file=sys.stderr)
+        print(
+            f"gate_id: G3\nstatus: fail\nfailure_reason: memo JSON not found at {memo_path}",
+            file=sys.stderr,
+        )
         return 2
     try:
         memo = json.loads(memo_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as e:
-        print(f"gate_id: G3\nstatus: fail\nfailure_reason: cannot parse memo JSON: {e}", file=sys.stderr)
+        print(
+            f"gate_id: G3\nstatus: fail\nfailure_reason: cannot parse memo JSON: {e}",
+            file=sys.stderr,
+        )
         return 2
     try:
         exit_code, msgs = verify(memo)
     except ValidationError as e:
-        print(f"gate_id: G3\nstatus: fail\nfailure_reason: schema validation error: {e}", file=sys.stderr)
+        print(
+            f"gate_id: G3\nstatus: fail\nfailure_reason: schema validation error: {e}",
+            file=sys.stderr,
+        )
         return 2
     stream = sys.stdout if exit_code == 0 else sys.stderr
     for line in msgs:

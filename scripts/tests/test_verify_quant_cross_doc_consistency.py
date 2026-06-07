@@ -10,6 +10,7 @@ Self-contained synthetic fixtures (stdlib-only verifier; no nvda_v0 bug fixtures
 needed). Covers: n_a, no-reference pass, in-tolerance pass, divergence fail,
 absent-factor fail, and code-block exclusion.
 """
+
 from __future__ import annotations
 
 import json
@@ -24,7 +25,8 @@ SCRIPT = REPO_ROOT / "scripts" / "verify_quant_cross_doc_consistency.py"
 def _run(memo_json: Path, memo_md: Path) -> subprocess.CompletedProcess:
     return subprocess.run(
         [sys.executable, str(SCRIPT), "--memo-json", str(memo_json), "--memo-md", str(memo_md)],
-        capture_output=True, text=True,
+        capture_output=True,
+        text=True,
     )
 
 

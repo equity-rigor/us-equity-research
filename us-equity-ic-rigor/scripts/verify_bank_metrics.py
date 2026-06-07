@@ -37,6 +37,7 @@ Exit codes:
   0 = G16 passes (or n_a)
   non-zero = G16 fails
 """
+
 from __future__ import annotations
 
 import argparse
@@ -111,7 +112,9 @@ def _sector_is_bank(memo_json: dict[str, Any]) -> bool:
     return any(kw in blob for kw in BANK_KEYWORDS)
 
 
-def _extract_bank_metrics(payload: dict[str, Any], source_tags: dict[str, Any] | None) -> dict[str, Any] | None:
+def _extract_bank_metrics(
+    payload: dict[str, Any], source_tags: dict[str, Any] | None
+) -> dict[str, Any] | None:
     bm = payload.get("bank_metrics")
     if isinstance(bm, dict):
         return bm
@@ -195,9 +198,7 @@ def verify(memo_json: dict[str, Any], source_tags: dict[str, Any] | None) -> int
     failing_groups = [g for g, m in all_missing.items() if m]
 
     if failing_groups:
-        details = "; ".join(
-            f"{g} missing [{', '.join(all_missing[g])}]" for g in failing_groups
-        )
+        details = "; ".join(f"{g} missing [{', '.join(all_missing[g])}]" for g in failing_groups)
         _print_status(
             "fail",
             failure_reason=(
@@ -257,23 +258,34 @@ def verify(memo_json: dict[str, Any], source_tags: dict[str, Any] | None) -> int
         sector_gics=memo_json.get("sector_gics", ""),
         bank_category=category,
         groups_verified="AOCI_bridge, CET1_walk, NIM_trajectory, stress_capital",
-        cet1_arithmetic="verified" if isinstance(required_cet1, (int, float)) else "skipped_optional",
+        cet1_arithmetic="verified"
+        if isinstance(required_cet1, (int, float))
+        else "skipped_optional",
     )
     return 0
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description=(
-            "Verify G16 — bank discipline required for Banks-sector memos."
-        )
+        description=("Verify G16 — bank discipline required for Banks-sector memos.")
     )
-    parser.add_argument("--memo-json", required=True, type=Path,
-                        help="Path to structured memo JSON")
-    parser.add_argument("--memo-md", required=False, type=Path, default=None,
-                        help="(Unused for G16 — accepted for uniform calling contract)")
-    parser.add_argument("--source-tags-json", required=False, type=Path, default=None,
-                        help="(Optional) standalone source_tags.json sibling file")
+    parser.add_argument(
+        "--memo-json", required=True, type=Path, help="Path to structured memo JSON"
+    )
+    parser.add_argument(
+        "--memo-md",
+        required=False,
+        type=Path,
+        default=None,
+        help="(Unused for G16 — accepted for uniform calling contract)",
+    )
+    parser.add_argument(
+        "--source-tags-json",
+        required=False,
+        type=Path,
+        default=None,
+        help="(Optional) standalone source_tags.json sibling file",
+    )
     args = parser.parse_args(argv)
 
     if not args.memo_json.is_file():

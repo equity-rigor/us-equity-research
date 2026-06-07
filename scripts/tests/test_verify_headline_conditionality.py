@@ -14,6 +14,7 @@ Total fixture invocations exercised: 15 (clean + 14 bugs). pytest collects:
 Calling contract: positional memo_json arg + optional --memo-md flag; the
 script defaults to the sibling .md when --memo-md is omitted.
 """
+
 from __future__ import annotations
 
 import subprocess

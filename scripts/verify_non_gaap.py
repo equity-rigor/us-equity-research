@@ -20,6 +20,7 @@ Usage:
 If --memo-md is omitted, looks for a sibling .md to memo.json. Exit codes:
 0 = pass, 1 = fail, 2 = usage/IO/schema error.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -27,7 +28,6 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import Optional
 
 from pydantic import BaseModel, ConfigDict, ValidationError
 
@@ -66,8 +66,8 @@ REMEDIATION = (
 
 class _ForensicFlags(BaseModel):
     model_config = ConfigDict(extra="ignore")
-    non_gaap_reconciliation_present: Optional[bool] = None
-    non_gaap_to_gaap_delta_pct_ni_5y_avg: Optional[float] = None
+    non_gaap_reconciliation_present: bool | None = None
+    non_gaap_to_gaap_delta_pct_ni_5y_avg: float | None = None
 
 
 class _Memo(BaseModel):
@@ -78,7 +78,7 @@ class _Memo(BaseModel):
 # ----- Helpers ---------------------------------------------------------------
 
 
-def _emit_fail(reason: str, *, extras: Optional[dict] = None) -> None:
+def _emit_fail(reason: str, *, extras: dict | None = None) -> None:
     print(f"gate_id: {GATE_ID}\nstatus: fail\nfailure_reason: {reason}")
     if extras:
         for k, v in extras.items():
@@ -108,9 +108,7 @@ def verify(memo_raw: dict, md_text: str) -> int:
     try:
         memo = _Memo.model_validate(memo_raw)
     except ValidationError as exc:
-        _emit_fail(
-            f"memo JSON missing required structure for G11: {exc.errors()[0]['msg']}"
-        )
+        _emit_fail(f"memo JSON missing required structure for G11: {exc.errors()[0]['msg']}")
         return 2
 
     ff = memo.forensic_flags
@@ -197,16 +195,21 @@ def verify(memo_raw: dict, md_text: str) -> int:
 # ----- CLI -------------------------------------------------------------------
 
 
-def main(argv: Optional[list[str]] = None) -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Verify G11 — non-GAAP / GAAP reconciliation present.",
     )
     parser.add_argument(
-        "--memo-json", required=True, type=Path,
+        "--memo-json",
+        required=True,
+        type=Path,
         help="Path to structured memo JSON",
     )
     parser.add_argument(
-        "--memo-md", required=False, type=Path, default=None,
+        "--memo-md",
+        required=False,
+        type=Path,
+        default=None,
         help="Path to rendered Markdown memo (default: sibling .md to memo_json)",
     )
     args = parser.parse_args(argv)
@@ -230,10 +233,7 @@ def main(argv: Optional[list[str]] = None) -> int:
         return 2
 
     # Resolve MD path: explicit flag wins; otherwise sibling .md.
-    md_path = (
-        args.memo_md if args.memo_md is not None
-        else args.memo_json.with_suffix(".md")
-    )
+    md_path = args.memo_md if args.memo_md is not None else args.memo_json.with_suffix(".md")
     md_text = ""
     if md_path.is_file():
         md_text = md_path.read_text(encoding="utf-8")

@@ -7,6 +7,7 @@ Invariants enforced:
 
 Total: 15 fixture parameterizations; pytest -q must pass.
 """
+
 from __future__ import annotations
 
 import json
@@ -59,7 +60,9 @@ def test_other_bugs_do_not_trigger(bug_num: int) -> None:
     bug_path = BUGS_DIR / f"B{bug_num:02d}.json"
     assert bug_path.exists(), f"fixture missing: {bug_path}"
     rc = _run(bug_path)
-    assert rc == 0, f"verify_sotp_monotonicity.py incorrectly fired on B{bug_num:02d} (cross-sensitivity)"
+    assert rc == 0, (
+        f"verify_sotp_monotonicity.py incorrectly fired on B{bug_num:02d} (cross-sensitivity)"
+    )
 
 
 def test_flag_form_supported() -> None:

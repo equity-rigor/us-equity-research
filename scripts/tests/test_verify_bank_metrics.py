@@ -6,14 +6,13 @@ Sprint 4 Item 4 final closure. Pass / fail / n_a / grandfathered fixtures
 covering the bank-discipline gate per scripts/verify_bank_metrics.py and
 references/phase-1-deep-dive-us.md §FS-Banks Augmentation.
 """
+
 from __future__ import annotations
 
 import json
 import subprocess
 import sys
 from pathlib import Path
-
-import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = REPO_ROOT / "scripts" / "verify_bank_metrics.py"
@@ -101,6 +100,7 @@ def _strip_group(memo: dict, fields: list[str]) -> dict:
 # Pass case
 # -----------------------------------------------------------------------------
 
+
 def test_g16_pass_complete_bank_disclosures(tmp_path: Path):
     proc = _run(_base_bank_memo(), tmp_path)
     assert proc.returncode == 0, f"expected pass, got: {proc.stdout}\n{proc.stderr}"
@@ -110,6 +110,7 @@ def test_g16_pass_complete_bank_disclosures(tmp_path: Path):
 # -----------------------------------------------------------------------------
 # Fail cases — missing each required group
 # -----------------------------------------------------------------------------
+
 
 def test_g16_fail_missing_aoci_bridge(tmp_path: Path):
     memo = _strip_group(_base_bank_memo(), _AOCI_FIELDS)
@@ -151,6 +152,7 @@ def test_g16_fail_missing_bank_metrics_block_entirely(tmp_path: Path):
 # N/A cases — non-bank sectors
 # -----------------------------------------------------------------------------
 
+
 def test_g16_na_information_technology_sector(tmp_path: Path):
     memo = _base_bank_memo()
     memo["sector_gics"] = "Information Technology"
@@ -175,6 +177,7 @@ def test_g16_na_consumer_discretionary(tmp_path: Path):
 # -----------------------------------------------------------------------------
 # Grandfathered
 # -----------------------------------------------------------------------------
+
 
 def test_g16_grandfathered_v0_1(tmp_path: Path):
     memo = _base_bank_memo(schema_version="0.1.0")

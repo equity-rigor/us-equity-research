@@ -13,6 +13,7 @@ Covered behavior:
   - Seed file (when present) is merged into the manifest
   - Missing outputs dir raises an error / non-zero exit
 """
+
 from __future__ import annotations
 
 import hashlib
@@ -20,8 +21,6 @@ import json
 import subprocess
 import sys
 from pathlib import Path
-
-import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = REPO_ROOT / "scripts" / "write_manifest.py"
@@ -38,8 +37,7 @@ def _setup_outputs_dir(tmp_path: Path, ticker: str = "TEST") -> Path:
 
     # Main deliverables
     (outputs / f"{ticker}_IC_memo.md").write_text(
-        "# IC Memo\n\nSubstantive content here that exceeds 500 bytes "
-        + "A" * 600,
+        "# IC Memo\n\nSubstantive content here that exceeds 500 bytes " + "A" * 600,
         encoding="utf-8",
     )
     (outputs / f"{ticker}_structured.json").write_text(
@@ -66,8 +64,7 @@ def _setup_outputs_dir(tmp_path: Path, ticker: str = "TEST") -> Path:
     ]:
         wp = workpapers / f"{ticker}_{agent}.md"
         wp.write_text(
-            f"# {agent} workpaper\n\nSubstantive findings "
-            + "X" * 600,
+            f"# {agent} workpaper\n\nSubstantive findings " + "X" * 600,
             encoding="utf-8",
         )
 
@@ -101,8 +98,12 @@ def _write_seed(outputs_dir: Path, ticker: str, **overrides) -> Path:
     return seed_path
 
 
-def _run(ticker: str, outputs_dir: Path, seed_path: Path | None = None,
-         extra_args: list[str] | None = None) -> subprocess.CompletedProcess:
+def _run(
+    ticker: str,
+    outputs_dir: Path,
+    seed_path: Path | None = None,
+    extra_args: list[str] | None = None,
+) -> subprocess.CompletedProcess:
     cmd = [
         sys.executable,
         str(SCRIPT),
@@ -121,6 +122,7 @@ def _run(ticker: str, outputs_dir: Path, seed_path: Path | None = None,
 # -----------------------------------------------------------------------------
 # Basic / pass cases
 # -----------------------------------------------------------------------------
+
 
 def test_writer_creates_manifest_file(tmp_path: Path):
     ticker = "TEST"
@@ -177,6 +179,7 @@ def test_manifest_carries_seed_run_id(tmp_path: Path):
 # Hash integrity
 # -----------------------------------------------------------------------------
 
+
 def test_sha256_hash_matches_actual_file_content(tmp_path: Path):
     ticker = "TEST"
     outputs = _setup_outputs_dir(tmp_path, ticker)
@@ -207,6 +210,7 @@ def test_sha256_hash_matches_actual_file_content(tmp_path: Path):
 # -----------------------------------------------------------------------------
 # Agent provenance detection
 # -----------------------------------------------------------------------------
+
 
 def test_agent_provenance_detected_from_workpapers(tmp_path: Path):
     ticker = "TEST"
@@ -241,6 +245,7 @@ def test_manifest_validates_against_schema(tmp_path: Path):
 # Degraded path — missing seed
 # -----------------------------------------------------------------------------
 
+
 def test_missing_seed_writes_manifest_with_placeholders(tmp_path: Path):
     """The writer's documented degraded path: if seed is missing, write a
     manifest with placeholder fields and emit a WARNING to stderr."""
@@ -268,6 +273,7 @@ def test_missing_seed_writes_manifest_with_placeholders(tmp_path: Path):
 # -----------------------------------------------------------------------------
 # Error path — missing outputs dir
 # -----------------------------------------------------------------------------
+
 
 def test_missing_outputs_dir_raises_error(tmp_path: Path):
     ticker = "TEST"

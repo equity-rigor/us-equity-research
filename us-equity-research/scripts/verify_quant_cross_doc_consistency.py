@@ -39,6 +39,7 @@ Exit codes:
   0 = G18 passes (or n_a)
   non-zero = G18 fails
 """
+
 from __future__ import annotations
 
 import argparse
@@ -132,9 +133,7 @@ def _extract_factor_tags(memo_json: dict[str, Any]) -> dict[str, float] | None:
     qo = memo_json.get("quant_overlay")
     if isinstance(qo, dict) and isinstance(qo.get("factor_tags"), dict):
         return {
-            k.lower(): float(v)
-            for k, v in qo["factor_tags"].items()
-            if isinstance(v, (int, float))
+            k.lower(): float(v) for k, v in qo["factor_tags"].items() if isinstance(v, (int, float))
         }
     if isinstance(memo_json.get("factor_tags"), dict):
         return {

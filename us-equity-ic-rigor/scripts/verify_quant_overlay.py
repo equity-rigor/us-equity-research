@@ -44,14 +44,15 @@ Exit codes:
 
 Self-contained: stdlib + pydantic v2 only; NO shared helpers.
 """
+
 from __future__ import annotations
 
 import argparse
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 from pydantic import BaseModel, ConfigDict
 
@@ -74,13 +75,13 @@ class FactorTags(BaseModel):
 
     model_config = ConfigDict(extra="ignore")
 
-    value: Optional[float] = None
-    quality: Optional[float] = None
-    momentum: Optional[float] = None
-    growth: Optional[float] = None
-    size: Optional[float] = None
-    low_vol: Optional[float] = None
-    liquidity: Optional[float] = None
+    value: float | None = None
+    quality: float | None = None
+    momentum: float | None = None
+    growth: float | None = None
+    size: float | None = None
+    low_vol: float | None = None
+    liquidity: float | None = None
 
 
 class Capacity(BaseModel):
@@ -88,16 +89,16 @@ class Capacity(BaseModel):
 
     model_config = ConfigDict(extra="ignore")
 
-    adv_30d_usd_m: Optional[float] = None
-    days_to_exit_10pct_participation: Optional[float] = None
-    days_to_exit_20pct_participation: Optional[float] = None
-    days_to_exit_30pct_participation: Optional[float] = None
-    max_position_constrained_by_adv_pct_nav: Optional[float] = None
+    adv_30d_usd_m: float | None = None
+    days_to_exit_10pct_participation: float | None = None
+    days_to_exit_20pct_participation: float | None = None
+    days_to_exit_30pct_participation: float | None = None
+    max_position_constrained_by_adv_pct_nav: float | None = None
 
 
 def _now_iso() -> str:
     """ISO 8601 timestamp with timezone for gate_check.checked_at."""
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def _is_finite_number(v: Any) -> bool:
@@ -113,7 +114,7 @@ def _is_finite_number(v: Any) -> bool:
     return f == f and f not in (float("inf"), float("-inf"))
 
 
-def check_g13(quant_overlay: Optional[dict]) -> dict:
+def check_g13(quant_overlay: dict | None) -> dict:
     """Evaluate G13 — factor exposure block.
 
     Returns a gate_check dict per schemas/verification_gates.json. Status is
@@ -178,9 +179,7 @@ def check_g13(quant_overlay: Optional[dict]) -> dict:
         gate["status"] = "fail"
         parts: list[str] = []
         if missing:
-            parts.append(
-                f"missing {len(missing)} of 7 required factors: {', '.join(missing)}"
-            )
+            parts.append(f"missing {len(missing)} of 7 required factors: {', '.join(missing)}")
             gate["evidence"]["factors_missing"] = missing
         if out_of_range:
             oor_str = ", ".join(f"{k}={v}" for k, v in out_of_range)
@@ -198,7 +197,7 @@ def check_g13(quant_overlay: Optional[dict]) -> dict:
     return gate
 
 
-def check_g14(quant_overlay: Optional[dict]) -> dict:
+def check_g14(quant_overlay: dict | None) -> dict:
     """Evaluate G14 — capacity block.
 
     Returns a gate_check dict per schemas/verification_gates.json. Status is
@@ -245,16 +244,16 @@ def check_g14(quant_overlay: Optional[dict]) -> dict:
     for key in REQUIRED_CAPACITY_FIELDS:
         raw_val = raw_cap.get(key)
         if raw_val is None:
-            failures.append(f'{key} missing or null')
+            failures.append(f"{key} missing or null")
             field_status[key] = {"present": False, "value": None}
             continue
         if not _is_finite_number(raw_val):
-            failures.append(f'{key} non-numeric (value={raw_val!r})')
+            failures.append(f"{key} non-numeric (value={raw_val!r})")
             field_status[key] = {"present": True, "value": raw_val, "numeric": False}
             continue
         fv = float(raw_val)
         if fv <= 0:
-            failures.append(f'{key} not strictly positive (value={fv})')
+            failures.append(f"{key} not strictly positive (value={fv})")
             field_status[key] = {"present": True, "value": fv, "positive": False}
             continue
         field_status[key] = {"present": True, "value": fv, "positive": True}
@@ -266,8 +265,8 @@ def check_g14(quant_overlay: Optional[dict]) -> dict:
 
     if failures:
         gate["status"] = "fail"
-        gate["failure_reason"] = (
-            "quant_overlay.capacity required field check failed: " + "; ".join(failures)
+        gate["failure_reason"] = "quant_overlay.capacity required field check failed: " + "; ".join(
+            failures
         )
         gate["remediation_required"] = (
             f"quant_overlay.capacity — populate adv_30d_usd_m and "

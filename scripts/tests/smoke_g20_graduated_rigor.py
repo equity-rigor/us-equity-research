@@ -17,6 +17,7 @@ so this runs on a bare interpreter.
 
 Exit 0 = all branches behaved as specified; exit 1 = at least one mismatch.
 """
+
 from __future__ import annotations
 
 import json
@@ -43,7 +44,9 @@ MEMO_MD = (
 )
 
 
-def _attack(*, isolated, attacker_model, outcome="rebutted", target="V_med", attack_type="base_rate_sanity"):
+def _attack(
+    *, isolated, attacker_model, outcome="rebutted", target="V_med", attack_type="base_rate_sanity"
+):
     """One adjudication_trail variance_attack entry. Fields the verifier reads
     plus a schema-legal resolution (>=50 chars)."""
     entry = {
@@ -109,42 +112,72 @@ def _branches():
         (
             "1_v030_pass",
             "v0.3.0 memo passing (a)+(b)+(c); graduated check N/A",
-            _base_memo(schema_version="0.3.0", current_score=None, author_model=None, attack=surviving_noniso),
+            _base_memo(
+                schema_version="0.3.0",
+                current_score=None,
+                author_model=None,
+                attack=surviving_noniso,
+            ),
             0,
             ["status: pass", "graduated_rigor: n_a (v0.3.0 schema"],
         ),
         (
             "2_v040_8.7_noiso_pass",
             "v0.4.0 claim 8.7, no isolation, passes (a)+(b)+(c) -> 8.5-9.0 band",
-            _base_memo(schema_version="0.4.0", current_score=8.7, author_model=WRITER, attack=surviving_noniso),
+            _base_memo(
+                schema_version="0.4.0",
+                current_score=8.7,
+                author_model=WRITER,
+                attack=surviving_noniso,
+            ),
             0,
             ["status: pass", "graduated_rigor: n_a (claimed score 8.7"],
         ),
         (
             "3_v040_9.2_noiso_fail",
             "v0.4.0 claim 9.2, surviving but NON-isolated attack -> cap 9.0",
-            _base_memo(schema_version="0.4.0", current_score=9.2, author_model=WRITER, attack=surviving_noniso),
+            _base_memo(
+                schema_version="0.4.0",
+                current_score=9.2,
+                author_model=WRITER,
+                attack=surviving_noniso,
+            ),
             9,
             ["status: fail", "blocks_score_above: 9.0"],
         ),
         (
             "4_v040_9.2_iso_samemodel_fail",
             "v0.4.0 claim 9.2, isolated attack but attacker==writer model -> cap 9.0",
-            _base_memo(schema_version="0.4.0", current_score=9.2, author_model=WRITER, attack=surviving_iso_same),
+            _base_memo(
+                schema_version="0.4.0",
+                current_score=9.2,
+                author_model=WRITER,
+                attack=surviving_iso_same,
+            ),
             10,
             ["status: fail", "blocks_score_above: 9.0"],
         ),
         (
             "5_v040_9.2_iso_diversemodel_pass",
             "v0.4.0 claim 9.2, isolated + model-diverse surviving attack -> pass",
-            _base_memo(schema_version="0.4.0", current_score=9.2, author_model=WRITER, attack=surviving_iso_diverse),
+            _base_memo(
+                schema_version="0.4.0",
+                current_score=9.2,
+                author_model=WRITER,
+                attack=surviving_iso_diverse,
+            ),
             0,
             ["status: pass", "graduated_rigor: satisfied"],
         ),
         (
             "6_v040_9.5_all_met_pass",
             "v0.4.0 claim 9.5, all conditions met -> pass",
-            _base_memo(schema_version="0.4.0", current_score=9.5, author_model=WRITER, attack=surviving_iso_diverse),
+            _base_memo(
+                schema_version="0.4.0",
+                current_score=9.5,
+                author_model=WRITER,
+                attack=surviving_iso_diverse,
+            ),
             0,
             ["status: pass", "graduated_rigor: satisfied"],
         ),
@@ -152,21 +185,36 @@ def _branches():
         (
             "7_v040_9.0_boundary_noiso_pass",
             "GUARD: claim EXACTLY 9.0 is not > 9.0 -> graduated n_a, pass (strict inequality)",
-            _base_memo(schema_version="0.4.0", current_score=9.0, author_model=WRITER, attack=surviving_noniso),
+            _base_memo(
+                schema_version="0.4.0",
+                current_score=9.0,
+                author_model=WRITER,
+                attack=surviving_noniso,
+            ),
             0,
             ["status: pass", "graduated_rigor: n_a (claimed score 9.0"],
         ),
         (
             "8_pre030_grandfathered_skip",
             "GUARD: v0.2.0 memo grandfathered -> skipped",
-            _base_memo(schema_version="0.2.0", current_score=9.5, author_model=WRITER, attack=surviving_iso_diverse),
+            _base_memo(
+                schema_version="0.2.0",
+                current_score=9.5,
+                author_model=WRITER,
+                attack=surviving_iso_diverse,
+            ),
             0,
             ["status: skipped", "grandfathered_pre_v0_3"],
         ),
         (
             "9_v040_9.2_iso_diverse_no_writer_fail",
             "GUARD: claim 9.2, isolated+diverse attack but writer model undeterminable -> cap 9.0",
-            _base_memo(schema_version="0.4.0", current_score=9.2, author_model=None, attack=surviving_iso_diverse),
+            _base_memo(
+                schema_version="0.4.0",
+                current_score=9.2,
+                author_model=None,
+                attack=surviving_iso_diverse,
+            ),
             8,
             ["status: fail", "blocks_score_above: 9.0"],
         ),
@@ -221,7 +269,9 @@ def main() -> int:
     print("\n=== G20 v0.4.0 graduated rigor smoke ===")
     for bid, ok, exp, got, desc in rows:
         print(f"  [{'PASS' if ok else 'FAIL'}] {bid:<40} exit exp={exp} got={got}  {desc}")
-    print(f"\n{'ALL BRANCHES OK' if all_ok else 'SMOKE FAILED'} ({sum(1 for r in rows if r[1])}/{len(rows)})")
+    print(
+        f"\n{'ALL BRANCHES OK' if all_ok else 'SMOKE FAILED'} ({sum(1 for r in rows if r[1])}/{len(rows)})"
+    )
     return 0 if all_ok else 1
 
 

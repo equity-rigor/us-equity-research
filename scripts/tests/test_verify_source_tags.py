@@ -10,6 +10,7 @@ Per the bug-script-matrix:
   respectively). G6 must NOT trip on those — they are owned by G7 and
   G11 respectively.
 """
+
 from __future__ import annotations
 
 import json
@@ -68,8 +69,7 @@ def test_verify_source_tags(fixture_id: str) -> None:
         )
         # Must point to the offending phrase / anchor.
         assert "$130B" in result.stdout or "revenue" in result.stdout, (
-            f"B06 failure should reference the stripped revenue anchor: "
-            f"{result.stdout!r}"
+            f"B06 failure should reference the stripped revenue anchor: {result.stdout!r}"
         )
     else:
         assert result.returncode == 0, (
@@ -88,10 +88,7 @@ def test_verify_source_tags(fixture_id: str) -> None:
 # anchor is caught under strict (fail) and ignored under legacy (pass), so the
 # exit code reveals which path ran.
 
-_UNSOURCED_GM_MD = (
-    "## Thesis\n"
-    "We model gross margin of 71.2% for FY27, above the Street.\n"
-)
+_UNSOURCED_GM_MD = "## Thesis\nWe model gross margin of 71.2% for FY27, above the Street.\n"
 
 
 @pytest.mark.parametrize(
@@ -102,11 +99,15 @@ _UNSOURCED_GM_MD = (
         ("0.4.0", 1),  # the fix: v0.4.0 must run strict, not legacy
     ],
 )
-def test_strict_categories_route_v040(tmp_path: Path, schema_version: str, expected_rc: int) -> None:
+def test_strict_categories_route_v040(
+    tmp_path: Path, schema_version: str, expected_rc: int
+) -> None:
     md = tmp_path / "memo.md"
     md.write_text(_UNSOURCED_GM_MD, encoding="utf-8")
     mj = tmp_path / "memo.json"
-    mj.write_text(json.dumps({"schema_version": schema_version, "ticker": "NVDA"}), encoding="utf-8")
+    mj.write_text(
+        json.dumps({"schema_version": schema_version, "ticker": "NVDA"}), encoding="utf-8"
+    )
     result = subprocess.run(
         [sys.executable, str(SCRIPT), "--memo-md", str(md), "--memo-json", str(mj)],
         capture_output=True,

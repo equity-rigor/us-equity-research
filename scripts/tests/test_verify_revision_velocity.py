@@ -6,14 +6,13 @@ Sprint 4 Item 4 final closure. Pass / fail / n_a / grandfathered fixtures
 covering the revision-velocity gate per scripts/verify_revision_velocity.py
 and references/phase-2-continuation-us.md §A6.
 """
+
 from __future__ import annotations
 
 import json
 import subprocess
 import sys
 from pathlib import Path
-
-import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = REPO_ROOT / "scripts" / "verify_revision_velocity.py"
@@ -56,6 +55,7 @@ def _base_memo(schema_version: str = "0.5.0") -> dict:
 # Pass case
 # -----------------------------------------------------------------------------
 
+
 def test_g17_pass_with_full_disclosure(tmp_path: Path):
     proc = _run(_base_memo(), tmp_path)
     assert proc.returncode == 0, f"expected pass, got: {proc.stdout}\n{proc.stderr}"
@@ -83,6 +83,7 @@ def test_g17_pass_zero_revision(tmp_path: Path):
 # -----------------------------------------------------------------------------
 # Fail cases
 # -----------------------------------------------------------------------------
+
 
 def test_g17_fail_missing_fy1_eps_revision(tmp_path: Path):
     memo = _base_memo()
@@ -128,6 +129,7 @@ def test_g17_fail_missing_revision_velocity_block_entirely(tmp_path: Path):
 # N/A cases
 # -----------------------------------------------------------------------------
 
+
 def test_g17_na_thin_coverage_n_analysts_below_5(tmp_path: Path):
     memo = _base_memo()
     memo["revision_velocity"]["n_analysts"] = 3
@@ -149,6 +151,7 @@ def test_g17_na_explicit_status_flag(tmp_path: Path):
 # -----------------------------------------------------------------------------
 # Grandfathered
 # -----------------------------------------------------------------------------
+
 
 def test_g17_grandfathered_v0_1(tmp_path: Path):
     memo = _base_memo(schema_version="0.1.0")

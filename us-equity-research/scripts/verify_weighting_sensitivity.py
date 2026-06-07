@@ -19,6 +19,7 @@ Exit codes:
   0 = G10 passes (weighting_sensitivity present with required sub-fields)
   non-zero = G10 fails (absent OR empty OR required sub-fields missing/null)
 """
+
 from __future__ import annotations
 
 import argparse
@@ -56,7 +57,9 @@ def _print_fail(reason: str, path: str) -> None:
     print("gate_id: G10")
     print("status: fail")
     print(f"failure_reason: {reason}")
-    print(f"remediation_required: {path} — populate with base±10pp shift impacts per references/five-scenario-framework-us.md §5.2")
+    print(
+        f"remediation_required: {path} — populate with base±10pp shift impacts per references/five-scenario-framework-us.md §5.2"
+    )
 
 
 def verify(payload: dict[str, Any]) -> int:
@@ -72,11 +75,16 @@ def verify(payload: dict[str, Any]) -> int:
         return 2
 
     if len(block) == 0:
-        _print_fail(f"{path} is empty; required: base_minus_10_to_bear and base_minus_10_to_bull", path)
+        _print_fail(
+            f"{path} is empty; required: base_minus_10_to_bear and base_minus_10_to_bull", path
+        )
         return 3
 
-    missing = [k for k in ("base_minus_10_to_bear", "base_minus_10_to_bull")
-               if k not in block or block[k] is None]
+    missing = [
+        k
+        for k in ("base_minus_10_to_bear", "base_minus_10_to_bull")
+        if k not in block or block[k] is None
+    ]
     if missing:
         _print_fail(f"{path} missing required sub-field(s): {', '.join(missing)}", path)
         return 4
@@ -84,12 +92,17 @@ def verify(payload: dict[str, Any]) -> int:
     stp10 = block.get("strong_tail_plus_10")
     if stp10 is not None:
         if not isinstance(stp10, dict):
-            _print_fail(f"{path}.strong_tail_plus_10 must be an object, got {type(stp10).__name__}", path)
+            _print_fail(
+                f"{path}.strong_tail_plus_10 must be an object, got {type(stp10).__name__}", path
+            )
             return 5
-        sub_missing = [k for k in ("strong_bear", "strong_bull")
-                       if k not in stp10 or stp10[k] is None]
+        sub_missing = [
+            k for k in ("strong_bear", "strong_bull") if k not in stp10 or stp10[k] is None
+        ]
         if sub_missing:
-            _print_fail(f"{path}.strong_tail_plus_10 missing sub-field(s): {', '.join(sub_missing)}", path)
+            _print_fail(
+                f"{path}.strong_tail_plus_10 missing sub-field(s): {', '.join(sub_missing)}", path
+            )
             return 6
 
     try:
@@ -110,11 +123,22 @@ def verify(payload: dict[str, Any]) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Verify G10 — anchor weighting impact table present.")
-    parser.add_argument("--memo-json", required=True, type=Path,
-                        help="Path to structured memo JSON or standalone scenarios.json")
-    parser.add_argument("--memo-md", required=False, type=Path, default=None,
-                        help="(Unused; accepted for uniform calling contract)")
+    parser = argparse.ArgumentParser(
+        description="Verify G10 — anchor weighting impact table present."
+    )
+    parser.add_argument(
+        "--memo-json",
+        required=True,
+        type=Path,
+        help="Path to structured memo JSON or standalone scenarios.json",
+    )
+    parser.add_argument(
+        "--memo-md",
+        required=False,
+        type=Path,
+        default=None,
+        help="(Unused; accepted for uniform calling contract)",
+    )
     args = parser.parse_args(argv)
 
     try:

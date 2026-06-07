@@ -18,6 +18,7 @@ Exit codes: 0 = pass; non-zero = fail.
 
 Self-contained: stdlib + pydantic v2 only.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -51,8 +52,7 @@ def _locate_taxonomy(payload: dict[str, Any]) -> dict[str, Any]:
     if isinstance(payload.get("entries"), list):
         return payload
     raise KeyError(
-        "gm_taxonomy block not found: expected top-level `gm_taxonomy` "
-        "with `entries[]`."
+        "gm_taxonomy block not found: expected top-level `gm_taxonomy` with `entries[]`."
     )
 
 
@@ -80,10 +80,7 @@ def verify(payload: dict[str, Any]) -> int:
 
     # Condition (a): non-empty.
     if len(entries_raw) == 0:
-        _fail(
-            "gm_taxonomy.entries is empty; required: at least 1 entry "
-            "covering T1-T5 types"
-        )
+        _fail("gm_taxonomy.entries is empty; required: at least 1 entry covering T1-T5 types")
         return 1
 
     # Parse entries; collect observed `type` values.
@@ -92,10 +89,7 @@ def verify(payload: dict[str, Any]) -> int:
         try:
             entry = _Entry.model_validate(raw)
         except ValidationError as exc:
-            _fail(
-                f"gm_taxonomy.entries[{idx}] shape invalid: "
-                f"{exc.errors()[0]['msg']}"
-            )
+            _fail(f"gm_taxonomy.entries[{idx}] shape invalid: {exc.errors()[0]['msg']}")
             return 4
         observed.add(entry.type)
 
@@ -118,10 +112,14 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Verify G8 — GM taxonomy box has entries spanning T1-T5."
     )
-    parser.add_argument("--memo-json", required=True, type=Path,
-                        help="Structured memo JSON path.")
-    parser.add_argument("--memo-md", required=False, type=Path, default=None,
-                        help="(Unused; accepted for uniform calling contract.)")
+    parser.add_argument("--memo-json", required=True, type=Path, help="Structured memo JSON path.")
+    parser.add_argument(
+        "--memo-md",
+        required=False,
+        type=Path,
+        default=None,
+        help="(Unused; accepted for uniform calling contract.)",
+    )
     args = parser.parse_args(argv)
 
     if not args.memo_json.is_file():

@@ -16,6 +16,7 @@ Coverage:
   - Direct guards that a v0.4.0 memo RUNS (is not grandfathered) and a
     pre-0.3.0 memo is skipped — symmetry with the G19 regression guards.
 """
+
 from __future__ import annotations
 
 import importlib.util

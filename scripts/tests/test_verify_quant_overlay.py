@@ -20,6 +20,7 @@ Invariants verified:
   3. bugs/B14.json → exit 2, G13=pass, G14=fail  (G14-only fail)
   4. bugs/B01.json…B12.json → exit 0, G13=pass, G14=pass (no cross-sensitivity)
 """
+
 from __future__ import annotations
 
 import json
@@ -93,9 +94,7 @@ FIXTURE_MATRIX = [
 ]
 
 
-@pytest.mark.parametrize(
-    "fixture_name, expected_exit, expected_g13, expected_g14", FIXTURE_MATRIX
-)
+@pytest.mark.parametrize("fixture_name, expected_exit, expected_g13, expected_g14", FIXTURE_MATRIX)
 def test_fixture(
     fixture_name: str,
     expected_exit: int,

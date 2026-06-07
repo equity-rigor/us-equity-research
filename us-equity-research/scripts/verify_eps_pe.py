@@ -21,13 +21,13 @@ Reads either:
 
 Self-contained per Phase-C pre-stagger discipline: stdlib + pydantic v2 only.
 """
+
 from __future__ import annotations
 
 import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Optional
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
@@ -41,7 +41,7 @@ class Scenario(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
     id: str
-    probability: Optional[float] = None
+    probability: float | None = None
     eps: float
     multiple: float
     target_price: float = Field(..., ge=0)
@@ -118,32 +118,29 @@ def emit_failure(failures: list[dict]) -> None:
     if first["kind"] == "math":
         reason = (
             f'Scenario "{first["scenario_id"]}" target_price='
-            f'{first["target_price"]:.2f} disagrees with EPS×multiple='
-            f'{first["computed"]:.2f} by {first["delta_pct"]:.3f}% '
-            f'(tolerance ±{TOL_PCT * 100:.1f}%)'
+            f"{first['target_price']:.2f} disagrees with EPS×multiple="
+            f"{first['computed']:.2f} by {first['delta_pct']:.3f}% "
+            f"(tolerance ±{TOL_PCT * 100:.1f}%)"
         )
     else:
-        reason = (
-            f'Scenario "{first["scenario_id"]}" failed schema validation: '
-            f'{first["detail"]}'
-        )
+        reason = f'Scenario "{first["scenario_id"]}" failed schema validation: {first["detail"]}'
     print(f"failure_reason: {reason}")
     print(
         f"remediation_required: scenarios_inline.scenarios"
-        f'[id={first["scenario_id"]}].target_price OR eps/multiple'
+        f"[id={first['scenario_id']}].target_price OR eps/multiple"
     )
     if len(failures) > 1:
         print(f"additional_failures: {len(failures) - 1}")
         for extra in failures[1:]:
             if extra["kind"] == "math":
                 print(
-                    f'  - {extra["scenario_id"]}: '
-                    f'eps*mult={extra["computed"]:.2f} vs '
-                    f'target_price={extra["target_price"]:.2f} '
-                    f'({extra["delta_pct"]:.3f}%)'
+                    f"  - {extra['scenario_id']}: "
+                    f"eps*mult={extra['computed']:.2f} vs "
+                    f"target_price={extra['target_price']:.2f} "
+                    f"({extra['delta_pct']:.3f}%)"
                 )
             else:
-                print(f'  - {extra["scenario_id"]}: schema error')
+                print(f"  - {extra['scenario_id']}: schema error")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -151,8 +148,12 @@ def main(argv: list[str] | None = None) -> int:
         description=__doc__ or "Verify G1 — EPS × multiple multiplicativity."
     )
     parser.add_argument("--memo-json", required=True, help="Path to structured memo JSON")
-    parser.add_argument("--memo-md", required=False, default=None,
-                        help="Path to memo Markdown (unused; accepted for uniform calling contract)")
+    parser.add_argument(
+        "--memo-md",
+        required=False,
+        default=None,
+        help="Path to memo Markdown (unused; accepted for uniform calling contract)",
+    )
     args = parser.parse_args(argv)
 
     path = Path(args.memo_json)

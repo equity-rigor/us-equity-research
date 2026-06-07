@@ -10,6 +10,7 @@ Cross-sensitivity invariant means there are 15 fixture checks total:
   clean → 0
   B01..B14 → 0 except B04 → non-zero.
 """
+
 from __future__ import annotations
 
 import subprocess

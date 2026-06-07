@@ -31,6 +31,7 @@ per-verifier test does that). It validates only the structural pattern that
 prevents the silent-skip bug class. A verifier can still have wrong logic;
 this test catches the specific class of "I forgot to update the literal".
 """
+
 from __future__ import annotations
 
 import ast
@@ -142,9 +143,7 @@ def test_no_literal_schema_version_equality_skip(script_path: Path):
                     and "INTENTIONAL" not in prev_line
                     and "grandfathered" not in line.lower()
                 ):
-                    issues.append(
-                        f"  line {line_num}: {line.strip()}"
-                    )
+                    issues.append(f"  line {line_num}: {line.strip()}")
 
     if issues:
         pytest.fail(
@@ -171,7 +170,7 @@ def test_runnable_schema_versions_includes_latest(script_path: Path):
 
     # Look for: RUNNABLE_SCHEMA_VERSIONS = {...}  or  RUNNABLE_SCHEMA_VERSIONS: ... = {...}
     match = re.search(
-        r'RUNNABLE_SCHEMA_VERSIONS\s*(?::\s*[^=]+)?\s*=\s*([\{\[][^}\]]+[\}\]])',
+        r"RUNNABLE_SCHEMA_VERSIONS\s*(?::\s*[^=]+)?\s*=\s*([\{\[][^}\]]+[\}\]])",
         source,
     )
     if not match:

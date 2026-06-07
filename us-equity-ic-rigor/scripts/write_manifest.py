@@ -39,6 +39,7 @@ Exit codes:
   0 = manifest written successfully
   non-zero = error (seed missing + --strict, output dir not found, etc.)
 """
+
 from __future__ import annotations
 
 import argparse
@@ -139,9 +140,7 @@ def _build_agent_provenance(outputs_dir: Path, ticker: str) -> list[dict[str, An
                 entries.append({"agent_id": agent_id, "phase": phase, "status": "skipped"})
                 continue
             size = wp.stat().st_size
-            status = (
-                "framework_only" if size < FRAMEWORK_ONLY_BYTE_THRESHOLD else "completed"
-            )
+            status = "framework_only" if size < FRAMEWORK_ONLY_BYTE_THRESHOLD else "completed"
             entries.append(
                 {
                     "agent_id": agent_id,
@@ -160,7 +159,7 @@ def build_manifest(
     seed: dict[str, Any] | None,
     strict: bool,
 ) -> dict[str, Any]:
-    now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    now = dt.datetime.now(dt.UTC).isoformat(timespec="seconds")
     if seed is None:
         seed = {}
     manifest: dict[str, Any] = {
@@ -192,7 +191,9 @@ def build_manifest(
 
     warnings: list[str] = []
     if not seed:
-        warnings.append("seed file absent — manifest written with placeholder phase timing and empty web_search_log")
+        warnings.append(
+            "seed file absent — manifest written with placeholder phase timing and empty web_search_log"
+        )
     if manifest["verification_calls_count"] < 12:
         warnings.append(
             f"verification_calls_count={manifest['verification_calls_count']} below D9 minimum of 12 — G19 will fail"
@@ -219,12 +220,21 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--ticker", required=True)
     parser.add_argument("--outputs-dir", required=True, type=Path)
-    parser.add_argument("--seed", type=Path, default=None,
-                        help="Path to seed JSON written incrementally during the run")
-    parser.add_argument("--strict", action="store_true",
-                        help="Fail if required seed fields are missing")
-    parser.add_argument("--output", type=Path, default=None,
-                        help="Output path; defaults to <outputs-dir>/<ticker>_manifest.json")
+    parser.add_argument(
+        "--seed",
+        type=Path,
+        default=None,
+        help="Path to seed JSON written incrementally during the run",
+    )
+    parser.add_argument(
+        "--strict", action="store_true", help="Fail if required seed fields are missing"
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=None,
+        help="Output path; defaults to <outputs-dir>/<ticker>_manifest.json",
+    )
     args = parser.parse_args(argv)
 
     if not args.outputs_dir.is_dir():

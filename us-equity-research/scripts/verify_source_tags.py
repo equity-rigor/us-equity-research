@@ -56,6 +56,7 @@ Exit codes:
 
 Self-contained per Phase-C pre-stagger discipline: stdlib + pydantic v2.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -76,8 +77,10 @@ except ModuleNotFoundError:
     # for environments without pydantic. Production should have pydantic
     # installed; this branch keeps regression tests runnable without it.
     BaseModel = object  # type: ignore[assignment,misc]
+
     def ConfigDict(**_kwargs):  # type: ignore[no-redef]
         return None
+
 
 GATE_ID = "G6"
 
@@ -159,7 +162,7 @@ BETA_PATTERN = re.compile(
 )
 
 # All G6 anchor patterns paired with a category label for failure messages.
-G6_PATTERNS: list[tuple[str, "re.Pattern[str]"]] = [
+G6_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
     ("revenue", REVENUE_ANCHOR),
     ("gross_margin", GM_PATTERN),
     ("share_concentration", SHARE_PATTERN),
@@ -232,9 +235,7 @@ def _scan_revenue_anchors(text: str) -> list[_Finding]:
     return _scan_one_pattern(text, "revenue", REVENUE_ANCHOR)
 
 
-def _scan_one_pattern(
-    text: str, category: str, pattern: "re.Pattern[str]"
-) -> list[_Finding]:
+def _scan_one_pattern(text: str, category: str, pattern: re.Pattern[str]) -> list[_Finding]:
     """Run one G6 category pattern and return untagged matches."""
     findings: list[_Finding] = []
     for match in pattern.finditer(text):
@@ -298,8 +299,7 @@ def _print_fail(findings: list[_Finding]) -> None:
         print(f"additional_findings_by_category: {by_cat}")
         for extra in findings[1:]:
             print(
-                f"  line {extra.line_no}: {extra.offending_phrase} "
-                f"-- {extra.full_sentence[:120]}"
+                f"  line {extra.line_no}: {extra.offending_phrase} -- {extra.full_sentence[:120]}"
             )
 
 
@@ -324,10 +324,7 @@ def verify(memo_md_text: str, schema_version: str = "0.1.0") -> int:
     if schema_version in STRICT_SCHEMA_VERSIONS:
         findings = _scan_all_g6_categories(clean_text)
         categories = ", ".join(cat for cat, _ in G6_PATTERNS)
-        pass_msg = (
-            f"scanned_anchors: all G6 categories checked ({categories}); "
-            "v0.3.0 strict mode."
-        )
+        pass_msg = f"scanned_anchors: all G6 categories checked ({categories}); v0.3.0 strict mode."
     else:
         findings = _scan_revenue_anchors(clean_text)
         pass_msg = (

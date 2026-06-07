@@ -43,6 +43,7 @@ Exit codes:
     1 — gate fails (mismatch detected)
     2 — usage / IO / schema error
 """
+
 from __future__ import annotations
 
 import argparse
@@ -50,7 +51,6 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import Optional
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
@@ -60,10 +60,18 @@ ALLOWED_CONDITIONALITY = {"unconditional", "source_conditional", "range_only"}
 
 # Pattern A/B/C/D marker phrases (case-insensitive).
 PATTERN_MARKERS = (
-    "source-conditional", "source_conditional",  # Pattern A
-    "conditional on", "subject to", "downgrade to", "upgrade to",  # Pattern B
-    "anchored to", "view is anchored", "re-rate after",  # Pattern C
-    "consensus range", "scenario-weighted range", "range anchored",  # Pattern D
+    "source-conditional",
+    "source_conditional",  # Pattern A
+    "conditional on",
+    "subject to",
+    "downgrade to",
+    "upgrade to",  # Pattern B
+    "anchored to",
+    "view is anchored",
+    "re-rate after",  # Pattern C
+    "consensus range",
+    "scenario-weighted range",
+    "range anchored",  # Pattern D
 )
 
 REMEDIATION = (
@@ -84,14 +92,14 @@ class _Citation(BaseModel):
 
 class _Anchor(BaseModel):
     model_config = ConfigDict(extra="ignore")
-    anchor_id: Optional[str] = None
+    anchor_id: str | None = None
     citation: _Citation
 
 
 class _Headline(BaseModel):
     model_config = ConfigDict(extra="ignore")
     conditionality: str
-    headline_text: Optional[str] = ""
+    headline_text: str | None = ""
 
 
 class _ScenariosInline(BaseModel):
@@ -114,7 +122,7 @@ class _Memo(BaseModel):
 # ----- Helpers ---------------------------------------------------------------
 
 
-def _emit_fail(reason: str, *, extras: Optional[dict] = None) -> None:
+def _emit_fail(reason: str, *, extras: dict | None = None) -> None:
     print(f"gate_id: {GATE_ID}\nstatus: fail\nfailure_reason: {reason}")
     if extras:
         for k, v in extras.items():
@@ -127,7 +135,7 @@ def _extract_section_1_headline(md_text: str) -> str:
     m = re.search(r"##\s+§1\b[^\n]*\n", md_text)
     if not m:
         return ""
-    body = md_text[m.end():]
+    body = md_text[m.end() :]
     nxt = re.search(r"\n##\s+§\d", body)
     if nxt:
         body = body[: nxt.start()]
@@ -139,11 +147,12 @@ def _extract_section_1_headline(md_text: str) -> str:
     return chunk.strip() if para_end < 0 else chunk[:para_end].strip()
 
 
-def _extract_md_conditionality(md_text: str) -> Optional[str]:
+def _extract_md_conditionality(md_text: str) -> str | None:
     r"""Pull value from the `HEADLINE CONDITIONALITY: \`<val>\`` line in §2."""
     m = re.search(
         r"HEADLINE\s+CONDITIONALITY\*?\*?\s*[:\-]\s*`?([a-z_]+)`?",
-        md_text, flags=re.IGNORECASE,
+        md_text,
+        flags=re.IGNORECASE,
     )
     return m.group(1).strip().lower() if m else None
 
@@ -256,34 +265,46 @@ def verify(memo_raw: dict, md_text: str) -> int:
 # ----- CLI -------------------------------------------------------------------
 
 
-def main(argv: Optional[list[str]] = None) -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Verify G7 — headline conditionality matches anchor strength.",
     )
-    parser.add_argument("--memo-json", required=True, type=Path,
-                        help="Path to structured memo JSON")
     parser.add_argument(
-        "--memo-md", required=False, type=Path, default=None,
+        "--memo-json", required=True, type=Path, help="Path to structured memo JSON"
+    )
+    parser.add_argument(
+        "--memo-md",
+        required=False,
+        type=Path,
+        default=None,
         help="Path to rendered Markdown memo (default: sibling .md to memo_json)",
     )
     args = parser.parse_args(argv)
 
     if not args.memo_json.is_file():
-        print(f"gate_id: {GATE_ID}\nstatus: fail\n"
-              f"failure_reason: memo JSON not found: {args.memo_json}", file=sys.stderr)
+        print(
+            f"gate_id: {GATE_ID}\nstatus: fail\n"
+            f"failure_reason: memo JSON not found: {args.memo_json}",
+            file=sys.stderr,
+        )
         return 2
 
     try:
         memo_raw = json.loads(args.memo_json.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
-        print(f"gate_id: {GATE_ID}\nstatus: fail\n"
-              f"failure_reason: invalid JSON in {args.memo_json}: {exc}", file=sys.stderr)
+        print(
+            f"gate_id: {GATE_ID}\nstatus: fail\n"
+            f"failure_reason: invalid JSON in {args.memo_json}: {exc}",
+            file=sys.stderr,
+        )
         return 2
 
     md_path = args.memo_md if args.memo_md is not None else args.memo_json.with_suffix(".md")
     if not md_path.is_file():
-        print(f"gate_id: {GATE_ID}\nstatus: fail\n"
-              f"failure_reason: memo Markdown not found: {md_path}", file=sys.stderr)
+        print(
+            f"gate_id: {GATE_ID}\nstatus: fail\nfailure_reason: memo Markdown not found: {md_path}",
+            file=sys.stderr,
+        )
         return 2
 
     return verify(memo_raw, md_path.read_text(encoding="utf-8"))

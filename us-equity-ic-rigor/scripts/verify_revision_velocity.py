@@ -34,6 +34,7 @@ Exit codes:
   0 = G17 passes (or n_a)
   non-zero = G17 fails
 """
+
 from __future__ import annotations
 
 import argparse
@@ -58,7 +59,9 @@ def _print_status(status: str, **kwargs: Any) -> None:
         print(f"{k}: {v}")
 
 
-def _extract_revision_velocity(payload: dict[str, Any], source_tags: dict[str, Any] | None) -> dict[str, Any] | None:
+def _extract_revision_velocity(
+    payload: dict[str, Any], source_tags: dict[str, Any] | None
+) -> dict[str, Any] | None:
     rv = payload.get("revision_velocity")
     if isinstance(rv, dict):
         return rv
@@ -103,10 +106,7 @@ def verify(memo_json: dict[str, Any], source_tags: dict[str, Any] | None) -> int
     if g17_status_declared == "n_a_thin_coverage":
         _print_status(
             "n_a",
-            reason=(
-                f"g17_status declared 'n_a_thin_coverage' "
-                f"(n_analysts={n_analysts})"
-            ),
+            reason=(f"g17_status declared 'n_a_thin_coverage' (n_analysts={n_analysts})"),
         )
         return 0
     if isinstance(n_analysts, int) and n_analysts < N_ANALYSTS_THIN_THRESHOLD:
@@ -132,8 +132,7 @@ def verify(memo_json: dict[str, Any], source_tags: dict[str, Any] | None) -> int
         b = rv["breadth_3m"]
         if not (BREADTH_VALID_RANGE[0] <= b <= BREADTH_VALID_RANGE[1]):
             invalid.append(
-                f"breadth_3m={b} outside [{BREADTH_VALID_RANGE[0]}, "
-                f"{BREADTH_VALID_RANGE[1]}]"
+                f"breadth_3m={b} outside [{BREADTH_VALID_RANGE[0]}, {BREADTH_VALID_RANGE[1]}]"
             )
 
     if g17_status_declared != "disclosed":
@@ -141,8 +140,7 @@ def verify(memo_json: dict[str, Any], source_tags: dict[str, Any] | None) -> int
         # complete — but flag it so callers can normalize.
         if g17_status_declared is not None:
             invalid.append(
-                f"g17_status={g17_status_declared!r} (expected 'disclosed' "
-                "or 'n_a_thin_coverage')"
+                f"g17_status={g17_status_declared!r} (expected 'disclosed' or 'n_a_thin_coverage')"
             )
 
     if missing or invalid:
@@ -153,9 +151,7 @@ def verify(memo_json: dict[str, Any], source_tags: dict[str, Any] | None) -> int
             details.append(f"invalid=[{'; '.join(invalid)}]")
         _print_status(
             "fail",
-            failure_reason=(
-                f"revision_velocity disclosure incomplete: {' '.join(details)}"
-            ),
+            failure_reason=(f"revision_velocity disclosure incomplete: {' '.join(details)}"),
             remediation_required=(
                 "Populate the missing/invalid fields per source_tags.json "
                 "revision_velocity schema; minimum fields are "
@@ -229,12 +225,23 @@ def main(argv: list[str] | None = None) -> int:
             "coverage is non-thin (n_analysts >= 5)."
         )
     )
-    parser.add_argument("--memo-json", required=True, type=Path,
-                        help="Path to structured memo JSON")
-    parser.add_argument("--memo-md", required=False, type=Path, default=None,
-                        help="(Unused for G17 — accepted for uniform calling contract)")
-    parser.add_argument("--source-tags-json", required=False, type=Path, default=None,
-                        help="(Optional) standalone source_tags.json sibling file")
+    parser.add_argument(
+        "--memo-json", required=True, type=Path, help="Path to structured memo JSON"
+    )
+    parser.add_argument(
+        "--memo-md",
+        required=False,
+        type=Path,
+        default=None,
+        help="(Unused for G17 — accepted for uniform calling contract)",
+    )
+    parser.add_argument(
+        "--source-tags-json",
+        required=False,
+        type=Path,
+        default=None,
+        help="(Optional) standalone source_tags.json sibling file",
+    )
     args = parser.parse_args(argv)
 
     if not args.memo_json.is_file():

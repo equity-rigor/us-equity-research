@@ -19,6 +19,7 @@ Exit codes:
 
 Self-contained: stdlib + pydantic v2 minimal slice.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -81,7 +82,8 @@ def _check_trigger(idx: int, raw: dict[str, Any]) -> dict[str, Any] | None:
 
 def verify(payload: dict[str, Any]) -> list[dict[str, Any]]:
     return [
-        f for f in (_check_trigger(i, r) for i, r in enumerate(_locate_triggers(payload)))
+        f
+        for f in (_check_trigger(i, r) for i, r in enumerate(_locate_triggers(payload)))
         if f is not None
     ]
 
@@ -91,29 +93,37 @@ def _emit_failure(failures: list[dict[str, Any]]) -> None:
     print(f"gate_id: {GATE_ID}")
     print("status: fail")
     print(
-        f'failure_reason: what_would_reverse[{first["index"]}] '
-        f'(direction={first["label"]}) numerical_threshold '
+        f"failure_reason: what_would_reverse[{first['index']}] "
+        f"(direction={first['label']}) numerical_threshold "
         f'"{first["threshold"]}" lacks {first["missing"]}'
     )
     print(
-        f'remediation_required: what_would_reverse[{first["index"]}]'
+        f"remediation_required: what_would_reverse[{first['index']}]"
         ".numerical_threshold + .unit — rewrite with explicit number "
         "and denominator per references/what-would-reverse-us.md"
     )
     if len(failures) > 1:
         print(f"additional_failures: {len(failures) - 1}")
         for extra in failures[1:]:
-            print(f'  - [{extra["index"]}] {extra["label"]}: "{extra["threshold"]}" — {extra["missing"]}')
+            print(
+                f'  - [{extra["index"]}] {extra["label"]}: "{extra["threshold"]}" — {extra["missing"]}'
+            )
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Verify G9 — what_would_reverse triggers have numerical denominators."
     )
-    parser.add_argument("--memo-json", required=True, type=Path,
-                        help="Path to structured memo JSON")
-    parser.add_argument("--memo-md", required=False, type=Path, default=None,
-                        help="(Unused; uniform calling contract)")
+    parser.add_argument(
+        "--memo-json", required=True, type=Path, help="Path to structured memo JSON"
+    )
+    parser.add_argument(
+        "--memo-md",
+        required=False,
+        type=Path,
+        default=None,
+        help="(Unused; uniform calling contract)",
+    )
     args = parser.parse_args(argv)
 
     if not args.memo_json.is_file():

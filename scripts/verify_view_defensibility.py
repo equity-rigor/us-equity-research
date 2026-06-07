@@ -83,6 +83,7 @@ Exit codes:
   0 = G20 passes (or n_a or skipped)
   non-zero = G20 fails
 """
+
 from __future__ import annotations
 
 import argparse
@@ -113,7 +114,9 @@ RUNNABLE_SCHEMA_VERSIONS = {"0.3.0", "0.4.0", "0.5.0"}
 # are capped at 9.0 because the isolation fields didn't exist in the schema
 # yet. v0.4.0+ memos get the full graduated rigor scale.
 GRADUATED_RIGOR_SCHEMA_VERSIONS = {"0.4.0", "0.5.0"}
-GRADUATED_SCORE_THRESHOLD = 9.0  # claims strictly above this require adversarial isolation + model diversity
+GRADUATED_SCORE_THRESHOLD = (
+    9.0  # claims strictly above this require adversarial isolation + model diversity
+)
 GRADUATED_FAIL_CAP = 9.0  # a 9.0+ claim failing isolation/diversity is capped here (NOT 8.5; the 8.5-9.0 band is earned by the v0.3.0 conditions)
 
 
@@ -124,7 +127,9 @@ def _print_status(status: str, **kwargs: Any) -> None:
         print(f"{k}: {v}")
 
 
-def _extract_consensus_variance(payload: dict[str, Any], source_tags: dict[str, Any] | None) -> list[dict[str, Any]]:
+def _extract_consensus_variance(
+    payload: dict[str, Any], source_tags: dict[str, Any] | None
+) -> list[dict[str, Any]]:
     if isinstance(payload.get("consensus_variance"), list):
         return payload["consensus_variance"]
     inline = payload.get("source_tags_inline")
@@ -184,7 +189,9 @@ def _extract_consensus_pt_implied_return_pct(
     return None
 
 
-def _has_load_bearing_with_s1_or_s2(variances: list[dict[str, Any]]) -> tuple[bool, dict[str, Any] | None]:
+def _has_load_bearing_with_s1_or_s2(
+    variances: list[dict[str, Any]],
+) -> tuple[bool, dict[str, Any] | None]:
     """Find a load-bearing variance with at least one S1 or S2 evidence_ref."""
     for v in variances:
         sizing = v.get("sizing_impact_pp")
@@ -204,10 +211,7 @@ def _attack_survives_for_load_bearing(
     load_bearing_variances: list[dict[str, Any]],
 ) -> tuple[bool, str]:
     """Verify at least one load-bearing variance has a surviving attack entry."""
-    load_bearing_ids = {
-        v.get("variance_id") or v.get("line_item")
-        for v in load_bearing_variances
-    }
+    load_bearing_ids = {v.get("variance_id") or v.get("line_item") for v in load_bearing_variances}
     for entry in adjudication_trail:
         if not isinstance(entry, dict):
             continue
@@ -260,9 +264,7 @@ def _extract_writer_model(memo_json: dict[str, Any]) -> str | None:
     return None
 
 
-def verify(
-    memo_json: dict[str, Any], memo_md: str, source_tags: dict[str, Any] | None
-) -> int:
+def verify(memo_json: dict[str, Any], memo_md: str, source_tags: dict[str, Any] | None) -> int:
     schema_version = memo_json.get("schema_version", "0.1.0")
     if schema_version not in RUNNABLE_SCHEMA_VERSIONS:
         _print_status(
@@ -363,10 +365,12 @@ def verify(
     adjudication_trail = memo_json.get("adjudication_trail") or []
     if not isinstance(adjudication_trail, list):
         adjudication_trail = []
-    load_bearing = [v for v in variances if v.get("load_bearing", True) and abs(v.get("sizing_impact_pp", 0)) >= 2.0]
-    attack_survived, target = _attack_survives_for_load_bearing(
-        adjudication_trail, load_bearing
-    )
+    load_bearing = [
+        v
+        for v in variances
+        if v.get("load_bearing", True) and abs(v.get("sizing_impact_pp", 0)) >= 2.0
+    ]
+    attack_survived, target = _attack_survives_for_load_bearing(adjudication_trail, load_bearing)
     if not attack_survived:
         _print_status(
             "fail",
@@ -399,9 +403,7 @@ def verify(
     # show >=1 surviving variance_attack on a load-bearing variance produced
     # under adversarial isolation by a model different from the writer. Claims
     # <=9.0 are unaffected (the v0.3.0 conditions earn the 8.5-9.0 band).
-    graduated_note = (
-        "n_a (v0.3.0 schema; graduated 9.0+ check applies to v0.4.0 memos only)"
-    )
+    graduated_note = "n_a (v0.3.0 schema; graduated 9.0+ check applies to v0.4.0 memos only)"
     if schema_version in GRADUATED_RIGOR_SCHEMA_VERSIONS:
         claimed_score = _extract_claimed_score(memo_json)
         if claimed_score is None or claimed_score <= GRADUATED_SCORE_THRESHOLD:
@@ -411,9 +413,7 @@ def verify(
                 "8.5-9.0 band earned by v0.3.0 conditions)"
             )
         else:
-            load_bearing_ids = {
-                v.get("variance_id") or v.get("line_item") for v in load_bearing
-            }
+            load_bearing_ids = {v.get("variance_id") or v.get("line_item") for v in load_bearing}
             surviving_attacks = [
                 e
                 for e in adjudication_trail
@@ -448,9 +448,7 @@ def verify(
                 )
                 return 8
             isolated_attacks = [
-                e
-                for e in surviving_attacks
-                if e.get("attacker_context_isolation") is True
+                e for e in surviving_attacks if e.get("attacker_context_isolation") is True
             ]
             if not isolated_attacks:
                 _print_status(

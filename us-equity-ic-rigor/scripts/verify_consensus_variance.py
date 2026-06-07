@@ -35,6 +35,7 @@ Exit codes:
   0 = G15 passes (or n_a)
   non-zero = G15 fails
 """
+
 from __future__ import annotations
 
 import argparse
@@ -67,7 +68,9 @@ def _print_status(status: str, **kwargs: Any) -> None:
         print(f"{k}: {v}")
 
 
-def _extract_consensus_variance(payload: dict[str, Any], source_tags: dict[str, Any] | None) -> list[dict[str, Any]] | None:
+def _extract_consensus_variance(
+    payload: dict[str, Any], source_tags: dict[str, Any] | None
+) -> list[dict[str, Any]] | None:
     """Locate consensus_variance array across the three accepted locations."""
     if isinstance(payload.get("consensus_variance"), list):
         return payload["consensus_variance"]
@@ -133,7 +136,9 @@ def verify(memo_json: dict[str, Any], memo_md: str, source_tags: dict[str, Any] 
     # Branch 3: thin coverage
     n_analysts = _extract_n_analysts(memo_json, source_tags)
     if isinstance(n_analysts, int) and n_analysts < 5:
-        _print_status("n_a", reason=f"n_analysts={n_analysts} < 5 (no meaningful consensus baseline)")
+        _print_status(
+            "n_a", reason=f"n_analysts={n_analysts} < 5 (no meaningful consensus baseline)"
+        )
         return 0
 
     # Branch 4: actual gate check
@@ -244,12 +249,22 @@ def main(argv: list[str] | None = None) -> int:
             "memos or memo self-labeled 'consensus-anchored'."
         )
     )
-    parser.add_argument("--memo-json", required=True, type=Path,
-                        help="Path to structured memo JSON")
-    parser.add_argument("--memo-md", required=True, type=Path,
-                        help="Path to memo Markdown (for headline self-label scan)")
-    parser.add_argument("--source-tags-json", required=False, type=Path, default=None,
-                        help="(Optional) standalone source_tags.json sibling file")
+    parser.add_argument(
+        "--memo-json", required=True, type=Path, help="Path to structured memo JSON"
+    )
+    parser.add_argument(
+        "--memo-md",
+        required=True,
+        type=Path,
+        help="Path to memo Markdown (for headline self-label scan)",
+    )
+    parser.add_argument(
+        "--source-tags-json",
+        required=False,
+        type=Path,
+        default=None,
+        help="(Optional) standalone source_tags.json sibling file",
+    )
     args = parser.parse_args(argv)
 
     for p, label in [(args.memo_json, "memo JSON"), (args.memo_md, "memo Markdown")]:

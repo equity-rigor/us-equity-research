@@ -3,6 +3,7 @@
 Cross-sensitivity contract: this script must fire only on B02.json,
 return 0 on clean.json and B01, B03..B14.json.
 """
+
 from __future__ import annotations
 
 import subprocess

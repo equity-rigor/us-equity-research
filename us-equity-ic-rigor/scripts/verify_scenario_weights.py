@@ -27,6 +27,7 @@ These pass on clean.json and on every other B0N fixture in nvda_v0, so they
 do not introduce cross-sensitivity. The probability-sum check is what fires
 on B04.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -55,8 +56,7 @@ def _extract_scenarios(payload: dict[str, Any]) -> list[dict[str, Any]]:
     if isinstance(payload.get("scenarios"), list):
         return payload["scenarios"]
     raise KeyError(
-        "scenarios array not found at scenarios_inline.scenarios[] "
-        "or top-level scenarios[]"
+        "scenarios array not found at scenarios_inline.scenarios[] or top-level scenarios[]"
     )
 
 
@@ -79,9 +79,7 @@ def verify(payload: dict[str, Any]) -> int:
 
     # Integrity adjacency: exactly 5 scenarios.
     if len(raw_scenarios) != 5:
-        _print_fail(
-            f"expected exactly 5 scenarios, found {len(raw_scenarios)}"
-        )
+        _print_fail(f"expected exactly 5 scenarios, found {len(raw_scenarios)}")
         return 3
 
     # Parse with pydantic for type-safety.
@@ -126,10 +124,19 @@ def verify(payload: dict[str, Any]) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Verify G4 — scenario weights sum to 1.00 ±0.01.")
-    parser.add_argument("--memo-json", required=True, type=Path,
-                        help="Path to structured memo JSON or standalone scenarios.json")
-    parser.add_argument("--memo-md", required=False, type=Path, default=None,
-                        help="(Unused; accepted for uniform calling contract)")
+    parser.add_argument(
+        "--memo-json",
+        required=True,
+        type=Path,
+        help="Path to structured memo JSON or standalone scenarios.json",
+    )
+    parser.add_argument(
+        "--memo-md",
+        required=False,
+        type=Path,
+        default=None,
+        help="(Unused; accepted for uniform calling contract)",
+    )
     args = parser.parse_args(argv)
 
     try:

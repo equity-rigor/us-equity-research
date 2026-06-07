@@ -6,14 +6,13 @@ Sprint 4 Item 4 final closure. Pass / fail / n_a / grandfathered fixtures
 covering the gate's documented logic per scripts/verify_consensus_variance.py
 and references/consensus-variance-us.md.
 """
+
 from __future__ import annotations
 
 import json
 import subprocess
 import sys
 from pathlib import Path
-
-import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = REPO_ROOT / "scripts" / "verify_consensus_variance.py"
@@ -66,6 +65,7 @@ def _headline_md(text: str = "Headline: Sell on margin compression risk") -> str
 # Pass cases
 # -----------------------------------------------------------------------------
 
+
 def test_g15_pass_sell_with_s1_variance(tmp_path: Path):
     memo = _base_memo()
     memo["consensus_variance"] = [
@@ -116,6 +116,7 @@ def test_g15_pass_strong_sell_with_s3_variance(tmp_path: Path):
 # N/A cases
 # -----------------------------------------------------------------------------
 
+
 def test_g15_na_hold_rating(tmp_path: Path):
     memo = _base_memo()
     memo["recommendation"]["rating"] = "Hold"
@@ -146,6 +147,7 @@ def test_g15_na_thin_coverage(tmp_path: Path):
 # -----------------------------------------------------------------------------
 # Fail cases
 # -----------------------------------------------------------------------------
+
 
 def test_g15_fail_sell_no_variance(tmp_path: Path):
     memo = _base_memo()
@@ -189,6 +191,7 @@ def test_g15_fail_all_s4_evidence(tmp_path: Path):
 # -----------------------------------------------------------------------------
 # Grandfathered
 # -----------------------------------------------------------------------------
+
 
 def test_g15_grandfathered_v0_1(tmp_path: Path):
     memo = _base_memo(schema_version="0.1.0")

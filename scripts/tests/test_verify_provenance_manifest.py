@@ -17,6 +17,7 @@ Invariants pinned here:
      after the manifest is written -> fail with a hash mismatch (exit 11).
   4. Genuine pre-0.3.0 memos (0.1.0 / 0.2.0) are still grandfathered (skipped).
 """
+
 from __future__ import annotations
 
 import hashlib
@@ -34,9 +35,21 @@ SCRIPT = REPO_ROOT / "scripts" / "verify_provenance_manifest.py"
 # 15 agent ids = the v0.3.0 agent_provenance floor (Phase 1: 5, Phase 2: 6,
 # Phase 3: 4) per schemas/manifest.json agent_provenance.minItems.
 AGENT_IDS = [
-    "A1", "A4", "A5", "A8", "FS",
-    "A2", "A3", "A3-Peers", "R", "A6", "A-Consensus",
-    "A7", "Mirror", "Topic-Forensic", "R-v2",
+    "A1",
+    "A4",
+    "A5",
+    "A8",
+    "FS",
+    "A2",
+    "A3",
+    "A3-Peers",
+    "R",
+    "A6",
+    "A-Consensus",
+    "A7",
+    "Mirror",
+    "Topic-Forensic",
+    "R-v2",
 ]
 TS = "2026-05-31T00:00:00+00:00"
 
@@ -100,17 +113,13 @@ def _build_full_run(tmp_path: Path, schema_version: str) -> tuple[Path, list[Pat
             k: {"start": TS, "end": TS}
             for k in ("phase_0", "phase_1", "phase_2", "phase_3", "verification")
         },
-        "agent_provenance": [
-            {"agent_id": a, "phase": 1, "status": "skipped"} for a in AGENT_IDS
-        ],
+        "agent_provenance": [{"agent_id": a, "phase": 1, "status": "skipped"} for a in AGENT_IDS],
         "web_search_log": [
-            {"tool": "WebSearch", "query_or_url": f"q{i}", "timestamp": TS}
-            for i in range(12)
+            {"tool": "WebSearch", "query_or_url": f"q{i}", "timestamp": TS} for i in range(12)
         ],
         "verification_calls_count": 12,
         "outputs_produced": [
-            {"path": str(f), "sha256": _sha256(f), "file_type": "workpaper_md"}
-            for f in files
+            {"path": str(f), "sha256": _sha256(f), "file_type": "workpaper_md"} for f in files
         ],
     }
     man_path = outputs / "NVDA_manifest.json"
@@ -127,6 +136,7 @@ def _build_full_run(tmp_path: Path, schema_version: str) -> tuple[Path, list[Pat
 
 
 # --- the fix: v0.4.0 is no longer grandfathered out -----------------------
+
 
 def test_v040_hand_authored_runs_not_skipped(tmp_path: Path) -> None:
     """Regression guard: a v0.4.0 hand_authored memo RUNS G19 (pass, cap 7.5),
@@ -170,6 +180,7 @@ def test_v040_hash_tamper_detected(tmp_path: Path) -> None:
 
 
 # --- genuine pre-0.3.0 memos remain grandfathered -------------------------
+
 
 @pytest.mark.parametrize("schema_version", ["0.1.0", "0.2.0"])
 def test_pre_v030_grandfathered_skip(tmp_path: Path, schema_version: str) -> None:

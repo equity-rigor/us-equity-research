@@ -12,6 +12,7 @@ This test fails CI if the plugin copies drift from the canonical sources.
 
 Run: pytest -q scripts/tests/test_plugin_file_sync.py
 """
+
 from __future__ import annotations
 
 import hashlib
@@ -92,8 +93,7 @@ def test_plugin_scripts_match_source(plugin_dir: Path, source_scripts: list[Path
             continue
         if _sha256(src) != _sha256(dst):
             drift.append(
-                f"  DRIFT: {dst.relative_to(REPO_ROOT)} differs from "
-                f"{src.relative_to(REPO_ROOT)}"
+                f"  DRIFT: {dst.relative_to(REPO_ROOT)} differs from {src.relative_to(REPO_ROOT)}"
             )
     issues = missing + drift
     assert not issues, (
@@ -116,8 +116,7 @@ def test_plugin_schemas_match_source(plugin_dir: Path, source_schemas: list[Path
             continue
         if _sha256(src) != _sha256(dst):
             drift.append(
-                f"  DRIFT: {dst.relative_to(REPO_ROOT)} differs from "
-                f"{src.relative_to(REPO_ROOT)}"
+                f"  DRIFT: {dst.relative_to(REPO_ROOT)} differs from {src.relative_to(REPO_ROOT)}"
             )
     issues = missing + drift
     assert not issues, (
@@ -138,11 +137,7 @@ def test_no_orphan_scripts_in_plugin(plugin_dir: Path, source_scripts: list[Path
     if not plugin_scripts_dir.is_dir():
         pytest.skip("plugin scripts/ directory missing — covered by earlier test")
     source_names = {p.name for p in source_scripts}
-    orphans = [
-        f.name
-        for f in plugin_scripts_dir.glob("*.py")
-        if f.name not in source_names
-    ]
+    orphans = [f.name for f in plugin_scripts_dir.glob("*.py") if f.name not in source_names]
     assert not orphans, (
         f"Plugin {plugin_dir.name} has script files not in repo-root scripts/: "
         f"{orphans}. Delete them or restore them to the canonical source."
@@ -156,11 +151,7 @@ def test_no_orphan_schemas_in_plugin(plugin_dir: Path, source_schemas: list[Path
     if not plugin_schemas_dir.is_dir():
         pytest.skip("plugin schemas/ directory missing — covered by earlier test")
     source_names = {p.name for p in source_schemas}
-    orphans = [
-        f.name
-        for f in plugin_schemas_dir.glob("*.json")
-        if f.name not in source_names
-    ]
+    orphans = [f.name for f in plugin_schemas_dir.glob("*.json") if f.name not in source_names]
     assert not orphans, (
         f"Plugin {plugin_dir.name} has schema files not in repo-root schemas/: "
         f"{orphans}. Delete them or restore them to the canonical source."

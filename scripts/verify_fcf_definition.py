@@ -21,6 +21,7 @@ G12 is JSON-only; --memo-md accepted as a no-op for uniform calling contract.
 Exit codes: 0 = pass; non-zero = fail (structured evidence printed per
 schemas/verification_gates.json).
 """
+
 from __future__ import annotations
 
 import argparse
@@ -174,11 +175,16 @@ def main(argv: list[str] | None = None) -> int:
         description="Verify G12 — FCF definition disclosure & SBC-in-FCF treatment.",
     )
     parser.add_argument(
-        "--memo-json", required=True, type=Path,
+        "--memo-json",
+        required=True,
+        type=Path,
         help="Path to structured memo JSON (schemas/memo.json shape)",
     )
     parser.add_argument(
-        "--memo-md", required=False, type=Path, default=None,
+        "--memo-md",
+        required=False,
+        type=Path,
+        default=None,
         help="(Unused; G12 is JSON-only — accepted for uniform calling contract)",
     )
     args = parser.parse_args(argv)

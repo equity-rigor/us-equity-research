@@ -7,6 +7,7 @@ Invariants enforced:
 
 15 fixtures total (clean + 14 bugs). pytest -q exits 0 with 15 tests passing.
 """
+
 from __future__ import annotations
 
 import subprocess

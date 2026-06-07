@@ -48,6 +48,7 @@ Exit codes:
   0 = G19 passes (or n_a or skipped)
   non-zero = G19 fails
 """
+
 from __future__ import annotations
 
 import argparse
@@ -159,9 +160,16 @@ def verify(memo_json: dict[str, Any], memo_json_path: Path) -> int:
         return 3
 
     required_fields = {
-        "manifest_version", "ticker", "run_id", "created_at",
-        "plugin_versions", "phase_timing", "agent_provenance",
-        "web_search_log", "verification_calls_count", "outputs_produced",
+        "manifest_version",
+        "ticker",
+        "run_id",
+        "created_at",
+        "plugin_versions",
+        "phase_timing",
+        "agent_provenance",
+        "web_search_log",
+        "verification_calls_count",
+        "outputs_produced",
     }
     missing = sorted(required_fields - set(manifest.keys()))
     if missing:
@@ -176,8 +184,7 @@ def verify(memo_json: dict[str, Any], memo_json_path: Path) -> int:
         _print_status(
             "fail",
             failure_reason=(
-                f"manifest_version={manifest.get('manifest_version')!r} "
-                "(expected '0.3.0')"
+                f"manifest_version={manifest.get('manifest_version')!r} (expected '0.3.0')"
             ),
             blocks_score_above=FAIL_CAP,
         )
@@ -188,8 +195,7 @@ def verify(memo_json: dict[str, Any], memo_json_path: Path) -> int:
         _print_status(
             "fail",
             failure_reason=(
-                f"manifest.ticker={manifest.get('ticker')!r} != "
-                f"memo.ticker={memo_ticker!r}"
+                f"manifest.ticker={manifest.get('ticker')!r} != memo.ticker={memo_ticker!r}"
             ),
             blocks_score_above=FAIL_CAP,
         )
@@ -200,8 +206,7 @@ def verify(memo_json: dict[str, Any], memo_json_path: Path) -> int:
         _print_status(
             "fail",
             failure_reason=(
-                f"verification_calls_count={vcc} below D9 "
-                f"minimum {MIN_VERIFICATION_CALLS}"
+                f"verification_calls_count={vcc} below D9 minimum {MIN_VERIFICATION_CALLS}"
             ),
             blocks_score_above=FAIL_CAP,
         )
@@ -211,10 +216,7 @@ def verify(memo_json: dict[str, Any], memo_json_path: Path) -> int:
     if len(wsl) < MIN_WEB_SEARCH_LOG:
         _print_status(
             "fail",
-            failure_reason=(
-                f"web_search_log has {len(wsl)} entries "
-                f"(need >={MIN_WEB_SEARCH_LOG})"
-            ),
+            failure_reason=(f"web_search_log has {len(wsl)} entries (need >={MIN_WEB_SEARCH_LOG})"),
             blocks_score_above=FAIL_CAP,
         )
         return 8
@@ -224,8 +226,7 @@ def verify(memo_json: dict[str, Any], memo_json_path: Path) -> int:
         _print_status(
             "fail",
             failure_reason=(
-                f"agent_provenance has {len(ap)} entries "
-                f"(need >={MIN_AGENT_PROVENANCE})"
+                f"agent_provenance has {len(ap)} entries (need >={MIN_AGENT_PROVENANCE})"
             ),
             blocks_score_above=FAIL_CAP,
         )
@@ -247,9 +248,7 @@ def verify(memo_json: dict[str, Any], memo_json_path: Path) -> int:
                 Path.cwd() / path_str,
                 manifest_path.parent / Path(path_str).name,
             ]
-            file_path = next(
-                (c for c in candidates if c.is_file()), candidates[0]
-            )
+            file_path = next((c for c in candidates if c.is_file()), candidates[0])
         if not file_path.is_file():
             missing_files.append(path_str)
             continue
@@ -301,12 +300,15 @@ def verify(memo_json: dict[str, Any], memo_json_path: Path) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(
-        description="Verify G19 — Plugin 1 provenance manifest."
-    )
+    parser = argparse.ArgumentParser(description="Verify G19 — Plugin 1 provenance manifest.")
     parser.add_argument("--memo-json", required=True, type=Path)
-    parser.add_argument("--memo-md", required=False, type=Path, default=None,
-                        help="(Unused for G19 — accepted for uniform calling contract)")
+    parser.add_argument(
+        "--memo-md",
+        required=False,
+        type=Path,
+        default=None,
+        help="(Unused for G19 — accepted for uniform calling contract)",
+    )
     args = parser.parse_args(argv)
 
     if not args.memo_json.is_file():
