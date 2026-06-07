@@ -92,7 +92,7 @@ All S2 documents are unaudited public filings on EDGAR. Heterogeneity matters: a
   - **Item 401** — Directors and executive officers (background)
   - **Item 402** — D&O compensation (Summary Comp Table; equity grants; pay-vs-performance)
   - **Item 403** — Beneficial ownership (>5% holders, all D&Os)
-  - **Item 404** — Related-party transactions (RPT — analog of China 关联交易)
+  - **Item 404** — Related-party transactions (RPT)
   - **Item 407** — Board independence, committee composition, auditor approval, auditor fees
 
 ### S-1 / S-3 / S-4 (registration, free)

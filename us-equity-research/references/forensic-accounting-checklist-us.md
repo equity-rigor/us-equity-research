@@ -1,6 +1,6 @@
 # Forensic Accounting Checklist — US Listed Companies
 
-This checklist is the US-localized analog of the China forensic discipline. Where the China skill anchored on government subsidies, MI dilution, LP put/call clauses, and RMB 亿 unit confusion, the US version anchors on **ASC 606 revenue recognition**, **ASC 842 lease accounting**, **ASC 718 SBC and the non-GAAP/GAAP reconciliation gap**, **goodwill impairment triggers**, **insider Form 4 patterns**, **8-K restatement / auditor-change signals**, and **§174 R&D capitalization**. The single most-common red-team kill in US IC memos is an unscrutinized non-GAAP → GAAP gap; the second is treating "FCF" as defined by management when SBC is excluded.
+This checklist codifies the US forensic discipline. It anchors on **ASC 606 revenue recognition**, **ASC 842 lease accounting**, **ASC 718 SBC and the non-GAAP/GAAP reconciliation gap**, **goodwill impairment triggers**, **insider Form 4 patterns**, **8-K restatement / auditor-change signals**, and **§174 R&D capitalization**. The single most-common red-team kill in US IC memos is an unscrutinized non-GAAP → GAAP gap; the second is treating "FCF" as defined by management when SBC is excluded.
 
 This file feeds the structured `forensic_flags` block in `schemas/memo.json`. It hooks into verification gates G11 (non-GAAP/GAAP reconciliation), G12 (SBC-in-FCF treatment), and indirectly G6 (source-tag discipline on first appearance of any forensic finding). Bug classes B11 and B12 in `pm-redteam-rubric-us.md` are the failure modes this checklist exists to prevent.
 
@@ -267,7 +267,7 @@ Apply Items 1–6 in Phase 1 FS-agent prompt; Items 7–10 in Phase 2 forensic c
 
 **Bear warning**: §174 cash tax headwind is real but transient (5-year amortization), and there is bipartisan interest in repeal. Memos that assume repeal embedded in base case carry a policy assumption that must be flagged S3-S5.
 
-**Note**: This is a much smaller analog to China's government-subsidy carve-out. In most US names tax credits and §174 effects move EPS 1-5%; they rarely dominate the thesis. Exceptions: clean-energy manufacturers where 45X is 20%+ of operating cash flow.
+**Note**: In most US names tax credits and §174 effects move EPS 1-5%; they rarely dominate the thesis. Exceptions: clean-energy manufacturers where 45X is 20%+ of operating cash flow.
 
 ---
 
@@ -283,7 +283,7 @@ Apply Items 1–6 in Phase 1 FS-agent prompt; Items 7–10 in Phase 2 forensic c
 
 **Red flag pattern**: Same memo using "$ million" and "$ billion" interchangeably for the same metric; price target stated without unit (e.g., "200" not "$200"); margin compression stated as "50 bps" but modeled as 0.50% (correct) vs 50% (wrong).
 
-**Bear warning**: Less frequent than China's 亿 = 100M confusion, but still a documented hallucination class. The verification protocol (G6 source-tag gate at first appearance, plus the cross-cutoff verification rule per `source-stratification-us.md`) catches most cases but human review of unit consistency is the final defense.
+**Bear warning**: A documented hallucination class. The verification protocol (G6 source-tag gate at first appearance, plus the cross-cutoff verification rule per `source-stratification-us.md`) catches most cases but human review of unit consistency is the final defense.
 
 ---
 

@@ -163,7 +163,7 @@ All three coexist in the memo with their own tags. The headline driven by total 
 
 ## Source-conditional headline language patterns
 
-When the top-3 anchors include any S3 or weaker source, use these English patterns (ported from the China Pattern A–D catalog per delta matrix §9).
+When the top-3 anchors include any S3 or weaker source, use these canonical four conditional-language patterns (A through D).
 
 ### Pattern A — Source-conditional bias (overall direction moderate, key anchors weak)
 

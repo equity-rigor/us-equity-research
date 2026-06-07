@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://us-equity-research.local/schemas/source_tags.json",
   "title": "Source Stratification (S1-S5 + Pending) — US",
-  "description": "Schema for source-stratified citations in US-equity IC memos. Every specific number (revenue, GM, segment share, customer concentration, capacity, ADV, beta, etc.) MUST carry one of these tags at first appearance per the discipline in references/source-stratification-us.md. Ported and Americanized from china-equity-ic-rigor. v0.2.0 adds optional `consensus_variance` block tied to gate G15. v0.3.0 adds optional up_revisions_3m + down_revisions_3m fields to revision_velocity for G17 breadth recomputation; consensus_variance entries can include probability_right_pct and scenario_sensitivity_pct for G15 sizing_impact_pp recomputation.",
+  "description": "Schema for source-stratified citations in US-equity IC memos. Every specific number (revenue, GM, segment share, customer concentration, capacity, ADV, beta, etc.) MUST carry one of these tags at first appearance per the discipline in references/source-stratification-us.md. v0.2.0 adds optional `consensus_variance` block tied to gate G15. v0.3.0 adds optional up_revisions_3m + down_revisions_3m fields to revision_velocity for G17 breadth recomputation; consensus_variance entries can include probability_right_pct and scenario_sensitivity_pct for G15 sizing_impact_pp recomputation.",
   "schema_version": "0.3.0",
   "type": "object",
   "definitions": {

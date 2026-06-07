@@ -40,7 +40,7 @@ A multi-phase, multi-agent fundamental research framework for US-listed equities
 
 These four principles run through every phase. Without them, the workflow degrades to ordinary sell-side commentary.
 
-**1. Multi-agent specialization beats monolithic analysis.** A single agent doing "everything about NVDA" will skim. Forced specialization with explicit handoffs catches things one analyst would miss. Industry/cycle, forensic accounting, regulatory/policy, positioning/sentiment, and competitive analysis are different analytical units — they deserve different specialists. Per D7, this is preserved exactly from the China precedent.
+**1. Multi-agent specialization beats monolithic analysis.** A single agent doing "everything about NVDA" will skim. Forced specialization with explicit handoffs catches things one analyst would miss. Industry/cycle, forensic accounting, regulatory/policy, positioning/sentiment, and competitive analysis are different analytical units — they deserve different specialists.
 
 **2. Red Team runs in parallel from day one, not as final reviewer.** The Red Team's job is to build the strongest possible bear case in good faith. It is judged on whether it identifies things the bull side missed, not on agreement with the PM. Assigning Red Team only at the end is too late — by then the narrative has hardened.
 
@@ -76,7 +76,7 @@ This skill is **fundamental, single-name, US-listed equity research**. Its 20-ga
 - **Names where alpha lives in positioning** (crowded long, crowded short, factor exposure cascade) — the skill's positioning_sentiment captures 13F clusters, short interest, options skew, and ETF passive %, but not real-time order flow, dark-pool prints, prime-broker book data, or live factor crowding. For such names the skill is informative but not load-bearing.
 - **Cyclicals at inflection** — the skill cannot mechanically call the cycle turn. Reference content (book-to-bill, SAAR, rig count, channel inventory months) is gestural through v0.3.0; v0.4.0+ may extend. Until then, treat cyclical inflection calls as analyst judgment with framework support, not framework outputs.
 - **Small-cap with thin disclosure** (<3 covering analysts, <$500M cap, <2 segments disclosed in 10-K Item 7) — the skill degrades gracefully into headline-conditionality "range_only" labeling per G7, but the underlying alpha case is undercooked. Use peer-comparative and channel-check methods more heavily than the skill prescribes.
-- **Non-US issuers via ADR** — the skill accepts 20-F filings and notes ADR-vs-ordinary share treatment in Phase 0, but does NOT model China VIE structure, F-share accounting nuances, or jurisdiction-specific governance overlays. For ADRs of names with material VIE exposure (BABA, JD, BIDU, NTES, etc.), supplement with the china-equity-research skill.
+- **Non-US issuers via ADR** — the skill accepts 20-F filings and notes ADR-vs-ordinary share treatment in Phase 0, but does NOT model VIE structures, jurisdiction-specific governance overlays, or foreign-jurisdiction accounting nuances. For ADRs of names with material VIE exposure (BABA, JD, BIDU, NTES, etc.), the user should supplement with jurisdiction-specific analysis.
 
 **Honest framing.** A 9.0-scored output from this skill on an in-scope name is institutionally defensible fundamental analysis. A 9.0-scored output on an out-of-scope name is well-structured wrong-category work. The framework cannot detect out-of-scope use itself — that determination is the user's. When in doubt, use the categorization above before invoking.
 
@@ -128,7 +128,7 @@ Phase reference files (read on demand, not at skill load):
 - `references/r-v2-isolated-attack-us.md` — **(new in v0.4.0)** Isolated R-v2 subagent spawn contract: structural-independence rationale, the 5-point attack methodology in execution form, win condition, independent-source re-verification requirement, bounded context window, the `variance_attack` output schema with the `attacker_*` fields, and the spawn-failure → demote → G15 remediation path. Dispatched at the Phase 2→3 boundary; consumed by G20's graduated rigor scale (Sprint 3a).
 - `references/verification-protocol-us.md` — Web verification methodology
 - `references/us-data-sources.md` — EDGAR, FRED, Federal Register, regulators, free vs premium tiering
-- `references/source-stratification-us.md` — S1-S5 + Pending taxonomy ported to US filings
+- `references/source-stratification-us.md` — S1-S5 + Pending taxonomy applied to US filings
 - `references/forensic-accounting-checklist-us.md` — ASC 606/842/718, non-GAAP, SBC, restatements, Form 4, RPT
 - `references/regulatory-desk-us.md` — FTC/DOJ/State AGs/EU CMA, BIS/OFAC/CFIUS, FDA/FCC/FERC/NHTSA/EPA/FAA/CFPB, USTR 301/232, BEAT/GILTI/§174
 - `references/positioning-sentiment-us.md` — 13F clusters, Form 4 patterns, 13D activists, short interest + DTC, options skew, ETF passive %, index inclusion
@@ -314,14 +314,14 @@ Process:
 4. **Verify management guidance against the earnings call transcript, NOT the press release.** Companies sometimes provide different ranges on the call vs in the 8-K Item 7.01 press release. The call is the authoritative S3 source for guidance per delta matrix §11.
 5. Specifically verify any "designated on regulatory list" / "company X said Y" / "specific dollar amount" claims — these are highest-risk hallucinations. For Entity List status, query bis.doc.gov/index.php/policy-guidance/lists-of-parties-of-concern/entity-list. For OFAC SDN, query sanctionssearch.ofac.treas.gov. For FDA action letters, query fda.gov/drugs/development-approval-process-drugs.
 6. Dispatch an independent sanity-check sub-agent that re-verifies using its own web searches — do not trust the prior verification.
-7. Run the **17** verification gates (G1-G10 inherited from china-equity-ic-rigor; G11-G14 US-specific: non-GAAP/GAAP reconciliation, FCF SBC treatment, Barra factor exposure stated, capacity / ADV days-to-exit stated; **G15-G17 added v0.2.0**: G15 consensus variance declared or "consensus-anchored" labeled, G16 bank-specific AOCI bridge + CET1 walk + NIM trajectory + stress capital context when sector=Banks, G17 revision velocity 3m FY1 EPS delta + breadth disclosed when n_analysts ≥ 5). Per `schemas/verification_gates.json` — a memo cannot claim score >8.0 with any gate failing.
+7. Run the **17** verification gates (G1-G10 cover mechanical/structural discipline: source stratification, math reconciliation, scenario probabilities, citation; G11-G14 US-specific: non-GAAP/GAAP reconciliation, FCF SBC treatment, Barra factor exposure stated, capacity / ADV days-to-exit stated; **G15-G17 added v0.2.0**: G15 consensus variance declared or "consensus-anchored" labeled, G16 bank-specific AOCI bridge + CET1 walk + NIM trajectory + stress capital context when sector=Banks, G17 revision velocity 3m FY1 EPS delta + breadth disclosed when n_analysts ≥ 5). Per `schemas/verification_gates.json` — a memo cannot claim score >8.0 with any gate failing.
 8. If verification finds material errors, update the IC memo and document the correction.
 
 For verification methodology and the standard checklist, read `references/verification-protocol-us.md`.
 
 ## Final Deliverable
 
-Five audience-derived deliverables, English only (per D4 — no retail variant, no Chinese variant):
+Five audience-derived deliverables, English only (per D4 — no retail variant):
 
 **1. Institutional IC Memo (full)** — 12-section structure per `references/ic-memo-template-us.md`. Rating (5-band Strong Buy / Buy / Hold / Sell / Strong Sell per D1), 12mo and 24mo target prices, position sizing across 5 mandate types, core thesis with anchor S-levels, 5-scenario valuation, three-method reconcile (DCF / comps / SOTP or precedent), GM taxonomy, bear bridge, what-would-reverse triggers, A0 tail map, kill criteria, catalyst calendar, quant overlay, source matrix appendix. Suitable for buy-side IC discussion.
 
@@ -358,7 +358,7 @@ These are the recurring traps. Watch for them.
 
 **Hallucination of regulatory designation.** Sub-agents will confidently claim "company X is on the Entity List" or "company Y is on the OFAC SDN list" when the actual fact is "lawmakers have requested addition" or "the company is under preliminary investigation." Verify every regulatory designation directly against BIS / OFAC / Federal Register / FDA action-letter database. Same discipline applies to antitrust ("FTC has filed suit" vs "FTC has opened an investigation"), M&A ("deal announced" vs "deal closed" vs "deal blocked"), and litigation ("class action filed" vs "class certified" vs "settled").
 
-**$M vs $B unit confusion.** US analog of China 亿/billion confusion. A 10x error here destroys the memo. Some filings report in thousands; some in millions; some in billions. Always check the unit declaration in the financial statements header. Also watch for basis-points vs percent confusion (100x error).
+**$M vs $B unit confusion.** A 10x error here destroys the memo. Some filings report in thousands; some in millions; some in billions. Always check the unit declaration in the financial statements header. Also watch for basis-points vs percent confusion (100x error).
 
 **Pre-cutoff stale earnings call reference.** Model cutoff is January 2026. Any earnings call after that cutoff must be web-verified; do not rely on training-data recall for FY25Q4, FY26Q1, or later transcripts. The current session date is 2026-05-15.
 
@@ -370,7 +370,7 @@ These are the recurring traps. Watch for them.
 
 **Confirmation bias compounding across agents.** Agent A introduces a finding, agents B and C accept it as fact, the PM synthesis treats it as established. Verification must explicitly re-test claims that propagated through multiple agents.
 
-**Anchoring to existing position (endowment effect).** When evaluating "should we hold this stock?" the analytically correct frame is "would I buy this at current price?" — not "what is my cost basis?" Endowment effect is the most common bias in equity research. Same trap as China skill; preserved verbatim.
+**Anchoring to existing position (endowment effect).** When evaluating "should we hold this stock?" the analytically correct frame is "would I buy this at current price?" — not "what is my cost basis?" Endowment effect is the most common bias in equity research.
 
 **Confusing rating with sizing.** "Buy" rating does not equal "core position." A Buy with limited conviction is a half-weight position. State both explicitly and explain the gap. The 5-band rating per D1 reflects 12mo expected return; the per-mandate sizing per D3 reflects conviction times volatility times capacity.
 

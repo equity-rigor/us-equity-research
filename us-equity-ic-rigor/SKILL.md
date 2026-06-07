@@ -38,7 +38,7 @@ This skill is the **PM red-team layer** on top of `us-equity-research`. Use the 
 
 The core insight encoded here: an institutional-grade IC memo survives PM challenge not because it has a strong view, but because **every specific number is sourced (S1-S5), every transformation reconciles (segment GM ties to consolidated, bear bridge ties to base, EPS × multiple ties to target price), every headline acknowledges what it's contingent on (source-conditionality when anchors are S3 or weaker), every "what would reverse it" trigger has a numerical denominator (per G9), and every position recommendation discloses its factor exposure (per G13) and capacity profile (per G14)**. The bugs that kill a memo in IC are almost always mechanical — math doesn't multiply, definitions don't match, anchors aren't verified, non-GAAP doesn't reconcile to GAAP, FCF silently excludes SBC — not directional.
 
-This skill imports the IC-rigor pattern from `china-equity-ic-rigor` and ports it to US conventions: SEC EDGAR primary disclosure (10-K/10-Q/8-K/DEF 14A/20-F/Form 4/13D/13F), USD reporting, 5-band rating (Strong Buy / Buy / Hold / Sell / Strong Sell with ±10/±20% bands per D1), Damodaran ERP and 10Y UST risk-free, sector-branched valuation multiples (P/E mature, EV/EBITDA leveraged, EV/ARR + Rule of 40 SaaS, P/B + ROE banks, P/AFFO + NAV REITs, NPV pipeline biotech, P/AUM asset managers — see D8). Four US-specific verification gates G11-G14 are added on top of the inherited G1-G10. Quant overlay (Barra factor tags, capacity, edge decay, correlation placeholder, stress overlay) is **mandatory in every institutional memo** per D13.
+This skill codifies the IC-rigor pattern for US conventions: SEC EDGAR primary disclosure (10-K/10-Q/8-K/DEF 14A/20-F/Form 4/13D/13F), USD reporting, 5-band rating (Strong Buy / Buy / Hold / Sell / Strong Sell with ±10/±20% bands per D1), Damodaran ERP and 10Y UST risk-free, sector-branched valuation multiples (P/E mature, EV/EBITDA leveraged, EV/ARR + Rule of 40 SaaS, P/B + ROE banks, P/AFFO + NAV REITs, NPV pipeline biotech, P/AUM asset managers — see D8). Four US-specific verification gates G11-G14 ride on top of the mechanical math/source/scenario gates G1-G10. Quant overlay (Barra factor tags, capacity, edge decay, correlation placeholder, stress overlay) is **mandatory in every institutional memo** per D13.
 
 ## When to use this skill
 
@@ -86,7 +86,7 @@ The 20 verification gates plus the 6.0-9.0+ rubric in `pm-redteam-rubric-us.md` 
 
 ## Workflow
 
-The work proceeds in six phases (0 through 5). Phases 0-3 produce the institutional version. Phase 4 hardens it through the PM red-team loop. Phase 5 derives audience variants. Phases can interleave when the user explicitly directs it ("build the institutional and IC pre-read in parallel"). Per D7, the underlying research phase structure is preserved 1:1 from China — parallel specialization is the architectural value.
+The work proceeds in six phases (0 through 5). Phases 0-3 produce the institutional version. Phase 4 hardens it through the PM red-team loop. Phase 5 derives audience variants. Phases can interleave when the user explicitly directs it ("build the institutional and IC pre-read in parallel"). Per D7, parallel specialization is the architectural value — sequential dispatch wastes hours and breaks the framework's premise.
 
 ### Phase 0 — Foundational research (delegate to us-equity-research)
 
@@ -101,11 +101,11 @@ Before writing any specific number into the memo, classify it on the **S1-S5 + P
 - **S1** = audited 10-K / 20-F (PCAOB-registered auditor, SOX 404(b) ICFR opinion, ASC-compliant) → use freely
 - **S2** = unaudited public filing: 10-Q, 8-K (note Item 4.02 restatement is high-info; Item 8.01 other is junk-prone), DEF 14A, S-1/S-3/S-4, 13D/13G/13F, Form 4, 6-K → use freely with citation
 - **S3** = earnings call transcript, mgmt guidance (Reg FD § 17 CFR 243 same-day broad distribution), Investor Day deck, IR commentary → use with "per management" framing; verify against the call, not the press release
-- **S4** = Visible Alpha / FactSet / Bloomberg / Refinitiv IBES consensus, sell-side notes; or free-aggregator fallback (Yahoo Finance, StockAnalysis.com, WSJ Markets). Use **median + dispersion**, not mean. US sell-side coverage is denser than China — typical large-cap has 20-40 analysts
+- **S4** = Visible Alpha / FactSet / Bloomberg / Refinitiv IBES consensus, sell-side notes; or free-aggregator fallback (Yahoo Finance, StockAnalysis.com, WSJ Markets). Use **median + dispersion**, not mean. Typical US large-cap has 20-40 covering analysts
 - **S5** = Gartner / IDC / IHS Markit (S&P Global) / Counterpoint / Omdia / NielsenIQ / Circana / Yipit / Second Measure / Placer.ai / SimilarWeb / expert networks (GLG, Tegus, AlphaSights, Third Bridge). Always disclose provider, methodology, sample, freshness
 - **Pending** = unverified rumor, unsourced specifics, post-cutoff claims you couldn't verify within the current run → DO NOT promote to a headline anchor; if it must appear, mark `(Pending — not used as anchor)`
 
-The hard rule per G7: **if any of the top-3 anchors is S3 or weaker, the headline must be source-conditional**. `headline_conditionality` in `schemas/source_tags.json` is computed from top-3 anchor strength and is enforced programmatically by `${CLAUDE_PLUGIN_ROOT}/scripts/verify_headline_conditionality.py`. Conditional language patterns translate from China naturally — see references for English equivalents.
+The hard rule per G7: **if any of the top-3 anchors is S3 or weaker, the headline must be source-conditional**. `headline_conditionality` in `schemas/source_tags.json` is computed from top-3 anchor strength and is enforced programmatically by `${CLAUDE_PLUGIN_ROOT}/scripts/verify_headline_conditionality.py`. See `references/headline-language-us.md` for the canonical conditional-language patterns.
 
 Citation format at first use (per D16, English-localized): `(S1: NVDA 2024 10-K Item 7)`, `(S2: NVDA FY24Q3 10-Q Note 4)`, `(S3: NVDA FY24Q4 earnings call 2025-02-26, ~22min mark)`, `(S4: Visible Alpha NVDA DC rev FY26E, n=42, median $X, range $Y–$Z)` or `(S4: Yahoo Finance consensus EPS $X)`, `(S5: Gartner DC GPU forecast 2026/03)`, `(Pending — not used as anchor)`.
 
@@ -133,16 +133,16 @@ Output the institutional version of the IC memo. The 12-section template lives i
 
 This is the iteration that takes a memo from "looks good" to actually defensible. Run the 20 verification gates programmatically (scripts in `scripts/` — v0.1.x grandfathered to 14, v0.2.0 to 17), then score on the rubric in `references/pm-redteam-rubric-us.md`. The gate verification is non-negotiable: a memo cannot claim score >8.0 with any gate failing; critical math gates G1 (EPS × multiple multiplicativity) and G3 (SOTP monotonicity) cap at 7.0 when they fail, as do G15 (consensus variance) and G16 (bank discipline). The Phase E success criterion per D20 is score ≥ 8.5 with all applicable gates exit 0 against the structured JSON.
 
-Score-band fix lookup (preserved from China rubric, extended with US bug classes B11-B14):
+Score-band fix lookup (B1-B17 bug categories per `references/pm-redteam-rubric-us.md`, with US-specific B11-B14 covering non-GAAP/GAAP, SBC-in-FCF, Barra factor exposure, capacity/ADV/days-to-exit):
 
 - **6.0-7.5 — mechanical bugs**: run the 14 verification scripts. Most failures here are G1 (EPS × multiple does not multiply), G2 (segment GM does not reconcile), G3 (SOTP NI exceeds GP), G4 (probabilities do not sum to 1), G5 (bear bridge does not reconcile), G6 (specifics not source-tagged), G11 (non-GAAP cited without GAAP reconciliation), G12 (FCF cited without SBC treatment disclosed). Fix the math / source / reconciliation, re-run gates, re-score. Memos in this band almost always have at least one of the critical-math gates failing — the fix is mechanical, not narrative.
 - **7.5-8.5 — narrative coherence**: directional view holds but anchor weighting is off, GM taxonomy mixes types (G8), the layered bear bridge has unlabeled or implicit assumptions, or denominators are loose (G9 borderline). Common at this band: scenario narratives inconsistent with their anchors (e.g. base case cites Visible Alpha consensus but the narrative imagines hyperscaler capex growth above the consensus implied path), two pillars contradicting each other (e.g. three-method reconcile yields $X but DCF alone yields $1.4X with no narrative explaining the gap), headline median return out of sync with the probability-weighted table arithmetic.
 - **8.5-9.0 — IC-grade hardness**: the memo is defensible but not airtight. Look for the issues PMs catch in IC: A0 catalog completeness (all 6 standing + 2-3 idiosyncratic, with probability shifts across the 5 scenarios), three-method reconcile narrative (not just three numbers; the *why they agree or disagree* story — e.g. "DCF says $X because of the explicit FCF path; comps say $0.9X because the peer set is mid-cycle and we are near peak; SOTP says $1.05X because segment Z is mispriced standalone"), source-conditional language matching anchor strength (G7) — every weak anchor reflected in the headline qualifier, position sizing math shown across all 5 mandate types with conviction adjustment explicit, specific action articulated (not "we like this name" but "initiate at 60bp active vs S&P 500, max 120bp on Q4 print confirming DC > $40B with non-GAAP GM > 75%").
 - **9.0+ — IC-ready**: polish. Headline cadence, table-to-narrative cross-reference (every table referenced from the prose), appendix completeness (full anchor list with verification timestamps, all S-tags, all G-gate exit codes), audience variant rendering coherent with institutional headline.
 
-The bug catalog B1-B14 in `references/pm-redteam-rubric-us.md` maps each bug class to its gate, score impact, and remediation. B1-B10 are inherited from the China rubric (B1 unit confusion / B2 anchor strength misclassification / B3 scenario weight inconsistency / B4 bridge non-reconciliation / B5 GM taxonomy mixing / B6 segment-to-consolidated drift / B7 SOTP inversion / B8 headline unconditional on weak anchors / B9 trigger handwave / B10 missing anchor sensitivity); B11-B14 are US-specific additions: **B11 = Non-GAAP/GAAP gap not reconciled** (G11), **B12 = SBC not deducted from FCF without explicit flag** (G12), **B13 = Factor exposure unstated** (G13), **B14 = Capacity / ADV / days-to-exit unstated** (G14). **v0.2.0 adds B15-B17**: **B15 = Non-Hold rating without declared load-bearing consensus variance OR explicit "consensus-anchored" headline label** (G15), **B16 = Banks-sector memo missing AOCI bridge + CET1 walk + NIM trajectory + stress capital context** (G16), **B17 = Revision velocity not disclosed when coverage is non-thin (n_analysts ≥ 5)** (G17). The pm-redteam-rubric-us.md reference file will be extended in a follow-up to detail B15-B17 remediation; for v0.2.0 the gate scripts + reference files in Plugin 1 carry the operational discipline.
+The bug catalog B1-B17 in `references/pm-redteam-rubric-us.md` maps each bug class to its gate, score impact, and remediation. B1-B10 cover the mechanical/structural discipline (B1 unit confusion / B2 anchor strength misclassification / B3 scenario weight inconsistency / B4 bridge non-reconciliation / B5 GM taxonomy mixing / B6 segment-to-consolidated drift / B7 SOTP inversion / B8 headline unconditional on weak anchors / B9 trigger handwave / B10 missing anchor sensitivity); B11-B14 are US-specific: **B11 = Non-GAAP/GAAP gap not reconciled** (G11), **B12 = SBC not deducted from FCF without explicit flag** (G12), **B13 = Factor exposure unstated** (G13), **B14 = Capacity / ADV / days-to-exit unstated** (G14). **v0.2.0 adds B15-B17**: **B15 = Non-Hold rating without declared load-bearing consensus variance OR explicit "consensus-anchored" headline label** (G15), **B16 = Banks-sector memo missing AOCI bridge + CET1 walk + NIM trajectory + stress capital context** (G16), **B17 = Revision velocity not disclosed when coverage is non-thin (n_analysts ≥ 5)** (G17). The pm-redteam-rubric-us.md reference file will be extended in a follow-up to detail B15-B17 remediation; for v0.2.0 the gate scripts + reference files in Plugin 1 carry the operational discipline.
 
-We do not cite specific historical PM-red-team rounds in this skill because the US methodology stands on the rubric and gate catalog, not on archived case histories. Each new memo runs through the same loop; iterate until score ≥ 8.5 or until three iterations are exhausted (per the Phase E failure-handling discipline documented in `design/phase-e-calibration-summary.md`). The PM red-team loop is the value of the skill — it is not optional.
+We do not cite specific historical PM-red-team rounds in this skill because the methodology stands on the rubric and gate catalog, not on archived case histories. Each new memo runs through the same loop; iterate until score ≥ 8.5 or until three iterations are exhausted. The PM red-team loop is the value of the skill — it is not optional.
 
 ### Phase 5 — Multi-audience derivatives
 
@@ -151,7 +151,7 @@ After the institutional version stabilizes, build the audience variants. Don't w
 - **Institutional full** — the 12-section memo. The source of truth. All derivatives flow from this.
 - **IC pre-read (≤4 page)** — strip narrative; keep headline, scenario table, three-method reconcile summary, what-would-reverse triggers, key risks (top 5), position sizing one-liner, quant overlay summary. Do NOT change numbers; if a number changes here it must propagate back to institutional.
 - **IC debate script** — verbal-form: company fundamentals → research methodology → logic chain → anchor evidence → valuation → caveats → 8 likely PM challenges with answers. Timing markers (3min / 5min / 10min variants).
-- **LP letter (1-2 page client-facing)** — quarterly LP-letter cadence: attribution narrative, change-in-view since prior letter, position sizing and rationale, what-would-reverse summary, position-level risk in plain language (no S-tags, no Barra factors in surface text). Replaces China's retail variant per D4.
+- **LP letter (1-2 page client-facing)** — quarterly LP-letter cadence: attribution narrative, change-in-view since prior letter, position sizing and rationale, what-would-reverse summary, position-level risk in plain language (no S-tags, no Barra factors in surface text). Per D4, English-only — no retail variant.
 - **Earnings prep** — night-before checklist: consensus snapshot (median + range, dispersion), KPI guide (segment revenue, GM, FCF, guide range), management-commentary watch list (5-7 named items from prior calls), beat/miss scenario tree with 3-6 month implied moves, pre-announcement risk flag.
 - **Earnings flash (T+30 min)** — same-day structured response: beat/miss vs consensus on each tracked KPI, guide vs prior, segment color, KPI-by-KPI verdict, headline change (yes/no/conditional), gate-affected anchors list, next-action recommendation.
 - **Kill memo** — falsification-triggered exit rationale: which what-would-reverse trigger fired, the evidence (specific S-source), revised headline, exit timing, post-mortem of view (what assumption broke and which layer of the bear/bull bridge it lived in).
@@ -199,25 +199,31 @@ If the user's response includes any of: "where does X come from", "this doesn't 
 
 This is the loop that drives score progression. The score-band lookup above tells you which kind of fix moves the score how much.
 
-## What is inherited from China vs. what is US-specific
+## Framework architecture
 
-Inherited 1:1 (English-localized only): the 5-scenario probabilistic framework, S1-S5 source stratification, three-method valuation reconcile structure, GM taxonomy with five types, bear/bull EPS bridge with three layers, what-would-reverse falsification triggers, A0 tail mapping discipline, PM red-team rubric structure (6-9 score bands, fix-then-justify mode), position sizing decoupled from rating, multi-audience derivation pattern, the 12 minimum WebSearch+WebFetch calls per memo (D9), and gates G1-G10.
+**Mechanical / structural gates G1-G10** — source stratification (S1-S5 + Pending), math reconciliation (EPS × multiple, segment GM, SOTP monotonicity, scenario probabilities sum, bear bridge), citation discipline, headline conditionality enforcement.
 
-US-specific (net-new or replaced):
+**US-specific gates G11-G14** (v0.1.0) — non-GAAP/GAAP reconciliation (G11), SBC-in-FCF disclosure (G12), Barra factor exposure (G13), capacity/ADV/days-to-exit (G14).
 
-- Document substrate: SEC EDGAR primary (10-K / 10-Q / 8-K / DEF 14A / S-1/3/4 / 20-F / 6-K / Form 4 / 13D/G / 13F) replaces CNINFO / Sina / Eastmoney; FRED replaces NBS / PBoC; sector trade press is US-specific (The Information, STAT, Bank Reg Blog, Counterpoint, IDC, Gartner, etc.)
-- Rating taxonomy: 5-band Strong Buy / Buy / Hold / Sell / Strong Sell with ±10% / ±20% bands per D1 replaces 买入 / 增持 / 中性 / 减持 / 卖出 with ±5% / ±15%
-- Valuation: sector-branched primary multiple per D8 (P/E mature, EV/EBITDA leveraged, EV/ARR + Rule of 40 SaaS, P/B + ROE banks, P/AFFO + NAV REITs, NPV biotech, EV/EBITDAX E&P, EV/EBITDAR airlines, P/AUM asset managers); WACC inputs from 10Y UST + Damodaran US ERP
-- Forensic primary axis: ASC 606 / 842 / 718 + non-GAAP/GAAP discipline + SBC-in-FCF treatment replaces 政府补助 / LP put-call / 亿 unit confusion as the dominant forensic class
-- Positioning desk: 13F + Form 4 + short interest + options skew + ETF passive % + activist 13D replaces 北上 / 公募 / 龙虎榜 / 融资融券
-- Tail catalog (D12): six US-specific standing A0 events (NBER recession, Fed rate shock, sector regulatory action, sanctions/export control, tariff/trade war, election transition)
-- Net-new gates G11-G14 (v0.1.0): non-GAAP reconciliation (G11), SBC-in-FCF disclosure (G12), Barra factor exposure (G13), capacity / ADV / days-to-exit (G14)
-- Net-new gates G15-G17 (v0.2.0): consensus variance (G15), bank discipline (G16), revision velocity (G17)
-- Net-new templates: LP letter (replaces retail), earnings prep, earnings flash, kill memo
-- Net-new mandatory section: quant overlay (D13)
-- Dropped: Chinese-language deliverable, retail variant, China-specific data sources, LP put/call construct
+**Sprint 1 additions G15-G17** (v0.2.0) — consensus variance with sized scenario impact (G15), bank discipline with AOCI/CET1/NIM/stress capital (G16), revision velocity when n_analysts ≥ 5 (G17).
 
-The full delta is catalogued in `design/us-vs-china-delta-matrix.md` (read-only after Phase A).
+**Sprint 2 additions G18-G20** (v0.3.0) — quant overlay cross-document consistency (G18), Plugin 1 → Plugin 2 provenance manifest with SHA-256 on-disk integrity (G19), view defensibility for any rubric score above 8.5 (G20).
+
+**v0.4.0 graduated rigor** — any G20 claim above 9.0 requires a structurally isolated, model-diverse R-v2 attack to survive.
+
+**Document substrate**: SEC EDGAR primary (10-K / 10-Q / 8-K / DEF 14A / S-1/3/4 / 20-F / 6-K / Form 4 / 13D/G / 13F); FRED for macro; sector trade press (The Information, STAT, Bank Reg Blog, Counterpoint, IDC, Gartner).
+
+**Rating taxonomy** (D1): 5-band Strong Buy / Buy / Hold / Sell / Strong Sell with ±10% / ±20% return bands.
+
+**Valuation** (D8): sector-branched primary multiple (P/E mature, EV/EBITDA leveraged, EV/ARR + Rule of 40 SaaS, P/B + ROE banks, P/AFFO + NAV REITs, NPV biotech, EV/EBITDAX E&P, EV/EBITDAR airlines, P/AUM asset managers); WACC from 10Y UST + Damodaran US ERP.
+
+**Forensic primary axis**: ASC 606 / 842 / 718 + non-GAAP/GAAP discipline + SBC-in-FCF treatment.
+
+**Positioning desk**: 13F + Form 4 + short interest + options skew + ETF passive % + activist 13D.
+
+**Tail catalog** (D12): six standing A0 events — NBER recession, Fed rate shock, sector regulatory action, sanctions/export control, tariff/trade war, election transition.
+
+**Deliverables** (per D4, English-only): institutional IC memo (full), IC pre-read (≤4 page), IC debate script, LP letter (quarterly client-facing), earnings prep, earnings flash, kill memo. Quant overlay (D13) is mandatory in every institutional memo.
 
 ## Composition with marketplace plugins (soft-dependency per D21)
 
@@ -267,7 +273,7 @@ The JSON contract for each delegation is documented in `us-equity-research/refer
 
 - `templates/opinion-letter-section-checklist-us.md` — 12-section institutional memo template (English-only per D4)
 - `templates/ic-debate-script-template-us.md` — IC debate script with 8-challenge Q&A bank, 3 / 5 / 10-min timing variants
-- `templates/lp-letter-template.md` — LP letter 1-2 page template (replaces China retail variant per D4)
+- `templates/lp-letter-template.md` — LP letter 1-2 page template (per D4, English-only — no retail variant)
 - `templates/earnings-prep-template.md` — night-before earnings checklist
 - `templates/earnings-flash-template.md` — T+30min same-day structured response template
 

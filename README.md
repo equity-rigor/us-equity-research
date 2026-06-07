@@ -100,9 +100,9 @@ The slash commands and the auto-discovery triggers point at the same underlying 
 
 ## Standing context
 
-A condensed reference; see `design/build-log.md` for full design history.
+A condensed reference for framework conventions used throughout the schemas, references, and verifier scripts.
 
-- **20 verification gates G1-G20** (G1-G14 baseline through v0.1.x; G15-G17 added v0.2.0; G18-G20 added v0.3.0; G20 graduated rigor scale added v0.4.0): G1 EPS × P/E reconcile, G2 segment GM reconcile, G3 SOTP NI ≤ GP, G4 scenario probabilities sum to 1.00, G5 bear bridge reconcile, G6 unsourced specifics, G7 unconditional S3-anchored headlines, G8 mixed GM definitions, G9 missing what-would-reverse denominators, G10 missing anchor sensitivity, G11 non-GAAP without GAAP reconciliation, G12 SBC excluded from FCF without flag, G13 missing Barra factor exposure, G14 missing capacity / ADV / days-to-exit, **G15 non-Hold rating without declared load-bearing consensus variance or "consensus-anchored" headline label** (v0.2.0), **G16 Banks-sector memo without AOCI bridge + CET1 walk + NIM trajectory + stress capital context** (v0.2.0), **G17 revision velocity not disclosed when n_analysts ≥ 5** (v0.2.0), **G18 quant overlay cross-document consistency** (v0.3.0), **G19 Plugin-1→Plugin-2 provenance manifest with on-disk hash match** (v0.3.0), **G20 view defensibility — headline differentiates from consensus ≥8pp AND ≥1 load-bearing variance carries S1/S2 evidence AND a structured R-v2 attack survives; v0.4.0 adds a graduated rigor scale requiring an *isolated, model-diverse* R-v2 attack for any claim above 9.0** (v0.3.0; v0.4.0). G11-G14 are US-specific additions over the China A-share precedent; G15-G17 are v0.2.0 Sprint 1 additions closing the "where is consensus wrong" / "banks aren't depository institutions to this framework" / "revisions aren't first-class" gaps. v0.1.x memos with `schema_version="0.1.0"` are grandfathered to the 14-gate set.
+- **20 verification gates G1-G20** (G1-G14 baseline through v0.1.x; G15-G17 added v0.2.0; G18-G20 added v0.3.0; G20 graduated rigor scale added v0.4.0): G1 EPS × P/E reconcile, G2 segment GM reconcile, G3 SOTP NI ≤ GP, G4 scenario probabilities sum to 1.00, G5 bear bridge reconcile, G6 unsourced specifics, G7 unconditional S3-anchored headlines, G8 mixed GM definitions, G9 missing what-would-reverse denominators, G10 missing anchor sensitivity, G11 non-GAAP without GAAP reconciliation, G12 SBC excluded from FCF without flag, G13 missing Barra factor exposure, G14 missing capacity / ADV / days-to-exit, **G15 non-Hold rating without declared load-bearing consensus variance or "consensus-anchored" headline label** (v0.2.0), **G16 Banks-sector memo without AOCI bridge + CET1 walk + NIM trajectory + stress capital context** (v0.2.0), **G17 revision velocity not disclosed when n_analysts ≥ 5** (v0.2.0), **G18 quant overlay cross-document consistency** (v0.3.0), **G19 Plugin-1→Plugin-2 provenance manifest with on-disk hash match** (v0.3.0), **G20 view defensibility — headline differentiates from consensus ≥8pp AND ≥1 load-bearing variance carries S1/S2 evidence AND a structured R-v2 attack survives; v0.4.0 adds a graduated rigor scale requiring an *isolated, model-diverse* R-v2 attack for any claim above 9.0** (v0.3.0; v0.4.0). G11-G14 codify US-specific disclosure failure modes (non-GAAP/GAAP reconciliation, SBC-in-FCF treatment, Barra factor exposure, capacity/ADV/days-to-exit); G15-G17 are v0.2.0 Sprint 1 additions closing the "where is consensus wrong" / "banks aren't depository institutions to this framework" / "revisions aren't first-class" gaps. v0.1.x memos with `schema_version="0.1.0"` are grandfathered to the 14-gate set.
 - **5 scenarios** (per `schemas/scenarios.json`): `strong_bear` / `bear` / `base` / `bull` / `strong_bull`. Probabilities must sum to 1.00 within ±0.01.
 - **5 mandate types** (per D3): `long_only_large_cap` / `long_only_smid` / `long_short_hedge_fund` / `sector_specialty` / `pair_trade`. Position sizing rubric in `us-equity-ic-rigor/references/position-sizing-us.md`.
 - **6 source levels** (per `schemas/source_tags.json`): `S1` (audited primary) / `S2` (auditor / regulator) / `S3` (reputable secondary) / `S4` (industry / vendor) / `S5` (commentary / opinion) / `Pending` (placeholder). `Pending` cannot anchor an unconditional headline (G7).
@@ -123,8 +123,6 @@ A condensed reference; see `design/build-log.md` for full design history.
 | XOM | Integrated E&P | EV/EBITDAX + NAV | Cleared D20 |
 | MRK | Large-cap pharma | P/E + NPV pipeline | Cleared D20 |
 | DLR | Data center REIT | P/AFFO + NAV | Cleared D20 |
-
-Rubric anchor and per-ticker score context: `design/phase-e-calibration-summary.md`.
 
 ## Composition with marketplace plugins
 
@@ -163,11 +161,6 @@ This project was developed and tested against `claude-for-financial-services` ma
 
 ```
 .
-├── design/                                # decisions D1-D24, schema-conformance, calibration summary, build log
-│   ├── build-log.md
-│   ├── open-decisions.md
-│   ├── phase-e-calibration-summary.md
-│   └── ...
 ├── schemas/                               # 4 frozen schemas (memo, source_tags, scenarios, verification_gates)
 ├── us-equity-research/                    # plugin 1: multi-agent orchestrator
 │   ├── .claude-plugin/plugin.json
@@ -182,7 +175,6 @@ This project was developed and tested against `claude-for-financial-services` ma
 │   └── tests/                             # 22 test files (322 collected, 308 passed, 14 skipped; v0.6.0 adds G15/G16/G17/write_manifest direct tests)
 ├── examples/                              # Phase E v0.1.x calibration memos (NVDA / JPM / XOM / MRK / DLR) + v0.5.1 flagship (MU)
 ├── reference/                             # gitignored upstream plugin source (D23)
-├── templates/                             # gitignored China A-share precedent templates
 ├── .claude/                               # project-level Claude Code settings (permissions.allow for safe commands)
 ├── .github/workflows/                     # CI: pytest.yml + lint.yml
 ├── pyproject.toml                         # Python package manifest (us-equity-research-verifiers)
@@ -197,7 +189,7 @@ PRs welcome. Conventions:
 - **Conventional commits** with phase prefix where applicable (`phase F.3: ...`)
 - **One concept per commit** (D19)
 - **pytest** must remain green: `pytest -q` should report `308 passed, 14 skipped` (v0.6.0 baseline; 14 skips are intentional — verifiers without version-gating logic don't define `RUNNABLE_SCHEMA_VERSIONS`, so the meta-test correctly skips them)
-- **Schema invariants** (D17, D22) — the 4 schemas in `schemas/` are frozen; changes require explicit decision entry in `design/open-decisions.md`
+- **Schema invariants** (D17, D22) — the 4 schemas in `schemas/` are frozen; changes require an explicit decision entry, a CHANGELOG note, and a corresponding schema_version bump
 - **One owner per file** (D2) — coordinate before touching shared docs
 
 ## License
@@ -250,6 +242,3 @@ If you reference this framework in published work:
 }
 ```
 
-## Acknowledgments
-
-The architecture is derived from a China A-share buy-side research skill (precedent templates retained in `templates/`, gitignored). The 14-gate verification taxonomy, S1-S5 stratification convention, 5-scenario probabilistic framework, and 5-mandate position sizing rubric all originated in that precedent and were ported + adapted for the US regulatory and disclosure environment over the course of Phases A through E of this project (see `design/build-log.md`).

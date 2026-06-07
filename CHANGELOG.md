@@ -888,9 +888,9 @@ Two plugins released as one project:
   → verification → institutional IC memo. EDGAR-only default; premium
   hooks opt-in.
 - `us-equity-ic-rigor` — PM red-team layer. 14 verification gates G1-G14
-  (10 inherited from China A-share precedent + 4 US-specific: non-GAAP
-  reconciliation, SBC-in-FCF, Barra factor exposure, capacity / ADV /
-  days-to-exit). 5-scenario probabilistic framework. 5-band rating per
+  (G1-G10 cover mechanical/structural discipline; G11-G14 US-specific:
+  non-GAAP reconciliation, SBC-in-FCF, Barra factor exposure, capacity /
+  ADV / days-to-exit). 5-scenario probabilistic framework. 5-band rating per
   D1. Score-band PM rubric (6.0-9.0+).
 
 ### Design decisions ratified

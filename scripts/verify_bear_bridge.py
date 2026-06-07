@@ -106,7 +106,7 @@ def verify(memo_json_path: Path) -> int:
     if failures:
         print(f"gate_id: {GATE_ID}")
         print("status: fail")
-        # Emit first failure as the canonical failure_reason (mirrors china-equity-ic-rigor pattern).
+        # Emit first failure as the canonical failure_reason.
         print(f"failure_reason: {failures[0]}")
         if len(failures) > 1:
             for extra in failures[1:]:

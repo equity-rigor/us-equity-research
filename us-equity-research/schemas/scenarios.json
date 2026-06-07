@@ -2,14 +2,14 @@
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://us-equity-research.local/schemas/scenarios.json",
   "title": "5-Scenario Probabilistic Framework — US",
-  "description": "Schema for the 5-scenario block (strong_bear / bear / base / bull / strong_bull) with weights summing to 1.00 ± 0.01. Each scenario has its own EPS path AND its own multiple AND its own narrative bridge. EPS × multiple = target_price must verify within rounding. Ported from china-equity-ic-rigor (强空/空头/基础/多头/强多), English-localized, with US-specific sector branching for multiple type.",
+  "description": "Schema for the 5-scenario block (strong_bear / bear / base / bull / strong_bull) with weights summing to 1.00 ± 0.01. Each scenario has its own EPS path AND its own multiple AND its own narrative bridge. EPS × multiple = target_price must verify within rounding. US-specific sector branching for multiple type per D8.",
   "schema_version": "0.1.0",
   "type": "object",
   "definitions": {
     "scenario_id": {
       "type": "string",
       "enum": ["strong_bear", "bear", "base", "bull", "strong_bull"],
-      "description": "Five required scenarios. Order convention: strong_bear (P10 tail) → strong_bull (P90 tail). Maps to China 强空/空头/基础/多头/强多."
+      "description": "Five required scenarios. Order convention: strong_bear (P10 tail) → strong_bull (P90 tail)."
     },
     "multiple_type": {
       "type": "string",

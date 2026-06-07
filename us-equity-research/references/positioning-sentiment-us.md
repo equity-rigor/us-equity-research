@@ -2,7 +2,7 @@
 
 Desk reference for the `positioning_sentiment` block of `schemas/memo.json`. Covers every required field plus the supporting context needed to fill it from public sources. Per D9, this work is part of the 12-call minimum WebSearch+WebFetch budget; per D5, all primary sources below are accessible in EDGAR-only mode with optional premium hooks.
 
-This file is the analog of China-side A8 (Positioning & Sentiment). Northbound / 公募基金 / 龙虎榜 are replaced by 13F + Form 4 + short interest + options + ETF flows + index inclusion + activist filings + foreign ownership.
+This is the A8 desk reference for US positioning. The discipline uses 13F + Form 4 + short interest + options + ETF flows + index inclusion + activist filings + foreign ownership to triangulate where the smart-money / retail / passive / active boundaries sit on a given name.
 
 Citation discipline (D16): every field below ends in the memo as `(<Stier>: <source>, <date>, <freshness>)`. Aggregator citations should name the aggregator AND the underlying filing (e.g. `(S2: WhaleWisdom 13F snapshot 2026-04-15 reflecting 13F-HR filings for Q1 2026, n=87 holders)`).
 
