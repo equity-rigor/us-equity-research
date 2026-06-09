@@ -4,7 +4,18 @@ A normal IC memo run fires 50-100 tool calls (15 specialists × multiple WebSear
 
 ## TL;DR
 
-If you cloned the repo, you already have the bundled `.claude/settings.json` and most prompts are pre-approved. If you installed via the Claude Code plugin marketplace, you don't have this file — copy the snippet below into your global `~/.claude/settings.json` once, and you're done.
+**Want absolute zero prompts for the session?** Launch with:
+
+```bash
+cd ~/projects/us-equity-research
+claude --dangerously-skip-permissions
+```
+
+That's the "one yes equivalent" — actually zero yes presses. Use it when you trust the framework to run without intervention.
+
+**Want a saner default with destructive ops still prompted?** The repo ships with `.claude/settings.json` configured in broad-allow mode: WebSearch / WebFetch / curl / read-only bash / writes to `outputs/` are blanket-approved; `rm` / `git commit/push/tag` / `sudo` / credential-file writes still prompt. Just `cd` into the directory and launch `claude` normally.
+
+If you installed via the Claude Code plugin marketplace and don't have the workspace settings file, copy the snippet below into your global `~/.claude/settings.json` once.
 
 ```bash
 # Quick check if the bundled settings are active

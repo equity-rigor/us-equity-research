@@ -5,15 +5,13 @@ allowed-tools:
   - Read
   - Write(outputs/**)
   - Edit(outputs/**)
-  - Bash(cat outputs/*)
-  - Bash(cat outputs/**)
-  - Bash(ls outputs/)
-  - Bash(ls outputs/*)
-  - Bash(python3 -m json.tool *)
-  - Bash(python3 scripts/verify_*)
-  - Bash(python3 ${CLAUDE_PLUGIN_ROOT}/scripts/verify_*)
-  - Bash(python3 scripts/write_manifest.py *)
-  - Bash(python3 ${CLAUDE_PLUGIN_ROOT}/scripts/write_manifest.py *)
+  - Bash(cat *)
+  - Bash(ls *)
+  - Bash(python3 *)
+  - Bash(python *)
+  - Bash(grep *)
+  - Bash(head *)
+  - Bash(tail *)
   - Task
 ---
 

@@ -1,0 +1,139 @@
+{
+ "run_id": "DBE04F4C-05AB-4BB4-A6D9-D89E88B101BD",
+ "plugin_versions": {
+  "us_equity_research": "0.6.0",
+  "us_equity_ic_rigor": "0.6.0"
+ },
+ "phase_timing": {
+  "phase_0": {
+   "start": "2026-06-07T22:54:35Z",
+   "end": "2026-06-07T23:30:00Z"
+  },
+  "phase_1": {
+   "start": "2026-06-09T00:00:00Z",
+   "end": "2026-06-09T00:40:00Z"
+  },
+  "phase_2": {
+   "start": "2026-06-09T00:40:00Z",
+   "end": "2026-06-09T01:20:00Z"
+  },
+  "phase_3": {
+   "start": "2026-06-09T01:20:00Z",
+   "end": "2026-06-09T02:10:00Z"
+  },
+  "verification": {
+   "start": "2026-06-09T02:10:00Z",
+   "end": "2026-06-09T02:30:00Z"
+  }
+ },
+ "web_search_log": [
+  {
+   "tool": "WebSearch",
+   "query_or_url": "VST FY25 10-K results guidance",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "VST Q1 2026 earnings",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Comanche Peak AWS PPA",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "VST 13F short interest analyst",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Energy Harbor goodwill SBC",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "IPP EV/EBITDA comps",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "ERCOT PJM FERC NRC EPA",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "VST price market cap EV",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "VST short interest float",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "CEO Meta Cogentrix dividend",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "VST auditor Deloitte",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "stockanalysis VST statistics",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "FERC 193 FERC 61217 EL25-49 verify",
+   "phase": 4,
+   "used_by_agent": "Verify"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "PJM 2027/28 BRA $333.44 verify",
+   "phase": 4,
+   "used_by_agent": "Verify"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "CEG Calpine merger close verify",
+   "phase": 4,
+   "used_by_agent": "Verify"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "VST IG upgrade S&P Fitch verify",
+   "phase": 4,
+   "used_by_agent": "Verify"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "45U PTC OBBBA verify",
+   "phase": 4,
+   "used_by_agent": "Verify"
+  }
+ ],
+ "verification_calls_count": 36,
+ "orchestrator_notes": "Full round Phases 0-3 + Verification. 5 Phase-1 agents (16/18/20/19/25 calls, no 1.5 refresh), 6 Phase-2 (18/15/18/16/14/16), 4 Phase-3 (17/14/16/10) + Mirror + independent Verify (14). All 17 gates pass (G15/G16 n_a).",
+ "phase_0": {
+  "start": "2026-06-07T22:54:35Z",
+  "end": "2026-06-07T23:30:00Z"
+ }
+}
