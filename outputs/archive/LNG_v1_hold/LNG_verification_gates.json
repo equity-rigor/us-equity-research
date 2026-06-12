@@ -1,0 +1,33 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "LNG",
+ "run_id": "7F3C1A92-6B4D-4E8A-9C21-0A5E7D2B11F4",
+ "memo_path": "outputs/LNG_IC_memo.md",
+ "memo_structured_path": "outputs/LNG_structured.json",
+ "gates": [
+  {"gate_id": "G1", "name": "EPS x Multiple multiplicativity", "status": "pass", "category": "math", "blocks_score_above": 8.0},
+  {"gate_id": "G2", "name": "Segment GM reconciliation", "status": "pass", "category": "math", "blocks_score_above": 8.0},
+  {"gate_id": "G3", "name": "SOTP monotonicity", "status": "pass", "category": "math", "blocks_score_above": 8.0},
+  {"gate_id": "G4", "name": "Scenario probabilities sum to 1.00", "status": "pass", "category": "math", "blocks_score_above": 8.0},
+  {"gate_id": "G5", "name": "Bear/bull EPS bridge reconciles", "status": "pass", "category": "math", "blocks_score_above": 8.0},
+  {"gate_id": "G6", "name": "Source tag at first use", "status": "pass", "category": "source", "blocks_score_above": 8.0},
+  {"gate_id": "G7", "name": "Headline conditionality matches anchor strength", "status": "pass", "category": "consistency", "blocks_score_above": 8.0},
+  {"gate_id": "G8", "name": "GM taxonomy box exists", "status": "pass", "category": "structure", "blocks_score_above": 8.0},
+  {"gate_id": "G9", "name": "What-would-reverse numerical denominators", "status": "pass", "category": "structure", "blocks_score_above": 8.0},
+  {"gate_id": "G10", "name": "Anchor weighting impact table", "status": "pass", "category": "structure", "blocks_score_above": 8.0},
+  {"gate_id": "G11", "name": "Non-GAAP to GAAP reconciliation present", "status": "pass", "category": "consistency", "blocks_score_above": 8.0},
+  {"gate_id": "G12", "name": "SBC treatment in FCF disclosed", "status": "pass", "category": "consistency", "blocks_score_above": 8.0},
+  {"gate_id": "G13", "name": "Factor exposure stated", "status": "pass", "category": "quant_overlay", "blocks_score_above": 8.0},
+  {"gate_id": "G14", "name": "Capacity/ADV/days-to-exit stated", "status": "pass", "category": "quant_overlay", "blocks_score_above": 8.0},
+  {"gate_id": "G15", "name": "Consensus variance declared or anchored (n_a: Hold rating)", "status": "n_a", "category": "consistency", "blocks_score_above": 8.0},
+  {"gate_id": "G16", "name": "Bank metrics (n_a: non-bank sector)", "status": "n_a", "category": "sector", "blocks_score_above": 8.0},
+  {"gate_id": "G17", "name": "Revision velocity disclosed", "status": "pass", "category": "consistency", "blocks_score_above": 8.0},
+  {"gate_id": "G18", "name": "Quant overlay cross-document consistency", "status": "pass", "category": "structure", "blocks_score_above": 8.0},
+  {"gate_id": "G19", "name": "Plugin 1 -> Plugin 2 provenance manifest", "status": "pass", "category": "structure", "blocks_score_above": 8.0},
+  {"gate_id": "G20", "name": "View defensibility (n_a: Hold rating)", "status": "n_a", "category": "structure", "blocks_score_above": 8.5}
+ ],
+ "overall_pass": true,
+ "applicable_gates_passed": "17 of 17 applicable (G15/G16/G20 n_a)",
+ "blocks_score_above": null,
+ "notes": "All applicable programmatic gates exit 0 under the uniform calling contract (scripts/run_all_gates.sh LNG). G15 + G20 n_a because the rating is Hold (non-Hold ratings require a load-bearing consensus variance and view-defensibility attack); G16 n_a because Energy/LNG is a non-bank sector. A declared downward consensus variance (V1) is carried for narrative completeness even though G15 does not require it for a Hold."
+}

@@ -1,0 +1,192 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "FCX",
+ "current_price": 66.2,
+ "as_of_date": "2026-06-11",
+ "fiscal_year_end": "12-31",
+ "base_eps": 3.58,
+ "scenarios": [
+  {
+   "id": "strong_bear",
+   "probability": 0.12,
+   "narrative_one_liner": "Copper corrects to ~$4.00/lb (China property air-pocket + mid-cycle reversion), the Grasberg ramp slips, unit costs inflate, and FCX de-rates to ~16x on a halved ~$2.30 EPS - the operating + multiple double-derate toward the 52-week low.",
+   "narrative_long": "A China-property-led demand air-pocket and a broad slowdown pull copper to a $4.00 mid-cycle; with ~$400M EBITDA per $0.10/lb, EBITDA falls toward ~$10-11B. Grasberg's block-cave ramp slips further (geotechnical), and unit cash cost inflates above $2.10/lb on lower volumes. The market de-rates the peak-cycle premium to ~16x as the cycle turns. EPS ~$2.30; price toward the 52-week-low region.",
+   "eps": 2.3,
+   "eps_period": "FY27E",
+   "multiple": 16.0,
+   "multiple_type": "P/E",
+   "target_price": 36.8,
+   "expected_return": -0.444,
+   "anchors": [
+    "R-Bear",
+    "B-Copper",
+    "B-Grasberg",
+    "B-Cost"
+   ],
+   "strongest_anchor_s_level": "S4",
+   "multiple_band_basis": "16x P/E on a depressed copper-cycle EPS ~ the peak-cycle multiple de-rate; approaches the 52-week low $35.15 / bear-floor $36-42.",
+   "eps_bridge": [
+    {
+     "label": "Copper corrects to ~$4.00/lb (~$8B EBITDA hit at $400M/$0.10)",
+     "delta_eps": -0.78,
+     "layer": "clean",
+     "source_tag": "S1: FCX $400M EBITDA per $0.10/lb sensitivity; S4 Goldman 2026 decline"
+    },
+    {
+     "label": "Grasberg ramp slips further (block-cave geotechnical)",
+     "delta_eps": -0.3,
+     "layer": "soft",
+     "source_tag": "S2: GBC restart sequence already cut 3.4->3.1 Blb"
+    },
+    {
+     "label": "Unit cash cost inflation on lower volumes (>$2.10/lb)",
+     "delta_eps": -0.2,
+     "layer": "clean",
+     "source_tag": "S1: FY26 unit cost guide raised $1.75->$1.95/lb"
+    }
+   ]
+  },
+  {
+   "id": "bear",
+   "probability": 0.23,
+   "narrative_one_liner": "Copper normalizes to ~$4.75/lb (Goldman base), Grasberg recovers slowly, the multiple compresses to ~17x on ~$2.95 EPS - the stock works back toward the conservative-Street cluster.",
+   "narrative_long": "Copper mean-reverts toward management's $5 modeling floor / Goldman's base; EBITDA settles ~$11-12B. Grasberg recovers but slower than the revised plan; costs stay elevated. The premium partially erodes to ~17x on a $2.95 FY27E EPS - near the conservative-Street PT cluster (~$50).",
+   "eps": 2.95,
+   "eps_period": "FY27E",
+   "multiple": 17.0,
+   "multiple_type": "P/E",
+   "target_price": 50.15,
+   "expected_return": -0.242,
+   "anchors": [
+    "A-Consensus",
+    "B-Copper",
+    "B-Grasberg"
+   ],
+   "strongest_anchor_s_level": "S4",
+   "multiple_band_basis": "17x ~ partial de-rate on a mid-cycle copper EPS; consistent with the conservative-Street cluster (~$46-50).",
+   "eps_bridge": [
+    {
+     "label": "Copper normalizes to ~$4.75/lb",
+     "delta_eps": -0.43,
+     "layer": "clean",
+     "source_tag": "S4: Goldman $5 base; mid-cycle reversion"
+    },
+    {
+     "label": "Slower Grasberg recovery + cost stickiness",
+     "delta_eps": -0.2,
+     "layer": "soft",
+     "source_tag": "S2: GBC ramp execution risk"
+    }
+   ]
+  },
+  {
+   "id": "base",
+   "probability": 0.4,
+   "narrative_one_liner": "Copper holds ~$5.50/lb (elevated but off peak), Grasberg recovers on the revised 2027 ramp, leaching scales, and FCX holds ~18.5x on $3.58 EPS - essentially fully valued at spot.",
+   "narrative_long": "Copper stays elevated (~$5.50, between spot $6.19 and $4.50 mid-cycle) as the structural deficit offsets China softness; Grasberg recovers per the revised plan (Blocks 2&3 Q2'26, full 2027), leaching scales toward ~300 Mlb, and the balance sheet funds the performance-based payout. FY27E EPS ~$3.58; the stock holds ~18.5x - roughly where it trades now (~17x FY27E) - i.e., fully valued at spot with no margin of safety.",
+   "eps": 3.58,
+   "eps_period": "FY27E",
+   "multiple": 18.5,
+   "multiple_type": "P/E",
+   "target_price": 66.23,
+   "expected_return": 0.0005,
+   "anchors": [
+    "A1-Copper",
+    "A3-Grasberg-Recovery",
+    "Leaching",
+    "Payout"
+   ],
+   "strongest_anchor_s_level": "S4",
+   "multiple_band_basis": "18.5x ~ in line with the current ~17x FY27E forward; a mid-cycle multiple on an elevated-but-off-peak copper EPS. Fully valued.",
+   "eps_bridge": []
+  },
+  {
+   "id": "bull",
+   "probability": 0.18,
+   "narrative_one_liner": "Copper holds ~$6.25/lb on the deficit, Grasberg fully recovers in 2027, leaching + tariff benefit lift EPS to ~$4.20, and FCX re-rates to ~19.5x as the structural-copper bull is validated.",
+   "narrative_long": "The structural deficit keeps copper near spot/record; Grasberg fully recovers to ~1.7 Blb in 2027, leaching reaches its targets, and a US refined-copper tariff lifts realized US prices. EPS ~$4.20 and the market re-rates modestly to ~19.5x as the copper-leader premium is validated.",
+   "eps": 4.2,
+   "eps_period": "FY27E",
+   "multiple": 19.5,
+   "multiple_type": "P/E",
+   "target_price": 81.9,
+   "expected_return": 0.2372,
+   "anchors": [
+    "Copper-Deficit",
+    "Grasberg-Full-Recovery",
+    "Leaching-Tariff"
+   ],
+   "strongest_anchor_s_level": "S4",
+   "multiple_band_basis": "19.5x = modest re-rate on a high-copper EPS; toward the higher-end Street PTs (Goldman $75 / Barclays $77).",
+   "eps_bridge": [
+    {
+     "label": "Copper holds ~$6.25/lb (structural deficit persists)",
+     "delta_eps": 0.42,
+     "layer": "soft",
+     "source_tag": "S4: JPM ~$13k+/t copper target"
+    },
+    {
+     "label": "Grasberg full 2027 recovery + leaching ~300 Mlb + US tariff benefit",
+     "delta_eps": 0.2,
+     "layer": "soft",
+     "source_tag": "S2/S3: GBC recovery + leaching targets + Section 232"
+    }
+   ]
+  },
+  {
+   "id": "strong_bull",
+   "probability": 0.07,
+   "narrative_one_liner": "Copper supercycle to ~$7.50/lb (deficit bites), Grasberg + Bagdad/El Abra growth + leaching to 800 Mlb drive EPS to ~$5.00, and FCX re-rates to ~21x.",
+   "narrative_long": "A structural supply shortfall (declining grades, thin pipeline, electrification + AI-grid demand) drives copper to a supercycle ~$7.50/lb; Grasberg recovers, the leaching 'virtual mine' scales to ~800 Mlb, and Bagdad/El Abra expansions advance. EPS ~$5.00 and the market awards ~21x.",
+   "eps": 5.0,
+   "eps_period": "FY27E",
+   "multiple": 21.0,
+   "multiple_type": "P/E",
+   "target_price": 105.0,
+   "expected_return": 0.5861,
+   "anchors": [
+    "Copper-Supercycle",
+    "Leaching-800",
+    "Growth-Pipeline"
+   ],
+   "strongest_anchor_s_level": "S4",
+   "multiple_band_basis": "21x approaches a pure-play-copper premium on a supercycle EPS; tail re-rate predicated on a durable structural deficit.",
+   "eps_bridge": [
+    {
+     "label": "Copper supercycle to ~$7.50/lb (structural deficit bites)",
+     "delta_eps": 0.92,
+     "layer": "strong",
+     "source_tag": "S4: bull-deck copper >$15k/t"
+    },
+    {
+     "label": "Leaching to ~800 Mlb + Bagdad/El Abra growth pipeline",
+     "delta_eps": 0.5,
+     "layer": "strong",
+     "source_tag": "S2/S3: leaching 800 Mlb target + brownfield expansions"
+    }
+   ]
+  }
+ ],
+ "probability_sum_check": 1.0,
+ "conviction_tag": "neutral",
+ "headline": {
+  "expected_return_median": -0.025,
+  "expected_return_range_p10_p90": [
+   -0.444,
+   0.586
+  ],
+  "rating": "Hold",
+  "default_action": "hold_long",
+  "conditionality": "source_conditional",
+  "conditional_language_pattern": "A_source_conditional_bias",
+  "headline_text": "FCX at $66.20 carries a probability-weighted 12-month expected return of -2.5% (source-conditional Hold); the call is conditional on the copper price (~$6.19/lb, the dominant S4 driver) holding near spot and on the Grasberg block-cave recovering on the revised 2026-2027 ramp - scenario-weighted range strong_bear $36.80 (-44.4%) to strong_bull $105.00 (+58.6%). FCX is fully valued at its 52-week high on peak-cycle copper (~40-55% above mid-cycle) with consensus PTs only ~+4-6% above spot; the distribution is left-skewed, but the structural copper-deficit tail keeps it a Hold, not a Sell."
+ },
+ "weighting_sensitivity": {
+  "base_minus_10_to_bear": -0.0243,
+  "base_minus_10_to_bull": 0.0237,
+  "strong_tail_plus_10": {
+   "strong_bear": -0.0445,
+   "strong_bull": 0.0586
+  }
+ }
+}

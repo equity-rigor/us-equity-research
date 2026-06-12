@@ -1,0 +1,190 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "APD",
+ "current_price": 282.35,
+ "as_of_date": "2026-06-09",
+ "fiscal_year_end": "09-30",
+ "base_eps": 14.5,
+ "scenarios": [
+  {
+   "id": "strong_bear",
+   "probability": 0.1,
+   "narrative_one_liner": "A further hydrogen impairment (NEOM/Louisiana) returns, the FCF inflection fails as capex stays sticky, helium/macro pressure the core, and the market re-rates APD DOWN to ~16x - a deep discount that prices a broken turnaround.",
+   "narrative_long": "The Yara FID fails and/or NEOM green-ammonia offtake never signs, forcing a further >$1B writedown; capex re-accelerates and FCF stays negative into FY2027, re-opening the dividend-coverage question; helium and a China/Europe slowdown hit the merchant book. The market concludes the discount to Linde is permanent and widens it, de-rating APD to ~16x on a stalled $12.50 FY27E EPS.",
+   "eps": 12.5,
+   "eps_period": "FY27E",
+   "multiple": 16.0,
+   "multiple_type": "P/E",
+   "target_price": 200.0,
+   "expected_return": -0.2917,
+   "anchors": [
+    "R-Bear",
+    "B-Impairment",
+    "B-FCF-Fail"
+   ],
+   "strongest_anchor_s_level": "S2",
+   "multiple_band_basis": "16x P/E = deep discount well below APD's own history and ~12 turns below Linde; prices a failed turnaround / permanent-discount outcome.",
+   "eps_bridge": [
+    {
+     "label": "Further hydrogen impairment tail (NEOM/Louisiana writedown) + associated EPS drag",
+     "delta_eps": -0.8,
+     "layer": "clean",
+     "source_tag": "S2: FY2025 ~$3.7B charge precedent; Yara FID / NEOM offtake unsigned"
+    },
+    {
+     "label": "FCF inflection fails; capex sticky; interest expense rising",
+     "delta_eps": -0.7,
+     "layer": "clean",
+     "source_tag": "S1: Q2 FY26 10-Q interest expense +23% YoY"
+    },
+    {
+     "label": "Core volume softening (China/Europe macro + helium pricing)",
+     "delta_eps": -0.5,
+     "layer": "soft",
+     "source_tag": "S1: Q2 FY26 -1% consolidated price (helium)"
+    }
+   ]
+  },
+  {
+   "id": "bear",
+   "probability": 0.22,
+   "narrative_one_liner": "Turnaround stalls but does not break: FCF inflection is delayed, capex rolls off slower than guided, the multiple stays flat ~19x (no re-rate), and the stock works back toward the sell-side floor / 52-week low.",
+   "narrative_long": "Capex steps down but more slowly; FCF reaches roughly breakeven only by FY2028; no fresh impairment, but no catalyst either. The Linde discount persists and APD holds ~19x on a $13.50 FY27E EPS - essentially the 52-week-low region, with estimates intact but the re-rate deferred.",
+   "eps": 13.5,
+   "eps_period": "FY27E",
+   "multiple": 19.0,
+   "multiple_type": "P/E",
+   "target_price": 256.5,
+   "expected_return": -0.0916,
+   "anchors": [
+    "A-Consensus",
+    "B-Multiple-Flat"
+   ],
+   "strongest_anchor_s_level": "S3",
+   "multiple_band_basis": "19x P/E ~ APD's recent trough forward multiple; no re-rate, discount to Linde unchanged.",
+   "eps_bridge": [
+    {
+     "label": "Turnaround stalls; FCF inflection delayed; capex rolls off slower",
+     "delta_eps": -0.6,
+     "layer": "clean",
+     "source_tag": "S3: capex framework execution risk"
+    },
+    {
+     "label": "Helium / merchant pricing drag persists",
+     "delta_eps": -0.4,
+     "layer": "soft",
+     "source_tag": "S1: Q2 FY26 helium pricing headwind"
+    }
+   ]
+  },
+  {
+   "id": "base",
+   "probability": 0.4,
+   "narrative_one_liner": "FCF inflects positive in FY2027 as capex rolls off to ~$4B, charges are behind, two guidance raises prove durable, and the LIN-APD discount narrows - the market re-rates APD to ~24.5x, closing about half the gap to Linde.",
+   "narrative_long": "Capex steps down to ~$4.0B (FY26) and lower (FY27), FCF crosses positive, and the dividend becomes self-funding. NEOM starts up and the Louisiana Yara FID closes, removing the impairment tail. Adjusted EPS compounds to ~$14.50 (FY27E) and the market, seeing restored capital discipline + FCF, re-rates APD from ~21x to ~24.5x - roughly half the gap to Linde's ~28x.",
+   "eps": 14.5,
+   "eps_period": "FY27E",
+   "multiple": 24.4,
+   "multiple_type": "P/E",
+   "target_price": 353.8,
+   "expected_return": 0.2531,
+   "anchors": [
+    "A1-Guidance",
+    "A2-Capex-FCF",
+    "A3-LIN-Discount",
+    "V1-Rerate"
+   ],
+   "strongest_anchor_s_level": "S1",
+   "multiple_band_basis": "24.5x P/E = re-rate closing ~half the ~7-turn discount to Linde (~28x); above APD's current ~21x forward but below Linde, justified by the FCF inflection + capital discipline.",
+   "eps_bridge": []
+  },
+  {
+   "id": "bull",
+   "probability": 0.2,
+   "narrative_one_liner": "Faster margin convergence toward Linde + NEOM/Yara FID closing drive adjusted EPS to ~$15.25 and a re-rate to ~26.5x as the discount narrows toward its historical ~3-4 turns.",
+   "narrative_long": "Productivity and portfolio discipline lift the adjusted operating margin toward the high-20s, the FCF inflection comes early, and the NEOM offtake + Louisiana Yara FID both close - validating the clean-hydrogen assets at value. The market re-rates APD to ~26.5x, nearly closing the Linde gap.",
+   "eps": 15.25,
+   "eps_period": "FY27E",
+   "multiple": 26.5,
+   "multiple_type": "P/E",
+   "target_price": 404.12,
+   "expected_return": 0.4313,
+   "anchors": [
+    "Margin-Convergence",
+    "NEOM-Yara-FID",
+    "FCF-Inflect-Early"
+   ],
+   "strongest_anchor_s_level": "S2",
+   "multiple_band_basis": "26.5x P/E approaches Linde (~28x), leaving a modest residual discount; predicated on early FCF inflection + de-risked hydrogen assets.",
+   "eps_bridge": [
+    {
+     "label": "Faster productivity / margin convergence toward Linde",
+     "delta_eps": 0.45,
+     "layer": "soft",
+     "source_tag": "S3: Q2 FY26 adj op margin +210bp YoY to 23.7%"
+    },
+    {
+     "label": "NEOM startup accretion + Louisiana Yara FID closes",
+     "delta_eps": 0.3,
+     "layer": "soft",
+     "source_tag": "S2: NEOM >90% complete; Yara 25-yr offtake advanced negotiation"
+    }
+   ]
+  },
+  {
+   "id": "strong_bull",
+   "probability": 0.08,
+   "narrative_one_liner": "Full convergence: APD re-rates to Linde-parity ~28x as capital-return restarts (buyback) on the FCF inflection and the clean-hydrogen backlog (NEOM/Louisiana) is recognized at value.",
+   "narrative_long": "The turnaround is a clean success: FCF inflects sharply, the balance sheet deleverages toward A/A2 with positive outlook, the buyback restarts, and the market awards APD a Linde-parity ~28x as the quality of the contracted franchise plus de-risked growth is fully recognized. Adjusted EPS reaches ~$16.00 on margin convergence + early growth.",
+   "eps": 16.0,
+   "eps_period": "FY27E",
+   "multiple": 28.0,
+   "multiple_type": "P/E",
+   "target_price": 448.0,
+   "expected_return": 0.5867,
+   "anchors": [
+    "LIN-Parity",
+    "Buyback-Restart",
+    "H2-Value-Recognized"
+   ],
+   "strongest_anchor_s_level": "S3",
+   "multiple_band_basis": "28x P/E = Linde-parity; tail re-rate predicated on a fully-executed turnaround + capital-return restart.",
+   "eps_bridge": [
+    {
+     "label": "Full margin convergence + capital-return (buyback) restart on FCF inflection",
+     "delta_eps": 0.85,
+     "layer": "strong",
+     "source_tag": "S3: management deleveraging-to-A/A2 + dividend/return framework"
+    },
+    {
+     "label": "Clean-hydrogen backlog (NEOM/Louisiana) value recognized + new IG backlog",
+     "delta_eps": 0.65,
+     "layer": "strong",
+     "source_tag": "S2: ~$9B profit-contributing backlog; NEOM/Louisiana de-risked"
+    }
+   ]
+  }
+ ],
+ "probability_sum_check": 1.0,
+ "conviction_tag": "high",
+ "headline": {
+  "expected_return_median": 0.185,
+  "expected_return_range_p10_p90": [
+   -0.2917,
+   0.5867
+  ],
+  "rating": "Buy",
+  "default_action": "initiate_long",
+  "conditionality": "source_conditional",
+  "conditional_language_pattern": "A_source_conditional_bias",
+  "headline_text": "Source-conditional Buy: APD de-biased 12-month expected return +18.5%, conditional on the FY2027 FCF inflection and capital discipline. Anchoring to independent fair value (~$354, +25%) CONFIRMS the Buy - APD's DCF/SOTP were already ABOVE spot, so it was never a spot-anchored call; range -29.2% to +59%."
+ },
+ "weighting_sensitivity": {
+  "base_minus_10_to_bear": -0.0345,
+  "base_minus_10_to_bull": 0.0178,
+  "strong_tail_plus_10": {
+   "strong_bear": -0.0545,
+   "strong_bull": 0.0334
+  }
+ }
+}

@@ -1,0 +1,357 @@
+{
+  "manifest_version": "0.3.0",
+  "ticker": "MU",
+  "run_id": "F1A2B3C4-MU22-4DE5-8F90-DEBIA5ED0006",
+  "created_at": "2026-06-12T04:20:34+00:00",
+  "plugin_versions": {
+    "us_equity_research": "0.6.0",
+    "us_equity_ic_rigor": "0.6.0"
+  },
+  "phase_timing": {
+    "phase_0": {
+      "start": "2026-06-11T19:00:00Z",
+      "end": "2026-06-11T19:35:00Z"
+    },
+    "phase_1": {
+      "start": "2026-06-11T19:00:00Z",
+      "end": "2026-06-11T19:35:00Z"
+    },
+    "phase_2": {
+      "start": "2026-06-11T19:00:00Z",
+      "end": "2026-06-11T19:35:00Z"
+    },
+    "phase_3": {
+      "start": "2026-06-11T19:00:00Z",
+      "end": "2026-06-11T19:35:00Z"
+    },
+    "verification": {
+      "start": "2026-06-11T19:00:00Z",
+      "end": "2026-06-11T19:35:00Z"
+    }
+  },
+  "agent_provenance": [
+    {
+      "agent_id": "A1",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/MU_phase1_A1.md",
+      "output_sha256": "ffcd362ce62253ba612c757e5be41bc2cf6e3d7a3ccd5616e8ae0717ec26b319"
+    },
+    {
+      "agent_id": "A4",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/MU_phase1_A4.md",
+      "output_sha256": "59b7eb554c1cbd15983d2b779359b3a141923713baa425a9b0b5a5e26ed4959e"
+    },
+    {
+      "agent_id": "A5",
+      "phase": 1,
+      "status": "framework_only",
+      "output_path": "outputs/workpapers/MU_phase1_A5.md",
+      "output_sha256": "2668ce312bd39e43926420886010bf433478c7eb485e93b9dfcb1b58da434414"
+    },
+    {
+      "agent_id": "A8",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/MU_phase1_A8.md",
+      "output_sha256": "635bb85bfcc423d231dbd9b027bc66279f1c37ac9b30cbdb3eb6c0c46dd1a08b"
+    },
+    {
+      "agent_id": "FS",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/MU_phase1_FS.md",
+      "output_sha256": "86f31d1a365a01d0be55ebb9e06ee0b25d52fe120f96fb1253bdd8cc5a42eae0"
+    },
+    {
+      "agent_id": "A2",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/MU_phase2_A2.md",
+      "output_sha256": "b9fdab3278062a3887bd256331e0fc21e70621da63361b2d1c0e8ff94d78dcce"
+    },
+    {
+      "agent_id": "A3",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/MU_phase2_A3.md",
+      "output_sha256": "d9cfd61979502f3160c49e57caccdbb40d09310454d4bb5fa2b999b1e183961c"
+    },
+    {
+      "agent_id": "A3-Peers",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/MU_phase2_A3_Peers.md",
+      "output_sha256": "f83cada1debeef7309c54a77dfb3cef2f583ef91e73d5d53873adcb2f83dae22"
+    },
+    {
+      "agent_id": "R",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/MU_phase2_R.md",
+      "output_sha256": "ea47d5dfaab22110cab379c8bdcab9eb6ee67ed1f48227977d0027a96e657289"
+    },
+    {
+      "agent_id": "A6",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/MU_phase2_A6.md",
+      "output_sha256": "e019c6165108b91baad6436deb829603f2bc09d9193a4412b06a40041cebaa05"
+    },
+    {
+      "agent_id": "A-Consensus",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/MU_phase2_A_Consensus.md",
+      "output_sha256": "d163a27d1edaa60463a56f8749044bfd51967a15126ed89f0d2f07f538802a30"
+    },
+    {
+      "agent_id": "A7",
+      "phase": 3,
+      "status": "completed",
+      "output_path": "outputs/workpapers/MU_phase3_A7.md",
+      "output_sha256": "d4a4d3b1a2c39eebadca0369e16a90b390d648db022ed4834a4539c55c685fce"
+    },
+    {
+      "agent_id": "Mirror",
+      "phase": 3,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "Topic-Forensic",
+      "phase": 3,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "R-v2",
+      "phase": 3,
+      "status": "completed",
+      "output_path": "outputs/workpapers/MU_phase3_R_v2.md",
+      "output_sha256": "840e323fa1cd280ffadfd8bdaca726377ce6f89697f5f24c82e792d12fc2f395"
+    }
+  ],
+  "web_search_log": [
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Micron FY2025 results HBM revenue Q2 FY2026 gross margin guidance",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Micron Q3 FY2026 guidance record gross margin EPS",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Micron HBM market share SK Hynix Samsung HBM4 2026",
+      "phase": 1,
+      "used_by_agent": "A3"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "DRAM NAND contract price increase 2026 TrendForce ASP",
+      "phase": 1,
+      "used_by_agent": "A1"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Micron mid-cycle normalized EPS Wells Fargo through cycle memory",
+      "phase": 2,
+      "used_by_agent": "Topic-Forensic"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000723125.json",
+      "phase": 1,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Micron capex 2026 Idaho New York fab CHIPS Act",
+      "phase": 1,
+      "used_by_agent": "A4"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Micron price to book P/B historical cycle valuation",
+      "phase": 2,
+      "used_by_agent": "R"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Micron vs SK Hynix valuation forward P/E premium HBM leader",
+      "phase": 2,
+      "used_by_agent": "A3-Peers"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Micron consensus price target analyst rating 2026",
+      "phase": 2,
+      "used_by_agent": "A-Consensus"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "HBM wafer trade ratio glut Samsung HBM4E qualification Nvidia",
+      "phase": 2,
+      "used_by_agent": "R"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "CXMT China DRAM DDR5 capacity 2026",
+      "phase": 1,
+      "used_by_agent": "A5"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Micron share price market cap beta June 2026 parabolic",
+      "phase": 3,
+      "used_by_agent": "A7"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://fred.stlouisfed.org/series/DGS10",
+      "phase": 3,
+      "used_by_agent": "A7"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Micron Q2 FY26 net cash balance sheet book value per share",
+      "phase": 1,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "memory cycle peak 2027 downturn TechInsights forecast",
+      "phase": 2,
+      "used_by_agent": "R"
+    }
+  ],
+  "verification_calls_count": 36,
+  "outputs_produced": [
+    {
+      "path": "outputs/MU_IC_memo.md",
+      "sha256": "4824d3b3883662a2d8677dcac55bb86e94da49e6f9c397f0a581b525d9499e93",
+      "size_bytes": 11101,
+      "file_type": "ic_memo_md"
+    },
+    {
+      "path": "outputs/MU_structured.json",
+      "sha256": "bfa23b8972b5085d1537775446dcf97c19c9a14cb226e106e614f57c04a46669",
+      "size_bytes": 80146,
+      "file_type": "structured_json"
+    },
+    {
+      "path": "outputs/MU_source_tags.json",
+      "sha256": "8059baa4bc5d38613d73c165443a390f5ef5b0c49a887361387e486b50b79e4f",
+      "size_bytes": 10017,
+      "file_type": "source_tags_json"
+    },
+    {
+      "path": "outputs/MU_scenarios.json",
+      "sha256": "d0411b6d22e8590bac8e2155719437354c9a905b7e31e59a1ab9b9cc8128d63d",
+      "size_bytes": 8352,
+      "file_type": "scenarios_json"
+    },
+    {
+      "path": "outputs/MU_verification_gates.json",
+      "sha256": "1e0985f78854810c204128e96978f31e3c88ed5254b79c6bb179de418cf95b03",
+      "size_bytes": 4497,
+      "file_type": "verification_gates_json"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase1_A1.md",
+      "sha256": "ffcd362ce62253ba612c757e5be41bc2cf6e3d7a3ccd5616e8ae0717ec26b319",
+      "size_bytes": 726,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase1_A4.md",
+      "sha256": "59b7eb554c1cbd15983d2b779359b3a141923713baa425a9b0b5a5e26ed4959e",
+      "size_bytes": 596,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase1_A5.md",
+      "sha256": "2668ce312bd39e43926420886010bf433478c7eb485e93b9dfcb1b58da434414",
+      "size_bytes": 466,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase1_A8.md",
+      "sha256": "635bb85bfcc423d231dbd9b027bc66279f1c37ac9b30cbdb3eb6c0c46dd1a08b",
+      "size_bytes": 583,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase1_FS.md",
+      "sha256": "86f31d1a365a01d0be55ebb9e06ee0b25d52fe120f96fb1253bdd8cc5a42eae0",
+      "size_bytes": 660,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase2_A2.md",
+      "sha256": "b9fdab3278062a3887bd256331e0fc21e70621da63361b2d1c0e8ff94d78dcce",
+      "size_bytes": 575,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase2_A3.md",
+      "sha256": "d9cfd61979502f3160c49e57caccdbb40d09310454d4bb5fa2b999b1e183961c",
+      "size_bytes": 562,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase2_A3_Peers.md",
+      "sha256": "f83cada1debeef7309c54a77dfb3cef2f583ef91e73d5d53873adcb2f83dae22",
+      "size_bytes": 553,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase2_A6.md",
+      "sha256": "e019c6165108b91baad6436deb829603f2bc09d9193a4412b06a40041cebaa05",
+      "size_bytes": 698,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase2_A_Consensus.md",
+      "sha256": "d163a27d1edaa60463a56f8749044bfd51967a15126ed89f0d2f07f538802a30",
+      "size_bytes": 708,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase2_R.md",
+      "sha256": "ea47d5dfaab22110cab379c8bdcab9eb6ee67ed1f48227977d0027a96e657289",
+      "size_bytes": 784,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase3_A7.md",
+      "sha256": "d4a4d3b1a2c39eebadca0369e16a90b390d648db022ed4834a4539c55c685fce",
+      "size_bytes": 627,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase3_Mirror_SKHynix.md",
+      "sha256": "34ae4f360d933386bd4c2b1bb25abcf43a95b99c94b608cd8155765bc9899037",
+      "size_bytes": 611,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase3_R_v2.md",
+      "sha256": "840e323fa1cd280ffadfd8bdaca726377ce6f89697f5f24c82e792d12fc2f395",
+      "size_bytes": 822,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/MU_phase3_TopicForensic_MidCycle.md",
+      "sha256": "1dde4e0ab44bab1a96b237e68155cf4a42a9ab2c6bf2a59064756762b37871f0",
+      "size_bytes": 773,
+      "file_type": "workpaper_md"
+    }
+  ],
+  "orchestrator_notes": "MU (Micron) fresh 0.6.0 build, fair-value-anchored from the start. STRONG SELL/Underweight: parabolic AI/HBM memory peak; independent through-cycle fair value ~$552 (-45%) on mid-cycle EPS vs peak. G15+G20 affirmative (12.7pp differentiation). Replaces older-version MU build. 3 parallel research specialists + EDGAR XBRL + FRED."
+}

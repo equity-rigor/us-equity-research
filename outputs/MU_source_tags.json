@@ -1,0 +1,304 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "MU",
+ "as_of_date": "2026-06-11",
+ "model_cutoff_date": "2026-01-01",
+ "all_citations": [
+  {
+   "s_level": "S1",
+   "source_type": "10-K",
+   "ref": "MU FY2025 10-K (ended 2025-08-28): revenue $37,378M, GM 39.8%, EPS $7.59; FY23 EPS -$5.34 (trough); capex $15,857M",
+   "date": "2025-10-01",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000723125/000072312525000028/mu-20250828.htm",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "XBRL",
+   "ref": "SEC XBRL companyfacts CIK 0000723125 (revenue/NI/EPS/GM/OCF/capex FY23-25)",
+   "date": "2026-06-11",
+   "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000723125.json",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "MU Q2 FY26 results (ended 2026-02-26): revenue $23.86B, GAAP GM 74.9%, EPS $12.07; Q3 guide rev $33.5B, GM ~81%, EPS ~$19.15",
+   "date": "2026-03-18",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "10-Q",
+   "ref": "MU Q2 FY26 10-Q: cash $13.91B, debt $9.56B (net cash ~+$4.4B); equity $72.46B (BVPS ~$64); shares ~1,127.7M",
+   "date": "2026-03-19",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "Other",
+   "ref": "TrendForce: DRAM contract prices +~90% then +~60% QoQ (2026); HBM ~23% of DRAM wafers 2026; HBM 3x-4x wafer trade ratio; DDR5 profitability overtook HBM3E",
+   "date": "2026-06-01",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "Other",
+   "ref": "Samsung HBM4E samples (ahead of SK Hynix on timeline); SK Hynix HBM contract prices softening 2026; TechInsights forecasts 2027 memory downturn",
+   "date": "2026-05-30",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "DEF 14A",
+   "ref": "MU 2026 DEF 14A: PwC ratified; Sanjay Mehrotra CEO / Mark Murphy CFO",
+   "date": "2026-01-15",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "FRED",
+   "ref": "FRED DGS10 10-yr UST 4.55%",
+   "date": "2026-06-10",
+   "url": "https://fred.stlouisfed.org/series/DGS10",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Damodaran",
+   "ref": "Damodaran implied US ERP 4.23%",
+   "date": "2026-01-01",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S3",
+   "source_type": "Other",
+   "ref": "Wells Fargo through-cycle framework: mid-cycle EPS $30-40 (vs peak model $50-60) - the load-bearing normalized-earnings anchor",
+   "date": "2026-05-01",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "FactSet consensus",
+   "ref": "Consensus n=44: FY26E EPS ~$59.82 (rev ~$112B), FY27E ~$112.17; PT avg $828.73 (low $249/high $1,750); 30 SB/9 B/4 H/1 SS",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Yahoo Finance consensus",
+   "ref": "MU $995.87 (6/11); mkt cap ~$1.12T; shares ~1,127.7M; fwd P/E ~16.7x FY26E / ~9x FY27E; P/B ~6.5x (peak ~3x / median ~1.9x); 52wk $103.38-$1,089.29; beta 2.17",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "30-day ADV ~$40B (~40-59M shares); beta 2.17; IV ~100%; short interest ~3.3% float, DTC ~0.8",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Other",
+   "ref": "HBM share CY2026: SK Hynix ~57-62% (leader), Micron ~21-24% (#2), Samsung ~17%; MU HBM sold out CY2026 under multi-year contracts",
+   "date": "2026-05-15",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "Peer valuation: SK Hynix ~5.6-6.8x fwd P/E / ~3.0x P/B (cheaper, HBM leader); Samsung ~6.8-7x P/E; MU at a premium to both",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S2",
+   "source_type": "Other",
+   "ref": "CXMT (China) scaling to ~300k wafers/month 2026 (~10% global DRAM target); commoditizing legacy DDR5; US export curbs",
+   "date": "2026-05-01",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S3",
+   "source_type": "Other",
+   "ref": "MU FY2026 capex guided >$25B (~40%+ of revenue); FY2027 capex steps up >$10B; Idaho + New York fabs; CHIPS Act up to $6.4B",
+   "date": "2026-03-18",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "BIS Entity List",
+   "ref": "BIS/OFAC/CFIUS query MU 2026-06-11: N/A (US-domiciled; China-sales restriction 2023 is a commercial/geopolitical matter)",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": true
+  }
+ ],
+ "top_anchors": [
+  {
+   "anchor_id": "A1",
+   "claim": "Memory-cycle position / DRAM-NAND ASP (the dominant earnings driver)",
+   "value": 74.9,
+   "unit": "% Q2'26 GAAP gross margin (peak; vs ~25-30% mid-cycle)",
+   "citation": {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "MU Q2 FY26 8-K (74.9% GM; DRAM ASP +90% then +60% QoQ)",
+    "date": "2026-03-18",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "strong_bear",
+    "bear",
+    "base",
+    "bull",
+    "strong_bull"
+   ],
+   "sensitivity_pct": 14.0
+  },
+  {
+   "anchor_id": "A2",
+   "claim": "Mid-cycle / normalized EPS vs the FY2026 peak (the valuation denominator)",
+   "value": 44.0,
+   "unit": "$ normalized EPS (range $30-48) vs ~$60 FY26 peak",
+   "citation": {
+    "s_level": "S3",
+    "source_type": "Other",
+    "ref": "Wells Fargo through-cycle EPS $30-40; +HBM credit to ~$48",
+    "date": "2026-05-01",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "strong_bear",
+    "bear",
+    "base"
+   ],
+   "sensitivity_pct": 12.0
+  },
+  {
+   "anchor_id": "A3",
+   "claim": "HBM competition + wafer-trade-ratio glut mechanism",
+   "value": 23.0,
+   "unit": "% of DRAM wafers consumed by HBM 2026 (3-4x trade ratio)",
+   "citation": {
+    "s_level": "S2",
+    "source_type": "Other",
+    "ref": "TrendForce HBM wafer share + Samsung HBM4E qualification",
+    "date": "2026-05-30",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "strong_bear",
+    "bear",
+    "bull",
+    "strong_bull"
+   ],
+   "sensitivity_pct": 10.0
+  },
+  {
+   "anchor_id": "A4",
+   "claim": "Price-to-book (the reliable cyclical anchor)",
+   "value": 6.5,
+   "unit": "x P/B (vs historical peak ~3x / median ~1.9x)",
+   "citation": {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "P/B ~6.5x above historical PEAK band; BVPS ~$64",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "strong_bear",
+    "bear",
+    "base"
+   ],
+   "sensitivity_pct": 12.0
+  },
+  {
+   "anchor_id": "A_PT",
+   "claim": "Sell-side consensus 12-month price target (average; below spot)",
+   "value": 828.73,
+   "unit": "$/share price target",
+   "citation": {
+    "s_level": "S4",
+    "source_type": "FactSet consensus",
+    "ref": "Consensus PT avg $828.73 (-17% below spot $995.87), n=44 - the Street's own targets are below spot",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base"
+   ],
+   "sensitivity_pct": 5.0
+  }
+ ],
+ "headline_conditionality": "source_conditional",
+ "consensus_variance": [
+  {
+   "variance_id": "V1_peak_cycle_derate",
+   "line_item": "Memory-cycle position / normalized earnings power (peak-cycle de-rate)",
+   "type": "scenario_weight",
+   "direction": "downward",
+   "magnitude_pct": 30.0,
+   "probability_right_pct": 65.0,
+   "scenario_sensitivity_pct": 20.0,
+   "sizing_impact_pp": 3.9,
+   "load_bearing": true,
+   "narrative": "Consensus rates MU 89% Buy on ~16.7x FY2026E peak EPS, capitalizing peak memory earnings. Our load-bearing downward variance marks FY2026 EPS as a multi-sigma peak (75% GM vs ~25-30% mid-cycle; FY2023 was -$5.34), normalized EPS at ~$40-48 -> through-cycle fair value ~$552, and P/B ~6.5x ABOVE the historical PEAK (~3x). Even the consensus PT ($829) is -17% below spot; our PT-implied (-29.5%) is ~13pp below that. Two-tailed on TIMING (cycle still rising; HBM structurally better) -> Strong Sell sized as Underweight. Sizing = 30 x 65 x 20 / 10000 = 3.9.",
+   "evidence_refs": [
+    {
+     "s_level": "S1",
+     "ref": "MU 10-K: FY2023 EPS -$5.34 (negative GM) vs FY2026E ~$60; FY2026 capex >$25B fixed"
+    },
+    {
+     "s_level": "S2",
+     "ref": "MU Q2 FY26 8-K: 74.9% GM (vs ~22% FY24); Q3 guide ~81% - multi-sigma peak"
+    },
+    {
+     "s_level": "S4",
+     "ref": "Consensus PT $828.73 (-17% below spot); P/B ~6.5x vs peak ~3x; mid-cycle EPS $30-40 (Wells Fargo)"
+    }
+   ]
+  }
+ ],
+ "revision_velocity": {
+  "n_analysts": 44,
+  "fy1_eps_consensus": 59.82,
+  "fy2_eps_consensus": 112.17,
+  "fy1_ebitda_consensus_usd_b": 80.0,
+  "fy2_ebitda_consensus_usd_b": 135.0,
+  "fy1_eps_revision_1m_pct": 8.0,
+  "fy1_eps_revision_3m_pct": 30.0,
+  "fy1_ebitda_revision_3m_pct": 25.0,
+  "breadth_3m": 0.9,
+  "breadth_note": "Estimates revised sharply UP; 30 SB/9 B/4 H/1 SS. BUT the average PT ($828.73) is BELOW spot ($996) - revisions chase the parabolic price.",
+  "pt_revisions_recent": "Avg PT ~$829 (low $249 / high $1,750); median ~17% below spot.",
+  "pre_print_drift": "Stock +770-910% over 1yr to 52-wk high $1,089; IV ~100%; Q3 FY26 reports 2026-06-24.",
+  "peer_comparison": "MU at a PREMIUM to SK Hynix (HBM leader) on P/E and P/B despite being #2.",
+  "verdict": "Estimates rising but average PT below spot - late-cycle/parabolic. Caution is peak-cycle valuation + mid-cycle EPS gap; timing tail real -> Strong Sell sized as Underweight."
+ },
+ "pending_assumptions": []
+}

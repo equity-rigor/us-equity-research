@@ -1,0 +1,185 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "MU",
+ "current_price": 995.87,
+ "as_of_date": "2026-06-11",
+ "fiscal_year_end": "08-28",
+ "base_eps": 60.0,
+ "scenarios": [
+  {
+   "id": "strong_bear",
+   "probability": 0.18,
+   "narrative_one_liner": "Memory glut arrives within 12 months: Samsung qualifies HBM4, DRAM ASP turns negative, the wafer-trade-ratio snaps into a commodity oversupply, AI-capex digests; the market re-rates MU to mid-cycle/trough earnings and a low cyclical multiple.",
+   "narrative_long": "The classic memory down-leg, accelerated by the HBM glut mechanism. DRAM/NAND ASP rolls over, HBM pricing collapses as a third supplier qualifies, hyperscaler AI capex decelerates, and the 3-4x wafer trade ratio floods commodity DRAM. EPS reverts toward mid-cycle ~$40 (and the market prices a further down-leg), at a trough-cycle ~8.5x. The parabolic premium fully unwinds.",
+   "eps": 40.0,
+   "eps_period": "FY27E-normalized",
+   "multiple": 8.5,
+   "multiple_type": "P/E",
+   "target_price": 340.0,
+   "expected_return": -0.6586,
+   "anchors": [
+    "R-Bear",
+    "B-Glut",
+    "B-HBM-Normalize",
+    "B-AI-Capex"
+   ],
+   "strongest_anchor_s_level": "S2",
+   "multiple_band_basis": "8.5x on mid-cycle EPS = trough-cycle de-rate (memory troughs price 1-2x book / single-digit P/E on normalized); approaches P/B-reversion fair value.",
+   "eps_bridge": [
+    {
+     "label": "DRAM/NAND ASP turns negative + HBM pricing normalizes (Samsung qualifies)",
+     "delta_eps": -12.0,
+     "layer": "clean",
+     "source_tag": "S2: TrendForce ASP + HBM pricing softening at SK Hynix"
+    },
+    {
+     "label": "Memory glut / wafer-trade-ratio snapback + AI-capex digestion (mid-cycle reversion)",
+     "delta_eps": -8.0,
+     "layer": "clean",
+     "source_tag": "S2: HBM 3-4x wafer ratio; TechInsights 2027 downturn"
+    }
+   ]
+  },
+  {
+   "id": "bear",
+   "probability": 0.25,
+   "narrative_one_liner": "Cycle peaks ~H2 2026 and rolls: DRAM ASP decelerates, out-year estimates get cut, MU de-rates toward normalized earnings at a mid-cycle multiple.",
+   "narrative_long": "A softer roll-over than the glut: pricing decelerates and turns, HBM competition compresses margins, FY2027 estimates come down toward the mid-cycle band, and the market de-rates MU toward through-cycle fair value (~$550). Normalized EPS ~$50 at ~11x.",
+   "eps": 50.0,
+   "eps_period": "FY27E-normalized",
+   "multiple": 11.0,
+   "multiple_type": "P/E",
+   "target_price": 550.0,
+   "expected_return": -0.4477,
+   "anchors": [
+    "A-Consensus",
+    "B-ASP",
+    "B-HBM"
+   ],
+   "strongest_anchor_s_level": "S3",
+   "multiple_band_basis": "11x on near-normalized EPS ~ through-cycle fair value (~$552); a mid-cycle memory multiple.",
+   "eps_bridge": [
+    {
+     "label": "DRAM ASP decelerates + cycle peaks H2 2026",
+     "delta_eps": -6.0,
+     "layer": "clean",
+     "source_tag": "S2: TrendForce contract pricing deceleration"
+    },
+    {
+     "label": "HBM share/price pressure (Samsung qualifying)",
+     "delta_eps": -4.0,
+     "layer": "soft",
+     "source_tag": "S2: Samsung HBM4E qualification"
+    }
+   ]
+  },
+  {
+   "id": "base",
+   "probability": 0.3,
+   "narrative_one_liner": "The parabolic froth comes off but the cycle hasn't fully rolled within 12 months: MU de-rates from ~$996 toward the high end of fair value as the peak becomes visible, settling ~$700 - still above through-cycle fair value (~$552) on timing.",
+   "narrative_long": "The disciplined 12-month base: the stock is ~45% above through-cycle fair value, but the cycle is still rising and HBM is sold out through CY2026, so full mean-reversion takes >12 months. The parabolic premium partially unwinds (the average PT is already below spot) and MU settles ~$700 - a de-rated 11.7x on ~$60 EPS - above the deeper $552 fair value but well below spot.",
+   "eps": 60.0,
+   "eps_period": "FY26E-peak",
+   "multiple": 11.7,
+   "multiple_type": "P/E",
+   "target_price": 702.0,
+   "expected_return": -0.2951,
+   "anchors": [
+    "A1-Cycle",
+    "A2-Normalized",
+    "Consensus-PT-below-spot"
+   ],
+   "strongest_anchor_s_level": "S2",
+   "multiple_band_basis": "11.7x on FY26-peak EPS = a partial de-rate of the parabolic premium; lands above through-cycle fair value (~$552) because the cycle hasn't rolled within 12 months, but below spot and below the consensus PT ($829).",
+   "eps_bridge": []
+  },
+  {
+   "id": "bull",
+   "probability": 0.2,
+   "narrative_one_liner": "The cycle extends 12+ months: HBM4 ramps, AI capex stays >+30%, DRAM stays tight, and MU holds roughly its current level as 'different this time' partially validates.",
+   "narrative_long": "The timing tail: the memory upcycle runs through the 12-month horizon, HBM4 ramps for Nvidia Vera Rubin, supply discipline holds, and the stock holds near spot (slightly down) on still-elevated earnings. The bull doesn't require a re-rate - just that the cycle doesn't roll within the year.",
+   "eps": 70.0,
+   "eps_period": "FY27E",
+   "multiple": 14.0,
+   "multiple_type": "P/E",
+   "target_price": 980.0,
+   "expected_return": -0.0159,
+   "anchors": [
+    "Cycle-Extends",
+    "HBM4-Ramp",
+    "AI-Capex-Sustained"
+   ],
+   "strongest_anchor_s_level": "S3",
+   "multiple_band_basis": "14x on a still-elevated EPS = roughly the current level; the cycle extends but no parabolic re-rate.",
+   "eps_bridge": [
+    {
+     "label": "Cycle extends 12+ months (HBM4 + AI capex sustained)",
+     "delta_eps": 6.0,
+     "layer": "soft",
+     "source_tag": "S3: HBM sold out CY2026; hyperscaler capex +40%"
+    },
+    {
+     "label": "DRAM tightness persists into 2027",
+     "delta_eps": 4.0,
+     "layer": "soft",
+     "source_tag": "S2: supply substantially below demand"
+    }
+   ]
+  },
+  {
+   "id": "strong_bull",
+   "probability": 0.07,
+   "narrative_one_liner": "AI-memory supercycle fully validates ('different this time'): HBM4 share gain, multi-year supply discipline, structurally higher normalized earnings; MU re-rates further as the commodity cycle is declared over.",
+   "narrative_long": "The tail where the bulls are right: AI demand structurally floors memory, the oligopoly holds supply discipline, Micron gains HBM4 share from SK Hynix, and the market awards a durable-growth multiple on a structurally higher normalized base. The stock pushes through prior highs.",
+   "eps": 80.0,
+   "eps_period": "FY27E",
+   "multiple": 17.0,
+   "multiple_type": "P/E",
+   "target_price": 1360.0,
+   "expected_return": 0.3656,
+   "anchors": [
+    "AI-Supercycle",
+    "HBM4-Share-Gain",
+    "Supply-Discipline"
+   ],
+   "strongest_anchor_s_level": "S3",
+   "multiple_band_basis": "17x on a higher EPS = a durable-growth multiple if memory is declared structurally non-cyclical; the tail re-rate.",
+   "eps_bridge": [
+    {
+     "label": "AI supercycle validated + multi-year supply discipline",
+     "delta_eps": 12.0,
+     "layer": "strong",
+     "source_tag": "S3: 'AI ends the commodity cycle' thesis"
+    },
+    {
+     "label": "HBM4 share gain vs SK Hynix + pricing power",
+     "delta_eps": 8.0,
+     "layer": "strong",
+     "source_tag": "S3: HBM4 ramp for Nvidia Vera Rubin"
+    }
+   ]
+  }
+ ],
+ "probability_sum_check": 1.0,
+ "conviction_tag": "negative",
+ "headline": {
+  "expected_return_median": -0.297,
+  "expected_return_range_p10_p90": [
+   -0.659,
+   0.366
+  ],
+  "rating": "Strong Sell",
+  "default_action": "trim_long",
+  "conditional_language_pattern": "A_source_conditional_bias",
+  "conditionality": "source_conditional",
+  "headline_text": "Source-conditional Strong Sell: MU at $995.87 carries a probability-weighted 12-month expected return of -29.7% once the base is anchored to independent through-cycle fair value (~$552, mid-cycle EPS x a cyclical multiple) rather than to peak FY2026 EPS x the current multiple; scenario-weighted range strong_bear $340 (-65.9%) to strong_bull $1,360 (+36.6%). MU looks 'cheap' at ~16.7x peak EPS but P/B (~6.5x) is above its historical PEAK and even the consensus PT ($829) is -17% below spot. CONDITIONAL on the memory cycle mean-reverting toward mid-cycle; the timing tail (cycle still rising) caps this at Strong-Sell-sized-as-Underweight, not an aggressive short."
+ },
+ "weighting_sensitivity": {
+  "base_minus_10_to_bear": -0.0153,
+  "base_minus_10_to_bull": 0.0279,
+  "strong_tail_plus_10": {
+   "strong_bear": -0.0364,
+   "strong_bull": 0.0661
+  }
+ }
+}

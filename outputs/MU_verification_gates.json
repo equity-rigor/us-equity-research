@@ -1,0 +1,180 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "MU",
+ "run_id": "F1A2B3C4-MU22-4DE5-8F90-DEBIA5ED0006",
+ "memo_path": "outputs/MU_IC_memo.md",
+ "memo_structured_path": "outputs/MU_structured.json",
+ "gates": [
+  {
+   "gate_id": "G1",
+   "name": "EPS x Multiple multiplicativity",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G2",
+   "name": "Segment GM reconciliation",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G3",
+   "name": "SOTP monotonicity",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G4",
+   "name": "Scenario probabilities sum to 1.00",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G5",
+   "name": "Bear/bull EPS bridge reconciles",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G6",
+   "name": "Source tag at first use",
+   "status": "pass",
+   "category": "source",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G7",
+   "name": "Headline conditionality",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G8",
+   "name": "GM taxonomy box exists",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G9",
+   "name": "What-would-reverse numerical denominators",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G10",
+   "name": "Anchor weighting impact table",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G11",
+   "name": "Non-GAAP to GAAP reconciliation",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G12",
+   "name": "SBC treatment in FCF disclosed",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G13",
+   "name": "Factor exposure stated",
+   "status": "pass",
+   "category": "quant_overlay",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G14",
+   "name": "Capacity/ADV/days-to-exit stated",
+   "status": "pass",
+   "category": "quant_overlay",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G15",
+   "name": "Consensus variance (non-Hold Strong Sell: V1 sizing 3.9, S1/S2 evidence)",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G16",
+   "name": "Bank metrics (n_a: non-bank)",
+   "status": "n_a",
+   "category": "sector",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G17",
+   "name": "Revision velocity disclosed",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G18",
+   "name": "Quant overlay cross-doc consistency",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G19",
+   "name": "Plugin1->Plugin2 provenance manifest",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G20",
+   "name": "View defensibility (Strong Sell: 12.7pp differentiation; variance_attack timing_arbitrage -> modified)",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.5
+  }
+ ],
+ "overall_pass": true,
+ "applicable_gates_passed": "19 of 19 applicable (G16 n_a)",
+ "blocks_score_above": null,
+ "notes": "Fresh 0.6.0 build, fair-value-anchored. STRONG SELL. All 19 applicable gates exit 0 incl G15+G20 (affirmative). Independent through-cycle fair value ~$552 (-45%) on mid-cycle EPS vs the peak-FY2026 EPS the spot-anchored 'cheap forward P/E' view uses. Replaces older-version MU build.",
+ "judgment_layer_gates": [
+  {
+   "gate_id": "G21",
+   "name": "Fair-value reconciliation",
+   "status": "pass",
+   "category": "structure",
+   "checked_at": "2026-06-12",
+   "evaluation_method": "programmatic_script"
+  },
+  {
+   "gate_id": "G22",
+   "name": "Revision attribution",
+   "status": "pass",
+   "category": "structure",
+   "checked_at": "2026-06-12",
+   "evaluation_method": "programmatic_script"
+  },
+  {
+   "gate_id": "G23",
+   "name": "Source-tier public boundary",
+   "status": "pass",
+   "category": "source",
+   "checked_at": "2026-06-12",
+   "evaluation_method": "programmatic_script"
+  }
+ ],
+ "judgment_layer_note": "v0.7.0 additive gates (run via run_all_gates.sh). Tracked separately from the count-capped G1-G20 `gates` array."
+}

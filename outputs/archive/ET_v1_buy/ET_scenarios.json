@@ -1,0 +1,119 @@
+{
+  "schema_version": "0.3.0",
+  "ticker": "ET",
+  "current_price": 19.06,
+  "as_of_date": "2026-06-09",
+  "fiscal_year_end": "12-31",
+  "base_eps": 2.86,
+  "scenarios": [
+    {
+      "id": "strong_bear",
+      "probability": 0.08,
+      "narrative_one_liner": "Commodity/NGL downcycle stalls Permian volume growth, the data-center gas-demand pull slips, leverage sticks at the top of the 4.0-4.5x band, and the K-1 MLP discount widens; ET de-rates to a ~6.0x P/DCF trough.",
+      "narrative_long": "A 2027 energy downcycle (oil sub-$55, weak NGL frac spreads) caps Permian gathering and NGL volumes; Hugh Brinson / Desert Southwest ramp slower than contracted; the Oracle / Oklahoma power-gas demand is delayed. Distribution coverage compresses toward ~1.4x and net leverage holds ~4.4x at the top of target as rising interest expense bites a pass-through that earns no interest tax shield. FY27E DCF/unit falls to ~$2.45 and the unit re-rates to a ~6.0x P/DCF MLP-trough analog (below ET's own 5y band) as the AI/data-center narrative deflates.",
+      "eps": 2.45,
+      "eps_period": "FY27E",
+      "multiple": 6.0,
+      "multiple_type": "Other",
+      "target_price": 14.70,
+      "expected_return": -0.2287,
+      "anchors": ["A4", "R-Bear", "A1"],
+      "strongest_anchor_s_level": "S1",
+      "multiple_band_basis": "P/DCF (price-to-distributable-cash-flow per LP unit). ET 5y P/DCF band ~7-9x; 6.0x = trough / no-growth MLP analog (below ET's own historical range), consistent with EV/EBITDA ~6.9x on a recession-trimmed FY27E EBITDA ~$17.5B. EV/EBITDA cross-check in §3.",
+      "eps_bridge": [
+        {"label": "Permian/NGL volume growth stalls in commodity downcycle", "delta_eps": -0.18, "layer": "clean", "source_tag": "S3: ET Q1'26 call segment volume commentary + FY26 capex $5.5-5.9B ramp"},
+        {"label": "Interest-expense headwind at ~4.4x leverage (MLP earns no interest tax shield)", "delta_eps": -0.13, "layer": "clean", "source_tag": "S1: ET Q1'26 10-Q long-term debt $69,317M"},
+        {"label": "Distribution coverage compresses toward ~1.4x; growth capex under-earns", "delta_eps": -0.10, "layer": "soft", "source_tag": "S3: ET Q4'25 call DCF coverage ~1.7-1.8x baseline"}
+      ]
+    },
+    {
+      "id": "bear",
+      "probability": 0.20,
+      "narrative_one_liner": "Soft bear: EBITDA growth decelerates below the raised FY26 guide trajectory, the multiple stays at the low end (~6.8x P/DCF) on leverage and MLP-structure overhang, and the Street's EPD-parity re-rate fails to arrive in 12 months.",
+      "narrative_long": "ET meets but does not beat the raised FY26 Adjusted EBITDA guide ($18.2-18.6B) and FY27E EBITDA lands ~$18.5B (below the bull's ~$20B). Data-center/Permian volumes ramp on schedule but accretion is back-half-2027. Leverage holds ~4.3-4.4x; the market keeps ET at ~6.8x P/DCF (~7.1x EV/EBITDA) versus EPD's ~10x EV/EBITDA, the discount persisting on K-1/UBTI structural friction and top-of-range leverage. FY27E DCF/unit ~$2.65.",
+      "eps": 2.65,
+      "eps_period": "FY27E",
+      "multiple": 6.8,
+      "multiple_type": "Other",
+      "target_price": 18.02,
+      "expected_return": -0.0546,
+      "anchors": ["A4", "V1_multiple_rerate", "A1"],
+      "strongest_anchor_s_level": "S1",
+      "multiple_band_basis": "6.8x P/DCF = low end of ET's 7-9x band, ~7.1x EV/EBITDA on FY27E ~$18.5B; prices in persistent discount-to-EPD and top-of-range leverage. Below the current ~7.4x forward EV/EBITDA.",
+      "eps_bridge": [
+        {"label": "Slower data-center / Permian EBITDA ramp (back-half-2027 weighting)", "delta_eps": -0.13, "layer": "clean", "source_tag": "S3: ET Q1'26 call project timing (Hugh Brinson Q4'26; Bayou Bridge Q1'27)"},
+        {"label": "Interest-expense headwind persists at ~4.3-4.4x leverage", "delta_eps": -0.08, "layer": "soft", "source_tag": "S1: ET Q1'26 10-Q debt + ~4.4x leverage"}
+      ]
+    },
+    {
+      "id": "base",
+      "probability": 0.37,
+      "narrative_one_liner": "FY26 Adjusted EBITDA lands in the raised $18.2-18.6B guide and FY27E reaches ~$19.7B as the contracted backlog converts; the ~7.1% distribution holds at ~1.7-1.8x coverage; the unit holds its current ~7.3x forward EV/EBITDA (~7.5x P/DCF) — a Buy on total return, but BELOW the Street's full EPD-parity re-rate.",
+      "narrative_long": "Energy Transfer delivers the raised FY26 Adjusted EBITDA guidance ($18.2-18.6B, midpoint ~$18.4B) and FY27E EBITDA reaches ~$19.7B as Hugh Brinson (Q4'26, ~1.5 Bcf/d), the Oracle 900,000 Mcf/d commitment, the Oklahoma power plants, and Bayou Bridge (Q1'27) ramp on a ~90% fee-based base. Net leverage drifts toward the lower half of the 4.0-4.5x target; the distribution grows 3-5% at ~1.7-1.8x DCF coverage. FY27E DCF/unit ~$2.86. The unit holds ~7.5x P/DCF (~7.3x forward EV/EBITDA) — roughly the current forward multiple on a 12-month-higher EBITDA, for a ~+12.5% price move plus the ~7.1% distribution. This sits BELOW the Street's ~$23.5 PT, which embeds a re-rate toward EPD's ~10x that we do not underwrite within 12 months at top-of-range leverage.",
+      "eps": 2.86,
+      "eps_period": "FY27E",
+      "multiple": 7.5,
+      "multiple_type": "Other",
+      "target_price": 21.45,
+      "expected_return": 0.1254,
+      "anchors": ["A1", "A2", "A3"],
+      "strongest_anchor_s_level": "S1",
+      "multiple_band_basis": "7.5x P/DCF on FY27E DCF/unit $2.86 = ~7.3x forward EV/EBITDA on FY27E EBITDA ~$19.7B (net debt ~$70B / 3,441M units) — essentially the current forward multiple held flat. Below Street's implied ~7.7x (PT $23.5) and EPD's ~10x.",
+      "eps_bridge": []
+    },
+    {
+      "id": "bull",
+      "probability": 0.27,
+      "narrative_one_liner": "The data-center / Permian backlog converts ahead of plan, leverage prints <4.0x, and the EV/EBITDA discount to EPD narrows; ET re-rates to ~8.5x P/DCF (~7.8x EV/EBITDA), reaching the Street's zone and above.",
+      "narrative_long": "Oracle's 900,000 Mcf/d, the Oklahoma plants, Hugh Brinson, and Desert Southwest convert into realized fee-based EBITDA faster than the base; FY27E EBITDA reaches ~$20.2B and net leverage falls below 4.0x, triggering the multiple re-rate the Street anticipates. The market begins to credit ET's superior growth (10%+ '26 EBITDA growth vs EPD's 3-5%) and closes ~0.7 turn of the EV/EBITDA discount. FY27E DCF/unit ~$3.00 at ~8.5x P/DCF (~7.8x EV/EBITDA).",
+      "eps": 3.00,
+      "eps_period": "FY27E",
+      "multiple": 8.5,
+      "multiple_type": "Other",
+      "target_price": 25.50,
+      "expected_return": 0.3379,
+      "anchors": ["A2", "A5", "A6"],
+      "strongest_anchor_s_level": "S2",
+      "multiple_band_basis": "8.5x P/DCF (~7.8x EV/EBITDA on FY27E ~$20.2B) = partial re-rate toward EPD's ~10x as leverage prints <4.0x; above the Street PT $23.5 implied ~7.7x. Within ET's historical 7-9x band.",
+      "eps_bridge": [
+        {"label": "Oracle 900k Mcf/d + Hugh Brinson + Desert SW volumes ramp ahead of plan", "delta_eps": 0.09, "layer": "soft", "source_tag": "S3: ET Q4'25 + Q1'26 call data-center / Permian commentary"},
+        {"label": "Deleveraging to <4.0x lowers interest expense and triggers the re-rate", "delta_eps": 0.05, "layer": "soft", "source_tag": "S1: ET Q1'26 10-Q debt + 4.0-4.5x target"}
+      ]
+    },
+    {
+      "id": "strong_bull",
+      "probability": 0.08,
+      "narrative_one_liner": "Full data-center backlog conversion + record Permian/NGL export volumes + buyback compounding on IDR-free FCF; ET re-rates to EPD-adjacent ~9.5x P/DCF as the structural discount closes.",
+      "narrative_long": "A structural US natural-gas-for-power supercycle pulls multiple incremental long-term data-center gas commitments; Permian gathering and NGL fractionation/export set records; the IDR-free cash-flow profile funds unit buybacks that compound per-unit DCF. FY27E EBITDA reaches ~$20.7B, leverage prints in the low-4s/high-3s, and ET earns an EPD-adjacent ~9.5x P/DCF (~8.4x EV/EBITDA) as the K-1 discount finally closes. FY27E DCF/unit ~$3.15.",
+      "eps": 3.15,
+      "eps_period": "FY27E",
+      "multiple": 9.5,
+      "multiple_type": "Other",
+      "target_price": 29.93,
+      "expected_return": 0.5700,
+      "anchors": ["A6", "A5", "A7"],
+      "strongest_anchor_s_level": "S3",
+      "multiple_band_basis": "9.5x P/DCF (~8.4x EV/EBITDA on FY27E ~$20.7B) approaches EPD-adjacent territory; top of ET's historical band, predicated on the structural MLP discount closing as leverage de-risks and the data-center backlog is recognized.",
+      "eps_bridge": [
+        {"label": "Full data-center backlog conversion + record Permian/NGL export volumes", "delta_eps": 0.18, "layer": "strong", "source_tag": "S3: ET Q4'25 + Q1'26 calls (Oracle, Permian records, Netherlands ethane to 2041)"},
+        {"label": "Buyback compounding on IDR-free distributable cash flow", "delta_eps": 0.11, "layer": "strong", "source_tag": "S2: ET capital allocation / 2018 IDR elimination (no GP take)"}
+      ]
+    }
+  ],
+  "probability_sum_check": 1.00,
+  "conviction_tag": "moderate_bull",
+  "headline": {
+    "expected_return_median": 0.154,
+    "expected_return_range_p10_p90": [-0.2287, 0.5700],
+    "rating": "Buy",
+    "default_action": "initiate_long",
+    "conditionality": "source_conditional",
+    "conditional_language_pattern": "A_source_conditional_bias",
+    "headline_text": "Source-conditional Buy on ET at $19.06: probability-weighted 12-month price return +15.4% to a base-case PT of $21.45 (FY27E DCF/unit $2.86 x 7.5x P/DCF), ~+22% total return including the ~7.1% distribution; scenario-weighted range [-22.9%, +57.0%]. The view is differentiated BELOW the Street's ~$23.5 PT (+23%): we underwrite the cash machine and the ~7.1% covered distribution but NOT a full EPD-parity multiple re-rate within 12 months while net leverage sits at the ~4.4x top of the 4.0-4.5x target. Upgrade toward Strong Buy if leverage prints <4.0x AND a new long-term data-center gas commitment signs."
+  },
+  "weighting_sensitivity": {
+    "base_minus_10_to_bear": -0.0180,
+    "base_minus_10_to_bull": 0.0213,
+    "strong_tail_plus_10": {"strong_bear": -0.0354, "strong_bull": 0.0445}
+  }
+}

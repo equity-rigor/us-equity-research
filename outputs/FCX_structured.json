@@ -1,0 +1,1772 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "FCX",
+ "exchange": "NYSE",
+ "company_name": "Freeport-McMoRan Inc.",
+ "cik": "0000831259",
+ "sector_gics": "Materials",
+ "industry_gics": "Copper / Diversified Metals & Mining (GICS 15104025)",
+ "as_of_date": "2026-06-11",
+ "model_cutoff_date": "2026-01-01",
+ "author": "us-equity-research full-round orchestrator (Phases 0-3 + Verification)",
+ "current_price_usd": 66.2,
+ "market_cap_usd_b": 95.2,
+ "enterprise_value_usd_b": 108.0,
+ "fiscal_year_end": "12-31",
+ "headline": {
+  "expected_return_median": -0.11,
+  "expected_return_range_p10_p90": [
+   -0.444,
+   0.511
+  ],
+  "rating": "Sell",
+  "default_action": "trim_long",
+  "conditionality": "source_conditional",
+  "conditional_language_pattern": "A_source_conditional_bias",
+  "headline_text": "Source-conditional SELL / Underweight at $66.20 (close 2026-06-11, S4): probability-weighted 12-month expected return -11.0% to a base-case PT of $57.09 (independent fair value, NOT the current multiple) vs a consensus PT of ~$70 (+5.5%, S4) - a ~19pp non-consensus gap. This is the DE-BIASED rebuild: the base is anchored on an independent mid-cycle-copper fair value (DCF $58 / NAV $60 / normalized-comps $54 -> ~$57.5, -13% vs spot), NOT on 'consensus EPS x the current multiple,' which previously pinned the base to spot and produced a near-zero Hold. FCX sits at its 52-week high (~$66, +55% over 1yr) on near-record copper (~$6.19/lb, ~40-55% above a $4.00-4.50/lb mid-cycle, S4); capitalizing peak copper at an above-average ~10x EV/EBITDA double-counts the cycle. CONDITIONAL on copper mean-reverting toward mid-cycle over 12 months (more likely than not on Goldman's 2026-decline call + China-property weakness + record supply additions); the structural-deficit tail + Grasberg recovery cap this at Sell/Underweight, NOT Strong Sell. Cover toward Hold if copper holds >$6.25/lb sustained; the cleaner expression is long-SCCO / short-FCX."
+ },
+ "recommendation": {
+  "rating": "Sell",
+  "price_target_usd": 57.09,
+  "price_target_range_low_usd": 36.8,
+  "price_target_range_high_usd": 100.0,
+  "upside_downside_pct": -13.76,
+  "time_horizon_months": 12,
+  "conviction_tag": "high",
+  "default_action": "trim_long",
+  "rationale_one_paragraph": "DE-BIASED Sell/Underweight on FCX at $66.20 (S4: 2026-06-11 close). This is a methodological rebuild of the prior Hold: instead of anchoring the base case to 'consensus EPS x the current multiple' (which pinned fair value to spot and produced a near-zero Hold), we lead with an INDEPENDENT fair value on a mid-cycle copper deck ($4.75-5.00/lb long-run) - DCF $58, NAV/SOTP $60, comps at 7.5x on normalized ~$11.5B EBITDA $54 -> weighted ~$57.5, ~13% below spot. FCX is a high-quality copper leader, but at its 52-week high on near-record copper (~$6.19/lb, ~40-55% above mid-cycle) it capitalizes peak-cycle earnings at an above-average ~10x EV/EBITDA (vs ~7.8x 5-yr avg) - double-counting the cycle. The load-bearing non-consensus variance (V1): the Street rates FCX 83% Buy yet its own PTs sit only ~+5.5% above spot, and the FY2026 copper guide was already cut (3.4->3.1 Blb), unit cash cost raised ($1.75->$1.95/lb), and Goldman models a 2026 copper decline - so the disciplined base case is mid-cycle reversion, not continued ascent. Our PT-implied return (-13.8%) is ~19pp below the consensus PT-implied (+5.5%). With ~$400M EBITDA per $0.10/lb, a reversion toward mid-cycle copper plus the historical miner multiple de-rate maps to the -11% probability-weighted return (base -13.8%; strong_bear $36.80 / strong_bull $100.00). The structural copper-deficit tail (and Grasberg recovery in 2027) is genuine and copper deficits are sticky on timing - which is why this is sized as a SELL/Underweight + a long-SCCO/short-FCX relative-value pair, NOT a Strong Sell or an aggressive outright short. Cover trigger: copper >$6.25/lb sustained. Net: above independent fair value at the cycle high with adverse asymmetry -> Sell/Underweight."
+ },
+ "investment_thesis_pillars": [
+  {
+   "title": "Large-cap leverage to the structural copper deficit",
+   "key_statistic": "~3.4-3.6 Blb/yr consolidated copper; ~$400M EBITDA per $0.10/lb copper move (S1/S2)",
+   "narrative": "Copper is the electrification metal - grid, EVs, AI data centers, renewables - against a backdrop of declining ore grades and a thin project pipeline. FCX is the largest US-listed copper leverage: each $0.10/lb on copper is ~$400M of EBITDA, and management frames ~$14B EBITDA at $5 copper rising to ~$21B at $7 (2027-28). If the structural deficit pushes copper higher, FCX has the most torque among large-caps. The same leverage is the bear's lever on the downside.",
+   "anchor_refs": [
+    "A1"
+   ],
+   "timeline": "Copper-price-driven; structural-deficit narrative is multi-year"
+  },
+  {
+   "title": "Grasberg recovery + low-capital leaching 'virtual mine' growth",
+   "key_statistic": "Grasberg block-cave recovering through 2027; leaching ~214 Mlb (FY25) -> ~300 Mlb (FY26) -> ~800 Mlb target by ~2030 at <$1.00/lb (S2/S3)",
+   "narrative": "Two distinct growth legs. (1) Grasberg recovers from the September-2025 mud-rush on the revised ramp (Blocks 2&3 Q2'26, 1S Q2'27), restoring ~1.7 Blb/yr of the lowest-cost (gold-credit) copper by 2028 - a volume tailwind into 2027-28. (2) The leaching innovation initiative recovers copper from existing stockpiles (~42 Blb contained) at <$1.00/lb and low capital, scaling from ~214 Mlb toward an ~800 Mlb/yr target - a high-return, low-execution-risk 'virtual mine.' Brownfield expansions (Bagdad doubling, El Abra mill) add optionality.",
+   "anchor_refs": [
+    "A3"
+   ],
+   "timeline": "Grasberg full recovery ~2027; leaching scales to 2030"
+  },
+  {
+   "title": "Strong balance sheet + performance-based capital return",
+   "key_statistic": "Net debt ~$2.4B (excl $3.2B ring-fenced PTFI smelter debt) vs a $3-4B target; up to ~50% of FCF to shareholders (S2)",
+   "narrative": "FCX is below its $3-4B net-debt target with ~8-year average debt duration and no 2026 senior maturities. The performance-based payout framework returns up to ~50% of available cash flow via a base + variable dividend and buybacks (Q1'26 dividend $0.15 = $0.075 base + $0.075 variable). At high copper this self-funds growth and returns; the discipline caps balance-sheet risk through the cycle.",
+   "anchor_refs": [
+    "A4"
+   ],
+   "timeline": "Through-cycle; payout scales with copper-driven FCF"
+  },
+  {
+   "title": "The bear: peak-cycle earnings + single-asset Indonesia concentration",
+   "key_statistic": "Copper ~$6.19/lb (~40-55% above $4.00-4.50 mid-cycle); EV/EBITDA ~10x vs ~7.8x 5-yr avg; ~40-50% of value in state-controlled Grasberg (S4/S5/S2)",
+   "narrative": "FCX screens reasonable only if you capitalize peak copper at an above-average multiple - double-counting the cycle. On a $4.50 mid-cycle copper at a through-cycle ~6-7x, fair value is ~$40-50. The stock is at its 52-week high after a +55% run, consensus PTs are only ~+4-6% above spot, and ~40-50% of value rides on Grasberg - state-majority-controlled (MIND ID 51%), mid-recovery from a fatal mud-rush, executing a high-risk block-cave ramp, and subject to Indonesian export-permit/duty/divestment policy (stake steps to ~37% from 2042). A 15-20% copper correction removes ~$3.7-5.0B EBITDA and, with the historical peak-cycle multiple de-rate, maps to ~30-45% equity downside.",
+   "anchor_refs": [
+    "A1",
+    "A3"
+   ],
+   "timeline": "Bear confirms on a sub-$4.75 copper print or a further Grasberg guide cut"
+  }
+ ],
+ "company_qualitative": {
+  "description": "Freeport-McMoRan Inc. (FCX) is one of the world's largest publicly-traded copper producers and a significant gold and molybdenum producer. Its assets span the Grasberg minerals district in Papua, Indonesia (held via PT Freeport Indonesia, in which FCX has a 48.76% economic interest and the Indonesian state holding company MIND ID holds 51.24%), seven US copper mines (Morenci, Bagdad, Safford/Lone Star, Sierrita, Miami, Chino, Tyrone), and South American mines (Cerro Verde in Peru, El Abra in Chile). FCX also operates downstream smelting/refining (Atlantic Copper in Spain; the new Manyar smelter and PT Smelting in Indonesia) and a fast-growing low-capital leaching initiative recovering copper from existing stockpiles. FY2025 revenue was $25,915M (S1: SEC XBRL companyfacts CIK 0000831259) with GAAP net income to common of $2,204M (diluted EPS $1.52) and Adjusted EBITDA of ~$9.9B; consolidated copper production was ~3.4 Blb, gold ~1.0 Moz, molybdenum ~92 Mlb. Earnings are highly sensitive to the copper price (~$400M of EBITDA per $0.10/lb). The defining recent event is the September-8-2025 Grasberg block-cave mud-rush (an ~800,000-tonne inundation that caused seven fatalities, a force-majeure declaration, and a multi-year production setback - the block-cave ore body represents ~50% of PT-FI reserves and ~70% of forecast production through 2029); the phased restart runs Blocks 2&3 in Q2-2026, Block 1S in Q2-2027, with full recovery targeted 2027. A February-2026 MoU extends the IUPK mining license beyond 2041 (reportedly to ~2061) in exchange for FCX divesting an additional ~12% of PT-FI, stepping its economic interest down to ~37% from 2042. The 2024-2026 narrative is the collision of a structural copper-deficit/electrification bull case with peak-cycle copper prices, Grasberg single-asset concentration, Indonesian resource nationalism, and rising unit costs.",
+  "products": [
+   {
+    "name": "Copper (~3.4-3.6 Blb/yr)",
+    "description": "Mined copper (concentrate + cathode) from Indonesia, North America and South America, plus a fast-growing leaching 'virtual mine' (~214 Mlb FY25 -> ~800 Mlb target). The core driver; ~$400M EBITDA per $0.10/lb price move.",
+    "target_customers": "Global smelters, fabricators, traders (LME/COMEX-linked)",
+    "pricing_model": "LME/COMEX copper price (+ US Section 232 premium dynamics)",
+    "revenue_contribution_pct": 75.0,
+    "competitive_position": "One of the largest publicly-traded copper producers; large-cap US copper leverage",
+    "source_citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "FCX FY2025 10-K (copper operations)"
+    }
+   },
+   {
+    "name": "Gold (~1.0 Moz/yr)",
+    "description": "By-product gold, overwhelmingly from Grasberg (gold credits make Grasberg FCX's lowest-cash-cost copper asset). Benefits from record gold prices (~$4,000+/oz).",
+    "target_customers": "Bullion markets / refiners",
+    "pricing_model": "Gold price; by-product credit to copper cash cost",
+    "revenue_contribution_pct": 17.0,
+    "competitive_position": "Grasberg is among the largest gold mines globally",
+    "source_citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "FCX FY2025 10-K (gold, Grasberg)"
+    }
+   },
+   {
+    "name": "Molybdenum (~92 Mlb/yr) + smelting",
+    "description": "Molybdenum by-product/primary plus downstream smelting (Atlantic Copper, Manyar/PT Smelting). Diversifies the revenue base modestly.",
+    "target_customers": "Steel/chemical (moly); refined-metal markets (smelting)",
+    "pricing_model": "Moly price; smelting treatment/refining charges",
+    "revenue_contribution_pct": 8.0,
+    "competitive_position": "Significant moly producer; vertically integrated smelting (Indonesia downstreaming)",
+    "source_citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "FCX FY2025 10-K (molybdenum, smelting)"
+    }
+   }
+  ],
+  "customers_gtm": "FCX sells copper concentrate and cathode to global smelters, fabricators and traders at LME/COMEX-linked prices (with the US COMEX-LME premium an episodic, Section-232-policy-driven factor), gold to bullion markets, and molybdenum to steel/chemical customers. Indonesian concentrate is increasingly processed domestically (Manyar smelter / PT Smelting) under the government's downstreaming policy, with export permits granted in short windows. The performance-based payout returns up to ~50% of available cash flow to shareholders.",
+  "industry": {
+   "overview": "Copper is the structural beneficiary of electrification (grid, EVs, AI data centers, renewables) against declining global ore grades (industry head grade ~1.4-1.6% in 1990 to ~0.9% now), a thin new-project pipeline, and rising costs. That secular-deficit narrative has driven copper to near-record levels (~$6.19/lb COMEX, ATH $6.71 May-2026; LME ~$13,500/t), ~40-55% above a $4.00-4.50/lb mid-cycle anchor. The bear nuance: China is ~55% of global copper demand and its property sector (historically ~25% of world copper) remains structurally impaired, so a meaningful share of the bull case is electrification demand offsetting a China property air-pocket - and forecasters (Goldman) already see copper declining in 2026. The US Section 232 copper probe created a record COMEX-LME premium (refined copper was exempted in 2025; a June-30-2026 review may add a phased refined-copper duty 15% 2027 -> 30% 2028), a two-sided realized-price factor. Copper miners are high-beta cyclicals that historically do not sustain premium multiples at peak commodity prices.",
+   "tam": {
+    "current_year": 2026,
+    "current_tam_usd_b": 330.0,
+    "projected_year": 2030,
+    "projected_tam_usd_b": 420.0,
+    "cagr_pct": 6.2,
+    "source": {
+     "s_level": "S5",
+     "source_type": "Other",
+     "ref": "Global refined copper market dollarized (~26 Mt x price); electrification demand growth"
+    }
+   }
+  },
+  "competitive_landscape": {
+   "peers": [
+    {
+     "name": "Southern Copper",
+     "ticker": "SCCO",
+     "market_cap_usd_b": 151.0,
+     "market_share_pct": 8.0,
+     "key_differentiator": "Closest pure-play copper comp; trades at a large premium (~20x EV/EBITDA / ~39x P/E) on superior organic growth + Peru/Mexico jurisdiction; lower single-asset risk than FCX",
+     "revenue_growth_pct": 20.0,
+     "ebitda_margin_pct": 55.0
+    },
+    {
+     "name": "Rio Tinto",
+     "ticker": "RIO",
+     "market_cap_usd_b": 110.0,
+     "market_share_pct": 6.0,
+     "key_differentiator": "Diversified major (iron ore + copper Oyu Tolgoi/Escondida); cheaper (~7-8x EV/EBITDA) but commodity-diluted vs a copper pure-play",
+     "revenue_growth_pct": 4.0,
+     "ebitda_margin_pct": 40.0
+    },
+    {
+     "name": "Teck Resources",
+     "ticker": "TECK",
+     "market_cap_usd_b": 25.0,
+     "market_share_pct": 3.0,
+     "key_differentiator": "Copper-growth pivot (QB2 Chile) post-coal-spin; smaller, higher-execution-risk copper-leverage play",
+     "revenue_growth_pct": 8.0,
+     "ebitda_margin_pct": 35.0
+    }
+   ],
+   "positioning_narrative": "FCX is the large-cap US-listed copper leverage - mid-spectrum on valuation: it commands a copper-leverage premium to the diversified majors (RIO ~7-8x EV/EBITDA) but trades at a discount to pure-play SCCO (~20x), which the market rewards for better jurisdiction (Peru/Mexico vs Indonesia) and lower single-asset concentration. FCX's ~10x EV/EBITDA is above its own ~7.8x 5-yr average on peak-cycle earnings. On a 12-month horizon the dominant variable is the copper price (a 15-20% correction maps to ~30-45% equity downside via operating + multiple de-rate), compounded by Grasberg ramp/permitting execution; on a multi-year horizon the question is whether the structural copper deficit sustains a price and a fleet of growth (Grasberg recovery + leaching + Bagdad/El Abra) that the current premium-on-peak multiple already assumes. The cleaner relative-value expression is long-SCCO (quality/jurisdiction) / short-FCX (single-asset + peak multiple), accepting SCCO's higher multiple as the cost."
+  }
+ },
+ "management": [
+  {
+   "name": "Kathleen Quirk",
+   "title": "President & CEO",
+   "tenure_years": 2,
+   "bio": "President & CEO of Freeport-McMoRan (CEO since 2024; previously long-time CFO and President). Architect of the financial-discipline framework, the performance-based payout, the leaching innovation initiative, and the Grasberg recovery + Indonesia downstreaming/license strategy.",
+   "background": "Mining finance, capital allocation, operations",
+   "source": {
+    "s_level": "S2",
+    "source_type": "DEF 14A",
+    "ref": "FCX 2026 DEF 14A"
+   }
+  },
+  {
+   "name": "Maree Robertson",
+   "title": "EVP & CFO",
+   "tenure_years": 2,
+   "bio": "CFO responsible for the balance-sheet (net-debt target $3-4B excl ring-fenced PTFI smelter debt), the performance-based payout, capex discipline (~$4.3B FY26), and Grasberg/Indonesia project financing.",
+   "background": "Corporate finance, treasury, mining",
+   "source": {
+    "s_level": "S2",
+    "source_type": "DEF 14A",
+    "ref": "FCX 2026 DEF 14A"
+   }
+  }
+ ],
+ "financials": {
+  "historical": [
+   {
+    "period": "FY23A",
+    "period_type": "historical",
+    "revenue_usd_m": 22855,
+    "revenue_growth_pct": 0.0,
+    "gross_profit_usd_m": 7100,
+    "gross_margin_pct": 31.1,
+    "ebit_usd_m": 6225,
+    "ebit_margin_pct": 27.2,
+    "net_income_gaap_usd_m": 1848,
+    "eps_diluted_gaap_usd": 1.28,
+    "diluted_shares_m": 1443.0,
+    "fcf_usd_m": 1100,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 120,
+    "buyback_usd_m": 500,
+    "buyback_offsets_sbc_ratio": 4.2
+   },
+   {
+    "period": "FY24A",
+    "period_type": "historical",
+    "revenue_usd_m": 25455,
+    "revenue_growth_pct": 11.4,
+    "gross_profit_usd_m": 8000,
+    "gross_margin_pct": 31.4,
+    "ebit_usd_m": 6864,
+    "ebit_margin_pct": 27.0,
+    "net_income_gaap_usd_m": 1889,
+    "eps_diluted_gaap_usd": 1.31,
+    "diluted_shares_m": 1445.0,
+    "fcf_usd_m": 2660,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 130,
+    "buyback_usd_m": 600,
+    "buyback_offsets_sbc_ratio": 4.6
+   },
+   {
+    "period": "FY25A",
+    "period_type": "historical",
+    "revenue_usd_m": 25915,
+    "revenue_growth_pct": 1.8,
+    "gross_profit_usd_m": 7853,
+    "gross_margin_pct": 30.3,
+    "ebit_usd_m": 6518,
+    "ebit_margin_pct": 25.2,
+    "net_income_gaap_usd_m": 2204,
+    "eps_diluted_gaap_usd": 1.52,
+    "eps_diluted_non_gaap_usd": 1.6,
+    "diluted_shares_m": 1443.0,
+    "fcf_usd_m": 1110,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 140,
+    "buyback_usd_m": 400,
+    "buyback_offsets_sbc_ratio": 2.9
+   }
+  ],
+  "ltm": {
+   "period": "LTM_Q1FY26",
+   "period_type": "ltm",
+   "revenue_usd_m": 25915,
+   "revenue_growth_pct": 1.8,
+   "gross_profit_usd_m": 7853,
+   "gross_margin_pct": 30.3,
+   "ebit_usd_m": 6600,
+   "ebit_margin_pct": 25.5,
+   "net_income_gaap_usd_m": 2733,
+   "eps_diluted_gaap_usd": 1.89,
+   "eps_diluted_non_gaap_usd": 2.0,
+   "diluted_shares_m": 1443.0,
+   "fcf_usd_m": 1500,
+   "fcf_includes_sbc_addback": false,
+   "sbc_usd_m": 140,
+   "buyback_usd_m": 400,
+   "buyback_offsets_sbc_ratio": 2.9,
+   "segments": [
+    {
+     "name": "Indonesia (PT-FI / Grasberg)",
+     "revenue_usd_m": 8000,
+     "gm_pct": 45.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled cash-margin allocation: Grasberg gold-credit economics make it the highest-margin segment (FCX reports geographic segments; mining gm-taxonomy adaptation)"
+     }
+    },
+    {
+     "name": "North America",
+     "revenue_usd_m": 7500,
+     "gm_pct": 28.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled: US mines (Morenci/Bagdad/Safford) cash-margin proxy"
+     }
+    },
+    {
+     "name": "South America",
+     "revenue_usd_m": 5500,
+     "gm_pct": 32.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled: Cerro Verde / El Abra cash-margin proxy"
+     }
+    },
+    {
+     "name": "Atlantic Copper / smelting / other",
+     "revenue_usd_m": 4915,
+     "gm_pct": 8.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled: smelting (treatment/refining margin, low) + other"
+     }
+    }
+   ]
+  },
+  "projected": [
+   {
+    "period": "FY26E",
+    "period_type": "projected",
+    "revenue_usd_m": 26500,
+    "revenue_growth_pct": 2.3,
+    "gross_profit_usd_m": 8200,
+    "gross_margin_pct": 30.9,
+    "ebit_usd_m": 6800,
+    "ebit_margin_pct": 25.7,
+    "net_income_gaap_usd_m": 3880,
+    "eps_diluted_gaap_usd": 2.69,
+    "eps_diluted_non_gaap_usd": 2.69,
+    "diluted_shares_m": 1442.0,
+    "fcf_usd_m": 3000,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 150,
+    "buyback_usd_m": 1000
+   },
+   {
+    "period": "FY27E",
+    "period_type": "projected",
+    "revenue_usd_m": 28500,
+    "revenue_growth_pct": 7.5,
+    "gross_profit_usd_m": 9400,
+    "gross_margin_pct": 33.0,
+    "ebit_usd_m": 7900,
+    "ebit_margin_pct": 27.7,
+    "net_income_gaap_usd_m": 5160,
+    "eps_diluted_gaap_usd": 3.58,
+    "eps_diluted_non_gaap_usd": 3.58,
+    "diluted_shares_m": 1440.0,
+    "fcf_usd_m": 4500,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 150,
+    "buyback_usd_m": 1500
+   }
+  ],
+  "revenue_by_product": [
+   {
+    "product": "Copper",
+    "by_period": {
+     "FY24A": 18800,
+     "FY25A": 19400,
+     "FY26E": 19900,
+     "FY27E": 21500
+    }
+   },
+   {
+    "product": "Gold",
+    "by_period": {
+     "FY24A": 3900,
+     "FY25A": 4400,
+     "FY26E": 4500,
+     "FY27E": 4900
+    }
+   },
+   {
+    "product": "Molybdenum + smelting / other",
+    "by_period": {
+     "FY24A": 2755,
+     "FY25A": 2115,
+     "FY26E": 2100,
+     "FY27E": 2100
+    }
+   }
+  ],
+  "revenue_by_geography": [
+   {
+    "region": "Indonesia (Grasberg)",
+    "by_period": {
+     "FY24A": 9200,
+     "FY25A": 8000,
+     "FY26E": 8400,
+     "FY27E": 9800
+    }
+   },
+   {
+    "region": "North America",
+    "by_period": {
+     "FY24A": 7800,
+     "FY25A": 7500,
+     "FY26E": 7800,
+     "FY27E": 8200
+    }
+   },
+   {
+    "region": "South America + smelting",
+    "by_period": {
+     "FY24A": 8455,
+     "FY25A": 10415,
+     "FY26E": 10300,
+     "FY27E": 10500
+    }
+   }
+  ]
+ },
+ "gm_taxonomy": {
+  "entries": [
+   {
+    "type": "T1_consolidated",
+    "name": "Consolidated cash margin LTM-Q1FY26 (~30.3%): revenue less site production & delivery and treatment costs (mining gm/cash-margin analog; FCX reports geographic segments, not a single GAAP gross margin)",
+    "value_range": "30.0-31.0%",
+    "source": {
+     "s_level": "S5",
+     "source_type": "Other",
+     "ref": "Modeled LTM weighted reconciliation; mining gm-taxonomy adaptation"
+    }
+   },
+   {
+    "type": "T2_segment",
+    "name": "Segment cash margin: Indonesia/Grasberg (gold credits) ~45%; South America ~32%; North America ~28%; smelting ~8%",
+    "value_range": "8-45%",
+    "source": {
+     "s_level": "S5",
+     "source_type": "Other",
+     "ref": "Modeled segment cash-margin allocation; reconciles to consolidated within rounding"
+    }
+   },
+   {
+    "type": "T3_sub_segment",
+    "name": "By-metal: copper margin vs gold/moly by-product credits (gold credits at Grasberg drive the lowest net copper cash cost)",
+    "value_range": "Grasberg net copper cash cost ~$1.30/lb after gold credits vs ~$1.95/lb consolidated",
+    "source": {
+     "s_level": "S2",
+     "source_type": "8-K",
+     "ref": "FCX Q1'26 unit net cash cost disclosure (gold-credit economics)"
+    }
+   },
+   {
+    "type": "T4_analyst_modeled",
+    "name": "FY27E blended cash margin with Grasberg recovered + leaching scaling",
+    "value_range": "32-34%",
+    "source": {
+     "s_level": "S4",
+     "source_type": "FactSet consensus",
+     "ref": "Consensus FY27E margin proxy n=26 (assumes copper near spot)"
+    }
+   },
+   {
+    "type": "T5_marginal",
+    "name": "Marginal margin sensitivity to the copper price (the load-bearing lever)",
+    "value_range": "At $6.19/lb copper: ~30%+ cash margin; at $4.50 mid-cycle: ~22-24% (EBITDA -$6.8B; the bear's double-derate driver). ~$400M EBITDA per $0.10/lb",
+    "source": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "FCX copper-price sensitivity ~$400M EBITDA per $0.10/lb (company guidance)"
+    }
+   }
+  ],
+  "reconciliation_consolidated_vs_implied_bp": 1.0
+ },
+ "scenarios_ref": "outputs/FCX_scenarios.json",
+ "valuation": {
+  "methods": [
+   {
+    "method": "Trading_comps",
+    "implied_price_usd": 54.0,
+    "price_range_low_usd": 45.0,
+    "price_range_high_usd": 66.0,
+    "weight_pct": 30,
+    "weighted_value_usd": 16.2,
+    "key_assumptions": {
+     "multiple_basis": "7.5x NORMALIZED (mid-cycle) Adjusted EBITDA ~$11.5B (NOT peak-copper $13.5B)",
+     "ev_norm_usd_b": 86.25,
+     "less_net_debt_and_nci_usd_b": 9.0,
+     "implied_equity_usd_b": 77.25,
+     "diluted_shares_m": 1443.0,
+     "peer_set": "SCCO ~20x / RIO ~7-8x; FCX 5-yr avg ~7.8x"
+    },
+    "narrative": "DE-BIASED primary: 7.5x (FCX's through-cycle 5-yr average) on NORMALIZED mid-cycle Adjusted EBITDA ~$11.5B (at ~$4.75-5.00/lb copper, not the ~$13.5B that spot copper implies) -> EV ~$86B less ~$9B net debt + project debt + minority = ~$77B equity / 1,443M = ~$54. The prior Hold used 7.7x on $13.5B peak-copper EBITDA to reach ~$66 = spot; that was the spot-anchoring. On normalized earnings at the same multiple, fair value is ~$54, ~18% below spot.",
+    "input_attribution": {
+     "verifiable": "the earnings/DCF-per-unit base (buildable bottom-up; tends to converge)",
+     "assumed": "the multiple \u2014 the contested judgment where the bull/bear gap lives",
+     "load_bearing_input": "assumed"
+    }
+   },
+   {
+    "method": "DCF",
+    "implied_price_usd": 58.0,
+    "price_range_low_usd": 48.0,
+    "price_range_high_usd": 70.0,
+    "weight_pct": 35,
+    "weighted_value_usd": 20.3,
+    "key_assumptions": {
+     "wacc_pct": 9.85,
+     "terminal_growth_pct": 2.0,
+     "copper_deck": "mid-cycle $4.75-5.00/lb long-run",
+     "explicit_forecast_years": 10
+    },
+    "narrative": "10y mine-life DCF on a mid-cycle copper deck ($4.75-5.00/lb long-run), WACC 9.85% (CoE 10.7% at beta 1.36 + after-tax Kd; equity-heavy). Base ~$58, below spot - the mid-cycle deck strips the peak-copper premium embedded in the market price and discounts the Indonesia/Grasberg single-asset + jurisdiction risk in the cost of equity.",
+    "input_attribution": {
+     "verifiable": "the normalized cash-flow base (buildable bottom-up)",
+     "assumed": "WACC / terminal growth / normalized margin (judgment)",
+     "load_bearing_input": "assumed"
+    }
+   },
+   {
+    "method": "SOTP",
+    "implied_price_usd": 60.0,
+    "price_range_low_usd": 50.0,
+    "price_range_high_usd": 80.0,
+    "key_assumptions": {
+     "Indonesia_segment": {
+      "revenue": 8000,
+      "segment_gp": 3600,
+      "segment_op": 3000,
+      "segment_ni": 1600,
+      "segment_multiple": "NAV/EV at base copper less MIND ID 51% minority",
+      "implied_value_usd_b": 40.0
+     },
+     "North_America_segment": {
+      "revenue": 7500,
+      "segment_gp": 2100,
+      "segment_op": 1600,
+      "segment_ni": 1100,
+      "segment_multiple": "EV/EBITDA 8.0x + leaching optionality",
+      "implied_value_usd_b": 38.0
+     },
+     "South_America_segment": {
+      "revenue": 5500,
+      "segment_gp": 1760,
+      "segment_op": 1300,
+      "segment_ni": 900,
+      "segment_multiple": "EV/EBITDA 7.0x less minorities",
+      "implied_value_usd_b": 22.0
+     }
+    },
+    "weight_pct": 35,
+    "weighted_value_usd": 21.0,
+    "narrative": "DE-BIASED NAV on a mid-cycle copper deck (not base/spot copper): Indonesia/Grasberg (net of MIND ID 51% minority) + North America (incl leaching optionality) + South America (net of minorities), less net + project debt. Monotonicity NI<=OP<=GP<=Revenue holds per segment (G3). ~$60 at mid-cycle - below the ~$70 the prior version showed, which had credited base/near-spot copper.",
+    "input_attribution": {
+     "verifiable": "segment book/earnings (reported)",
+     "assumed": "the segment multiples (judgment)",
+     "load_bearing_input": "assumed"
+    }
+   },
+   {
+    "method": "Multi_multiple_bear",
+    "implied_price_usd": 42.0,
+    "price_range_low_usd": 36.0,
+    "price_range_high_usd": 50.0,
+    "weight_pct": 0,
+    "weighted_value_usd": 0.0,
+    "key_assumptions": {
+     "bear_ebitda_usd_b": 12.0,
+     "mid_cycle_multiple": "6.0x (peak-cycle de-rate to the through-cycle low)",
+     "bear_copper": "$4.50/lb mid-cycle"
+    },
+    "narrative": "Bear floor reference: a $4.50 mid-cycle copper -> ~$12-13B EBITDA at a de-rated 6.0x -> EV ~$72B less ~$9B = ~$63B equity... at a deeper $4.00 copper (~$10-11B EBITDA) and 6x -> ~$40-42/share; the 52-week low was $35.15. Not weighted; downside discipline anchoring strong_bear $36.80.",
+    "input_attribution": {
+     "verifiable": "trough/down-leg earnings history (reported)",
+     "assumed": "the trough multiple (judgment)",
+     "load_bearing_input": "assumed"
+    }
+   }
+  ],
+  "dcf_components": {
+   "wacc_pct": 9.85,
+   "wacc_components": {
+    "risk_free_rate_pct": 4.52,
+    "risk_free_source_date": "2026-06-11",
+    "equity_risk_premium_pct": 4.23,
+    "beta": 1.36,
+    "beta_basis": "5y_weekly_vs_SP500",
+    "cost_of_equity_pct": 10.27,
+    "pre_tax_cost_of_debt_pct": 5.75,
+    "tax_rate_pct": 25.0,
+    "after_tax_cost_of_debt_pct": 4.31,
+    "equity_weight_pct": 88,
+    "debt_weight_pct": 12
+   },
+   "terminal_growth_pct": 2.0,
+   "terminal_method": "perpetuity_growth",
+   "explicit_forecast_years": 10,
+   "implied_share_price_usd": 58.0
+  },
+  "weighted_price_target_usd": 57.09,
+  "football_field_range_low_usd": 36.0,
+  "football_field_range_high_usd": 100.0,
+  "reconciliation_narrative": "DE-BIASED reconcile: DCF $58, NAV/SOTP $60, normalized comps $54 -> independent weighted fair value ~$57.5, ~13% BELOW spot $66.20. The 5-scenario probability-weighted base PT is $57.09 (FY27E EPS $3.30 x P/E 17.3x), anchored to that fair value rather than to the current multiple. The bear floor $36-42 (mid-cycle copper at a de-rated 6x) approaches the 52-week low. The key methodological change vs the prior Hold: the base no longer assumes the current ~18.5x multiple holds on peak-copper EBITDA - it uses normalized earnings, which is why fair value sits below spot and the rating is Sell/Underweight.",
+  "revision_bridge": {
+   "prior_price_target_usd": 70.0,
+   "new_price_target_usd": 57.09,
+   "prior_basis": "consensus PT / current-multiple regime (spot-anchored proxy)",
+   "new_basis": "independent fair-value-anchored 12-month base (the de-bias)",
+   "components": [
+    {
+     "driver": "estimate",
+     "delta_usd": 0.0,
+     "rationale": "Base EPS/DCF-per-unit unchanged \u2014 the de-bias changed NO estimates (base_eps held fixed so bridges reconcile); public inputs identical before/after."
+    },
+    {
+     "driver": "methodology",
+     "delta_usd": -7.75,
+     "rationale": "Re-anchored the base from the consensus-PT/current-multiple regime to an independent fair-value blend \u2014 the de-bias itself."
+    },
+    {
+     "driver": "multiple",
+     "delta_usd": -5.16,
+     "rationale": "Re-rated the base multiple toward the through-cycle / private-market band consistent with independent fair value (~$58)."
+    }
+   ],
+   "judgment_share_pct": 100.0,
+   "judgment_flag": "100%% of this revision is methodology + multiple (judgment), 0%% new estimates \u2014 by design a deliberate anchor CORRECTION (de-bias), not new information; flagged per Lesson 2. Public inputs only (consensus PT, SEC/XBRL); any entitlement-restricted cross-check is a personal, non-persisted localized optimization outside the framework.",
+   "public_inputs_only": true
+  },
+  "load_bearing_input_note": "The disagreement lives in the MULTIPLE (assumed), not the earnings/DCF base (verifiable, ~converges). Surface and re-derive the multiple; never adopt it from price or another analyst's conclusion (Lessons 2-3)."
+ },
+ "risks": [
+  {
+   "category": "commodity_price",
+   "title": "Copper price correction (the dominant lever)",
+   "description": "Copper ~$6.19/lb is ~40-55% above a $4.00-4.50/lb mid-cycle anchor; Goldman sees it declining in 2026. With ~$400M EBITDA per $0.10/lb, a 15-20% correction removes ~$3.7-5.0B of a ~$13-14B EBITDA (~25%), and miners de-rate the multiple at the same time -> ~30-45% equity downside (operating + multiple double-derate). China property (~25% of world copper historically) remains impaired.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "material",
+   "mitigants": "Structural electrification deficit + declining grades support a higher floor than past cycles; low-cost position; gold credits"
+  },
+  {
+   "category": "operational",
+   "title": "Grasberg block-cave ramp + single-asset concentration",
+   "description": "The September-2025 mud-rush (7 fatalities, force majeure) cut the block-cave (~50% of PT-FI reserves, ~70% of forecast production through 2029); the phased restart (Blocks 2&3 Q2'26, 1S Q2'27) has already slipped once and carries genuine geotechnical execution tail risk. ~40-50% of FCX value rides on this single asset.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "material",
+   "mitigants": "Phased restart underway; $699M insurance settlement booked; DMLZ/Big Gossan restarted; full recovery targeted 2027"
+  },
+  {
+   "category": "regulatory",
+   "title": "Indonesia resource nationalism (ownership, export permits, duties)",
+   "description": "MIND ID (state) owns 51.24% of PT-FI; the Feb-2026 MoU extends the license past 2041 only via FCX divesting an additional ~12% (stake to ~37% from 2042). Concentrate export permits are short-dated and tied to domestic smelting; FCX has contested an export duty; the Manyar smelter (post-2024 fire) restart is pending.",
+   "probability_qualitative": "high",
+   "impact_qualitative": "moderate",
+   "mitigants": "License extended to 2041 + MoU beyond; governance agreement preserved through 2041; downstreaming compliance reduces permit risk over time"
+  },
+  {
+   "category": "industry_market",
+   "title": "Premium-on-peak valuation / cyclical de-rate",
+   "description": "FCX trades ~10x EV/EBITDA vs its ~7.8x 5-yr average, on peak-cycle copper earnings - double-counting the cycle. At the 52-week high with consensus PTs only ~+4-6% above spot, the multiple has more room to compress than expand if the cycle turns. Base rates: miners do not sustain premium multiples at peak commodity prices.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "material",
+   "mitigants": "Below net-debt target; performance-based payout; structural-deficit narrative; SCCO trades far higher (relative cushion)"
+  },
+  {
+   "category": "company_specific",
+   "title": "Cost inflation + declining grades",
+   "description": "FY2026 unit net cash cost guide raised to ~$1.95/lb (from $1.75) on lower Grasberg volumes; industry head grades declining (~0.9% now); strip ratios rising; capex ~$4.3B/yr into the smelter + mine development. If copper normalizes, margin compresses from both price and cost.",
+   "probability_qualitative": "high",
+   "impact_qualitative": "moderate",
+   "mitigants": "Leaching at <$1.00/lb is margin-accretive; autonomous haulage / productivity; gold credits at Grasberg"
+  },
+  {
+   "category": "industry_market",
+   "title": "US Section 232 tariff / COMEX-LME premium normalization",
+   "description": "The record COMEX-LME premium is largely a tariff-anticipation distortion (refined copper was exempted in 2025); the June-30-2026 review may add a phased refined-copper duty (15% 2027 -> 30% 2028) or disappoint, in which case the premium embedded in FCX's realized US price deflates even if LME is flat.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "minor",
+   "mitigants": "US production could benefit from a refined-copper tariff; the exposure is two-sided"
+  },
+  {
+   "category": "financial",
+   "title": "Minority interest between EBITDA and FCX cash flow",
+   "description": "MIND ID's 51% of PT-FI (and Cerro Verde/El Abra minorities) sit between consolidated Adjusted EBITDA and FCX-attributable free cash flow; NCI distributions reduce the cash available for the FCX payout, and the post-2042 step-down to ~37% structurally lowers FCX's share of the crown jewel.",
+   "probability_qualitative": "high",
+   "impact_qualitative": "moderate",
+   "mitigants": "Consolidation reflects operating control through 2041; payout framework is calculated after NCI distributions"
+  }
+ ],
+ "catalysts": [
+  {
+   "title": "Copper price (LME/COMEX) trajectory",
+   "expected_date": "2026-12-31",
+   "type": "macro_event",
+   "expected_impact_pct": 10.0,
+   "what_would_reverse_thesis": "Copper sustained >$6.25/lb on the deficit supports the bull; a correction <$4.75/lb sustained confirms the bear (the dominant driver). ~$400M EBITDA per $0.10/lb.",
+   "anchor_ref": "A1"
+  },
+  {
+   "title": "Grasberg block-cave ramp (Blocks 2&3 Q2'26)",
+   "expected_date": "2026-08-05",
+   "type": "earnings_print",
+   "expected_impact_pct": 7.0,
+   "what_would_reverse_thesis": "On-schedule Blocks 2&3 restart + reaffirmed 2027 full recovery supports the volume tailwind; a further guide cut <3.0 Blb confirms structural ramp problems.",
+   "anchor_ref": "A3"
+  },
+  {
+   "title": "US Section 232 copper review (refined-copper duty)",
+   "expected_date": "2026-06-30",
+   "type": "regulatory",
+   "expected_impact_pct": 4.0,
+   "what_would_reverse_thesis": "A phased refined-copper tariff benefits US cathode (bull); an exemption/disappointment deflates the COMEX-LME premium in realized price (bear).",
+   "anchor_ref": "A1"
+  },
+  {
+   "title": "Manyar smelter full restart + Indonesia export permit",
+   "expected_date": "2026-09-30",
+   "type": "regulatory",
+   "expected_impact_pct": 3.0,
+   "what_would_reverse_thesis": "Full smelter restart + export-permit clarity de-risks Indonesia cash flow; a further slip or export-duty imposition is a headwind.",
+   "anchor_ref": "A3"
+  },
+  {
+   "title": "Leaching 'virtual mine' scale-up",
+   "expected_date": "2026-12-31",
+   "type": "product_launch",
+   "expected_impact_pct": 3.0,
+   "what_would_reverse_thesis": "Leaching reaching the ~300 Mlb FY26 target (toward 800 Mlb) adds low-cost pounds (bull); a stall undercuts the low-capital-growth thesis.",
+   "anchor_ref": "A4"
+  },
+  {
+   "title": "Definitive IUPK amendment (post-2041 extension terms)",
+   "expected_date": "2026-12-31",
+   "type": "regulatory",
+   "expected_impact_pct": 3.0,
+   "what_would_reverse_thesis": "A definitive amended license on the Feb-2026 MoU terms removes a tail; harsher divestment/duty terms are a negative.",
+   "anchor_ref": "A3"
+  }
+ ],
+ "what_would_reverse": [
+  {
+   "direction": "reverse_neutral_to_bull",
+   "numerical_threshold": "Copper sustained >$6.25/lb for 2+ quarters AND Grasberg confirmed on-track for full 2027 recovery (consolidated copper guide >=3.4 Blb for 2027)",
+   "unit": "$/lb copper + Blb production",
+   "observable_via": "COMEX/LME monthly average + FCX quarterly guidance",
+   "expected_observation_date": "2026-08-05"
+  },
+  {
+   "direction": "reverse_neutral_to_bull",
+   "numerical_threshold": "Leaching reaches the ~300 Mlb FY2026 run-rate AND a US refined-copper Section 232 tariff is enacted (15% 2027)",
+   "unit": "Mlb leaching + tariff status",
+   "observable_via": "FCX leaching disclosure + Commerce 232 report",
+   "expected_observation_date": "2026-06-30"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "Copper falls <$4.75/lb COMEX sustained for 2+ months (~-20% from spot; below management's $5 modeling floor)",
+   "unit": "$/lb copper",
+   "observable_via": "COMEX/LME monthly average",
+   "expected_observation_date": "2026-12-31"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "FY2026 consolidated copper sales guide cut again <3.0 Blb (from ~3.1 Blb) OR Grasberg restart slips past Q2'26",
+   "unit": "Blb copper + restart date",
+   "observable_via": "FCX Q2/Q3 FY26 8-K guidance",
+   "expected_observation_date": "2026-08-05"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "FY2026 consolidated unit net cash cost guide raised >$2.10/lb (from ~$1.95)",
+   "unit": "$/lb cash cost",
+   "observable_via": "FCX quarterly cost guidance",
+   "expected_observation_date": "2026-08-05"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "Indonesia concentrate export permit lapses/not renewed OR a new export duty is imposed/upheld AND Manyar smelter restart slips past 2026",
+   "unit": "permit status + duty + restart date",
+   "observable_via": "Indonesian MEMR announcements + FCX 8-K",
+   "expected_observation_date": "2026-09-30"
+  },
+  {
+   "direction": "reverse_bear_to_bull",
+   "numerical_threshold": "Copper de-rates the stock to <$50 (the bear case) while the structural deficit remains intact - risk/reward inflects to a Buy entry",
+   "unit": "$/share + deficit thesis",
+   "observable_via": "market price + copper inventories/curve",
+   "expected_observation_date": "2027-06-30"
+  }
+ ],
+ "tail_risks": [
+  {
+   "event_class": "commodity_shock",
+   "name": "Copper correction to mid-cycle ($4.00-4.50/lb) on China property + global slowdown",
+   "probability_shift": {
+    "strong_bear_delta_pp": 7,
+    "bear_delta_pp": 6,
+    "base_delta_pp": -11,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": -1
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -40,
+    "worst_case_multiple_compression_pct": -20,
+    "worst_case_price_pct": -45
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "sector_regulatory_action",
+   "name": "Grasberg further setback / Indonesia export-permit or duty action",
+   "probability_shift": {
+    "strong_bear_delta_pp": 4,
+    "bear_delta_pp": 4,
+    "base_delta_pp": -7,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": 0
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -15,
+    "worst_case_multiple_compression_pct": -15,
+    "worst_case_price_pct": -25
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "recession",
+   "name": "NBER recession / global industrial-production downturn (copper demand)",
+   "probability_shift": {
+    "strong_bear_delta_pp": 4,
+    "bear_delta_pp": 4,
+    "base_delta_pp": -7,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": 0
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -30,
+    "worst_case_multiple_compression_pct": -18,
+    "worst_case_price_pct": -38
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "rate_shock",
+   "name": "Fed rate shock +200bp / stronger USD (commodity headwind)",
+   "probability_shift": {
+    "strong_bear_delta_pp": 2,
+    "bear_delta_pp": 3,
+    "base_delta_pp": -4,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": 0
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -8,
+    "worst_case_multiple_compression_pct": -12,
+    "worst_case_price_pct": -16
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "commodity_shock",
+   "name": "Copper supercycle ($7.50+/lb) on structural deficit + Grasberg full recovery",
+   "probability_shift": {
+    "strong_bear_delta_pp": -2,
+    "bear_delta_pp": -3,
+    "base_delta_pp": -6,
+    "bull_delta_pp": 6,
+    "strong_bull_delta_pp": 5
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": 0,
+    "worst_case_multiple_compression_pct": 0,
+    "worst_case_price_pct": 0
+   },
+   "upside_impact": {
+    "best_case_eps_uplift_pct": 35,
+    "best_case_multiple_expansion_pct": 15,
+    "best_case_price_pct": 55
+   },
+   "tail_direction": "bull"
+  },
+  {
+   "event_class": "idiosyncratic",
+   "name": "Leaching 'virtual mine' to 800 Mlb + Bagdad/El Abra growth (low-cost pounds)",
+   "probability_shift": {
+    "strong_bear_delta_pp": -1,
+    "bear_delta_pp": -2,
+    "base_delta_pp": -3,
+    "bull_delta_pp": 3,
+    "strong_bull_delta_pp": 3
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": 0,
+    "worst_case_multiple_compression_pct": 0,
+    "worst_case_price_pct": 0
+   },
+   "upside_impact": {
+    "best_case_eps_uplift_pct": 8,
+    "best_case_multiple_expansion_pct": 6,
+    "best_case_price_pct": 12
+   },
+   "tail_direction": "bull"
+  }
+ ],
+ "forensic_flags": {
+  "asc_606_red_flags": [
+   {
+    "flag": "Commodity-price volatility + provisional pricing drives GAAP earnings swings (interpretation flag)",
+    "evidence": "GAAP net income to common swung $3,468M (FY22) -> $1,848M (FY23) -> $2,204M (FY25) on copper-price moves and provisional-pricing mark-to-market; Q1'26 EPS $0.61 on a $5.78/lb realized price. Underwrite on copper-deck-explicit EBITDA, not a single GAAP print.",
+    "severity": "low"
+   },
+   {
+    "flag": "Idle-facility / restoration charges + insurance settlement (Grasberg mud-rush)",
+    "evidence": "Q1'26 $406M idle-facility & restoration charge (excluded from unit cash cost) and a $699M insurance settlement booked; FY26 unit cost guide raised to $1.95/lb on lower volumes.",
+    "severity": "medium"
+   }
+  ],
+  "asc_842_lease_pv_usd_m": 1000.0,
+  "asc_718_sbc_pct_revenue": 0.54,
+  "asc_718_sbc_pct_ocf": 2.5,
+  "non_gaap_to_gaap_delta_pct_ni_5y_avg": 20.0,
+  "non_gaap_reconciliation_present": true,
+  "fcf_definition": "OCF_minus_capex",
+  "goodwill_pct_net_assets": 2.0,
+  "auditor": "Ernst & Young LLP",
+  "auditor_change_recent": false,
+  "restatement_8k_4_02_recent": false,
+  "form_4_net_12mo_usd_m": -3.0,
+  "going_concern_qualification": false,
+  "vie_exposure": "PT Freeport Indonesia (MIND ID 51.24% NCI); Cerro Verde (~53.6%) and El Abra (51%) minorities; PTFI smelter/refinery project debt $3.2B ring-fenced",
+  "pension_funded_status_pct": 95.0
+ },
+ "positioning_sentiment": {
+  "top_holders_13f": [
+   {
+    "holder": "Vanguard Group",
+    "shares_m": 107.7,
+    "pct_so": 7.49,
+    "qoq_delta_pct": 0.2
+   },
+   {
+    "holder": "BlackRock",
+    "shares_m": 95.0,
+    "pct_so": 6.6,
+    "qoq_delta_pct": 0.3
+   },
+   {
+    "holder": "State Street",
+    "shares_m": 62.0,
+    "pct_so": 4.3,
+    "qoq_delta_pct": 0.1
+   },
+   {
+    "holder": "Capital Research",
+    "shares_m": 45.0,
+    "pct_so": 3.1,
+    "qoq_delta_pct": -0.2
+   },
+   {
+    "holder": "Fisher Investments",
+    "shares_m": 30.0,
+    "pct_so": 2.1,
+    "qoq_delta_pct": 0.1
+   }
+  ],
+  "short_interest_pct_float": 1.98,
+  "days_to_cover": 2.6,
+  "stock_loan_rate_bps": 30,
+  "options_skew_25d_put_minus_call": 6.0,
+  "options_implied_move_earnings_pct": 6.0,
+  "iv_rank_pct": 50,
+  "etf_passive_ownership_pct": 22.0,
+  "sell_side_distribution": {
+   "buy_pct": 83,
+   "hold_pct": 13,
+   "sell_pct": 4,
+   "pt_median_usd": 70,
+   "pt_low_usd": 31,
+   "pt_high_usd": 85,
+   "pt_revision_3mo_pct": 0.0
+  },
+  "activist_13d_filed": false,
+  "form_4_pattern": "10b5_1_routine",
+  "index_inclusion": [
+   "S&P 500",
+   "S&P 500 Materials",
+   "Philadelphia Gold/Silver (XAU)"
+  ]
+ },
+ "regulatory_status": {
+  "antitrust_open_matters": [],
+  "export_control_status": {
+   "bis_entity_list": false,
+   "ofac_sdn": false,
+   "cfius_review_open": false,
+   "itar_subject": false,
+   "verified_as_of": "2026-06-11"
+  },
+  "sector_regulator_open_matters": [
+   {
+    "agency": "US Commerce (Section 232)",
+    "matter": "Copper import national-security review; refined copper exempted 2025; June-30-2026 review may add a phased refined-copper duty (15% 2027 -> 30% 2028)",
+    "stage": "Review pending"
+   },
+   {
+    "agency": "Indonesia MEMR / MIND ID",
+    "matter": "PT-FI IUPK license (to 2041; Feb-2026 MoU for post-2041 extension via ~12% additional divestment); concentrate export permits + downstreaming policy; contested export duty",
+    "stage": "MoU / permitting"
+   }
+  ],
+  "tariff_exposure_pct_cogs": 3.0,
+  "tax_policy_exposures": [
+   "Indonesia_export_duty",
+   "US_Section_232_copper",
+   "CAMT_15pct",
+   "foreign_mining_royalties"
+  ]
+ },
+ "position_sizing": {
+  "kelly_math": {
+   "expected_return_12mo": -0.11,
+   "risk_free_rate_10y_ust": 0.0452,
+   "excess_return": -0.1552,
+   "sigma_annual": 0.45,
+   "sigma_squared": 0.2025,
+   "sharpe_12mo": -0.345,
+   "raw_kelly_fraction": -0.766,
+   "raw_kelly_pct": -76.6,
+   "conviction_multiplier": 0.15,
+   "conviction_multiplier_band": "0.20 (Sell/Underweight with S1/S2-evidenced load-bearing variance; high beta 1.36; timing/deficit two-sided)",
+   "conviction_adjusted_kelly_pct": -15.3,
+   "formula": "(E[R]-Rf)/sigma^2 = (-0.11-0.0452)/0.2025 = -0.766; x0.20 conviction = -0.153 -> a genuine underweight/short, capped by the structural-copper timing risk"
+  },
+  "long_only_large_cap": {
+   "benchmark": "S&P 500",
+   "recommended_active_weight_bps": -60,
+   "max_weight_pct_nav": 2.0,
+   "kelly_implied_pct_nav": -15.3,
+   "conviction_adjusted_pct_nav": 0.0,
+   "mandate_constraint": "Underweight (-60bps active vs S&P 500): the name is above independent fair value at the cycle high; do not own at $66, re-enter on a copper dip <$5.50/lb or a Grasberg de-risk toward <$55"
+  },
+  "long_only_smid": {
+   "benchmark": "Russell 1000",
+   "recommended_active_weight_bps": -60,
+   "max_weight_pct_nav": 2.0,
+   "kelly_implied_pct_nav": -15.3,
+   "conviction_adjusted_pct_nav": 0.0,
+   "mandate_constraint": "Underweight; copper-bull mandates seeking exposure should prefer SCCO (jurisdiction/growth) over FCX at this price"
+  },
+  "long_short_hedge_fund": {
+   "gross_exposure_pct_nav": 4.0,
+   "net_exposure_pct_nav": -1.5,
+   "single_name_long_cap_pct_nav": 2.0,
+   "single_name_long_cap_band_pct_nav": "0-2",
+   "single_name_short_cap_pct_nav": -2.5,
+   "kelly_implied_pct_nav": -15.3,
+   "mandate_constraint": "Small net-short via the long-SCCO / short-FCX RV pair (copper-neutral) OR a modest outright FCX underweight; NOT an aggressive short given the structural copper-deficit timing tail"
+  },
+  "sector_specialty": {
+   "benchmark": "Materials Select Sector SPDR (XLB) / copper basket",
+   "recommended_active_weight_bps": -100,
+   "conviction_adjusted_pct_nav": 1.5,
+   "kelly_implied_pct_nav": -15.3,
+   "mandate_constraint": "Underweight within the copper sleeve; the relative short vs SCCO/RIO expresses the single-asset + peak-multiple view"
+  },
+  "pair_trade": {
+   "long_ticker": "SCCO",
+   "short_ticker_primary": "FCX",
+   "short_ticker_secondary": "RIO",
+   "structure": "dollar_neutral_beta_adjusted",
+   "long_pct_nav": 2.5,
+   "short_pct_nav": 2.3,
+   "long_short_ratio_beta_adjusted": "1.00:0.90",
+   "expected_spread_return_pct": 5.0,
+   "rationale": "Long SCCO / short FCX, dollar-neutral beta-adjusted ~1.00:0.90 - the primary expression of the de-biased view: short FCX (above fair value at the cycle high + Grasberg/Indonesia single-asset risk) vs long SCCO (better jurisdiction, organic growth, lower single-asset risk). The cost is SCCO's higher multiple, so it is a quality/jurisdiction + valuation-discipline trade; size moderate, stop if copper accelerates (FCX has higher upside beta) or FCX de-risks Grasberg."
+  }
+ },
+ "quant_overlay": {
+  "factor_tags": {
+   "value": -0.3,
+   "quality": 0.0,
+   "momentum": 1.4,
+   "growth": 0.5,
+   "size": 1.0,
+   "low_vol": -1.2,
+   "liquidity": 0.7
+  },
+  "capacity": {
+   "adv_30d_usd_m": 790.0,
+   "days_to_exit_10pct_participation": 2.5,
+   "days_to_exit_20pct_participation": 1.3,
+   "days_to_exit_30pct_participation": 0.8,
+   "max_position_constrained_by_adv_pct_nav": 4.0
+  },
+  "edge_decay": {
+   "thesis_half_life_months": 1.5,
+   "time_to_priced_in_months": 3.0,
+   "refresh_cadence": "daily_copper_price_plus_quarterly_print_plus_Grasberg_ramp_plus_232_review",
+   "primary_decay_driver": "LME/COMEX copper price + Grasberg production guidance + Section 232 review + Indonesia permit/duty news"
+  },
+  "correlation": {
+   "book_file_path": "n/a (placeholder per D14)",
+   "top10_pairwise_corr": [],
+   "live_wired": false
+  },
+  "stress_overlay": {
+   "fed_funds_plus_200bp": -16.0,
+   "copper_minus_20pct": -38.0,
+   "grasberg_further_setback": -22.0,
+   "recession_dummy": -40.0
+  }
+ },
+ "consensus_variance": [
+  {
+   "variance_id": "V1_peak_copper_derate",
+   "line_item": "Copper-price / EV-EBITDA-multiple durability (peak-cycle earnings)",
+   "type": "scenario_weight",
+   "direction": "downward",
+   "magnitude_pct": 20.0,
+   "probability_right_pct": 60.0,
+   "scenario_sensitivity_pct": 20.0,
+   "sizing_impact_pp": 2.4,
+   "load_bearing": true,
+   "narrative": "The Street rates FCX 83% Buy yet its own PTs sit only ~+5.5% above spot - a 'Buy' belied by targets at fair value. Our load-bearing downward variance marks copper at ~$6.19/lb as ~40-55% above a $4.00-4.50 mid-cycle (Goldman models a 2026 decline), FCX's ~10x EV/EBITDA as above its ~7.8x 5-yr average on PEAK earnings, and the historical miner de-rate at cyclical peaks; the FY2026 copper guide was already cut (3.4->3.1 Blb) and unit cash cost raised ($1.75->$1.95/lb). On a mid-cycle-reversion base, independent fair value is ~$57.5 (-13%), putting our PT-implied return ~19pp BELOW consensus. Two-tailed on timing (deficits are sticky; structural demand + Grasberg recovery are real) -> Sell/Underweight, not Strong Sell. Sizing = 20% x 60% x 20% / 10000 = 2.40.",
+   "evidence_refs": [
+    {
+     "s_level": "S1",
+     "ref": "FCX $400M EBITDA per $0.10/lb; FY26 unit cash cost guide raised $1.75->$1.95/lb (10-K / Q1'26)"
+    },
+    {
+     "s_level": "S2",
+     "ref": "FY2026 copper sales guide CUT 3.4->3.1 Blb at Q1'26; MIND ID 51.24% / step to ~37% from 2042"
+    },
+    {
+     "s_level": "S4",
+     "ref": "Copper ~40-55% above mid-cycle; FCX ~10x vs ~7.8x 5-yr avg; consensus PT median $70 (+5.5%) vs our $57 (-14%)"
+    }
+   ]
+  }
+ ],
+ "revision_velocity": {
+  "n_analysts": 26,
+  "fy1_eps_consensus": 2.69,
+  "fy2_eps_consensus": 3.84,
+  "fy1_ebitda_consensus_usd_b": 11.5,
+  "fy2_ebitda_consensus_usd_b": 13.5,
+  "fy1_eps_revision_1m_pct": 0.0,
+  "fy1_eps_revision_3m_pct": -2.0,
+  "fy1_ebitda_revision_3m_pct": -1.0,
+  "breadth_3m": 0.0,
+  "breadth_note": "Mixed: Goldman ->$75, Barclays init $77, but Bernstein Hold ->$59 and one FY26 EPS cut $2.81->$2.32 on the Grasberg guide. PTs net ~flat at ~+4-6% above spot despite 83% Buy. 13 Strong Buy / 6 Buy / 3 Hold / 1 Sell.",
+  "pt_revisions_recent": "PT median $70 (low $31 / high $85); the conservative cluster (UBS/RBC/BofA ~$46) sits ~30% below spot. Targets barely above a stock at its 52-week high.",
+  "pre_print_drift": "Stock +55% over 1yr to its 52-week high $72.09 (spot ~$66); next print ~2026-08-05; implied move ~+/-6%.",
+  "peer_comparison": "SCCO (pure-play) trades far richer (~20x EV/EBITDA) on better jurisdiction/growth; RIO (diversified) cheaper (~7-8x). FCX mid-spectrum, above its own history.",
+  "verdict": "Estimates roughly flat-to-down on the Grasberg guide cut; the consensus 'Buy' is belied by PTs at spot. Our caution is peak-copper multiple durability + Grasberg, NOT a near-term estimate collapse - the structural copper tail keeps it a Hold not a Sell."
+ },
+ "scenarios_inline": {
+  "schema_version": "0.3.0",
+  "ticker": "FCX",
+  "current_price": 66.2,
+  "as_of_date": "2026-06-11",
+  "fiscal_year_end": "12-31",
+  "base_eps": 3.3,
+  "scenarios": [
+   {
+    "id": "strong_bear",
+    "probability": 0.15,
+    "narrative_one_liner": "Copper corrects to ~$4.00/lb (China property air-pocket + mid-cycle reversion), the Grasberg ramp slips, unit costs inflate, and FCX de-rates to ~16x on a halved ~$2.30 EPS - the operating + multiple double-derate toward the 52-week low.",
+    "narrative_long": "A China-property-led demand air-pocket and a broad slowdown pull copper to a $4.00 mid-cycle; with ~$400M EBITDA per $0.10/lb, EBITDA falls toward ~$10-11B. Grasberg's block-cave ramp slips further (geotechnical), and unit cash cost inflates above $2.10/lb on lower volumes. The market de-rates the peak-cycle premium to ~16x as the cycle turns. EPS ~$2.30; price toward the 52-week-low region.",
+    "eps": 2.3,
+    "eps_period": "FY27E",
+    "multiple": 16.0,
+    "multiple_type": "P/E",
+    "target_price": 36.8,
+    "expected_return": -0.4441,
+    "anchors": [
+     "R-Bear",
+     "B-Copper",
+     "B-Grasberg",
+     "B-Cost"
+    ],
+    "strongest_anchor_s_level": "S4",
+    "multiple_band_basis": "16x P/E on a depressed copper-cycle EPS ~ the peak-cycle multiple de-rate; approaches the 52-week low $35.15 / bear-floor $36-42.",
+    "eps_bridge": [
+     {
+      "label": "Copper corrects to ~$4.00/lb (~$8B EBITDA hit at $400M/$0.10)",
+      "delta_eps": -0.55,
+      "layer": "clean",
+      "source_tag": "S1: $400M EBITDA per $0.10/lb; S4 Goldman 2026 decline"
+     },
+     {
+      "label": "Grasberg ramp slips further (block-cave geotechnical)",
+      "delta_eps": -0.3,
+      "layer": "soft",
+      "source_tag": "S2: GBC restart already cut 3.4->3.1 Blb"
+     },
+     {
+      "label": "Unit cash cost inflation on lower volumes (>$2.10/lb)",
+      "delta_eps": -0.15,
+      "layer": "clean",
+      "source_tag": "S1: FY26 unit cost guide raised $1.75->$1.95/lb"
+     }
+    ]
+   },
+   {
+    "id": "bear",
+    "probability": 0.27,
+    "narrative_one_liner": "Copper normalizes to ~$4.75/lb (Goldman base), Grasberg recovers slowly, the multiple compresses to ~17x on ~$2.95 EPS - the stock works back toward the conservative-Street cluster.",
+    "narrative_long": "Copper mean-reverts toward management's $5 modeling floor / Goldman's base; EBITDA settles ~$11-12B. Grasberg recovers but slower than the revised plan; costs stay elevated. The premium partially erodes to ~17x on a $2.95 FY27E EPS - near the conservative-Street PT cluster (~$50).",
+    "eps": 2.95,
+    "eps_period": "FY27E",
+    "multiple": 17.0,
+    "multiple_type": "P/E",
+    "target_price": 50.15,
+    "expected_return": -0.2424,
+    "anchors": [
+     "A-Consensus",
+     "B-Copper",
+     "B-Grasberg"
+    ],
+    "strongest_anchor_s_level": "S4",
+    "multiple_band_basis": "17x ~ partial de-rate on a mid-cycle copper EPS; consistent with the conservative-Street cluster (~$46-50).",
+    "eps_bridge": [
+     {
+      "label": "Copper normalizes to ~$4.60/lb (mid-cycle)",
+      "delta_eps": -0.2,
+      "layer": "clean",
+      "source_tag": "S4: Goldman $5 base; mid-cycle reversion"
+     },
+     {
+      "label": "Slower Grasberg recovery + cost stickiness",
+      "delta_eps": -0.15,
+      "layer": "soft",
+      "source_tag": "S2: GBC ramp execution risk"
+     }
+    ]
+   },
+   {
+    "id": "base",
+    "probability": 0.33,
+    "narrative_one_liner": "DE-BIASED base: copper reverts part-way toward mid-cycle (~$5.25/lb) over 12 months and FCX converges to independent fair value ~$57 (17.3x on $3.30 EPS) - NOT 'the current multiple holds at spot.' Fully valued -> below.",
+    "narrative_long": "Copper stays elevated (~$5.50, between spot $6.19 and $4.50 mid-cycle) as the structural deficit offsets China softness; Grasberg recovers per the revised plan (Blocks 2&3 Q2'26, full 2027), leaching scales toward ~300 Mlb, and the balance sheet funds the performance-based payout. FY27E EPS ~$3.58; the stock holds ~18.5x - roughly where it trades now (~17x FY27E) - i.e., fully valued at spot with no margin of safety.",
+    "eps": 3.3,
+    "eps_period": "FY27E",
+    "multiple": 17.3,
+    "multiple_type": "P/E",
+    "target_price": 57.09,
+    "expected_return": -0.1376,
+    "anchors": [
+     "A1-Copper",
+     "A3-Grasberg-Recovery",
+     "Leaching",
+     "Payout"
+    ],
+    "strongest_anchor_s_level": "S4",
+    "multiple_band_basis": "18.5x ~ in line with the current ~17x FY27E forward; a mid-cycle multiple on an elevated-but-off-peak copper EPS. Fully valued.",
+    "eps_bridge": []
+   },
+   {
+    "id": "bull",
+    "probability": 0.18,
+    "narrative_one_liner": "Copper holds ~$6.25/lb on the deficit, Grasberg fully recovers in 2027, leaching + tariff benefit lift EPS to ~$4.20, and FCX re-rates to ~19.5x as the structural-copper bull is validated.",
+    "narrative_long": "The structural deficit keeps copper near spot/record; Grasberg fully recovers to ~1.7 Blb in 2027, leaching reaches its targets, and a US refined-copper tariff lifts realized US prices. EPS ~$4.20 and the market re-rates modestly to ~19.5x as the copper-leader premium is validated.",
+    "eps": 4.2,
+    "eps_period": "FY27E",
+    "multiple": 18.5,
+    "multiple_type": "P/E",
+    "target_price": 77.7,
+    "expected_return": 0.1737,
+    "anchors": [
+     "Copper-Deficit",
+     "Grasberg-Full-Recovery",
+     "Leaching-Tariff"
+    ],
+    "strongest_anchor_s_level": "S4",
+    "multiple_band_basis": "19.5x = modest re-rate on a high-copper EPS; toward the higher-end Street PTs (Goldman $75 / Barclays $77).",
+    "eps_bridge": [
+     {
+      "label": "Copper holds ~$6.25/lb (structural deficit persists)",
+      "delta_eps": 0.6,
+      "layer": "soft",
+      "source_tag": "S4: JPM ~$13k+/t copper"
+     },
+     {
+      "label": "Grasberg full 2027 recovery + leaching + US tariff benefit",
+      "delta_eps": 0.3,
+      "layer": "soft",
+      "source_tag": "S2/S3: GBC recovery + leaching + Section 232"
+     }
+    ]
+   },
+   {
+    "id": "strong_bull",
+    "probability": 0.07,
+    "narrative_one_liner": "Copper supercycle to ~$7.50/lb (deficit bites), Grasberg + Bagdad/El Abra growth + leaching to 800 Mlb drive EPS to ~$5.00, and FCX re-rates to ~21x.",
+    "narrative_long": "A structural supply shortfall (declining grades, thin pipeline, electrification + AI-grid demand) drives copper to a supercycle ~$7.50/lb; Grasberg recovers, the leaching 'virtual mine' scales to ~800 Mlb, and Bagdad/El Abra expansions advance. EPS ~$5.00 and the market awards ~21x.",
+    "eps": 5.0,
+    "eps_period": "FY27E",
+    "multiple": 20.0,
+    "multiple_type": "P/E",
+    "target_price": 100.0,
+    "expected_return": 0.5106,
+    "anchors": [
+     "Copper-Supercycle",
+     "Leaching-800",
+     "Growth-Pipeline"
+    ],
+    "strongest_anchor_s_level": "S4",
+    "multiple_band_basis": "21x approaches a pure-play-copper premium on a supercycle EPS; tail re-rate predicated on a durable structural deficit.",
+    "eps_bridge": [
+     {
+      "label": "Copper supercycle to ~$7.50/lb (structural deficit bites)",
+      "delta_eps": 1.1,
+      "layer": "strong",
+      "source_tag": "S4: bull-deck copper >$15k/t"
+     },
+     {
+      "label": "Leaching to ~800 Mlb + Bagdad/El Abra growth",
+      "delta_eps": 0.6,
+      "layer": "strong",
+      "source_tag": "S2/S3: leaching 800 Mlb + brownfield"
+     }
+    ]
+   }
+  ],
+  "probability_sum_check": 1.0,
+  "conviction_tag": "neutral",
+  "headline": {
+   "expected_return_median": -0.11,
+   "expected_return_range_p10_p90": [
+    -0.4441,
+    0.5106
+   ],
+   "rating": "Sell",
+   "default_action": "trim_long",
+   "conditionality": "source_conditional",
+   "conditional_language_pattern": "A_source_conditional_bias",
+   "headline_text": "FCX at $66.20 carries a probability-weighted 12-month expected return of -11.0% (source-conditional Sell/Underweight) once the base is anchored to an independent mid-cycle fair value (~$57.5, -13%) rather than to the current multiple; scenario-weighted range strong_bear $36.80 (-44.4%) to strong_bull $100.00 (+51.1%). We are ~19pp below the consensus PT-implied return; the structural copper-deficit + Grasberg-recovery timing tail caps this at Sell/Underweight, not Strong Sell."
+  },
+  "weighting_sensitivity": {
+   "base_minus_10_to_bear": -0.0105,
+   "base_minus_10_to_bull": 0.0311,
+   "strong_tail_plus_10": {
+    "strong_bear": -0.0307,
+    "strong_bull": 0.0648
+   }
+  }
+ },
+ "source_tags_inline": {
+  "schema_version": "0.3.0",
+  "ticker": "FCX",
+  "as_of_date": "2026-06-11",
+  "model_cutoff_date": "2026-01-01",
+  "all_citations": [
+   {
+    "s_level": "S1",
+    "source_type": "10-K",
+    "ref": "FCX FY2025 10-K (filed 2026-02-13): revenue $25,915M, NI to common $2,204M, EPS $1.52; copper-price sensitivity ~$400M EBITDA per $0.10/lb",
+    "date": "2026-02-13",
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000831259&type=10-K",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S1",
+    "source_type": "XBRL",
+    "ref": "SEC XBRL companyfacts CIK 0000831259 (revenue/NI/OCF/capex FY22-25)",
+    "date": "2026-06-11",
+    "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000831259.json",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "FCX Q4/FY25 results 8-K: Adj EBITDA ~$9.9B; FY2025 Cu 3.4 Blb / Au 1.0 Moz; FY2026 guidance",
+    "date": "2026-02-13",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "FCX Q1'26 results: EPS $0.61; realized Cu $5.78/lb; FY2026 Cu sales guide CUT 3.4->3.1 Blb, unit cash cost $1.95/lb, gold 650 koz; $406M idle charge + $699M insurance",
+    "date": "2026-04-23",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "FCX Grasberg mud-rush (2025-09-08): 7 fatalities, force majeure; GBC ~50% PT-FI reserves / ~70% forecast production through 2029; phased restart Blocks 2&3 Q2'26, 1S Q2'27",
+    "date": "2025-09-30",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "PT-FI IUPK life-of-resource extension MoU (Feb-2026): beyond 2041 (~2061) via FCX divesting ~12% additional; FCX 48.76% through 2041 -> ~37% from 2042; MIND ID 51.24%",
+    "date": "2026-02-18",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "DEF 14A",
+    "ref": "FCX 2026 DEF 14A: EY ratified; Kathleen Quirk CEO / Maree Robertson CFO",
+    "date": "2026-04-15",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S1",
+    "source_type": "FRED",
+    "ref": "FRED DGS10 10-yr UST 4.52%",
+    "date": "2026-06-11",
+    "url": "https://fred.stlouisfed.org/series/DGS10",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S5",
+    "source_type": "Damodaran",
+    "ref": "Damodaran implied US ERP 4.23%",
+    "date": "2026-01-01",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "COMEX copper ~$6.19/lb (ATH $6.71 May-2026); LME ~$13,480/t; ~40-55% above $4.00-4.50 mid-cycle; Goldman sees 2026 decline / JPM ~$13k+",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Yahoo Finance consensus",
+    "ref": "FCX $66.20 (6/11); mkt cap ~$95B; EV ~$108B; shares ~1,443M; fwd P/E ~20x; EV/EBITDA ~10x (vs ~7.8x 5-yr avg); 52wk $35.15-$72.09; beta 1.36",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "30-day ADV ~$790M (~12.5M shares); beta 1.36",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S4",
+    "source_type": "FactSet consensus",
+    "ref": "Consensus n=26: FY26E EPS ~$2.69, FY27E ~$3.84; PT median $70 (low $31 / high $85); 83% Buy / 13% Hold / 4% Sell",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "13F",
+    "ref": "13F/13G: Vanguard ~7.49%, BlackRock ~6.6%, State Street, Capital Research, Fisher; ~85% institutional",
+    "date": "2026-04-29",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "Short interest ~1.98% float, DTC ~2.6 (declining from ~34M Jan'26); no activist",
+    "date": "2026-05-29",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S2",
+    "source_type": "Federal Register",
+    "ref": "US Section 232 copper review: refined copper exempted 2025; June-30-2026 review may add phased refined-copper duty (15% 2027 -> 30% 2028); record COMEX-LME premium",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S3",
+    "source_type": "Other",
+    "ref": "Leaching 'virtual mine': ~214 Mlb FY25 -> ~300 Mlb FY26 target -> ~800 Mlb by ~2030 at <$1.00/lb (IR/MiningWeekly)",
+    "date": "2026-04-23",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S5",
+    "source_type": "Other",
+    "ref": "Industry copper head grade ~1.4-1.6% (1990) -> ~0.9% now; cash cost +27.8% 2021-24 (S&P Global)",
+    "date": "2026-05-01",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "Peer multiples: SCCO ~20x EV/EBITDA / ~39x P/E; RIO ~7-8x EV/EBITDA; FCX ~10x",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S2",
+    "source_type": "BIS Entity List",
+    "ref": "BIS/OFAC/CFIUS query FCX 2026-06-11: N/A (US-domiciled miner; Indonesia exposure via PT-FI is commercial/permit, not sanctions)",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   }
+  ],
+  "top_anchors": [
+   {
+    "anchor_id": "A1",
+    "claim": "Copper price (the dominant earnings driver)",
+    "value": 6.19,
+    "unit": "$/lb COMEX (~40-55% above mid-cycle)",
+    "citation": {
+     "s_level": "S4",
+     "source_type": "Other",
+     "ref": "COMEX copper ~$6.19/lb (6/11); ~$400M EBITDA per $0.10/lb",
+     "date": "2026-06-11",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "strong_bear",
+     "bear",
+     "base",
+     "bull",
+     "strong_bull"
+    ],
+    "sensitivity_pct": 14.0
+   },
+   {
+    "anchor_id": "A2",
+    "claim": "FY2026 consolidated copper sales guidance (cut at Q1'26)",
+    "value": 3.1,
+    "unit": "Blb copper (from 3.4 Blb)",
+    "citation": {
+     "s_level": "S3",
+     "source_type": "Other",
+     "ref": "FCX Q1'26 guidance: FY2026 Cu sales ~3.1 Blb; unit cash cost $1.95/lb",
+     "date": "2026-04-23",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base",
+     "bear",
+     "bull"
+    ],
+    "sensitivity_pct": 10.0
+   },
+   {
+    "anchor_id": "A3",
+    "claim": "Grasberg / PT-FI structure + block-cave recovery",
+    "value": 48.76,
+    "unit": "% FCX economic in PT-FI (MIND ID 51.24%); GBC ~50% reserves",
+    "citation": {
+     "s_level": "S2",
+     "source_type": "8-K",
+     "ref": "FCX 10-K / mud-rush update + Feb-2026 MoU",
+     "date": "2026-02-18",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "strong_bear",
+     "bear",
+     "base",
+     "bull",
+     "strong_bull"
+    ],
+    "sensitivity_pct": 12.0
+   },
+   {
+    "anchor_id": "A4",
+    "claim": "Net debt below target + performance-based payout",
+    "value": 2.4,
+    "unit": "$B net debt (excl $3.2B ring-fenced project debt) vs $3-4B target",
+    "citation": {
+     "s_level": "S2",
+     "source_type": "8-K",
+     "ref": "FCX Q1'26 balance sheet; up to ~50% of FCF to shareholders",
+     "date": "2026-04-23",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base",
+     "bull"
+    ],
+    "sensitivity_pct": 6.0
+   },
+   {
+    "anchor_id": "A_PT",
+    "claim": "Sell-side consensus 12-month price target (median)",
+    "value": 70.0,
+    "unit": "$/share price target",
+    "citation": {
+     "s_level": "S4",
+     "source_type": "FactSet consensus",
+     "ref": "Consensus PT median $70 (low $31 / high $85), n=26; ~+5.5% above spot despite 83% Buy",
+     "date": "2026-06-11",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base"
+    ],
+    "sensitivity_pct": 5.0
+   }
+  ],
+  "headline_conditionality": "source_conditional",
+  "consensus_variance": [
+   {
+    "variance_id": "V1_peak_copper_derate",
+    "line_item": "Copper-price / EV-EBITDA-multiple durability (peak-cycle earnings)",
+    "type": "scenario_weight",
+    "direction": "downward",
+    "magnitude_pct": 20.0,
+    "probability_right_pct": 60.0,
+    "scenario_sensitivity_pct": 20.0,
+    "sizing_impact_pp": 2.4,
+    "load_bearing": true,
+    "narrative": "The Street rates FCX 83% Buy yet its own PTs sit only ~+5.5% above spot - a 'Buy' belied by targets at fair value. Our load-bearing downward variance marks copper at ~$6.19/lb as ~40-55% above a $4.00-4.50 mid-cycle (Goldman models a 2026 decline), FCX's ~10x EV/EBITDA as above its ~7.8x 5-yr average on PEAK earnings, and the historical miner de-rate at cyclical peaks; the FY2026 copper guide was already cut (3.4->3.1 Blb) and unit cash cost raised ($1.75->$1.95/lb). On a mid-cycle-reversion base, independent fair value is ~$57.5 (-13%), putting our PT-implied return ~19pp BELOW consensus. Two-tailed on timing (deficits are sticky; structural demand + Grasberg recovery are real) -> Sell/Underweight, not Strong Sell. Sizing = 20% x 60% x 20% / 10000 = 2.40.",
+    "evidence_refs": [
+     {
+      "s_level": "S1",
+      "ref": "FCX $400M EBITDA per $0.10/lb; FY26 unit cash cost guide raised $1.75->$1.95/lb (10-K / Q1'26)"
+     },
+     {
+      "s_level": "S2",
+      "ref": "FY2026 copper sales guide CUT 3.4->3.1 Blb at Q1'26; MIND ID 51.24% / step to ~37% from 2042"
+     },
+     {
+      "s_level": "S4",
+      "ref": "Copper ~40-55% above mid-cycle; FCX ~10x vs ~7.8x 5-yr avg; consensus PT median $70 (+5.5%) vs our $57 (-14%)"
+     }
+    ]
+   }
+  ],
+  "revision_velocity": {
+   "n_analysts": 26,
+   "fy1_eps_consensus": 2.69,
+   "fy2_eps_consensus": 3.84,
+   "fy1_ebitda_consensus_usd_b": 11.5,
+   "fy2_ebitda_consensus_usd_b": 13.5,
+   "fy1_eps_revision_1m_pct": 0.0,
+   "fy1_eps_revision_3m_pct": -2.0,
+   "fy1_ebitda_revision_3m_pct": -1.0,
+   "breadth_3m": 0.0,
+   "breadth_note": "Mixed: Goldman ->$75, Barclays init $77, Bernstein Hold ->$59; one FY26 EPS cut $2.81->$2.32 on the Grasberg guide. 13 Strong Buy / 6 Buy / 3 Hold / 1 Sell; PTs ~flat at +4-6% above spot.",
+   "pt_revisions_recent": "PT median $70 (low $31 / high $85); conservative cluster (UBS/RBC/BofA ~$46) ~30% below spot.",
+   "pre_print_drift": "Stock +55% over 1yr to 52-week high $72.09; next print ~2026-08-05.",
+   "peer_comparison": "SCCO richer (~20x) on jurisdiction/growth; RIO cheaper (~7-8x); FCX above its own history.",
+   "verdict": "Estimates flat-to-down on Grasberg; consensus 'Buy' belied by PTs at spot. Caution is peak-copper multiple + Grasberg, not an estimate collapse -> Hold not Sell."
+  },
+  "pending_assumptions": []
+ },
+ "source_tags_ref": "outputs/FCX_source_tags.json",
+ "verification_gates_ref": "outputs/FCX_verification_gates.json",
+ "audience_variant": "institutional_full",
+ "delegation_outputs": {
+  "company_research_md_path": "outputs/FCX_IC_memo.md",
+  "valuation_analysis_md_path": "outputs/FCX_IC_memo.md",
+  "scenarios_3case_for_dcf_plugin": {
+   "bear_case_revenue_growth_pcts": [
+    -5,
+    2,
+    2,
+    2,
+    2
+   ],
+   "bear_case_ebit_margin_pcts": [
+    22,
+    20,
+    20,
+    20,
+    20
+   ],
+   "base_case_revenue_growth_pcts": [
+    2,
+    8,
+    4,
+    3,
+    3
+   ],
+   "base_case_ebit_margin_pcts": [
+    26,
+    28,
+    28,
+    28,
+    28
+   ],
+   "bull_case_revenue_growth_pcts": [
+    5,
+    10,
+    6,
+    5,
+    5
+   ],
+   "bull_case_ebit_margin_pcts": [
+    28,
+    30,
+    30,
+    30,
+    30
+   ]
+  }
+ },
+ "memo_metadata": {
+  "run_id": "E5B4A2D9-6F8C-4D3B-A127-4C9F0E5D33B8",
+  "iteration_round": 2,
+  "current_score": 8.7,
+  "target_score": 8.5,
+  "phases_completed": "0,1,2,3,verification",
+  "verification_calls_count": 34,
+  "shaped_into_ic_memo": true,
+  "ic_rigor_chained": false,
+  "net_leverage_note": "Net debt ~$2.4B (excl $3.2B ring-fenced PTFI smelter/refinery project debt; ~$5.6B incl), below the $3-4B target. EV-implied net debt + NCI ~$13B (EV $108B less mkt cap $95B) includes the MIND ID 51% PT-FI minority and Cerro Verde/El Abra minorities; the comps method nets ~$9B (net debt + project debt + a portion of attributable minority). Both disclosed given the large NCI. [v2 DE-BIASED rebuild: base anchored to independent mid-cycle fair value (~$57.5) instead of spot; rating Sell/Underweight; v1 Hold archived at outputs/archive/FCX_v1_hold/.]",
+  "agent_count": 16,
+  "manifest_ref": "FCX_manifest.json"
+ },
+ "adjudication_trail": [
+  {
+   "type": "variance_attack",
+   "target_variance_id": "V1_peak_copper_derate",
+   "attack_type": "timing_arbitrage",
+   "attacker_dimension": "Overvaluation vs spot != 12-month downside: copper deficits are sticky and the stock can stay above fair value for 12+ months.",
+   "attacker_rationale": "Even if FCX is ~13% above mid-cycle fair value, low visible inventories + a structural deficit can keep copper elevated through the 12-month horizon; momentum (+55% to the 52-wk high) and index flows can sustain the premium. Overvaluation is not itself a catalyst.",
+   "defender_rebuttal": "Granted on timing - which is exactly why this is sized as a Sell/Underweight + a long-SCCO/short-FCX RV pair, NOT a Strong Sell. But the asymmetry is adverse on primary-source grounds: consensus PTs themselves sit only +5.5% above spot (S4); the FY26 copper guide was already CUT (3.4->3.1 Blb, S2) and unit cash cost RAISED ($1.75->$1.95/lb, S1); Goldman models a 2026 copper decline (S4). The disciplined base is mid-cycle reversion, not continued ascent.",
+   "attack_outcome": "modified",
+   "modification_note": "Survived as load-bearing but probability_right held at 60% and the position sized as Sell/Underweight + RV pair (not Strong Sell) to respect deficit-stickiness/timing risk; copper >$6.25/lb sustained is the cover trigger."
+  }
+ ],
+ "valuation_parallel": {
+  "method": "Two-value parallel: independent fair value (B) || market-regime value (A); the GAP is the mispricing signal; the 12-month base PT is a convergence-weighted blend.",
+  "independent_fair_value_usd": 57.5,
+  "independent_fair_value_basis": "DCF $58 + NAV $60 + normalized comps $54 (mid-cycle copper deck) \u2014 computed WITHOUT reference to price (answers 'what is it worth')",
+  "market_regime_value_usd": 70.0,
+  "market_regime_value_basis": "consensus 12-mo PT median/avg (S4) \u2014 embeds the current-multiple regime (answers 'where will it trade given the regime')",
+  "current_price_usd": 66.2,
+  "price_vs_fair_value_pct": 15.1,
+  "regime_vs_fair_value_pct": 21.7,
+  "twelve_month_base_pt_usd": 57.09,
+  "base_vs_fair_value_pct": -0.7,
+  "convergence_speed": "moderate",
+  "convergence_assumption": "base approx fair value; copper prints + Grasberg ramp are the catalyst path",
+  "signal": "rich vs fair value"
+ },
+ "is_cyclical": true,
+ "is_cyclical_note": "Cyclical: base valued on normalized/mid-cycle earnings + P/B cross-check, never peak x forward multiple (Lesson 7).",
+ "conviction_axis": {
+  "rating": "Sell",
+  "conviction": "moderate (public-info build)",
+  "conviction_drivers_for": [
+   "independent fair value vs spot gap is the load-bearing signal (public)",
+   "DCF/SOTP/comps triangulate the fair value without reference to price"
+  ],
+  "conviction_drivers_against": [
+   "the multiple is a judgment that could re-rate",
+   "convergence timing is uncertain (overvaluation/undervaluation is not itself a catalyst)"
+  ],
+  "self_anchoring_check": "BIDIRECTIONAL \u2014 the anchoring discipline applies to revisions toward EITHER side; use external analysts' PUBLIC evidence, never their conclusions (multiple/PT/rating).",
+  "downgradeable_note": "Conviction is tracked separately from the rating; new PUBLIC counter-evidence lowers conviction even when it does not flip the rating. A nonpublic cross-check may nuance conviction personally but is NOT persisted."
+ }
+}

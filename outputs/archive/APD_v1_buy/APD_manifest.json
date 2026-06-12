@@ -1,0 +1,357 @@
+{
+  "manifest_version": "0.3.0",
+  "ticker": "APD",
+  "run_id": "B2E1D7A4-3C58-4F9E-A0D6-1E8C7F2A99B5",
+  "created_at": "2026-06-09T23:30:27+00:00",
+  "plugin_versions": {
+    "us_equity_research": "0.6.0",
+    "us_equity_ic_rigor": "0.6.0"
+  },
+  "phase_timing": {
+    "phase_0": {
+      "start": "2026-06-09T20:00:00Z",
+      "end": "2026-06-09T20:30:00Z"
+    },
+    "phase_1": {
+      "start": "2026-06-09T20:00:00Z",
+      "end": "2026-06-09T20:30:00Z"
+    },
+    "phase_2": {
+      "start": "2026-06-09T20:00:00Z",
+      "end": "2026-06-09T20:30:00Z"
+    },
+    "phase_3": {
+      "start": "2026-06-09T20:00:00Z",
+      "end": "2026-06-09T20:30:00Z"
+    },
+    "verification": {
+      "start": "2026-06-09T20:00:00Z",
+      "end": "2026-06-09T20:30:00Z"
+    }
+  },
+  "agent_provenance": [
+    {
+      "agent_id": "A1",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/APD_phase1_A1.md",
+      "output_sha256": "8bad39dc0833ef7866a9c2a92c9b089054d6c1b0a4af54cc4582dcf58feec686"
+    },
+    {
+      "agent_id": "A4",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/APD_phase1_A4.md",
+      "output_sha256": "7e3c4e360589a25374d6f487256b3338b699430b795a3651a81f3a018df6e247"
+    },
+    {
+      "agent_id": "A5",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/APD_phase1_A5.md",
+      "output_sha256": "6d9091c0fa30d7dadde9d6f4ec136cf96d2833b0202703cf97b58ba4f95c0771"
+    },
+    {
+      "agent_id": "A8",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/APD_phase1_A8.md",
+      "output_sha256": "3874d08e00e94fcc45cc92dd094456ba33ac49d62877a0fe8f3ac3697a525986"
+    },
+    {
+      "agent_id": "FS",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/APD_phase1_FS.md",
+      "output_sha256": "a954ea6e0610af8a84f2c0d3618468f17dc3964362a8445420e8c3ffc4179888"
+    },
+    {
+      "agent_id": "A2",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/APD_phase2_A2.md",
+      "output_sha256": "11ee69e72ebb51506c48bc2ecba20906a61bddf1f9ce2cfbecf904da613ccbfc"
+    },
+    {
+      "agent_id": "A3",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/APD_phase2_A3.md",
+      "output_sha256": "ed926dbc3c15d2a8a5625219205c4aa5062453366ef86762e05b0660df4d60bc"
+    },
+    {
+      "agent_id": "A3-Peers",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/APD_phase2_A3_Peers.md",
+      "output_sha256": "7b3d4018191829235ac01f765b094af98e2ea9e5c855498bc2d5c6376162b53c"
+    },
+    {
+      "agent_id": "R",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/APD_phase2_R.md",
+      "output_sha256": "c684dc990d4af01ca3d5d80014163e25f1eb6cfd12139bdc8f9157efd7cfe9fc"
+    },
+    {
+      "agent_id": "A6",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/APD_phase2_A6.md",
+      "output_sha256": "2556bdd8b3b8ea6bec1989ad378ba6489203d48a163cac13029032d003c43982"
+    },
+    {
+      "agent_id": "A-Consensus",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/APD_phase2_A_Consensus.md",
+      "output_sha256": "bdabf258f6c9929955217ccf20463044707880580ba50a146e1e6adc33110710"
+    },
+    {
+      "agent_id": "A7",
+      "phase": 3,
+      "status": "completed",
+      "output_path": "outputs/workpapers/APD_phase3_A7.md",
+      "output_sha256": "d01d365dd3ed8b21be2df14f46617c8a64f73b481a28f582063258165375bb42"
+    },
+    {
+      "agent_id": "Mirror",
+      "phase": 3,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "Topic-Forensic",
+      "phase": 3,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "R-v2",
+      "phase": 3,
+      "status": "completed",
+      "output_path": "outputs/workpapers/APD_phase3_R_v2.md",
+      "output_sha256": "13418b81b9627facedf83fcdc2a0bdfbcf13cfa3e037fa1f1676d5192ade30f9"
+    }
+  ],
+  "web_search_log": [
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Air Products FY2025 results adjusted EPS charges",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "APD Q2 FY2026 results guidance raise capex",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Mantle Ridge Air Products proxy board seats Menezes CEO",
+      "phase": 1,
+      "used_by_agent": "A8"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Air Products NEOM green hydrogen Louisiana Yara FID",
+      "phase": 1,
+      "used_by_agent": "A4"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Air Products 45V clean hydrogen tax credit policy",
+      "phase": 1,
+      "used_by_agent": "A5"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000002969.json",
+      "phase": 1,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "APD capex FCF free cash flow dividend coverage 2025 2026",
+      "phase": 1,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "APD 13F holders short interest Mantle Ridge stake",
+      "phase": 1,
+      "used_by_agent": "A8"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Air Products vs Linde forward P/E discount valuation",
+      "phase": 2,
+      "used_by_agent": "A3-Peers"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "APD consensus price target rating analysts 2026",
+      "phase": 2,
+      "used_by_agent": "A-Consensus"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "APD impairment charges hydrogen projects FY2025 3.7 billion",
+      "phase": 2,
+      "used_by_agent": "R"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://efts.sec.gov/LATEST/search-index?q=KPMG&forms=10-K&ciks=0000002969",
+      "phase": 0,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "APD share price market cap EV beta June 2026",
+      "phase": 3,
+      "used_by_agent": "A7"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://fred.stlouisfed.org/series/DGS10",
+      "phase": 3,
+      "used_by_agent": "A7"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Air Products segment operating income Americas Asia Europe FY2025",
+      "phase": 1,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Air Products credit rating S&P Moody's negative outlook",
+      "phase": 1,
+      "used_by_agent": "FS"
+    }
+  ],
+  "verification_calls_count": 32,
+  "outputs_produced": [
+    {
+      "path": "outputs/APD_IC_memo.md",
+      "sha256": "bf354e855b4aaf8d2f411fd9d108262669b54c36f7992f7698ae7db6ce309e33",
+      "size_bytes": 14016,
+      "file_type": "ic_memo_md"
+    },
+    {
+      "path": "outputs/APD_structured.json",
+      "sha256": "8b13e2d416c18506c790d993fa32e6393cdefd2653c2982f1393e2d715552dea",
+      "size_bytes": 73707,
+      "file_type": "structured_json"
+    },
+    {
+      "path": "outputs/APD_source_tags.json",
+      "sha256": "c3912fe66f0b9b3d3e3789fb2ff7121ae272c2b32cc1fb475f0e5d29b304e342",
+      "size_bytes": 10237,
+      "file_type": "source_tags_json"
+    },
+    {
+      "path": "outputs/APD_scenarios.json",
+      "sha256": "09b4e2f8b48ee3e9034f8e886ace688187acb8f9ef4a533098976d1a0ee4ad9c",
+      "size_bytes": 8634,
+      "file_type": "scenarios_json"
+    },
+    {
+      "path": "outputs/APD_verification_gates.json",
+      "sha256": "c03e4eea4a4bf8fe55090270b7cd644ab614c482a9dccb63bcc7f272281f4f9e",
+      "size_bytes": 3724,
+      "file_type": "verification_gates_json"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase1_A1.md",
+      "sha256": "8bad39dc0833ef7866a9c2a92c9b089054d6c1b0a4af54cc4582dcf58feec686",
+      "size_bytes": 659,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase1_A4.md",
+      "sha256": "7e3c4e360589a25374d6f487256b3338b699430b795a3651a81f3a018df6e247",
+      "size_bytes": 648,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase1_A5.md",
+      "sha256": "6d9091c0fa30d7dadde9d6f4ec136cf96d2833b0202703cf97b58ba4f95c0771",
+      "size_bytes": 503,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase1_A8.md",
+      "sha256": "3874d08e00e94fcc45cc92dd094456ba33ac49d62877a0fe8f3ac3697a525986",
+      "size_bytes": 613,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase1_FS.md",
+      "sha256": "a954ea6e0610af8a84f2c0d3618468f17dc3964362a8445420e8c3ffc4179888",
+      "size_bytes": 716,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase2_A2.md",
+      "sha256": "11ee69e72ebb51506c48bc2ecba20906a61bddf1f9ce2cfbecf904da613ccbfc",
+      "size_bytes": 635,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase2_A3.md",
+      "sha256": "ed926dbc3c15d2a8a5625219205c4aa5062453366ef86762e05b0660df4d60bc",
+      "size_bytes": 589,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase2_A3_Peers.md",
+      "sha256": "7b3d4018191829235ac01f765b094af98e2ea9e5c855498bc2d5c6376162b53c",
+      "size_bytes": 543,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase2_A6.md",
+      "sha256": "2556bdd8b3b8ea6bec1989ad378ba6489203d48a163cac13029032d003c43982",
+      "size_bytes": 655,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase2_A_Consensus.md",
+      "sha256": "bdabf258f6c9929955217ccf20463044707880580ba50a146e1e6adc33110710",
+      "size_bytes": 764,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase2_R.md",
+      "sha256": "c684dc990d4af01ca3d5d80014163e25f1eb6cfd12139bdc8f9157efd7cfe9fc",
+      "size_bytes": 757,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase3_A7.md",
+      "sha256": "d01d365dd3ed8b21be2df14f46617c8a64f73b481a28f582063258165375bb42",
+      "size_bytes": 649,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase3_Mirror_LIN.md",
+      "sha256": "9f2df8e4053db35c6d1ec3271d40b5c00dc483120361ae45ed9255db4acc45f9",
+      "size_bytes": 654,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase3_R_v2.md",
+      "sha256": "13418b81b9627facedf83fcdc2a0bdfbcf13cfa3e037fa1f1676d5192ade30f9",
+      "size_bytes": 756,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/APD_phase3_TopicForensic_FCF.md",
+      "sha256": "efdd444a81076dc6e5ff2c3771736ba8f1880b01d4dec8a8c03c54e81332f4b6",
+      "size_bytes": 691,
+      "file_type": "workpaper_md"
+    }
+  ],
+  "orchestrator_notes": "APD (Air Products) full round. Source-conditional BUY with G15 consensus variance + G20 view-defensibility (variance_attack, base_rate_sanity, modified). 3 parallel research specialists + EDGAR XBRL + FRED + full-text."
+}

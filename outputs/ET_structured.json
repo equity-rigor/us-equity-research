@@ -1,0 +1,1834 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "ET",
+ "exchange": "NYSE",
+ "company_name": "Energy Transfer LP",
+ "cik": "0001276187",
+ "sector_gics": "Energy",
+ "industry_gics": "Oil & Gas Storage & Transportation (GICS 10102040)",
+ "as_of_date": "2026-06-09",
+ "model_cutoff_date": "2026-01-01",
+ "author": "us-equity-research full-round orchestrator (Phases 0-3 + Verification)",
+ "current_price_usd": 19.06,
+ "market_cap_usd_b": 65.6,
+ "enterprise_value_usd_b": 135.7,
+ "fiscal_year_end": "12-31",
+ "headline": {
+  "expected_return_median": 0.115,
+  "expected_return_range_p10_p90": [
+   -0.2288,
+   0.4874
+  ],
+  "rating": "Buy",
+  "default_action": "initiate_long",
+  "conditionality": "source_conditional",
+  "conditional_language_pattern": "A_source_conditional_bias",
+  "headline_text": "Source-conditional BUY at $19.06 (DE-BIASED): probability-weighted 12-month expected return +11.5% to base-case PT $20.88 - an INDEPENDENT fair value (DCF $20.50 / SOTP $21.00 / comps $21.45 -> ~$20.9, +9.5% vs spot). The de-bias softened to a MARGINAL Buy at the Buy/Hold boundary (from the prior +15.4% Buy): ET's DCF (+7.6%) sits only modestly above spot, and the base case (+9.5%) is right at the Buy/Hold line - the Buy leans on the right-skewed distribution (heavy bull weight) more than on the base. CONDITIONAL on distribution growth + project-pipeline delivery; the high ~7% yield + deleveraging support the value, but the Street's ~$23.5 PT (+23%) looks full. We sit below consensus."
+ },
+ "recommendation": {
+  "rating": "Buy",
+  "price_target_usd": 20.88,
+  "price_target_range_low_usd": 14.7,
+  "price_target_range_high_usd": 28.35,
+  "upside_downside_pct": 9.55,
+  "time_horizon_months": 12,
+  "conviction_tag": "source_conditional",
+  "default_action": "initiate_long",
+  "rationale_one_paragraph": "DE-BIASED Buy on ET at $19.06. Anchoring the base to an independent fair value (DCF $20.50, SOTP $21.00, comps $21.45 -> weighted ~$20.9, +9.5% vs spot) softened to a MARGINAL Buy at the Buy/Hold boundary from the prior +15.4% Buy. ET's DCF (+7.6%) is only modestly above spot - so unlike APD (DCF +22%) the Buy was partly carried by the elevated base multiple AND a right-skewed distribution (heavy bull weight 0.27). The franchise is a high-yield (~7%) diversified midstream MLP deleveraging with a growth pipeline (the genuine support), but the Street's ~$23.5 PT (+23%) looks full and our base (+9.5%) sits at the Buy/Hold line. Base PT $20.88 = DCF/unit $2.86 x P/DCF 7.3x. Probability-weighted +11.5%; the rating leans on the distribution skew - a marginal call either way."
+ },
+ "investment_thesis_pillars": [
+  {
+   "title": "Cheapest large midstream cash machine with a covered ~7.1% distribution",
+   "key_statistic": "~7.4x forward EV/EBITDA & ~7.1% distribution yield at ~1.7-1.8x DCF coverage vs EPD ~10x EV/EBITDA / ~7% (S4: peer comps 2026-06)",
+   "narrative": "ET is the value leg of the midstream MLP cohort: ~7.4x forward EV/EBITDA versus EPD's ~10x despite faster near-term EBITDA growth (~10%+ FY26 vs EPD 3-5%). The ~7.1% distribution (S2: $0.3375/qtr) is covered ~1.7-1.8x by distributable cash flow (S3), funded by a ~90%-fee-based asset base. The discount to EPD is partly structural (higher leverage, acquisition-heavy history, K-1/UBTI friction) but ~1-1.5 turns appears wider than warranted as ET delevers and the contracted growth backlog converts.",
+   "anchor_refs": [
+    "A1",
+    "A3"
+   ],
+   "timeline": "Re-rating contingent on a sub-4.0x leverage print + backlog conversion through 2027"
+  },
+  {
+   "title": "Raised FY26 guidance + contracted data-center / Permian growth backlog",
+   "key_statistic": "FY26 Adjusted EBITDA guide RAISED to $18.2-18.6B (S2); Oracle 900,000 Mcf/d + Hugh Brinson ~1.5 Bcf/d (S3)",
+   "narrative": "At Q1'26 ET raised FY26 Adjusted EBITDA guidance ~$750M to $18.2-18.6B and lifted growth capex to $5.5-5.9B (S2). The backlog is contracted and fee-based: a 900,000 Mcf/d Oracle commitment, three Oklahoma power plants (190 MMcf/d) online 2026, Hugh Brinson (Q4'26, ~1.5 Bcf/d), Bayou Bridge (Q1'27), and Desert Southwest (2.3 Bcf/d, 2029) (S3). This is the engine that takes FY27E EBITDA to ~$19.7B and underpins the distribution growth.",
+   "anchor_refs": [
+    "A2",
+    "A6"
+   ],
+   "timeline": "Hugh Brinson Q4'26; Bayou Bridge Q1'27; Desert Southwest 2029"
+  },
+  {
+   "title": "Deleveraging into target + IDR-free, aligned-insider structure",
+   "key_statistic": "Net leverage ~4.4x toward 4.0-4.5x target (S1); Kelcy Warren ~8.8% / 24 buys, 0 sells 5y (S2: Form 4)",
+   "narrative": "ET eliminated IDRs in 2018 (S2), so 100% of incremental distributable cash flow accrues to common units (no GP take). Net leverage ~4.4x (S1: Q1'26 10-Q) is at the top of the 4.0-4.5x target and trending lower; a sub-4.0x print is the key re-rate trigger. Insider alignment is unusually strong: founder/chairman Kelcy Warren holds ~8.8% (~301.5M units) and bought 2M units in Nov 2025 (~$16.8-17.0), with 24 buys and 0 sells over five years (S2: Form 4). Short interest is negligible (~0.89%).",
+   "anchor_refs": [
+    "A4",
+    "A7"
+   ],
+   "timeline": "Sub-4.0x leverage print is the swing variable for the re-rate"
+  },
+  {
+   "title": "The bear / our variance: Street prices a full EPD-parity re-rate we don't underwrite",
+   "key_statistic": "Street ~$23.5 PT implies ~7.7x EV/EBITDA re-rate; we hold ~7.3x base at ~4.4x leverage (S1)",
+   "narrative": "The downside is not the cash flows (fee-based, covered) but the MULTIPLE. The Street's ~$23.5 PT (S4) implies a 12-month re-rate toward EPD parity that we think is premature while leverage sits at the top of target and the K-1 structural discount persists. A commodity downcycle that stalls Permian/NGL volumes plus rising interest expense (an MLP earns no interest tax shield) compresses DCF/unit and the multiple together in the bear tails. Hence a below-Street PT and a Buy, not Strong Buy.",
+   "anchor_refs": [
+    "A4",
+    "A5"
+   ],
+   "timeline": "Variance resolves on the FY26 leverage trajectory + 2027 commodity tape"
+  }
+ ],
+ "company_qualitative": {
+  "description": "Energy Transfer LP (ET) is one of the largest and most diversified midstream energy infrastructure businesses in North America, structured as a publicly traded master limited partnership (MLP). It owns and operates ~130,000+ miles of pipelines and associated gathering, processing, storage, fractionation, and terminalling assets spanning natural gas, natural gas liquids (NGLs), crude oil, and refined products, plus interests in publicly traded affiliates Sunoco LP (SUN) and USA Compression Partners (USAC). Reporting segments: NGL & Refined Products; Midstream; Crude Oil; Interstate Transportation & Storage; Intrastate Transportation & Storage; and Investment in Sunoco LP / Investment in USAC. ET issues Schedule K-1s (not 1099-DIVs) and pays cash distributions (not dividends); it eliminated incentive distribution rights (IDRs) and internalized the general partner in the October 2018 ETE/ETP simplification, so there is no GP/IDR take today. FY2025 revenue was $85,536M (S1: SEC XBRL companyconcept CIK 0001276187) with GAAP net income attributable to partners of $4,433M and record non-GAAP Adjusted EBITDA of ~$16.0B (FY24 $15.5B); distributable cash flow (DCF) attributable to partners was $8.2B (FY24 $8.4B). GAAP per-unit EPS is structurally non-informational for an MLP and is not exposed under standard XBRL EPS tags; the business is underwritten on Adjusted EBITDA and DCF. ~90% of cash flow is fee-based. The 2024-2026 narrative is a raised FY26 Adjusted EBITDA guide ($18.2-18.6B), a contracted natural-gas-for-power / data-center demand pull (a 900,000 Mcf/d Oracle commitment; three Oklahoma power plants), Permian/NGL expansion (Hugh Brinson ~1.5 Bcf/d Q4'26; Bayou Bridge Q1'27; Desert Southwest 2.3 Bcf/d 2029), and deleveraging toward the 4.0-4.5x target. Lake Charles LNG development is suspended. The fleet was scaled by the Crestwood (2023), WTG Midstream, and Lotus Midstream acquisitions, characterized as substantially integrated. A favorable DAPL/Greenpeace ruling finalized a ~$345M award to ET (as plaintiff) in February 2026.",
+  "products": [
+   {
+    "name": "NGL & Refined Products",
+    "description": "NGL transportation, fractionation (Mont Belvieu), storage, and export (Nederland/Marcus Hook); refined products pipelines. Record NGL fractionation and export volumes; Netherlands ethane contracts extended to 2041. ~26% of segment Adjusted EBITDA.",
+    "target_customers": "Producers, petrochemical, international NGL buyers",
+    "pricing_model": "Fee-based transport/frac/storage + export terminalling",
+    "revenue_contribution_pct": 32.0,
+    "competitive_position": "Top-tier US NGL infrastructure + export footprint",
+    "source_citation": {
+     "s_level": "S2",
+     "source_type": "8-K",
+     "ref": "ET Q4'25 / Q1'26 segment Adj EBITDA disclosure"
+    }
+   },
+   {
+    "name": "Natural Gas Pipelines (Interstate + Intrastate Transportation & Storage)",
+    "description": "Interstate and intrastate natural gas transportation and storage; the demand-pull conduit for data-center / power gas (Oracle 900,000 Mcf/d; Oklahoma plants; Hugh Brinson ~1.5 Bcf/d Q4'26; Desert Southwest 2.3 Bcf/d 2029). ~20% of segment Adjusted EBITDA.",
+    "target_customers": "Utilities, LDCs, power generators, data centers, producers",
+    "pricing_model": "Fee-based firm transport + storage; reservation charges",
+    "revenue_contribution_pct": 18.0,
+    "competitive_position": "Largest intrastate Texas gas network + growing interstate demand-pull",
+    "source_citation": {
+     "s_level": "S3",
+     "source_type": "Other",
+     "ref": "ET Q4'25 + Q1'26 calls (Oracle, Hugh Brinson, Desert SW)"
+    }
+   },
+   {
+    "name": "Crude Oil",
+    "description": "Crude gathering, transportation, terminalling, and acquisition/marketing; Permian-to-Gulf takeaway; Bayou Bridge expansion ~600 kbd Q1'27. ~18% of segment Adjusted EBITDA.",
+    "target_customers": "Producers, refiners, exporters",
+    "pricing_model": "Fee-based transport/terminalling + marketing margin",
+    "revenue_contribution_pct": 33.0,
+    "competitive_position": "Major Permian crude takeaway + export",
+    "source_citation": {
+     "s_level": "S2",
+     "source_type": "8-K",
+     "ref": "ET Q1'26 segment Adj EBITDA $869M"
+    }
+   },
+   {
+    "name": "Midstream (gathering & processing)",
+    "description": "Natural gas gathering and processing, concentrated in the Permian; scaled by WTG / Crestwood / Lotus. Mustang Draw 1 (275 MMcf/d) commissioning. ~20% of segment Adjusted EBITDA.",
+    "target_customers": "Upstream producers",
+    "pricing_model": "Fee-based gathering & processing (some POP/keep-whole)",
+    "revenue_contribution_pct": 14.0,
+    "competitive_position": "Leading Permian G&P footprint post-WTG/Lotus",
+    "source_citation": {
+     "s_level": "S2",
+     "source_type": "8-K",
+     "ref": "ET Q1'26 Midstream Adj EBITDA $887M"
+    }
+   },
+   {
+    "name": "Investment in Sunoco LP (SUN) + USA Compression (USAC)",
+    "description": "Equity-method/consolidated interests in publicly traded affiliates Sunoco LP (fuel distribution/terminals) and USA Compression Partners (contract compression). Provides incremental fee-based cash and IDR/GP economics at the affiliate level.",
+    "target_customers": "Fuel distributors, producers (compression)",
+    "pricing_model": "Distributions + GP/IDR economics + consolidation",
+    "revenue_contribution_pct": 3.0,
+    "competitive_position": "Affiliate optionality + cash",
+    "source_citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "ET FY25 10-K segment note"
+    }
+   }
+  ],
+  "customers_gtm": "ET sells fee-based transportation, gathering, processing, fractionation, storage, terminalling, and export capacity to producers, utilities, LDCs, power generators, petrochemical companies, refiners, and increasingly data-center / power-demand counterparties (e.g., a 900,000 Mcf/d Oracle commitment). ~90% of cash flow is fee-based, insulating EBITDA from commodity price (though volumes carry indirect commodity sensitivity). The largest single growth vector is natural-gas-for-power demand into the Permian-to-Gulf-to-Southeast corridor.",
+  "industry": {
+   "overview": "US midstream is in a demand-led upcycle: data-center / AI power load, LNG feedgas growth, Permian associated-gas takeaway needs, and NGL export records are pulling new long-haul gas and NGL infrastructure, while interconnection and permitting constrain supply response. Midstream MLPs (ET, EPD, MPLX, WMB, KMI, OKE, ENB) are largely fee-based and have de-risked balance sheets versus the 2015-2020 period; the cohort trades ~8-11x forward EV/EBITDA with ~6-8% yields. ET sits at the cheap end (~7.4x) versus EPD (~10x) despite faster near-term EBITDA growth, reflecting higher leverage, a more acquisitive history, and K-1/UBTI structural friction. The secular question is whether the natural-gas-for-power demand pull (data centers, electrification, LNG) sustains the volume and contracting regime that current EBITDA growth assumes.",
+   "tam": {
+    "current_year": 2026,
+    "current_tam_usd_b": 250.0,
+    "projected_year": 2030,
+    "projected_tam_usd_b": 320.0,
+    "cagr_pct": 6.4,
+    "source": {
+     "s_level": "S5",
+     "source_type": "Other",
+     "ref": "US midstream fee pool (gas/NGL/crude transport+storage+export), data-center power-gas demand uplift; modeled"
+    }
+   }
+  },
+  "competitive_landscape": {
+   "peers": [
+    {
+     "name": "Enterprise Products Partners",
+     "ticker": "EPD",
+     "market_cap_usd_b": 70.0,
+     "market_share_pct": 14.0,
+     "key_differentiator": "Premier NGL franchise; lower leverage (~3.0x); ~10x EV/EBITDA premium multiple; A-rated balance sheet",
+     "revenue_growth_pct": 4.0,
+     "ebitda_margin_pct": 22.0
+    },
+    {
+     "name": "MPLX LP",
+     "ticker": "MPLX",
+     "market_cap_usd_b": 52.0,
+     "market_share_pct": 9.0,
+     "key_differentiator": "Marathon-affiliated; high distribution; gas-gathering + logistics",
+     "revenue_growth_pct": 6.0,
+     "ebitda_margin_pct": 50.0
+    },
+    {
+     "name": "Williams Companies",
+     "ticker": "WMB",
+     "market_cap_usd_b": 70.0,
+     "market_share_pct": 11.0,
+     "key_differentiator": "C-corp (no K-1); Transco gas backbone; data-center gas exposure; ~11x EV/EBITDA",
+     "revenue_growth_pct": 7.0,
+     "ebitda_margin_pct": 55.0
+    },
+    {
+     "name": "Kinder Morgan",
+     "ticker": "KMI",
+     "market_cap_usd_b": 62.0,
+     "market_share_pct": 10.0,
+     "key_differentiator": "C-corp; largest US gas transport network; LNG feedgas",
+     "revenue_growth_pct": 5.0,
+     "ebitda_margin_pct": 45.0
+    }
+   ],
+   "positioning_narrative": "ET is the value/diversified leg of the midstream cohort: cheapest large-cap on EV/EBITDA, highest near-term EBITDA growth, covered ~7.1% yield, IDR-free, and uniquely aligned via founder ownership. EPD is the quality/low-leverage leg (A-rated, ~3x, premium ~10x multiple); WMB/KMI are the C-corp gas-backbone names that screen better for K-1-averse institutions and command a multiple premium. The 12-month debate is whether ET's discount to EPD/WMB narrows as it delevers below 4.0x and the contracted data-center backlog converts (our bull/strong_bull), or whether the discount persists on top-of-range leverage and structural K-1 friction (our base / load-bearing variance)."
+  }
+ },
+ "management": [
+  {
+   "name": "Kelcy Warren",
+   "title": "Executive Chairman & Co-Founder",
+   "tenure_years": 30,
+   "bio": "Co-founder and Executive Chairman; ~8.8% (~301.5M units) owner and a persistent net buyer (24 buys / 0 sells over 5y; 2M units in Nov 2025). Architect of ET's acquisition-led growth (Crestwood, WTG, Lotus, Sunoco) and the 2018 IDR-elimination simplification.",
+   "background": "Pipelines, midstream M&A, finance",
+   "source": {
+    "s_level": "S2",
+    "source_type": "Form 4",
+    "ref": "ET Form 4 history + DEF 14A"
+   }
+  },
+  {
+   "name": "Tom Long",
+   "title": "Co-Chief Executive Officer",
+   "tenure_years": 4,
+   "bio": "Co-CEO (with Mackie McCrea); long ET/ETP finance and operations tenure; oversees capital allocation, the 4.0-4.5x leverage framework, distribution growth (3-5%/yr), and the growth-capex program ($5.5-5.9B FY26).",
+   "background": "Corporate finance, midstream operations",
+   "source": {
+    "s_level": "S2",
+    "source_type": "DEF 14A",
+    "ref": "ET 2026 DEF 14A"
+   }
+  }
+ ],
+ "financials": {
+  "historical": [
+   {
+    "period": "FY23A",
+    "period_type": "historical",
+    "revenue_usd_m": 78586,
+    "revenue_growth_pct": -5.0,
+    "gross_profit_usd_m": 13892,
+    "gross_margin_pct": 17.7,
+    "ebit_usd_m": 8200,
+    "ebit_margin_pct": 10.4,
+    "net_income_gaap_usd_m": 3940,
+    "eps_diluted_gaap_usd": 1.16,
+    "diluted_shares_m": 3300.0,
+    "fcf_usd_m": 4200,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 110,
+    "buyback_usd_m": 300,
+    "buyback_offsets_sbc_ratio": 2.7
+   },
+   {
+    "period": "FY24A",
+    "period_type": "historical",
+    "revenue_usd_m": 82671,
+    "revenue_growth_pct": 5.2,
+    "gross_profit_usd_m": 14881,
+    "gross_margin_pct": 18.0,
+    "ebit_usd_m": 8900,
+    "ebit_margin_pct": 10.8,
+    "net_income_gaap_usd_m": 3840,
+    "eps_diluted_gaap_usd": 1.12,
+    "diluted_shares_m": 3420.0,
+    "fcf_usd_m": 4500,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 120,
+    "buyback_usd_m": 400,
+    "buyback_offsets_sbc_ratio": 3.3
+   },
+   {
+    "period": "FY25A",
+    "period_type": "historical",
+    "revenue_usd_m": 85536,
+    "revenue_growth_pct": 3.5,
+    "gross_profit_usd_m": 15397,
+    "gross_margin_pct": 18.0,
+    "ebit_usd_m": 9400,
+    "ebit_margin_pct": 11.0,
+    "net_income_gaap_usd_m": 4433,
+    "eps_diluted_gaap_usd": 1.2,
+    "diluted_shares_m": 3441.0,
+    "fcf_usd_m": 4700,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 130,
+    "buyback_usd_m": 400,
+    "buyback_offsets_sbc_ratio": 3.1
+   }
+  ],
+  "ltm": {
+   "period": "LTM_Q1FY26",
+   "period_type": "ltm",
+   "revenue_usd_m": 92290,
+   "revenue_growth_pct": 7.5,
+   "gross_profit_usd_m": 16612,
+   "gross_margin_pct": 18.0,
+   "ebit_usd_m": 9900,
+   "ebit_margin_pct": 10.7,
+   "net_income_gaap_usd_m": 4655,
+   "eps_diluted_gaap_usd": 1.24,
+   "diluted_shares_m": 3441.0,
+   "fcf_usd_m": 4900,
+   "fcf_includes_sbc_addback": false,
+   "sbc_usd_m": 135,
+   "buyback_usd_m": 400,
+   "buyback_offsets_sbc_ratio": 3.0,
+   "segments": [
+    {
+     "name": "NGL & Refined Products",
+     "revenue_usd_m": 30000,
+     "gm_pct": 16.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled segment cash-margin proxy; ET reports segment Adjusted EBITDA, not GM (midstream gm-taxonomy adaptation)"
+     }
+    },
+    {
+     "name": "Midstream (G&P)",
+     "revenue_usd_m": 12000,
+     "gm_pct": 22.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled: Permian G&P fee-margin proxy"
+     }
+    },
+    {
+     "name": "Crude Oil",
+     "revenue_usd_m": 28000,
+     "gm_pct": 12.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled: crude transport + marketing margin proxy (lowest, marketing-heavy)"
+     }
+    },
+    {
+     "name": "Natural Gas Pipelines (Inter+Intra)",
+     "revenue_usd_m": 15000,
+     "gm_pct": 30.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled: firm-transport + storage fee-margin proxy (highest, demand-pull)"
+     }
+    }
+   ]
+  },
+  "projected": [
+   {
+    "period": "FY26E",
+    "period_type": "projected",
+    "revenue_usd_m": 90000,
+    "revenue_growth_pct": 5.2,
+    "gross_profit_usd_m": 16650,
+    "gross_margin_pct": 18.5,
+    "ebit_usd_m": 10400,
+    "ebit_margin_pct": 11.6,
+    "net_income_gaap_usd_m": 5000,
+    "eps_diluted_gaap_usd": 1.45,
+    "diluted_shares_m": 3445.0,
+    "fcf_usd_m": 5200,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 140,
+    "buyback_usd_m": 400
+   },
+   {
+    "period": "FY27E",
+    "period_type": "projected",
+    "revenue_usd_m": 94000,
+    "revenue_growth_pct": 4.4,
+    "gross_profit_usd_m": 17860,
+    "gross_margin_pct": 19.0,
+    "ebit_usd_m": 11200,
+    "ebit_margin_pct": 11.9,
+    "net_income_gaap_usd_m": 5400,
+    "eps_diluted_gaap_usd": 1.55,
+    "diluted_shares_m": 3450.0,
+    "fcf_usd_m": 5500,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 145,
+    "buyback_usd_m": 400
+   }
+  ],
+  "revenue_by_product": [
+   {
+    "product": "NGL & Refined Products",
+    "by_period": {
+     "FY24A": 26000,
+     "FY25A": 27000,
+     "FY26E": 28500,
+     "FY27E": 30000
+    }
+   },
+   {
+    "product": "Crude Oil",
+    "by_period": {
+     "FY24A": 27000,
+     "FY25A": 28000,
+     "FY26E": 29500,
+     "FY27E": 31000
+    }
+   },
+   {
+    "product": "Natural Gas Pipelines (Inter+Intra)",
+    "by_period": {
+     "FY24A": 13500,
+     "FY25A": 15000,
+     "FY26E": 16500,
+     "FY27E": 18000
+    }
+   },
+   {
+    "product": "Midstream (G&P)",
+    "by_period": {
+     "FY24A": 11500,
+     "FY25A": 12000,
+     "FY26E": 12500,
+     "FY27E": 12500
+    }
+   }
+  ],
+  "revenue_by_geography": [
+   {
+    "region": "Permian / Texas / Gulf Coast",
+    "by_period": {
+     "FY24A": 52000,
+     "FY25A": 54000,
+     "FY26E": 57000,
+     "FY27E": 60000
+    }
+   },
+   {
+    "region": "Midcontinent / Northeast / other US",
+    "by_period": {
+     "FY24A": 27000,
+     "FY25A": 28000,
+     "FY26E": 29500,
+     "FY27E": 31000
+    }
+   },
+   {
+    "region": "Exports (NGL/crude/refined)",
+    "by_period": {
+     "FY24A": 3671,
+     "FY25A": 3536,
+     "FY26E": 3500,
+     "FY27E": 3000
+    }
+   }
+  ]
+ },
+ "gm_taxonomy": {
+  "entries": [
+   {
+    "type": "T1_consolidated",
+    "name": "Consolidated cash-margin proxy LTM-Q1FY26 (midstream analog: revenue less cost of products sold + direct operating cost)",
+    "value_range": "17.5-18.5%",
+    "source": {
+     "s_level": "S5",
+     "source_type": "Other",
+     "ref": "Modeled LTM weighted reconciliation; ET reports segment Adjusted EBITDA, not GM (midstream gm-taxonomy adaptation, analogous to NIM for banks / energy-margin for IPPs)"
+    }
+   },
+   {
+    "type": "T2_segment",
+    "name": "Segment cash margin: Natural Gas Pipelines (firm transport+storage) highest ~30%; Midstream G&P ~22%; NGL & Refined ~16%; Crude (marketing-heavy) ~12%",
+    "value_range": "12-30%",
+    "source": {
+     "s_level": "S5",
+     "source_type": "Other",
+     "ref": "Modeled segment fee-margin allocation; weight-reconciles to consolidated 18.0% within rounding"
+    }
+   },
+   {
+    "type": "T3_sub_segment",
+    "name": "Sub-segment: fee-based firm transport (~90% of cash flow, high-margin) vs commodity-sensitive marketing/POP volumes (lower, variable)",
+    "value_range": "Fee-based ~25-35% / commodity-sensitive ~5-12%",
+    "source": {
+     "s_level": "S3",
+     "source_type": "Other",
+     "ref": "ET disclosure: ~90% fee-based cash flow"
+    }
+   },
+   {
+    "type": "T4_analyst_modeled",
+    "name": "FY27E blended segment cash margin with Hugh Brinson + Desert SW + Oracle volumes in the mix",
+    "value_range": "18.5-19.5%",
+    "source": {
+     "s_level": "S4",
+     "source_type": "Other",
+     "ref": "Consensus FY27E margin proxy (modeled from guidance trajectory)"
+    }
+   },
+   {
+    "type": "T5_marginal",
+    "name": "Marginal cash margin on incremental data-center / Permian volumes (the load-bearing growth lever)",
+    "value_range": "Fee-based incremental ~30-40% on firm transport; the EBITDA swing in bull vs bear is the volume ramp timing, not commodity price",
+    "source": {
+     "s_level": "S3",
+     "source_type": "Other",
+     "ref": "ET Q4'25 + Q1'26 calls (Oracle 900k Mcf/d; Hugh Brinson 1.5 Bcf/d) \u2014 ~90% fee-based"
+    }
+   }
+  ],
+  "reconciliation_consolidated_vs_implied_bp": 0.0
+ },
+ "scenarios_ref": "outputs/ET_scenarios.json",
+ "valuation": {
+  "methods": [
+   {
+    "method": "Trading_comps",
+    "implied_price_usd": 21.45,
+    "price_range_low_usd": 18.0,
+    "price_range_high_usd": 25.5,
+    "weight_pct": 25,
+    "weighted_value_usd": 5.36,
+    "key_assumptions": {
+     "multiple_basis": "7.25x FY27E EV/EBITDA $19.7B (vs current ~7.4x forward; EPD ~10x)",
+     "ev_2027e_usd_b": 142.8,
+     "less_net_debt_usd_b": 69.0,
+     "implied_equity_usd_b": 73.8,
+     "diluted_units_m": 3441.0,
+     "peer_set": "EPD ~10x / WMB ~11x / KMI ~10.5x / MPLX ~9x"
+    },
+    "narrative": "Primary midstream method per D8 (EV/EBITDA, leveraged). 7.25x FY27E EBITDA $19.7B -> EV $142.8B less net debt $69.0B = $73.8B / 3,441M units = ~$21.45. The base deliberately holds ~the current forward multiple (does NOT close the EPD gap), which is the load-bearing variance vs the Street's EPD-parity re-rate.",
+    "input_attribution": {
+     "verifiable": "the earnings/DCF-per-unit base (buildable bottom-up; tends to converge)",
+     "assumed": "the multiple \u2014 the contested judgment where the bull/bear gap lives",
+     "load_bearing_input": "assumed"
+    }
+   },
+   {
+    "method": "DCF",
+    "implied_price_usd": 20.5,
+    "price_range_low_usd": 17.5,
+    "price_range_high_usd": 24.0,
+    "weight_pct": 40,
+    "weighted_value_usd": 8.2,
+    "key_assumptions": {
+     "wacc_pct": 7.52,
+     "terminal_growth_pct": 2.25,
+     "explicit_forecast_years": 10,
+     "exit_check_ev_ebitda": 7.5,
+     "mlp_note": "MLP pass-through: no entity-level interest tax shield, so after-tax Kd = pre-tax Kd"
+    },
+    "narrative": "10y distributable-cash-flow DCF; WACC 7.52% (CoE 9.16% at beta 1.10 + pre-tax = after-tax Kd 6.0% given MLP pass-through, no interest tax shield); g 2.25% (US nominal-GDP-aligned). Base ~$20.50, near spot \u2014 disciplines the value and reflects that 12-month optionality (backlog conversion, re-rate) lives in the comps/scenario block, not a contracted DCF.",
+    "input_attribution": {
+     "verifiable": "the normalized cash-flow base (buildable bottom-up)",
+     "assumed": "WACC / terminal growth / normalized margin (judgment)",
+     "load_bearing_input": "assumed"
+    }
+   },
+   {
+    "method": "SOTP",
+    "implied_price_usd": 21.0,
+    "price_range_low_usd": 18.0,
+    "price_range_high_usd": 25.0,
+    "weight_pct": 35,
+    "weighted_value_usd": 7.35,
+    "key_assumptions": {
+     "NGL_RefinedProducts_segment": {
+      "revenue": 30000,
+      "segment_gp": 6000,
+      "segment_op": 4200,
+      "segment_ni": 3200,
+      "segment_multiple": "EV/EBITDA 9.0x (NGL franchise + export)",
+      "implied_value_usd_b": 39.6
+     },
+     "NatGasPipelines_segment": {
+      "revenue": 9000,
+      "segment_gp": 4200,
+      "segment_op": 3400,
+      "segment_ni": 2600,
+      "segment_multiple": "EV/EBITDA 10.0x (firm transport + demand-pull)",
+      "implied_value_usd_b": 38.0
+     },
+     "Crude_segment": {
+      "revenue": 28000,
+      "segment_gp": 3300,
+      "segment_op": 2400,
+      "segment_ni": 1800,
+      "segment_multiple": "EV/EBITDA 7.5x (transport + marketing)",
+      "implied_value_usd_b": 24.75
+     },
+     "Midstream_segment": {
+      "revenue": 12000,
+      "segment_gp": 3300,
+      "segment_op": 2500,
+      "segment_ni": 1900,
+      "segment_multiple": "EV/EBITDA 8.0x (Permian G&P)",
+      "implied_value_usd_b": 26.4
+     },
+     "Investment_SUN_USAC_segment": {
+      "revenue": 4000,
+      "segment_gp": 1500,
+      "segment_op": 1100,
+      "segment_ni": 800,
+      "segment_multiple": "equity-method ~8.0x",
+      "implied_value_usd_b": 12.0
+     }
+    },
+    "narrative": "Sum-of-parts: NGL & Refined 9.0x, Natural Gas Pipelines 10.0x (the demand-pull crown jewel), Midstream 8.0x, Crude 7.5x, SUN/USAC equity-method ~8.0x; aggregate EV ~$140.75B less net debt $69.0B = ~$71.8B / 3,441M = ~$20.9 -> ~$21.0. Monotonicity NI<=OP<=GP<=Revenue holds per G3. Confirms the segments are worth roughly the whole at current prices \u2014 i.e., the conglomerate is fairly valued, with the demand-pull gas segment carrying the embedded re-rate optionality.",
+    "input_attribution": {
+     "verifiable": "segment book/earnings (reported)",
+     "assumed": "the segment multiples (judgment)",
+     "load_bearing_input": "assumed"
+    }
+   },
+   {
+    "method": "Multi_multiple_bear",
+    "implied_price_usd": 15.0,
+    "price_range_low_usd": 12.0,
+    "price_range_high_usd": 18.0,
+    "weight_pct": 0,
+    "weighted_value_usd": 0.0,
+    "key_assumptions": {
+     "bear_2027_ebitda_usd_b": 17.5,
+     "trough_multiple": "6.0x EV/EBITDA (MLP downcycle trough)",
+     "bear_yield_floor": "distribution yield widening to ~8.5-9% caps downside"
+    },
+    "narrative": "Bear floor reference: a 2027 commodity downcycle trims EBITDA to ~$17.5B x 6.0x = EV ~$105B less net debt $69B = ~$36B / 3,441M = ~$10.5 in a severe case; a ~8.5-9% distribution-yield floor on a held $1.35 distribution caps the modal trough near ~$15. Not weighted; downside discipline anchoring strong_bear $14.70.",
+    "input_attribution": {
+     "verifiable": "trough/down-leg earnings history (reported)",
+     "assumed": "the trough multiple (judgment)",
+     "load_bearing_input": "assumed"
+    }
+   }
+  ],
+  "dcf_components": {
+   "wacc_pct": 7.52,
+   "wacc_components": {
+    "risk_free_rate_pct": 4.4,
+    "risk_free_source_date": "2026-06-08",
+    "equity_risk_premium_pct": 4.33,
+    "beta": 1.1,
+    "beta_basis": "5y_monthly_vs_SP500 (midstream levered; aggregator reports ~0.54-0.85, lifted to 1.10 to reflect MLP leverage + commodity-volume beta)",
+    "cost_of_equity_pct": 9.16,
+    "pre_tax_cost_of_debt_pct": 6.0,
+    "tax_rate_pct": 0.0,
+    "after_tax_cost_of_debt_pct": 6.0,
+    "equity_weight_pct": 48,
+    "debt_weight_pct": 52
+   },
+   "terminal_growth_pct": 2.25,
+   "terminal_method": "perpetuity_growth",
+   "explicit_forecast_years": 10,
+   "implied_share_price_usd": 20.5
+  },
+  "weighted_price_target_usd": 20.88,
+  "football_field_range_low_usd": 10.5,
+  "football_field_range_high_usd": 29.93,
+  "reconciliation_narrative": "DE-BIASED reconcile: DCF $20.50, SOTP $21.00, comps $21.45 -> independent weighted fair value ~$20.9, +9.5% vs spot $19.06. Anchoring the base here (vs v1 spot-anchored $21.45) softened to a MARGINAL Buy at the Buy/Hold boundary; ET's DCF was only modestly above spot, so the Buy was partly multiple/skew-carried. Base PT $20.88 (DCF/unit $2.86 x P/DCF 7.3x).",
+  "revision_bridge": {
+   "prior_price_target_usd": 23.5,
+   "new_price_target_usd": 20.88,
+   "prior_basis": "consensus PT / current-multiple regime (spot-anchored proxy)",
+   "new_basis": "independent fair-value-anchored 12-month base (the de-bias)",
+   "components": [
+    {
+     "driver": "estimate",
+     "delta_usd": 0.0,
+     "rationale": "Base EPS/DCF-per-unit unchanged \u2014 the de-bias changed NO estimates (base_eps held fixed so bridges reconcile); public inputs identical before/after."
+    },
+    {
+     "driver": "methodology",
+     "delta_usd": -1.57,
+     "rationale": "Re-anchored the base from the consensus-PT/current-multiple regime to an independent fair-value blend \u2014 the de-bias itself."
+    },
+    {
+     "driver": "multiple",
+     "delta_usd": -1.05,
+     "rationale": "Re-rated the base multiple toward the through-cycle / private-market band consistent with independent fair value (~$21)."
+    }
+   ],
+   "judgment_share_pct": 100.0,
+   "judgment_flag": "100%% of this revision is methodology + multiple (judgment), 0%% new estimates \u2014 by design a deliberate anchor CORRECTION (de-bias), not new information; flagged per Lesson 2. Public inputs only (consensus PT, SEC/XBRL); any entitlement-restricted cross-check is a personal, non-persisted localized optimization outside the framework.",
+   "public_inputs_only": true
+  },
+  "load_bearing_input_note": "The disagreement lives in the MULTIPLE (assumed), not the earnings/DCF base (verifiable, ~converges). Surface and re-derive the multiple; never adopt it from price or another analyst's conclusion (Lessons 2-3)."
+ },
+ "risks": [
+  {
+   "category": "industry_market",
+   "title": "Commodity/volume downcycle stalling Permian/NGL growth",
+   "description": "Though ~90% fee-based, volumes carry indirect commodity sensitivity. An oil sub-$55 / weak-NGL-frac-spread downcycle caps Permian gathering and NGL volumes and slows the data-center/Permian backlog ramp, trimming FY27E EBITDA toward ~$17.5B (vs ~$19.7B base).",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "material",
+   "mitigants": "~90% fee-based; firm transport reservation charges; diversified across gas/NGL/crude; demand-pull (data centers) is structural"
+  },
+  {
+   "category": "financial",
+   "title": "Leverage at top of target + no MLP interest tax shield (the load-bearing risk)",
+   "description": "Net leverage ~4.4x (S1: Q1'26 10-Q debt $69,317M) sits at the TOP of the 4.0-4.5x target. As an MLP pass-through ET earns no entity-level interest tax shield, so rising rates bite distributable cash flow directly. The Street's re-rate to EPD parity is gated on a sub-4.0x print that may slip.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "material",
+   "mitigants": "DCF coverage ~1.7-1.8x; ~90% fee-based; deleveraging trajectory; staggered maturities; investment-grade"
+  },
+  {
+   "category": "regulatory",
+   "title": "Pipeline permitting / DAPL operational overhang",
+   "description": "Long-haul gas projects (Hugh Brinson, Desert Southwest) carry FERC/state permitting risk; the Dakota Access (DAPL) easement and environmental-review history is a recurring operational/permitting overhang despite the favorable Greenpeace ruling.",
+   "probability_qualitative": "low",
+   "impact_qualitative": "moderate",
+   "mitigants": "Diversified asset base; DAPL is a small share of EBITDA; favorable 2026 Greenpeace ruling (~$345M award to ET); deregulatory permitting backdrop"
+  },
+  {
+   "category": "company_specific",
+   "title": "K-1 / MLP structural discount & governance concentration",
+   "description": "ET issues K-1s (UBTI for tax-exempt holders, state-filing friction, ordinary-income recapture on sale), excluding it from many index funds / institutions and underpinning a persistent discount to C-corp midstream (WMB/KMI). Founder/chairman Kelcy Warren retains outsized influence (~8.8% + chairman) and a historically aggressive M&A/litigation posture; unitholders have limited voting rights.",
+   "probability_qualitative": "high",
+   "impact_qualitative": "minor",
+   "mitigants": "IDRs eliminated (2018); aligned insider (Warren a serial buyer, 0 sells 5y); the discount is the source of the value opportunity"
+  },
+  {
+   "category": "financial",
+   "title": "Acquisition treadmill / integration & ROIC",
+   "description": "ET's growth has been acquisition-led (Crestwood, WTG, Lotus, Sunoco), lifting gross debt to ~$71B. Integration is characterized as substantially complete, but acquisition ROIC and a future large deal that re-levers are watch items.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "moderate",
+   "mitigants": "Integration substantially complete; DCF coverage funds growth + distribution; leverage trending into target"
+  },
+  {
+   "category": "macroeconomic",
+   "title": "Rate / recession sensitivity of a high-yield, high-leverage name",
+   "description": "As a ~7.1%-yield, ~4.4x-levered security, ET is sensitive to the long end of the curve and to recession-driven energy-volume declines; a Fed-funds +200bp move or recession compresses the multiple and the distribution-yield floor.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "moderate",
+   "mitigants": "Fee-based cash flow; covered distribution; yield floor caps downside; low beta historically"
+  },
+  {
+   "category": "company_specific",
+   "title": "Distribution-coverage / growth-capex execution",
+   "description": "The $5.5-5.9B FY26 growth-capex program must convert to fee-based EBITDA on schedule to hold ~1.7-1.8x coverage and 3-5% distribution growth; project slippage (e.g., Hugh Brinson past Q4'26) defers accretion.",
+   "probability_qualitative": "low",
+   "impact_qualitative": "moderate",
+   "mitigants": "~75% mainline construction complete on Hugh Brinson at Q4'25; contracted/fee-based backlog; coverage buffer"
+  }
+ ],
+ "catalysts": [
+  {
+   "title": "ET Q2 FY26 earnings",
+   "expected_date": "2026-08-05",
+   "type": "earnings_print",
+   "expected_impact_pct": 5.0,
+   "what_would_reverse_thesis": "FY26 Adj EBITDA guide cut below $18.2B OR DCF coverage <1.5x triggers a downgrade toward Hold; a further raise + sub-4.3x leverage supports the bull.",
+   "anchor_ref": "A2"
+  },
+  {
+   "title": "Hugh Brinson Pipeline Phase 1 in service (~1.5 Bcf/d)",
+   "expected_date": "2026-12-15",
+   "type": "product_launch",
+   "expected_impact_pct": 4.0,
+   "what_would_reverse_thesis": "On-time Q4'26 in-service adds contracted fee EBITDA; slippage past Q1'27 defers accretion and pressures the base.",
+   "anchor_ref": "A6"
+  },
+  {
+   "title": "New long-term data-center / power gas commitment",
+   "expected_date": "2026-12-31",
+   "type": "guidance_update",
+   "expected_impact_pct": 6.0,
+   "what_would_reverse_thesis": "A new multi-year >0.5 Bcf/d data-center gas contract is the dominant bullish reverse trigger; continued silence keeps the optionality un-priced.",
+   "anchor_ref": "A6"
+  },
+  {
+   "title": "Net leverage prints <4.0x",
+   "expected_date": "2026-11-15",
+   "type": "guidance_update",
+   "expected_impact_pct": 5.0,
+   "what_would_reverse_thesis": "A sub-4.0x net-leverage print (S1: 10-Q) is the key trigger for the EPD-parity re-rate the Street anticipates and would push us toward Strong Buy.",
+   "anchor_ref": "A4"
+  },
+  {
+   "title": "DAPL / Greenpeace appeal resolution",
+   "expected_date": "2026-12-31",
+   "type": "litigation_milestone",
+   "expected_impact_pct": 2.0,
+   "what_would_reverse_thesis": "Confirmation of the ~$345M award (ET as plaintiff) is a small positive; an adverse appeal or DAPL operational disruption is the tail.",
+   "anchor_ref": "A1"
+  },
+  {
+   "title": "Bayou Bridge expansion (~600 kbd) in service",
+   "expected_date": "2027-03-31",
+   "type": "product_launch",
+   "expected_impact_pct": 2.0,
+   "what_would_reverse_thesis": "On-time Q1'27 supports NGL/crude volume growth; slippage defers accretion.",
+   "anchor_ref": "A6"
+  }
+ ],
+ "what_would_reverse": [
+  {
+   "direction": "reverse_neutral_to_bull",
+   "numerical_threshold": "Net leverage prints <4.0x AND a new >0.5 Bcf/d long-term data-center gas contract signs",
+   "unit": "x leverage + Bcf/d",
+   "observable_via": "ET 10-Q (net debt / Adj EBITDA) + 8-K / IR",
+   "expected_observation_date": "2026-11-15"
+  },
+  {
+   "direction": "reverse_neutral_to_bull",
+   "numerical_threshold": "FY26 Adj EBITDA guide raised again above $18.6B OR FY27E consensus EBITDA > $20B",
+   "unit": "$B EBITDA",
+   "observable_via": "ET Q2/Q3 FY26 earnings + consensus refresh",
+   "expected_observation_date": "2026-08-05"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "FY26 Adjusted EBITDA guide cut below $18.2B (the low end of the raised range)",
+   "unit": "$B EBITDA",
+   "observable_via": "ET Q2/Q3 FY26 earnings + 8-K",
+   "expected_observation_date": "2026-08-05"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "DCF coverage < 1.5x in any quarter (vs ~1.7-1.8x baseline)",
+   "unit": "x coverage",
+   "observable_via": "ET 10-Q / earnings release DCF reconciliation",
+   "expected_observation_date": "2026-08-05"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "Net leverage rises above 4.5x (above the target band), e.g. on a >$5B re-levering acquisition",
+   "unit": "x leverage",
+   "observable_via": "ET 10-Q + 8-K Item 1.01/2.01",
+   "expected_observation_date": "2026-11-15"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "WTI crude settles below $55/bbl sustained OR Mont Belvieu NGL frac spreads compress >25%",
+   "unit": "$/bbl + % spread",
+   "observable_via": "NYMEX/ICE forward curves + ET volume disclosures",
+   "expected_observation_date": "2027-03-31"
+  },
+  {
+   "direction": "reverse_bear_to_bull",
+   "numerical_threshold": "Hugh Brinson + Desert Southwest fully contracted at >$1.0/Dth firm and in service on schedule",
+   "unit": "$/Dth + in-service date",
+   "observable_via": "ET 8-K / IR project updates",
+   "expected_observation_date": "2026-12-15"
+  }
+ ],
+ "tail_risks": [
+  {
+   "event_class": "commodity_shock",
+   "name": "Energy downcycle (WTI <$55, weak NGL spreads) trimming Permian/NGL volumes",
+   "probability_shift": {
+    "strong_bear_delta_pp": 5,
+    "bear_delta_pp": 5,
+    "base_delta_pp": -8,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": -1
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -15,
+    "worst_case_multiple_compression_pct": -18,
+    "worst_case_price_pct": -25
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "Fed_rate_shock",
+   "name": "Fed-funds / long-end +200bp re-pricing a 7.1%-yield, 4.4x-levered MLP (no interest tax shield)",
+   "probability_shift": {
+    "strong_bear_delta_pp": 4,
+    "bear_delta_pp": 4,
+    "base_delta_pp": -7,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": 0
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -8,
+    "worst_case_multiple_compression_pct": -15,
+    "worst_case_price_pct": -20
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "sector_regulatory_action",
+   "name": "Pipeline permitting reversal / DAPL operational disruption (FERC / courts)",
+   "probability_shift": {
+    "strong_bear_delta_pp": 3,
+    "bear_delta_pp": 3,
+    "base_delta_pp": -5,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": 0
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -8,
+    "worst_case_multiple_compression_pct": -10,
+    "worst_case_price_pct": -15
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "idiosyncratic",
+   "name": "Data-center / power gas demand supercycle + accelerated deleveraging (re-rate to EPD parity)",
+   "probability_shift": {
+    "strong_bear_delta_pp": -2,
+    "bear_delta_pp": -3,
+    "base_delta_pp": -5,
+    "bull_delta_pp": 5,
+    "strong_bull_delta_pp": 5
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": 0,
+    "worst_case_multiple_compression_pct": 0,
+    "worst_case_price_pct": 0
+   },
+   "upside_impact": {
+    "best_case_eps_uplift_pct": 12,
+    "best_case_multiple_expansion_pct": 25,
+    "best_case_price_pct": 40
+   },
+   "tail_direction": "bull"
+  }
+ ],
+ "forensic_flags": {
+  "asc_606_red_flags": [
+   {
+    "flag": "GAAP per-unit EPS structurally non-informational for an MLP (K-1 pass-through; NCI from SUN/USAC consolidation)",
+    "evidence": "FY25 ProfitLoss $5,708M incl NCI vs NI to partners $4,433M; per-unit EPS not exposed in standard XBRL tags. Underwrite on Adjusted EBITDA ($16.0B) and DCF ($8.2B), not GAAP EPS.",
+    "severity": "low"
+   },
+   {
+    "flag": "Acquisition-driven goodwill / intangibles from Crestwood/WTG/Lotus/Sunoco",
+    "evidence": "Acquisition-led growth lifted goodwill and gross debt (~$71B); monitor purchase-accounting and ROIC. No restatement or going-concern.",
+    "severity": "low"
+   }
+  ],
+  "asc_842_lease_pv_usd_m": 1200.0,
+  "asc_718_sbc_pct_revenue": 0.15,
+  "asc_718_sbc_pct_ocf": 1.0,
+  "non_gaap_to_gaap_delta_pct_ni_5y_avg": 260.0,
+  "non_gaap_reconciliation_present": true,
+  "fcf_definition": "OCF_minus_capex",
+  "goodwill_pct_net_assets": 30.0,
+  "auditor": "Grant Thornton LLP",
+  "auditor_change_recent": false,
+  "restatement_8k_4_02_recent": false,
+  "form_4_net_12mo_usd_m": 34.0,
+  "going_concern_qualification": false,
+  "vie_exposure": "Consolidated affiliates Sunoco LP (SUN) and USA Compression (USAC) with public minority interests (NCI); equity-method investments",
+  "pension_funded_status_pct": 100.0
+ },
+ "positioning_sentiment": {
+  "top_holders_13f": [
+   {
+    "holder": "Kelcy Warren (incl. affiliated entities)",
+    "shares_m": 301.5,
+    "pct_so": 8.8,
+    "qoq_delta_pct": 0.6
+   },
+   {
+    "holder": "Vanguard Group",
+    "shares_m": 170.0,
+    "pct_so": 4.9,
+    "qoq_delta_pct": 0.2
+   },
+   {
+    "holder": "BlackRock",
+    "shares_m": 120.0,
+    "pct_so": 3.5,
+    "qoq_delta_pct": 0.2
+   },
+   {
+    "holder": "State Street",
+    "shares_m": 70.0,
+    "pct_so": 2.0,
+    "qoq_delta_pct": 0.1
+   },
+   {
+    "holder": "Goldman Sachs Asset Mgmt",
+    "shares_m": 45.0,
+    "pct_so": 1.3,
+    "qoq_delta_pct": -0.1
+   }
+  ],
+  "short_interest_pct_float": 0.89,
+  "days_to_cover": 1.5,
+  "stock_loan_rate_bps": 30,
+  "options_skew_25d_put_minus_call": 3.0,
+  "options_implied_move_earnings_pct": 4.0,
+  "iv_rank_pct": 28,
+  "etf_passive_ownership_pct": 18.0,
+  "sell_side_distribution": {
+   "buy_pct": 87,
+   "hold_pct": 13,
+   "sell_pct": 0,
+   "pt_median_usd": 23.5,
+   "pt_low_usd": 21.0,
+   "pt_high_usd": 26.0,
+   "pt_revision_3mo_pct": 3.0
+  },
+  "activist_13d_filed": false,
+  "form_4_pattern": "insider_net_buying",
+  "index_inclusion": [
+   "Alerian MLP Index (AMZ)",
+   "Alerian MLP ETF (AMLP)",
+   "S&P MLP indices"
+  ]
+ },
+ "regulatory_status": {
+  "antitrust_open_matters": [],
+  "export_control_status": {
+   "bis_entity_list": false,
+   "ofac_sdn": false,
+   "cfius_review_open": false,
+   "itar_subject": false,
+   "verified_as_of": "2026-06-09"
+  },
+  "sector_regulator_open_matters": [
+   {
+    "agency": "FERC",
+    "matter": "Interstate gas pipeline rates/certificates; Hugh Brinson & Desert Southwest certificate/permitting",
+    "stage": "Routine / pending certificates"
+   },
+   {
+    "agency": "Courts / Army Corps",
+    "matter": "Dakota Access (DAPL) easement / environmental review history; Greenpeace defamation award (~$345M to ET) finalized 2026-02-27, appeal expected",
+    "stage": "Appeal pending (ET as awardee)"
+   },
+   {
+    "agency": "EPA / PHMSA",
+    "matter": "Pipeline safety, methane, and emissions rules across the gathering/transport fleet",
+    "stage": "Routine compliance"
+   }
+  ],
+  "tariff_exposure_pct_cogs": 1.0,
+  "tax_policy_exposures": [
+   "MLP_passthrough_no_entity_tax",
+   "K1_UBTI",
+   "IRC_section_199A_qualified_business_income",
+   "IDR_eliminated_2018"
+  ]
+ },
+ "position_sizing": {
+  "kelly_math": {
+   "expected_return_12mo": 0.154,
+   "risk_free_rate_10y_ust": 0.044,
+   "excess_return": 0.11,
+   "sigma_annual": 0.3,
+   "sigma_squared": 0.09,
+   "sharpe_12mo": 0.367,
+   "raw_kelly_fraction": 1.222,
+   "raw_kelly_pct": 122.2,
+   "conviction_multiplier": 0.25,
+   "conviction_multiplier_band": "0.20-0.35 (Buy, source-conditional; mixed S1-S3 recent anchors; low beta but high leverage; load-bearing variance is S1-evidenced but two-tailed)",
+   "conviction_adjusted_kelly_pct": 30.6,
+   "formula": "(E[R]-Rf)/sigma^2 = (0.154-0.044)/0.09 = 1.222; x0.25 conviction = 0.306 -> capped well below by mandate caps; sized at active OW within caps (Buy)"
+  },
+  "long_only_large_cap": {
+   "benchmark": "S&P 500",
+   "recommended_active_weight_bps": 40,
+   "max_weight_pct_nav": 2.0,
+   "kelly_implied_pct_nav": 30.6,
+   "conviction_adjusted_pct_nav": 1.0,
+   "mandate_constraint": "ET is not in the S&P 500 (MLP); an income/energy sleeve can hold ~1% with +40bps active tilt vs an energy benchmark; K-1 generates UBTI for tax-exempt accounts"
+  },
+  "long_only_smid": {
+   "benchmark": "Alerian MLP / energy income",
+   "recommended_active_weight_bps": 150,
+   "max_weight_pct_nav": 5.0,
+   "kelly_implied_pct_nav": 30.6,
+   "conviction_adjusted_pct_nav": 3.5,
+   "mandate_constraint": "Core overweight for MLP/energy-income mandates; cheapest large midstream with covered ~7.1% yield + growth"
+  },
+  "long_short_hedge_fund": {
+   "gross_exposure_pct_nav": 6.0,
+   "net_exposure_pct_nav": 2.5,
+   "single_name_long_cap_pct_nav": 3.5,
+   "single_name_long_cap_band_pct_nav": "0-4",
+   "single_name_short_cap_pct_nav": -2.5,
+   "kelly_implied_pct_nav": 30.6,
+   "mandate_constraint": "Express as long ET / short EPD (or WMB) on EV/EBITDA convergence + carry; or outright long given covered yield. Do not short ET into rising estimates."
+  },
+  "sector_specialty": {
+   "benchmark": "Alerian MLP ETF (AMLP)",
+   "recommended_active_weight_bps": 200,
+   "conviction_adjusted_pct_nav": 6.0,
+   "kelly_implied_pct_nav": 30.6,
+   "mandate_constraint": "Top-tier overweight in a midstream mandate; pair vs EPD for relative-value, outright for income"
+  },
+  "pair_trade": {
+   "long_ticker": "ET",
+   "short_ticker_primary": "EPD",
+   "short_ticker_secondary": "WMB",
+   "structure": "dollar_neutral_beta_adjusted",
+   "long_pct_nav": 3.5,
+   "short_pct_nav": 3.4,
+   "long_short_ratio_beta_adjusted": "1.00:0.97",
+   "expected_spread_return_pct": 6.0,
+   "rationale": "Long ET / short EPD on ~2.5-turn EV/EBITDA convergence (ET ~7.4x vs EPD ~10x) + ET's faster EBITDA growth and similar yield. Risk: EPD's lower leverage (~3x vs ~4.4x) and A-rating justify ~1-1.5 turns of the gap; size the convergence trade to the ~1-1.5 unwarranted turns, stop if ET leverage rises above 4.5x or EPD signs a large data-center gas deal."
+  }
+ },
+ "quant_overlay": {
+  "factor_tags": {
+   "value": 1.4,
+   "quality": -0.3,
+   "momentum": 0.3,
+   "growth": 0.4,
+   "size": 1.1,
+   "low_vol": 0.6,
+   "liquidity": 0.8
+  },
+  "capacity": {
+   "adv_30d_usd_m": 320.0,
+   "days_to_exit_10pct_participation": 3.1,
+   "days_to_exit_20pct_participation": 1.6,
+   "days_to_exit_30pct_participation": 1.0,
+   "max_position_constrained_by_adv_pct_nav": 5.0
+  },
+  "edge_decay": {
+   "thesis_half_life_months": 4.0,
+   "time_to_priced_in_months": 9.0,
+   "refresh_cadence": "quarterly_print_plus_leverage_trajectory_plus_commodity_curve",
+   "primary_decay_driver": "FY26 leverage trajectory + data-center gas contracting + WTI/NGL forward curve + quarterly DCF coverage"
+  },
+  "correlation": {
+   "book_file_path": "n/a (placeholder per D14)",
+   "top10_pairwise_corr": [],
+   "live_wired": false
+  },
+  "stress_overlay": {
+   "fed_funds_plus_200bp": -18.0,
+   "oil_minus_20pct": -12.0,
+   "usd_plus_5pct": -3.0,
+   "recession_dummy": -22.0
+  }
+ },
+ "consensus_variance": [
+  {
+   "variance_id": "V1_multiple_rerate",
+   "line_item": "FY2027E P/DCF (EV/EBITDA) re-rate vs Street",
+   "type": "multiple",
+   "direction": "downward",
+   "magnitude_pct": 18.0,
+   "probability_right_pct": 65.0,
+   "scenario_sensitivity_pct": 18.0,
+   "sizing_impact_pp": 2.11,
+   "load_bearing": true,
+   "narrative": "Street's ~$23.5 PT implies a 12-month re-rate toward EPD-parity (~7.7x forward EV/EBITDA / ~8.2x P/DCF on FY27E). We hold the base at ~7.3x EV/EBITDA (7.5x P/DCF) \u2014 essentially the current forward multiple carried on a 12-month-higher EBITDA \u2014 because (i) net leverage sits at the ~4.4x TOP of the 4.0-4.5x target (S1: Q1'26 10-Q debt $69,317M) and the re-rate is gated on a sub-4.0x print, and (ii) the K-1 / UBTI structural discount versus C-corp midstream (WMB/KMI) has persisted for years. The ~18% magnitude compounds a ~9% multiple gap to full Street parity and a ~9% more-conservative FY27-28 EBITDA/DCF path. The variance is two-tailed \u2014 backlog conversion is genuine upside (bull/strong_bull sit ABOVE the Street PT) \u2014 so it supports Buy (below-Street PT), not Sell.",
+   "evidence_refs": [
+    {
+     "s_level": "S1",
+     "ref": "ET Q1'26 10-Q LongTermDebtNoncurrent $69,317M -> net leverage ~4.4x at top of 4.0-4.5x target"
+    },
+    {
+     "s_level": "S2",
+     "ref": "ET Q1'26 8-K: FY26 Adj EBITDA guide raised to $18.2-18.6B (estimate-up; the multiple, not the estimate, is the variance)"
+    },
+    {
+     "s_level": "S1",
+     "ref": "ET FY25 10-K: pass-through MLP / K-1 structure -> persistent UBTI/structural discount vs C-corp midstream"
+    }
+   ]
+  }
+ ],
+ "revision_velocity": {
+  "n_analysts": 22,
+  "fy1_eps_consensus": 1.45,
+  "fy2_eps_consensus": 1.55,
+  "fy1_ebitda_consensus_usd_b": 18.4,
+  "fy2_ebitda_consensus_usd_b": 19.7,
+  "fy1_eps_revision_1m_pct": 1.5,
+  "fy1_eps_revision_3m_pct": 4.0,
+  "fy1_eps_revision_6m_pct": 5.0,
+  "fy1_ebitda_revision_3m_pct": 4.3,
+  "breadth_3m": 0.4,
+  "g17_status": "disclosed",
+  "breadth_note": "FY26 Adj EBITDA guide RAISED ~$750M (+4%) at Q1'26 to $18.2-18.6B; growth capex raised to $5.5-5.9B; consensus Strong Buy (13 Buy / 2 Hold / 0 Sell). PTs drifting up.",
+  "pt_revisions_recent": "Consensus PT ~$23.5 (S&P Global $23.59; MarketBeat $23.45; ChartMill $23.43); range $21-26; ~16-26% above spot.",
+  "pre_print_drift": "Q1'26 beat + guidance raise (2026-05-04). Next print early Aug 2026; midstream low-beta, implied move modest (~4%).",
+  "peer_comparison": "ET revisions positive (guidance raised) vs EPD's lower-single-digit growth; ET trades at a discount to EPD ~10x EV/EBITDA.",
+  "verdict": "Estimates RISING into the print on a guidance raise \u2014 a fundamentals-up name. Our edge is on the MULTIPLE (Street's full re-rate), not the estimates."
+ },
+ "adjudication_trail": [
+  {
+   "entry_id": "AT1",
+   "type": "variance_attack",
+   "phase": 3,
+   "target_variance_id": "V1_multiple_rerate",
+   "attack_type": "base_rate_sanity",
+   "attack_description": "R-v2 base-rate attack: midstream names have historically re-rated 1.5-2.5 turns of EV/EBITDA on growth-backlog de-risking and deleveraging (e.g., WMB and OKE compressed their discounts over 2022-2025). Is the ET-to-EPD discount really structural, or a timing artifact that closes within 12 months as Hugh Brinson / Desert Southwest convert and leverage falls \u2014 making our DOWNWARD-vs-Street multiple variance simply too conservative (i.e., the Street is right and we are anchoring on a stale discount)?",
+   "attack_outcome": "modified",
+   "resolution": "The base-rate attack partially lands and the variance is MODIFIED, not rebutted or conceded. Concession: the discount has compressed before on exactly this catalyst set, so an initial sizing of ~2.6pp and a 7.2x base multiple were too conservative; we lifted the base multiple to 7.5x (~7.3x EV/EBITDA, a modest re-rate above the trough) and trimmed sizing_impact_pp to 2.11. Survival: the variance still holds because the WMB/OKE re-rates each followed a sub-4.0x leverage print and (for WMB/KMI) a C-corp structure with no K-1 friction; ET is at the ~4.4x TOP of its target (S1: Q1'26 10-Q debt $69,317M) and remains a K-1 MLP, so EPD-PARITY within 12 months requires BOTH a sub-4.0x print AND multiple-expansion the market has withheld for years. The bull/strong_bull scenarios explicitly carry the faster re-rate (sizing 0.27/0.08 probability ABOVE the Street PT), so the upside is in the distribution, not denied. Net: downward-vs-Street multiple variance survives in modified form; the re-rate is optionality we price in the tails, not the base.",
+   "supporting_evidence_refs": [
+    {
+     "s_level": "S1",
+     "source_type": "10-Q",
+     "ref": "ET Q1'26 10-Q LongTermDebtNoncurrent $69,317M -> ~4.4x net leverage at top of 4.0-4.5x target",
+     "date": "2026-05-07",
+     "verified": true
+    },
+    {
+     "s_level": "S4",
+     "source_type": "Other",
+     "ref": "ET ~7.4x forward EV/EBITDA vs EPD ~10x; discount has persisted across cycles partly on K-1 + leverage",
+     "date": "2026-06-09",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "scenarios_inline": {
+  "schema_version": "0.3.0",
+  "ticker": "ET",
+  "current_price": 19.06,
+  "as_of_date": "2026-06-09",
+  "fiscal_year_end": "12-31",
+  "base_eps": 2.86,
+  "scenarios": [
+   {
+    "id": "strong_bear",
+    "probability": 0.08,
+    "narrative_one_liner": "Commodity/NGL downcycle stalls Permian volume growth, the data-center gas-demand pull slips, leverage sticks at the top of the 4.0-4.5x band, and the K-1 MLP discount widens; ET de-rates to a ~6.0x P/DCF trough.",
+    "narrative_long": "A 2027 energy downcycle (oil sub-$55, weak NGL frac spreads) caps Permian gathering and NGL volumes; Hugh Brinson / Desert Southwest ramp slower than contracted; the Oracle / Oklahoma power-gas demand is delayed. Distribution coverage compresses toward ~1.4x and net leverage holds ~4.4x at the top of target as rising interest expense bites a pass-through that earns no interest tax shield. FY27E DCF/unit falls to ~$2.45 and the unit re-rates to a ~6.0x P/DCF MLP-trough analog.",
+    "eps": 2.45,
+    "eps_period": "FY27E",
+    "multiple": 6.0,
+    "multiple_type": "Other",
+    "target_price": 14.7,
+    "expected_return": -0.2288,
+    "anchors": [
+     "A4",
+     "R-Bear",
+     "A1"
+    ],
+    "strongest_anchor_s_level": "S1",
+    "multiple_band_basis": "P/DCF (price-to-distributable-cash-flow per LP unit). ET 5y P/DCF band ~7-9x; 6.0x = trough / no-growth MLP analog, consistent with EV/EBITDA ~6.9x on recession-trimmed FY27E EBITDA ~$17.5B.",
+    "eps_bridge": [
+     {
+      "label": "Permian/NGL volume growth stalls in commodity downcycle",
+      "delta_eps": -0.18,
+      "layer": "clean",
+      "source_tag": "S3: ET Q1'26 call segment volume commentary"
+     },
+     {
+      "label": "Interest-expense headwind at ~4.4x leverage (MLP earns no interest tax shield)",
+      "delta_eps": -0.13,
+      "layer": "clean",
+      "source_tag": "S1: ET Q1'26 10-Q LT debt $69,317M"
+     },
+     {
+      "label": "Distribution coverage compresses toward ~1.4x; growth capex under-earns",
+      "delta_eps": -0.1,
+      "layer": "soft",
+      "source_tag": "S3: ET Q4'25 call DCF coverage ~1.7-1.8x baseline"
+     }
+    ]
+   },
+   {
+    "id": "bear",
+    "probability": 0.2,
+    "narrative_one_liner": "Soft bear: EBITDA growth decelerates below the raised FY26 guide trajectory, the multiple stays at the low end (~6.8x P/DCF) on leverage and MLP-structure overhang, and the Street's EPD-parity re-rate fails to arrive in 12 months.",
+    "narrative_long": "ET meets but does not beat the raised FY26 Adjusted EBITDA guide ($18.2-18.6B) and FY27E EBITDA lands ~$18.5B. Data-center/Permian volumes ramp on schedule but accretion is back-half-2027. Leverage holds ~4.3-4.4x; the market keeps ET at ~6.8x P/DCF (~7.1x EV/EBITDA) vs EPD's ~10x on K-1/UBTI friction and top-of-range leverage. FY27E DCF/unit ~$2.65.",
+    "eps": 2.65,
+    "eps_period": "FY27E",
+    "multiple": 6.8,
+    "multiple_type": "Other",
+    "target_price": 18.02,
+    "expected_return": -0.0546,
+    "anchors": [
+     "A4",
+     "V1_multiple_rerate",
+     "A1"
+    ],
+    "strongest_anchor_s_level": "S1",
+    "multiple_band_basis": "6.8x P/DCF = low end of ET's 7-9x band, ~7.1x EV/EBITDA on FY27E ~$18.5B; prices in persistent discount-to-EPD and top-of-range leverage.",
+    "eps_bridge": [
+     {
+      "label": "Slower data-center / Permian EBITDA ramp (back-half-2027 weighting)",
+      "delta_eps": -0.13,
+      "layer": "clean",
+      "source_tag": "S3: ET Q1'26 call project timing"
+     },
+     {
+      "label": "Interest-expense headwind persists at ~4.3-4.4x leverage",
+      "delta_eps": -0.08,
+      "layer": "soft",
+      "source_tag": "S1: ET Q1'26 10-Q debt + ~4.4x leverage"
+     }
+    ]
+   },
+   {
+    "id": "base",
+    "probability": 0.37,
+    "narrative_one_liner": "FY26 Adjusted EBITDA lands in the raised $18.2-18.6B guide and FY27E reaches ~$19.7B as the contracted backlog converts; the ~7.1% distribution holds at ~1.7-1.8x coverage; the unit holds its current ~7.3x forward EV/EBITDA (~7.5x P/DCF) \u2014 a Buy on total return, but BELOW the Street's full EPD-parity re-rate.",
+    "narrative_long": "Energy Transfer delivers the raised FY26 Adjusted EBITDA guidance ($18.2-18.6B, midpoint ~$18.4B) and FY27E EBITDA reaches ~$19.7B as Hugh Brinson (Q4'26, ~1.5 Bcf/d), the Oracle 900,000 Mcf/d commitment, the Oklahoma power plants, and Bayou Bridge (Q1'27) ramp on a ~90% fee-based base. Net leverage drifts toward the lower half of the 4.0-4.5x target; the distribution grows 3-5% at ~1.7-1.8x DCF coverage. FY27E DCF/unit ~$2.86. The unit holds ~7.5x P/DCF (~7.3x forward EV/EBITDA) for a ~+12.5% price move plus the ~7.1% distribution, BELOW the Street's ~$23.5 PT which embeds an EPD-parity re-rate we do not underwrite within 12 months at top-of-range leverage.",
+    "eps": 2.86,
+    "eps_period": "FY27E",
+    "multiple": 7.3,
+    "multiple_type": "Other",
+    "target_price": 20.88,
+    "expected_return": 0.0955,
+    "anchors": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "strongest_anchor_s_level": "S1",
+    "multiple_band_basis": "7.5x P/DCF on FY27E DCF/unit $2.86 = ~7.3x forward EV/EBITDA on FY27E EBITDA ~$19.7B (net debt ~$70B / 3,441M units) \u2014 essentially the current forward multiple held flat. Below Street's implied ~7.7x (PT $23.5) and EPD's ~10x.",
+    "eps_bridge": []
+   },
+   {
+    "id": "bull",
+    "probability": 0.27,
+    "narrative_one_liner": "The data-center / Permian backlog converts ahead of plan, leverage prints <4.0x, and the EV/EBITDA discount to EPD narrows; ET re-rates to ~8.5x P/DCF (~7.8x EV/EBITDA), reaching the Street's zone and above.",
+    "narrative_long": "Oracle's 900,000 Mcf/d, the Oklahoma plants, Hugh Brinson, and Desert Southwest convert into realized fee-based EBITDA faster than the base; FY27E EBITDA reaches ~$20.2B and net leverage falls below 4.0x, triggering the multiple re-rate the Street anticipates. The market credits ET's superior growth (10%+ '26 EBITDA growth vs EPD 3-5%) and closes ~0.7 turn of the EV/EBITDA discount. FY27E DCF/unit ~$3.00 at ~8.5x P/DCF.",
+    "eps": 3.0,
+    "eps_period": "FY27E",
+    "multiple": 8.0,
+    "multiple_type": "Other",
+    "target_price": 24.0,
+    "expected_return": 0.2592,
+    "anchors": [
+     "A2",
+     "A5",
+     "A6"
+    ],
+    "strongest_anchor_s_level": "S2",
+    "multiple_band_basis": "8.5x P/DCF (~7.8x EV/EBITDA on FY27E ~$20.2B) = partial re-rate toward EPD's ~10x as leverage prints <4.0x; above the Street PT $23.5 implied ~7.7x.",
+    "eps_bridge": [
+     {
+      "label": "Oracle 900k Mcf/d + Hugh Brinson + Desert SW volumes ramp ahead of plan",
+      "delta_eps": 0.09,
+      "layer": "soft",
+      "source_tag": "S3: ET Q4'25 + Q1'26 call data-center / Permian commentary"
+     },
+     {
+      "label": "Deleveraging to <4.0x lowers interest expense and triggers the re-rate",
+      "delta_eps": 0.05,
+      "layer": "soft",
+      "source_tag": "S1: ET Q1'26 10-Q debt + 4.0-4.5x target"
+     }
+    ]
+   },
+   {
+    "id": "strong_bull",
+    "probability": 0.08,
+    "narrative_one_liner": "Full data-center backlog conversion + record Permian/NGL export volumes + buyback compounding on IDR-free FCF; ET re-rates to EPD-adjacent ~9.5x P/DCF as the structural discount closes.",
+    "narrative_long": "A structural US natural-gas-for-power supercycle pulls multiple incremental long-term data-center gas commitments; Permian gathering and NGL fractionation/export set records; the IDR-free cash-flow profile funds unit buybacks that compound per-unit DCF. FY27E EBITDA reaches ~$20.7B, leverage prints in the high-3s, and ET earns an EPD-adjacent ~9.5x P/DCF (~8.4x EV/EBITDA) as the K-1 discount finally closes. FY27E DCF/unit ~$3.15.",
+    "eps": 3.15,
+    "eps_period": "FY27E",
+    "multiple": 9.0,
+    "multiple_type": "Other",
+    "target_price": 28.35,
+    "expected_return": 0.4874,
+    "anchors": [
+     "A6",
+     "A5",
+     "A7"
+    ],
+    "strongest_anchor_s_level": "S3",
+    "multiple_band_basis": "9.5x P/DCF (~8.4x EV/EBITDA on FY27E ~$20.7B) approaches EPD-adjacent territory; top of ET's historical band, predicated on the structural MLP discount closing as leverage de-risks.",
+    "eps_bridge": [
+     {
+      "label": "Full data-center backlog conversion + record Permian/NGL export volumes",
+      "delta_eps": 0.18,
+      "layer": "strong",
+      "source_tag": "S3: ET Q4'25 + Q1'26 calls (Oracle, Permian records, Netherlands ethane to 2041)"
+     },
+     {
+      "label": "Buyback compounding on IDR-free distributable cash flow",
+      "delta_eps": 0.11,
+      "layer": "strong",
+      "source_tag": "S2: ET capital allocation / 2018 IDR elimination"
+     }
+    ]
+   }
+  ],
+  "probability_sum_check": 1.0,
+  "conviction_tag": "moderate_bull",
+  "headline": {
+   "expected_return_median": 0.115,
+   "expected_return_range_p10_p90": [
+    -0.2288,
+    0.4874
+   ],
+   "rating": "Buy",
+   "default_action": "initiate_long",
+   "conditionality": "source_conditional",
+   "conditional_language_pattern": "A_source_conditional_bias",
+   "headline_text": "Source-conditional Buy: ET de-biased 12-month expected return +11.5%, conditional on distribution growth + pipeline delivery. Anchoring to independent fair value (~$20.9, +9.5%) softened to a MARGINAL Buy at the Buy/Hold boundary; the call leans on the right-skewed distribution. Range -22.9% to +49%; below the Street's full ~$23.5 PT."
+  },
+  "weighting_sensitivity": {
+   "base_minus_10_to_bear": -0.015,
+   "base_minus_10_to_bull": 0.0164,
+   "strong_tail_plus_10": {
+    "strong_bear": -0.0324,
+    "strong_bull": 0.0392
+   }
+  }
+ },
+ "source_tags_inline": {
+  "schema_version": "0.3.0",
+  "ticker": "ET",
+  "as_of_date": "2026-06-09",
+  "model_cutoff_date": "2026-01-01",
+  "all_citations": [
+   {
+    "s_level": "S1",
+    "source_type": "10-K",
+    "ref": "ET FY2025 10-K (filed 2026-02-19): revenue $85,536M, Adjusted EBITDA ~$16.0B, DCF $8.2B",
+    "date": "2026-02-19",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S1",
+    "source_type": "XBRL",
+    "ref": "SEC XBRL CIK 0001276187: Revenues FY25 $85,536M; ProfitLoss $5,708M; NetIncomeLoss $4,433M; LT debt Q1'26 $69,317M; units 3,441,159,277",
+    "date": "2026-06-09",
+    "url": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001276187/us-gaap/Revenues.json",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S1",
+    "source_type": "10-Q",
+    "ref": "ET Q1 2026 10-Q (filed 2026-05-07): revenue $27,771M, NI to partners $1,254M, LT debt $69,317M",
+    "date": "2026-05-07",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "ET Q1 2026 8-K (2026-05-04): Adj EBITDA ~$4.9B, DCF ~$2.7B, FY26 Adj EBITDA guide RAISED to $18.2-18.6B, capex $5.5-5.9B",
+    "date": "2026-05-04",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "ET Q4/FY2025 8-K (2026-02-17): record FY25 Adj EBITDA ~$16.0B, DCF $8.2B, Lake Charles suspended, Hugh Brinson ~75% complete",
+    "date": "2026-02-17",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "ET distribution declaration (2026-04-27): $0.3375/unit/qtr ($1.35 annualized), +>3% YoY",
+    "date": "2026-04-27",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S3",
+    "source_type": "Other",
+    "ref": "ET Q1 2026 earnings call (2026-05-05): ~1.7-1.8x coverage, 4.0-4.5x leverage target, Oracle 900,000 Mcf/d, Hugh Brinson Q4'26, Desert SW 2029",
+    "date": "2026-05-05",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S3",
+    "source_type": "Other",
+    "ref": "ET Q4 2025 earnings call (2026-02-17): data-center pull (~90% fee-based), Oklahoma plants 190 MMcf/d, distribution growth 3-5%/yr",
+    "date": "2026-02-17",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "Other",
+    "ref": "ET/ETE-ETP simplification (Oct 2018): IDRs eliminated, GP internalized",
+    "date": "2018-10-19",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "Form 4",
+    "ref": "Kelcy Warren Form 4: 1,000,000 units 2025-11-19 @ ~$16.95 + 1,000,000 units 2025-11-20 @ ~$16.81; 24 buys/0 sells 5y; ~301.5M units (~8.8%)",
+    "date": "2025-11-20",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S1",
+    "source_type": "FRED",
+    "ref": "FRED DGS10 10-yr UST ~4.40%",
+    "date": "2026-06-08",
+    "url": "https://fred.stlouisfed.org/series/DGS10",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S5",
+    "source_type": "Damodaran",
+    "ref": "Damodaran implied US ERP ~4.33%",
+    "date": "2026-06-01",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "Consensus: ~22 analysts, Strong Buy (13 Buy/2 Hold/0 Sell), PT median ~$23.5 (S&P Global $23.59 / MarketBeat $23.45 / ChartMill $23.43), range $21-26",
+    "date": "2026-06-05",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Yahoo Finance consensus",
+    "ref": "ET $19.06 (2026-06-09); market cap ~$65.6B; EV ~$135.7B; EV/EBITDA ~8.65x TTM / ~7.4x fwd; yield ~7.08%; beta ~0.54-0.85",
+    "date": "2026-06-09",
+    "url": "https://stockanalysis.com/stocks/et/statistics/",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "13F",
+    "ref": "Ownership: insider/affiliated ~51.8% (Warren ~8.8%), institutional ~31.4%, retail ~16.8%; short interest ~0.89% (low)",
+    "date": "2026-05-15",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S2",
+    "source_type": "Other",
+    "ref": "DAPL/Greenpeace: ET awarded ~$345M (from $667M), finalized 2026-02-27; ET is plaintiff/awardee",
+    "date": "2026-02-27",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "Peer EV/EBITDA: EPD ~10x / WMB ~11x / KMI ~10.5x / MPLX ~9x; ET ~7.4x fwd (discount)",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S2",
+    "source_type": "BIS Entity List",
+    "ref": "BIS/OFAC/CFIUS query ET 2026-06-09: N/A (US-domiciled midstream MLP)",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": true
+   }
+  ],
+  "top_anchors": [
+   {
+    "anchor_id": "A1",
+    "claim": "FY2025 record Adjusted EBITDA",
+    "value": 16000.0,
+    "unit": "$M",
+    "citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "ET FY25 10-K MD&A / Q4'25 8-K 2026-02-17",
+     "date": "2026-02-19",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base",
+     "bear",
+     "bull"
+    ],
+    "sensitivity_pct": 10.0
+   },
+   {
+    "anchor_id": "A4",
+    "claim": "Net leverage ~4.4x (top of 4.0-4.5x target); LT debt",
+    "value": 69317.0,
+    "unit": "$M LT debt Q1'26",
+    "citation": {
+     "s_level": "S1",
+     "source_type": "10-Q",
+     "ref": "ET Q1'26 10-Q LongTermDebtNoncurrent $69,317M",
+     "date": "2026-05-07",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "strong_bear",
+     "bear",
+     "base",
+     "bull",
+     "strong_bull"
+    ],
+    "sensitivity_pct": 12.0
+   },
+   {
+    "anchor_id": "A3",
+    "claim": "Quarterly distribution per unit (~7.1% yield, ~1.7-1.8x coverage)",
+    "value": 0.3375,
+    "unit": "$/unit/quarter",
+    "citation": {
+     "s_level": "S2",
+     "source_type": "8-K",
+     "ref": "ET distribution release 2026-04-27",
+     "date": "2026-04-27",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base"
+    ],
+    "sensitivity_pct": 6.0
+   },
+   {
+    "anchor_id": "A2",
+    "claim": "FY2026 Adjusted EBITDA guidance (raised at Q1'26)",
+    "value": 18400.0,
+    "unit": "$M (midpoint of $18.2-18.6B)",
+    "citation": {
+     "s_level": "S3",
+     "source_type": "Other",
+     "ref": "ET Q1'26 call / 8-K 2026-05-04 (raised from $17.45-17.85B)",
+     "date": "2026-05-04",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base",
+     "bull"
+    ],
+    "sensitivity_pct": 9.0
+   },
+   {
+    "anchor_id": "A5",
+    "claim": "Sell-side consensus price target (PT median)",
+    "value": 23.5,
+    "unit": "$/unit",
+    "citation": {
+     "s_level": "S4",
+     "source_type": "Other",
+     "ref": "Consensus PT median ~$23.5 (S&P Global $23.59 / MarketBeat $23.45 / ChartMill $23.43), n~22, range $21-26",
+     "date": "2026-06-05",
+     "verified": true,
+     "is_anchor_eligible": false
+    },
+    "drives_scenarios": [
+     "bull"
+    ],
+    "sensitivity_pct": 8.0
+   },
+   {
+    "anchor_id": "A6",
+    "claim": "Contracted data-center / Permian growth backlog (Oracle 900k Mcf/d; Hugh Brinson 1.5 Bcf/d)",
+    "value": 900.0,
+    "unit": "thousand Mcf/d Oracle commitment",
+    "citation": {
+     "s_level": "S3",
+     "source_type": "Other",
+     "ref": "ET Q4'25 + Q1'26 calls (Oracle 900,000 Mcf/d; Hugh Brinson Q4'26; Desert SW 2.3 Bcf/d 2029)",
+     "date": "2026-05-05",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "bull",
+     "strong_bull"
+    ],
+    "sensitivity_pct": 8.0
+   },
+   {
+    "anchor_id": "A7",
+    "claim": "FY2025 Distributable Cash Flow attributable to partners",
+    "value": 8200.0,
+    "unit": "$M",
+    "citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "ET FY25 10-K / Q4'25 8-K DCF $8.2B (FY24 $8.4B)",
+     "date": "2026-02-19",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "strong_bull"
+    ],
+    "sensitivity_pct": 7.0
+   }
+  ],
+  "headline_conditionality": "source_conditional",
+  "consensus_variance": [
+   {
+    "variance_id": "V1_multiple_rerate",
+    "line_item": "FY2027E P/DCF (EV/EBITDA) re-rate vs Street",
+    "type": "multiple",
+    "direction": "downward",
+    "magnitude_pct": 18.0,
+    "probability_right_pct": 65.0,
+    "scenario_sensitivity_pct": 18.0,
+    "sizing_impact_pp": 2.11,
+    "load_bearing": true,
+    "narrative": "Street's ~$23.5 PT implies a re-rate toward EPD-parity (~7.7x EV/EBITDA / ~8.2x P/DCF on FY27E). We hold base at ~7.3x EV/EBITDA (7.5x P/DCF) because net leverage sits at the ~4.4x TOP of the 4.0-4.5x target (S1: Q1'26 10-Q $69,317M) and the K-1/UBTI structural discount persists. The ~18% magnitude compounds a ~9% multiple gap and a ~9% more-conservative FY27-28 EBITDA/DCF path. Two-tailed (backlog conversion is genuine upside) -> Buy below-Street, not Sell.",
+    "evidence_refs": [
+     {
+      "s_level": "S1",
+      "ref": "ET Q1'26 10-Q LongTermDebtNoncurrent $69,317M -> ~4.4x leverage at top of target"
+     },
+     {
+      "s_level": "S2",
+      "ref": "ET Q1'26 8-K FY26 guide raised to $18.2-18.6B (estimate-up; multiple is the variance)"
+     },
+     {
+      "s_level": "S1",
+      "ref": "ET FY25 10-K pass-through MLP / K-1 -> persistent structural discount vs C-corp midstream"
+     }
+    ]
+   }
+  ],
+  "revision_velocity": {
+   "n_analysts": 22,
+   "fy1_eps_consensus": 1.45,
+   "fy2_eps_consensus": 1.55,
+   "fy1_ebitda_consensus_usd_b": 18.4,
+   "fy2_ebitda_consensus_usd_b": 19.7,
+   "fy1_eps_revision_1m_pct": 1.5,
+   "fy1_eps_revision_3m_pct": 4.0,
+   "fy1_eps_revision_6m_pct": 5.0,
+   "fy1_ebitda_revision_3m_pct": 4.3,
+   "breadth_3m": 0.4,
+   "g17_status": "disclosed",
+   "breadth_note": "FY26 Adj EBITDA guide RAISED ~$750M (+4%) at Q1'26; Strong Buy consensus (13/2/0).",
+   "pt_revisions_recent": "Consensus PT ~$23.5; range $21-26.",
+   "pre_print_drift": "Q1'26 beat + raise; next print early Aug 2026.",
+   "peer_comparison": "ET revisions positive vs EPD low-single-digit growth.",
+   "verdict": "Estimates RISING; our edge is the multiple, not the estimates."
+  },
+  "pending_assumptions": []
+ },
+ "source_tags_ref": "outputs/ET_source_tags.json",
+ "verification_gates_ref": "outputs/ET_verification_gates.json",
+ "audience_variant": "institutional_full",
+ "delegation_outputs": {
+  "company_research_md_path": "outputs/ET_IC_memo.md",
+  "valuation_analysis_md_path": "outputs/ET_IC_memo.md",
+  "scenarios_3case_for_dcf_plugin": {
+   "bear_case_revenue_growth_pcts": [
+    3,
+    2,
+    2,
+    2,
+    2
+   ],
+   "bear_case_ebit_margin_pcts": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "base_case_revenue_growth_pcts": [
+    5,
+    4,
+    4,
+    3,
+    3
+   ],
+   "base_case_ebit_margin_pcts": [
+    11,
+    12,
+    12,
+    12,
+    12
+   ],
+   "bull_case_revenue_growth_pcts": [
+    7,
+    6,
+    5,
+    5,
+    4
+   ],
+   "bull_case_ebit_margin_pcts": [
+    12,
+    13,
+    13,
+    13,
+    13
+   ]
+  }
+ },
+ "memo_metadata": {
+  "run_id": "E1F2A3B4-ET22-4DE5-8F90-DEBIA5ED0005",
+  "iteration_round": 2,
+  "current_score": 8.6,
+  "target_score": 8.5,
+  "author_model": "claude-opus-4-8",
+  "phases_completed": "0,1,2,3,verification",
+  "verification_calls_count": 20,
+  "shaped_into_ic_memo": true,
+  "ic_rigor_chained": true,
+  "net_leverage_note": "Net leverage ~4.4x is a calculated/aggregator metric (net debt ~$70.2B / Adjusted EBITDA ~$16.0B); management characterizes pro-forma leverage in the lower half of the 4.0-4.5x target. LT debt $69,317M is S1 (Q1'26 10-Q); the ratio is modeled. [v2 DE-BIASED: base anchored to independent fair value ~$20.9; rating softened to a MARGINAL Buy at the Buy/Hold boundary; v1 Buy archived.]",
+  "agent_count": 16,
+  "manifest_ref": "ET_manifest.json"
+ },
+ "valuation_parallel": {
+  "method": "Two-value parallel: independent fair value (B) || market-regime value (A); the GAP is the mispricing signal; the 12-month base PT is a convergence-weighted blend.",
+  "independent_fair_value_usd": 20.9,
+  "independent_fair_value_basis": "DCF $20.50 + SOTP $21.00 + comps $21.45 (P/DCF) \u2014 computed WITHOUT reference to price (answers 'what is it worth')",
+  "market_regime_value_usd": 23.5,
+  "market_regime_value_basis": "consensus 12-mo PT median/avg (S4) \u2014 embeds the current-multiple regime (answers 'where will it trade given the regime')",
+  "current_price_usd": 19.06,
+  "price_vs_fair_value_pct": -8.8,
+  "regime_vs_fair_value_pct": 12.4,
+  "twelve_month_base_pt_usd": 20.88,
+  "base_vs_fair_value_pct": -0.1,
+  "convergence_speed": "n_a",
+  "convergence_assumption": "minimal gap \u2014 fair value approx spot; marginal Buy leans on the right-skewed distribution",
+  "signal": "cheap vs fair value"
+ },
+ "is_cyclical": false,
+ "is_cyclical_note": "Not classically cyclical (contracted / fee-based / oligopoly cash flows); valued on contracted DCF / P-DCF / sector multiple rather than a normalized-cycle frame.",
+ "conviction_axis": {
+  "rating": "Buy",
+  "conviction": "moderate (public-info build)",
+  "conviction_drivers_for": [
+   "independent fair value vs spot gap is the load-bearing signal (public)",
+   "DCF/SOTP/comps triangulate the fair value without reference to price"
+  ],
+  "conviction_drivers_against": [
+   "the multiple is a judgment that could re-rate",
+   "convergence timing is uncertain (overvaluation/undervaluation is not itself a catalyst)"
+  ],
+  "self_anchoring_check": "BIDIRECTIONAL \u2014 the anchoring discipline applies to revisions toward EITHER side; use external analysts' PUBLIC evidence, never their conclusions (multiple/PT/rating).",
+  "downgradeable_note": "Conviction is tracked separately from the rating; new PUBLIC counter-evidence lowers conviction even when it does not flip the rating. A nonpublic cross-check may nuance conviction personally but is NOT persisted."
+ }
+}

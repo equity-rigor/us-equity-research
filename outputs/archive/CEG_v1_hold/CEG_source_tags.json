@@ -1,0 +1,325 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "CEG",
+ "as_of_date": "2026-06-11",
+ "model_cutoff_date": "2026-01-01",
+ "all_citations": [
+  {
+   "s_level": "S1",
+   "source_type": "10-K",
+   "ref": "CEG FY2025 10-K (filed 2025-11; standalone pre-Calpine): revenue $25,533M, GAAP EPS $7.40, Adj Op EPS $9.39, nuclear fleet ~32.4 GW",
+   "date": "2026-02-24",
+   "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001868275&type=10-K",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "XBRL",
+   "ref": "SEC XBRL companyfacts CIK 0001868275 (revenue/NI/EPS/OCF/capex/buyback FY23-25)",
+   "date": "2026-06-11",
+   "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001868275.json",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "CEG FY2025 results 8-K: Adj Op EPS $9.39; FY2026 guidance $11.00-12.00 introduced (pro-forma Calpine)",
+   "date": "2026-02-24",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "CEG Calpine acquisition closed ~$26.6B EV (~50M shares + $4.5B cash + assumed debt); ~60 GW combined",
+   "date": "2026-01-07",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "CEG Q1 2026 results (first with Calpine): Adj Op EPS $2.74 beat; FY2026 guidance reaffirmed $11-12; >20% CAGR reiterated",
+   "date": "2026-05-11",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "CEG to sell ~4.4 GW PJM gas to LS Power for ~$5B (DOJ/FERC divestiture)",
+   "date": "2026-03-18",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "Microsoft / Crane Clean Energy Center (TMI Unit 1) ~835 MW 20-yr PPA, online ~2027-28",
+   "date": "2024-09-20",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "Meta / Clinton ~1.1 GW 20-yr nuclear PPA (signed Aug-2025)",
+   "date": "2025-08-12",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "Federal Register",
+   "ref": "FERC order EL25-49 (Dec-2025): FTM co-location facilitated, BTM large-load restricted; PJM compliance due June-2026",
+   "date": "2025-12-19",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "Other",
+   "ref": "PJM 2026/27 BRA cleared $329.17/MW-day; 2027/28 BRA $333.44/MW-day UCAP (at FERC cap); floor $179.55",
+   "date": "2025-12-17",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "DEF 14A",
+   "ref": "CEG 2026 DEF 14A: PwC ratified; Joe Dominguez CEO / Dan Eggers CFO",
+   "date": "2026-04-15",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "FRED",
+   "ref": "FRED DGS10 10-yr UST 4.52%",
+   "date": "2026-06-11",
+   "url": "https://fred.stlouisfed.org/series/DGS10",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Damodaran",
+   "ref": "Damodaran implied US ERP 4.23%",
+   "date": "2026-01-01",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "FactSet consensus",
+   "ref": "Consensus n=21: FY26E Adj Op EPS ~$11.75, FY27E ~$13.61; 76% Buy / 19% Hold / 5% Sell",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Yahoo Finance consensus",
+   "ref": "CEG $247.12 (6/11); mkt cap ~$88.25B; EV ~$109.4B; shares ~357.1M; fwd P/E ~21x FY26E / ~18x FY27E; EV/EBITDA ~13.75x; 52wk $240.51-$412.70; beta 1.09",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "30-day ADV ~$1.0B (~4.1M shares); beta 1.09",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "Street PT avg ~$367-377 (low $277 / high $462), down from ~$400 3mo ago - stale-target artifact being cut; revisions -8% 3mo",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Other",
+   "ref": "Ratings: S&P BBB+ / Moody's Baa1 / Fitch BBB+ (IG, affirmed post-Calpine); $3.4B deleveraging plan",
+   "date": "2026-03-15",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Other",
+   "ref": "45U nuclear PTC phase-out band ~$26-44.75/MWh (2025); ~$0 benefit at today's high prices; hard sunset end-2032",
+   "date": "2025-08-15",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "Peer multiples: VST ~14x P/E / ~10.1x EV/EBITDA; NRG ~18x; TLN ~16x; PEG ~17.5x",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S2",
+   "source_type": "BIS Entity List",
+   "ref": "BIS/OFAC/CFIUS query CEG 2026-06-11: N/A (US-domiciled utility)",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": true
+  }
+ ],
+ "top_anchors": [
+  {
+   "anchor_id": "A1",
+   "claim": "FY2026 Adjusted Operating EPS guidance midpoint (pro-forma Calpine)",
+   "value": 11.5,
+   "unit": "$ adjusted operating EPS",
+   "citation": {
+    "s_level": "S3",
+    "source_type": "Other",
+    "ref": "CEG FY2025 8-K / Q1'26 call: FY2026 Adj Op EPS $11.00-12.00",
+    "date": "2026-05-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base",
+    "bear",
+    "bull"
+   ],
+   "sensitivity_pct": 10.0
+  },
+  {
+   "anchor_id": "A2",
+   "claim": "Nuclear fleet (largest US, scarce carbon-free baseload)",
+   "value": 32.4,
+   "unit": "GW nuclear (21 reactors)",
+   "citation": {
+    "s_level": "S1",
+    "source_type": "10-K",
+    "ref": "CEG FY2025 10-K Item 1/2 (nuclear fleet ~32.4 GW)",
+    "date": "2026-02-24",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base",
+    "bull",
+    "strong_bull"
+   ],
+   "sensitivity_pct": 8.0
+  },
+  {
+   "anchor_id": "A3",
+   "claim": "Calpine acquisition closed (scale + integration)",
+   "value": 26.6,
+   "unit": "$B enterprise value (~60 GW combined)",
+   "citation": {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "CEG Calpine close 8-K 2026-01-07",
+    "date": "2026-01-07",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base",
+    "bear",
+    "bull"
+   ],
+   "sensitivity_pct": 8.0
+  },
+  {
+   "anchor_id": "A4",
+   "claim": "PJM capacity cleared at the FERC cap (cyclical-peak lever)",
+   "value": 333.44,
+   "unit": "$/MW-day UCAP (2027/28 BRA; floor $179.55)",
+   "citation": {
+    "s_level": "S2",
+    "source_type": "Other",
+    "ref": "PJM 2027/28 BRA report (at cap)",
+    "date": "2025-12-17",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "strong_bear",
+    "bear",
+    "base"
+   ],
+   "sensitivity_pct": 12.0
+  },
+  {
+   "anchor_id": "A_PT",
+   "claim": "Sell-side consensus 12-month price target (median; stale/being cut)",
+   "value": 367.0,
+   "unit": "$/share price target",
+   "citation": {
+    "s_level": "S4",
+    "source_type": "FactSet consensus",
+    "ref": "Consensus PT median ~$367 (low $277 / high $462), n=21 - stale, revisions -8% 3mo",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "bull"
+   ],
+   "sensitivity_pct": 5.0
+  }
+ ],
+ "headline_conditionality": "source_conditional",
+ "consensus_variance": [
+  {
+   "variance_id": "V1_premium_derate",
+   "line_item": "CEG forward P/E premium durability (cyclical-peak earnings)",
+   "type": "scenario_weight",
+   "direction": "downward",
+   "magnitude_pct": 18.0,
+   "probability_right_pct": 60.0,
+   "scenario_sensitivity_pct": 20.0,
+   "sizing_impact_pp": 2.16,
+   "load_bearing": true,
+   "narrative": "The stale ~+50% Street PT and 76%-Buy consensus extrapolate the premium multiple + >20% CAGR while marking PJM-capacity-at-cap and hyperscaler-PPA economics as durable. Our downward variance marks PJM capacity at the FERC cap as a definitional peak, the FERC EL25-49 BTM restriction as compressing the PPA premium, and the Calpine gas mix as diluting the clean-nuclear multiple; it shifts ~2.2pp into the bear tails (a de-rate toward VST's ~14-16x). Two-tailed (nuclear scarcity + the de-rate already done) -> Hold not Sell. Sizing = 18 x 60 x 20 / 10000 = 2.16.",
+   "evidence_refs": [
+    {
+     "s_level": "S2",
+     "ref": "PJM 2026/27 + 2027/28 BRA cleared at the FERC cap ($329-333); floor $179.55"
+    },
+    {
+     "s_level": "S2",
+     "ref": "FERC EL25-49 (Dec-2025): BTM restricted; CEG conversions 'paused' (Q1'26)"
+    },
+    {
+     "s_level": "S4",
+     "ref": "Street PT ~$367 stale/being cut; CEG ~21x vs VST ~14x"
+    }
+   ]
+  }
+ ],
+ "revision_velocity": {
+  "n_analysts": 21,
+  "fy1_eps_consensus": 11.75,
+  "fy2_eps_consensus": 13.61,
+  "fy1_ebitda_consensus_usd_b": 8.0,
+  "fy2_ebitda_consensus_usd_b": 8.5,
+  "fy1_eps_revision_1m_pct": -1.0,
+  "fy1_eps_revision_3m_pct": -1.5,
+  "fy1_ebitda_revision_3m_pct": 0.0,
+  "breadth_3m": -0.3,
+  "breadth_note": "PT actions net down (RayJay, MS, Argus cut Jun'26); avg PT $400->$377 3mo; EPS roughly flat (guidance reaffirmed); 76% Buy / 19% Hold / 5% Sell.",
+  "pt_revisions_recent": "Avg PT ~$367-377, down from ~$400; ~+50% above de-rated spot (stale artifact).",
+  "pre_print_drift": "Stock -40% off $412 high to 52-wk low; next print ~2026-08-05.",
+  "peer_comparison": "Cohort de-rating together; CEG faster than VST (premium 8->7 turns).",
+  "verdict": "De-rate underway with EPS guidance reaffirmed; caution is premium durability on cyclical-peak earnings, partly offset by the ~40% drawdown already taken."
+ },
+ "pending_assumptions": []
+}

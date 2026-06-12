@@ -275,6 +275,24 @@
     "strong_bull"
    ],
    "sensitivity_pct": 12.0
+  },
+  {
+   "anchor_id": "A_PT",
+   "claim": "Sell-side consensus 12-month price target (median)",
+   "value": 230.0,
+   "unit": "$/share price target",
+   "citation": {
+    "s_level": "S4",
+    "source_type": "FactSet consensus",
+    "ref": "Consensus PT median ~$230 (>+50% above spot), n=17",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "bull"
+   ],
+   "sensitivity_pct": 5.0
   }
  ],
  "headline_conditionality": "source_conditional",
@@ -284,10 +302,10 @@
    "line_item": "FY2028 Ongoing Adjusted EBITDA",
    "type": "scenario_weight",
    "direction": "downward",
-   "magnitude_pct": -10.0,
+   "magnitude_pct": -18.0,
    "probability_right_pct": 60.0,
-   "scenario_sensitivity_pct": 10.0,
-   "sizing_impact_pp": 10.0,
+   "scenario_sensitivity_pct": 20.0,
+   "sizing_impact_pp": 2.16,
    "narrative": "Street's 2027-2028 EBITDA implicitly marks the ~35% open 2028 generation book at/above EIA STEO base and extrapolates cap-level capacity revenue. EIA modeling shows PJM upside ~+4% even in a high-demand scenario and ERCOT upside is high-demand-scenario-only; the cap/collar expires after 2029/30. Our variance shifts ~10pp of probability from base/bull into the bear tails (open book reprices -15-20%, capacity reverts toward floor), implying ~-$0.6 to -$0.9B vs a peak-extrapolated 2028. Two-tailed (ERCOT data-center load is a genuine upside), hence Hold not Sell.",
    "evidence_refs": [
     {
@@ -302,7 +320,8 @@
      "s_level": "S1",
      "ref": "PJM cap/collar settlement expires after 2029/30 (FERC filing)"
     }
-   ]
+   ],
+   "load_bearing": true
   }
  ],
  "revision_velocity": {

@@ -1,0 +1,259 @@
+{
+  "manifest_version": "0.3.0",
+  "ticker": "ET",
+  "run_id": "ET-7F3A9C21-0B4E-4D62-9A18-2C5E7D0F1A33",
+  "created_at": "2026-06-09T23:13:14+00:00",
+  "plugin_versions": {
+    "us_equity_research": "0.6.0",
+    "us_equity_ic_rigor": "0.6.0"
+  },
+  "phase_timing": {
+    "phase_0": {
+      "start": "2026-06-09T18:11:00Z",
+      "end": "2026-06-09T18:20:00Z"
+    },
+    "phase_1": {
+      "start": "2026-06-09T18:20:00Z",
+      "end": "2026-06-09T18:35:00Z"
+    },
+    "phase_2": {
+      "start": "2026-06-09T18:35:00Z",
+      "end": "2026-06-09T18:50:00Z"
+    },
+    "phase_3": {
+      "start": "2026-06-09T18:50:00Z",
+      "end": "2026-06-09T19:10:00Z"
+    },
+    "verification": {
+      "start": "2026-06-09T19:10:00Z",
+      "end": "2026-06-09T19:25:00Z"
+    }
+  },
+  "agent_provenance": [
+    {
+      "agent_id": "A1",
+      "phase": 1,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "A4",
+      "phase": 1,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "A5",
+      "phase": 1,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "A8",
+      "phase": 1,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "FS",
+      "phase": 1,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "A2",
+      "phase": 2,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "A3",
+      "phase": 2,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "A3-Peers",
+      "phase": 2,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "R",
+      "phase": 2,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "A6",
+      "phase": 2,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "A-Consensus",
+      "phase": 2,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "A7",
+      "phase": 3,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "Mirror",
+      "phase": 3,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "Topic-Forensic",
+      "phase": 3,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "R-v2",
+      "phase": 3,
+      "status": "skipped"
+    }
+  ],
+  "web_search_log": [
+    {
+      "tool": "curl",
+      "query_or_url": "data.sec.gov/api/xbrl/companyconcept/CIK0001276187/us-gaap/Revenues.json",
+      "phase": 0,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "curl",
+      "query_or_url": "data.sec.gov/api/xbrl/companyconcept/CIK0001276187/us-gaap/NetIncomeLoss.json",
+      "phase": 0,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "curl",
+      "query_or_url": "data.sec.gov/api/xbrl/companyconcept/CIK0001276187/us-gaap/ProfitLoss.json",
+      "phase": 0,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "curl",
+      "query_or_url": "data.sec.gov/api/xbrl/companyconcept/CIK0001276187/us-gaap/NetIncomeLossAllocatedToLimitedPartners.json",
+      "phase": 0,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "curl",
+      "query_or_url": "data.sec.gov/api/xbrl/companyconcept/CIK0001276187/us-gaap/LongTermDebtNoncurrent.json",
+      "phase": 0,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "curl",
+      "query_or_url": "data.sec.gov/api/xbrl/companyconcept/CIK0001276187/us-gaap/LongTermDebtCurrent.json",
+      "phase": 0,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "curl",
+      "query_or_url": "data.sec.gov/api/xbrl/companyconcept/CIK0001276187/us-gaap/CashAndCashEquivalentsAtCarryingValue.json",
+      "phase": 0,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "curl",
+      "query_or_url": "data.sec.gov/api/xbrl/companyconcept/CIK0001276187/dei/EntityCommonStockSharesOutstanding.json",
+      "phase": 0,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://stockanalysis.com/stocks/et/",
+      "phase": 0,
+      "used_by_agent": "A1"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://stockanalysis.com/stocks/et/statistics/",
+      "phase": 0,
+      "used_by_agent": "A1"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://www.fool.com/earnings/call-transcripts/2026/05/05/energy-transfer-et-q1-2026-earnings-transcript/",
+      "phase": 0,
+      "used_by_agent": "A1"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://www.fool.com/earnings/call-transcripts/2026/02/17/energy-transfer-et-q4-2025-earnings-transcript/",
+      "phase": 0,
+      "used_by_agent": "A1"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Energy Transfer Q4 FY2025 results segment Adjusted EBITDA DCF",
+      "phase": 0,
+      "used_by_agent": "A1"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Energy Transfer Q1 2026 results guidance raise EBITDA $18.2-18.6B",
+      "phase": 0,
+      "used_by_agent": "A1"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Energy Transfer ET analyst price target consensus 2026",
+      "phase": 0,
+      "used_by_agent": "A2"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Energy Transfer institutional insider ownership short interest",
+      "phase": 0,
+      "used_by_agent": "A5"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Energy Transfer DAPL Greenpeace litigation $345M ruling 2026",
+      "phase": 0,
+      "used_by_agent": "A8"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Energy Transfer IDR elimination ETE ETP 2018 GP structure",
+      "phase": 0,
+      "used_by_agent": "A8"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Energy Transfer distribution $0.3375 declared April 2026",
+      "phase": 0,
+      "used_by_agent": "A4"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Kelcy Warren Form 4 insider buying Energy Transfer units 2025",
+      "phase": 0,
+      "used_by_agent": "A5"
+    }
+  ],
+  "verification_calls_count": 20,
+  "outputs_produced": [
+    {
+      "path": "outputs/ET_IC_memo.md",
+      "sha256": "66211b84c392bb29982394f98f6549c25881fcead98dd4c91c4b94fa56e8894c",
+      "size_bytes": 13291,
+      "file_type": "ic_memo_md"
+    },
+    {
+      "path": "outputs/ET_structured.json",
+      "sha256": "1ac115e655fd482a6c83f8f14bd59bb17caa017d367b6f346cb81159fa9b371a",
+      "size_bytes": 70976,
+      "file_type": "structured_json"
+    },
+    {
+      "path": "outputs/ET_source_tags.json",
+      "sha256": "832185a72b354935852498012738468f76a54a40d07adf5d98b54462a0defb36",
+      "size_bytes": 12678,
+      "file_type": "source_tags_json"
+    },
+    {
+      "path": "outputs/ET_scenarios.json",
+      "sha256": "4302f46cc52d48634415201c7f348e829e0748b98f4bcc985ca66323f541f8b4",
+      "size_bytes": 10150,
+      "file_type": "scenarios_json"
+    }
+  ],
+  "orchestrator_notes": "ET full round Phases 0-3 + Verification chained into us-equity-ic-rigor IC memo. Phase 0 delegated to us-equity-research (single thorough web-verified research agent, 34 tool uses, 20-entry source log incl. SEC XBRL via curl). Buy rating, base PT $21.45, differentiated -10.75pp below Street $23.5 consensus on a downward-vs-Street MULTIPLE variance (V1_multiple_rerate, S1-evidenced, R-v2 base_rate_sanity attack -> modified). All applicable gates G1-G20 pass; G16 (banks) n_a."
+}

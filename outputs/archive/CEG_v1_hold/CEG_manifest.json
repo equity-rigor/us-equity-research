@@ -1,0 +1,357 @@
+{
+  "manifest_version": "0.3.0",
+  "ticker": "CEG",
+  "run_id": "C3F2E8B5-4D69-4A1F-B0E7-2A9D8C3B12F6",
+  "created_at": "2026-06-11T20:05:03+00:00",
+  "plugin_versions": {
+    "us_equity_research": "0.6.0",
+    "us_equity_ic_rigor": "0.6.0"
+  },
+  "phase_timing": {
+    "phase_0": {
+      "start": "2026-06-11T16:00:00Z",
+      "end": "2026-06-11T16:30:00Z"
+    },
+    "phase_1": {
+      "start": "2026-06-11T16:00:00Z",
+      "end": "2026-06-11T16:30:00Z"
+    },
+    "phase_2": {
+      "start": "2026-06-11T16:00:00Z",
+      "end": "2026-06-11T16:30:00Z"
+    },
+    "phase_3": {
+      "start": "2026-06-11T16:00:00Z",
+      "end": "2026-06-11T16:30:00Z"
+    },
+    "verification": {
+      "start": "2026-06-11T16:00:00Z",
+      "end": "2026-06-11T16:30:00Z"
+    }
+  },
+  "agent_provenance": [
+    {
+      "agent_id": "A1",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/CEG_phase1_A1.md",
+      "output_sha256": "810d0f69c29c1db5fc1735075f8568745742ab1a9f979d8040f3a8b758be055b"
+    },
+    {
+      "agent_id": "A4",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/CEG_phase1_A4.md",
+      "output_sha256": "eec4cabdb375362abfeb86e30a7a66e11936f3f1fcfdc98f23fbee598203ccd5"
+    },
+    {
+      "agent_id": "A5",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/CEG_phase1_A5.md",
+      "output_sha256": "e9acb04979c97404b704544bdcab2a5a87136343f8dc6ec54494c6e665f7377b"
+    },
+    {
+      "agent_id": "A8",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/CEG_phase1_A8.md",
+      "output_sha256": "8ac3103948883c0014bfa25d22f57124505c08611035da3b8580e8edc6c07cd7"
+    },
+    {
+      "agent_id": "FS",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/CEG_phase1_FS.md",
+      "output_sha256": "a28051c5c4387ddbf0486461e2be5c2d68a79a8b73f47133d13f5d939d486ee9"
+    },
+    {
+      "agent_id": "A2",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/CEG_phase2_A2.md",
+      "output_sha256": "b9d99872c0b3b6435299b67c4b18bca860b9d876cb21c6db95bcbab6c07c9a8d"
+    },
+    {
+      "agent_id": "A3",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/CEG_phase2_A3.md",
+      "output_sha256": "0edc16614430e9c246cf0ecd65e33790a118aa636c7e39d6e7a6b1cde3a04b39"
+    },
+    {
+      "agent_id": "A3-Peers",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/CEG_phase2_A3_Peers.md",
+      "output_sha256": "36f9ccf118e52634ef02dedb8940a15eebd0ebc69f0f0a81e86777b2000012ef"
+    },
+    {
+      "agent_id": "R",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/CEG_phase2_R.md",
+      "output_sha256": "110ab8fb2924ec2dde4c4d42398dde2c663f35d74bbfa9c2e95ba2d7f2a8eb65"
+    },
+    {
+      "agent_id": "A6",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/CEG_phase2_A6.md",
+      "output_sha256": "8fa2c7a09f1fb5a809d68e0ec1547ef715b6db66cef03bf49e71d4e59917a195"
+    },
+    {
+      "agent_id": "A-Consensus",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/CEG_phase2_A_Consensus.md",
+      "output_sha256": "ae2cb95090a3b7d56601d529c1268bf98fe160fe82a31f4e202abcaaad083b5c"
+    },
+    {
+      "agent_id": "A7",
+      "phase": 3,
+      "status": "completed",
+      "output_path": "outputs/workpapers/CEG_phase3_A7.md",
+      "output_sha256": "1a441b1c2ead6c6c3f5f4c001a50f66d93abeeeba0cb8883170dd2f6a62f4455"
+    },
+    {
+      "agent_id": "Mirror",
+      "phase": 3,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "Topic-Forensic",
+      "phase": 3,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "R-v2",
+      "phase": 3,
+      "status": "completed",
+      "output_path": "outputs/workpapers/CEG_phase3_R_v2.md",
+      "output_sha256": "985f8bda760936f84218aac31f3c51b1c4e4ad02cfc90b5ea523c73a679a532a"
+    }
+  ],
+  "web_search_log": [
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Constellation Energy FY2025 results Adjusted Operating EPS guidance",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "CEG Calpine acquisition closed January 2026 terms",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Constellation Microsoft Crane Three Mile Island Meta Clinton nuclear PPA",
+      "phase": 1,
+      "used_by_agent": "A4"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "FERC EL25-49 co-location behind-the-meter order December 2025",
+      "phase": 1,
+      "used_by_agent": "A5"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "PJM 2027/28 base residual auction cleared cap capacity price",
+      "phase": 1,
+      "used_by_agent": "A1"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001868275.json",
+      "phase": 1,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "CEG 13F holders short interest analyst price target 2026",
+      "phase": 1,
+      "used_by_agent": "A8"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "CEG Calpine LS Power 4.4 GW divestiture",
+      "phase": 2,
+      "used_by_agent": "R"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Constellation vs Vistra forward P/E premium valuation",
+      "phase": 2,
+      "used_by_agent": "A3-Peers"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "CEG Q1 2026 results Calpine adjusted operating EPS",
+      "phase": 2,
+      "used_by_agent": "A-Consensus"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "45U nuclear production tax credit sunset 2032 phase out",
+      "phase": 2,
+      "used_by_agent": "Topic-Forensic"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://efts.sec.gov/LATEST/search-index?q=PricewaterhouseCoopers&forms=10-K&ciks=0001868275",
+      "phase": 0,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "CEG share price market cap EV beta June 2026",
+      "phase": 3,
+      "used_by_agent": "A7"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://fred.stlouisfed.org/series/DGS10",
+      "phase": 3,
+      "used_by_agent": "A7"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Constellation >20% base EPS CAGR guidance Calpine accretion",
+      "phase": 1,
+      "used_by_agent": "A1"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "CEG credit rating S&P Moody's investment grade post-Calpine",
+      "phase": 1,
+      "used_by_agent": "FS"
+    }
+  ],
+  "verification_calls_count": 33,
+  "outputs_produced": [
+    {
+      "path": "outputs/CEG_IC_memo.md",
+      "sha256": "facda579035f4c7878dd8c271fdc2e2f2b621ed76cbefc9cf476df19eeef0986",
+      "size_bytes": 14472,
+      "file_type": "ic_memo_md"
+    },
+    {
+      "path": "outputs/CEG_structured.json",
+      "sha256": "44d04090fec367021ff307866df42448749bf4cd0b3cf106ab001c38306f2072",
+      "size_bytes": 72880,
+      "file_type": "structured_json"
+    },
+    {
+      "path": "outputs/CEG_source_tags.json",
+      "sha256": "5c7a4d559f3444619dc1fdd7b2776197001ab4bf250618f944665ff9e9e35ed8",
+      "size_bytes": 10052,
+      "file_type": "source_tags_json"
+    },
+    {
+      "path": "outputs/CEG_scenarios.json",
+      "sha256": "a3ecc6987440353d172b3bfe78fab1b236248dfb4676c376e66fa4cc95ce516a",
+      "size_bytes": 8508,
+      "file_type": "scenarios_json"
+    },
+    {
+      "path": "outputs/CEG_verification_gates.json",
+      "sha256": "dda7d5333c35ffee7500ffcb2f7922e0e4b82157f655366edd6e3bc5e5afa902",
+      "size_bytes": 3575,
+      "file_type": "verification_gates_json"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase1_A1.md",
+      "sha256": "810d0f69c29c1db5fc1735075f8568745742ab1a9f979d8040f3a8b758be055b",
+      "size_bytes": 684,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase1_A4.md",
+      "sha256": "eec4cabdb375362abfeb86e30a7a66e11936f3f1fcfdc98f23fbee598203ccd5",
+      "size_bytes": 621,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase1_A5.md",
+      "sha256": "e9acb04979c97404b704544bdcab2a5a87136343f8dc6ec54494c6e665f7377b",
+      "size_bytes": 578,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase1_A8.md",
+      "sha256": "8ac3103948883c0014bfa25d22f57124505c08611035da3b8580e8edc6c07cd7",
+      "size_bytes": 568,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase1_FS.md",
+      "sha256": "a28051c5c4387ddbf0486461e2be5c2d68a79a8b73f47133d13f5d939d486ee9",
+      "size_bytes": 655,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase2_A2.md",
+      "sha256": "b9d99872c0b3b6435299b67c4b18bca860b9d876cb21c6db95bcbab6c07c9a8d",
+      "size_bytes": 578,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase2_A3.md",
+      "sha256": "0edc16614430e9c246cf0ecd65e33790a118aa636c7e39d6e7a6b1cde3a04b39",
+      "size_bytes": 577,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase2_A3_Peers.md",
+      "sha256": "36f9ccf118e52634ef02dedb8940a15eebd0ebc69f0f0a81e86777b2000012ef",
+      "size_bytes": 559,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase2_A6.md",
+      "sha256": "8fa2c7a09f1fb5a809d68e0ec1547ef715b6db66cef03bf49e71d4e59917a195",
+      "size_bytes": 718,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase2_A_Consensus.md",
+      "sha256": "ae2cb95090a3b7d56601d529c1268bf98fe160fe82a31f4e202abcaaad083b5c",
+      "size_bytes": 661,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase2_R.md",
+      "sha256": "110ab8fb2924ec2dde4c4d42398dde2c663f35d74bbfa9c2e95ba2d7f2a8eb65",
+      "size_bytes": 737,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase3_A7.md",
+      "sha256": "1a441b1c2ead6c6c3f5f4c001a50f66d93abeeeba0cb8883170dd2f6a62f4455",
+      "size_bytes": 702,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase3_Mirror_VST.md",
+      "sha256": "10d59ee18efd0c6b559238481c08926aac0585b9cdce73647dfa89c1113ca128",
+      "size_bytes": 568,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase3_R_v2.md",
+      "sha256": "985f8bda760936f84218aac31f3c51b1c4e4ad02cfc90b5ea523c73a679a532a",
+      "size_bytes": 697,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/CEG_phase3_TopicForensic_FERC.md",
+      "sha256": "78e7e4204f82fd9edaf75985e462609f405e19ddf66925814e745b1f0799e602",
+      "size_bytes": 748,
+      "file_type": "workpaper_md"
+    }
+  ],
+  "orchestrator_notes": "CEG (Constellation Energy) full round. Source-conditional HOLD (premium/quality nuclear leg post-Calpine; de-rate ~40% already done; G15/G20 n_a Hold, G16 n_a non-bank). 3 parallel research specialists + EDGAR XBRL + FRED + full-text."
+}

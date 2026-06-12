@@ -1,0 +1,357 @@
+{
+  "manifest_version": "0.3.0",
+  "ticker": "FCX",
+  "run_id": "D4A3F1C8-5E7B-4C2A-9F16-3B8E9D4C22A7",
+  "created_at": "2026-06-11T20:34:20+00:00",
+  "plugin_versions": {
+    "us_equity_research": "0.6.0",
+    "us_equity_ic_rigor": "0.6.0"
+  },
+  "phase_timing": {
+    "phase_0": {
+      "start": "2026-06-11T18:00:00Z",
+      "end": "2026-06-11T18:30:00Z"
+    },
+    "phase_1": {
+      "start": "2026-06-11T18:00:00Z",
+      "end": "2026-06-11T18:30:00Z"
+    },
+    "phase_2": {
+      "start": "2026-06-11T18:00:00Z",
+      "end": "2026-06-11T18:30:00Z"
+    },
+    "phase_3": {
+      "start": "2026-06-11T18:00:00Z",
+      "end": "2026-06-11T18:30:00Z"
+    },
+    "verification": {
+      "start": "2026-06-11T18:00:00Z",
+      "end": "2026-06-11T18:30:00Z"
+    }
+  },
+  "agent_provenance": [
+    {
+      "agent_id": "A1",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/FCX_phase1_A1.md",
+      "output_sha256": "fa7f10f80f6c2977970cddc8b053c81b69d679324edf844085724313b6ed4cf2"
+    },
+    {
+      "agent_id": "A4",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/FCX_phase1_A4.md",
+      "output_sha256": "93677a5dde5c7533cbc760bc1bf0103f7d69ff93536ed89ce204c1f740fcc8e3"
+    },
+    {
+      "agent_id": "A5",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/FCX_phase1_A5.md",
+      "output_sha256": "e801f86d1bc1578d464af71057bbc918624c1c59cf8ad7158a267e7f844655b0"
+    },
+    {
+      "agent_id": "A8",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/FCX_phase1_A8.md",
+      "output_sha256": "e28386bf839224c960458f77e79d7c2634e371d891dd202371bb6d17b4edb5ff"
+    },
+    {
+      "agent_id": "FS",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/FCX_phase1_FS.md",
+      "output_sha256": "e133c1a2dbe5702a6a884930067f5fc64312c3a667904feb1a411a07d884569b"
+    },
+    {
+      "agent_id": "A2",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/FCX_phase2_A2.md",
+      "output_sha256": "b1a4b16c215a1dbfa9422073c043d3ac95bb988d0461823b88aac34be08a291f"
+    },
+    {
+      "agent_id": "A3",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/FCX_phase2_A3.md",
+      "output_sha256": "b80f726d90a1618ef7f8a57cbeba05d078934ee7ea737a2e2955f89c1982006c"
+    },
+    {
+      "agent_id": "A3-Peers",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/FCX_phase2_A3_Peers.md",
+      "output_sha256": "b0739f785b13a39cfa9bc001bd8c8403b10a0dee24520fd61cdaeb9576c662a9"
+    },
+    {
+      "agent_id": "R",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/FCX_phase2_R.md",
+      "output_sha256": "deab8cbd3cc17e2f9222c7c067f4d4f44aa0545e794a44bc6c9e9d2be04b2c49"
+    },
+    {
+      "agent_id": "A6",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/FCX_phase2_A6.md",
+      "output_sha256": "c50f16a1e2d2b85129aeba55419d3602a9a9f6571686fd73cb80a5e2e6efa38f"
+    },
+    {
+      "agent_id": "A-Consensus",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/FCX_phase2_A_Consensus.md",
+      "output_sha256": "e84eca5b34b002179d021d1f788c52ecfc236d520d3bc7065f718734fb54bff8"
+    },
+    {
+      "agent_id": "A7",
+      "phase": 3,
+      "status": "completed",
+      "output_path": "outputs/workpapers/FCX_phase3_A7.md",
+      "output_sha256": "4485e7984a6d5bcb10b50ede4ce02a0e3b9c689c9093fce8349940da9ab0018a"
+    },
+    {
+      "agent_id": "Mirror",
+      "phase": 3,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "Topic-Forensic",
+      "phase": 3,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "R-v2",
+      "phase": 3,
+      "status": "completed",
+      "output_path": "outputs/workpapers/FCX_phase3_R_v2.md",
+      "output_sha256": "640000ac141e36881f1954d8ecc7c6adb507dd91f82fa7fec8aa17e1b4895455"
+    }
+  ],
+  "web_search_log": [
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Freeport-McMoRan FY2025 results adjusted EBITDA copper production guidance",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "FCX Q1 2026 results Grasberg guidance cut",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Grasberg mud-rush September 2025 block cave restart ramp",
+      "phase": 1,
+      "used_by_agent": "Topic-Forensic"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Freeport Indonesia MIND ID IUPK extension 2041 divestment MoU",
+      "phase": 1,
+      "used_by_agent": "A5"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "copper price COMEX LME June 2026 mid-cycle Section 232 tariff",
+      "phase": 1,
+      "used_by_agent": "A1"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000831259.json",
+      "phase": 1,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "FCX leaching virtual mine 800 million pounds copper target",
+      "phase": 1,
+      "used_by_agent": "A4"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "FCX 13F holders short interest analyst price target 2026",
+      "phase": 1,
+      "used_by_agent": "A8"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Freeport vs Southern Copper SCCO valuation EV/EBITDA premium",
+      "phase": 2,
+      "used_by_agent": "A3-Peers"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "FCX consensus EPS EBITDA price target rating 2026",
+      "phase": 2,
+      "used_by_agent": "A-Consensus"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "copper miners cyclical peak multiple de-rate base rate",
+      "phase": 2,
+      "used_by_agent": "R"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://efts.sec.gov/LATEST/search-index?q=Ernst&forms=10-K&ciks=0000831259",
+      "phase": 0,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "FCX share price market cap EV beta June 2026",
+      "phase": 3,
+      "used_by_agent": "A7"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://fred.stlouisfed.org/series/DGS10",
+      "phase": 3,
+      "used_by_agent": "A7"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "FCX unit net cash cost guidance 2026 1.95",
+      "phase": 1,
+      "used_by_agent": "A4"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "FCX net debt balance sheet capital allocation dividend 2026",
+      "phase": 1,
+      "used_by_agent": "FS"
+    }
+  ],
+  "verification_calls_count": 34,
+  "outputs_produced": [
+    {
+      "path": "outputs/FCX_IC_memo.md",
+      "sha256": "9fc1292d072be6b5507c9d26bada2079aa52222a4f9f9f5fd08c9154c2f075ea",
+      "size_bytes": 14865,
+      "file_type": "ic_memo_md"
+    },
+    {
+      "path": "outputs/FCX_structured.json",
+      "sha256": "931859b6a3859007d410cb75a727bf5fac131c7d137b58d0e47b494720a7c6b1",
+      "size_bytes": 74147,
+      "file_type": "structured_json"
+    },
+    {
+      "path": "outputs/FCX_source_tags.json",
+      "sha256": "4b570a6a644743ad524f7ff1006e6864fc6e57192909bb4e91725c7bfaabda8c",
+      "size_bytes": 10478,
+      "file_type": "source_tags_json"
+    },
+    {
+      "path": "outputs/FCX_scenarios.json",
+      "sha256": "017d0d58bda50e410bcbe6ee5095c4cc8a4d19814fe57e23470e44f4c0290323",
+      "size_bytes": 8398,
+      "file_type": "scenarios_json"
+    },
+    {
+      "path": "outputs/FCX_verification_gates.json",
+      "sha256": "adea258fbb0755b5aee352468a0d016d05dfd67efc9d5e755bdeb842d01af696",
+      "size_bytes": 3619,
+      "file_type": "verification_gates_json"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase1_A1.md",
+      "sha256": "fa7f10f80f6c2977970cddc8b053c81b69d679324edf844085724313b6ed4cf2",
+      "size_bytes": 762,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase1_A4.md",
+      "sha256": "93677a5dde5c7533cbc760bc1bf0103f7d69ff93536ed89ce204c1f740fcc8e3",
+      "size_bytes": 595,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase1_A5.md",
+      "sha256": "e801f86d1bc1578d464af71057bbc918624c1c59cf8ad7158a267e7f844655b0",
+      "size_bytes": 555,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase1_A8.md",
+      "sha256": "e28386bf839224c960458f77e79d7c2634e371d891dd202371bb6d17b4edb5ff",
+      "size_bytes": 615,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase1_FS.md",
+      "sha256": "e133c1a2dbe5702a6a884930067f5fc64312c3a667904feb1a411a07d884569b",
+      "size_bytes": 689,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase2_A2.md",
+      "sha256": "b1a4b16c215a1dbfa9422073c043d3ac95bb988d0461823b88aac34be08a291f",
+      "size_bytes": 615,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase2_A3.md",
+      "sha256": "b80f726d90a1618ef7f8a57cbeba05d078934ee7ea737a2e2955f89c1982006c",
+      "size_bytes": 606,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase2_A3_Peers.md",
+      "sha256": "b0739f785b13a39cfa9bc001bd8c8403b10a0dee24520fd61cdaeb9576c662a9",
+      "size_bytes": 583,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase2_A6.md",
+      "sha256": "c50f16a1e2d2b85129aeba55419d3602a9a9f6571686fd73cb80a5e2e6efa38f",
+      "size_bytes": 694,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase2_A_Consensus.md",
+      "sha256": "e84eca5b34b002179d021d1f788c52ecfc236d520d3bc7065f718734fb54bff8",
+      "size_bytes": 686,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase2_R.md",
+      "sha256": "deab8cbd3cc17e2f9222c7c067f4d4f44aa0545e794a44bc6c9e9d2be04b2c49",
+      "size_bytes": 732,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase3_A7.md",
+      "sha256": "4485e7984a6d5bcb10b50ede4ce02a0e3b9c689c9093fce8349940da9ab0018a",
+      "size_bytes": 767,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase3_Mirror_SCCO.md",
+      "sha256": "f45d3c9682c6cd35b077b059d568fe2e8901f75a746808ab6c4244ab80069f2f",
+      "size_bytes": 635,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase3_R_v2.md",
+      "sha256": "640000ac141e36881f1954d8ecc7c6adb507dd91f82fa7fec8aa17e1b4895455",
+      "size_bytes": 836,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/FCX_phase3_TopicForensic_Grasberg.md",
+      "sha256": "6b987b60c2fdf1ff6b514389c588817fca168e2fbadc15bf513a7aac46a6d329",
+      "size_bytes": 781,
+      "file_type": "workpaper_md"
+    }
+  ],
+  "orchestrator_notes": "FCX (Freeport-McMoRan) full round. Source-conditional (cautious) HOLD - fully valued at 52-wk high on peak copper; left-skewed distribution; structural-deficit tail keeps it Hold not Sell. G15/G20 n_a (Hold), G16 n_a (non-bank). 3 parallel research specialists + EDGAR XBRL + FRED + full-text."
+}

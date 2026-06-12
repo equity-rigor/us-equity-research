@@ -1,0 +1,129 @@
+{
+ "run_id": "B2E1D7A4-3C58-4F9E-A0D6-1E8C7F2A99B5",
+ "plugin_versions": {
+  "us_equity_research": "0.6.0",
+  "us_equity_ic_rigor": "0.6.0"
+ },
+ "phase_timing": {
+  "phase_0": {
+   "start": "2026-06-09T20:00:00Z",
+   "end": "2026-06-09T20:30:00Z"
+  },
+  "phase_1": {
+   "start": "2026-06-09T20:00:00Z",
+   "end": "2026-06-09T20:30:00Z"
+  },
+  "phase_2": {
+   "start": "2026-06-09T20:00:00Z",
+   "end": "2026-06-09T20:30:00Z"
+  },
+  "phase_3": {
+   "start": "2026-06-09T20:00:00Z",
+   "end": "2026-06-09T20:30:00Z"
+  },
+  "verification": {
+   "start": "2026-06-09T20:00:00Z",
+   "end": "2026-06-09T20:30:00Z"
+  }
+ },
+ "web_search_log": [
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Air Products FY2025 results adjusted EPS charges",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "APD Q2 FY2026 results guidance raise capex",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Mantle Ridge Air Products proxy board seats Menezes CEO",
+   "phase": 1,
+   "used_by_agent": "A8"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Air Products NEOM green hydrogen Louisiana Yara FID",
+   "phase": 1,
+   "used_by_agent": "A4"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Air Products 45V clean hydrogen tax credit policy",
+   "phase": 1,
+   "used_by_agent": "A5"
+  },
+  {
+   "tool": "WebFetch",
+   "query_or_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000002969.json",
+   "phase": 1,
+   "used_by_agent": "FS"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "APD capex FCF free cash flow dividend coverage 2025 2026",
+   "phase": 1,
+   "used_by_agent": "FS"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "APD 13F holders short interest Mantle Ridge stake",
+   "phase": 1,
+   "used_by_agent": "A8"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Air Products vs Linde forward P/E discount valuation",
+   "phase": 2,
+   "used_by_agent": "A3-Peers"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "APD consensus price target rating analysts 2026",
+   "phase": 2,
+   "used_by_agent": "A-Consensus"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "APD impairment charges hydrogen projects FY2025 3.7 billion",
+   "phase": 2,
+   "used_by_agent": "R"
+  },
+  {
+   "tool": "WebFetch",
+   "query_or_url": "https://efts.sec.gov/LATEST/search-index?q=KPMG&forms=10-K&ciks=0000002969",
+   "phase": 0,
+   "used_by_agent": "FS"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "APD share price market cap EV beta June 2026",
+   "phase": 3,
+   "used_by_agent": "A7"
+  },
+  {
+   "tool": "WebFetch",
+   "query_or_url": "https://fred.stlouisfed.org/series/DGS10",
+   "phase": 3,
+   "used_by_agent": "A7"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Air Products segment operating income Americas Asia Europe FY2025",
+   "phase": 1,
+   "used_by_agent": "FS"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Air Products credit rating S&P Moody's negative outlook",
+   "phase": 1,
+   "used_by_agent": "FS"
+  }
+ ],
+ "verification_calls_count": 32,
+ "orchestrator_notes": "APD (Air Products) full round. Source-conditional BUY with G15 consensus variance + G20 view-defensibility (variance_attack, base_rate_sanity, modified). 3 parallel research specialists + EDGAR XBRL + FRED + full-text."
+}

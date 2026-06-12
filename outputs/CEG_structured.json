@@ -1,0 +1,1779 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "CEG",
+ "exchange": "NASDAQ",
+ "company_name": "Constellation Energy Corporation",
+ "cik": "0001868275",
+ "sector_gics": "Utilities",
+ "industry_gics": "Independent Power Producers & Energy Traders (GICS 55105010)",
+ "as_of_date": "2026-06-11",
+ "model_cutoff_date": "2026-01-01",
+ "author": "us-equity-research full-round orchestrator (Phases 0-3 + Verification)",
+ "current_price_usd": 247.12,
+ "market_cap_usd_b": 88.25,
+ "enterprise_value_usd_b": 109.4,
+ "fiscal_year_end": "12-31",
+ "headline": {
+  "expected_return_median": -0.036,
+  "expected_return_range_p10_p90": [
+   -0.3202,
+   0.4426
+  ],
+  "rating": "Hold",
+  "default_action": "hold_long",
+  "conditionality": "source_conditional",
+  "conditional_language_pattern": "A_source_conditional_bias",
+  "headline_text": "Source-conditional Hold at $247.12 (DE-BIASED): probability-weighted 12-month expected return -3.6% to a base-case PT of $233.55 - an INDEPENDENT fair value (DCF $215 / SOTP $245 / comps $256 -> ~$234, -5% vs spot), anchored to fundamentals not 'consensus EPS x current multiple.' The de-bias SHARPENS CEG from the prior +3% Hold to a clearly cautious ~-4% Hold: its DCF ($215) sits -13% below spot, so the premium-nuclear multiple is doing real work. It does NOT flip to Sell (fair value only -5%; the de-rate is already ~40% done off the $412 high). CONDITIONAL on the FY2026 guide + >20% CAGR holding post-Calpine and hyperscaler PPA conversions resuming under the June-2026 FERC framework; two-sided -> Hold, cautious."
+ },
+ "recommendation": {
+  "rating": "Hold",
+  "price_target_usd": 233.55,
+  "price_target_range_low_usd": 168.0,
+  "price_target_range_high_usd": 356.5,
+  "upside_downside_pct": -5.49,
+  "time_horizon_months": 12,
+  "conviction_tag": "source_conditional",
+  "default_action": "hold_long",
+  "rationale_one_paragraph": "DE-BIASED (cautious) Hold on CEG at $247.12. Anchoring the base to an independent fair value (DCF $215, SOTP $245, comps $256 -> weighted ~$234, ~-5% vs spot) SHARPENS the prior +3% Hold to a clearly cautious ~-4% Hold, but does NOT flip it to Sell: CEG's DCF (-13%) shows the premium-nuclear multiple is doing real work, yet the de-rate is already ~40% done (off the $412 high to a 52-wk low), so fair value is only ~5% below spot. CEG is the highest-quality IPP (largest US nuclear fleet, ~60 GW post-Calpine, IG) but premium-priced on partly cyclical-peak earnings (PJM-at-the-cap, FERC BTM restriction). Base PT $233.55 = FY27E EPS $13.50 x P/E 17.3x. Probability-weighted -3.6% (base -5.5%); two-sided -> Hold. G15/G20 n_a."
+ },
+ "investment_thesis_pillars": [
+  {
+   "title": "Scarcest asset in the AI-power build: the largest US nuclear fleet",
+   "key_statistic": "~32.4 GW nuclear, 21 reactors at 15 sites - the largest US fleet; ~60 GW total post-Calpine (S1/S2)",
+   "narrative": "Nuclear is the only proven 24/7 carbon-free baseload, and hyperscalers are signing 20-year PPAs at premium prices for exactly this. CEG has the most of it: the Microsoft/Crane (Three Mile Island Unit 1) ~835 MW restart (20-yr, online ~2027-28) and the Meta/Clinton ~1.1 GW 20-yr PPA convert merchant nuclear into contracted premium annuities, and a ~5 GW pipeline sits in PJM/ERCOT queues. Each new PPA structurally re-rates a slice of the fleet. This scarcity-plus-pipeline is the core of CEG's premium multiple.",
+   "anchor_refs": [
+    "A2"
+   ],
+   "timeline": "Crane online 2027-28; new PPA conversions gated on the June-2026 PJM/FERC framework"
+  },
+  {
+   "title": "Calpine scale + >20% base-EPS-CAGR engine",
+   "key_statistic": "Calpine (~$26.6B EV, closed Jan-2026) -> ~60 GW; FY2026 Adj Op EPS guide $11.00-12.00; >20% base EPS CAGR 2026-2029 (S2/S3)",
+   "narrative": "The Calpine acquisition makes CEG the largest US power producer, adding ~26 GW modern gas + The Geysers geothermal + a large ERCOT/CAISO retail book (the VST-style integrated hedge). Management guides ~$2/share Calpine accretion and a >20% base Adjusted-Operating-EPS CAGR through 2029, funding a $5B buyback (shares to shrink again after the deal step-up) and ~10%/yr dividend growth on an IG balance sheet. If delivered, the per-share compounding is the bull's engine.",
+   "anchor_refs": [
+    "A1",
+    "A3"
+   ],
+   "timeline": "Calpine synergies + LS Power 4.4 GW divestiture (~$5B) through 2026-27"
+  },
+  {
+   "title": "Investment-grade balance sheet + 45U downside floor",
+   "key_statistic": "S&P BBB+ / Moody's Baa1 / Fitch BBB+; 45U nuclear PTC floor ~$43.75/MWh; ~$5.3B standalone net debt pre-Calpine (S2/S5)",
+   "narrative": "CEG carries the cleanest balance sheet in the cohort (low standalone leverage; IG affirmed post-Calpine with a $3.4B deleveraging plan) and the 45U production tax credit provides a hard price floor on the nuclear fleet (~$43.75/MWh). That combination caps downside relative to higher-levered, unfloored merchant peers - the reason CEG trades at a premium and the reason a full multiple collapse is a tail, not a base case.",
+   "anchor_refs": [
+    "A4"
+   ],
+   "timeline": "45U floor binds through end-2032 sunset; deleveraging 2026-27"
+  },
+  {
+   "title": "The bear: a premium multiple on cyclical-peak earnings",
+   "key_statistic": "~21x FY26E / ~18x FY27E P/E (vs VST ~14x); PJM capacity cleared AT THE CAP $329-333/MW-day; 45U ~$0 today; FERC EL25-49 restricts BTM (S2/S4)",
+   "narrative": "CEG's premium rests on earnings that are partly cyclical-peak: PJM capacity is cleared at the FERC cap (only down from here, floor $179.55), the 45U floor is ~$0 at today's high power prices and disappears in 2032, the FERC EL25-49 order restricts the behind-the-meter co-location economics the premium assumed (hyperscaler conversions are 'paused'), and the Calpine gas fleet was bought near a cycle top and dilutes the clean-nuclear narrative. The whole IPP cohort re-rated up together on the AI theme; the highest-multiple name has the most to lose if it de-rates. Bear lands $150-175 on a multiple-to-mid-teens + estimate-normalization double de-rate.",
+   "anchor_refs": [
+    "A1",
+    "A2"
+   ],
+   "timeline": "Bear confirms on a sub-$13 FY2027 guide or a sub-$250 PJM 2028/29 BRA print"
+  }
+ ],
+ "company_qualitative": {
+  "description": "Constellation Energy Corporation (CEG) is the largest US producer of carbon-free electricity and, following the January-2026 acquisition of Calpine, the largest US power producer overall (~60 GW). Its core is the largest US nuclear fleet (~32.4 GW, 21 reactors at 15 sites), complemented by hydro, wind, solar, and - post-Calpine - ~26 GW of modern natural gas, The Geysers geothermal complex, and a large competitive retail/commercial business serving ~2.5M customers across PJM, NYISO, ERCOT and CAISO. CEG reports five geographic generation segments (Mid-Atlantic, Midwest, New York, ERCOT, Other Power Regions) plus the commercial (retail + wholesale load-serving) business. FY2025 (standalone, pre-Calpine) revenue was $25,533M (S1: SEC XBRL companyfacts CIK 0001868275) with GAAP net income $2,319M (diluted EPS $7.40) and Adjusted Operating EPS $9.39. GAAP earnings are non-informational quarter to quarter: they are distorted by mark-to-market on the commodity hedge book, and operating cash flow swung deeply negative in 2022-2024 (down to -$5.3B in FY2023) on margin/collateral posting during the gas-price spike before recovering to +$4.2B in FY2025. The 2024-2026 narrative is the AI/data-center power-demand build: CEG signed 20-year nuclear PPAs with Microsoft (Crane/Three Mile Island Unit 1 restart, ~835 MW, online ~2027-28) and Meta (Clinton, ~1.1 GW), and is pursuing a pipeline of additional hyperscaler deals - now gated on the FERC EL25-49 co-location framework due June 2026, which blessed front-of-meter but restricted behind-the-meter structures. The $26.6B Calpine acquisition (closed Jan 7, 2026) adds dispatchable gas + retail and a >20% base-EPS-CAGR target, but also leverage, integration risk, a forced ~4.4 GW PJM divestiture to LS Power (~$5B), and a dilution of the clean-nuclear premium narrative.",
+  "products": [
+   {
+    "name": "Nuclear generation (~32.4 GW)",
+    "description": "The largest US nuclear fleet (21 reactors, 15 sites) across PJM, NYISO and the Midwest. Carbon-free baseload anchoring the Microsoft/Crane and Meta/Clinton 20-yr PPAs; earns the 45U production tax credit (floor).",
+    "target_customers": "Wholesale ISO markets + hyperscaler 20-yr PPAs (Microsoft, Meta)",
+    "pricing_model": "Merchant energy + capacity + 20-yr PPAs + 45U PTC floor",
+    "revenue_contribution_pct": 38.0,
+    "competitive_position": "Largest US nuclear fleet; the scarcity asset for 24/7 carbon-free hyperscaler demand",
+    "source_citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "CEG FY2025 10-K Item 1/2 (nuclear fleet)"
+    }
+   },
+   {
+    "name": "Natural gas + geothermal (Calpine, ~26 GW)",
+    "description": "Modern CCGT + peaker fleet in ERCOT/CAISO/PJM plus The Geysers geothermal, added via the Jan-2026 Calpine acquisition. Dispatchable capacity earning energy + capacity revenue; ~4.4 GW PJM gas being divested to LS Power.",
+    "target_customers": "ISO energy + capacity markets",
+    "pricing_model": "Merchant energy + capacity",
+    "revenue_contribution_pct": 32.0,
+    "competitive_position": "Largest US gas fleet post-Calpine; dilutes the clean-nuclear premium",
+    "source_citation": {
+     "s_level": "S2",
+     "source_type": "8-K",
+     "ref": "CEG Calpine close 8-K 2026-01-07 + LS Power divestiture 2026-03-18"
+    }
+   },
+   {
+    "name": "Commercial / retail (~2.5M customers)",
+    "description": "Competitive retail + wholesale load-serving across PJM/NYISO/ERCOT/CAISO; one of the largest US competitive suppliers, acting as the integrated hedge for generation.",
+    "target_customers": "C&I and residential customers in deregulated markets",
+    "pricing_model": "Retail margin over hedged supply cost",
+    "revenue_contribution_pct": 30.0,
+    "competitive_position": "Top-tier competitive supplier; integration smooths merchant volatility (VST-style)",
+    "source_citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "CEG FY2025 10-K (commercial business) + Calpine retail"
+    }
+   }
+  ],
+  "customers_gtm": "CEG sells energy + capacity into ISO/RTO markets (PJM/NYISO/ERCOT/CAISO) plus long-term IG-counterparty nuclear PPAs (Microsoft, Meta). The commercial business serves ~2.5M retail/wholesale customers, internally hedging generation. Counterparty quality on the marquee PPAs is top-decile (hyperscalers). The hyperscaler-PPA pipeline (~5 GW in queue) is the swing growth variable, currently gated on the FERC EL25-49 co-location framework.",
+  "industry": {
+   "overview": "US power demand is growing at its fastest rate since 2000 on data-center/AI load. Merchant IPPs (Constellation, Vistra, NRG, Talen) re-rated together through 2024-25 on the AI-electricity theme: PJM capacity cleared at the FERC offer cap for two consecutive auctions (2026/27 $329.17, 2027/28 $333.44/MW-day UCAP) and hyperscalers procured multiple GW of nuclear. The cohort is now mid-to-late cycle: the FERC EL25-49 order (Dec-2025) restricted behind-the-meter co-location (the Talen/Susquehanna BTM structure was rejected; FTM is the survivable path), and the whole group is de-rating in 2026 (CEG -40% off its high) as the market tests how much of the AI premium is durable vs cyclical. CEG is the quality/nuclear-purity leg; Vistra the value/integrated leg.",
+   "tam": {
+    "current_year": 2026,
+    "current_tam_usd_b": 500.0,
+    "projected_year": 2030,
+    "projected_tam_usd_b": 640.0,
+    "cagr_pct": 6.4,
+    "source": {
+     "s_level": "S5",
+     "source_type": "EIA",
+     "ref": "US wholesale power + capacity + retail dollarized; EIA/PJM load-growth forecasts (data-center-driven)"
+    }
+   }
+  },
+  "competitive_landscape": {
+   "peers": [
+    {
+     "name": "Vistra Corp.",
+     "ticker": "VST",
+     "market_cap_usd_b": 49.2,
+     "market_share_pct": 10.0,
+     "key_differentiator": "Value/integrated leg: cheaper (~14x P/E / ~10x EV/EBITDA), higher FCF yield (~7.2%), more leverage; pricing in less of the AI thesis",
+     "revenue_growth_pct": 6.0,
+     "ebitda_margin_pct": 25.0
+    },
+    {
+     "name": "NRG Energy",
+     "ticker": "NRG",
+     "market_cap_usd_b": 26.2,
+     "market_share_pct": 6.0,
+     "key_differentiator": "Retail-heavy + LS Power gas; re-rated to ~18x P/E on its own AI narrative; minimal nuclear",
+     "revenue_growth_pct": 5.0,
+     "ebitda_margin_pct": 14.0
+    },
+    {
+     "name": "Talen Energy",
+     "ticker": "TLN",
+     "market_cap_usd_b": 15.7,
+     "market_share_pct": 2.5,
+     "key_differentiator": "Nuclear-heavy small-cap (Susquehanna-AWS, restructured to FTM); ~16x P/E; ramping EBITDA",
+     "revenue_growth_pct": 8.0,
+     "ebitda_margin_pct": 30.0
+    }
+   ],
+   "positioning_narrative": "CEG is the quality/nuclear-purity leg of the AI-power cohort: the largest, scarcest carbon-free baseload fleet, the cleanest balance sheet (IG), and the 45U floor - which justify a premium. But the premium (~7 P/E turns / ~3.7 EV/EBITDA turns over Vistra) is being tested: it rests partly on cyclical-peak PJM capacity (cleared at cap) and hyperscaler-PPA economics now constrained by FERC's BTM restriction, and the Calpine gas addition dilutes the clean-nuclear narrative. The cohort re-rated up together and is now de-rating together; the highest-multiple name has the most to lose. On a 12-month horizon the dominant variable is whether the premium holds as PPA conversions resume (FTM) and the >20% CAGR is delivered, vs a double de-rate toward Vistra's multiple on cyclical normalization. The long-VST/short-CEG pair expresses the premium compression, but the gap has already narrowed from ~8 to ~7 turns."
+  }
+ },
+ "management": [
+  {
+   "name": "Joe Dominguez",
+   "title": "President & CEO",
+   "tenure_years": 4,
+   "bio": "President & CEO of Constellation since the 2022 spin from Exelon; architect of the nuclear-to-hyperscaler PPA strategy (Microsoft/Crane, Meta/Clinton) and the Calpine acquisition. Long Exelon/Constellation tenure in policy, generation and competitive markets.",
+   "background": "Power markets, nuclear, policy, M&A",
+   "source": {
+    "s_level": "S2",
+    "source_type": "DEF 14A",
+    "ref": "CEG 2026 DEF 14A"
+   }
+  },
+  {
+   "name": "Dan Eggers",
+   "title": "EVP & CFO",
+   "tenure_years": 3,
+   "bio": "CFO responsible for the capital-allocation framework ($5B buyback, ~10%/yr dividend growth), the Calpine financing + deleveraging plan (~$3.4B paydown 2026-27), and the investment-grade balance sheet.",
+   "background": "Corporate finance, equity research (utilities), treasury",
+   "source": {
+    "s_level": "S2",
+    "source_type": "DEF 14A",
+    "ref": "CEG 2026 DEF 14A"
+   }
+  }
+ ],
+ "financials": {
+  "historical": [
+   {
+    "period": "FY23A",
+    "period_type": "historical",
+    "revenue_usd_m": 24918,
+    "revenue_growth_pct": 1.9,
+    "gross_profit_usd_m": 5900,
+    "gross_margin_pct": 23.7,
+    "ebit_usd_m": 1610,
+    "ebit_margin_pct": 6.5,
+    "net_income_gaap_usd_m": 1623,
+    "eps_diluted_gaap_usd": 5.01,
+    "eps_diluted_non_gaap_usd": 7.5,
+    "diluted_shares_m": 324.0,
+    "fcf_usd_m": -7723,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 60,
+    "buyback_usd_m": 992,
+    "buyback_offsets_sbc_ratio": 16.5
+   },
+   {
+    "period": "FY24A",
+    "period_type": "historical",
+    "revenue_usd_m": 23568,
+    "revenue_growth_pct": -5.4,
+    "gross_profit_usd_m": 6200,
+    "gross_margin_pct": 26.3,
+    "ebit_usd_m": 4352,
+    "ebit_margin_pct": 18.5,
+    "net_income_gaap_usd_m": 3749,
+    "eps_diluted_gaap_usd": 11.89,
+    "eps_diluted_non_gaap_usd": 8.67,
+    "diluted_shares_m": 315.0,
+    "fcf_usd_m": -5029,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 62,
+    "buyback_usd_m": 999,
+    "buyback_offsets_sbc_ratio": 16.1
+   },
+   {
+    "period": "FY25A",
+    "period_type": "historical",
+    "revenue_usd_m": 25533,
+    "revenue_growth_pct": 8.3,
+    "gross_profit_usd_m": 6700,
+    "gross_margin_pct": 26.2,
+    "ebit_usd_m": 3086,
+    "ebit_margin_pct": 12.1,
+    "net_income_gaap_usd_m": 2319,
+    "eps_diluted_gaap_usd": 7.4,
+    "eps_diluted_non_gaap_usd": 9.39,
+    "diluted_shares_m": 314.0,
+    "fcf_usd_m": 1288,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 70,
+    "buyback_usd_m": 400,
+    "buyback_offsets_sbc_ratio": 5.7
+   }
+  ],
+  "ltm": {
+   "period": "LTM_Q1FY26",
+   "period_type": "ltm",
+   "revenue_usd_m": 25533,
+   "revenue_growth_pct": 8.3,
+   "gross_profit_usd_m": 6064,
+   "gross_margin_pct": 23.75,
+   "ebit_usd_m": 3200,
+   "ebit_margin_pct": 12.5,
+   "net_income_gaap_usd_m": 2600,
+   "eps_diluted_gaap_usd": 8.0,
+   "eps_diluted_non_gaap_usd": 9.99,
+   "diluted_shares_m": 330.0,
+   "fcf_usd_m": 1120,
+   "fcf_includes_sbc_addback": false,
+   "sbc_usd_m": 70,
+   "buyback_usd_m": 400,
+   "buyback_offsets_sbc_ratio": 5.7,
+   "segments": [
+    {
+     "name": "Mid-Atlantic + Midwest (PJM)",
+     "revenue_usd_m": 13000,
+     "gm_pct": 30.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled energy-margin allocation: PJM nuclear+gas (CEG does not disclose segment GM; reports geographic segments by capacity; IPP gm-taxonomy adaptation)"
+     }
+    },
+    {
+     "name": "New York (NYISO)",
+     "revenue_usd_m": 3000,
+     "gm_pct": 25.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled: NY nuclear/hydro energy-margin proxy"
+     }
+    },
+    {
+     "name": "ERCOT",
+     "revenue_usd_m": 4500,
+     "gm_pct": 18.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled: ERCOT gas/retail energy-margin proxy (Calpine-weighted)"
+     }
+    },
+    {
+     "name": "Commercial / Other",
+     "revenue_usd_m": 5033,
+     "gm_pct": 12.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled: retail/wholesale commercial margin proxy"
+     }
+    }
+   ]
+  },
+  "projected": [
+   {
+    "period": "FY26E",
+    "period_type": "projected",
+    "revenue_usd_m": 44000,
+    "revenue_growth_pct": 72.3,
+    "gross_profit_usd_m": 10000,
+    "gross_margin_pct": 22.7,
+    "ebit_usd_m": 5800,
+    "ebit_margin_pct": 13.2,
+    "net_income_gaap_usd_m": 4200,
+    "eps_diluted_gaap_usd": 11.6,
+    "eps_diluted_non_gaap_usd": 11.5,
+    "diluted_shares_m": 361.0,
+    "fcf_usd_m": 2500,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 90,
+    "buyback_usd_m": 1000
+   },
+   {
+    "period": "FY27E",
+    "period_type": "projected",
+    "revenue_usd_m": 46000,
+    "revenue_growth_pct": 4.5,
+    "gross_profit_usd_m": 10800,
+    "gross_margin_pct": 23.5,
+    "ebit_usd_m": 6300,
+    "ebit_margin_pct": 13.7,
+    "net_income_gaap_usd_m": 4850,
+    "eps_diluted_gaap_usd": 13.6,
+    "eps_diluted_non_gaap_usd": 13.5,
+    "diluted_shares_m": 358.0,
+    "fcf_usd_m": 3300,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 90,
+    "buyback_usd_m": 1500
+   }
+  ],
+  "revenue_by_product": [
+   {
+    "product": "Nuclear generation",
+    "by_period": {
+     "FY24A": 9000,
+     "FY25A": 9700,
+     "FY26E": 10500,
+     "FY27E": 11200
+    }
+   },
+   {
+    "product": "Gas + geothermal (Calpine)",
+    "by_period": {
+     "FY24A": 0,
+     "FY25A": 0,
+     "FY26E": 14000,
+     "FY27E": 14800
+    }
+   },
+   {
+    "product": "Commercial / retail",
+    "by_period": {
+     "FY24A": 14568,
+     "FY25A": 15833,
+     "FY26E": 19500,
+     "FY27E": 20000
+    }
+   }
+  ],
+  "revenue_by_geography": [
+   {
+    "region": "PJM (Mid-Atlantic + Midwest)",
+    "by_period": {
+     "FY24A": 12000,
+     "FY25A": 13000,
+     "FY26E": 18000,
+     "FY27E": 18800
+    }
+   },
+   {
+    "region": "New York + Other",
+    "by_period": {
+     "FY24A": 7068,
+     "FY25A": 8033,
+     "FY26E": 9000,
+     "FY27E": 9200
+    }
+   },
+   {
+    "region": "ERCOT + CAISO (Calpine)",
+    "by_period": {
+     "FY24A": 4500,
+     "FY25A": 4500,
+     "FY26E": 17000,
+     "FY27E": 18000
+    }
+   }
+  ]
+ },
+ "gm_taxonomy": {
+  "entries": [
+   {
+    "type": "T1_consolidated",
+    "name": "Consolidated energy gross margin LTM-Q1FY26 analog (~23.75%): revenue less fuel + purchased power + direct operating cost (IPP analog to GM; CEG reports geographic segments + Adjusted Operating Earnings, not a GAAP segment GM)",
+    "value_range": "23.5-24.0%",
+    "source": {
+     "s_level": "S5",
+     "source_type": "Other",
+     "ref": "Modeled LTM weighted reconciliation; IPP gm-taxonomy adaptation (analogous to NIM for banks)"
+    }
+   },
+   {
+    "type": "T2_segment",
+    "name": "Segment energy margin: PJM (Mid-Atlantic+Midwest, nuclear-heavy) ~30%; New York ~25%; ERCOT (gas/retail) ~18%; Commercial ~12%",
+    "value_range": "12-30%",
+    "source": {
+     "s_level": "S5",
+     "source_type": "Other",
+     "ref": "Modeled segment energy-margin allocation; reconciles to consolidated within rounding"
+    }
+   },
+   {
+    "type": "T3_sub_segment",
+    "name": "Contracted nuclear (Microsoft/Meta 20-yr PPAs at premium) vs open merchant nuclear/gas margin",
+    "value_range": "Contracted nuclear ~45-55% / open merchant ~20-30%",
+    "source": {
+     "s_level": "S2",
+     "source_type": "8-K",
+     "ref": "Modeled: hyperscaler PPA pricing premium to merchant (Microsoft/Crane, Meta/Clinton 8-Ks)"
+    }
+   },
+   {
+    "type": "T4_analyst_modeled",
+    "name": "FY27E blended generation margin with Calpine gas + uprates in the mix",
+    "value_range": "23-24%",
+    "source": {
+     "s_level": "S4",
+     "source_type": "FactSet consensus",
+     "ref": "Consensus FY27E margin proxy n=21"
+    }
+   },
+   {
+    "type": "T5_marginal",
+    "name": "Marginal open-book margin sensitivity to PJM capacity + power price (the cyclical-peak lever)",
+    "value_range": "At PJM cap ($329-333/MW-day) + high power: ~24%; at capacity-floor ($179.55) + open book repricing: ~20-21% (FY27 EBITDA swing -$0.8 to -$1.5B; the bear's double-derate driver)",
+    "source": {
+     "s_level": "S2",
+     "source_type": "Other",
+     "ref": "PJM 2026/27 + 2027/28 BRA cleared at cap (S2); floor $179.55; CEG out-year book substantially open (hedge ratios not disclosed at this granularity)"
+    }
+   }
+  ],
+  "reconciliation_consolidated_vs_implied_bp": 1.0
+ },
+ "scenarios_ref": "outputs/CEG_scenarios.json",
+ "valuation": {
+  "methods": [
+   {
+    "method": "Trading_comps",
+    "implied_price_usd": 256.5,
+    "price_range_low_usd": 200.0,
+    "price_range_high_usd": 320.0,
+    "weight_pct": 25,
+    "weighted_value_usd": 64.1,
+    "key_assumptions": {
+     "multiple_basis": "13.2x FY27E Adjusted EBITDA $8.5B (post-Calpine)",
+     "ev_2027e_usd_b": 112.5,
+     "less_net_debt_and_nci_usd_b": 21.15,
+     "implied_equity_usd_b": 91.4,
+     "diluted_shares_m": 357.1,
+     "peer_set": "VST ~10.1x / NRG (noisy) / TLN (ramping)"
+    },
+    "narrative": "Primary IPP method per D8 (EV/EBITDA). 13.2x FY27E Adjusted EBITDA $8.5B -> EV $112.5B less net debt + NCI $21.15B = $91.4B / 357.1M = ~$256. The 13.2x is a ~3-turn premium to VST's ~10.1x - narrower than the ~3.7-turn current gap, reflecting a modest premium compression as the Calpine gas mix dilutes the clean-nuclear multiple.",
+    "input_attribution": {
+     "verifiable": "the earnings/DCF-per-unit base (buildable bottom-up; tends to converge)",
+     "assumed": "the multiple \u2014 the contested judgment where the bull/bear gap lives",
+     "load_bearing_input": "assumed"
+    }
+   },
+   {
+    "method": "DCF",
+    "implied_price_usd": 215.0,
+    "price_range_low_usd": 185.0,
+    "price_range_high_usd": 250.0,
+    "weight_pct": 40,
+    "weighted_value_usd": 86.0,
+    "key_assumptions": {
+     "wacc_pct": 8.17,
+     "terminal_growth_pct": 2.25,
+     "explicit_forecast_years": 10,
+     "exit_check_ev_ebitda": 11.0
+    },
+    "narrative": "10y DCF; WACC 8.17% (CoE 9.13% at beta 1.09 + after-tax Kd 4.35%; 80/20 E/D), g 2.25%. Base ~$215, below spot - disciplines the cyclical-peak earnings (PJM capacity at cap, 45U floor ~$0 today and sunsetting 2032), and reflects that the market price embeds AI-power/PPA-conversion optionality a base DCF cannot underwrite.",
+    "input_attribution": {
+     "verifiable": "the normalized cash-flow base (buildable bottom-up)",
+     "assumed": "WACC / terminal growth / normalized margin (judgment)",
+     "load_bearing_input": "assumed"
+    }
+   },
+   {
+    "method": "SOTP",
+    "implied_price_usd": 245.0,
+    "price_range_low_usd": 205.0,
+    "price_range_high_usd": 300.0,
+    "weight_pct": 35,
+    "weighted_value_usd": 85.8,
+    "key_assumptions": {
+     "Nuclear_segment": {
+      "revenue": 9700,
+      "segment_gp": 4200,
+      "segment_op": 3400,
+      "segment_ni": 2400,
+      "segment_multiple": "EV/EBITDA 11.0x (contracted + scarce carbon-free)",
+      "implied_value_usd_b": 52.0
+     },
+     "Gas_geothermal_segment": {
+      "revenue": 14000,
+      "segment_gp": 3200,
+      "segment_op": 2400,
+      "segment_ni": 1600,
+      "segment_multiple": "EV/EBITDA 8.0x (merchant gas, Calpine)",
+      "implied_value_usd_b": 30.0
+     },
+     "Commercial_segment": {
+      "revenue": 19500,
+      "segment_gp": 2400,
+      "segment_op": 1800,
+      "segment_ni": 1300,
+      "segment_multiple": "EV/EBITDA 7.0x (retail)",
+      "implied_value_usd_b": 12.0
+     }
+    },
+    "narrative": "Sum-of-parts: nuclear (contracted + scarce) at 11.0x, Calpine gas/geothermal 8.0x, commercial 7.0x, less net debt + NCI. Monotonicity NI<=OP<=GP<=Revenue holds per segment (G3). ~$245/share, between DCF and comps; the gas/retail addition pulls the blended multiple below standalone-nuclear CEG.",
+    "input_attribution": {
+     "verifiable": "segment book/earnings (reported)",
+     "assumed": "the segment multiples (judgment)",
+     "load_bearing_input": "assumed"
+    }
+   },
+   {
+    "method": "Multi_multiple_bear",
+    "implied_price_usd": 175.0,
+    "price_range_low_usd": 150.0,
+    "price_range_high_usd": 204.0,
+    "weight_pct": 0,
+    "weighted_value_usd": 0.0,
+    "key_assumptions": {
+     "bear_fy27_eps": 12.0,
+     "vst_level_multiple": "14-16x (de-rate to Vistra's band)",
+     "bear_floor_basis": "52-week low region"
+    },
+    "narrative": "Bear floor reference: a double de-rate to VST's ~14-16x on a normalized $12.00 FY27E EPS (PJM capacity reversion + hyperscaler capex cut + Calpine synergy miss) -> $168-192; severe ~$150. Not weighted; downside discipline anchoring strong_bear $168.00 and bear $204.00.",
+    "input_attribution": {
+     "verifiable": "trough/down-leg earnings history (reported)",
+     "assumed": "the trough multiple (judgment)",
+     "load_bearing_input": "assumed"
+    }
+   }
+  ],
+  "dcf_components": {
+   "wacc_pct": 8.17,
+   "wacc_components": {
+    "risk_free_rate_pct": 4.52,
+    "risk_free_source_date": "2026-06-11",
+    "equity_risk_premium_pct": 4.23,
+    "beta": 1.09,
+    "beta_basis": "5y_weekly_vs_SP500",
+    "cost_of_equity_pct": 9.13,
+    "pre_tax_cost_of_debt_pct": 5.5,
+    "tax_rate_pct": 21.0,
+    "after_tax_cost_of_debt_pct": 4.35,
+    "equity_weight_pct": 80,
+    "debt_weight_pct": 20
+   },
+   "terminal_growth_pct": 2.25,
+   "terminal_method": "perpetuity_growth",
+   "explicit_forecast_years": 10,
+   "implied_share_price_usd": 215.0
+  },
+  "weighted_price_target_usd": 233.55,
+  "football_field_range_low_usd": 150.0,
+  "football_field_range_high_usd": 387.5,
+  "reconciliation_narrative": "DE-BIASED reconcile: DCF $215, SOTP $245, comps $256 -> independent weighted fair value ~$234, ~-5% vs spot $247.12. Anchoring the base here (vs v1 spot-anchored $256.50) sharpens the Hold to a cautious ~-4% but does not flip it - the de-rate is already ~40% done. Base PT $233.55 (FY27E EPS $13.50 x 17.3x).",
+  "revision_bridge": {
+   "prior_price_target_usd": 367.0,
+   "new_price_target_usd": 233.55,
+   "prior_basis": "consensus PT / current-multiple regime (spot-anchored proxy)",
+   "new_basis": "independent fair-value-anchored 12-month base (the de-bias)",
+   "components": [
+    {
+     "driver": "estimate",
+     "delta_usd": 0.0,
+     "rationale": "Base EPS/DCF-per-unit unchanged \u2014 the de-bias changed NO estimates (base_eps held fixed so bridges reconcile); public inputs identical before/after."
+    },
+    {
+     "driver": "methodology",
+     "delta_usd": -80.07,
+     "rationale": "Re-anchored the base from the consensus-PT/current-multiple regime to an independent fair-value blend \u2014 the de-bias itself."
+    },
+    {
+     "driver": "multiple",
+     "delta_usd": -53.38,
+     "rationale": "Re-rated the base multiple toward the through-cycle / private-market band consistent with independent fair value (~$234)."
+    }
+   ],
+   "judgment_share_pct": 100.0,
+   "judgment_flag": "100%% of this revision is methodology + multiple (judgment), 0%% new estimates \u2014 by design a deliberate anchor CORRECTION (de-bias), not new information; flagged per Lesson 2. Public inputs only (consensus PT, SEC/XBRL); any entitlement-restricted cross-check is a personal, non-persisted localized optimization outside the framework.",
+   "public_inputs_only": true
+  },
+  "load_bearing_input_note": "The disagreement lives in the MULTIPLE (assumed), not the earnings/DCF base (verifiable, ~converges). Surface and re-derive the multiple; never adopt it from price or another analyst's conclusion (Lessons 2-3)."
+ },
+ "risks": [
+  {
+   "category": "industry_market",
+   "title": "Premium-multiple de-rate on cyclical-peak earnings",
+   "description": "CEG trades ~21x FY26E / ~18x FY27E P/E (a ~7-turn premium to VST) on earnings partly inflated by PJM capacity cleared at the FERC cap ($329-333/MW-day, definitionally peak; floor $179.55) and high power prices. The whole IPP cohort re-rated up together and is de-rating together; the highest-multiple name has the most to lose. A double de-rate (multiple to mid-teens + estimate normalization) lands $150-175.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "material",
+   "mitigants": "Stock already -40% from $412 to 52-wk low; 45U floor + IG balance sheet cap a full collapse; nuclear scarcity is real"
+  },
+  {
+   "category": "regulatory",
+   "title": "FERC co-location / behind-the-meter restriction (EL25-49)",
+   "description": "FERC's Dec-2025 order restricted behind-the-meter large-load co-location (the Talen/Susquehanna BTM structure was rejected) and blessed only front-of-meter, which forces data centers to pay full network/transmission charges - compressing the premium PPA margin CEG's multiple assumed. Management has hyperscaler conversions 'paused but not cancelled' pending the June-2026 framework.",
+   "probability_qualitative": "high",
+   "impact_qualitative": "moderate",
+   "mitigants": "CEG's large sites are grid-interconnected (FTM-survivable, less BTM-exposed than a pure island play); conversions delayed not dead"
+  },
+  {
+   "category": "financial",
+   "title": "Calpine integration / bought-at-peak risk",
+   "description": "The ~$26.6B Calpine deal (closed Jan-2026) added ~26 GW gas + leverage at a cycle peak (vs NRG/VST gas deals at ~7-7.5x EV/EBITDA), dilutes the clean-nuclear narrative, and forces a ~4.4 GW PJM divestiture to LS Power (~$5B, pending DOJ/FERC). ~50M shares issued; a ~25M-share Calpine seller lockup unlocks 2026-06-30. Synergy/accretion tracking (~$2/share) is the watch item.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "moderate",
+   "mitigants": "IG ratings affirmed post-close; $3.4B deleveraging plan 2026-27; retail adds a VST-style hedge"
+  },
+  {
+   "category": "company_specific",
+   "title": "Hyperscaler AI-capex cut (the correlated tail)",
+   "description": "The entire premium correlates to sustained hyperscaler power demand (2026 hyperscaler spend cited ~+75% YoY). A single Microsoft/Meta/Amazon/Google capex guide-down would simultaneously compress the multiple, stall PPA conversions (already paused), and soften forward power curves - one catalyst, three transmission channels.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "material",
+   "mitigants": "20-yr signed PPAs (Microsoft/Meta) are contracted; nuclear scarcity persists structurally; low short interest = no forced unwind"
+  },
+  {
+   "category": "company_specific",
+   "title": "45U nuclear PTC: ~$0 today, hard sunset 2032",
+   "description": "The 45U PTC floor (~$43.75/MWh phase-out) is ~$0 at today's high power prices (a floor, not a current contributor) and sunsets end-2032 - removing the downside backstop exactly where DCF terminal weight is heaviest. FY25 GAAP EPS fell partly on lower PTC top-up.",
+   "probability_qualitative": "high",
+   "impact_qualitative": "minor",
+   "mitigants": "Only binds in the scenario where the equity is already impaired (low prices); transferability preserved through 2032"
+  },
+  {
+   "category": "financial",
+   "title": "Hedge-collateral / cash-flow volatility",
+   "description": "Operating cash flow swung deeply negative in 2022-2024 (down to -$5.3B FY23) on margin/collateral posting during the gas-price spike before recovering to +$4.2B FY25. A renewed forward-price spike could demand large collateral again (the VST-analog liquidity tail).",
+   "probability_qualitative": "low",
+   "impact_qualitative": "moderate",
+   "mitigants": "IG balance sheet + large credit facilities; FY25 OCF recovery; integrated retail hedge reduces net exposure"
+  },
+  {
+   "category": "industry_market",
+   "title": "Stale-target / crowded-long unwind",
+   "description": "The ~+50% headline Street PT (~$367) is a stale-target artifact being actively cut (Raymond James, Morgan Stanley, Argus lowered in Jun'26); ~76% Buy / 0 Sell is a crowded long with no marginal bull left to convert - an unwind risk as targets re-base to the de-rated price.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "moderate",
+   "mitigants": "De-rate already largely played out (-40%); low short interest; IG + buyback + passive absorb sellers"
+  }
+ ],
+ "catalysts": [
+  {
+   "title": "PJM/FERC co-location framework (EL25-49 compliance)",
+   "expected_date": "2026-06-30",
+   "type": "regulatory",
+   "expected_impact_pct": 6.0,
+   "what_would_reverse_thesis": "A workable FTM framework that lets paused hyperscaler PPAs convert supports the bull; a restrictive outcome that keeps conversions stalled confirms the bear.",
+   "anchor_ref": "A2"
+  },
+  {
+   "title": "CEG Q2 FY26 earnings",
+   "expected_date": "2026-08-05",
+   "type": "earnings_print",
+   "expected_impact_pct": 6.0,
+   "what_would_reverse_thesis": "Reaffirmed/raised >20% CAGR + on-track Calpine synergies support Hold->Buy; any guide trim or synergy miss triggers the de-rate. Implied move ~+/-5-7%.",
+   "anchor_ref": "A1"
+  },
+  {
+   "title": "Calpine seller lockup expiry (~25M shares)",
+   "expected_date": "2026-06-30",
+   "type": "macro_event",
+   "expected_impact_pct": 3.0,
+   "what_would_reverse_thesis": "Mechanical near-term share overhang; orderly absorption is neutral-positive, heavy selling pressures the stock.",
+   "anchor_ref": "A3"
+  },
+  {
+   "title": "LS Power 4.4 GW PJM divestiture close",
+   "expected_date": "2026-09-30",
+   "type": "m_and_a",
+   "expected_impact_pct": 3.0,
+   "what_would_reverse_thesis": "Close at ~$5B clears the regulatory condition (positive); a markdown or extended DOJ/FERC review signals overpay-at-peak crystallizing.",
+   "anchor_ref": "A3"
+  },
+  {
+   "title": "Additional hyperscaler nuclear PPA",
+   "expected_date": "2026-12-31",
+   "type": "product_launch",
+   "expected_impact_pct": 6.0,
+   "what_would_reverse_thesis": "A new 20-yr premium nuclear PPA (FTM) is the dominant bullish reverse trigger; continued silence keeps the pipeline optionality un-priced.",
+   "anchor_ref": "A2"
+  },
+  {
+   "title": "PJM 2028/29 Base Residual Auction",
+   "expected_date": "2026-12-31",
+   "type": "macro_event",
+   "expected_impact_pct": 4.0,
+   "what_would_reverse_thesis": "Clear near the cap supports the open-book; a clear <$250/MW-day (vs ~$333 cap) confirms capacity-peak reversion (bear).",
+   "anchor_ref": "A1"
+  }
+ ],
+ "what_would_reverse": [
+  {
+   "direction": "reverse_neutral_to_bull",
+   "numerical_threshold": "A new 20-year hyperscaler nuclear PPA signs (FTM) AND the >20% base-EPS CAGR is reaffirmed with FY2027 Adj Op EPS guide >=$13.5",
+   "unit": "binary PPA + $ EPS + % CAGR",
+   "observable_via": "CEG 8-K Item 1.01 + Q2/Q3 FY26 guidance",
+   "expected_observation_date": "2026-08-05"
+  },
+  {
+   "direction": "reverse_neutral_to_bull",
+   "numerical_threshold": "PJM/FERC June-2026 framework enables paused hyperscaler conversions AND PJM 2028/29 BRA clears >$300/MW-day",
+   "unit": "binary framework + $/MW-day",
+   "observable_via": "FERC EL25-49 compliance + PJM BRA report",
+   "expected_observation_date": "2026-06-30"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "FY2027 Adjusted Operating EPS guide <$13.0 (below the ~12% CAGR off $11.50) OR the >20% CAGR framing is cut/withdrawn",
+   "unit": "$ adjusted EPS",
+   "observable_via": "CEG Q4 FY26 / Feb-2027 guidance",
+   "expected_observation_date": "2027-02-25"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "A hyperscaler nuclear PPA (Microsoft/Meta/new) is renegotiated, delayed past 2027, or repriced to FTM economics; OR paused conversions do NOT complete after the June-2026 framework",
+   "unit": "binary PPA status",
+   "observable_via": "CEG 8-K + 2H-2026 PPA announcements",
+   "expected_observation_date": "2026-12-31"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "PJM 2028/29 BRA clears <$250/MW-day UCAP (vs ~$333 cap) - capacity-peak rolls over on the open out-year book",
+   "unit": "$/MW-day UCAP",
+   "observable_via": "PJM 2028/29 BRA report",
+   "expected_observation_date": "2026-12-31"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "Calpine synergies/accretion tracking <$2/share OR the LS Power 4.4 GW divestiture closes at a markdown / faces extended DOJ-FERC review",
+   "unit": "$/share accretion + divestiture status",
+   "observable_via": "CEG 10-Q synergy disclosure + divestiture 8-K",
+   "expected_observation_date": "2026-09-30"
+  },
+  {
+   "direction": "reverse_bear_to_bull",
+   "numerical_threshold": "Power prices fall enough that 45U PTC re-engages as a floor AND the stock has de-rated below $200 (risk/reward inflects favorably)",
+   "unit": "$/MWh + $/share",
+   "observable_via": "ISO power curves + market price",
+   "expected_observation_date": "2027-06-30"
+  }
+ ],
+ "tail_risks": [
+  {
+   "event_class": "idiosyncratic",
+   "name": "Hyperscaler AI-capex cut / PPA renegotiation (the dominant correlated narrative tail)",
+   "probability_shift": {
+    "strong_bear_delta_pp": 6,
+    "bear_delta_pp": 6,
+    "base_delta_pp": -10,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": -1
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -15,
+    "worst_case_multiple_compression_pct": -25,
+    "worst_case_price_pct": -35
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "sector_regulatory_action",
+   "name": "FERC co-location framework (EL25-49) lands restrictive / BTM economics killed",
+   "probability_shift": {
+    "strong_bear_delta_pp": 4,
+    "bear_delta_pp": 4,
+    "base_delta_pp": -7,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": 0
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -8,
+    "worst_case_multiple_compression_pct": -18,
+    "worst_case_price_pct": -22
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "commodity_shock",
+   "name": "PJM capacity / power-price reversion from cap toward floor (open out-year book)",
+   "probability_shift": {
+    "strong_bear_delta_pp": 4,
+    "bear_delta_pp": 5,
+    "base_delta_pp": -8,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": 0
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -12,
+    "worst_case_multiple_compression_pct": -15,
+    "worst_case_price_pct": -25
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "rate_shock",
+   "name": "Fed rate shock +200bp on a premium long-duration multiple",
+   "probability_shift": {
+    "strong_bear_delta_pp": 3,
+    "bear_delta_pp": 3,
+    "base_delta_pp": -5,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": 0
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -3,
+    "worst_case_multiple_compression_pct": -15,
+    "worst_case_price_pct": -16
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "idiosyncratic",
+   "name": "Nuclear scarcity supercycle: multiple new premium PPAs + capacity durability (the bull thesis)",
+   "probability_shift": {
+    "strong_bear_delta_pp": -2,
+    "bear_delta_pp": -3,
+    "base_delta_pp": -5,
+    "bull_delta_pp": 5,
+    "strong_bull_delta_pp": 5
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": 0,
+    "worst_case_multiple_compression_pct": 0,
+    "worst_case_price_pct": 0
+   },
+   "upside_impact": {
+    "best_case_eps_uplift_pct": 18,
+    "best_case_multiple_expansion_pct": 22,
+    "best_case_price_pct": 40
+   },
+   "tail_direction": "bull"
+  },
+  {
+   "event_class": "idiosyncratic",
+   "name": "Calpine synergy beat + buyback compounding on the de-rated share price",
+   "probability_shift": {
+    "strong_bear_delta_pp": -1,
+    "bear_delta_pp": -2,
+    "base_delta_pp": -4,
+    "bull_delta_pp": 4,
+    "strong_bull_delta_pp": 3
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": 0,
+    "worst_case_multiple_compression_pct": 0,
+    "worst_case_price_pct": 0
+   },
+   "upside_impact": {
+    "best_case_eps_uplift_pct": 8,
+    "best_case_multiple_expansion_pct": 6,
+    "best_case_price_pct": 12
+   },
+   "tail_direction": "bull"
+  }
+ ],
+ "forensic_flags": {
+  "asc_606_red_flags": [
+   {
+    "flag": "Derivative mark-to-market distorts GAAP earnings (interpretation flag, not manipulation)",
+    "evidence": "FY25 GAAP EPS $7.40 vs Adjusted Operating EPS $9.39; FY24 GAAP $11.89 vs adjusted $8.67 (GAAP > adjusted on favorable MtM). Underwrite on Adjusted Operating Earnings, not GAAP NI.",
+    "severity": "medium"
+   },
+   {
+    "flag": "Operating cash flow swung deeply negative 2022-2024 on hedge-collateral posting",
+    "evidence": "OCF -$5.3B FY23 / -$2.5B FY24 on margin posting during the gas spike, recovering to +$4.2B FY25. A renewed forward-price spike could demand collateral again (VST-analog liquidity tail).",
+    "severity": "medium"
+   }
+  ],
+  "asc_842_lease_pv_usd_m": 1500.0,
+  "asc_718_sbc_pct_revenue": 0.27,
+  "asc_718_sbc_pct_ocf": 1.7,
+  "non_gaap_to_gaap_delta_pct_ni_5y_avg": 30.0,
+  "non_gaap_reconciliation_present": true,
+  "fcf_definition": "OCF_minus_capex",
+  "goodwill_pct_net_assets": 8.0,
+  "auditor": "PricewaterhouseCoopers LLP",
+  "auditor_change_recent": false,
+  "restatement_8k_4_02_recent": false,
+  "form_4_net_12mo_usd_m": -2.0,
+  "going_concern_qualification": false,
+  "vie_exposure": "CENG / nuclear joint-venture structures; Calpine project entities + assumed non-recourse debt",
+  "pension_funded_status_pct": 100.0
+ },
+ "positioning_sentiment": {
+  "top_holders_13f": [
+   {
+    "holder": "Vanguard Group",
+    "shares_m": 42.5,
+    "pct_so": 11.9,
+    "qoq_delta_pct": 0.2
+   },
+   {
+    "holder": "Capital Research",
+    "shares_m": 32.1,
+    "pct_so": 9.0,
+    "qoq_delta_pct": 0.5
+   },
+   {
+    "holder": "BlackRock",
+    "shares_m": 25.5,
+    "pct_so": 7.1,
+    "qoq_delta_pct": 0.3
+   },
+   {
+    "holder": "State Street",
+    "shares_m": 14.0,
+    "pct_so": 3.9,
+    "qoq_delta_pct": 0.1
+   },
+   {
+    "holder": "Calpine sellers (lockup to 2026-06-30)",
+    "shares_m": 25.0,
+    "pct_so": 7.0,
+    "qoq_delta_pct": 0.0
+   }
+  ],
+  "short_interest_pct_float": 2.1,
+  "days_to_cover": 2.5,
+  "stock_loan_rate_bps": 30,
+  "options_skew_25d_put_minus_call": 5.0,
+  "options_implied_move_earnings_pct": 6.0,
+  "iv_rank_pct": 45,
+  "etf_passive_ownership_pct": 24.0,
+  "sell_side_distribution": {
+   "buy_pct": 76,
+   "hold_pct": 19,
+   "sell_pct": 5,
+   "pt_median_usd": 367,
+   "pt_low_usd": 277,
+   "pt_high_usd": 462,
+   "pt_revision_3mo_pct": -8.0
+  },
+  "activist_13d_filed": false,
+  "form_4_pattern": "10b5_1_routine",
+  "index_inclusion": [
+   "S&P 500",
+   "Nasdaq-100",
+   "S&P 500 Utilities"
+  ]
+ },
+ "regulatory_status": {
+  "antitrust_open_matters": [
+   {
+    "agency": "DOJ/FERC",
+    "matter": "Calpine acquisition + LS Power 4.4 GW divestiture (FERC Section 203 + DOJ); divestiture pending close",
+    "stage": "Divestiture pending",
+    "expected_resolution": "2026-09-30"
+   }
+  ],
+  "export_control_status": {
+   "bis_entity_list": false,
+   "ofac_sdn": false,
+   "cfius_review_open": false,
+   "itar_subject": false,
+   "verified_as_of": "2026-06-11"
+  },
+  "sector_regulator_open_matters": [
+   {
+    "agency": "FERC",
+    "matter": "Co-location / large-load interconnection framework (Docket EL25-49); FTM blessed, BTM restricted; PJM compliance framework due June 2026",
+    "stage": "Compliance / rulemaking"
+   },
+   {
+    "agency": "NRC",
+    "matter": "Operating licenses, uprates, and the Crane (TMI Unit 1) restart licensing",
+    "stage": "Licensing (Crane restart)"
+   },
+   {
+    "agency": "PJM",
+    "matter": "Capacity cap/collar; 2026/27 + 2027/28 BRA cleared at cap; 2028/29 BRA upcoming",
+    "stage": "Market design"
+   }
+  ],
+  "tariff_exposure_pct_cogs": 0.5,
+  "tax_policy_exposures": [
+   "IRC_45U_nuclear_PTC_sunset_2032",
+   "IRC_45Q_48_clean_energy",
+   "CAMT_15pct"
+  ]
+ },
+ "position_sizing": {
+  "kelly_math": {
+   "expected_return_12mo": 0.03,
+   "risk_free_rate_10y_ust": 0.0452,
+   "excess_return": -0.0152,
+   "sigma_annual": 0.42,
+   "sigma_squared": 0.1764,
+   "sharpe_12mo": -0.036,
+   "raw_kelly_fraction": -0.0862,
+   "raw_kelly_pct": -8.62,
+   "conviction_multiplier": 0.15,
+   "conviction_multiplier_band": "0.10-0.20 (source-conditional Hold; beta 1.09; premium multiple two-sided)",
+   "conviction_adjusted_kelly_pct": -1.29,
+   "formula": "(E[R]-Rf)/sigma^2 = (0.030-0.0452)/0.1764 = -0.0862; x0.15 conviction = -0.013 (effectively flat -> benchmark weight; Hold)"
+  },
+  "long_only_large_cap": {
+   "benchmark": "S&P 500",
+   "recommended_active_weight_bps": 0,
+   "max_weight_pct_nav": 2.5,
+   "kelly_implied_pct_nav": -1.3,
+   "conviction_adjusted_pct_nav": 0.0,
+   "mandate_constraint": "Hold at ~benchmark (S&P 500 CEG weight ~0.18%); premium multiple two-sided; add only on a sub-$200 entry or a new premium hyperscaler PPA"
+  },
+  "long_only_smid": {
+   "benchmark": "Russell 1000",
+   "recommended_active_weight_bps": 0,
+   "max_weight_pct_nav": 2.5,
+   "kelly_implied_pct_nav": -1.3,
+   "conviction_adjusted_pct_nav": 0.5,
+   "mandate_constraint": "Hold/modest; power mandates may prefer VST for the cheaper integrated exposure or TLN for higher-beta nuclear-pure"
+  },
+  "long_short_hedge_fund": {
+   "gross_exposure_pct_nav": 4.0,
+   "net_exposure_pct_nav": -0.5,
+   "single_name_long_cap_pct_nav": 2.5,
+   "single_name_long_cap_band_pct_nav": "0-3",
+   "single_name_short_cap_pct_nav": -2.5,
+   "kelly_implied_pct_nav": -1.3,
+   "mandate_constraint": "Express the premium compression as a small long-VST / short-CEG market-neutral pair (CEG the funding short), NOT an outright CEG short into a 20-yr-PPA-backed nuclear franchise"
+  },
+  "sector_specialty": {
+   "benchmark": "Utilities Select Sector SPDR (XLU)",
+   "recommended_active_weight_bps": 0,
+   "conviction_adjusted_pct_nav": 3.5,
+   "kelly_implied_pct_nav": -1.3,
+   "mandate_constraint": "Hold near benchmark; underweight vs VST within the IPP sleeve on the premium; overweight only on a sub-$200 print or new PPA"
+  },
+  "pair_trade": {
+   "long_ticker": "VST",
+   "short_ticker_primary": "CEG",
+   "short_ticker_secondary": "NRG",
+   "structure": "dollar_neutral_beta_adjusted",
+   "long_pct_nav": 2.5,
+   "short_pct_nav": 2.3,
+   "long_short_ratio_beta_adjusted": "1.00:0.92",
+   "expected_spread_return_pct": 3.0,
+   "rationale": "Long VST (~14x, ~7.2% FCF yield) / short CEG (~21x) on the ~7-turn P/E premium compressing as the Calpine gas mix dilutes CEG's clean-nuclear multiple and the cohort de-rates. BUT the gap has already narrowed from ~8 to ~7 turns (CEG de-rating faster), CEG's IG balance sheet + 45U floor cushion the short, and a new premium nuclear PPA is a squeeze risk; size SMALL and beta-hedge (~0.92), stop if the premium re-expands past ~9 turns on a hyperscaler-PPA headline."
+  }
+ },
+ "quant_overlay": {
+  "factor_tags": {
+   "value": -0.6,
+   "quality": 0.3,
+   "momentum": -1.1,
+   "growth": 0.7,
+   "size": 1.0,
+   "low_vol": -0.5,
+   "liquidity": 0.8
+  },
+  "capacity": {
+   "adv_30d_usd_m": 1000.0,
+   "days_to_exit_10pct_participation": 2.0,
+   "days_to_exit_20pct_participation": 1.0,
+   "days_to_exit_30pct_participation": 0.7,
+   "max_position_constrained_by_adv_pct_nav": 5.0
+  },
+  "edge_decay": {
+   "thesis_half_life_months": 2.0,
+   "time_to_priced_in_months": 3.0,
+   "refresh_cadence": "monthly_power_curve_plus_PJM_auction_plus_FERC_framework_plus_quarterly_print",
+   "primary_decay_driver": "FERC EL25-49 framework (June 2026) + hyperscaler PPA conversions + PJM capacity prints + Calpine synergy tracking"
+  },
+  "correlation": {
+   "book_file_path": "n/a (placeholder per D14)",
+   "top10_pairwise_corr": [],
+   "live_wired": false
+  },
+  "stress_overlay": {
+   "fed_funds_plus_200bp": -16.0,
+   "hyperscaler_capex_cut": -35.0,
+   "pjm_capacity_to_floor": -25.0,
+   "recession_dummy": -22.0
+  }
+ },
+ "consensus_variance": [
+  {
+   "variance_id": "V1_premium_derate",
+   "line_item": "CEG forward P/E premium durability (cyclical-peak earnings)",
+   "type": "scenario_weight",
+   "direction": "downward",
+   "magnitude_pct": 18.0,
+   "probability_right_pct": 60.0,
+   "scenario_sensitivity_pct": 20.0,
+   "sizing_impact_pp": 2.16,
+   "load_bearing": true,
+   "narrative": "The stale ~+50% Street PT (~$367) and 76%-Buy consensus extrapolate the premium ~21x FY26E multiple and the >20% CAGR while implicitly marking PJM-capacity-at-cap and hyperscaler-PPA economics as durable. Our downward variance marks (i) PJM capacity cleared at the FERC cap as a definitional peak (only down; floor $179.55), (ii) the FERC EL25-49 BTM restriction as compressing the PPA premium (conversions paused), and (iii) the Calpine gas mix as diluting the clean-nuclear multiple; this shifts ~2.2pp of probability into the bear tails (a de-rate toward VST's ~14-16x). Two-tailed (nuclear scarcity + the de-rate already done are genuine support), hence Hold not Sell. Sizing = magnitude 18% x probability 60% x sensitivity 20% / 10000 = 2.16.",
+   "evidence_refs": [
+    {
+     "s_level": "S2",
+     "ref": "PJM 2026/27 ($329.17) + 2027/28 ($333.44) BRA cleared at the FERC cap; floor $179.55 (PJM BRA reports)"
+    },
+    {
+     "s_level": "S2",
+     "ref": "FERC EL25-49 order (Dec-2025): BTM large-load co-location restricted; conversions 'paused' (CEG Q1'26)"
+    },
+    {
+     "s_level": "S4",
+     "ref": "Street PT median ~$367 stale/being cut (revisions -8% 3mo); CEG fwd P/E ~21x vs VST ~14x"
+    }
+   ]
+  }
+ ],
+ "revision_velocity": {
+  "n_analysts": 21,
+  "fy1_eps_consensus": 11.75,
+  "fy2_eps_consensus": 13.61,
+  "fy1_ebitda_consensus_usd_b": 8.0,
+  "fy2_ebitda_consensus_usd_b": 8.5,
+  "fy1_eps_revision_1m_pct": -1.0,
+  "fy1_eps_revision_3m_pct": -1.5,
+  "fy1_ebitda_revision_3m_pct": 0.0,
+  "breadth_3m": -0.3,
+  "breadth_note": "PT actions net DOWN (Raymond James, Morgan Stanley, Argus cut in Jun'26); avg PT $400->$377 over 3mo. EPS estimates roughly flat (guidance reaffirmed). 76% Buy / 19% Hold / 5% Sell.",
+  "pt_revisions_recent": "Avg PT ~$367-377, down from ~$400 3mo ago; still ~+50% above the de-rated spot (a stale-target artifact). Targets re-basing toward the price.",
+  "pre_print_drift": "Stock -40% off the $412 high to 52-wk low ~$247; next print ~2026-08-05; implied move ~+/-5-7%.",
+  "peer_comparison": "Whole IPP cohort de-rating together; CEG de-rating faster than VST (premium gap 8->7 turns). NRG re-rated up to ~18x on its own narrative.",
+  "verdict": "De-rate underway (multiple compression + stale targets being cut), with EPS guidance reaffirmed; our caution is premium durability on cyclical-peak earnings, partly offset by the ~40% drawdown already taken."
+ },
+ "scenarios_inline": {
+  "schema_version": "0.3.0",
+  "ticker": "CEG",
+  "current_price": 247.12,
+  "as_of_date": "2026-06-11",
+  "fiscal_year_end": "12-31",
+  "base_eps": 13.5,
+  "scenarios": [
+   {
+    "id": "strong_bear",
+    "probability": 0.12,
+    "narrative_one_liner": "The AI-power premium deflates: PJM capacity reverts toward the floor, hyperscalers cut capex and PPAs stall, Calpine synergies disappoint, and CEG de-rates to a VST-level ~14x on normalized ~$12 EPS.",
+    "narrative_long": "A hyperscaler capex guide-down fires all three channels at once - multiple compression, stalled PPA conversions, softer power curves. PJM capacity reverts from the cap toward the $179.55 floor on the open out-year book; the 45U floor (~$0 today) only protects a much lower earnings level; Calpine gas margins normalize from peak. The market re-rates CEG to Vistra's ~14x on a normalized $12.00 FY27E EPS.",
+    "eps": 12.0,
+    "eps_period": "FY27E",
+    "multiple": 14.0,
+    "multiple_type": "P/E",
+    "target_price": 168.0,
+    "expected_return": -0.3202,
+    "anchors": [
+     "R-Bear",
+     "B-Capacity",
+     "B-Hyperscaler",
+     "B-Calpine"
+    ],
+    "strongest_anchor_s_level": "S2",
+    "multiple_band_basis": "14x P/E = de-rate to Vistra's level - the premium fully erased as the AI/nuclear-scarcity narrative deflates and the gas mix dominates.",
+    "eps_bridge": [
+     {
+      "label": "PJM capacity reverts from cap toward CONE floor on the open out-year book",
+      "delta_eps": -0.7,
+      "layer": "clean",
+      "source_tag": "S2: PJM BRA cap $333 vs floor $179.55"
+     },
+     {
+      "label": "Hyperscaler AI-capex cut / power-price normalization",
+      "delta_eps": -0.5,
+      "layer": "soft",
+      "source_tag": "S4: 2026 hyperscaler spend ~+75% YoY (can mean-revert)"
+     },
+     {
+      "label": "Calpine synergies disappoint + gas-margin normalization",
+      "delta_eps": -0.3,
+      "layer": "clean",
+      "source_tag": "S3: Calpine gas bought near peak vs NRG/VST ~7-7.5x"
+     }
+    ]
+   },
+   {
+    "id": "bear",
+    "probability": 0.25,
+    "narrative_one_liner": "Soft de-rate: power/capacity normalizes modestly, FERC FTM economics compress PPA margin and delay conversions, and the multiple compresses to ~16x on ~$12.75 EPS - the stock works toward the bear floor.",
+    "narrative_long": "The premium partially erodes as the cohort de-rates and the Calpine gas mix dilutes the multiple. PJM capacity stays above floor but off peak; hyperscaler conversions are delayed (FTM) rather than dead. Multiple settles ~16x - above the trough but below the recent ~21x - on a $12.75 FY27E EPS.",
+    "eps": 12.75,
+    "eps_period": "FY27E",
+    "multiple": 16.0,
+    "multiple_type": "P/E",
+    "target_price": 204.0,
+    "expected_return": -0.1745,
+    "anchors": [
+     "A-Consensus",
+     "B-FERC",
+     "B-Capacity"
+    ],
+    "strongest_anchor_s_level": "S2",
+    "multiple_band_basis": "16x = partial de-rate; between VST (~14x) and CEG's recent ~21x, pricing cyclicality + the gas-mix dilution.",
+    "eps_bridge": [
+     {
+      "label": "Power / capacity normalization (partial)",
+      "delta_eps": -0.45,
+      "layer": "clean",
+      "source_tag": "S2: PJM capacity off peak; ERCOT/CAISO spark normalization"
+     },
+     {
+      "label": "FERC FTM economics compress PPA margin + conversion delay",
+      "delta_eps": -0.3,
+      "layer": "soft",
+      "source_tag": "S2: FERC EL25-49 BTM restriction"
+     }
+    ]
+   },
+   {
+    "id": "base",
+    "probability": 0.36,
+    "narrative_one_liner": "The de-rate stabilizes: Calpine delivers ~$2/share accretion, the >20% CAGR holds, PPA conversions resume FTM post-June framework, and CEG holds ~19x (FY27E) - roughly its current multiple - on $13.50 EPS.",
+    "narrative_long": "FY2026 guidance ($11-12) is met and Calpine accretion (~$2/share) plus uprates support the >20% base-EPS CAGR. The June-2026 FERC framework lets paused hyperscaler PPAs convert (FTM, at a modest margin haircut). The premium compresses only modestly as the gas mix dilutes the multiple; the stock holds ~19x FY27E - essentially where it trades now after the ~40% drawdown - on $13.50 EPS.",
+    "eps": 13.5,
+    "eps_period": "FY27E",
+    "multiple": 17.3,
+    "multiple_type": "P/E",
+    "target_price": 233.55,
+    "expected_return": -0.0549,
+    "anchors": [
+     "A1-Guidance",
+     "A2-Nuclear",
+     "A3-Calpine",
+     "CAGR"
+    ],
+    "strongest_anchor_s_level": "S1",
+    "multiple_band_basis": "19x FY27E ~ in line with the current ~18x forward after the de-rate; a modest premium to VST justified by nuclear scarcity + IG + 45U floor, net of the Calpine gas dilution.",
+    "eps_bridge": []
+   },
+   {
+    "id": "bull",
+    "probability": 0.2,
+    "narrative_one_liner": "PPA conversions resume and new deals sign, the >20% CAGR is reaffirmed with Calpine on track, and CEG re-rates to ~22x on $14.50 EPS as the nuclear-scarcity premium re-expands.",
+    "narrative_long": "The June-2026 framework enables FTM hyperscaler PPAs; CEG signs incremental premium nuclear deals and delivers the >20% CAGR with Calpine synergies on track. The market re-credits the scarcity premium and re-rates to ~22x on a $14.50 FY27E EPS - back toward where CEG traded before the drawdown.",
+    "eps": 14.5,
+    "eps_period": "FY27E",
+    "multiple": 20.0,
+    "multiple_type": "P/E",
+    "target_price": 290.0,
+    "expected_return": 0.1735,
+    "anchors": [
+     "PPA-Convert",
+     "CAGR-Deliver",
+     "Calpine-Synergy"
+    ],
+    "strongest_anchor_s_level": "S2",
+    "multiple_band_basis": "22x = re-rate toward CEG's pre-drawdown multiple; premium re-expands on PPA conversion + delivered CAGR.",
+    "eps_bridge": [
+     {
+      "label": ">20% base-EPS CAGR delivery (Calpine accretion + uprates)",
+      "delta_eps": 0.6,
+      "layer": "soft",
+      "source_tag": "S3: CEG >20% base EPS CAGR 2026-2029 target"
+     },
+     {
+      "label": "Hyperscaler PPA conversions resume FTM post-June framework",
+      "delta_eps": 0.4,
+      "layer": "soft",
+      "source_tag": "S4: conversions 'paused but not cancelled'"
+     }
+    ]
+   },
+   {
+    "id": "strong_bull",
+    "probability": 0.07,
+    "narrative_one_liner": "Nuclear-scarcity supercycle: multiple new premium PPAs, capacity durability proven, Calpine synergy beat + buyback compounding on the de-rated price; CEG re-rates to ~25x on $15.50 EPS.",
+    "narrative_long": "Structural AI-power demand sustains a multi-year nuclear premium; CEG converts a large share of its ~5 GW pipeline to premium long-dated PPAs, beats Calpine synergies, and compounds EPS via buyback at the de-rated price. Multiple approaches ~25x on a $15.50 FY27E EPS.",
+    "eps": 15.5,
+    "eps_period": "FY27E",
+    "multiple": 23.0,
+    "multiple_type": "P/E",
+    "target_price": 356.5,
+    "expected_return": 0.4426,
+    "anchors": [
+     "Nuclear-Supercycle",
+     "PPA-Convert",
+     "Buyback"
+    ],
+    "strongest_anchor_s_level": "S3",
+    "multiple_band_basis": "25x approaches CEG's pre-drawdown peak multiple; tail re-rate predicated on durable premium-PPA conversion + a demand supercycle.",
+    "eps_bridge": [
+     {
+      "label": "Multiple incremental premium hyperscaler nuclear PPAs (scarcity re-rate)",
+      "delta_eps": 1.1,
+      "layer": "strong",
+      "source_tag": "S4: ~5 GW pipeline in PJM/ERCOT queues"
+     },
+     {
+      "label": "Calpine synergy beat + buyback compounding on the de-rated price",
+      "delta_eps": 0.9,
+      "layer": "strong",
+      "source_tag": "S3: $5B buyback authorization"
+     }
+    ]
+   }
+  ],
+  "probability_sum_check": 1.0,
+  "conviction_tag": "neutral",
+  "headline": {
+   "expected_return_median": -0.036,
+   "expected_return_range_p10_p90": [
+    -0.3202,
+    0.4426
+   ],
+   "rating": "Hold",
+   "default_action": "hold_long",
+   "conditionality": "source_conditional",
+   "conditional_language_pattern": "A_source_conditional_bias",
+   "headline_text": "Source-conditional Hold: CEG at $247.12 de-biased 12-month expected return -3.6% (cautious Hold), conditional on the >20% CAGR holding and PPA conversions resuming. Anchoring to independent fair value (~$234, -5%) SHARPENS it from +3% to ~-4% but does not flip to Sell; scenario-weighted range -32.0% to +44%."
+  },
+  "weighting_sensitivity": {
+   "base_minus_10_to_bear": -0.012,
+   "base_minus_10_to_bull": 0.0228,
+   "strong_tail_plus_10": {
+    "strong_bear": -0.0265,
+    "strong_bull": 0.0498
+   }
+  }
+ },
+ "source_tags_inline": {
+  "schema_version": "0.3.0",
+  "ticker": "CEG",
+  "as_of_date": "2026-06-11",
+  "model_cutoff_date": "2026-01-01",
+  "all_citations": [
+   {
+    "s_level": "S1",
+    "source_type": "10-K",
+    "ref": "CEG FY2025 10-K (filed 2025-11; standalone pre-Calpine): revenue $25,533M, GAAP EPS $7.40, Adj Op EPS $9.39, nuclear fleet ~32.4 GW",
+    "date": "2026-02-24",
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001868275&type=10-K",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S1",
+    "source_type": "XBRL",
+    "ref": "SEC XBRL companyfacts CIK 0001868275 (revenue/NI/EPS/OCF/capex/buyback FY23-25)",
+    "date": "2026-06-11",
+    "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001868275.json",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "CEG FY2025 results 8-K: Adj Op EPS $9.39; FY2026 guidance $11.00-12.00 introduced (pro-forma Calpine)",
+    "date": "2026-02-24",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "CEG Calpine acquisition closed ~$26.6B EV (~50M shares + $4.5B cash + assumed debt); ~60 GW combined",
+    "date": "2026-01-07",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "CEG Q1 2026 results (first with Calpine): Adj Op EPS $2.74 beat; FY2026 guidance reaffirmed $11-12; >20% CAGR reiterated",
+    "date": "2026-05-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "CEG to sell ~4.4 GW PJM gas to LS Power for ~$5B (DOJ/FERC divestiture)",
+    "date": "2026-03-18",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "Microsoft / Crane Clean Energy Center (TMI Unit 1) ~835 MW 20-yr PPA, online ~2027-28",
+    "date": "2024-09-20",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "Meta / Clinton ~1.1 GW 20-yr nuclear PPA (signed Aug-2025)",
+    "date": "2025-08-12",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "Federal Register",
+    "ref": "FERC order EL25-49 (Dec-2025): FTM co-location facilitated, BTM large-load restricted; PJM compliance due June-2026",
+    "date": "2025-12-19",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "Other",
+    "ref": "PJM 2026/27 BRA cleared $329.17/MW-day; 2027/28 BRA $333.44/MW-day UCAP (at FERC cap); floor $179.55",
+    "date": "2025-12-17",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "DEF 14A",
+    "ref": "CEG 2026 DEF 14A: PwC ratified; Joe Dominguez CEO / Dan Eggers CFO",
+    "date": "2026-04-15",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S1",
+    "source_type": "FRED",
+    "ref": "FRED DGS10 10-yr UST 4.52%",
+    "date": "2026-06-11",
+    "url": "https://fred.stlouisfed.org/series/DGS10",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S5",
+    "source_type": "Damodaran",
+    "ref": "Damodaran implied US ERP 4.23%",
+    "date": "2026-01-01",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "FactSet consensus",
+    "ref": "Consensus n=21: FY26E Adj Op EPS ~$11.75, FY27E ~$13.61; 76% Buy / 19% Hold / 5% Sell",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Yahoo Finance consensus",
+    "ref": "CEG $247.12 (6/11); mkt cap ~$88.25B; EV ~$109.4B; shares ~357.1M; fwd P/E ~21x FY26E / ~18x FY27E; EV/EBITDA ~13.75x; 52wk $240.51-$412.70; beta 1.09",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "30-day ADV ~$1.0B (~4.1M shares); beta 1.09",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "Street PT avg ~$367-377 (low $277 / high $462), down from ~$400 3mo ago - stale-target artifact being cut; revisions -8% 3mo",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S5",
+    "source_type": "Other",
+    "ref": "Ratings: S&P BBB+ / Moody's Baa1 / Fitch BBB+ (IG, affirmed post-Calpine); $3.4B deleveraging plan",
+    "date": "2026-03-15",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S5",
+    "source_type": "Other",
+    "ref": "45U nuclear PTC phase-out band ~$26-44.75/MWh (2025); ~$0 benefit at today's high prices; hard sunset end-2032",
+    "date": "2025-08-15",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "Peer multiples: VST ~14x P/E / ~10.1x EV/EBITDA; NRG ~18x; TLN ~16x; PEG ~17.5x",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S2",
+    "source_type": "BIS Entity List",
+    "ref": "BIS/OFAC/CFIUS query CEG 2026-06-11: N/A (US-domiciled utility)",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   }
+  ],
+  "top_anchors": [
+   {
+    "anchor_id": "A1",
+    "claim": "FY2026 Adjusted Operating EPS guidance midpoint (pro-forma Calpine)",
+    "value": 11.5,
+    "unit": "$ adjusted operating EPS",
+    "citation": {
+     "s_level": "S3",
+     "source_type": "Other",
+     "ref": "CEG FY2025 8-K / Q1'26 call: FY2026 Adj Op EPS $11.00-12.00",
+     "date": "2026-05-11",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base",
+     "bear",
+     "bull"
+    ],
+    "sensitivity_pct": 10.0
+   },
+   {
+    "anchor_id": "A2",
+    "claim": "Nuclear fleet (largest US, scarce carbon-free baseload)",
+    "value": 32.4,
+    "unit": "GW nuclear (21 reactors)",
+    "citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "CEG FY2025 10-K Item 1/2 (nuclear fleet ~32.4 GW)",
+     "date": "2026-02-24",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base",
+     "bull",
+     "strong_bull"
+    ],
+    "sensitivity_pct": 8.0
+   },
+   {
+    "anchor_id": "A3",
+    "claim": "Calpine acquisition closed (scale + integration)",
+    "value": 26.6,
+    "unit": "$B enterprise value (~60 GW combined)",
+    "citation": {
+     "s_level": "S2",
+     "source_type": "8-K",
+     "ref": "CEG Calpine close 8-K 2026-01-07",
+     "date": "2026-01-07",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base",
+     "bear",
+     "bull"
+    ],
+    "sensitivity_pct": 8.0
+   },
+   {
+    "anchor_id": "A4",
+    "claim": "PJM capacity cleared at the FERC cap (cyclical-peak lever)",
+    "value": 333.44,
+    "unit": "$/MW-day UCAP (2027/28 BRA; floor $179.55)",
+    "citation": {
+     "s_level": "S2",
+     "source_type": "Other",
+     "ref": "PJM 2027/28 BRA report (at cap)",
+     "date": "2025-12-17",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "strong_bear",
+     "bear",
+     "base"
+    ],
+    "sensitivity_pct": 12.0
+   },
+   {
+    "anchor_id": "A_PT",
+    "claim": "Sell-side consensus 12-month price target (median; stale/being cut)",
+    "value": 367.0,
+    "unit": "$/share price target",
+    "citation": {
+     "s_level": "S4",
+     "source_type": "FactSet consensus",
+     "ref": "Consensus PT median ~$367 (low $277 / high $462), n=21 - stale, revisions -8% 3mo",
+     "date": "2026-06-11",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "bull"
+    ],
+    "sensitivity_pct": 5.0
+   }
+  ],
+  "headline_conditionality": "source_conditional",
+  "consensus_variance": [
+   {
+    "variance_id": "V1_premium_derate",
+    "line_item": "CEG forward P/E premium durability (cyclical-peak earnings)",
+    "type": "scenario_weight",
+    "direction": "downward",
+    "magnitude_pct": 18.0,
+    "probability_right_pct": 60.0,
+    "scenario_sensitivity_pct": 20.0,
+    "sizing_impact_pp": 2.16,
+    "load_bearing": true,
+    "narrative": "The stale ~+50% Street PT and 76%-Buy consensus extrapolate the premium multiple + >20% CAGR while marking PJM-capacity-at-cap and hyperscaler-PPA economics as durable. Our downward variance marks PJM capacity at the FERC cap as a definitional peak, the FERC EL25-49 BTM restriction as compressing the PPA premium, and the Calpine gas mix as diluting the clean-nuclear multiple; it shifts ~2.2pp into the bear tails (a de-rate toward VST's ~14-16x). Two-tailed (nuclear scarcity + the de-rate already done) -> Hold not Sell. Sizing = 18 x 60 x 20 / 10000 = 2.16.",
+    "evidence_refs": [
+     {
+      "s_level": "S2",
+      "ref": "PJM 2026/27 + 2027/28 BRA cleared at the FERC cap ($329-333); floor $179.55"
+     },
+     {
+      "s_level": "S2",
+      "ref": "FERC EL25-49 (Dec-2025): BTM restricted; CEG conversions 'paused' (Q1'26)"
+     },
+     {
+      "s_level": "S4",
+      "ref": "Street PT ~$367 stale/being cut; CEG ~21x vs VST ~14x"
+     }
+    ]
+   }
+  ],
+  "revision_velocity": {
+   "n_analysts": 21,
+   "fy1_eps_consensus": 11.75,
+   "fy2_eps_consensus": 13.61,
+   "fy1_ebitda_consensus_usd_b": 8.0,
+   "fy2_ebitda_consensus_usd_b": 8.5,
+   "fy1_eps_revision_1m_pct": -1.0,
+   "fy1_eps_revision_3m_pct": -1.5,
+   "fy1_ebitda_revision_3m_pct": 0.0,
+   "breadth_3m": -0.3,
+   "breadth_note": "PT actions net down (RayJay, MS, Argus cut Jun'26); avg PT $400->$377 3mo; EPS roughly flat (guidance reaffirmed); 76% Buy / 19% Hold / 5% Sell.",
+   "pt_revisions_recent": "Avg PT ~$367-377, down from ~$400; ~+50% above de-rated spot (stale artifact).",
+   "pre_print_drift": "Stock -40% off $412 high to 52-wk low; next print ~2026-08-05.",
+   "peer_comparison": "Cohort de-rating together; CEG faster than VST (premium 8->7 turns).",
+   "verdict": "De-rate underway with EPS guidance reaffirmed; caution is premium durability on cyclical-peak earnings, partly offset by the ~40% drawdown already taken."
+  },
+  "pending_assumptions": []
+ },
+ "source_tags_ref": "outputs/CEG_source_tags.json",
+ "verification_gates_ref": "outputs/CEG_verification_gates.json",
+ "audience_variant": "institutional_full",
+ "delegation_outputs": {
+  "company_research_md_path": "outputs/CEG_IC_memo.md",
+  "valuation_analysis_md_path": "outputs/CEG_IC_memo.md",
+  "scenarios_3case_for_dcf_plugin": {
+   "bear_case_revenue_growth_pcts": [
+    50,
+    2,
+    0,
+    1,
+    2
+   ],
+   "bear_case_ebit_margin_pcts": [
+    12,
+    11,
+    11,
+    11,
+    11
+   ],
+   "base_case_revenue_growth_pcts": [
+    72,
+    5,
+    4,
+    3,
+    3
+   ],
+   "base_case_ebit_margin_pcts": [
+    13,
+    14,
+    14,
+    14,
+    14
+   ],
+   "bull_case_revenue_growth_pcts": [
+    73,
+    8,
+    6,
+    5,
+    5
+   ],
+   "bull_case_ebit_margin_pcts": [
+    14,
+    15,
+    15,
+    15,
+    15
+   ]
+  }
+ },
+ "memo_metadata": {
+  "run_id": "C1D2E3F4-CEG2-4DE5-8F90-DEBIA5ED0003",
+  "iteration_round": 2,
+  "current_score": 8.7,
+  "target_score": 8.5,
+  "phases_completed": "0,1,2,3,verification",
+  "verification_calls_count": 33,
+  "shaped_into_ic_memo": true,
+  "ic_rigor_chained": false,
+  "net_leverage_note": "EV-implied net debt + NCI ~$21.15B (EV $109.4B less mkt cap $88.25B) is used in EV/EBITDA; standalone pre-Calpine net debt was ~$5.3B (total debt $8.9B less cash $3.6B), stepped up by the ~$12.7B assumed Calpine net debt + $4.5B cash deal funding. Out-year hedge ratios are not disclosed at this granularity - the open-book sensitivity is modeled. [v2 DE-BIASED: base re-anchored to independent fair value ~$234; rating sharpened to cautious Hold (~-4%), not flipped to Sell; v1 archived.]",
+  "agent_count": 16,
+  "manifest_ref": "CEG_manifest.json"
+ },
+ "valuation_parallel": {
+  "method": "Two-value parallel: independent fair value (B) || market-regime value (A); the GAP is the mispricing signal; the 12-month base PT is a convergence-weighted blend.",
+  "independent_fair_value_usd": 234.0,
+  "independent_fair_value_basis": "DCF $215 + SOTP $245 + comps $256 \u2014 computed WITHOUT reference to price (answers 'what is it worth')",
+  "market_regime_value_usd": 367.0,
+  "market_regime_value_basis": "consensus 12-mo PT median/avg (S4) \u2014 embeds the current-multiple regime (answers 'where will it trade given the regime')",
+  "current_price_usd": 247.12,
+  "price_vs_fair_value_pct": 5.6,
+  "regime_vs_fair_value_pct": 56.8,
+  "twelve_month_base_pt_usd": 233.55,
+  "base_vs_fair_value_pct": -0.2,
+  "convergence_speed": "moderate",
+  "convergence_assumption": "base approx fair value; ~40% de-rate already done, FERC framework + prints are the path",
+  "signal": "fairly valued (gap < ~8%)"
+ },
+ "is_cyclical": true,
+ "is_cyclical_note": "Cyclical: base valued on normalized/mid-cycle earnings + P/B cross-check, never peak x forward multiple (Lesson 7).",
+ "conviction_axis": {
+  "rating": "Hold",
+  "conviction": "moderate (public-info build)",
+  "conviction_drivers_for": [
+   "independent fair value vs spot gap is the load-bearing signal (public)",
+   "DCF/SOTP/comps triangulate the fair value without reference to price"
+  ],
+  "conviction_drivers_against": [
+   "the multiple is a judgment that could re-rate",
+   "convergence timing is uncertain (overvaluation/undervaluation is not itself a catalyst)"
+  ],
+  "self_anchoring_check": "BIDIRECTIONAL \u2014 the anchoring discipline applies to revisions toward EITHER side; use external analysts' PUBLIC evidence, never their conclusions (multiple/PT/rating).",
+  "downgradeable_note": "Conviction is tracked separately from the rating; new PUBLIC counter-evidence lowers conviction even when it does not flip the rating. A nonpublic cross-check may nuance conviction personally but is NOT persisted."
+ }
+}

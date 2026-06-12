@@ -1,0 +1,320 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "FCX",
+ "as_of_date": "2026-06-11",
+ "model_cutoff_date": "2026-01-01",
+ "all_citations": [
+  {
+   "s_level": "S1",
+   "source_type": "10-K",
+   "ref": "FCX FY2025 10-K (filed 2026-02-13): revenue $25,915M, NI to common $2,204M, EPS $1.52; copper-price sensitivity ~$400M EBITDA per $0.10/lb",
+   "date": "2026-02-13",
+   "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000831259&type=10-K",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "XBRL",
+   "ref": "SEC XBRL companyfacts CIK 0000831259 (revenue/NI/OCF/capex FY22-25)",
+   "date": "2026-06-11",
+   "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000831259.json",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "FCX Q4/FY25 results 8-K: Adj EBITDA ~$9.9B; FY2025 Cu 3.4 Blb / Au 1.0 Moz; FY2026 guidance",
+   "date": "2026-02-13",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "FCX Q1'26 results: EPS $0.61; realized Cu $5.78/lb; FY2026 Cu sales guide CUT 3.4->3.1 Blb, unit cash cost $1.95/lb, gold 650 koz; $406M idle charge + $699M insurance",
+   "date": "2026-04-23",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "FCX Grasberg mud-rush (2025-09-08): 7 fatalities, force majeure; GBC ~50% PT-FI reserves / ~70% forecast production through 2029; phased restart Blocks 2&3 Q2'26, 1S Q2'27",
+   "date": "2025-09-30",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "PT-FI IUPK life-of-resource extension MoU (Feb-2026): beyond 2041 (~2061) via FCX divesting ~12% additional; FCX 48.76% through 2041 -> ~37% from 2042; MIND ID 51.24%",
+   "date": "2026-02-18",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "DEF 14A",
+   "ref": "FCX 2026 DEF 14A: EY ratified; Kathleen Quirk CEO / Maree Robertson CFO",
+   "date": "2026-04-15",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "FRED",
+   "ref": "FRED DGS10 10-yr UST 4.52%",
+   "date": "2026-06-11",
+   "url": "https://fred.stlouisfed.org/series/DGS10",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Damodaran",
+   "ref": "Damodaran implied US ERP 4.23%",
+   "date": "2026-01-01",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "COMEX copper ~$6.19/lb (ATH $6.71 May-2026); LME ~$13,480/t; ~40-55% above $4.00-4.50 mid-cycle; Goldman sees 2026 decline / JPM ~$13k+",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Yahoo Finance consensus",
+   "ref": "FCX $66.20 (6/11); mkt cap ~$95B; EV ~$108B; shares ~1,443M; fwd P/E ~20x; EV/EBITDA ~10x (vs ~7.8x 5-yr avg); 52wk $35.15-$72.09; beta 1.36",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "30-day ADV ~$790M (~12.5M shares); beta 1.36",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S4",
+   "source_type": "FactSet consensus",
+   "ref": "Consensus n=26: FY26E EPS ~$2.69, FY27E ~$3.84; PT median $70 (low $31 / high $85); 83% Buy / 13% Hold / 4% Sell",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "13F",
+   "ref": "13F/13G: Vanguard ~7.49%, BlackRock ~6.6%, State Street, Capital Research, Fisher; ~85% institutional",
+   "date": "2026-04-29",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "Short interest ~1.98% float, DTC ~2.6 (declining from ~34M Jan'26); no activist",
+   "date": "2026-05-29",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S2",
+   "source_type": "Federal Register",
+   "ref": "US Section 232 copper review: refined copper exempted 2025; June-30-2026 review may add phased refined-copper duty (15% 2027 -> 30% 2028); record COMEX-LME premium",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S3",
+   "source_type": "Other",
+   "ref": "Leaching 'virtual mine': ~214 Mlb FY25 -> ~300 Mlb FY26 target -> ~800 Mlb by ~2030 at <$1.00/lb (IR/MiningWeekly)",
+   "date": "2026-04-23",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Other",
+   "ref": "Industry copper head grade ~1.4-1.6% (1990) -> ~0.9% now; cash cost +27.8% 2021-24 (S&P Global)",
+   "date": "2026-05-01",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "Peer multiples: SCCO ~20x EV/EBITDA / ~39x P/E; RIO ~7-8x EV/EBITDA; FCX ~10x",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S2",
+   "source_type": "BIS Entity List",
+   "ref": "BIS/OFAC/CFIUS query FCX 2026-06-11: N/A (US-domiciled miner; Indonesia exposure via PT-FI is commercial/permit, not sanctions)",
+   "date": "2026-06-11",
+   "verified": true,
+   "is_anchor_eligible": true
+  }
+ ],
+ "top_anchors": [
+  {
+   "anchor_id": "A1",
+   "claim": "Copper price (the dominant earnings driver)",
+   "value": 6.19,
+   "unit": "$/lb COMEX (~40-55% above mid-cycle)",
+   "citation": {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "COMEX copper ~$6.19/lb (6/11); ~$400M EBITDA per $0.10/lb",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "strong_bear",
+    "bear",
+    "base",
+    "bull",
+    "strong_bull"
+   ],
+   "sensitivity_pct": 14.0
+  },
+  {
+   "anchor_id": "A2",
+   "claim": "FY2026 consolidated copper sales guidance (cut at Q1'26)",
+   "value": 3.1,
+   "unit": "Blb copper (from 3.4 Blb)",
+   "citation": {
+    "s_level": "S3",
+    "source_type": "Other",
+    "ref": "FCX Q1'26 guidance: FY2026 Cu sales ~3.1 Blb; unit cash cost $1.95/lb",
+    "date": "2026-04-23",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base",
+    "bear",
+    "bull"
+   ],
+   "sensitivity_pct": 10.0
+  },
+  {
+   "anchor_id": "A3",
+   "claim": "Grasberg / PT-FI structure + block-cave recovery",
+   "value": 48.76,
+   "unit": "% FCX economic in PT-FI (MIND ID 51.24%); GBC ~50% reserves",
+   "citation": {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "FCX 10-K / mud-rush update + Feb-2026 MoU",
+    "date": "2026-02-18",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "strong_bear",
+    "bear",
+    "base",
+    "bull",
+    "strong_bull"
+   ],
+   "sensitivity_pct": 12.0
+  },
+  {
+   "anchor_id": "A4",
+   "claim": "Net debt below target + performance-based payout",
+   "value": 2.4,
+   "unit": "$B net debt (excl $3.2B ring-fenced project debt) vs $3-4B target",
+   "citation": {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "FCX Q1'26 balance sheet; up to ~50% of FCF to shareholders",
+    "date": "2026-04-23",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base",
+    "bull"
+   ],
+   "sensitivity_pct": 6.0
+  },
+  {
+   "anchor_id": "A_PT",
+   "claim": "Sell-side consensus 12-month price target (median)",
+   "value": 70.0,
+   "unit": "$/share price target",
+   "citation": {
+    "s_level": "S4",
+    "source_type": "FactSet consensus",
+    "ref": "Consensus PT median $70 (low $31 / high $85), n=26; ~+5.5% above spot despite 83% Buy",
+    "date": "2026-06-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base"
+   ],
+   "sensitivity_pct": 5.0
+  }
+ ],
+ "headline_conditionality": "source_conditional",
+ "consensus_variance": [
+  {
+   "variance_id": "V1_peak_copper_derate",
+   "line_item": "Copper-price / EV-EBITDA-multiple durability (peak-cycle earnings)",
+   "type": "scenario_weight",
+   "direction": "downward",
+   "magnitude_pct": 18.0,
+   "probability_right_pct": 58.0,
+   "scenario_sensitivity_pct": 20.0,
+   "sizing_impact_pp": 2.09,
+   "load_bearing": true,
+   "narrative": "Consensus (83% Buy) holds FCX with PTs only ~+4-6% above spot - the Street rates it Buy but its own targets imply roughly fully valued. Our downward variance marks copper at ~$6.19/lb as ~40-55% above a $4.00-4.50 mid-cycle anchor, FCX's ~10x EV/EBITDA as above its ~7.8x 5-yr average on peak earnings, and the historical miner de-rate at cyclical peaks; combined with the Grasberg single-asset/permitting overhang, this shifts ~2.1pp into the bear tails. Two-tailed (structural copper deficit + Grasberg recovery are genuine upside) -> Hold not Sell. Sizing = 18 x 58 x 20 / 10000 = 2.09.",
+   "evidence_refs": [
+    {
+     "s_level": "S1",
+     "ref": "FCX $400M EBITDA per $0.10/lb; FY26 unit cash cost guide raised $1.75->$1.95/lb"
+    },
+    {
+     "s_level": "S2",
+     "ref": "FY2026 copper guide cut 3.4->3.1 Blb on Grasberg; MIND ID 51.24% / step to ~37% from 2042"
+    },
+    {
+     "s_level": "S4",
+     "ref": "Copper ~40-55% above mid-cycle; FCX ~10x vs ~7.8x 5-yr avg; PT median $70 (+5.5%)"
+    }
+   ]
+  }
+ ],
+ "revision_velocity": {
+  "n_analysts": 26,
+  "fy1_eps_consensus": 2.69,
+  "fy2_eps_consensus": 3.84,
+  "fy1_ebitda_consensus_usd_b": 11.5,
+  "fy2_ebitda_consensus_usd_b": 13.5,
+  "fy1_eps_revision_1m_pct": 0.0,
+  "fy1_eps_revision_3m_pct": -2.0,
+  "fy1_ebitda_revision_3m_pct": -1.0,
+  "breadth_3m": 0.0,
+  "breadth_note": "Mixed: Goldman ->$75, Barclays init $77, Bernstein Hold ->$59; one FY26 EPS cut $2.81->$2.32 on the Grasberg guide. 13 Strong Buy / 6 Buy / 3 Hold / 1 Sell; PTs ~flat at +4-6% above spot.",
+  "pt_revisions_recent": "PT median $70 (low $31 / high $85); conservative cluster (UBS/RBC/BofA ~$46) ~30% below spot.",
+  "pre_print_drift": "Stock +55% over 1yr to 52-week high $72.09; next print ~2026-08-05.",
+  "peer_comparison": "SCCO richer (~20x) on jurisdiction/growth; RIO cheaper (~7-8x); FCX above its own history.",
+  "verdict": "Estimates flat-to-down on Grasberg; consensus 'Buy' belied by PTs at spot. Caution is peak-copper multiple + Grasberg, not an estimate collapse -> Hold not Sell."
+ },
+ "pending_assumptions": []
+}

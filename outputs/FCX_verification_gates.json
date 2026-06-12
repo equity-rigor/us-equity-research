@@ -1,0 +1,180 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "FCX",
+ "run_id": "E5B4A2D9-6F8C-4D3B-A127-4C9F0E5D33B8",
+ "memo_path": "outputs/FCX_IC_memo.md",
+ "memo_structured_path": "outputs/FCX_structured.json",
+ "gates": [
+  {
+   "gate_id": "G1",
+   "name": "EPS x Multiple multiplicativity",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G2",
+   "name": "Segment GM reconciliation",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G3",
+   "name": "SOTP monotonicity",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G4",
+   "name": "Scenario probabilities sum to 1.00",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G5",
+   "name": "Bear/bull EPS bridge reconciles",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G6",
+   "name": "Source tag at first use",
+   "status": "pass",
+   "category": "source",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G7",
+   "name": "Headline conditionality matches anchor strength",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G8",
+   "name": "GM taxonomy box exists",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G9",
+   "name": "What-would-reverse numerical denominators",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G10",
+   "name": "Anchor weighting impact table",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G11",
+   "name": "Non-GAAP to GAAP reconciliation present",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G12",
+   "name": "SBC treatment in FCF disclosed",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G13",
+   "name": "Factor exposure stated",
+   "status": "pass",
+   "category": "quant_overlay",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G14",
+   "name": "Capacity/ADV/days-to-exit stated",
+   "status": "pass",
+   "category": "quant_overlay",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G15",
+   "name": "Consensus variance declared (non-Hold Sell: V1 peak-copper de-rate, sizing 2.40, S1/S2/S4 evidence)",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G16",
+   "name": "Bank metrics (n_a: non-bank sector)",
+   "status": "n_a",
+   "category": "sector",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G17",
+   "name": "Revision velocity disclosed",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G18",
+   "name": "Quant overlay cross-document consistency",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G19",
+   "name": "Plugin 1 -> Plugin 2 provenance manifest",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G20",
+   "name": "View defensibility (Sell: -13.8% PT vs +5.5% consensus = 19.3pp differentiation; S1/S2 evidence; variance_attack timing_arbitrage -> modified)",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.5
+  }
+ ],
+ "overall_pass": true,
+ "applicable_gates_passed": "19 of 19 applicable (G16 n_a)",
+ "blocks_score_above": null,
+ "notes": "DE-BIASED v2 (Sell/Underweight). All applicable gates exit 0, INCLUDING the non-Hold gates G15 + G20 that were n_a on the v1 Hold. G20: (a) upside_downside_pct -13.76% differs from consensus PT-implied +5.5% by 19.3pp (>=8); (b) load-bearing variance V1 carries S1+S2 evidence; (c) adjudication_trail variance_attack (timing_arbitrage -> modified). The flip from Hold to Sell came entirely from anchoring the base to independent mid-cycle fair value (~$57.5) instead of spot.",
+ "judgment_layer_gates": [
+  {
+   "gate_id": "G21",
+   "name": "Fair-value reconciliation",
+   "status": "pass",
+   "category": "structure",
+   "checked_at": "2026-06-12",
+   "evaluation_method": "programmatic_script"
+  },
+  {
+   "gate_id": "G22",
+   "name": "Revision attribution",
+   "status": "pass",
+   "category": "structure",
+   "checked_at": "2026-06-12",
+   "evaluation_method": "programmatic_script"
+  },
+  {
+   "gate_id": "G23",
+   "name": "Source-tier public boundary",
+   "status": "pass",
+   "category": "source",
+   "checked_at": "2026-06-12",
+   "evaluation_method": "programmatic_script"
+  }
+ ],
+ "judgment_layer_note": "v0.7.0 additive gates (run via run_all_gates.sh). Tracked separately from the count-capped G1-G20 `gates` array."
+}

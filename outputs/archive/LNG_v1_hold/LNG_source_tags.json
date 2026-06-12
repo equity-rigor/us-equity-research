@@ -1,0 +1,301 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "LNG",
+ "as_of_date": "2026-06-09",
+ "model_cutoff_date": "2026-01-01",
+ "all_citations": [
+  {
+   "s_level": "S1",
+   "source_type": "10-K",
+   "ref": "LNG FY2025 10-K (filed 2026-02; ~90% contracted, ~15yr WA SPA term, open <1 mtpa 2026)",
+   "date": "2026-02-25",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000003570/000000357026000005/lng-20251231.htm",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "XBRL",
+   "ref": "SEC XBRL companyfacts CIK 0000003570 (revenue/NI/EPS/shares/SBC/OCF/capex/buyback FY23-25)",
+   "date": "2026-06-09",
+   "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000003570.json",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "LNG Q4/FY25 results 8-K: rev ~$20.0B, Consolidated Adj EBITDA ~$6.9B, DCF ~$5.3B; FY2026 guidance introduced",
+   "date": "2026-02-25",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S3",
+   "source_type": "Other",
+   "ref": "LNG Q1'26 release / call: FY2026 guidance RAISED to Consolidated Adj EBITDA $7.25-7.75B, DCF $4.75-5.25B; ~$2.3B EBITDA Q1; ~$3.5B GAAP net loss (MtM)",
+   "date": "2026-05-06",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "LNG Midscale Trains 8&9 positive FID (full NTP to Bechtel) Jun-2025; ~32% complete at YE25; 2H28 completion",
+   "date": "2025-06-18",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "LNG new buyback authorization to >$10B through 2030 (after completing the '20/20 Vision'); ~$1.2B remaining on prior auth at YE25",
+   "date": "2026-02-25",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "Other",
+   "ref": "Moody's upgrade LNG to Baa2 (from Baa3) Feb-27-2026; S&P BBB+ (Nov'25); Fitch BBB; SPL/CCH Baa1",
+   "date": "2026-02-27",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "LNG ~1.2 mtpa long-term SPA with CPC Corporation (Taiwan) through 2050",
+   "date": "2026-02-15",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "DEF 14A",
+   "ref": "LNG 2026 DEF 14A: KPMG ratified; Jack Fusco CEO / Zach Davis CFO",
+   "date": "2026-04-07",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "FRED",
+   "ref": "FRED DGS10 10-yr UST 4.55%",
+   "date": "2026-06-05",
+   "url": "https://fred.stlouisfed.org/series/DGS10",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Damodaran",
+   "ref": "Damodaran implied US ERP 4.23%",
+   "date": "2026-01-01",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "FactSet consensus",
+   "ref": "Consensus n=23: FY26E GAAP EPS $17.91, FY27E $19.51; FY26E EBITDA tracks guidance ~$7.5B; PT median $304.50 (low $259 / high $340); 96% Buy / 4% Hold / 0% Sell",
+   "date": "2026-06-09",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Yahoo Finance consensus",
+   "ref": "LNG $239.40 (6/9 close); mkt cap ~$50.2B; EV ~$76.6B; shares ~209.55M; EV/EBITDA ~12.7x TTM / ~10.2x FY26E; 52wk $186.20-$300.89",
+   "date": "2026-06-09",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "30-day ADV ~$470M (~1.96M shares); beta ~1.05 (modeled; vendor 5y beta flagged as a data artifact)",
+   "date": "2026-06-09",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S2",
+   "source_type": "13F",
+   "ref": "13F/13G: ~2,132 institutions; BlackRock ~7.1%, Vanguard ~5.28%, Morgan Stanley, State Street, FMR",
+   "date": "2026-05-15",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "Short interest ~1.5% float (DTC ~1.8); net insider selling YTD (no open-market buys)",
+   "date": "2026-05-15",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S3",
+   "source_type": "Other",
+   "ref": "Global LNG supply wave: ~193 mtpa new liquefaction 2024-2028 (nameplate ~474->~666 mtpa); Qatar NFE/NFS +48, Plaquemines ~20, Golden Pass ~16-18, Port Arthur ~13, CP2 ~28; JKM toward $7-8 (Kpler/IEEFA/Morgan Stanley)",
+   "date": "2026-05-01",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S3",
+   "source_type": "Other",
+   "ref": "Wolfe recontracting assumption ~$2.00/MMBtu fixed fee; legacy fee widely cited ~$3/MMBtu+ (undisclosed at S1)",
+   "date": "2026-05-01",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S2",
+   "source_type": "Other",
+   "ref": "US DOE non-FTA export 'pause' reversed Jan-17-2025; FERC LNG approvals resumed; no BIS/OFAC/CFIUS on LNG (US-domiciled exporter), verified 2026-06-09",
+   "date": "2026-06-09",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Other",
+   "ref": "Peer multiples: VG ~10.8x, CQP ~11.7x, SRE ~16.9x, KMI ~13.9x EV/EBITDA (TTM)",
+   "date": "2026-06-09",
+   "verified": true,
+   "is_anchor_eligible": false
+  }
+ ],
+ "top_anchors": [
+  {
+   "anchor_id": "A1",
+   "claim": "FY2026 Consolidated Adjusted EBITDA guidance midpoint (raised Q1'26)",
+   "value": 7500.0,
+   "unit": "$M",
+   "citation": {
+    "s_level": "S3",
+    "source_type": "Other",
+    "ref": "LNG Q1'26 release: FY2026 Consolidated Adj EBITDA $7.25-7.75B",
+    "date": "2026-05-06",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base",
+    "bear",
+    "bull"
+   ],
+   "sensitivity_pct": 10.0
+  },
+  {
+   "anchor_id": "A2",
+   "claim": "Capacity sold under long-term SPA/IPM through the mid-2030s",
+   "value": 90.0,
+   "unit": "% of platform capacity contracted",
+   "citation": {
+    "s_level": "S1",
+    "source_type": "10-K",
+    "ref": "LNG FY2025 10-K (~90% contracted, ~15yr WA remaining term)",
+    "date": "2026-02-25",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "strong_bear",
+    "bear",
+    "base",
+    "bull",
+    "strong_bull"
+   ],
+   "sensitivity_pct": 8.0
+  },
+  {
+   "anchor_id": "A3",
+   "claim": "FY2026 Distributable Cash Flow guidance midpoint (raised Q1'26)",
+   "value": 5000.0,
+   "unit": "$M",
+   "citation": {
+    "s_level": "S3",
+    "source_type": "Other",
+    "ref": "LNG Q1'26 release: FY2026 DCF $4.75-5.25B",
+    "date": "2026-05-06",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base",
+    "bull"
+   ],
+   "sensitivity_pct": 8.0
+  },
+  {
+   "anchor_id": "A4",
+   "claim": "Open/merchant book + marginal recontracting (load-bearing variance)",
+   "value": 50.0,
+   "unit": "$M Consolidated Adj EBITDA per $1/MMBtu (open <1 mtpa 2026)",
+   "citation": {
+    "s_level": "S1",
+    "source_type": "10-K",
+    "ref": "LNG FY2025 10-K open-position sensitivity + S3 recontracting/supply-wave",
+    "date": "2026-02-25",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "strong_bear",
+    "bear",
+    "base",
+    "bull",
+    "strong_bull"
+   ],
+   "sensitivity_pct": 12.0
+  }
+ ],
+ "headline_conditionality": "source_conditional",
+ "consensus_variance": [
+  {
+   "variance_id": "V1_2027_durability_multiple",
+   "line_item": "FY2027 Consolidated Adjusted EBITDA durability + multiple",
+   "type": "scenario_weight",
+   "direction": "downward",
+   "magnitude_pct": -10.0,
+   "probability_right_pct": 58.0,
+   "scenario_sensitivity_pct": 12.0,
+   "sizing_impact_pp": 12.0,
+   "narrative": "The Street's +27% median PT (~$304.50) extrapolates the raised FY2026 run-rate (a spread/optimization-driven raise) into a sustained ~15-17x forward multiple and capitalizes the full pre-FID growth pipeline. Our downward variance marks the raise as partly transient (merchant lever <1 mtpa, <$50M per $1/MMBtu), the marginal book recontracting/FID-ing into the supply wave at plausibly lower fixed fees (~$2/MMBtu vs legacy ~$3/MMBtu), and base-rate multiple compression for premium energy-infra into oversupply; it shifts ~12pp from base/bull toward the bear tails. Two-tailed (AI-power gas demand + premium SPAs/FIDs are genuine upside) -> Hold not Sell.",
+   "evidence_refs": [
+    {
+     "s_level": "S1",
+     "ref": "LNG FY2025 10-K: open position <1 mtpa 2026, <$50M Consolidated Adj EBITDA per $1/MMBtu; ~90% contracted"
+    },
+    {
+     "s_level": "S3",
+     "ref": "Wolfe recontracting ~$2.00/MMBtu; Morgan Stanley ~200 mtpa under construction globally"
+    },
+    {
+     "s_level": "S1",
+     "ref": "Sabine Pass Train 7 / Corpus Christi 4 FID early-2027 + SPL Expansion pre-FID"
+    }
+   ]
+  }
+ ],
+ "revision_velocity": {
+  "n_analysts": 23,
+  "fy1_eps_consensus": 17.91,
+  "fy2_eps_consensus": 19.51,
+  "fy1_ebitda_consensus_usd_b": 7.5,
+  "fy2_ebitda_consensus_usd_b": 7.8,
+  "fy1_eps_revision_1m_pct": 1.5,
+  "fy1_eps_revision_3m_pct": 4.0,
+  "fy1_ebitda_revision_3m_pct": 6.7,
+  "breadth_3m": 0.4,
+  "breadth_note": "Estimates revised UP after the Q1'26 guidance raise; PT actions net up; 15 Strong Buys, 0 downgrades 3mo.",
+  "pt_revisions_recent": "JPM $327 (6/3); Scotiabank $290 (5/13); TD Cowen $270 (5/11); Morgan Stanley OW $313 (3/23). Median ~$304.50.",
+  "pre_print_drift": "Beats + raises but stock ~20% off the $300.89 52-wk high (de-rate, not estimate cut); next earnings ~2026-08-06.",
+  "peer_comparison": "LNG revisions positive, ahead of midstream peers; VG cheaper with more revision volatility.",
+  "verdict": "De-rate risk (full multiple into oversupply), NOT estimate deterioration."
+ },
+ "pending_assumptions": []
+}

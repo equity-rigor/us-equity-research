@@ -2,7 +2,7 @@
   "manifest_version": "0.3.0",
   "ticker": "VST",
   "run_id": "DBE04F4C-05AB-4BB4-A6D9-D89E88B101BD",
-  "created_at": "2026-06-09T21:10:07+00:00",
+  "created_at": "2026-06-12T04:20:26+00:00",
   "plugin_versions": {
     "us_equity_research": "0.6.0",
     "us_equity_ic_rigor": "0.6.0"
@@ -234,32 +234,32 @@
   "outputs_produced": [
     {
       "path": "outputs/VST_IC_memo.md",
-      "sha256": "36ea2754c15a44d4a58b5e7166b22beb0173e9b19e761d815980454afe0c7ea9",
-      "size_bytes": 11784,
+      "sha256": "9ef6c465a96211ec60393e94fa5e3672adec01b93e6074a61088184965cf62a4",
+      "size_bytes": 8416,
       "file_type": "ic_memo_md"
     },
     {
       "path": "outputs/VST_structured.json",
-      "sha256": "c331a341223c7fb2fc40e6528fead31e81d77809c61322e7e446f35bee1417e5",
-      "size_bytes": 70648,
+      "sha256": "1fe568801b5aa870db7f69fdd7f0afc58a127164afbb1bd43037b7ffbd855a9c",
+      "size_bytes": 75808,
       "file_type": "structured_json"
     },
     {
       "path": "outputs/VST_source_tags.json",
-      "sha256": "c92f4f7d923be6b6a03e06e9db666a764885a5e06e9bc1b1d4301689ba30f1a3",
-      "size_bytes": 9794,
+      "sha256": "8519fa480e5b0bdc712a9a77b617b4daa6808d0b3789224332e36f455feacd43",
+      "size_bytes": 10268,
       "file_type": "source_tags_json"
     },
     {
       "path": "outputs/VST_scenarios.json",
-      "sha256": "85830a264b946af8a05718f941464f2695b887995b34db0b0d8c3c4dffde3ff8",
-      "size_bytes": 9089,
+      "sha256": "223ec96dc85df748049010ee201630842537e21ee1a7382928f559799ae38e37",
+      "size_bytes": 9110,
       "file_type": "scenarios_json"
     },
     {
       "path": "outputs/VST_verification_gates.json",
-      "sha256": "f97bbbf0ee3fb72789d9e4c90fd9577cfe64fe3ebc1f4d214810844f7f9d349e",
-      "size_bytes": 2816,
+      "sha256": "269f6fb99f5f9023be77502c05c895f0bd1d51c0d36fabbc4948fd3161120cc0",
+      "size_bytes": 4425,
       "file_type": "verification_gates_json"
     },
     {

@@ -1,0 +1,210 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "LNG",
+ "current_price": 239.4,
+ "as_of_date": "2026-06-09",
+ "fiscal_year_end": "12-31",
+ "base_eps": 19.51,
+ "scenarios": [
+  {
+   "id": "strong_bear",
+   "probability": 0.1,
+   "narrative_one_liner": "Global LNG glut deepens, JKM collapses toward $6, the FY2026 spread/optimization tailwind reverses, marginal recontracting prints sub-$2/MMBtu, and the market re-rates LNG from a premium growth name to a midstream/contracted-infra multiple (~8.5x).",
+   "narrative_long": "The largest supply wave in history (Qatar NFE/NFS + Plaquemines + Golden Pass + Port Arthur + CP2) lands into decelerating demand; JKM-HH compresses to shipping cost with episodic negative merchant margins. The 2026 raise unwinds as optimization/spread upside mean-reverts; Train 7/CCL4 and SPL Expansion FID into the trough at fees at/below legacy. The equity de-rates to ~8.5x EV/EBITDA - the midstream/contracted-infra analog - as the AI/LNG-demand premium deflates.",
+   "eps": 17.0,
+   "eps_period": "FY27E",
+   "multiple": 8.5,
+   "multiple_type": "P/E",
+   "target_price": 144.5,
+   "expected_return": -0.396,
+   "anchors": [
+    "A-Consensus",
+    "R-Bear",
+    "B-Glut",
+    "B-Recontract"
+   ],
+   "strongest_anchor_s_level": "S3",
+   "multiple_band_basis": "8.5x P/E = midstream/contracted-infra band (KMI/EPD historical 8-11x EV/EBITDA-equivalent), below LNG's own forward ~12.3x. Reflects de-rating to a no-growth contracted-infra analog as the supply glut deflates the premium.",
+   "eps_bridge": [
+    {
+     "label": "FY2026 spread/optimization tailwind reverses + open-book margin normalizes into the glut",
+     "delta_eps": -1.2,
+     "layer": "clean",
+     "source_tag": "S1: LNG 10-K open-position sensitivity (<$50M per $1/MMBtu) + S3 JKM-to-$7 path"
+    },
+    {
+     "label": "Marginal recontracting / new-train fixed fee compresses toward ~$2/MMBtu (at/below legacy)",
+     "delta_eps": -0.71,
+     "layer": "soft",
+     "source_tag": "S3: Wolfe recontracting assumption; undisclosed marginal fee"
+    },
+    {
+     "label": "Higher rate / slower buyback at depressed FCF (lost per-share accretion)",
+     "delta_eps": -0.4,
+     "layer": "clean",
+     "source_tag": "S2: LNG capital-allocation framework (buyback pace scales with DCF)"
+    },
+    {
+     "label": "Stage 3 / Midscale ramp + cost-inflation drag",
+     "delta_eps": -0.2,
+     "layer": "soft",
+     "source_tag": "S1: LNG FY2025 10-K (Midscale 8&9 ~32% complete)"
+    }
+   ]
+  },
+  {
+   "id": "bear",
+   "probability": 0.22,
+   "narrative_one_liner": "Soft glut: JKM eases toward $7-8, merchant margins normalize, recontracting is delayed rather than punitive, and the multiple compresses from ~10.2x toward ~9x (P/E ~10.5x) - the stock works back toward the sell-side floor / 52-week low.",
+   "narrative_long": "The supply wave pressures spreads but not catastrophically; the contracted book holds FY2027 EBITDA near $7.3B while the premium multiple erodes as base-rate energy-infra de-rating plays out. PT cuts begin (multiple cuts, estimates intact). The stock settles near the $200-220 sell-side floor / $186 52-week low.",
+   "eps": 18.5,
+   "eps_period": "FY27E",
+   "multiple": 10.5,
+   "multiple_type": "P/E",
+   "target_price": 194.25,
+   "expected_return": -0.1886,
+   "anchors": [
+    "A-Consensus",
+    "B-Multiple",
+    "B-Glut"
+   ],
+   "strongest_anchor_s_level": "S3",
+   "multiple_band_basis": "10.5x P/E ~ between the midstream floor and LNG's own forward ~12.3x; consistent with a partial de-rate of the AI/LNG premium with EBITDA intact.",
+   "eps_bridge": [
+    {
+     "label": "Open-book / spread normalization (JKM toward $7-8)",
+     "delta_eps": -0.61,
+     "layer": "clean",
+     "source_tag": "S3: JKM forward curve + LNG open-position sensitivity"
+    },
+    {
+     "label": "Marginal-fee / recontracting partial pressure",
+     "delta_eps": -0.25,
+     "layer": "soft",
+     "source_tag": "S3: Wolfe/MS recontracting"
+    },
+    {
+     "label": "Rate / buyback pace",
+     "delta_eps": -0.15,
+     "layer": "clean",
+     "source_tag": "S2: LNG capital allocation"
+    }
+   ]
+  },
+  {
+   "id": "base",
+   "probability": 0.38,
+   "narrative_one_liner": "Contracted book holds, Stage 3 completes end-2026, buyback compounds DCF/share, FY2027 EBITDA lands near $7.8B; the stock holds roughly its current forward multiple (~13x P/E) as the contracted annuity + capital return offset the supply-wave overhang.",
+   "narrative_long": "The ~90%-contracted take-or-pay base delivers FY2027 Consolidated Adj EBITDA ~$7.8B; Stage 3 fully ramps and the >$10B buyback retires ~4-5%/yr of shares, so DCF/share grows even on a flat platform. The supply glut compresses merchant/portfolio margin but the fixed-fee core is insulated; the multiple holds ~13x (in line with the current ~12.3x FY27E forward) rather than re-rating up (capped by oversupply) or down (cushioned by the contracted annuity).",
+   "eps": 19.51,
+   "eps_period": "FY27E",
+   "multiple": 13.0,
+   "multiple_type": "P/E",
+   "target_price": 253.63,
+   "expected_return": 0.05944,
+   "anchors": [
+    "A1-Guidance",
+    "A2-Contracted",
+    "A3-DCF",
+    "Buyback"
+   ],
+   "strongest_anchor_s_level": "S1",
+   "multiple_band_basis": "13.0x P/E ~ in line with LNG's own current forward (~12.3x FY27E); below VG/CQP-implied and the SRE/KMI utility-midstream band. Holds the multiple rather than re-rating either way.",
+   "eps_bridge": []
+  },
+  {
+   "id": "bull",
+   "probability": 0.22,
+   "narrative_one_liner": "New SPAs + SPL Expansion FID de-risk recontracting at premium fees, buyback accelerates on the raised ~$5B DCF, FY2027 EBITDA tops $8B; the market re-rates LNG toward ~15x as the contracted-growth-plus-capital-return story is recognized.",
+   "narrative_long": "Cheniere signs incremental 15yr+ SPAs at fees at/above legacy and reaches FID on SPL Expansion / Train 7, proving the growth pipeline clears even in oversupply. The raised DCF (~$5B) funds an accelerated buyback toward a ~$30/share run-rate, and the market credits the contracted-compounder narrative with a ~15x multiple (toward the Street's PT).",
+   "eps": 20.5,
+   "eps_period": "FY27E",
+   "multiple": 15.0,
+   "multiple_type": "P/E",
+   "target_price": 307.5,
+   "expected_return": 0.28446,
+   "anchors": [
+    "SPA-Convert",
+    "SPL-Expansion-FID",
+    "Buyback-Accel"
+   ],
+   "strongest_anchor_s_level": "S2",
+   "multiple_band_basis": "15.0x P/E = re-rate toward the Street PT (~$304.50 ~ 15.6x FY27E), reflecting recognition of the contracted-growth + capital-return compounding; above LNG's current forward but below utility multiples.",
+   "eps_bridge": [
+    {
+     "label": "Accelerated buyback compounding on raised ~$5B DCF (share count toward ~205M)",
+     "delta_eps": 0.55,
+     "layer": "soft",
+     "source_tag": "S2: LNG >$10B-through-2030 buyback authorization"
+    },
+    {
+     "label": "New FID accretion begins to price (SPL Expansion / Train 7-CCL4 optionality)",
+     "delta_eps": 0.29,
+     "layer": "soft",
+     "source_tag": "S2: LNG growth-pipeline disclosures"
+    },
+    {
+     "label": "Tight 2026-27 market optimization upside",
+     "delta_eps": 0.15,
+     "layer": "soft",
+     "source_tag": "S3: Cheniere Marketing portfolio optimization"
+    }
+   ]
+  },
+  {
+   "id": "strong_bull",
+   "probability": 0.08,
+   "narrative_one_liner": "AI-power gas-demand supercycle: multiple new premium SPAs + FIDs convert the >100 mtpa permitted platform, JKM re-widens on demand, buyback drives DCF/share toward ~$30, and LNG re-rates to a CQP/utility-adjacent ~17x.",
+   "narrative_long": "Structural gas demand (Asia coal-to-gas + US/global data-center power) outruns even the record supply wave; Cheniere converts a large share of its permitted platform to premium long-dated SPAs and FIDs, the buyback shrinks the share count materially, and the market re-rates the contracted compounder toward ~17x - approaching the utility/contracted-infra premium band.",
+   "eps": 22.0,
+   "eps_period": "FY27E",
+   "multiple": 17.0,
+   "multiple_type": "P/E",
+   "target_price": 374.0,
+   "expected_return": 0.56224,
+   "anchors": [
+    "AI-Gas-Supercycle",
+    "SPA-Convert",
+    "Buyback"
+   ],
+   "strongest_anchor_s_level": "S3",
+   "multiple_band_basis": "17.0x P/E approaches a CQP/utility-adjacent premium; tail re-rate predicated on durable premium-fee recontracting + a demand supercycle absorbing the supply wave.",
+   "eps_bridge": [
+    {
+     "label": "Multiple incremental premium SPAs + FIDs convert the >100 mtpa permitted platform",
+     "delta_eps": 1.3,
+     "layer": "strong",
+     "source_tag": "S3: global LNG demand pipeline (AI-power gas, Asia coal-to-gas)"
+    },
+    {
+     "label": "Aggressive buyback toward ~$30/share run-rate DCF shrinks share count",
+     "delta_eps": 1.19,
+     "layer": "strong",
+     "source_tag": "S2: LNG >$10B buyback + DCF/share target"
+    }
+   ]
+  }
+ ],
+ "probability_sum_check": 1.0,
+ "conviction_tag": "neutral",
+ "headline": {
+  "expected_return_median": 0.049,
+  "expected_return_range_p10_p90": [
+   -0.396,
+   0.562
+  ],
+  "rating": "Hold",
+  "default_action": "hold_long",
+  "conditionality": "source_conditional",
+  "conditional_language_pattern": "A_source_conditional_bias",
+  "headline_text": "LNG at $239.40 carries a probability-weighted 12-month expected return of +4.9% (source-conditional Hold); the distribution is wide and conditional on the durability of the FY2026 raise and on the ~90%-contracted book holding its fixed fees through the mid-2030s - scenario-weighted range strong_bear $144.00 (-39.6%) to strong_bull $374.00 (+56.2%). The view is a multiple/durability call (premium multiple into the largest LNG supply wave in history), not estimate deterioration."
+ },
+ "weighting_sensitivity": {
+  "base_minus_10_to_bear": -0.0248,
+  "base_minus_10_to_bull": 0.0225,
+  "strong_tail_plus_10": {
+   "strong_bear": -0.0456,
+   "strong_bull": 0.0503
+  }
+ }
+}

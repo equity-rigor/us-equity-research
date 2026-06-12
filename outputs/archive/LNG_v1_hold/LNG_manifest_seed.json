@@ -1,0 +1,129 @@
+{
+ "run_id": "7F3C1A92-6B4D-4E8A-9C21-0A5E7D2B11F4",
+ "plugin_versions": {
+  "us_equity_research": "0.6.0",
+  "us_equity_ic_rigor": "0.6.0"
+ },
+ "phase_timing": {
+  "phase_0": {
+   "start": "2026-06-09T16:00:00Z",
+   "end": "2026-06-09T16:30:00Z"
+  },
+  "phase_1": {
+   "start": "2026-06-09T16:30:00Z",
+   "end": "2026-06-09T17:05:00Z"
+  },
+  "phase_2": {
+   "start": "2026-06-09T17:05:00Z",
+   "end": "2026-06-09T17:40:00Z"
+  },
+  "phase_3": {
+   "start": "2026-06-09T17:40:00Z",
+   "end": "2026-06-09T18:15:00Z"
+  },
+  "verification": {
+   "start": "2026-06-09T18:15:00Z",
+   "end": "2026-06-09T18:35:00Z"
+  }
+ },
+ "web_search_log": [
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Cheniere FY2025 10-K results Consolidated Adjusted EBITDA DCF guidance",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Cheniere Q1 2026 results raised guidance",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Cheniere contracted SPA percentage mid-2030s weighted average term",
+   "phase": 1,
+   "used_by_agent": "A3"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Corpus Christi Stage 3 trains completion 2026 Midscale 8 9 FID",
+   "phase": 1,
+   "used_by_agent": "A4"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "SPL Expansion FERC DOE non-FTA authorization status",
+   "phase": 1,
+   "used_by_agent": "A5"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Cheniere buyback authorization 10 billion 2030 investment grade Moody's Baa2",
+   "phase": 1,
+   "used_by_agent": "FS"
+  },
+  {
+   "tool": "WebFetch",
+   "query_or_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000003570.json",
+   "phase": 1,
+   "used_by_agent": "FS"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Cheniere LNG 13F holders short interest insider Form 4 2026",
+   "phase": 1,
+   "used_by_agent": "A8"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "global LNG oversupply 2026 2027 Qatar North Field Plaquemines Golden Pass JKM",
+   "phase": 2,
+   "used_by_agent": "R"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Cheniere recontracting fixed liquefaction fee Wolfe 2 dollar MMBtu",
+   "phase": 2,
+   "used_by_agent": "Topic-Forensic"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "LNG consensus price target analyst rating 2026 Venture Global CQP EV/EBITDA",
+   "phase": 2,
+   "used_by_agent": "A-Consensus"
+  },
+  {
+   "tool": "WebFetch",
+   "query_or_url": "https://efts.sec.gov/LATEST/search-index?q=KPMG&forms=10-K&ciks=0000003570",
+   "phase": 0,
+   "used_by_agent": "FS"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Cheniere current share price market cap enterprise value June 2026 ADV beta",
+   "phase": 3,
+   "used_by_agent": "A7"
+  },
+  {
+   "tool": "WebFetch",
+   "query_or_url": "https://fred.stlouisfed.org/series/DGS10",
+   "phase": 3,
+   "used_by_agent": "A7"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "DOE LNG export pause reversed January 2025 FERC approvals",
+   "phase": 1,
+   "used_by_agent": "A5"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Cheniere net debt total debt cash 2025 balance sheet",
+   "phase": 1,
+   "used_by_agent": "FS"
+  }
+ ],
+ "verification_calls_count": 31,
+ "orchestrator_notes": "Phases 0-3 + Verification run for LNG (Cheniere). Three parallel research specialists (business/financials, market/consensus, LNG-market/bear) plus EDGAR XBRL + FRED + EDGAR full-text. Source-conditional Hold; G15/G20 n_a (Hold), G16 n_a (non-bank)."
+}

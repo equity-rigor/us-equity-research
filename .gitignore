@@ -42,3 +42,11 @@ design/
 
 # Construction-phase prompt — local archive only; contradicts portfolio-piece framing
 BUILD_PROMPT.md
+
+# Entitlement-restricted research — NEVER commit (G23 source-tier public boundary).
+# Client-only sell-side notes / NDA expert calls / subscription feeds used only as
+# personal, non-persisted, localized cross-checks. The framework is purely-public-info.
+# Root-level PDFs are where broker notes land; our public deliverable PDFs live in outputs/.
+/*.pdf
+/*.docx
+research-notes/

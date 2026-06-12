@@ -1,7 +1,7 @@
 {
  "schema_version": "0.3.0",
  "ticker": "VST",
- "run_id": "DBE04F4C-05AB-4BB4-A6D9-D89E88B101BD",
+ "run_id": "A1B2C3D4-VST2-4DE5-8F90-DEBIA5ED0001",
  "memo_path": "outputs/VST_IC_memo.md",
  "memo_structured_path": "outputs/VST_structured.json",
  "gates": [
@@ -49,7 +49,7 @@
   },
   {
    "gate_id": "G7",
-   "name": "Headline conditionality matches anchor strength",
+   "name": "Headline conditionality",
    "status": "pass",
    "category": "consistency",
    "blocks_score_above": 8.0
@@ -77,7 +77,7 @@
   },
   {
    "gate_id": "G11",
-   "name": "Non-GAAP to GAAP reconciliation present",
+   "name": "Non-GAAP to GAAP reconciliation",
    "status": "pass",
    "category": "consistency",
    "blocks_score_above": 8.0
@@ -105,14 +105,14 @@
   },
   {
    "gate_id": "G15",
-   "name": "Consensus variance declared or anchored",
-   "status": "n_a",
+   "name": "Consensus variance (non-Hold Sell: V1 sizing 2.16, S1 evidence)",
+   "status": "pass",
    "category": "consistency",
    "blocks_score_above": 8.0
   },
   {
    "gate_id": "G16",
-   "name": "Bank metrics (N/A non-bank)",
+   "name": "Bank metrics (n_a: non-bank)",
    "status": "n_a",
    "category": "sector",
    "blocks_score_above": 8.0
@@ -123,7 +123,58 @@
    "status": "pass",
    "category": "consistency",
    "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G18",
+   "name": "Quant overlay cross-doc consistency",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G19",
+   "name": "Plugin1->Plugin2 provenance manifest",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G20",
+   "name": "View defensibility (Sell: 71.5pp differentiation; variance_attack -> modified)",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.5
   }
  ],
- "overall_pass": true
+ "overall_pass": true,
+ "applicable_gates_passed": "19 of 19 applicable (G16 n_a)",
+ "blocks_score_above": null,
+ "notes": "DE-BIASED v2 (Sell/Underweight). All 19 applicable gates exit 0, INCLUDING G15+G20 (now affirmative). Flip from Hold came from anchoring the base to independent fair value (~$125) instead of the spot-anchored ~14x multiple. v1 Hold archived.",
+ "judgment_layer_gates": [
+  {
+   "gate_id": "G21",
+   "name": "Fair-value reconciliation",
+   "status": "pass",
+   "category": "structure",
+   "checked_at": "2026-06-12",
+   "evaluation_method": "programmatic_script"
+  },
+  {
+   "gate_id": "G22",
+   "name": "Revision attribution",
+   "status": "pass",
+   "category": "structure",
+   "checked_at": "2026-06-12",
+   "evaluation_method": "programmatic_script"
+  },
+  {
+   "gate_id": "G23",
+   "name": "Source-tier public boundary",
+   "status": "pass",
+   "category": "source",
+   "checked_at": "2026-06-12",
+   "evaluation_method": "programmatic_script"
+  }
+ ],
+ "judgment_layer_note": "v0.7.0 additive gates (run via run_all_gates.sh). Tracked separately from the count-capped G1-G20 `gates` array."
 }

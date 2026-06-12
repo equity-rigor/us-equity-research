@@ -1,0 +1,326 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "VST",
+ "as_of_date": "2026-06-09",
+ "model_cutoff_date": "2026-01-01",
+ "all_citations": [
+  {
+   "s_level": "S1",
+   "source_type": "10-K",
+   "ref": "VST FY25 10-K (filed 2026-02-26)",
+   "date": "2026-02-26",
+   "url": "https://www.sec.gov/Archives/edgar/data/0001692819/000169281926000006/vistra-20251231.htm",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "XBRL",
+   "ref": "SEC XBRL companyfacts CIK 0001692819 (revenue/NI/SBC/goodwill/assets/equity/shares FY23-25)",
+   "date": "2026-06-09",
+   "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001692819.json",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "10-Q",
+   "ref": "VST Q1 2026 10-Q (period 2026-03-31)",
+   "date": "2026-05-07",
+   "url": "https://www.sec.gov/Archives/edgar/data/0001692819/000169281926000014/vistra-20260331.htm",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "Other",
+   "ref": "PJM 2027/28 Base Residual Auction report: cleared $333.44/MW-day UCAP at FERC cap; floor $179.55",
+   "date": "2025-12-17",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "Federal Register",
+   "ref": "FERC order 193 FERC para 61,217 (Docket EL25-49), co-location: FTM blessed, BTM restricted",
+   "date": "2025-12-18",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "VST Q1 2026 earnings 8-K: Adj EBITDA $1,494M, GAAP NI $1,029M, guidance reaffirmed",
+   "date": "2026-05-07",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "VST FY25 results 8-K: rev $17,738M, Adj EBITDA $5,912M, 2026/2027 guidance",
+   "date": "2026-02-26",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "VST AWS Comanche Peak 1,200 MW 20-yr PPA 8-K (deliveries Q4 2027)",
+   "date": "2025-09-29",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "VST Meta >2,600 MW PJM nuclear PPA announcement",
+   "date": "2026-01-09",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "VST Cogentrix 5,496 MW gas acquisition $4B (close mid-late 2026)",
+   "date": "2026-01-05",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "DEF 14A",
+   "ref": "VST 2026 DEF 14A: Deloitte ratified (since 2002); AGM 2026-04-29",
+   "date": "2026-04-29",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "Other",
+   "ref": "S&P BBB- upgrade (Dec 2 2025); Fitch BBB- (Mar 17 2026); Moody's Ba1 -> IG crossover at 2 of 3",
+   "date": "2026-03-17",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "FRED",
+   "ref": "FRED DGS10 10-yr UST 4.536%",
+   "date": "2026-06-08",
+   "url": "https://fred.stlouisfed.org/series/DGS10",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S5",
+   "source_type": "EIA",
+   "ref": "EIA STEO + power-price scenarios: PJM high-demand upside ~+4%; ERCOT North $47.39 base / +79% high-demand-only",
+   "date": "2026-03-15",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Damodaran",
+   "ref": "Damodaran implied US ERP 4.23%",
+   "date": "2026-06-01",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "FactSet consensus",
+   "ref": "Consensus FY26 EBITDA ~$7.3B / EPS ~$9.0-9.4; FY27 EBITDA ~$7.6B / EPS ~$10.96; n=17; PT median ~$225-230",
+   "date": "2026-06-05",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Yahoo Finance consensus",
+   "ref": "VST $146.90 (6/8 close); EV $69.4B; EV/EBITDA ~10.2x trailing / ~9.4x 2026E; beta 1.41",
+   "date": "2026-06-08",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "13F",
+   "ref": "13F: ~1,388 institutions ~290M shares (~86% SO); Vanguard/BlackRock/FMR/SSGA/Lone Pine",
+   "date": "2026-05-15",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "Short interest ~4.0% float (5/15), DTC ~2.3, rose ~52% in shares since March",
+   "date": "2026-05-15",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S2",
+   "source_type": "BIS Entity List",
+   "ref": "BIS/OFAC/CFIUS query VST 2026-06-09: N/A (US-domiciled domestic utility)",
+   "date": "2026-06-09",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Other",
+   "ref": "Constellation-Calpine merger closed 2026-01-07 (~60 GW); LS Power 4.4 GW PJM divestiture announced 2026-03-18",
+   "date": "2026-03-18",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Other",
+   "ref": "Cogentrix ~7.25x EV/EBITDA; NRG/LS Power ~7.5x (private-market gas multiple)",
+   "date": "2026-06-09",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Other",
+   "ref": "45U nuclear PTC under OBBBA: full through 2031, sunsets end-2031/2032, self-erases above ~$43.75/MWh",
+   "date": "2025-07-04",
+   "verified": true,
+   "is_anchor_eligible": true
+  }
+ ],
+ "top_anchors": [
+  {
+   "anchor_id": "A1",
+   "claim": "FY25 Ongoing Operations Adjusted EBITDA",
+   "value": 5912.0,
+   "unit": "$M",
+   "citation": {
+    "s_level": "S1",
+    "source_type": "10-K",
+    "ref": "VST FY25 10-K / 8-K 2026-02-26",
+    "date": "2026-02-26",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base",
+    "bear",
+    "bull"
+   ],
+   "sensitivity_pct": 10.0
+  },
+  {
+   "anchor_id": "A2",
+   "claim": "PJM 2027/28 capacity cleared at FERC cap",
+   "value": 333.44,
+   "unit": "$/MW-day UCAP",
+   "citation": {
+    "s_level": "S1",
+    "source_type": "Other",
+    "ref": "PJM 2027/28 BRA report 2025-12",
+    "date": "2025-12-17",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base",
+    "bear",
+    "bull"
+   ],
+   "sensitivity_pct": 8.0
+  },
+  {
+   "anchor_id": "A3",
+   "claim": "Signed 20-yr IG nuclear PPAs (AWS + Meta)",
+   "value": 3809.0,
+   "unit": "MW",
+   "citation": {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "VST AWS 8-K 2025-09-29 + Meta 2026-01-09",
+    "date": "2026-01-09",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base",
+    "bull",
+    "strong_bull"
+   ],
+   "sensitivity_pct": 6.0
+  },
+  {
+   "anchor_id": "A4",
+   "claim": "2028 open generation book (load-bearing variance)",
+   "value": 35.0,
+   "unit": "% of generation open to spot 2028",
+   "citation": {
+    "s_level": "S1",
+    "source_type": "10-Q",
+    "ref": "VST hedge ratios 98/89/65% 2026/27/28",
+    "date": "2026-05-07",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "strong_bear",
+    "bear",
+    "base",
+    "bull",
+    "strong_bull"
+   ],
+   "sensitivity_pct": 12.0
+  }
+ ],
+ "headline_conditionality": "source_conditional",
+ "consensus_variance": [
+  {
+   "variance_id": "V1_2028_open_book",
+   "line_item": "FY2028 Ongoing Adjusted EBITDA",
+   "type": "scenario_weight",
+   "direction": "downward",
+   "magnitude_pct": -10.0,
+   "probability_right_pct": 60.0,
+   "scenario_sensitivity_pct": 10.0,
+   "sizing_impact_pp": 10.0,
+   "narrative": "Street's 2027-2028 EBITDA implicitly marks the ~35% open 2028 generation book at/above EIA STEO base and extrapolates cap-level capacity revenue. EIA modeling shows PJM upside ~+4% even in a high-demand scenario and ERCOT upside is high-demand-scenario-only; the cap/collar expires after 2029/30. Our variance shifts ~10pp of probability from base/bull into the bear tails (open book reprices -15-20%, capacity reverts toward floor), implying ~-$0.6 to -$0.9B vs a peak-extrapolated 2028. Two-tailed (ERCOT data-center load is a genuine upside), hence Hold not Sell.",
+   "evidence_refs": [
+    {
+     "s_level": "S1",
+     "ref": "VST hedge ratios 98/89/65% for 2026/27/28 (10-Q / IR) -> ~35% of 2028 open"
+    },
+    {
+     "s_level": "S5",
+     "ref": "EIA STEO power-price scenarios: PJM high-demand upside ~+4%; ERCOT spike high-demand-only; no published 2028 price"
+    },
+    {
+     "s_level": "S1",
+     "ref": "PJM cap/collar settlement expires after 2029/30 (FERC filing)"
+    }
+   ]
+  }
+ ],
+ "revision_velocity": {
+  "n_analysts": 17,
+  "fy1_eps_consensus": 9.2,
+  "fy2_eps_consensus": 10.96,
+  "fy1_ebitda_consensus_usd_b": 7.3,
+  "fy2_ebitda_consensus_usd_b": 7.6,
+  "fy1_eps_revision_1m_pct": 1.0,
+  "fy1_eps_revision_3m_pct": 4.3,
+  "fy1_eps_revision_6m_pct": 5.1,
+  "fy1_ebitda_revision_3m_pct": 0.0,
+  "breadth_3m": 0.3,
+  "breadth_note": "PT actions ~1.3-1.5:1 up vs down; estimate breadth positive; one upgrade (Jefferies Hold->Buy 2/10), zero downgrades 3mo.",
+  "pt_revisions_recent": "JPM $240->$231 (4/30); TD Cowen $253->$230 (5/4); Morgan Stanley ~$208-214 (below consensus). Net PT trend modestly down ~3-5%, all >+50% above spot.",
+  "pre_print_drift": "Beats fade (Q1'26 +EPS beat closed -2.74%); next earnings 2026-08-06; implied move ~+/-6-8%.",
+  "peer_comparison": "VST revisions neutral-to-better than CEG/NRG/TLN (FY26 EPS revised up); sector-wide multiple de-rate (CEG -14% YTD with estimates held).",
+  "verdict": "De-rate (multiple compression, estimates intact-to-rising), NOT deterioration."
+ },
+ "pending_assumptions": []
+}

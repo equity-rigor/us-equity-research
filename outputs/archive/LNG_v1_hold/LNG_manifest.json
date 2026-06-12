@@ -1,0 +1,361 @@
+{
+  "manifest_version": "0.3.0",
+  "ticker": "LNG",
+  "run_id": "7F3C1A92-6B4D-4E8A-9C21-0A5E7D2B11F4",
+  "created_at": "2026-06-09T23:05:05+00:00",
+  "plugin_versions": {
+    "us_equity_research": "0.6.0",
+    "us_equity_ic_rigor": "0.6.0"
+  },
+  "phase_timing": {
+    "phase_0": {
+      "start": "2026-06-09T16:00:00Z",
+      "end": "2026-06-09T16:30:00Z"
+    },
+    "phase_1": {
+      "start": "2026-06-09T16:30:00Z",
+      "end": "2026-06-09T17:05:00Z"
+    },
+    "phase_2": {
+      "start": "2026-06-09T17:05:00Z",
+      "end": "2026-06-09T17:40:00Z"
+    },
+    "phase_3": {
+      "start": "2026-06-09T17:40:00Z",
+      "end": "2026-06-09T18:15:00Z"
+    },
+    "verification": {
+      "start": "2026-06-09T18:15:00Z",
+      "end": "2026-06-09T18:35:00Z"
+    }
+  },
+  "agent_provenance": [
+    {
+      "agent_id": "A1",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase1_A1.md",
+      "output_sha256": "44400ff5f1df7c15bf78eb3de29adff0cfb87bb4802bd23a2715149056481634"
+    },
+    {
+      "agent_id": "A4",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase1_A4.md",
+      "output_sha256": "fc562fd3c220dc5f6842f9a611d39dfbf734e43164ce619cd8aa5d5fa2056fca"
+    },
+    {
+      "agent_id": "A5",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase1_A5.md",
+      "output_sha256": "87277d98542e9cdbe93555f564e6c667619a990240836b905108f6949d3087e1"
+    },
+    {
+      "agent_id": "A8",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase1_A8.md",
+      "output_sha256": "c41d85b4264641cb1b4ed48fdc91e9e62aa036571e06efbe0c8bdfa8e23410bf"
+    },
+    {
+      "agent_id": "FS",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase1_FS.md",
+      "output_sha256": "7f1b5bd6ac2480df4175ce13bc3920c2863893aba9e247f0539dc564484af1d2"
+    },
+    {
+      "agent_id": "A2",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase2_A2.md",
+      "output_sha256": "a5f08e9d78509c5aaa5c107e90c673cbced46abd342da82da0bfa795e8cc697d"
+    },
+    {
+      "agent_id": "A3",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase2_A3.md",
+      "output_sha256": "732ec97d017047b999ea0b7eff92684d544decf806aaa1aeed0781c6b6678dbb"
+    },
+    {
+      "agent_id": "A3-Peers",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase2_A3_Peers.md",
+      "output_sha256": "5e21465099a19cb0ebc8f324a531c1c114b9729b29e77a3878dabacc9629dd02"
+    },
+    {
+      "agent_id": "R",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase2_R.md",
+      "output_sha256": "e3b4f170aa785b5654a51492aa449b7d5ca5a2b17fe2c6c87db8cb9d64e429b7"
+    },
+    {
+      "agent_id": "A6",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase2_A6.md",
+      "output_sha256": "4dd527a7b53ddc6d3baa48234b4c4dd62098b861d2d38c8b5a53f683208af97c"
+    },
+    {
+      "agent_id": "A-Consensus",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase2_A_Consensus.md",
+      "output_sha256": "0b91885caff5b6802e8ab51ac97b576301a4112f942b144f61c627c1b657cd87"
+    },
+    {
+      "agent_id": "A7",
+      "phase": 3,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase3_A7.md",
+      "output_sha256": "aca0c54336e8d5bcd4072e76c8890b5b4ad86d4c2b9e7b6cdbc9810ac323dab1"
+    },
+    {
+      "agent_id": "Mirror",
+      "phase": 3,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase3_Mirror.md",
+      "output_sha256": "2901c6964e507a1a87187c707cc95b0457011468066f8d11e65210913caa31f6"
+    },
+    {
+      "agent_id": "Topic-Forensic",
+      "phase": 3,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase3_Topic_Forensic.md",
+      "output_sha256": "e8cfcd1c6fdfc61f0f20ed85633a4138a0857b4b92b1c67e5b36f123033cd5e8"
+    },
+    {
+      "agent_id": "R-v2",
+      "phase": 3,
+      "status": "completed",
+      "output_path": "outputs/workpapers/LNG_phase3_R_v2.md",
+      "output_sha256": "3c8803b2d524112531c2b2174b62e43b4a0ccabbeeed12e5c14eb69711afa272"
+    }
+  ],
+  "web_search_log": [
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Cheniere FY2025 10-K results Consolidated Adjusted EBITDA DCF guidance",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Cheniere Q1 2026 results raised guidance",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Cheniere contracted SPA percentage mid-2030s weighted average term",
+      "phase": 1,
+      "used_by_agent": "A3"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Corpus Christi Stage 3 trains completion 2026 Midscale 8 9 FID",
+      "phase": 1,
+      "used_by_agent": "A4"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "SPL Expansion FERC DOE non-FTA authorization status",
+      "phase": 1,
+      "used_by_agent": "A5"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Cheniere buyback authorization 10 billion 2030 investment grade Moody's Baa2",
+      "phase": 1,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000003570.json",
+      "phase": 1,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Cheniere LNG 13F holders short interest insider Form 4 2026",
+      "phase": 1,
+      "used_by_agent": "A8"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "global LNG oversupply 2026 2027 Qatar North Field Plaquemines Golden Pass JKM",
+      "phase": 2,
+      "used_by_agent": "R"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Cheniere recontracting fixed liquefaction fee Wolfe 2 dollar MMBtu",
+      "phase": 2,
+      "used_by_agent": "Topic-Forensic"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "LNG consensus price target analyst rating 2026 Venture Global CQP EV/EBITDA",
+      "phase": 2,
+      "used_by_agent": "A-Consensus"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://efts.sec.gov/LATEST/search-index?q=KPMG&forms=10-K&ciks=0000003570",
+      "phase": 0,
+      "used_by_agent": "FS"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Cheniere current share price market cap enterprise value June 2026 ADV beta",
+      "phase": 3,
+      "used_by_agent": "A7"
+    },
+    {
+      "tool": "WebFetch",
+      "query_or_url": "https://fred.stlouisfed.org/series/DGS10",
+      "phase": 3,
+      "used_by_agent": "A7"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "DOE LNG export pause reversed January 2025 FERC approvals",
+      "phase": 1,
+      "used_by_agent": "A5"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Cheniere net debt total debt cash 2025 balance sheet",
+      "phase": 1,
+      "used_by_agent": "FS"
+    }
+  ],
+  "verification_calls_count": 31,
+  "outputs_produced": [
+    {
+      "path": "outputs/LNG_IC_memo.md",
+      "sha256": "3fd18ef10b8230fda45004c142651abb3e8eef6fcf3e74af4d6157a7a2067e67",
+      "size_bytes": 15573,
+      "file_type": "ic_memo_md"
+    },
+    {
+      "path": "outputs/LNG_structured.json",
+      "sha256": "ad1b637309f9032debd70e59f1970cae5198529efa482e3f3cdac3dd89f10d05",
+      "size_bytes": 75881,
+      "file_type": "structured_json"
+    },
+    {
+      "path": "outputs/LNG_source_tags.json",
+      "sha256": "ff0ac2beb0701a4d561bb4ea665c0c0cd3b995f9cc5479502c4fdd5605e2aac8",
+      "size_bytes": 9870,
+      "file_type": "source_tags_json"
+    },
+    {
+      "path": "outputs/LNG_scenarios.json",
+      "sha256": "684dc002fda05cdaef82cdc007764f20acf2b62e0eeb085ca18fee4a549fb204",
+      "size_bytes": 9925,
+      "file_type": "scenarios_json"
+    },
+    {
+      "path": "outputs/LNG_verification_gates.json",
+      "sha256": "e4115af91f6c71b23d02a10115b9100aa3d3f0bbffeb80b68de9ae9a39884f94",
+      "size_bytes": 3480,
+      "file_type": "verification_gates_json"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase1_A1.md",
+      "sha256": "44400ff5f1df7c15bf78eb3de29adff0cfb87bb4802bd23a2715149056481634",
+      "size_bytes": 859,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase1_A4.md",
+      "sha256": "fc562fd3c220dc5f6842f9a611d39dfbf734e43164ce619cd8aa5d5fa2056fca",
+      "size_bytes": 698,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase1_A5.md",
+      "sha256": "87277d98542e9cdbe93555f564e6c667619a990240836b905108f6949d3087e1",
+      "size_bytes": 665,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase1_A8.md",
+      "sha256": "c41d85b4264641cb1b4ed48fdc91e9e62aa036571e06efbe0c8bdfa8e23410bf",
+      "size_bytes": 699,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase1_FS.md",
+      "sha256": "7f1b5bd6ac2480df4175ce13bc3920c2863893aba9e247f0539dc564484af1d2",
+      "size_bytes": 765,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase2_A2.md",
+      "sha256": "a5f08e9d78509c5aaa5c107e90c673cbced46abd342da82da0bfa795e8cc697d",
+      "size_bytes": 685,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase2_A3.md",
+      "sha256": "732ec97d017047b999ea0b7eff92684d544decf806aaa1aeed0781c6b6678dbb",
+      "size_bytes": 667,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase2_A3_Peers.md",
+      "sha256": "5e21465099a19cb0ebc8f324a531c1c114b9729b29e77a3878dabacc9629dd02",
+      "size_bytes": 657,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase2_A6.md",
+      "sha256": "4dd527a7b53ddc6d3baa48234b4c4dd62098b861d2d38c8b5a53f683208af97c",
+      "size_bytes": 708,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase2_A_Consensus.md",
+      "sha256": "0b91885caff5b6802e8ab51ac97b576301a4112f942b144f61c627c1b657cd87",
+      "size_bytes": 817,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase2_R.md",
+      "sha256": "e3b4f170aa785b5654a51492aa449b7d5ca5a2b17fe2c6c87db8cb9d64e429b7",
+      "size_bytes": 722,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase3_A7.md",
+      "sha256": "aca0c54336e8d5bcd4072e76c8890b5b4ad86d4c2b9e7b6cdbc9810ac323dab1",
+      "size_bytes": 777,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase3_Mirror.md",
+      "sha256": "2901c6964e507a1a87187c707cc95b0457011468066f8d11e65210913caa31f6",
+      "size_bytes": 683,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase3_R_v2.md",
+      "sha256": "3c8803b2d524112531c2b2174b62e43b4a0ccabbeeed12e5c14eb69711afa272",
+      "size_bytes": 778,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/LNG_phase3_Topic_Forensic.md",
+      "sha256": "e8cfcd1c6fdfc61f0f20ed85633a4138a0857b4b92b1c67e5b36f123033cd5e8",
+      "size_bytes": 739,
+      "file_type": "workpaper_md"
+    }
+  ],
+  "orchestrator_notes": "Phases 0-3 + Verification run for LNG (Cheniere). Three parallel research specialists (business/financials, market/consensus, LNG-market/bear) plus EDGAR XBRL + FRED + EDGAR full-text. Source-conditional Hold; G15/G20 n_a (Hold), G16 n_a (non-bank)."
+}

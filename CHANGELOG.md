@@ -4,6 +4,40 @@ All notable changes to this project will be documented in this file. Format
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) +
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] — 2026-06-11
+
+### Judgment layer — gates G21–G23 (the gates verify arithmetic; this layer verifies judgment)
+
+The 20 mechanical gates verify that the math ties, every number is sourced, and the scenarios reconcile — but they verify **zero judgment**. A rating is made by two judgment calls (the **base anchor** and the **multiple**) and updated by **how you revise**; that is where bias enters and where the framework was silent. v0.7.0 adds three **additive, self-gating** gates (each `n_a` when its schema block is absent, so the grandfathered 20-gate set is undisturbed). `scripts/run_all_gates.sh` now runs 22 scripts.
+
+### Added — G21 fair-value reconciliation
+
+`scripts/verify_fair_value_reconciliation.py`. Self-gating on a new top-level `valuation_parallel` block. Enforces Lesson 1 of the de-bias work: compute **both** an independent fair value (built without reference to price, basis stated) and a market-regime value (the public consensus PT), and make the 12-month base PT a **convergence-weighted blend** — reconcile to fair value within 15% or justify the gap as a timing/regime call (`convergence_assumption` + `convergence_speed`). Stops the silent spot-anchoring that clustered ratings at Hold ≈ 0%.
+
+### Added — G22 revision attribution
+
+`scripts/verify_revision_attribution.py`. Self-gating on `valuation.revision_bridge`. Every target change must decompose into `driver` ∈ {estimate, multiple, methodology, other}; components reconcile to (new − prior); `judgment_share_pct` (share of |move| from multiple + methodology) must match; and if it exceeds 50%, a `judgment_flag` is required. Encodes Lesson 2: a revision driven by the multiple or a methodology switch — not new estimates — is judgment-led and must be labelled, not presented as fact-driven. (Methodology-switch PT jumps and PT-chases-price history are the canonical tells.)
+
+### Added — G23 source-tier public boundary
+
+`scripts/verify_source_tier_public.py`. Every S1–S5 citation must resolve to a **publicly accessible** source. Fails on `access_tier="restricted"` / `public_access=false` or entitlement markers (client-only, no-redistribution, proprietary research, named restricted research desks as a primary citation). Codifies the practice boundary: the framework runs on purely-public info; entitlement-restricted research (client-only sell-side notes, NDA expert calls, subscription feeds) is **out of framework scope** and used only as a personal, non-persisted, localized cross-check — never a committed anchor.
+
+### Added — schema blocks + reference
+
+New optional memo blocks (additive; `additionalProperties` open, so no schema break): `valuation_parallel`, `valuation.revision_bridge`, per-method `input_attribution` (verifiable vs assumed, name the load-bearing input — Lesson 3), `structural_thesis_tests` (base rate + load-bearing mechanism + discriminating observable for any "this-time-is-different" re-rate — Lesson 4), `conviction_axis` (rating and conviction as separate, downgradeable axes + bidirectional self-anchoring check — Lesson 6), and `is_cyclical` (forces normalized-EPS + P/B valuation, never peak × forward multiple — Lesson 7). Full discipline in `us-equity-ic-rigor/references/judgment-discipline-us.md`. Both SKILLs carry the governing line: *gates verify the arithmetic, not the judgment — decompose the anchor and the multiple, tag them verifiable-or-assumed, and re-derive them; never adopt them from price or from another analyst's conclusion.*
+
+### Worked example
+
+`outputs/MU_*` carries the full judgment layer on public info only (Strong Sell retained as the public-info call): a `revision_bridge` decomposing the de-bias revision (100% methodology + multiple, 0% estimate — flagged), `input_attribution` on all four valuation methods, a public `structural_thesis_tests` entry (the memory cycle-dampening re-rate thesis tested on base rate + mechanism + public observable), and a `conviction_axis`. All 22 gates pass; positive and negative gate tests included. Note: nothing derived from entitlement-restricted research is persisted (G23 boundary).
+
+### Schema (first-class, test-gated)
+
+`schemas/verification_gates.json` now declares G21–G23 in the `gate_id` enum and `gate_definitions`, plus a new first-class `judgment_layer_gates` array property (its own section, `maxItems: 6`) so the additive judgment gates are schema-documented **without touching** the count-capped mechanical `gates` array (still `maxItems: 20`, G1–G20). Mirrored across the canonical schema and both plugin copies. The change is test-gated by `scripts/tests/test_judgment_layer_schema.py` (enum + gate_definitions + property + cross-copy sync + script presence) and each new gate has its own `test_verify_*.py` (n_a / pass / fail cases). All seven worked-example names (VST/LNG/CEG/FCX/APD/ET/MU) carry the full judgment layer (`valuation_parallel`, `valuation.revision_bridge`, `input_attribution`, `is_cyclical`, `conviction_axis`) and a `judgment_layer_gates` block; each is 22/22 gates green.
+
+### Notes
+
+Full test suite green (**339 passed, 17 skipped**) with the three new scripts synced into both plugin directories. No `schema_version` enum bump was needed — the judgment gates self-gate on schema-block presence, so they run additively on any existing memo without disturbing the v0.1–v0.5 grandfathering logic.
+
 ## [0.6.0] — 2026-06-06
 
 ### Sprint 4 Item 4 — Direct tests for G15 / G16 / G17 / write_manifest.py + verifier grandfathering fixes

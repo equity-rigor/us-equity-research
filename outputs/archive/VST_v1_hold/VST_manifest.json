@@ -1,0 +1,357 @@
+{
+  "manifest_version": "0.3.0",
+  "ticker": "VST",
+  "run_id": "DBE04F4C-05AB-4BB4-A6D9-D89E88B101BD",
+  "created_at": "2026-06-09T21:10:07+00:00",
+  "plugin_versions": {
+    "us_equity_research": "0.6.0",
+    "us_equity_ic_rigor": "0.6.0"
+  },
+  "phase_timing": {
+    "phase_0": {
+      "start": "2026-06-07T22:54:35Z",
+      "end": "2026-06-07T23:30:00Z"
+    },
+    "phase_1": {
+      "start": "2026-06-09T00:00:00Z",
+      "end": "2026-06-09T00:40:00Z"
+    },
+    "phase_2": {
+      "start": "2026-06-09T00:40:00Z",
+      "end": "2026-06-09T01:20:00Z"
+    },
+    "phase_3": {
+      "start": "2026-06-09T01:20:00Z",
+      "end": "2026-06-09T02:10:00Z"
+    },
+    "verification": {
+      "start": "2026-06-09T02:10:00Z",
+      "end": "2026-06-09T02:30:00Z"
+    }
+  },
+  "agent_provenance": [
+    {
+      "agent_id": "A1",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/VST_phase1_A1.md",
+      "output_sha256": "15b3769c18212152121470e7a7e7371deb80a3718bae158a9f2c2d27c8004365"
+    },
+    {
+      "agent_id": "A4",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/VST_phase1_A4.md",
+      "output_sha256": "f34ccdce6a58aae8d69198901ec5187b33d6fb298eed0ea03f30d1ce9038a403"
+    },
+    {
+      "agent_id": "A5",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/VST_phase1_A5.md",
+      "output_sha256": "4009c66fb86921ff198fcd5fc4b95fbaec5938c82b458ca0ccf6fd0055ff84d3"
+    },
+    {
+      "agent_id": "A8",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/VST_phase1_A8.md",
+      "output_sha256": "b9b319f7dd23b0fc8a753518efaeeb60685274957b8885afbb86fc419cfdd09d"
+    },
+    {
+      "agent_id": "FS",
+      "phase": 1,
+      "status": "completed",
+      "output_path": "outputs/workpapers/VST_phase1_FS.md",
+      "output_sha256": "7016349e35d05448289b5cbe8ea7404c60f13142f803dcd20cf88d7626e65e1c"
+    },
+    {
+      "agent_id": "A2",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/VST_phase2_A2.md",
+      "output_sha256": "0e0c70765e450009a25aa629d03b77c2a7f083365c5c97416d197daedf3b3bc7"
+    },
+    {
+      "agent_id": "A3",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/VST_phase2_A3.md",
+      "output_sha256": "09895e7fca36d6c957528bd914a401b548acf241ad37483251b61a8905b9b062"
+    },
+    {
+      "agent_id": "A3-Peers",
+      "phase": 2,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "R",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/VST_phase2_R.md",
+      "output_sha256": "65950271a52d931198b40d3f4a07d156273dc88df151a6988f8e56e17a7caebe"
+    },
+    {
+      "agent_id": "A6",
+      "phase": 2,
+      "status": "completed",
+      "output_path": "outputs/workpapers/VST_phase2_A6.md",
+      "output_sha256": "6fb706bb4c06c6743c58efc7337a57b243cf0f41f57b8829958db1af5a0c5643"
+    },
+    {
+      "agent_id": "A-Consensus",
+      "phase": 2,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "A7",
+      "phase": 3,
+      "status": "completed",
+      "output_path": "outputs/workpapers/VST_phase3_A7.md",
+      "output_sha256": "6fe31cfca42675853f82c7e0cd068ea8d582b4c5169fb0d250b88a6ac880bfa8"
+    },
+    {
+      "agent_id": "Mirror",
+      "phase": 3,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "Topic-Forensic",
+      "phase": 3,
+      "status": "skipped"
+    },
+    {
+      "agent_id": "R-v2",
+      "phase": 3,
+      "status": "skipped"
+    }
+  ],
+  "web_search_log": [
+    {
+      "tool": "WebSearch",
+      "query_or_url": "VST FY25 10-K results guidance",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "VST Q1 2026 earnings",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Comanche Peak AWS PPA",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "VST 13F short interest analyst",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "Energy Harbor goodwill SBC",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "IPP EV/EBITDA comps",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "ERCOT PJM FERC NRC EPA",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "VST price market cap EV",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "VST short interest float",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "CEO Meta Cogentrix dividend",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "VST auditor Deloitte",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "stockanalysis VST statistics",
+      "phase": 0,
+      "used_by_agent": "PM"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "FERC 193 FERC 61217 EL25-49 verify",
+      "phase": 4,
+      "used_by_agent": "Verify"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "PJM 2027/28 BRA $333.44 verify",
+      "phase": 4,
+      "used_by_agent": "Verify"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "CEG Calpine merger close verify",
+      "phase": 4,
+      "used_by_agent": "Verify"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "VST IG upgrade S&P Fitch verify",
+      "phase": 4,
+      "used_by_agent": "Verify"
+    },
+    {
+      "tool": "WebSearch",
+      "query_or_url": "45U PTC OBBBA verify",
+      "phase": 4,
+      "used_by_agent": "Verify"
+    }
+  ],
+  "verification_calls_count": 36,
+  "outputs_produced": [
+    {
+      "path": "outputs/VST_IC_memo.md",
+      "sha256": "36ea2754c15a44d4a58b5e7166b22beb0173e9b19e761d815980454afe0c7ea9",
+      "size_bytes": 11784,
+      "file_type": "ic_memo_md"
+    },
+    {
+      "path": "outputs/VST_structured.json",
+      "sha256": "c331a341223c7fb2fc40e6528fead31e81d77809c61322e7e446f35bee1417e5",
+      "size_bytes": 70648,
+      "file_type": "structured_json"
+    },
+    {
+      "path": "outputs/VST_source_tags.json",
+      "sha256": "c92f4f7d923be6b6a03e06e9db666a764885a5e06e9bc1b1d4301689ba30f1a3",
+      "size_bytes": 9794,
+      "file_type": "source_tags_json"
+    },
+    {
+      "path": "outputs/VST_scenarios.json",
+      "sha256": "85830a264b946af8a05718f941464f2695b887995b34db0b0d8c3c4dffde3ff8",
+      "size_bytes": 9089,
+      "file_type": "scenarios_json"
+    },
+    {
+      "path": "outputs/VST_verification_gates.json",
+      "sha256": "f97bbbf0ee3fb72789d9e4c90fd9577cfe64fe3ebc1f4d214810844f7f9d349e",
+      "size_bytes": 2816,
+      "file_type": "verification_gates_json"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase1_A1.md",
+      "sha256": "15b3769c18212152121470e7a7e7371deb80a3718bae158a9f2c2d27c8004365",
+      "size_bytes": 14961,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase1_A4.md",
+      "sha256": "f34ccdce6a58aae8d69198901ec5187b33d6fb298eed0ea03f30d1ce9038a403",
+      "size_bytes": 22612,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase1_A5.md",
+      "sha256": "4009c66fb86921ff198fcd5fc4b95fbaec5938c82b458ca0ccf6fd0055ff84d3",
+      "size_bytes": 26467,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase1_A8.md",
+      "sha256": "b9b319f7dd23b0fc8a753518efaeeb60685274957b8885afbb86fc419cfdd09d",
+      "size_bytes": 23711,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase1_FS.md",
+      "sha256": "7016349e35d05448289b5cbe8ea7404c60f13142f803dcd20cf88d7626e65e1c",
+      "size_bytes": 30902,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase2_A2.md",
+      "sha256": "0e0c70765e450009a25aa629d03b77c2a7f083365c5c97416d197daedf3b3bc7",
+      "size_bytes": 20832,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase2_A3.md",
+      "sha256": "09895e7fca36d6c957528bd914a401b548acf241ad37483251b61a8905b9b062",
+      "size_bytes": 18106,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase2_A3Peers.md",
+      "sha256": "fedb7bd6306d07c6610bfe323b4319ed9a90761d971e3766ee081a9c5c7d73b6",
+      "size_bytes": 16369,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase2_A6.md",
+      "sha256": "6fb706bb4c06c6743c58efc7337a57b243cf0f41f57b8829958db1af5a0c5643",
+      "size_bytes": 17114,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase2_AConsensus.md",
+      "sha256": "d13cb56d44781924ecd29120a93cade888bb48723915755a7bb7d9e97844d811",
+      "size_bytes": 21225,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase2_R.md",
+      "sha256": "65950271a52d931198b40d3f4a07d156273dc88df151a6988f8e56e17a7caebe",
+      "size_bytes": 12595,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase3_A7.md",
+      "sha256": "6fe31cfca42675853f82c7e0cd068ea8d582b4c5169fb0d250b88a6ac880bfa8",
+      "size_bytes": 11412,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase3_Mirror_CEG.md",
+      "sha256": "1b8532160f5c8251dee42d0079de3f4dc2fb9fe7f3f696539d9c28542843d631",
+      "size_bytes": 14627,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase3_Rv2.md",
+      "sha256": "8aacb0e3dad055ddd716c631e3938c4657e7d234a47df785007a26298bae5ebf",
+      "size_bytes": 16771,
+      "file_type": "workpaper_md"
+    },
+    {
+      "path": "outputs/workpapers/VST_phase3_TopicForensic_OpenBook.md",
+      "sha256": "ecd9f03d0d225750d2b28b7d57ad067d0b41bd65bc230fb8284fca7eac7560c1",
+      "size_bytes": 20798,
+      "file_type": "workpaper_md"
+    }
+  ],
+  "orchestrator_notes": "Full round Phases 0-3 + Verification. 5 Phase-1 agents (16/18/20/19/25 calls, no 1.5 refresh), 6 Phase-2 (18/15/18/16/14/16), 4 Phase-3 (17/14/16/10) + Mirror + independent Verify (14). All 17 gates pass (G15/G16 n_a)."
+}

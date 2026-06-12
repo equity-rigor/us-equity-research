@@ -1,121 +1,204 @@
 {
-  "schema_version": "0.3.0",
-  "ticker": "VST",
-  "current_price": 146.90,
-  "as_of_date": "2026-06-09",
-  "fiscal_year_end": "12-31",
-  "base_eps": 10.96,
-  "scenarios": [
+ "schema_version": "0.3.0",
+ "ticker": "VST",
+ "current_price": 146.9,
+ "as_of_date": "2026-06-09",
+ "fiscal_year_end": "12-31",
+ "base_eps": 10.96,
+ "scenarios": [
+  {
+   "id": "strong_bear",
+   "probability": 0.13,
+   "narrative_one_liner": "PJM/ERCOT capacity reverts toward cost-of-new-entry floor, ~42% open 2028 book reprices down on EIA-flat demand, 45U nuclear PTC fades at higher power prices, retail normalizes to ~$1.3B; market re-rates VST to a no-growth merchant analog.",
+   "narrative_long": "Capacity auctions clear well below the 2026-27 record print as new gas/storage enters; 2028 open-book repricing lands at the low end (A-Consensus downward variance realized at ~-$0.9B, the P~60% miss compounding). PTC monetization erodes as ERCOT/PJM power prices rise above the phase-out band. Retail EBITDA mean-reverts. Multiple compresses to ~9x \u2014 the private-market gas M&A / no-growth-merchant analog \u2014 as the AI-power premium deflates.",
+   "eps": 8.2,
+   "eps_period": "FY27E",
+   "multiple": 8.5,
+   "multiple_type": "P/E",
+   "target_price": 69.7,
+   "expected_return": -0.5255,
+   "anchors": [
+    "A-Consensus",
+    "R-Bear",
+    "B-Capacity",
+    "B-PTC"
+   ],
+   "strongest_anchor_s_level": "S2",
+   "multiple_band_basis": "VST 5y avg P/E ~15x; trough merchant analog. Bear 9x = below VST 5y trough and at the private-market gas M&A multiple (Cogentrix 7.25x EV/EBITDA ~ 9-10x P/E equity). Reflects de-rating to no-growth merchant.",
+   "eps_bridge": [
     {
-      "id": "strong_bear",
-      "probability": 0.10,
-      "narrative_one_liner": "PJM/ERCOT capacity reverts toward cost-of-new-entry floor, ~42% open 2028 book reprices down on EIA-flat demand, 45U nuclear PTC fades at higher power prices, retail normalizes to ~$1.3B; market re-rates VST to a no-growth merchant analog.",
-      "narrative_long": "Capacity auctions clear well below the 2026-27 record print as new gas/storage enters; 2028 open-book repricing lands at the low end (A-Consensus downward variance realized at ~-$0.9B, the P~60% miss compounding). PTC monetization erodes as ERCOT/PJM power prices rise above the phase-out band. Retail EBITDA mean-reverts. Multiple compresses to ~9x — the private-market gas M&A / no-growth-merchant analog — as the AI-power premium deflates.",
-      "eps": 8.20,
-      "eps_period": "FY27E",
-      "multiple": 9.0,
-      "multiple_type": "P/E",
-      "target_price": 73.80,
-      "expected_return": -0.498,
-      "anchors": ["A-Consensus", "R-Bear", "B-Capacity", "B-PTC"],
-      "strongest_anchor_s_level": "S2",
-      "multiple_band_basis": "VST 5y avg P/E ~15x; trough merchant analog. Bear 9x = below VST 5y trough and at the private-market gas M&A multiple (Cogentrix 7.25x EV/EBITDA ~ 9-10x P/E equity). Reflects de-rating to no-growth merchant.",
-      "eps_bridge": [
-        {"label": "2028 open-book repricing (A-Consensus downward variance, ~-$0.9B EBITDA at low end)", "delta_eps": -1.45, "layer": "clean", "source_tag": "S2: EIA PJM/ERCOT demand + Q1'26 hedge disclosure (58% 2028 hedged)"},
-        {"label": "Capacity auction reversion toward CONE floor", "delta_eps": -0.70, "layer": "soft", "source_tag": "S3: PJM/ERCOT auction sensitivity, R-bear deck"},
-        {"label": "45U nuclear PTC fade at higher power prices (~$545M ~9% EBITDA)", "delta_eps": -0.40, "layer": "clean", "source_tag": "S1: IRA 45U statute (phase-out band, sunset 2031/32)"},
-        {"label": "Retail EBITDA normalization $1.62B->~$1.3B", "delta_eps": -0.21, "layer": "clean", "source_tag": "S2: VST FY25 10-K segment disclosure"}
-      ]
+     "label": "2028 open-book repricing (A-Consensus downward variance, ~-$0.9B EBITDA at low end)",
+     "delta_eps": -1.45,
+     "layer": "clean",
+     "source_tag": "S2: EIA PJM/ERCOT demand + Q1'26 hedge disclosure (58% 2028 hedged)"
     },
     {
-      "id": "bear",
-      "probability": 0.22,
-      "narrative_one_liner": "Soft landing for the bear: open-book reprices modestly down, capacity holds above floor but off peak, PPA conversions slip, retail normalizes; VST trades as a leveraged merchant with limited re-rating.",
-      "narrative_long": "The A-Consensus downward variance partially realizes (~-$0.6B, mid of the -0.6/-0.9 range). Capacity stays above CONE but well below the record. Comanche Unit 2 / gas co-location optionality is delayed rather than dead. Multiple settles at ~11x — above the trough analog but below VST's own forward (~13.8x) — pricing in cyclicality and IG-crossover credit (Moody's Ba1).",
-      "eps": 9.60,
-      "eps_period": "FY27E",
-      "multiple": 11.0,
-      "multiple_type": "P/E",
-      "target_price": 105.60,
-      "expected_return": -0.281,
-      "anchors": ["A-Consensus", "B-Capacity", "Retail-Norm"],
-      "strongest_anchor_s_level": "S2",
-      "multiple_band_basis": "11x = midpoint between private-market floor (~9-10x P/E equiv) and VST forward (~13.8x). Consistent with leveraged-merchant peers (NRG ~9x EV/EBITDA) before AI premium.",
-      "eps_bridge": [
-        {"label": "2028 open-book repricing mid-case (~-$0.6B EBITDA)", "delta_eps": -0.96, "layer": "clean", "source_tag": "S2: EIA demand + Q1'26 hedge book"},
-        {"label": "Retail normalization (partial)", "delta_eps": -0.25, "layer": "clean", "source_tag": "S2: VST FY25 segment disclosure"},
-        {"label": "PTC partial fade", "delta_eps": -0.15, "layer": "soft", "source_tag": "S2: IRA 45U sensitivity"}
-      ]
+     "label": "Capacity auction reversion toward CONE floor",
+     "delta_eps": -0.7,
+     "layer": "soft",
+     "source_tag": "S3: PJM/ERCOT auction sensitivity, R-bear deck"
     },
     {
-      "id": "base",
-      "probability": 0.38,
-      "narrative_one_liner": "2027 Adj EBITDA lands ~$7.6B consensus + Cogentrix accretion; hedge book (89% 2027) protects, PPAs ramp, capacity durable above floor; VST holds its forward ~14x P/E.",
-      "narrative_long": "Guidance opportunity ($7.4-7.8B) is met, Cogentrix closes 2H26 and adds mid-single-digit FCF/sh accretion in 2027. AWS+Meta 3,809 MW PPAs ramp on schedule. Open-book risk is real but offset by gas co-location and ERCOT high-demand. Stock holds ~14x — modestly above current forward 13.8x as the cash-return story (FCF yield ~7.2%, highest in peer set) is recognized.",
-      "eps": 10.96,
-      "eps_period": "FY27E",
-      "multiple": 14.0,
-      "multiple_type": "P/E",
-      "target_price": 153.44,
-      "expected_return": 0.045,
-      "anchors": ["G-Guidance", "PPA-AWS-Meta", "Cogentrix", "FCF-Yield"],
-      "strongest_anchor_s_level": "S1",
-      "multiple_band_basis": "VST forward P/E ~13.8x (stockanalysis 6/8/26); 14x base = essentially in line, between 5y avg ~15x and current. Peer CEG ~22x fwd P/E is the re-rate ceiling, not base.",
-      "eps_bridge": []
+     "label": "45U nuclear PTC fade at higher power prices (~$545M ~9% EBITDA)",
+     "delta_eps": -0.4,
+     "layer": "clean",
+     "source_tag": "S1: IRA 45U statute (phase-out band, sunset 2031/32)"
     },
     {
-      "id": "bull",
-      "probability": 0.22,
-      "narrative_one_liner": "PPA conversions land (Comanche Unit 2 + gas co-location), capacity durability proven across two auction cycles, EBITDA tops guidance toward $7.8B+; VST partially closes the gap to CEG on a re-rate to ~16.5x.",
-      "narrative_long": "AI-power demand sustains capacity prices; VST signs incremental data-center PPAs converting open-book MW to contracted premium revenue. Cogentrix accretion runs at the high single-digit end. The market begins to credit VST's nuclear+gas+retail integration with a CEG-adjacent multiple, re-rating to ~16.5x (still a ~5-turn discount to CEG's ~22x fwd P/E).",
-      "eps": 11.80,
-      "eps_period": "FY27E",
-      "multiple": 16.5,
-      "multiple_type": "P/E",
-      "target_price": 194.70,
-      "expected_return": 0.325,
-      "anchors": ["PPA-Convert", "B-Capacity-Durable", "Cogentrix-Accretion"],
-      "strongest_anchor_s_level": "S2",
-      "multiple_band_basis": "16.5x = re-rate toward CEG (~22x fwd) but retaining a discount for merchant/leverage. Above VST 5y avg (~15x) and 2025 elevated prints; below CEG/TLN nuclear-pure multiples.",
-      "eps_bridge": [
-        {"label": "Comanche Unit 2 + gas co-location PPA conversion (open-book -> contracted premium)", "delta_eps": 0.55, "layer": "soft", "source_tag": "S3: VST IR PPA pipeline commentary"},
-        {"label": "Cogentrix high-single-digit accretion realized", "delta_eps": 0.29, "layer": "soft", "source_tag": "S2: VST 1/5/26 Cogentrix 8-K (HSD accretion through 2029)"}
-      ]
-    },
-    {
-      "id": "strong_bull",
-      "probability": 0.08,
-      "narrative_one_liner": "AI-power supercycle: multiple new hyperscaler PPAs at premium, capacity prices ratchet higher across PJM/ERCOT, full Cogentrix synergy + buyback compounding; VST re-rates to a CEG-adjacent ~18.5x.",
-      "narrative_long": "Structural power-demand shortage drives a multi-year capacity bull market; VST converts a large share of open-book to long-dated contracted PPAs, becomes an investment-grade compounder, and the FCF yield funds an aggressive buyback shrinking the share count. Multiple approaches the low end of the nuclear-pure-play band (~18.5x, still below CEG ~22x).",
-      "eps": 12.80,
-      "eps_period": "FY27E",
-      "multiple": 18.5,
-      "multiple_type": "P/E",
-      "target_price": 236.80,
-      "expected_return": 0.612,
-      "anchors": ["AI-Power-Supercycle", "PPA-Convert", "Buyback"],
-      "strongest_anchor_s_level": "S3",
-      "multiple_band_basis": "18.5x approaches CEG-adjacent (~22x fwd P/E) territory; tail re-rate. Above VST's own historical band; predicated on durable contracted-nuclear/gas premium being recognized.",
-      "eps_bridge": [
-        {"label": "Multiple incremental hyperscaler PPAs at premium", "delta_eps": 0.95, "layer": "strong", "source_tag": "S3: hyperscaler datacenter demand pipeline (AWS/Meta precedent)"},
-        {"label": "Buyback compounding on highest-in-peer FCF yield (~7.2%)", "delta_eps": 0.89, "layer": "strong", "source_tag": "S2: VST capital allocation / FCF yield disclosure"}
-      ]
+     "label": "Retail EBITDA normalization $1.62B->~$1.3B",
+     "delta_eps": -0.21,
+     "layer": "clean",
+     "source_tag": "S2: VST FY25 10-K segment disclosure"
     }
-  ],
-  "probability_sum_check": 1.00,
-  "conviction_tag": "neutral",
-  "headline": {
-    "expected_return_median": 0.026,
-    "expected_return_range_p10_p90": [-0.498, 0.612],
-    "rating": "Hold",
-    "default_action": "hold_long",
-    "conditionality": "source_conditional",
-    "conditional_language_pattern": "A_source_conditional_bias",
-    "headline_text": "VST at $146.90 carries a probability-weighted 12mo expected return of +2.6% (Hold); the distribution is wide and source-conditional on the ~42% 2028 open-book repricing (A-Consensus downward variance, P~60%, magnitude -$0.6 to -$0.9B EBITDA) and on PPA-conversion / capacity-durability optionality — strong_bear $73.80 (-50%) to strong_bull $236.80 (+61%)."
+   ]
   },
-  "weighting_sensitivity": {
-    "base_minus_10_to_bear": -0.007,
-    "base_minus_10_to_bull": 0.054,
-    "strong_tail_plus_10": {"strong_bear": -0.028, "strong_bull": 0.083}
+  {
+   "id": "bear",
+   "probability": 0.25,
+   "narrative_one_liner": "Soft landing for the bear: open-book reprices modestly down, capacity holds above floor but off peak, PPA conversions slip, retail normalizes; VST trades as a leveraged merchant with limited re-rating.",
+   "narrative_long": "The A-Consensus downward variance partially realizes (~-$0.6B, mid of the -0.6/-0.9 range). Capacity stays above CONE but well below the record. Comanche Unit 2 / gas co-location optionality is delayed rather than dead. Multiple settles at ~11x \u2014 above the trough analog but below VST's own forward (~13.8x) \u2014 pricing in cyclicality and IG-crossover credit (Moody's Ba1).",
+   "eps": 9.6,
+   "eps_period": "FY27E",
+   "multiple": 10.0,
+   "multiple_type": "P/E",
+   "target_price": 96.0,
+   "expected_return": -0.3465,
+   "anchors": [
+    "A-Consensus",
+    "B-Capacity",
+    "Retail-Norm"
+   ],
+   "strongest_anchor_s_level": "S2",
+   "multiple_band_basis": "11x = midpoint between private-market floor (~9-10x P/E equiv) and VST forward (~13.8x). Consistent with leveraged-merchant peers (NRG ~9x EV/EBITDA) before AI premium.",
+   "eps_bridge": [
+    {
+     "label": "2028 open-book repricing mid-case (~-$0.6B EBITDA)",
+     "delta_eps": -0.96,
+     "layer": "clean",
+     "source_tag": "S2: EIA demand + Q1'26 hedge book"
+    },
+    {
+     "label": "Retail normalization (partial)",
+     "delta_eps": -0.25,
+     "layer": "clean",
+     "source_tag": "S2: VST FY25 segment disclosure"
+    },
+    {
+     "label": "PTC partial fade",
+     "delta_eps": -0.15,
+     "layer": "soft",
+     "source_tag": "S2: IRA 45U sensitivity"
+    }
+   ]
+  },
+  {
+   "id": "base",
+   "probability": 0.34,
+   "narrative_one_liner": "2027 Adj EBITDA lands ~$7.6B consensus + Cogentrix accretion; hedge book (89% 2027) protects, PPAs ramp, capacity durable above floor; VST holds its forward ~14x P/E.",
+   "narrative_long": "Guidance opportunity ($7.4-7.8B) is met, Cogentrix closes 2H26 and adds mid-single-digit FCF/sh accretion in 2027. AWS+Meta 3,809 MW PPAs ramp on schedule. Open-book risk is real but offset by gas co-location and ERCOT high-demand. Stock holds ~14x \u2014 modestly above current forward 13.8x as the cash-return story (FCF yield ~7.2%, highest in peer set) is recognized.",
+   "eps": 10.96,
+   "eps_period": "FY27E",
+   "multiple": 11.4,
+   "multiple_type": "P/E",
+   "target_price": 124.94,
+   "expected_return": -0.1495,
+   "anchors": [
+    "G-Guidance",
+    "PPA-AWS-Meta",
+    "Cogentrix",
+    "FCF-Yield"
+   ],
+   "strongest_anchor_s_level": "S1",
+   "multiple_band_basis": "VST forward P/E ~13.8x (stockanalysis 6/8/26); 14x base = essentially in line, between 5y avg ~15x and current. Peer CEG ~22x fwd P/E is the re-rate ceiling, not base.",
+   "eps_bridge": []
+  },
+  {
+   "id": "bull",
+   "probability": 0.2,
+   "narrative_one_liner": "PPA conversions land (Comanche Unit 2 + gas co-location), capacity durability proven across two auction cycles, EBITDA tops guidance toward $7.8B+; VST partially closes the gap to CEG on a re-rate to ~16.5x.",
+   "narrative_long": "AI-power demand sustains capacity prices; VST signs incremental data-center PPAs converting open-book MW to contracted premium revenue. Cogentrix accretion runs at the high single-digit end. The market begins to credit VST's nuclear+gas+retail integration with a CEG-adjacent multiple, re-rating to ~16.5x (still a ~5-turn discount to CEG's ~22x fwd P/E).",
+   "eps": 11.8,
+   "eps_period": "FY27E",
+   "multiple": 14.0,
+   "multiple_type": "P/E",
+   "target_price": 165.2,
+   "expected_return": 0.1246,
+   "anchors": [
+    "PPA-Convert",
+    "B-Capacity-Durable",
+    "Cogentrix-Accretion"
+   ],
+   "strongest_anchor_s_level": "S2",
+   "multiple_band_basis": "16.5x = re-rate toward CEG (~22x fwd) but retaining a discount for merchant/leverage. Above VST 5y avg (~15x) and 2025 elevated prints; below CEG/TLN nuclear-pure multiples.",
+   "eps_bridge": [
+    {
+     "label": "Comanche Unit 2 + gas co-location PPA conversion (open-book -> contracted premium)",
+     "delta_eps": 0.55,
+     "layer": "soft",
+     "source_tag": "S3: VST IR PPA pipeline commentary"
+    },
+    {
+     "label": "Cogentrix high-single-digit accretion realized",
+     "delta_eps": 0.29,
+     "layer": "soft",
+     "source_tag": "S2: VST 1/5/26 Cogentrix 8-K (HSD accretion through 2029)"
+    }
+   ]
+  },
+  {
+   "id": "strong_bull",
+   "probability": 0.08,
+   "narrative_one_liner": "AI-power supercycle: multiple new hyperscaler PPAs at premium, capacity prices ratchet higher across PJM/ERCOT, full Cogentrix synergy + buyback compounding; VST re-rates to a CEG-adjacent ~18.5x.",
+   "narrative_long": "Structural power-demand shortage drives a multi-year capacity bull market; VST converts a large share of open-book to long-dated contracted PPAs, becomes an investment-grade compounder, and the FCF yield funds an aggressive buyback shrinking the share count. Multiple approaches the low end of the nuclear-pure-play band (~18.5x, still below CEG ~22x).",
+   "eps": 12.8,
+   "eps_period": "FY27E",
+   "multiple": 17.0,
+   "multiple_type": "P/E",
+   "target_price": 217.6,
+   "expected_return": 0.4813,
+   "anchors": [
+    "AI-Power-Supercycle",
+    "PPA-Convert",
+    "Buyback"
+   ],
+   "strongest_anchor_s_level": "S3",
+   "multiple_band_basis": "18.5x approaches CEG-adjacent (~22x fwd P/E) territory; tail re-rate. Above VST's own historical band; predicated on durable contracted-nuclear/gas premium being recognized.",
+   "eps_bridge": [
+    {
+     "label": "Multiple incremental hyperscaler PPAs at premium",
+     "delta_eps": 0.95,
+     "layer": "strong",
+     "source_tag": "S3: hyperscaler datacenter demand pipeline (AWS/Meta precedent)"
+    },
+    {
+     "label": "Buyback compounding on highest-in-peer FCF yield (~7.2%)",
+     "delta_eps": 0.89,
+     "layer": "strong",
+     "source_tag": "S2: VST capital allocation / FCF yield disclosure"
+    }
+   ]
   }
+ ],
+ "probability_sum_check": 1.0,
+ "conviction_tag": "neutral",
+ "headline": {
+  "expected_return_median": -0.142,
+  "expected_return_range_p10_p90": [
+   -0.5255,
+   0.4813
+  ],
+  "rating": "Sell",
+  "default_action": "trim_long",
+  "conditionality": "source_conditional",
+  "conditional_language_pattern": "A_source_conditional_bias",
+  "headline_text": "VST at $146.9: de-biased 12-month expected return -14.2% (Sell/Underweight) once the base is anchored to independent fair value (~$125, -15%) instead of the current ~14x multiple; range -52.5% to +48%. Far below the stale Street PT; AI-power timing tail caps it at Sell, not Strong Sell."
+ },
+ "weighting_sensitivity": {
+  "base_minus_10_to_bear": -0.0197,
+  "base_minus_10_to_bull": 0.0274,
+  "strong_tail_plus_10": {
+   "strong_bear": -0.0376,
+   "strong_bull": 0.0631
+  }
+ }
 }

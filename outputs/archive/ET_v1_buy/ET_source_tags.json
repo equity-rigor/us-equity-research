@@ -1,0 +1,309 @@
+{
+  "schema_version": "0.3.0",
+  "ticker": "ET",
+  "as_of_date": "2026-06-09",
+  "model_cutoff_date": "2026-01-01",
+  "all_citations": [
+    {
+      "s_level": "S1",
+      "source_type": "10-K",
+      "ref": "ET FY2025 10-K (filed 2026-02-19, accn 0001276187-26-000013): revenue $85,536M, Adjusted EBITDA ~$16.0B, DCF attributable to partners $8.2B",
+      "date": "2026-02-19",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001276187&type=10-K",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "XBRL",
+      "ref": "SEC XBRL companyconcept CIK 0001276187: Revenues FY25 $85,536M; ProfitLoss $5,708M; NetIncomeLoss (to partners) $4,433M; LongTermDebtNoncurrent FY25 $68,308M / Q1'26 $69,317M; Cash FY25 $1,272M; units 3,441,159,277",
+      "date": "2026-06-09",
+      "url": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001276187/us-gaap/Revenues.json",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "10-Q",
+      "ref": "ET Q1 2026 10-Q (filed 2026-05-07, accn 0001276187-26-000026): revenue $27,771M, ProfitLoss $1,976M, NI to partners $1,254M, LT debt $69,317M, units 3,441,159,277 @ 2026-05-01",
+      "date": "2026-05-07",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "ET Q1 2026 earnings 8-K/release (2026-05-04): Adj EBITDA ~$4.9B, DCF ~$2.7B, FY2026 Adjusted EBITDA guidance RAISED to $18.2-18.6B (from $17.45-17.85B), growth capex raised to $5.5-5.9B",
+      "date": "2026-05-04",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "ET Q4/FY2025 earnings 8-K/release (2026-02-17): record FY25 Adj EBITDA ~$16.0B (FY24 $15.5B), DCF $8.2B, segment Adj EBITDA splits, Lake Charles LNG development suspended, Hugh Brinson ~75% complete",
+      "date": "2026-02-17",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "ET distribution declaration (2026-04-27): $0.3375/unit quarterly (annualized $1.35), +>3% YoY, paid ~2026-05-20",
+      "date": "2026-04-27",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Other",
+      "ref": "ET Q1 2026 earnings call transcript (2026-05-05): ~1.7-1.8x DCF coverage, 4.0-4.5x leverage target (lower half pro-forma), Oracle 900,000 Mcf/d, Hugh Brinson Q4'26 ~1.5 Bcf/d, Bayou Bridge Q1'27, Desert Southwest 2.3 Bcf/d 2029",
+      "date": "2026-05-05",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S3",
+      "source_type": "Other",
+      "ref": "ET Q4 2025 earnings call transcript (2026-02-17): data-center gas-demand pull (~90% fee-based), 3 Oklahoma power plants 190 MMcf/d online 2026, distribution growth 3-5%/yr target",
+      "date": "2026-02-17",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "Other",
+      "ref": "ET/ETE-ETP simplification merger (Oct 2018): IDRs (incentive distribution rights) eliminated, GP internalized; no IDR take today",
+      "date": "2018-10-19",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S2",
+      "source_type": "Form 4",
+      "ref": "Kelcy Warren Form 4 buys: 1,000,000 units 2025-11-19 @ ~$16.95 and 1,000,000 units 2025-11-20 @ ~$16.81; 24 buys / 0 sells over 5y; ~301.5M units (~8.8%), top unitholder",
+      "date": "2025-11-20",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S1",
+      "source_type": "FRED",
+      "ref": "FRED DGS10 10-yr UST ~4.40% (basis for WACC risk-free)",
+      "date": "2026-06-08",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S5",
+      "source_type": "Damodaran",
+      "ref": "Damodaran implied US ERP ~4.33%",
+      "date": "2026-06-01",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Other",
+      "ref": "Sell-side consensus: ~22 analysts, Strong Buy (13 Buy / 2 Hold / 0 Sell), PT median ~$23.5 (S&P Global $23.59, MarketBeat $23.45, ChartMill $23.43), range $21.00-$26.00",
+      "date": "2026-06-05",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Yahoo Finance consensus",
+      "ref": "ET $19.06 (2026-06-09 close); market cap ~$65.6B; EV ~$135.7B; EV/EBITDA ~8.65x TTM / ~7.4x forward; distribution yield ~7.08%; beta ~0.54-0.85",
+      "date": "2026-06-09",
+      "url": "https://stockanalysis.com/stocks/et/statistics/",
+      "verified": true,
+      "is_anchor_eligible": true
+    },
+    {
+      "s_level": "S4",
+      "source_type": "13F",
+      "ref": "Ownership: insider/affiliated ~51.8% (incl GP-related + Warren ~8.8%), institutional ~31.4%, retail ~16.8%; short interest ~30.7M units (~0.89% of units, low)",
+      "date": "2026-05-15",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S2",
+      "source_type": "Other",
+      "ref": "DAPL / Greenpeace litigation: ET awarded ~$345M (reduced from $667M jury verdict), finalized 2026-02-27; ET is plaintiff/awardee (asset, not liability); Greenpeace appeal expected",
+      "date": "2026-02-27",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S4",
+      "source_type": "Other",
+      "ref": "Peer EV/EBITDA: EPD ~10x forward / ~7% yield; ET ~7.4x forward (discount to EPD despite higher near-term EBITDA growth ~10% vs EPD 3-5%)",
+      "date": "2026-06-09",
+      "verified": true,
+      "is_anchor_eligible": false
+    },
+    {
+      "s_level": "S2",
+      "source_type": "BIS Entity List",
+      "ref": "BIS/OFAC/CFIUS query ET 2026-06-09: N/A (US-domiciled domestic midstream MLP)",
+      "date": "2026-06-09",
+      "verified": true,
+      "is_anchor_eligible": true
+    }
+  ],
+  "top_anchors": [
+    {
+      "anchor_id": "A1",
+      "claim": "FY2025 record Adjusted EBITDA",
+      "value": 16000.0,
+      "unit": "$M",
+      "citation": {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "ET FY25 10-K MD&A / Q4'25 8-K 2026-02-17",
+        "date": "2026-02-19",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": ["base", "bear", "bull"],
+      "sensitivity_pct": 10.0
+    },
+    {
+      "anchor_id": "A4",
+      "claim": "Net leverage ~4.4x (top of 4.0-4.5x target); LT debt",
+      "value": 69317.0,
+      "unit": "$M LT debt Q1'26",
+      "citation": {
+        "s_level": "S1",
+        "source_type": "10-Q",
+        "ref": "ET Q1'26 10-Q LongTermDebtNoncurrent $69,317M",
+        "date": "2026-05-07",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": ["strong_bear", "bear", "base", "bull", "strong_bull"],
+      "sensitivity_pct": 12.0
+    },
+    {
+      "anchor_id": "A3",
+      "claim": "Quarterly distribution per unit (~7.1% yield, ~1.7-1.8x coverage)",
+      "value": 0.3375,
+      "unit": "$/unit/quarter",
+      "citation": {
+        "s_level": "S2",
+        "source_type": "8-K",
+        "ref": "ET distribution release 2026-04-27",
+        "date": "2026-04-27",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": ["base"],
+      "sensitivity_pct": 6.0
+    },
+    {
+      "anchor_id": "A2",
+      "claim": "FY2026 Adjusted EBITDA guidance (raised at Q1'26)",
+      "value": 18400.0,
+      "unit": "$M (midpoint of $18.2-18.6B)",
+      "citation": {
+        "s_level": "S3",
+        "source_type": "Other",
+        "ref": "ET Q1'26 call / 8-K 2026-05-04 (raised from $17.45-17.85B)",
+        "date": "2026-05-04",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": ["base", "bull"],
+      "sensitivity_pct": 9.0
+    },
+    {
+      "anchor_id": "A5",
+      "claim": "Sell-side consensus price target (PT median)",
+      "value": 23.5,
+      "unit": "$/unit",
+      "citation": {
+        "s_level": "S4",
+        "source_type": "Other",
+        "ref": "Consensus PT median ~$23.5 (S&P Global $23.59 / MarketBeat $23.45 / ChartMill $23.43), n~22, range $21-26",
+        "date": "2026-06-05",
+        "verified": true,
+        "is_anchor_eligible": false
+      },
+      "drives_scenarios": ["bull"],
+      "sensitivity_pct": 8.0
+    },
+    {
+      "anchor_id": "A6",
+      "claim": "Contracted data-center / Permian growth backlog (Oracle 900k Mcf/d; Hugh Brinson 1.5 Bcf/d)",
+      "value": 900.0,
+      "unit": "thousand Mcf/d Oracle commitment",
+      "citation": {
+        "s_level": "S3",
+        "source_type": "Other",
+        "ref": "ET Q4'25 + Q1'26 calls (Oracle 900,000 Mcf/d; Hugh Brinson Q4'26; Desert SW 2.3 Bcf/d 2029)",
+        "date": "2026-05-05",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": ["bull", "strong_bull"],
+      "sensitivity_pct": 8.0
+    },
+    {
+      "anchor_id": "A7",
+      "claim": "FY2025 Distributable Cash Flow attributable to partners",
+      "value": 8200.0,
+      "unit": "$M",
+      "citation": {
+        "s_level": "S1",
+        "source_type": "10-K",
+        "ref": "ET FY25 10-K / Q4'25 8-K DCF $8.2B (FY24 $8.4B)",
+        "date": "2026-02-19",
+        "verified": true,
+        "is_anchor_eligible": true
+      },
+      "drives_scenarios": ["strong_bull"],
+      "sensitivity_pct": 7.0
+    }
+  ],
+  "headline_conditionality": "source_conditional",
+  "consensus_variance": [
+    {
+      "variance_id": "V1_multiple_rerate",
+      "line_item": "FY2027E P/DCF (EV/EBITDA) re-rate vs Street",
+      "type": "multiple",
+      "direction": "downward",
+      "magnitude_pct": 18.0,
+      "probability_right_pct": 65.0,
+      "scenario_sensitivity_pct": 18.0,
+      "sizing_impact_pp": 2.11,
+      "load_bearing": true,
+      "narrative": "Street's ~$23.5 PT implies a 12-month re-rate toward EPD-parity (~7.7x forward EV/EBITDA / ~8.2x P/DCF on FY27E). We hold the base at ~7.3x EV/EBITDA (7.5x P/DCF) — essentially the current forward multiple carried on a 12-month-higher EBITDA — because (i) net leverage sits at the ~4.4x TOP of the 4.0-4.5x target (S1: Q1'26 10-Q debt $69,317M) and the re-rate is gated on a sub-4.0x print, and (ii) the K-1 / UBTI structural discount versus C-corp midstream has persisted for years. The ~18% magnitude compounds a ~9% multiple gap to full Street parity and a ~9% more-conservative FY27-28 EBITDA/DCF path. The variance is two-tailed — backlog conversion is genuine upside (bull/strong_bull sit ABOVE the Street PT) — so it supports Buy (below-Street PT), not Sell.",
+      "evidence_refs": [
+        {"s_level": "S1", "ref": "ET Q1'26 10-Q LongTermDebtNoncurrent $69,317M -> net leverage ~4.4x at top of 4.0-4.5x target"},
+        {"s_level": "S2", "ref": "ET Q1'26 8-K: FY26 Adj EBITDA guide raised to $18.2-18.6B (estimate-up, but multiple, not estimate, is the variance)"},
+        {"s_level": "S1", "ref": "ET FY25 10-K: pass-through MLP / K-1 structure -> persistent UBTI/structural discount vs C-corp midstream (EPD also MLP; ET discount is leverage+growth-timing)"}
+      ]
+    }
+  ],
+  "revision_velocity": {
+    "n_analysts": 22,
+    "fy1_eps_consensus": 1.45,
+    "fy2_eps_consensus": 1.55,
+    "fy1_ebitda_consensus_usd_b": 18.4,
+    "fy2_ebitda_consensus_usd_b": 19.7,
+    "fy1_eps_revision_1m_pct": 1.5,
+    "fy1_eps_revision_3m_pct": 4.0,
+    "fy1_eps_revision_6m_pct": 5.0,
+    "fy1_ebitda_revision_3m_pct": 4.3,
+    "breadth_3m": 0.4,
+    "g17_status": "disclosed",
+    "breadth_note": "FY26 Adj EBITDA guide RAISED ~$750M (+4%) at Q1'26 (to $18.2-18.6B); growth capex raised to $5.5-5.9B; consensus Strong Buy (13 Buy / 2 Hold / 0 Sell). PTs drifting up.",
+    "pt_revisions_recent": "Consensus PT ~$23.5 (S&P Global $23.59; MarketBeat $23.45; ChartMill $23.43); range $21-26; ~16-26% above spot.",
+    "pre_print_drift": "Q1'26 beat + guidance raise (2026-05-04). Next print early Aug 2026; midstream low-beta (~0.5-0.85), implied move modest.",
+    "peer_comparison": "ET estimate revisions positive (guidance raised) vs EPD's lower-single-digit growth; ET trades at a discount to EPD ~10x EV/EBITDA.",
+    "verdict": "Estimates RISING into the print on a guidance raise — a fundamentals-up name. Our edge is on the MULTIPLE (Street's full re-rate), not the estimates."
+  },
+  "pending_assumptions": []
+}

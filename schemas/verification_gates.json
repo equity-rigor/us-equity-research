@@ -1,19 +1,48 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://us-equity-research.local/schemas/verification_gates.json",
-  "title": "Verification Gates — US",
+  "title": "Verification Gates \u2014 US",
   "description": "20 verification gates total as of v0.3.0: G1-G10 cover mechanical/structural discipline (source stratification, math reconciliation, scenario probabilities, citation), G11-G14 US-specific (non-GAAP/GAAP, SBC-in-FCF, Barra factor exposure, capacity/ADV/days-to-exit), G15-G17 added v0.2.0 (Sprint 1: consensus variance, bank discipline, revision velocity), G18-G20 added v0.3.0 (Sprint 2 rigor hardening: cross-doc Barra consistency, Plugin-1-to-Plugin-2 provenance, view defensibility). A memo cannot claim score >8.0 with any non-n_a gate failing. Run via Phase C scripts; results captured here for human-readable audit trail. Schema accepts 0.1.0 (14-gate), 0.2.0 (17-gate), 0.3.0 (20-gate), 0.4.0 (20-gate; Sprint 3a tightens G20 into a graduated rigor scale for 9.0+ claims), and 0.5.0 (20-gate; Sprint 4 adds the evaluation_method field per gate to distinguish programmatic_script from analytical_llm). Grandfathers v0.1.0 through v0.4.0 by accepting all five schema_version values.",
   "schema_version": "0.5.0",
   "type": "object",
   "definitions": {
     "gate_id": {
       "type": "string",
-      "enum": ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "G10", "G11", "G12", "G13", "G14", "G15", "G16", "G17", "G18", "G19", "G20"]
+      "enum": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9",
+        "G10",
+        "G11",
+        "G12",
+        "G13",
+        "G14",
+        "G15",
+        "G16",
+        "G17",
+        "G18",
+        "G19",
+        "G20",
+        "G21",
+        "G22",
+        "G23"
+      ]
     },
     "gate_status": {
       "type": "string",
-      "enum": ["pass", "fail", "n_a", "skipped"],
-      "description": "pass = gate verified; fail = blocks scoring above 8.0; n_a = gate not applicable (e.g. single-segment company → no segment GM gate); skipped = explicitly skipped by user with documented reason."
+      "enum": [
+        "pass",
+        "fail",
+        "n_a",
+        "skipped"
+      ],
+      "description": "pass = gate verified; fail = blocks scoring above 8.0; n_a = gate not applicable (e.g. single-segment company \u2192 no segment GM gate); skipped = explicitly skipped by user with documented reason."
     },
     "evidence": {
       "type": "object",
@@ -27,9 +56,15 @@
           "type": "string",
           "description": "Exact command executed"
         },
-        "exit_code": {"type": "integer"},
-        "stdout_excerpt": {"type": "string"},
-        "stderr_excerpt": {"type": "string"},
+        "exit_code": {
+          "type": "integer"
+        },
+        "stdout_excerpt": {
+          "type": "string"
+        },
+        "stderr_excerpt": {
+          "type": "string"
+        },
         "manual_check_note": {
           "type": "string",
           "description": "If gate verified manually (not via script), how it was checked"
@@ -38,15 +73,34 @@
     },
     "gate_check": {
       "type": "object",
-      "required": ["gate_id", "name", "status", "checked_at"],
+      "required": [
+        "gate_id",
+        "name",
+        "status",
+        "checked_at"
+      ],
       "additionalProperties": false,
       "properties": {
-        "gate_id": {"$ref": "#/definitions/gate_id"},
-        "name": {"type": "string"},
-        "description": {"type": "string", "description": "What this gate checks and why it matters"},
-        "status": {"$ref": "#/definitions/gate_status"},
-        "checked_at": {"type": "string", "format": "date-time"},
-        "evidence": {"$ref": "#/definitions/evidence"},
+        "gate_id": {
+          "$ref": "#/definitions/gate_id"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "description": "What this gate checks and why it matters"
+        },
+        "status": {
+          "$ref": "#/definitions/gate_status"
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "evidence": {
+          "$ref": "#/definitions/evidence"
+        },
         "failure_reason": {
           "type": "string",
           "description": "If status=fail, what specifically broke"
@@ -57,7 +111,13 @@
         },
         "category": {
           "type": "string",
-          "enum": ["math", "source", "consistency", "structure", "quant_overlay"],
+          "enum": [
+            "math",
+            "source",
+            "consistency",
+            "structure",
+            "quant_overlay"
+          ],
           "description": "Bug category. math=arithmetic; source=citation/anchor; consistency=cross-section; structure=missing required component; quant_overlay=B13-B14 US-specific"
         },
         "blocks_score_above": {
@@ -68,18 +128,39 @@
         },
         "evaluation_method": {
           "type": "string",
-          "enum": ["programmatic_script", "analytical_llm", "manual_review"],
+          "enum": [
+            "programmatic_script",
+            "analytical_llm",
+            "manual_review"
+          ],
           "description": "(v0.5.0+) How this gate's status was determined. programmatic_script = the corresponding scripts/verify_*.py executed and produced this exit code (the normal path). analytical_llm = the LLM judged compliance against the rubric description without running the script (the degraded path; only valid when memo_metadata.gates_evaluated_analytically=true and the user has explicitly authorized the override). manual_review = a human checked the gate (rare; documented in evidence.manual_check_note). Required for v0.5.0+ memos. Pre-v0.5.0 memos grandfathered by treating missing field as 'programmatic_script' (the assumed default before v0.5.0 began distinguishing)."
         }
       }
     }
   },
-  "type": "object",
-  "required": ["schema_version", "ticker", "run_id", "gates", "overall_pass", "blocks_score_above"],
+  "required": [
+    "schema_version",
+    "ticker",
+    "run_id",
+    "gates",
+    "overall_pass",
+    "blocks_score_above"
+  ],
   "additionalProperties": false,
   "properties": {
-    "schema_version": {"type": "string", "enum": ["0.1.0", "0.2.0", "0.3.0", "0.4.0", "0.5.0"]},
-    "ticker": {"type": "string"},
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "0.1.0",
+        "0.2.0",
+        "0.3.0",
+        "0.4.0",
+        "0.5.0"
+      ]
+    },
+    "ticker": {
+      "type": "string"
+    },
     "run_id": {
       "type": "string",
       "description": "Unique ID for this verification run, e.g. 'NVDA_2026-05-15_run3'"
@@ -94,7 +175,9 @@
     },
     "gates": {
       "type": "array",
-      "items": {"$ref": "#/definitions/gate_check"},
+      "items": {
+        "$ref": "#/definitions/gate_check"
+      },
       "minItems": 14,
       "maxItems": 20,
       "description": "Gate count depends on schema_version: v0.1.0 = exactly 14 (G1-G14); v0.2.0 = exactly 17 (G1-G17 with G15-G17 = consensus_variance, bank_metrics, revision_velocity); v0.3.0 = exactly 20 (G1-G20 with G18 = quant cross-doc consistency, G19 = Plugin-1-to-Plugin-2 provenance, G20 = view defensibility). All declared gates must appear in the array (even if status=n_a). Verifier scripts enforce the exact-count constraint per schema_version."
@@ -109,89 +192,110 @@
     },
     "gate_definitions": {
       "type": "object",
-      "description": "Reference catalog. Listed here for completeness — the actual gates are in the 'gates' array.",
+      "description": "Reference catalog. Listed here for completeness \u2014 the actual gates are in the 'gates' array.",
       "additionalProperties": false,
       "properties": {
         "G1": {
           "type": "string",
-          "const": "EPS × Multiple multiplicativity — for every scenario row in every valuation table, verify EPS × multiple = target_price within rounding (±0.5%). Verified by scripts/verify_eps_pe.py. Most-failed gate."
+          "const": "EPS \u00d7 Multiple multiplicativity \u2014 for every scenario row in every valuation table, verify EPS \u00d7 multiple = target_price within rounding (\u00b10.5%). Verified by scripts/verify_eps_pe.py. Most-failed gate."
         },
         "G2": {
           "type": "string",
-          "const": "Segment GM reconciliation — Σ(segment_revenue × segment_GM) / Σ(segment_revenue) within ±50bp of consolidated GM as reported. Verified by scripts/verify_segment_gm.py. n_a for single-segment companies."
+          "const": "Segment GM reconciliation \u2014 \u03a3(segment_revenue \u00d7 segment_GM) / \u03a3(segment_revenue) within \u00b150bp of consolidated GM as reported. Verified by scripts/verify_segment_gm.py. n_a for single-segment companies."
         },
         "G3": {
           "type": "string",
-          "const": "SOTP monotonicity — for every segment in the SOTP table, NI ≤ OP ≤ GP ≤ Revenue. Any inversion fails. Verified by scripts/verify_sotp_monotonicity.py."
+          "const": "SOTP monotonicity \u2014 for every segment in the SOTP table, NI \u2264 OP \u2264 GP \u2264 Revenue. Any inversion fails. Verified by scripts/verify_sotp_monotonicity.py."
         },
         "G4": {
           "type": "string",
-          "const": "Scenario probabilities sum to 1.00 ±0.01. Verified by scripts/verify_scenario_weights.py."
+          "const": "Scenario probabilities sum to 1.00 \u00b10.01. Verified by scripts/verify_scenario_weights.py."
         },
         "G5": {
           "type": "string",
-          "const": "Bear/bull EPS bridge reconciles to base — sum of named adjustments must equal (base_eps - scenario_eps) within rounding. Verified by scripts/verify_bear_bridge.py."
+          "const": "Bear/bull EPS bridge reconciles to base \u2014 sum of named adjustments must equal (base_eps - scenario_eps) within rounding. Verified by scripts/verify_bear_bridge.py."
         },
         "G6": {
           "type": "string",
-          "const": "Source tag declared at first use — every specific number (revenue, GM, segment share, customer concentration, capacity, ADV, beta) tagged S1-S5 or Pending at first appearance in memo Markdown. Verified by scripts/verify_source_tags.py via regex scan."
+          "const": "Source tag declared at first use \u2014 every specific number (revenue, GM, segment share, customer concentration, capacity, ADV, beta) tagged S1-S5 or Pending at first appearance in memo Markdown. Verified by scripts/verify_source_tags.py via regex scan."
         },
         "G7": {
           "type": "string",
-          "const": "Headline conditionality matches anchor strength — if any top-3 anchor is S3 or weaker, headline contains conditional language ('source-conditional', 'if [trigger]', 'subject to'). If all top-3 are S1-S2, headline can be unconditional. Verified by scripts/verify_headline_conditionality.py."
+          "const": "Headline conditionality matches anchor strength \u2014 if any top-3 anchor is S3 or weaker, headline contains conditional language ('source-conditional', 'if [trigger]', 'subject to'). If all top-3 are S1-S2, headline can be unconditional. Verified by scripts/verify_headline_conditionality.py."
         },
         "G8": {
           "type": "string",
-          "const": "GM taxonomy box exists — somewhere in memo, the 5 GM types (T1 consolidated / T2 segment / T3 sub-segment / T4 analyst-modeled / T5 marginal) are explicitly defined and each GM mention in the memo is implicitly tagged to one type. Verified by scripts/verify_gm_taxonomy.py."
+          "const": "GM taxonomy box exists \u2014 somewhere in memo, the 5 GM types (T1 consolidated / T2 segment / T3 sub-segment / T4 analyst-modeled / T5 marginal) are explicitly defined and each GM mention in the memo is implicitly tagged to one type. Verified by scripts/verify_gm_taxonomy.py."
         },
         "G9": {
           "type": "string",
-          "const": "What-would-reverse has numerical denominators — every directional trigger has a numerical threshold, not a handwave. E.g. 'if DC revenue Q4 < $X B' not 'if DC weakens'. Verified by scripts/verify_what_would_reverse.py."
+          "const": "What-would-reverse has numerical denominators \u2014 every directional trigger has a numerical threshold, not a handwave. E.g. 'if DC revenue Q4 < $X B' not 'if DC weakens'. Verified by scripts/verify_what_would_reverse.py."
         },
         "G10": {
           "type": "string",
-          "const": "Anchor weighting impact table exists — headline impact of ±10pp probability shift on the strongest scenario is shown. Verified by scripts/verify_weighting_sensitivity.py via JSON presence check."
+          "const": "Anchor weighting impact table exists \u2014 headline impact of \u00b110pp probability shift on the strongest scenario is shown. Verified by scripts/verify_weighting_sensitivity.py via JSON presence check."
         },
         "G11": {
           "type": "string",
-          "const": "[US-specific, B11] Non-GAAP to GAAP reconciliation present — every non-GAAP number cited in memo has its GAAP counterpart shown, with the bridge (SBC, restructuring, amortization of acquired intangibles, etc.) listed. Verified by scripts/verify_non_gaap.py. n_a if no non-GAAP cited."
+          "const": "[US-specific, B11] Non-GAAP to GAAP reconciliation present \u2014 every non-GAAP number cited in memo has its GAAP counterpart shown, with the bridge (SBC, restructuring, amortization of acquired intangibles, etc.) listed. Verified by scripts/verify_non_gaap.py. n_a if no non-GAAP cited."
         },
         "G12": {
           "type": "string",
-          "const": "[US-specific, B12] SBC treatment in FCF disclosed — memo states whether SBC is deducted from FCF; if not deducted, dilution effect from RSU/option vest is shown separately. Common bug: 'FCF' cited as bull case without flagging SBC as a real cost. Verified by scripts/verify_fcf_definition.py. n_a if no FCF cited."
+          "const": "[US-specific, B12] SBC treatment in FCF disclosed \u2014 memo states whether SBC is deducted from FCF; if not deducted, dilution effect from RSU/option vest is shown separately. Common bug: 'FCF' cited as bull case without flagging SBC as a real cost. Verified by scripts/verify_fcf_definition.py. n_a if no FCF cited."
         },
         "G13": {
           "type": "string",
-          "const": "[US-specific, B13] Factor exposure stated — Barra-style factor tags (Value / Quality / Momentum / Growth / Size / Low-Vol / Liquidity) appear in §11 quant overlay. Required in every institutional IC memo per D13. Verified by scripts/verify_quant_overlay.py."
+          "const": "[US-specific, B13] Factor exposure stated \u2014 Barra-style factor tags (Value / Quality / Momentum / Growth / Size / Low-Vol / Liquidity) appear in \u00a711 quant overlay. Required in every institutional IC memo per D13. Verified by scripts/verify_quant_overlay.py."
         },
         "G14": {
           "type": "string",
-          "const": "[US-specific, B14] Capacity / ADV / days-to-exit stated — for the recommended position size, days-to-exit at 10%/20%/30% participation against name's 30-day ADV is shown. Required per D13. Verified by scripts/verify_quant_overlay.py."
+          "const": "[US-specific, B14] Capacity / ADV / days-to-exit stated \u2014 for the recommended position size, days-to-exit at 10%/20%/30% participation against name's 30-day ADV is shown. Required per D13. Verified by scripts/verify_quant_overlay.py."
         },
         "G15": {
           "type": "string",
-          "const": "[v0.2.0] Consensus variance — for any non-Hold rating (Strong Buy / Buy / Sell / Strong Sell), memo must declare ≥1 load-bearing entry in source_tags consensus_variance block: type ∈ {revenue, margin, multiple, scenario_weight, timing}, ≥1 evidence_ref at S1-S3 (not all-S4 or all-S5), sizing_impact_pp ≥ 2.0. Hold ratings AND self-labeled 'consensus-anchored' memos in headline = n_a. Names with n_analysts<5 = n_a. Verified by scripts/verify_consensus_variance.py. blocks_score_above = 7.0 on fail. Full discipline in references/consensus-variance-us.md."
+          "const": "[v0.2.0] Consensus variance \u2014 for any non-Hold rating (Strong Buy / Buy / Sell / Strong Sell), memo must declare \u22651 load-bearing entry in source_tags consensus_variance block: type \u2208 {revenue, margin, multiple, scenario_weight, timing}, \u22651 evidence_ref at S1-S3 (not all-S4 or all-S5), sizing_impact_pp \u2265 2.0. Hold ratings AND self-labeled 'consensus-anchored' memos in headline = n_a. Names with n_analysts<5 = n_a. Verified by scripts/verify_consensus_variance.py. blocks_score_above = 7.0 on fail. Full discipline in references/consensus-variance-us.md."
         },
         "G16": {
           "type": "string",
-          "const": "[v0.2.0] Bank discipline — for sector ∈ {Financials/Banks, Diversified Banks, Regional Banks, Investment Banking & Brokerage, Insurance, BDC}, memo must contain all four required disclosures: (a) AOCI bridge (AFS book vs fair value + AOCI mark + HTM unrealized loss + MTM TBVPS), (b) CET1 walk (period-over-period bridge), (c) NIM trajectory (5y + deposit beta), (d) Stress capital context (SCB + capital return capacity + CCAR/DFAST trough). n_a for non-bank sectors. Verified by scripts/verify_bank_metrics.py. blocks_score_above = 7.0 on fail. Full discipline in phase-1-deep-dive-us.md §FS-Banks Augmentation."
+          "const": "[v0.2.0] Bank discipline \u2014 for sector \u2208 {Financials/Banks, Diversified Banks, Regional Banks, Investment Banking & Brokerage, Insurance, BDC}, memo must contain all four required disclosures: (a) AOCI bridge (AFS book vs fair value + AOCI mark + HTM unrealized loss + MTM TBVPS), (b) CET1 walk (period-over-period bridge), (c) NIM trajectory (5y + deposit beta), (d) Stress capital context (SCB + capital return capacity + CCAR/DFAST trough). n_a for non-bank sectors. Verified by scripts/verify_bank_metrics.py. blocks_score_above = 7.0 on fail. Full discipline in phase-1-deep-dive-us.md \u00a7FS-Banks Augmentation."
         },
         "G17": {
           "type": "string",
-          "const": "[v0.2.0] Revision velocity — memo must declare in source_tags revision_velocity block: 3-month FY1 EPS revision % + direction + breadth ((up-down)/N). Optional but recommended: 1m and 6m windows, FY2 revision, PT revision, pre-print drift, peer median comparison. n_a if n_analysts < 5 (revision velocity not load-bearing for thin coverage). Verified by scripts/verify_revision_velocity.py. blocks_score_above = 7.5 on fail. Discipline in phase-2-continuation-us.md §A6 Earnings Revision Velocity subsection."
+          "const": "[v0.2.0] Revision velocity \u2014 memo must declare in source_tags revision_velocity block: 3-month FY1 EPS revision % + direction + breadth ((up-down)/N). Optional but recommended: 1m and 6m windows, FY2 revision, PT revision, pre-print drift, peer median comparison. n_a if n_analysts < 5 (revision velocity not load-bearing for thin coverage). Verified by scripts/verify_revision_velocity.py. blocks_score_above = 7.5 on fail. Discipline in phase-2-continuation-us.md \u00a7A6 Earnings Revision Velocity subsection."
         },
         "G18": {
           "type": "string",
-          "const": "[v0.3.0] Quant overlay cross-document consistency — within a single memo, the structured quant_overlay.factor_tags block in memo.json must match any Markdown narrative reference to the same Barra factor within ±0.2 tolerance. Closes the audit finding that NVDA's Momentum z-score appeared as +1.8 in quant-overlay-us.md but +2.3 in position-sizing-us.md (pre-v0.3.0 example files). Catches authors who quote z-scores in prose that diverge from structured block — common LLM failure mode where the prose is regenerated without re-reading structured data. n_a if no Markdown factor references found. Verified by scripts/verify_quant_cross_doc_consistency.py. blocks_score_above = 7.5 on fail. Discipline in us-equity-ic-rigor/references/quant-overlay-us.md §'Honest framing' (v0.3.0 disclaimer)."
+          "const": "[v0.3.0] Quant overlay cross-document consistency \u2014 within a single memo, the structured quant_overlay.factor_tags block in memo.json must match any Markdown narrative reference to the same Barra factor within \u00b10.2 tolerance. Closes the audit finding that NVDA's Momentum z-score appeared as +1.8 in quant-overlay-us.md but +2.3 in position-sizing-us.md (pre-v0.3.0 example files). Catches authors who quote z-scores in prose that diverge from structured block \u2014 common LLM failure mode where the prose is regenerated without re-reading structured data. n_a if no Markdown factor references found. Verified by scripts/verify_quant_cross_doc_consistency.py. blocks_score_above = 7.5 on fail. Discipline in us-equity-ic-rigor/references/quant-overlay-us.md \u00a7'Honest framing' (v0.3.0 disclaimer)."
         },
         "G19": {
           "type": "string",
-          "const": "[v0.3.0] Plugin 1 to Plugin 2 provenance — memo_metadata must reference an outputs/<ticker>_manifest.json file produced by Plugin 1's orchestrator at end of Phase 3, containing run_id (UUID), agent_provenance (hash per specialist output), web_search_log (list of url+timestamp+response_hash), phase_timing. Plugin 2 gate runner verifies manifest exists, contains all required fields, and that verification_calls_count >= 12 per D9. Memos without manifest accepted via explicit --hand-authored flag with WARNING printed in score block and blocks_score_above capped at 7.5. Closes audit finding that Plugin 1 to Plugin 2 handoff is pure filename convention with no provenance enforcement. Verified by scripts/verify_provenance_manifest.py. blocks_score_above = 7.5 on fail (or absent manifest without hand-authored flag)."
+          "const": "[v0.3.0] Plugin 1 to Plugin 2 provenance \u2014 memo_metadata must reference an outputs/<ticker>_manifest.json file produced by Plugin 1's orchestrator at end of Phase 3, containing run_id (UUID), agent_provenance (hash per specialist output), web_search_log (list of url+timestamp+response_hash), phase_timing. Plugin 2 gate runner verifies manifest exists, contains all required fields, and that verification_calls_count >= 12 per D9. Memos without manifest accepted via explicit --hand-authored flag with WARNING printed in score block and blocks_score_above capped at 7.5. Closes audit finding that Plugin 1 to Plugin 2 handoff is pure filename convention with no provenance enforcement. Verified by scripts/verify_provenance_manifest.py. blocks_score_above = 7.5 on fail (or absent manifest without hand-authored flag)."
         },
         "G20": {
           "type": "string",
-          "const": "[v0.3.0] View defensibility — for any rubric score above 8.5, three conjunctive conditions must hold: (a) headline expected_return differs from S4 consensus PT-implied return by >= 8 percentage points absolute; (b) at least one declared consensus_variance entry has >=1 evidence_ref at S1 or S2 (not S3, not S4); (c) the memo's adjudication_trail contains at least one entry where R-v2 attempted a structured attack against the declared variance per the 5-point attack checklist in pm-synthesis-adjudication-us.md and the attack was rebutted with documented reasoning. Pushes the rubric from grading structural completeness to grading view survival. Caps score at 8.5 on fail (not 7.0 — G20 is rubric-discriminating not memo-killing). n_a for memos with rating=Hold or with headline self-labeled 'consensus-anchored'. Verified by scripts/verify_view_defensibility.py."
+          "const": "[v0.3.0] View defensibility \u2014 for any rubric score above 8.5, three conjunctive conditions must hold: (a) headline expected_return differs from S4 consensus PT-implied return by >= 8 percentage points absolute; (b) at least one declared consensus_variance entry has >=1 evidence_ref at S1 or S2 (not S3, not S4); (c) the memo's adjudication_trail contains at least one entry where R-v2 attempted a structured attack against the declared variance per the 5-point attack checklist in pm-synthesis-adjudication-us.md and the attack was rebutted with documented reasoning. Pushes the rubric from grading structural completeness to grading view survival. Caps score at 8.5 on fail (not 7.0 \u2014 G20 is rubric-discriminating not memo-killing). n_a for memos with rating=Hold or with headline self-labeled 'consensus-anchored'. Verified by scripts/verify_view_defensibility.py."
+        },
+        "G21": {
+          "type": "string",
+          "const": "[v0.7.0 judgment layer] Fair-value reconciliation \u2014 self-gating on the valuation_parallel block. Requires an independent_fair_value_usd (built without reference to price, basis stated) AND a market_regime_value_usd (public consensus PT); the 12-month base PT must reconcile to the independent fair value within 15% or justify the gap as a timing/regime call (convergence_assumption + convergence_speed). Additive/self-gating: n_a when valuation_parallel absent. Verified by scripts/verify_fair_value_reconciliation.py."
+        },
+        "G22": {
+          "type": "string",
+          "const": "[v0.7.0 judgment layer] Revision attribution \u2014 self-gating on valuation.revision_bridge. The target change decomposes into components with driver in {estimate, multiple, methodology, other}; components reconcile to (new - prior); judgment_share_pct (share of |move| from multiple+methodology) matches; and if >50%, a judgment_flag is required (the revision is judgment-led). Additive/self-gating: n_a when revision_bridge absent. Verified by scripts/verify_revision_attribution.py."
+        },
+        "G23": {
+          "type": "string",
+          "const": "[v0.7.0 judgment layer] Source-tier public boundary \u2014 every S1-S5 citation must resolve to a publicly accessible source. Fails on access_tier='restricted' / public_access=false or entitlement markers (client-only, no-redistribution, proprietary research, named restricted research desks as a primary citation). Entitlement-restricted research is out of framework scope, used only as a personal non-persisted localized cross-check. Verified by scripts/verify_source_tier_public.py."
         }
+      }
+    },
+    "judgment_layer_gates": {
+      "type": "array",
+      "description": "[v0.7.0] The additive, self-gating judgment-layer gates (G21 fair-value reconciliation, G22 revision attribution, G23 source-tier public boundary). Tracked separately from the count-capped mechanical `gates` array so the grandfathered G1-G20 contract is unchanged. Each entry is the same gate_check shape; status is typically pass or n_a (the gates self-gate on schema-block presence).",
+      "minItems": 0,
+      "maxItems": 6,
+      "items": {
+        "$ref": "#/definitions/gate_check"
       }
     }
   }

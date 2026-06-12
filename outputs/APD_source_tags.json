@@ -1,0 +1,320 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "APD",
+ "as_of_date": "2026-06-09",
+ "model_cutoff_date": "2026-01-01",
+ "all_citations": [
+  {
+   "s_level": "S1",
+   "source_type": "10-K",
+   "ref": "APD FY2025 10-K (filed 2025-11-20; FYE 9/30/2025): revenue $12,037M, GAAP loss -$1.74, capex $7,022.6M, segments",
+   "date": "2025-11-20",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000002969/000000296925000055/apd-20250930.htm",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "XBRL",
+   "ref": "SEC XBRL companyfacts CIK 0000002969 (revenue/NI/EPS/capex/OCF/SBC/dividends FY23-25)",
+   "date": "2026-06-09",
+   "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000002969.json",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "APD FY2025 Q4/full-year results: adjusted EPS $12.03, Consolidated Adj EBITDA $5,076M, ~$3.7B project-exit charges, FY2026 guidance introduced",
+   "date": "2025-11-06",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "APD Q2 FY26 results: adjusted EPS $3.20 (+19% YoY) beat; FY2026 adjusted EPS guidance RAISED to $13.00-13.25; capex ~$4.0B; segments",
+   "date": "2026-04-30",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "10-Q",
+   "ref": "APD Q2 FY26 10-Q (period 2026-03-31): interest expense +23% YoY; debt balances; -1% price (helium) / +4% volume",
+   "date": "2026-04-30",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "APD CEO transition: Eduardo Menezes appointed CEO effective 2025-02-07 (succeeding Seifi Ghasemi)",
+   "date": "2025-02-04",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "8-K",
+   "ref": "APD to exit three US projects (World Energy SAF, NY green H2, Texas); Q2-FY25 pre-tax charge not to exceed $3.1B",
+   "date": "2025-02-24",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "13D",
+   "ref": "Mantle Ridge (Paul Hilal, ~$1.3B) won 3 board seats at the Jan-2025 annual meeting (ISS/Glass Lewis support); CEO Ghasemi voted off board",
+   "date": "2025-01-23",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "Other",
+   "ref": "APD & Yara advanced negotiations: Yara to buy ~25% of Louisiana + 25-yr offtake of ~80% low-carbon H2; FID targeted mid-2026",
+   "date": "2025-12-08",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S2",
+   "source_type": "DEF 14A",
+   "ref": "APD 2025 DEF 14A: KPMG ratified; 43-year dividend increase (to ~$1.79/qtr)",
+   "date": "2025-12-11",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Other",
+   "ref": "Ratings: S&P A (outlook Negative, Feb-2025); Moody's A2 (outlook Negative, May-2025); Net Debt/EBITDA ~3.0x",
+   "date": "2025-05-15",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S1",
+   "source_type": "FRED",
+   "ref": "FRED DGS10 10-yr UST 4.55%",
+   "date": "2026-06-05",
+   "url": "https://fred.stlouisfed.org/series/DGS10",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S5",
+   "source_type": "Damodaran",
+   "ref": "Damodaran implied US ERP 4.23%",
+   "date": "2026-01-01",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "FactSet consensus",
+   "ref": "Consensus n=23: FY26E adjusted EPS ~$13.21, FY27E ~$14.23; ratings 11 Strong Buy / 3 Buy / 9 Hold / 0 Sell",
+   "date": "2026-06-09",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Yahoo Finance consensus",
+   "ref": "APD $282.35 (6/6 close $282.35); mkt cap ~$62.9B; EV ~$80.5B; shares ~222.7M; fwd P/E ~21x; 52wk $229.11-$307.96; beta ~0.75",
+   "date": "2026-06-09",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "30-day ADV ~$340M (~1.1-1.31M shares); beta ~0.75 (low, defensive)",
+   "date": "2026-06-09",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "Peer multiples: Linde ~28x fwd P/E (~39% EBITDA margin); Air Liquide ~25x P/E / ~14x EV/EBITDA",
+   "date": "2026-06-09",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S2",
+   "source_type": "13F",
+   "ref": "13F/13G: Vanguard ~7.51%, BlackRock ~7%, Capital Group, State Street; Mantle Ridge ~$1.3B (trimmed slightly Feb-2026)",
+   "date": "2026-03-31",
+   "verified": true,
+   "is_anchor_eligible": true
+  },
+  {
+   "s_level": "S4",
+   "source_type": "Other",
+   "ref": "Short interest ~1.41% float, DTC ~3.04; CFO open-market sale (small) May-2026",
+   "date": "2026-05-15",
+   "verified": true,
+   "is_anchor_eligible": false
+  },
+  {
+   "s_level": "S2",
+   "source_type": "BIS Entity List",
+   "ref": "BIS/OFAC/CFIUS query APD 2026-06-09: N/A (US-domiciled industrial-gas company)",
+   "date": "2026-06-09",
+   "verified": true,
+   "is_anchor_eligible": true
+  }
+ ],
+ "top_anchors": [
+  {
+   "anchor_id": "A1",
+   "claim": "FY2026 adjusted EPS guidance midpoint (raised twice)",
+   "value": 13.13,
+   "unit": "$ adjusted EPS",
+   "citation": {
+    "s_level": "S3",
+    "source_type": "Other",
+    "ref": "APD Q2 FY26 call: FY2026 adjusted EPS guidance $13.00-13.25",
+    "date": "2026-04-30",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base",
+    "bull"
+   ],
+   "sensitivity_pct": 8.0
+  },
+  {
+   "anchor_id": "A2",
+   "claim": "Capex roll-off FY2025 peak to FY2026 guide (FCF-inflection driver)",
+   "value": 7022.6,
+   "unit": "$M FY2025 capex (-> ~$4.0B FY2026)",
+   "citation": {
+    "s_level": "S1",
+    "source_type": "10-K",
+    "ref": "APD FY2025 10-K capex $7,022.6M; FY2026 capex guide ~$4.0B",
+    "date": "2025-11-20",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "strong_bear",
+    "bear",
+    "base",
+    "bull",
+    "strong_bull"
+   ],
+   "sensitivity_pct": 12.0
+  },
+  {
+   "anchor_id": "A3",
+   "claim": "Forward P/E discount to Linde (re-rating opportunity)",
+   "value": 7.5,
+   "unit": "P/E turns (APD ~21x vs Linde ~28x, ~25-28% discount)",
+   "citation": {
+    "s_level": "S4",
+    "source_type": "FactSet consensus",
+    "ref": "Consensus forward P/E: APD ~21x vs Linde ~28x",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base",
+    "bull",
+    "strong_bull"
+   ],
+   "sensitivity_pct": 10.0
+  },
+  {
+   "anchor_id": "A4",
+   "claim": "FY2027 FCF inflection / capital-discipline variance (load-bearing)",
+   "value": 1200.0,
+   "unit": "$M FY27E FCF (from -$3.8B FY25)",
+   "citation": {
+    "s_level": "S1",
+    "source_type": "10-K",
+    "ref": "APD FY2025 10-K capex/OCF + FY2026 capex guide ~$4.0B (the inflection mechanics)",
+    "date": "2025-11-20",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "strong_bear",
+    "bear",
+    "base",
+    "bull",
+    "strong_bull"
+   ],
+   "sensitivity_pct": 12.0
+  },
+  {
+   "anchor_id": "A_PT",
+   "claim": "Sell-side consensus 12-month price target (median/average)",
+   "value": 328.0,
+   "unit": "$/share price target",
+   "citation": {
+    "s_level": "S4",
+    "source_type": "FactSet consensus",
+    "ref": "Consensus PT average ~$328 (median ~$310-328; low $275 / high $360), n=23",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   "drives_scenarios": [
+    "base"
+   ],
+   "sensitivity_pct": 5.0
+  }
+ ],
+ "headline_conditionality": "source_conditional",
+ "consensus_variance": [
+  {
+   "variance_id": "V1_fcf_inflection_rerate",
+   "line_item": "APD forward P/E multiple (re-rate vs the Linde discount) driven by the FY2027 FCF inflection",
+   "type": "multiple",
+   "direction": "upward",
+   "magnitude_pct": 20.0,
+   "probability_right_pct": 60.0,
+   "scenario_sensitivity_pct": 20.0,
+   "sizing_impact_pp": 2.4,
+   "load_bearing": true,
+   "narrative": "The Street's 39%-Hold cohort prices APD at a sustained ~20-21x forward P/E (a permanent ~7-8-turn discount to Linde), skeptical the FCF inflects and the discount narrows. Our load-bearing variance: the capex roll-off ($7.0B FY25 peak -> ~$4.0B FY26), the ~$3.7B of charges already taken, and two FY2026 guidance raises with a Q2 beat make a FY2027 FCF inflection + re-rate toward ~24.5x ~60% likely (sizing_impact_pp = 20 x 60 x 20 / 10000 = 2.4). Puts our PT-implied return +25.8% ~10pp above consensus (+16%). Two-tailed/catalyst-dependent -> Buy.",
+   "evidence_refs": [
+    {
+     "s_level": "S1",
+     "ref": "APD FY2025 10-K: capex $7,022.6M peak; FY2026 capex guide ~$4.0B (FCF-inflection driver)"
+    },
+    {
+     "s_level": "S2",
+     "ref": "APD Q2 FY26 8-K: adjusted EPS $3.20 (+19%) beat; FY2026 guidance raised to $13.00-13.25"
+    },
+    {
+     "s_level": "S3",
+     "ref": "Management capital-discipline framework (~$1B/yr capex cut, restore A/A2)"
+    }
+   ]
+  }
+ ],
+ "revision_velocity": {
+  "n_analysts": 23,
+  "fy1_eps_consensus": 13.21,
+  "fy2_eps_consensus": 14.23,
+  "fy1_ebitda_consensus_usd_b": 5.4,
+  "fy2_ebitda_consensus_usd_b": 5.8,
+  "fy1_eps_revision_1m_pct": 1.0,
+  "fy1_eps_revision_3m_pct": 3.5,
+  "fy1_ebitda_revision_3m_pct": 3.0,
+  "breadth_3m": 0.5,
+  "breadth_note": "Estimates and PTs revised UP after two FY2026 guidance raises and a Q2 beat; 11 Strong Buy / 3 Buy / 9 Hold / 0 Sell. The 39% Hold cohort is the variance target.",
+  "pt_revisions_recent": "Targets lifted toward $325-330 post-Q2; avg ~$328 (range $275-360).",
+  "pre_print_drift": "Stock +15-16% YTD on the activist catalyst; next print ~2026-08-06.",
+  "peer_comparison": "APD at a wide discount to Linde (~28x) / Air Liquide (~25x); the re-rating gap is the opportunity.",
+  "verdict": "Estimates rising + two guidance raises; the non-consensus edge is the FCF-inflection-driven re-rate the 39%-Hold cohort under-credits."
+ },
+ "pending_assumptions": []
+}

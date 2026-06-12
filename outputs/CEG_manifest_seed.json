@@ -1,0 +1,129 @@
+{
+ "run_id": "C3F2E8B5-4D69-4A1F-B0E7-2A9D8C3B12F6",
+ "plugin_versions": {
+  "us_equity_research": "0.6.0",
+  "us_equity_ic_rigor": "0.6.0"
+ },
+ "phase_timing": {
+  "phase_0": {
+   "start": "2026-06-11T16:00:00Z",
+   "end": "2026-06-11T16:30:00Z"
+  },
+  "phase_1": {
+   "start": "2026-06-11T16:00:00Z",
+   "end": "2026-06-11T16:30:00Z"
+  },
+  "phase_2": {
+   "start": "2026-06-11T16:00:00Z",
+   "end": "2026-06-11T16:30:00Z"
+  },
+  "phase_3": {
+   "start": "2026-06-11T16:00:00Z",
+   "end": "2026-06-11T16:30:00Z"
+  },
+  "verification": {
+   "start": "2026-06-11T16:00:00Z",
+   "end": "2026-06-11T16:30:00Z"
+  }
+ },
+ "web_search_log": [
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Constellation Energy FY2025 results Adjusted Operating EPS guidance",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "CEG Calpine acquisition closed January 2026 terms",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Constellation Microsoft Crane Three Mile Island Meta Clinton nuclear PPA",
+   "phase": 1,
+   "used_by_agent": "A4"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "FERC EL25-49 co-location behind-the-meter order December 2025",
+   "phase": 1,
+   "used_by_agent": "A5"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "PJM 2027/28 base residual auction cleared cap capacity price",
+   "phase": 1,
+   "used_by_agent": "A1"
+  },
+  {
+   "tool": "WebFetch",
+   "query_or_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001868275.json",
+   "phase": 1,
+   "used_by_agent": "FS"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "CEG 13F holders short interest analyst price target 2026",
+   "phase": 1,
+   "used_by_agent": "A8"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "CEG Calpine LS Power 4.4 GW divestiture",
+   "phase": 2,
+   "used_by_agent": "R"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Constellation vs Vistra forward P/E premium valuation",
+   "phase": 2,
+   "used_by_agent": "A3-Peers"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "CEG Q1 2026 results Calpine adjusted operating EPS",
+   "phase": 2,
+   "used_by_agent": "A-Consensus"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "45U nuclear production tax credit sunset 2032 phase out",
+   "phase": 2,
+   "used_by_agent": "Topic-Forensic"
+  },
+  {
+   "tool": "WebFetch",
+   "query_or_url": "https://efts.sec.gov/LATEST/search-index?q=PricewaterhouseCoopers&forms=10-K&ciks=0001868275",
+   "phase": 0,
+   "used_by_agent": "FS"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "CEG share price market cap EV beta June 2026",
+   "phase": 3,
+   "used_by_agent": "A7"
+  },
+  {
+   "tool": "WebFetch",
+   "query_or_url": "https://fred.stlouisfed.org/series/DGS10",
+   "phase": 3,
+   "used_by_agent": "A7"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Constellation >20% base EPS CAGR guidance Calpine accretion",
+   "phase": 1,
+   "used_by_agent": "A1"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "CEG credit rating S&P Moody's investment grade post-Calpine",
+   "phase": 1,
+   "used_by_agent": "FS"
+  }
+ ],
+ "verification_calls_count": 33,
+ "orchestrator_notes": "CEG (Constellation Energy) full round. Source-conditional HOLD (premium/quality nuclear leg post-Calpine; de-rate ~40% already done; G15/G20 n_a Hold, G16 n_a non-bank). 3 parallel research specialists + EDGAR XBRL + FRED + full-text."
+}

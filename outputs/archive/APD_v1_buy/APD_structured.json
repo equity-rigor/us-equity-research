@@ -1,0 +1,1697 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "APD",
+ "exchange": "NYSE",
+ "company_name": "Air Products and Chemicals, Inc.",
+ "cik": "0000002969",
+ "sector_gics": "Materials",
+ "industry_gics": "Industrial Gases (GICS 15101040)",
+ "as_of_date": "2026-06-09",
+ "model_cutoff_date": "2026-01-01",
+ "author": "us-equity-research full-round orchestrator (Phases 0-3 + Verification)",
+ "current_price_usd": 282.35,
+ "market_cap_usd_b": 62.88,
+ "enterprise_value_usd_b": 80.5,
+ "fiscal_year_end": "09-30",
+ "headline": {
+  "expected_return_median": 0.187,
+  "expected_return_range_p10_p90": [
+   -0.292,
+   0.587
+  ],
+  "rating": "Buy",
+  "default_action": "initiate_long",
+  "conditionality": "source_conditional",
+  "conditional_language_pattern": "A_source_conditional_bias",
+  "headline_text": "Source-conditional Buy at $282.35 (close 2026-06-09, S4): probability-weighted 12-month expected return +18.7% to base-case PT $355.25 (FY27E adjusted EPS $14.50 [S4: consensus FY27E ~$14.23] x P/E 24.5x [S4: APD fwd P/E ~21x re-rating toward Linde ~28x]); scenario-weighted range [-29.2%, +58.7%]. This is an explicitly non-consensus, above-Street self-help re-rating call: activist-installed management (Eduardo Menezes, ex-Linde, CEO since Feb-2025) has taken the ~$3.7B FY2025 hydrogen-project charges (S2), is cutting capex from a ~$7.0B FY2025 peak toward ~$4.0B in FY2026 (S1/S3), and is driving free cash flow from -$3.8B (FY25) toward positive in FY2027 - which the 39%-Hold sell-side cohort under-credits. We are ~10pp above the consensus PT-implied return (+16% to ~$328). CONDITIONAL on (i) capex actually rolling off and FCF inflecting positive in FY2027 (S1: FY2025 10-K capex $7,022.6M; S3: FY2026 capex guide ~$4.0B) AND (ii) no further >$1.0B impairment on NEOM/Louisiana. If a further impairment >$1.0B hits OR FY2027 adjusted EPS guides <$13.50 OR FY2026 capex re-accelerates >$4.5B, the bear branch dominates; if the NEOM green-ammonia offtake signs AND the Louisiana Yara FID closes by Dec-2026, upside accelerates. Cleanest expression is a long-APD / short-LIN convergence pair on the ~7-8-turn forward-P/E discount."
+ },
+ "recommendation": {
+  "rating": "Buy",
+  "price_target_usd": 355.25,
+  "price_target_range_low_usd": 200.0,
+  "price_target_range_high_usd": 448.0,
+  "upside_downside_pct": 25.82,
+  "time_horizon_months": 12,
+  "conviction_tag": "source_conditional",
+  "default_action": "initiate_long",
+  "rationale_one_paragraph": "Source-conditional Buy on APD at $282.35 (S4: 2026-06-09 close). Air Products is one of three global industrial-gas majors (with Linde and Air Liquide), running a defensive on-site take-or-pay franchise at ~24% adjusted operating margin, but the equity has been weighed down by an over-ambitious clean-hydrogen capex program. The thesis is a self-help re-rating: the Mantle Ridge activist campaign (Paul Hilal, ~$1.3B) won three board seats in Jan-2025 and CEO Seifi Ghasemi was replaced by Eduardo Menezes (ex-Linde) in Feb-2025; new management took ~$3.7B of FY2025 project-exit charges (S2: FY25 results), is cutting capex from a ~$7.0B FY2025 peak toward ~$4.0B in FY2026 (~$1B/yr discipline), and is steering FCF from -$3.8B (FY25) toward positive in FY2027 as the hydrogen mega-projects roll off. Top-3 anchors: A1 FY2026 adjusted EPS guidance midpoint ~$13.13, raised twice (S3); A2 capex roll-off FY2025 $7,022.6M -> FY2026 ~$4.0B (S1/S3, the FCF-inflection driver); A3 a ~25-28% (~7-8-turn) forward-P/E discount to Linde, wider than historical (S4). Base PT $355.25 = FY27E adjusted EPS $14.50 x P/E 24.5x (a re-rate that closes roughly half the gap to Linde's ~28x). The load-bearing non-consensus variance (V1): the Street's 39%-Hold cohort prices APD at a sustained ~20-21x permanent discount, implicitly skeptical the FCF inflects and the discount narrows; we judge the capex roll-off + completed charges + two guidance raises make the inflection ~60% likely, sizing ~2.4pp of probability toward the re-rate. Two guidance raises and a Q2 FY26 adjusted-EPS beat (+19% YoY) are early confirmation. Probability-weighted 12-month return +18.7%; fat-tailed (strong_bear $200.00 / strong_bull $448.00). Earnings quality is mixed: the core IG business is excellent (KPMG clean opinion; A/A2 ratings, both on negative outlook), but GAAP is non-informational (FY2025 GAAP loss -$1.74 on the charges; underwrite on adjusted EPS / EBITDA) and the ~$1.6B dividend (43-year streak) is currently debt-funded until FCF inflects. Net: a quality oligopoly mid-turnaround at a wide discount with a credible, partially-confirmed catalyst path -> Buy; primary risks are a further hydrogen impairment and a failed FCF inflection."
+ },
+ "investment_thesis_pillars": [
+  {
+   "title": "Self-help FCF inflection as hydrogen capex rolls off",
+   "key_statistic": "Capex $7,022.6M FY2025 peak -> ~$4.0B FY2026 guide (~$3B roll-off); FCF -$3.8B FY25 -> positive FY2027 (S1/S3)",
+   "narrative": "The single biggest swing factor. APD over-built clean-hydrogen mega-projects (NEOM, Louisiana, plus the now-cancelled Texas/California/NY projects), driving capex from ~$4.6B (FY23) to a ~$7.0B FY2025 peak and FCF to -$3.8B. New management has cut the uncommitted pipeline, guided FY2026 capex to ~$4.0B, and committed to ~$1B/yr reductions; with operating cash flow rising (TTM ~$4.1B), FCF should cross positive in FY2027. That converts a debt-funded-dividend story into a self-funding cash compounder - the mechanical driver of the re-rating.",
+   "anchor_refs": [
+    "A2",
+    "A4"
+   ],
+   "timeline": "Capex steps down through FY2026; FCF inflection point FY2027"
+  },
+  {
+   "title": "Activist-installed capital discipline (Mantle Ridge / Menezes reset)",
+   "key_statistic": "Mantle Ridge won 3 board seats Jan-2025; Eduardo Menezes (ex-Linde) CEO since Feb-2025; ~$3.7B FY2025 charges clearing the decks (S2)",
+   "narrative": "The governance overhaul is the catalyst. Paul Hilal's Mantle Ridge (~$1.3B) won three seats with ISS/Glass Lewis support; long-time CEO Ghasemi was voted off the board and replaced by Menezes, a disciplined operator from Linde/Praxair. Management took the FY2025 charges, exited three US projects, and re-screened the portfolio to high-return industrial gas. Two FY2026 guidance raises and a Q2 FY26 adjusted-EPS beat (+19% YoY) are early proof the operator is executing - the opposite of a credibility loss.",
+   "anchor_refs": [
+    "A1"
+   ],
+   "timeline": "Reset underway; FY2027 capex/FCF guide (Nov-2026) is the proof point"
+  },
+  {
+   "title": "Widest-in-history discount to Linde in a 3-player oligopoly",
+   "key_statistic": "APD ~21x fwd P/E vs Linde ~28x = ~7-8 turns / ~25-28% discount, wider than historical norms (S4)",
+   "narrative": "Industrial gases is a rational global oligopoly (Linde, Air Liquide, APD) with on-site take-or-pay contracts, pricing power and ~26-30% segment operating margins. APD has always traded at a discount to best-in-class Linde, but the hydrogen overhang widened the gap to ~7-8 forward-P/E turns. As capital discipline returns and FCF inflects, the discount should narrow toward its historical ~3-4 turns - the base-case re-rate to ~24.5x closes roughly half the gap. Linde's higher margin (~39% EBITDA) justifies a permanent premium, but not the current width.",
+   "anchor_refs": [
+    "A3"
+   ],
+   "timeline": "Discount narrows over 12-24mo as FCF/discipline proof accrues"
+  },
+  {
+   "title": "The bear: residual hydrogen impairment tail + debt-funded dividend",
+   "key_statistic": "FY2025 GAAP loss -$1.74 on ~$3.7B charges; ~$1.6B dividend (43yr streak) debt-funded; net debt ~$15.8B, A/A2 both negative outlook (S1/S2/S5)",
+   "narrative": "NEOM (~$8.5B JV, APD ~1/3, >90% complete) and Louisiana blue-H2 (~$7B, Yara FID targeted mid-2026, not signed) carry the largest residual asset values; if the NEOM green-ammonia offtake slips or the Yara FID fails, a further >$1B impairment is the cleanest bear trigger. FCF has been negative for 2+ years and the dividend has been debt-funded, with interest expense +23% YoY and both agencies on negative outlook. If the FCF inflection fails or capex re-accelerates, the wide Linde discount is deserved and could widen further.",
+   "anchor_refs": [
+    "A4",
+    "A2"
+   ],
+   "timeline": "Bear confirms on a further >$1B impairment or a sub-$13.50 FY2027 EPS guide"
+  }
+ ],
+ "company_qualitative": {
+  "description": "Air Products and Chemicals, Inc. (APD) is one of the world's three largest industrial-gas companies (with Linde and Air Liquide), supplying atmospheric gases (oxygen, nitrogen, argon), process gases (hydrogen, helium, CO2, syngas) and related equipment to refining, chemicals, metals, electronics, food and healthcare customers. Its core model is on-site/pipeline supply under 15-20 year take-or-pay contracts plus merchant and packaged gas - a defensive, high-return franchise with ~26-30% segment operating margins. APD reports four geographic operating segments (Americas, Asia, Europe, Middle East & India) plus Corporate. FY2025 (ended 9/30/2025) revenue was $12,037M (S1: SEC XBRL companyfacts CIK 0000002969), roughly flat, but GAAP results were a net loss (-$394M; diluted EPS -$1.74) driven by ~$3.7B of pre-tax project-exit and asset-action charges; adjusted diluted EPS was $12.03 and Consolidated Adjusted EBITDA $5,076M. The 2024-2026 story is a strategy reset: APD's prior clean-hydrogen build (NEOM green hydrogen/ammonia in Saudi Arabia; Louisiana blue hydrogen; cancelled Texas/California/New York projects) drove capex from ~$4.6B (FY23) to a ~$7.0B FY2025 peak and free cash flow deeply negative, prompting the Mantle Ridge activist campaign (three board seats won Jan-2025), the replacement of CEO Seifi Ghasemi by Eduardo Menezes (ex-Linde, Feb-2025), the FY2025 charges, and a pivot to capital discipline - capex guided to ~$4.0B in FY2026 with FCF expected to inflect positive in FY2027. APD remains A-rated (S&P A / Moody's A2, both negative outlook) and a 43-year dividend grower."
+ ,
+  "products": [
+   {
+    "name": "On-site / pipeline gases (take-or-pay)",
+    "description": "Oxygen, nitrogen, hydrogen and syngas supplied to large refining/chemicals/steel/electronics customers under 15-20yr take-or-pay contracts. The defensive, contracted core of cash flow; ~$9B profit-contributing backlog (>$2.5B traditional IG).",
+    "target_customers": "Refiners, chemicals, metals, electronics (Samsung, TSMC-class fabs)",
+    "pricing_model": "Take-or-pay fixed fee + pass-through energy",
+    "revenue_contribution_pct": 55.0,
+    "competitive_position": "One of three global majors; high switching costs, local monopolies",
+    "source_citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "APD FY2025 10-K Item 1 (on-site/merchant model)"
+    }
+   },
+   {
+    "name": "Merchant & packaged gases",
+    "description": "Liquid bulk and packaged atmospheric/specialty gases sold to a broad customer base; more cyclical/price-sensitive. Helium (a recurring pricing headwind) sits here.",
+    "target_customers": "Manufacturing, healthcare, food, electronics, research",
+    "pricing_model": "Merchant pricing (volume + price)",
+    "revenue_contribution_pct": 30.0,
+    "competitive_position": "Scale distribution; helium pricing currently soft",
+    "source_citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "APD FY2025 10-K (merchant/packaged)"
+    }
+   },
+   {
+    "name": "Clean hydrogen / energy-transition projects",
+    "description": "NEOM green hydrogen/ammonia (Saudi JV, ~1/3 APD, >90% complete, production 2027), Louisiana blue hydrogen (~$7B, Yara FID targeted mid-2026), and equipment/LNG process technology. The source of the capex overhang and FY2025 charges; now being de-risked/gated.",
+    "target_customers": "Refiners, ammonia/fertilizer (Yara), mobility, power",
+    "pricing_model": "Long-term offtake (NEOM/Yara) + merchant",
+    "revenue_contribution_pct": 15.0,
+    "competitive_position": "First-mover at scale, but uncertain green-premium end-demand",
+    "source_citation": {
+     "s_level": "S2",
+     "source_type": "8-K",
+     "ref": "APD FY2025 results + project releases (NEOM/Louisiana/cancellations)"
+    }
+   }
+  ],
+  "customers_gtm": "APD's core is on-site/pipeline supply under 15-20-year take-or-pay contracts to large industrial customers (refining, chemicals, metals, electronics), with the customer's plant economically tied to APD's adjacent supply - high switching costs and local monopolies. Merchant/packaged gases serve a broader, more cyclical base. The clean-hydrogen projects sell under long-term offtake (NEOM ammonia to APD itself / Yara on Louisiana) plus merchant. Recent IG backlog wins include Samsung (South Korea electronics) and NASA Artemis (liquid hydrogen/helium).",
+  "industry": {
+   "overview": "Industrial gases is a structurally attractive global oligopoly: three majors (Linde ~$160B+ cap, Air Liquide, Air Products) control most of the developed-market capacity, with on-site take-or-pay contracts, pricing power, high barriers (capital + customer co-location) and ~25-40% margins. Demand tracks industrial production, electronics/semiconductors, healthcare and (increasingly) decarbonization (clean hydrogen, carbon capture). Linde is the best-in-class operator (~39% EBITDA margin, top ROIC, disciplined capital allocation) and trades at a premium (~28x forward P/E). APD pursued an aggressive clean-hydrogen growth strategy that the market penalized, widening its discount to Linde; the 2025 activist-driven reset is an attempt to restore APD's capital discipline and close that gap. Near-term swing factors: helium pricing (soft), China/Europe industrial macro, electronics capex (positive), and US clean-hydrogen policy (45V/45Q subsidies).",
+   "tam": {
+    "current_year": 2026,
+    "current_tam_usd_b": 130.0,
+    "projected_year": 2030,
+    "projected_tam_usd_b": 165.0,
+    "cagr_pct": 6.1,
+    "source": {
+     "s_level": "S5",
+     "source_type": "Other",
+     "ref": "Global industrial-gas market (merchant + on-site + packaged) trade estimates; clean-hydrogen optionality on top"
+    }
+   }
+  },
+  "competitive_landscape": {
+   "peers": [
+    {
+     "name": "Linde plc",
+     "ticker": "LIN",
+     "market_cap_usd_b": 215.0,
+     "market_share_pct": 33.0,
+     "key_differentiator": "Best-in-class operator: ~39% EBITDA margin, ~30% op margin, top ROIC, disciplined capital allocation; ~28x fwd P/E (the premium benchmark and the convergence target)",
+     "revenue_growth_pct": 6.0,
+     "ebitda_margin_pct": 39.3
+    },
+    {
+     "name": "Air Liquide",
+     "ticker": "AIQUY",
+     "market_cap_usd_b": 110.0,
+     "market_share_pct": 25.0,
+     "key_differentiator": "European major; ~25x P/E, ~14x EV/EBITDA (EUR reporting); steady compounder between APD and Linde on multiple",
+     "revenue_growth_pct": 5.0,
+     "ebitda_margin_pct": 26.3
+    },
+    {
+     "name": "APD (self)",
+     "ticker": "APD",
+     "market_cap_usd_b": 62.88,
+     "market_share_pct": 18.0,
+     "key_differentiator": "~24% adj op margin, ~21x fwd P/E (the discount); turnaround optionality on FCF inflection + capital discipline",
+     "revenue_growth_pct": 6.0,
+     "ebitda_margin_pct": 35.0
+    }
+   ],
+   "positioning_narrative": "APD is the value/turnaround leg of the industrial-gas oligopoly. Linde is the quality benchmark (highest margin, cleanest capital allocation, ~28x) and commands a permanent premium; Air Liquide sits in between. APD's ~7-8-turn forward-P/E discount to Linde is wider than its historical ~3-4 turns, reflecting the now-resolving hydrogen-capex overhang and FY2025 charges. The bull case is convergence: activist-installed discipline + FCF inflection narrows the gap. The bear case is that the discount is deserved (lower margin, negative FCF history, residual impairment tail) and could widen on a stumble. On a 12-month horizon the dominant variable is the FCF inflection and the absence of a further large impairment; on a multi-year horizon it is whether APD can sustain Linde-adjacent capital discipline and re-rate durably."
+  }
+ },
+ "management": [
+  {
+   "name": "Eduardo Menezes",
+   "title": "President & CEO",
+   "tenure_years": 1,
+   "bio": "CEO since February 2025, appointed after the Mantle Ridge proxy campaign; previously a senior executive at Linde/Praxair. Mandate: restore capital discipline, cut the clean-hydrogen capex overhang, refocus on high-return industrial gas, and protect the investment-grade balance sheet and dividend.",
+   "background": "Industrial gases (Linde/Praxair), operations, capital allocation",
+   "source": {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "APD 8-K 2025-02-04 (CEO appointment, effective 2025-02-07)"
+   }
+  },
+  {
+   "name": "Melissa Schaeffer",
+   "title": "EVP & CFO",
+   "tenure_years": 3,
+   "bio": "CFO overseeing the capital-allocation reset (capex reduction ~$1B/yr, FCF inflection, deleveraging toward A/A2) and the 43-year dividend.",
+   "background": "Corporate finance, treasury",
+   "source": {
+    "s_level": "S2",
+    "source_type": "DEF 14A",
+    "ref": "APD 2025 DEF 14A (filed 2025-12-11)"
+   }
+  }
+ ],
+ "financials": {
+  "historical": [
+   {
+    "period": "FY23A",
+    "period_type": "historical",
+    "revenue_usd_m": 12600,
+    "revenue_growth_pct": -0.8,
+    "gross_profit_usd_m": 3700,
+    "gross_margin_pct": 29.4,
+    "ebit_usd_m": 2495,
+    "ebit_margin_pct": 19.8,
+    "net_income_gaap_usd_m": 2300,
+    "eps_diluted_gaap_usd": 10.33,
+    "eps_diluted_non_gaap_usd": 11.5,
+    "diluted_shares_m": 222.7,
+    "fcf_usd_m": -1421,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 60,
+    "buyback_usd_m": 0,
+    "buyback_offsets_sbc_ratio": 0.0
+   },
+   {
+    "period": "FY24A",
+    "period_type": "historical",
+    "revenue_usd_m": 12101,
+    "revenue_growth_pct": -4.0,
+    "gross_profit_usd_m": 3650,
+    "gross_margin_pct": 30.2,
+    "ebit_usd_m": 4466,
+    "ebit_margin_pct": 23.4,
+    "net_income_gaap_usd_m": 3828,
+    "eps_diluted_gaap_usd": 17.18,
+    "eps_diluted_non_gaap_usd": 12.43,
+    "diluted_shares_m": 222.8,
+    "fcf_usd_m": -3150,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 62,
+    "buyback_usd_m": 0,
+    "buyback_offsets_sbc_ratio": 0.0
+   },
+   {
+    "period": "FY25A",
+    "period_type": "historical",
+    "revenue_usd_m": 12037,
+    "revenue_growth_pct": -0.5,
+    "gross_profit_usd_m": 3600,
+    "gross_margin_pct": 29.9,
+    "ebit_usd_m": -877,
+    "ebit_margin_pct": -7.3,
+    "net_income_gaap_usd_m": -394,
+    "eps_diluted_gaap_usd": -1.74,
+    "eps_diluted_non_gaap_usd": 12.03,
+    "diluted_shares_m": 222.7,
+    "fcf_usd_m": -3766,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 76,
+    "buyback_usd_m": 0,
+    "buyback_offsets_sbc_ratio": 0.0
+   }
+  ],
+  "ltm": {
+   "period": "LTM_Q2FY26",
+   "period_type": "ltm",
+   "revenue_usd_m": 12037,
+   "revenue_growth_pct": 2.0,
+   "gross_profit_usd_m": 3650,
+   "gross_margin_pct": 23.72,
+   "ebit_usd_m": 2855,
+   "ebit_margin_pct": 23.72,
+   "net_income_gaap_usd_m": 1900,
+   "eps_diluted_gaap_usd": 8.5,
+   "eps_diluted_non_gaap_usd": 12.6,
+   "diluted_shares_m": 222.7,
+   "fcf_usd_m": -1251,
+   "fcf_includes_sbc_addback": false,
+   "sbc_usd_m": 76,
+   "buyback_usd_m": 0,
+   "buyback_offsets_sbc_ratio": 0.0,
+   "segments": [
+    {
+     "name": "Americas",
+     "revenue_usd_m": 5126,
+     "gm_pct": 29.6,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "APD FY2025 segment operating income/sales (operating-margin analog; APD reports segment operating income, not a GAAP gross margin)"
+     }
+    },
+    {
+     "name": "Asia",
+     "revenue_usd_m": 3271,
+     "gm_pct": 26.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "APD FY2025 segment operating margin (electronics-led growth)"
+     }
+    },
+    {
+     "name": "Europe",
+     "revenue_usd_m": 2985,
+     "gm_pct": 28.3,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "APD FY2025 segment operating margin"
+     }
+    },
+    {
+     "name": "Middle East & India",
+     "revenue_usd_m": 136,
+     "gm_pct": 7.1,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "APD FY2025 segment (equity-affiliate-heavy; low reported margin)"
+     }
+    },
+    {
+     "name": "Corporate & Other",
+     "revenue_usd_m": 519,
+     "gm_pct": -70.8,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S2",
+      "source_type": "8-K",
+      "ref": "APD FY2025 Corporate & Other (net cost center; reconciling segment)"
+     }
+    }
+   ]
+  },
+  "projected": [
+   {
+    "period": "FY26E",
+    "period_type": "projected",
+    "revenue_usd_m": 12550,
+    "revenue_growth_pct": 4.3,
+    "gross_profit_usd_m": 3850,
+    "gross_margin_pct": 30.7,
+    "ebit_usd_m": 3050,
+    "ebit_margin_pct": 24.3,
+    "net_income_gaap_usd_m": 2920,
+    "eps_diluted_gaap_usd": 13.13,
+    "eps_diluted_non_gaap_usd": 13.13,
+    "diluted_shares_m": 222.7,
+    "fcf_usd_m": -500,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 80,
+    "buyback_usd_m": 0
+   },
+   {
+    "period": "FY27E",
+    "period_type": "projected",
+    "revenue_usd_m": 13200,
+    "revenue_growth_pct": 5.2,
+    "gross_profit_usd_m": 4150,
+    "gross_margin_pct": 31.4,
+    "ebit_usd_m": 3350,
+    "ebit_margin_pct": 25.4,
+    "net_income_gaap_usd_m": 3229,
+    "eps_diluted_gaap_usd": 14.5,
+    "eps_diluted_non_gaap_usd": 14.5,
+    "diluted_shares_m": 222.7,
+    "fcf_usd_m": 1200,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 80,
+    "buyback_usd_m": 0
+   }
+  ],
+  "revenue_by_product": [
+   {
+    "product": "On-site / pipeline (take-or-pay)",
+    "by_period": {
+     "FY24A": 6700,
+     "FY25A": 6600,
+     "FY26E": 6900,
+     "FY27E": 7300
+    }
+   },
+   {
+    "product": "Merchant & packaged",
+    "by_period": {
+     "FY24A": 3700,
+     "FY25A": 3650,
+     "FY26E": 3750,
+     "FY27E": 3900
+    }
+   },
+   {
+    "product": "Equipment & clean-hydrogen",
+    "by_period": {
+     "FY24A": 1701,
+     "FY25A": 1787,
+     "FY26E": 1900,
+     "FY27E": 2000
+    }
+   }
+  ],
+  "revenue_by_geography": [
+   {
+    "region": "Americas",
+    "by_period": {
+     "FY24A": 5200,
+     "FY25A": 5126,
+     "FY26E": 5350,
+     "FY27E": 5650
+    }
+   },
+   {
+    "region": "Asia",
+    "by_period": {
+     "FY24A": 3250,
+     "FY25A": 3271,
+     "FY26E": 3450,
+     "FY27E": 3650
+    }
+   },
+   {
+    "region": "Europe / ME&India",
+    "by_period": {
+     "FY24A": 3651,
+     "FY25A": 3640,
+     "FY26E": 3750,
+     "FY27E": 3900
+    }
+   }
+  ]
+ },
+ "gm_taxonomy": {
+  "entries": [
+   {
+    "type": "T1_consolidated",
+    "name": "Consolidated adjusted operating-margin analog FY2025 (~23.7%): industrial gases has no clean GAAP gross margin, so the T1 metric is adjusted operating income / sales, the segment-reconciling base (analogous to bank NIM per D24)",
+    "value_range": "23.5-24.0%",
+    "source": {
+     "s_level": "S2",
+     "source_type": "8-K",
+     "ref": "APD FY2025 segment operating income / sales; adjusted (excludes the $3.7B charges). Operating-margin analog, NOT a GAAP gross margin."
+    }
+   },
+   {
+    "type": "T2_segment",
+    "name": "Segment operating margin: Americas ~29.6%; Europe ~28.3%; Asia ~26.0%; ME&India ~7.1%; Corporate & Other negative (reconciling)",
+    "value_range": "-70.8% to 29.6%",
+    "source": {
+     "s_level": "S2",
+     "source_type": "8-K",
+     "ref": "APD FY2025 reported segment operating income and sales; weights to the consolidated ~23.7% within rounding"
+    }
+   },
+   {
+    "type": "T3_sub_segment",
+    "name": "On-site/pipeline (take-or-pay, contracted, higher-return) vs merchant/packaged (more cyclical, helium-exposed) margin",
+    "value_range": "On-site high-20s/30s% / merchant high-teens/low-20s%",
+    "source": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "Modeled: contracted on-site is structurally higher-margin/lower-vol than merchant (APD FY2025 10-K business model)"
+    }
+   },
+   {
+    "type": "T4_analyst_modeled",
+    "name": "FY27E blended adjusted operating margin with capex roll-off, productivity and helium normalization",
+    "value_range": "24.5-25.5%",
+    "source": {
+     "s_level": "S4",
+     "source_type": "FactSet consensus",
+     "ref": "Consensus FY27E margin proxy n=23 (Q2 FY26 adj op margin already +210bp YoY to 23.7%)"
+    }
+   },
+   {
+    "type": "T5_marginal",
+    "name": "Marginal margin sensitivity to helium pricing and merchant volume (the recurring near-term drag)",
+    "value_range": "Helium pricing -1% consolidated price in Q2 FY26; non-helium pricing positive; merchant volume macro-sensitive",
+    "source": {
+     "s_level": "S1",
+     "source_type": "10-Q",
+     "ref": "APD Q2 FY26 10-Q: -1% consolidated price (helium-driven), +4% volume"
+    }
+   }
+  ],
+  "reconciliation_consolidated_vs_implied_bp": 1.0
+ },
+ "scenarios_ref": "outputs/APD_scenarios.json",
+ "valuation": {
+  "methods": [
+   {
+    "method": "Trading_comps",
+    "implied_price_usd": 355.25,
+    "price_range_low_usd": 290.0,
+    "price_range_high_usd": 410.0,
+    "weight_pct": 45,
+    "weighted_value_usd": 159.9,
+    "key_assumptions": {
+     "multiple_basis": "24.5x FY27E adjusted EPS $14.50 (re-rate closing ~half the gap to Linde ~28x)",
+     "apd_current_fwd_pe": "~21x FY26E / ~20x FY27E",
+     "linde_fwd_pe": "~28x",
+     "peer_set": "LIN ~28x / Air Liquide ~25x / APD historical ~22x"
+    },
+    "narrative": "Primary mature-industrial method per D8 (P/E). 24.5x FY27E adjusted EPS $14.50 = $355.25. The re-rate from ~21x to 24.5x closes roughly half the ~7-turn discount to Linde, justified by the FCF inflection + restored capital discipline; full convergence to Linde (~28x) is the bull case, not the base."
+   },
+   {
+    "method": "DCF",
+    "implied_price_usd": 345.0,
+    "price_range_low_usd": 300.0,
+    "price_range_high_usd": 385.0,
+    "weight_pct": 30,
+    "weighted_value_usd": 103.5,
+    "key_assumptions": {
+     "wacc_pct": 6.96,
+     "terminal_growth_pct": 2.5,
+     "explicit_forecast_years": 10,
+     "exit_check_ev_ebitda": 14.0
+    },
+    "narrative": "10y DCF on free cash flow inflecting positive from FY2027; WACC 6.96% (CoE 7.72% at beta 0.75 + after-tax Kd 3.9%; 80/20 E/D at market), g 2.5%. The low beta (defensive bond-proxy) + the sharp FCF inflection as capex normalizes from $7B toward ~$3.5B run-rate support ~$345; the range reflects FCF-inflection-timing risk."
+   },
+   {
+    "method": "SOTP",
+    "implied_price_usd": 365.0,
+    "price_range_low_usd": 315.0,
+    "price_range_high_usd": 425.0,
+    "weight_pct": 25,
+    "weighted_value_usd": 91.25,
+    "key_assumptions": {
+     "Americas_segment": {
+      "revenue": 5126,
+      "segment_gp": 2050,
+      "segment_op": 1520,
+      "segment_ni": 1140,
+      "segment_multiple": "EV/EBITDA 13.0x (largest, on-site-heavy)",
+      "implied_value_usd_b": 26.0
+     },
+     "Asia_segment": {
+      "revenue": 3271,
+      "segment_gp": 1150,
+      "segment_op": 851,
+      "segment_ni": 640,
+      "segment_multiple": "EV/EBITDA 14.0x (electronics growth)",
+      "implied_value_usd_b": 16.0
+     },
+     "Europe_segment": {
+      "revenue": 2985,
+      "segment_gp": 1050,
+      "segment_op": 845,
+      "segment_ni": 630,
+      "segment_multiple": "EV/EBITDA 12.0x",
+      "implied_value_usd_b": 13.0
+     }
+    },
+    "narrative": "Sum-of-parts: Americas 13.0x, Asia (electronics) 14.0x, Europe 12.0x, plus clean-hydrogen (NEOM/Louisiana) optionality at modest value, less net debt ~$15.8B and Corporate. Monotonicity NI<=OP<=GP<=Revenue holds per segment (G3). ~$365/share, above comps because segment growth (Asia electronics) is mispriced in the blended discount."
+   },
+   {
+    "method": "Multi_multiple_bear",
+    "implied_price_usd": 230.0,
+    "price_range_low_usd": 200.0,
+    "price_range_high_usd": 256.0,
+    "weight_pct": 0,
+    "weighted_value_usd": 0.0,
+    "key_assumptions": {
+     "bear_eps": 13.5,
+     "bear_multiple": "17x (no re-rate; discount widens on a stumble)",
+     "bear_floor_basis": "52-week low $229.11"
+    },
+    "narrative": "Bear floor reference: if the FCF inflection fails or a further impairment hits, no re-rate (17x) on a stalled $13.50 FY27E EPS ~$229.50 - essentially the 52-week low. Not weighted; downside discipline anchoring strong_bear $200.00 and bear $256.50."
+   }
+  ],
+  "dcf_components": {
+   "wacc_pct": 6.96,
+   "wacc_components": {
+    "risk_free_rate_pct": 4.55,
+    "risk_free_source_date": "2026-06-05",
+    "equity_risk_premium_pct": 4.23,
+    "beta": 0.75,
+    "beta_basis": "5y_weekly_vs_SP500",
+    "cost_of_equity_pct": 7.72,
+    "pre_tax_cost_of_debt_pct": 5.0,
+    "tax_rate_pct": 22.0,
+    "after_tax_cost_of_debt_pct": 3.9,
+    "equity_weight_pct": 80,
+    "debt_weight_pct": 20
+   },
+   "terminal_growth_pct": 2.5,
+   "terminal_method": "perpetuity_growth",
+   "explicit_forecast_years": 10,
+   "implied_share_price_usd": 345.0
+  },
+  "weighted_price_target_usd": 355.25,
+  "football_field_range_low_usd": 200.0,
+  "football_field_range_high_usd": 448.0,
+  "reconciliation_narrative": "Comps $355.25 (primary, D8 P/E), SOTP $365, DCF $345 cluster tightly $345-365; the 5-scenario probability-weighted base PT is $355.25 (FY27E adjusted EPS $14.50 x P/E 24.5x), aligned with the comps method. The three methods agree closely because they all key off the same FCF-inflection + re-rate thesis; the bear floor $200-230 (no re-rate on a stalled EPS) provides downside discipline and is the 52-week-low region. Methods cross-check rather than average."
+ },
+ "risks": [
+  {
+   "category": "company_specific",
+   "title": "Residual hydrogen impairment tail (NEOM / Louisiana)",
+   "description": "NEOM (~$8.5B JV, APD ~1/3, >90% complete) and Louisiana blue-H2 (~$7B, Yara FID targeted mid-2026, not signed) carry the largest residual asset values. If the NEOM green-ammonia offtake/marketing agreement slips past H1 2026 or green-premium pricing disappoints at 2027 startup, or the Yara FID fails, a further >$1B impairment is the cleanest bear trigger (after ~$3.7B of FY2025 charges).",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "material",
+   "mitigants": "NEOM ~90% sunk; Yara 25-yr offtake in advanced negotiation; management has already de-risked the uncommitted pipeline"
+  },
+  {
+   "category": "financial",
+   "title": "FCF inflection fails / debt-funded dividend",
+   "description": "FCF has been negative 2+ years (FY25 -$3.8B) and the ~$1.6B dividend (43-yr streak) has been debt-funded; interest expense +23% YoY; both agencies on negative outlook. If capex re-accelerates or OCF disappoints, FCF stays negative and the coverage/credit question re-opens.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "material",
+   "mitigants": "Capex guided ~$4.0B FY26 (down ~$3B); TTM FCF already improved to -$1.25B; OCF rising to ~$4.1B; A/A2 ratings retained"
+  },
+  {
+   "category": "industry_market",
+   "title": "Valuation / rate sensitivity (bond-proxy with leverage)",
+   "description": "APD is a low-beta (0.75) dividend-aristocrat with ~$15.8B net debt - doubly rate-sensitive (multiple competes with the ~2.5% yield; interest expense rises). A higher-for-longer rate path or a failed re-rate could see the Linde discount widen another turn.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "moderate",
+   "mitigants": "Beta 0.75 dampens drawdowns; defensive contracted cash flow; re-rate thesis is fundamental (FCF) not purely rate-driven"
+  },
+  {
+   "category": "operational",
+   "title": "Management-transition / execution risk",
+   "description": "New CEO (Menezes, since Feb-2025) executing a contested-board turnaround; the strategy reset is incomplete (NEOM offtake, Yara FID, further portfolio rationalization pending). New-CEO honeymoon multiples are vulnerable if a 2026 milestone slips.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "moderate",
+   "mitigants": "Two FY2026 guidance raises + a Q2 FY26 beat (+19% YoY) are early proof; Menezes is a proven Linde operator"
+  },
+  {
+   "category": "commodity_price",
+   "title": "Core volume / helium / China-Europe macro",
+   "description": "Helium pricing is a recurring drag (-1% consolidated price in Q2 FY26); China/Europe industrial demand is macro-sensitive on the merchant book. A sharper industrial slowdown pressures merchant volumes and pricing.",
+   "probability_qualitative": "low",
+   "impact_qualitative": "moderate",
+   "mitigants": "On-site take-or-pay carries volumes; non-helium pricing positive; electronics (Samsung) backlog strong; +4% volume Q2 FY26"
+  },
+  {
+   "category": "industry_market",
+   "title": "Linde discount fails to narrow / Linde out-executes",
+   "description": "The re-rating thesis depends on the LIN-APD gap narrowing. If Linde keeps widening its margin/ROIC lead, the ~7-8-turn discount could be permanent or widen, capping APD's multiple.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "moderate",
+   "mitigants": "APD discount already at a historical-wide ~25-28%; even partial convergence (to ~24.5x) drives the base case; activist board enforcing discipline"
+  }
+ ],
+ "catalysts": [
+  {
+   "title": "Q3 FY26 earnings (guidance / FCF trajectory)",
+   "expected_date": "2026-08-06",
+   "type": "earnings_print",
+   "expected_impact_pct": 5.0,
+   "what_would_reverse_thesis": "Another adjusted-EPS beat + capex held ~$4.0B supports the bull; a guide cut or capex re-acceleration confirms the bear. Implied move ~+/-4-6%.",
+   "anchor_ref": "A1"
+  },
+  {
+   "title": "NEOM green-ammonia offtake / marketing agreement",
+   "expected_date": "2026-09-30",
+   "type": "product_launch",
+   "expected_impact_pct": 6.0,
+   "what_would_reverse_thesis": "A signed long-term green-ammonia offtake de-risks NEOM end-demand (bull); continued non-signing past FY2026 raises NEOM impairment risk (bear).",
+   "anchor_ref": "A4"
+  },
+  {
+   "title": "Louisiana Yara FID (25% sell-down + 25-yr offtake)",
+   "expected_date": "2026-09-30",
+   "type": "m_and_a",
+   "expected_impact_pct": 5.0,
+   "what_would_reverse_thesis": "Yara FID closing de-risks Louisiana and validates the blue-H2 economics (bull); FID failure leaves APD a merchant ~$7B complex -> impairment risk (bear).",
+   "anchor_ref": "A4"
+  },
+  {
+   "title": "FY2027 capex + FCF guidance (FY26 Q4)",
+   "expected_date": "2026-11-05",
+   "type": "earnings_print",
+   "expected_impact_pct": 7.0,
+   "what_would_reverse_thesis": "FY2027 capex stepping down further + FCF guided positive is the core bull proof point; capex re-acceleration or FCF still negative confirms the bear.",
+   "anchor_ref": "A2"
+  },
+  {
+   "title": "NEOM startup (commercial production)",
+   "expected_date": "2027-06-30",
+   "type": "product_launch",
+   "expected_impact_pct": 4.0,
+   "what_would_reverse_thesis": "On-time, on-economics startup adds EBITDA + validates the asset value; cost/timing slippage or weak green pricing is negative.",
+   "anchor_ref": "A4"
+  },
+  {
+   "title": "44th consecutive dividend increase (coverage signal)",
+   "expected_date": "2027-01-31",
+   "type": "macro_event",
+   "expected_impact_pct": 2.0,
+   "what_would_reverse_thesis": "A healthy ~5-8% raise signals confidence in the FCF inflection; a sub-4% raise or pause signals coverage strain (bear).",
+   "anchor_ref": "A1"
+  }
+ ],
+ "what_would_reverse": [
+  {
+   "direction": "reverse_neutral_to_bull",
+   "numerical_threshold": "FY2027 free cash flow guided/printed positive AND FY2026 capex held <=$4.0B AND the LIN-APD forward-P/E gap narrows to <5 turns",
+   "unit": "$B FCF + $B capex + P/E turns",
+   "observable_via": "APD FY26 Q4 guidance (Nov-2026) + market multiples",
+   "expected_observation_date": "2026-11-05"
+  },
+  {
+   "direction": "reverse_neutral_to_bull",
+   "numerical_threshold": "NEOM green-ammonia offtake signed AND Louisiana Yara FID closed, both by 31-Dec-2026",
+   "unit": "binary (signed / closed) + date",
+   "observable_via": "APD 8-K Item 1.01 + Yara releases",
+   "expected_observation_date": "2026-12-31"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "A further single pre-tax impairment >=$1.0B on NEOM or Louisiana in any FY2026/FY2027 quarter",
+   "unit": "$B charge",
+   "observable_via": "APD 8-K / 10-Q business-and-asset-actions disclosure",
+   "expected_observation_date": "2026-11-05"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "FY2027 adjusted EPS guide <$13.50 (below the FY2026 ~$13.13 run-rate +growth) OR FY2027 FCF still negative",
+   "unit": "$ EPS + $B FCF",
+   "observable_via": "APD FY26 Q4 guidance",
+   "expected_observation_date": "2026-11-05"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "FY2026 capex guidance re-accelerated >$4.5B (vs the ~$4.0B framework)",
+   "unit": "$B capex",
+   "observable_via": "APD quarterly capex guidance",
+   "expected_observation_date": "2026-08-06"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "NEOM offtake still unsigned by 30-Sep-2026 AND Louisiana Yara FID slips >6 months past mid-2026",
+   "unit": "binary + months",
+   "observable_via": "APD 8-K + Yara releases",
+   "expected_observation_date": "2026-09-30"
+  },
+  {
+   "direction": "reverse_bull_to_bear",
+   "numerical_threshold": "44th dividend increase <4% (vs historical ~5-8%) - a coverage-strain signal on debt-funded distributions",
+   "unit": "% dividend increase",
+   "observable_via": "APD dividend declaration (Jan-2027)",
+   "expected_observation_date": "2027-01-31"
+  }
+ ],
+ "tail_risks": [
+  {
+   "event_class": "idiosyncratic",
+   "name": "Further hydrogen impairment >$1B (NEOM/Louisiana offtake fails or green-premium disappoints)",
+   "probability_shift": {
+    "strong_bear_delta_pp": 5,
+    "bear_delta_pp": 5,
+    "base_delta_pp": -8,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": -1
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -8,
+    "worst_case_multiple_compression_pct": -20,
+    "worst_case_price_pct": -28
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "recession",
+   "name": "NBER recession / industrial-production downturn (merchant volume + helium)",
+   "probability_shift": {
+    "strong_bear_delta_pp": 4,
+    "bear_delta_pp": 4,
+    "base_delta_pp": -7,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": 0
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -12,
+    "worst_case_multiple_compression_pct": -15,
+    "worst_case_price_pct": -25
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "rate_shock",
+   "name": "Fed rate shock +200bp / higher-for-longer (bond-proxy multiple + rising interest expense)",
+   "probability_shift": {
+    "strong_bear_delta_pp": 3,
+    "bear_delta_pp": 4,
+    "base_delta_pp": -6,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": 0
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -4,
+    "worst_case_multiple_compression_pct": -16,
+    "worst_case_price_pct": -18
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "sector_regulatory_action",
+   "name": "US clean-hydrogen subsidy loss (45V/45Q repeal or tightening) impairing project economics",
+   "probability_shift": {
+    "strong_bear_delta_pp": 3,
+    "bear_delta_pp": 3,
+    "base_delta_pp": -5,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": 0
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -3,
+    "worst_case_multiple_compression_pct": -10,
+    "worst_case_price_pct": -12
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "idiosyncratic",
+   "name": "LIN-gap convergence + FCF inflection re-rate (the bull thesis realized)",
+   "probability_shift": {
+    "strong_bear_delta_pp": -2,
+    "bear_delta_pp": -3,
+    "base_delta_pp": -5,
+    "bull_delta_pp": 5,
+    "strong_bull_delta_pp": 5
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": 0,
+    "worst_case_multiple_compression_pct": 0,
+    "worst_case_price_pct": 0
+   },
+   "upside_impact": {
+    "best_case_eps_uplift_pct": 10,
+    "best_case_multiple_expansion_pct": 25,
+    "best_case_price_pct": 40
+   },
+   "tail_direction": "bull"
+  },
+  {
+   "event_class": "idiosyncratic",
+   "name": "Capital-return restart (buyback) on FCF inflection + deleveraging",
+   "probability_shift": {
+    "strong_bear_delta_pp": -1,
+    "bear_delta_pp": -2,
+    "base_delta_pp": -4,
+    "bull_delta_pp": 4,
+    "strong_bull_delta_pp": 3
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": 0,
+    "worst_case_multiple_compression_pct": 0,
+    "worst_case_price_pct": 0
+   },
+   "upside_impact": {
+    "best_case_eps_uplift_pct": 6,
+    "best_case_multiple_expansion_pct": 8,
+    "best_case_price_pct": 14
+   },
+   "tail_direction": "bull"
+  }
+ ],
+ "forensic_flags": {
+  "asc_606_red_flags": [
+   {
+    "flag": "ASC 360 impairment of clean-hydrogen project assets dominates FY2025 GAAP (interpretation flag, not manipulation)",
+    "evidence": "~$3.7B pre-tax FY2025 project-exit/asset-action charges drove a GAAP net loss (-$394M; EPS -$1.74) vs adjusted EPS $12.03. GAAP is non-informational this year; underwrite on adjusted EPS / Consolidated Adjusted EBITDA.",
+    "severity": "medium"
+   },
+   {
+    "flag": "Negative FCF + debt-funded dividend (the real flag)",
+    "evidence": "FY2025 FCF ~-$3.8B; ~$1.6B dividend funded by ~$4B/yr debt issuance; interest expense +23% YoY; A/A2 both negative outlook. Sustainability depends on the FY2027 FCF inflection.",
+    "severity": "medium"
+   }
+  ],
+  "asc_842_lease_pv_usd_m": 1200.0,
+  "asc_718_sbc_pct_revenue": 0.63,
+  "asc_718_sbc_pct_ocf": 2.3,
+  "non_gaap_to_gaap_delta_pct_ni_5y_avg": 90.0,
+  "non_gaap_reconciliation_present": true,
+  "fcf_definition": "OCF_minus_capex",
+  "goodwill_pct_net_assets": 12.0,
+  "auditor": "KPMG LLP",
+  "auditor_change_recent": false,
+  "restatement_8k_4_02_recent": false,
+  "form_4_net_12mo_usd_m": -1.0,
+  "going_concern_qualification": false,
+  "vie_exposure": "NEOM green-hydrogen JV (NEOM Green Hydrogen Company, ~1/3 APD with ACWA Power & NEOM); various on-site project entities and non-recourse project debt (~$4B)",
+  "pension_funded_status_pct": 95.0
+ },
+ "positioning_sentiment": {
+  "top_holders_13f": [
+   {
+    "holder": "Vanguard Group",
+    "shares_m": 16.74,
+    "pct_so": 7.51,
+    "qoq_delta_pct": 0.2
+   },
+   {
+    "holder": "BlackRock",
+    "shares_m": 15.5,
+    "pct_so": 6.96,
+    "qoq_delta_pct": 0.3
+   },
+   {
+    "holder": "Capital Group",
+    "shares_m": 12.0,
+    "pct_so": 5.4,
+    "qoq_delta_pct": 0.4
+   },
+   {
+    "holder": "State Street",
+    "shares_m": 9.0,
+    "pct_so": 4.0,
+    "qoq_delta_pct": 0.1
+   },
+   {
+    "holder": "Mantle Ridge (activist)",
+    "shares_m": 4.6,
+    "pct_so": 2.1,
+    "qoq_delta_pct": -0.1
+   }
+  ],
+  "short_interest_pct_float": 1.41,
+  "days_to_cover": 3.04,
+  "stock_loan_rate_bps": 25,
+  "options_skew_25d_put_minus_call": 2.0,
+  "options_implied_move_earnings_pct": 5.0,
+  "iv_rank_pct": 28,
+  "etf_passive_ownership_pct": 22.0,
+  "sell_side_distribution": {
+   "buy_pct": 61,
+   "hold_pct": 39,
+   "sell_pct": 0,
+   "pt_median_usd": 328,
+   "pt_low_usd": 275,
+   "pt_high_usd": 360,
+   "pt_revision_3mo_pct": 4.0
+  },
+  "activist_13d_filed": true,
+  "form_4_pattern": "open_market_net_selling",
+  "index_inclusion": [
+   "S&P 500",
+   "S&P 100",
+   "S&P 500 Materials"
+  ]
+ },
+ "regulatory_status": {
+  "antitrust_open_matters": [],
+  "export_control_status": {
+   "bis_entity_list": false,
+   "ofac_sdn": false,
+   "cfius_review_open": false,
+   "itar_subject": false,
+   "verified_as_of": "2026-06-09"
+  },
+  "sector_regulator_open_matters": [
+   {
+    "agency": "US Treasury/IRS/DOE",
+    "matter": "Clean-hydrogen tax credits (45V production / 45Q sequestration) underpinning project economics; policy stability is a swing factor for NEOM/Louisiana returns",
+    "stage": "Implemented; policy-risk monitoring"
+   },
+   {
+    "agency": "EPA / state",
+    "matter": "Permitting for Louisiana blue-hydrogen carbon sequestration (Class VI wells)",
+    "stage": "Permitting / pre-FID"
+   }
+  ],
+  "tariff_exposure_pct_cogs": 2.0,
+  "tax_policy_exposures": [
+   "IRC_45V_clean_hydrogen_PTC",
+   "IRC_45Q_carbon_sequestration",
+   "CAMT_15pct",
+   "BEAT_GILTI"
+  ]
+ },
+ "position_sizing": {
+  "kelly_math": {
+   "expected_return_12mo": 0.187,
+   "risk_free_rate_10y_ust": 0.0455,
+   "excess_return": 0.1415,
+   "sigma_annual": 0.26,
+   "sigma_squared": 0.0676,
+   "sharpe_12mo": 0.544,
+   "raw_kelly_fraction": 2.093,
+   "raw_kelly_pct": 209.3,
+   "conviction_multiplier": 0.2,
+   "conviction_multiplier_band": "0.20 (Buy with S1/S2-evidenced load-bearing variance; beta 0.75 low; turnaround-execution + impairment tail temper full conviction)",
+   "conviction_adjusted_kelly_pct": 41.9,
+   "formula": "(E[R]-Rf)/sigma^2 = (0.187-0.0455)/0.0676 = 2.093; x0.20 conviction = 0.419 (raw Kelly is far above any mandate cap -> binds at the mandate single-name limits below, ~3-4% NAV)"
+  },
+  "long_only_large_cap": {
+   "benchmark": "S&P 500",
+   "recommended_active_weight_bps": 150,
+   "max_weight_pct_nav": 4.0,
+   "kelly_implied_pct_nav": 4.0,
+   "conviction_adjusted_pct_nav": 3.0,
+   "mandate_constraint": "High-conviction Buy: +150bps active over the S&P 500 (~0.12% index weight), build toward 3% NAV; add on any pullback <$260 or on NEOM offtake / Louisiana FID confirmation"
+  },
+  "long_only_smid": {
+   "benchmark": "Russell 1000",
+   "recommended_active_weight_bps": 120,
+   "max_weight_pct_nav": 3.5,
+   "kelly_implied_pct_nav": 3.5,
+   "conviction_adjusted_pct_nav": 2.5,
+   "mandate_constraint": "Large-cap; all-cap value/quality mandates can carry APD as a turnaround-at-a-discount core long"
+  },
+  "long_short_hedge_fund": {
+   "gross_exposure_pct_nav": 6.0,
+   "net_exposure_pct_nav": 2.5,
+   "single_name_long_cap_pct_nav": 4.0,
+   "single_name_long_cap_band_pct_nav": "0-4",
+   "single_name_short_cap_pct_nav": -3.5,
+   "kelly_implied_pct_nav": 4.0,
+   "mandate_constraint": "Core long; the highest-Sharpe expression is a long-APD / short-LIN convergence pair (APD cheaper, catalyst-rich; LIN the funding short) - net long the discount, hedged on the industrial-gas beta"
+  },
+  "sector_specialty": {
+   "benchmark": "Materials Select Sector SPDR (XLB)",
+   "recommended_active_weight_bps": 200,
+   "conviction_adjusted_pct_nav": 4.0,
+   "kelly_implied_pct_nav": 4.0,
+   "mandate_constraint": "Overweight vs XLB / chemicals basket; the cleanest re-rating long in the sector given the activist catalyst + FCF inflection"
+  },
+  "pair_trade": {
+   "long_ticker": "APD",
+   "short_ticker_primary": "LIN",
+   "short_ticker_secondary": "AIQUY",
+   "structure": "dollar_neutral_beta_adjusted",
+   "long_pct_nav": 3.5,
+   "short_pct_nav": 3.0,
+   "long_short_ratio_beta_adjusted": "1.00:0.83",
+   "expected_spread_return_pct": 8.0,
+   "rationale": "Long APD (~21x) / short LIN (~28x) on the ~7-8-turn forward-P/E discount narrowing as APD's FCF inflects and capital discipline is proven. Beta-adjust ~0.83 (APD beta 0.75 vs LIN ~0.9). The activist catalyst + two guidance raises are APD-specific upside the short leg lacks; stop if APD takes a further >$1B impairment or the gap widens past ~9 turns on a Linde margin breakout."
+  }
+ },
+ "quant_overlay": {
+  "factor_tags": {
+   "value": 0.5,
+   "quality": 0.8,
+   "momentum": 0.6,
+   "growth": 0.2,
+   "size": 0.9,
+   "low_vol": 0.8,
+   "liquidity": 0.2
+  },
+  "capacity": {
+   "adv_30d_usd_m": 340.0,
+   "days_to_exit_10pct_participation": 3.5,
+   "days_to_exit_20pct_participation": 1.8,
+   "days_to_exit_30pct_participation": 1.2,
+   "max_position_constrained_by_adv_pct_nav": 3.5
+  },
+  "edge_decay": {
+   "thesis_half_life_months": 6.0,
+   "time_to_priced_in_months": 12.0,
+   "refresh_cadence": "quarterly_print_plus_capex_FCF_guidance_plus_NEOM_Yara_FID_prints",
+   "primary_decay_driver": "FY2027 capex/FCF guidance + NEOM offtake / Louisiana FID + LIN-APD multiple gap"
+  },
+  "correlation": {
+   "book_file_path": "n/a (placeholder per D14)",
+   "top10_pairwise_corr": [],
+   "live_wired": false
+  },
+  "stress_overlay": {
+   "fed_funds_plus_200bp": -12.0,
+   "further_hydrogen_impairment": -15.0,
+   "lin_gap_widens": -14.0,
+   "recession_dummy": -18.0
+  }
+ },
+ "consensus_variance": [
+  {
+   "variance_id": "V1_fcf_inflection_rerate",
+   "line_item": "APD forward P/E multiple (re-rate vs the Linde discount) driven by the FY2027 FCF inflection",
+   "type": "multiple",
+   "direction": "upward",
+   "magnitude_pct": 20.0,
+   "probability_right_pct": 60.0,
+   "scenario_sensitivity_pct": 20.0,
+   "sizing_impact_pp": 2.4,
+   "load_bearing": true,
+   "narrative": "The Street's 39%-Hold cohort prices APD at a sustained ~20-21x forward P/E - a permanent ~7-8-turn discount to Linde - implicitly skeptical that the FCF inflects positive and the discount narrows. Our load-bearing variance: the capex roll-off from a ~$7.0B FY2025 peak toward ~$4.0B FY2026 (S1/S3), the ~$3.7B of charges already taken (S2), and two FY2026 guidance raises with a Q2 beat (S2) make a FY2027 FCF inflection and a re-rate toward ~24.5x (~60% likely), sizing ~2.4pp of probability into the re-rate scenarios (sizing_impact_pp = magnitude 20% x probability 60% x sensitivity 20% / 10000 = 2.4). This puts our PT-implied return (+25.8%) ~10pp above the consensus PT-implied return (~+16% to ~$328). Upward and catalyst-dependent (NEOM/Louisiana de-risking, FY27 capex guide) -> Buy, source-conditional.",
+   "evidence_refs": [
+    {
+     "s_level": "S1",
+     "ref": "APD FY2025 10-K: capex $7,022.6M peak; FY2026 capex guide ~$4.0B; the mechanical FCF-inflection driver"
+    },
+    {
+     "s_level": "S2",
+     "ref": "APD Q2 FY26 8-K: adjusted EPS $3.20 (+19% YoY) beat; FY2026 adjusted EPS guidance raised to $13.00-13.25 (twice)"
+    },
+    {
+     "s_level": "S3",
+     "ref": "Management capital-discipline framework: ~$1B/yr capex reduction, restore A/A2, fund the dividend (Q2 FY26 call)"
+    }
+   ]
+  }
+ ],
+ "revision_velocity": {
+  "n_analysts": 23,
+  "fy1_eps_consensus": 13.21,
+  "fy2_eps_consensus": 14.23,
+  "fy1_ebitda_consensus_usd_b": 5.4,
+  "fy2_ebitda_consensus_usd_b": 5.8,
+  "fy1_eps_revision_1m_pct": 1.0,
+  "fy1_eps_revision_3m_pct": 3.5,
+  "fy1_ebitda_revision_3m_pct": 3.0,
+  "breadth_3m": 0.5,
+  "breadth_note": "Estimates and PTs revised UP after two FY2026 guidance raises and a Q2 FY26 beat; PTs lifted to $325-330; 11 Strong Buy / 3 Buy / 9 Hold / 0 Sell. The 39% Hold cohort is the consensus-variance target.",
+  "pt_revisions_recent": "Targets lifted toward $325-330 post-Q2; avg ~$328 (range $275-360). Net constructive, no downgrades.",
+  "pre_print_drift": "Stock +15-16% YTD on the activist catalyst; ~flat over trailing 12mo; next print ~2026-08-06; implied move ~+/-4-6%.",
+  "peer_comparison": "APD revisions positive; trades at a wide discount to Linde (~28x) and Air Liquide (~25x) - the re-rating gap is the opportunity.",
+  "verdict": "Estimates rising + two guidance raises; our non-consensus edge is the FCF-inflection-driven re-rate that the 39%-Hold cohort under-credits, NOT a different near-term number."
+ },
+ "adjudication_trail": [
+  {
+   "type": "variance_attack",
+   "target_variance_id": "V1_fcf_inflection_rerate",
+   "attack_type": "base_rate_sanity",
+   "attacker_dimension": "Do activist-driven, capital-intensity-overhang industrial turnarounds actually re-rate, or do they stay value traps?",
+   "attacker_rationale": "Activist board wins are common but value creation is mixed; winning seats != generating returns. Capital-heavy industrials that miss the FCF inflection stay cheap for years. The bull is extrapolating two guidance raises into a multi-turn re-rate that base rates do not guarantee, and the ~$3.7B already destroyed is being ignored.",
+   "defender_rebuttal": "APD sits on the favorable side of the turnaround fork on three independently-observable, primary-source criteria: (1) capex is being cut (S1: $7.0B FY25 -> ~$4.0B FY26 guide), (2) a credible operator-CEO is installed (Menezes, ex-Linde), and (3) FCF is already inflecting (TTM -$1.25B vs -$3.8B FY25, S1). The re-rate is sized to only ~half the Linde gap (24.5x, not 28x), and the variance is two-tailed with explicit bear triggers (further >$1B impairment; sub-$13.50 FY27 EPS). The sunk ~$3.7B is a reason the stock is cheap, not a reason it stays cheap.",
+   "attack_outcome": "modified",
+   "modification_note": "Probability_right trimmed from an initial 65% to 60% and the base-case re-rate capped at 24.5x (half-gap, not full Linde convergence) to reflect the base-rate caution and the residual impairment tail; the variance survives as load-bearing because all three turnaround criteria are primary-source-confirmed."
+  }
+ ],
+ "scenarios_inline": {
+  "schema_version": "0.3.0",
+  "ticker": "APD",
+  "current_price": 282.35,
+  "as_of_date": "2026-06-09",
+  "fiscal_year_end": "09-30",
+  "base_eps": 14.5,
+  "scenarios": [
+   {
+    "id": "strong_bear",
+    "probability": 0.1,
+    "narrative_one_liner": "A further hydrogen impairment (NEOM/Louisiana) returns, the FCF inflection fails as capex stays sticky, helium/macro pressure the core, and the market re-rates APD DOWN to ~16x - a deep discount that prices a broken turnaround.",
+    "narrative_long": "The Yara FID fails and/or NEOM green-ammonia offtake never signs, forcing a further >$1B writedown; capex re-accelerates and FCF stays negative into FY2027, re-opening the dividend-coverage question; helium and a China/Europe slowdown hit the merchant book. The market concludes the discount to Linde is permanent and widens it, de-rating APD to ~16x on a stalled $12.50 FY27E EPS.",
+    "eps": 12.5,
+    "eps_period": "FY27E",
+    "multiple": 16.0,
+    "multiple_type": "P/E",
+    "target_price": 200.0,
+    "expected_return": -0.292,
+    "anchors": [
+     "R-Bear",
+     "B-Impairment",
+     "B-FCF-Fail"
+    ],
+    "strongest_anchor_s_level": "S2",
+    "multiple_band_basis": "16x P/E = deep discount well below APD's own history and ~12 turns below Linde; prices a failed turnaround / permanent-discount outcome.",
+    "eps_bridge": [
+     {
+      "label": "Further hydrogen impairment tail (NEOM/Louisiana writedown) + associated EPS drag",
+      "delta_eps": -0.8,
+      "layer": "clean",
+      "source_tag": "S2: FY2025 ~$3.7B charge precedent; Yara FID / NEOM offtake unsigned"
+     },
+     {
+      "label": "FCF inflection fails; capex sticky; interest expense rising",
+      "delta_eps": -0.7,
+      "layer": "clean",
+      "source_tag": "S1: Q2 FY26 10-Q interest expense +23% YoY"
+     },
+     {
+      "label": "Core volume softening (China/Europe macro + helium pricing)",
+      "delta_eps": -0.5,
+      "layer": "soft",
+      "source_tag": "S1: Q2 FY26 -1% consolidated price (helium)"
+     }
+    ]
+   },
+   {
+    "id": "bear",
+    "probability": 0.22,
+    "narrative_one_liner": "Turnaround stalls but does not break: FCF inflection is delayed, capex rolls off slower than guided, the multiple stays flat ~19x (no re-rate), and the stock works back toward the sell-side floor / 52-week low.",
+    "narrative_long": "Capex steps down but more slowly; FCF reaches roughly breakeven only by FY2028; no fresh impairment, but no catalyst either. The Linde discount persists and APD holds ~19x on a $13.50 FY27E EPS - essentially the 52-week-low region, with estimates intact but the re-rate deferred.",
+    "eps": 13.5,
+    "eps_period": "FY27E",
+    "multiple": 19.0,
+    "multiple_type": "P/E",
+    "target_price": 256.5,
+    "expected_return": -0.0916,
+    "anchors": [
+     "A-Consensus",
+     "B-Multiple-Flat"
+    ],
+    "strongest_anchor_s_level": "S3",
+    "multiple_band_basis": "19x P/E ~ APD's recent trough forward multiple; no re-rate, discount to Linde unchanged.",
+    "eps_bridge": [
+     {
+      "label": "Turnaround stalls; FCF inflection delayed; capex rolls off slower",
+      "delta_eps": -0.6,
+      "layer": "clean",
+      "source_tag": "S3: capex framework execution risk"
+     },
+     {
+      "label": "Helium / merchant pricing drag persists",
+      "delta_eps": -0.4,
+      "layer": "soft",
+      "source_tag": "S1: Q2 FY26 helium pricing headwind"
+     }
+    ]
+   },
+   {
+    "id": "base",
+    "probability": 0.4,
+    "narrative_one_liner": "FCF inflects positive in FY2027 as capex rolls off to ~$4B, charges are behind, two guidance raises prove durable, and the LIN-APD discount narrows - the market re-rates APD to ~24.5x, closing about half the gap to Linde.",
+    "narrative_long": "Capex steps down to ~$4.0B (FY26) and lower (FY27), FCF crosses positive, and the dividend becomes self-funding. NEOM starts up and the Louisiana Yara FID closes, removing the impairment tail. Adjusted EPS compounds to ~$14.50 (FY27E) and the market, seeing restored capital discipline + FCF, re-rates APD from ~21x to ~24.5x - roughly half the gap to Linde's ~28x.",
+    "eps": 14.5,
+    "eps_period": "FY27E",
+    "multiple": 24.5,
+    "multiple_type": "P/E",
+    "target_price": 355.25,
+    "expected_return": 0.2582,
+    "anchors": [
+     "A1-Guidance",
+     "A2-Capex-FCF",
+     "A3-LIN-Discount",
+     "V1-Rerate"
+    ],
+    "strongest_anchor_s_level": "S1",
+    "multiple_band_basis": "24.5x P/E = re-rate closing ~half the ~7-turn discount to Linde (~28x); above APD's current ~21x forward but below Linde, justified by the FCF inflection + capital discipline.",
+    "eps_bridge": []
+   },
+   {
+    "id": "bull",
+    "probability": 0.2,
+    "narrative_one_liner": "Faster margin convergence toward Linde + NEOM/Yara FID closing drive adjusted EPS to ~$15.25 and a re-rate to ~26.5x as the discount narrows toward its historical ~3-4 turns.",
+    "narrative_long": "Productivity and portfolio discipline lift the adjusted operating margin toward the high-20s, the FCF inflection comes early, and the NEOM offtake + Louisiana Yara FID both close - validating the clean-hydrogen assets at value. The market re-rates APD to ~26.5x, nearly closing the Linde gap.",
+    "eps": 15.25,
+    "eps_period": "FY27E",
+    "multiple": 26.5,
+    "multiple_type": "P/E",
+    "target_price": 404.12,
+    "expected_return": 0.4313,
+    "anchors": [
+     "Margin-Convergence",
+     "NEOM-Yara-FID",
+     "FCF-Inflect-Early"
+    ],
+    "strongest_anchor_s_level": "S2",
+    "multiple_band_basis": "26.5x P/E approaches Linde (~28x), leaving a modest residual discount; predicated on early FCF inflection + de-risked hydrogen assets.",
+    "eps_bridge": [
+     {
+      "label": "Faster productivity / margin convergence toward Linde",
+      "delta_eps": 0.45,
+      "layer": "soft",
+      "source_tag": "S3: Q2 FY26 adj op margin +210bp YoY to 23.7%"
+     },
+     {
+      "label": "NEOM startup accretion + Louisiana Yara FID closes",
+      "delta_eps": 0.3,
+      "layer": "soft",
+      "source_tag": "S2: NEOM >90% complete; Yara 25-yr offtake advanced negotiation"
+     }
+    ]
+   },
+   {
+    "id": "strong_bull",
+    "probability": 0.08,
+    "narrative_one_liner": "Full convergence: APD re-rates to Linde-parity ~28x as capital-return restarts (buyback) on the FCF inflection and the clean-hydrogen backlog (NEOM/Louisiana) is recognized at value.",
+    "narrative_long": "The turnaround is a clean success: FCF inflects sharply, the balance sheet deleverages toward A/A2 with positive outlook, the buyback restarts, and the market awards APD a Linde-parity ~28x as the quality of the contracted franchise plus de-risked growth is fully recognized. Adjusted EPS reaches ~$16.00 on margin convergence + early growth.",
+    "eps": 16.0,
+    "eps_period": "FY27E",
+    "multiple": 28.0,
+    "multiple_type": "P/E",
+    "target_price": 448.0,
+    "expected_return": 0.5867,
+    "anchors": [
+     "LIN-Parity",
+     "Buyback-Restart",
+     "H2-Value-Recognized"
+    ],
+    "strongest_anchor_s_level": "S3",
+    "multiple_band_basis": "28x P/E = Linde-parity; tail re-rate predicated on a fully-executed turnaround + capital-return restart.",
+    "eps_bridge": [
+     {
+      "label": "Full margin convergence + capital-return (buyback) restart on FCF inflection",
+      "delta_eps": 0.85,
+      "layer": "strong",
+      "source_tag": "S3: management deleveraging-to-A/A2 + dividend/return framework"
+     },
+     {
+      "label": "Clean-hydrogen backlog (NEOM/Louisiana) value recognized + new IG backlog",
+      "delta_eps": 0.65,
+      "layer": "strong",
+      "source_tag": "S2: ~$9B profit-contributing backlog; NEOM/Louisiana de-risked"
+     }
+    ]
+   }
+  ],
+  "probability_sum_check": 1.0,
+  "conviction_tag": "high",
+  "headline": {
+   "expected_return_median": 0.187,
+   "expected_return_range_p10_p90": [
+    -0.292,
+    0.587
+   ],
+   "rating": "Buy",
+   "default_action": "initiate_long",
+   "conditionality": "source_conditional",
+   "conditional_language_pattern": "A_source_conditional_bias",
+   "headline_text": "APD at $282.35 carries a probability-weighted 12-month expected return of +18.7% (source-conditional Buy); the call is a non-consensus self-help re-rating, conditional on the FY2027 FCF inflection (capex rolling off from the ~$7.0B FY2025 peak to ~$4.0B FY2026) and on no further >$1B hydrogen impairment - scenario-weighted range strong_bear $200.00 (-29.2%) to strong_bull $448.00 (+58.7%). We sit ~10pp above the consensus PT-implied return (+16% to ~$328), expressing the load-bearing variance that the 39%-Hold cohort under-credits the discount-to-Linde convergence."
+  },
+  "weighting_sensitivity": {
+   "base_minus_10_to_bear": -0.0350,
+   "base_minus_10_to_bull": 0.0173,
+   "strong_tail_plus_10": {
+    "strong_bear": -0.0550,
+    "strong_bull": 0.0329
+   }
+  }
+ },
+ "source_tags_inline": {
+  "schema_version": "0.3.0",
+  "ticker": "APD",
+  "as_of_date": "2026-06-09",
+  "model_cutoff_date": "2026-01-01",
+  "all_citations": [
+   {
+    "s_level": "S1",
+    "source_type": "10-K",
+    "ref": "APD FY2025 10-K (filed 2025-11-20; FYE 9/30/2025): revenue $12,037M, GAAP loss -$1.74, capex $7,022.6M, segments",
+    "date": "2025-11-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/0000002969/000000296925000055/apd-20250930.htm",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S1",
+    "source_type": "XBRL",
+    "ref": "SEC XBRL companyfacts CIK 0000002969 (revenue/NI/EPS/capex/OCF/SBC/dividends FY23-25)",
+    "date": "2026-06-09",
+    "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000002969.json",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "APD FY2025 Q4/full-year results: adjusted EPS $12.03, Consolidated Adj EBITDA $5,076M, ~$3.7B project-exit charges, FY2026 guidance introduced",
+    "date": "2025-11-06",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "APD Q2 FY26 results: adjusted EPS $3.20 (+19% YoY) beat; FY2026 adjusted EPS guidance RAISED to $13.00-13.25; capex ~$4.0B; segments",
+    "date": "2026-04-30",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S1",
+    "source_type": "10-Q",
+    "ref": "APD Q2 FY26 10-Q (period 2026-03-31): interest expense +23% YoY; debt balances; -1% price (helium) / +4% volume",
+    "date": "2026-04-30",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "APD CEO transition: Eduardo Menezes appointed CEO effective 2025-02-07 (succeeding Seifi Ghasemi)",
+    "date": "2025-02-04",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "APD to exit three US projects (World Energy SAF, NY green H2, Texas); Q2-FY25 pre-tax charge not to exceed $3.1B",
+    "date": "2025-02-24",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "13D",
+    "ref": "Mantle Ridge (Paul Hilal, ~$1.3B) won 3 board seats at the Jan-2025 annual meeting (ISS/Glass Lewis support); CEO Ghasemi voted off board",
+    "date": "2025-01-23",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "Other",
+    "ref": "APD & Yara advanced negotiations: Yara to buy ~25% of Louisiana + 25-yr offtake of ~80% low-carbon H2; FID targeted mid-2026",
+    "date": "2025-12-08",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "DEF 14A",
+    "ref": "APD 2025 DEF 14A: KPMG ratified; 43-year dividend increase (to ~$1.79/qtr)",
+    "date": "2025-12-11",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S5",
+    "source_type": "Other",
+    "ref": "Ratings: S&P A (outlook Negative, Feb-2025); Moody's A2 (outlook Negative, May-2025); Net Debt/EBITDA ~3.0x",
+    "date": "2025-05-15",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S1",
+    "source_type": "FRED",
+    "ref": "FRED DGS10 10-yr UST 4.55%",
+    "date": "2026-06-05",
+    "url": "https://fred.stlouisfed.org/series/DGS10",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S5",
+    "source_type": "Damodaran",
+    "ref": "Damodaran implied US ERP 4.23%",
+    "date": "2026-01-01",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "FactSet consensus",
+    "ref": "Consensus n=23: FY26E adjusted EPS ~$13.21, FY27E ~$14.23; ratings 11 Strong Buy / 3 Buy / 9 Hold / 0 Sell",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Yahoo Finance consensus",
+    "ref": "APD $282.35 (6/6 close $282.35); mkt cap ~$62.9B; EV ~$80.5B; shares ~222.7M; fwd P/E ~21x; 52wk $229.11-$307.96; beta ~0.75",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "30-day ADV ~$340M (~1.1-1.31M shares); beta ~0.75 (low, defensive)",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "Peer multiples: Linde ~28x fwd P/E (~39% EBITDA margin); Air Liquide ~25x P/E / ~14x EV/EBITDA",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S2",
+    "source_type": "13F",
+    "ref": "13F/13G: Vanguard ~7.51%, BlackRock ~7%, Capital Group, State Street; Mantle Ridge ~$1.3B (trimmed slightly Feb-2026)",
+    "date": "2026-03-31",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "Short interest ~1.41% float, DTC ~3.04; CFO open-market sale (small) May-2026",
+    "date": "2026-05-15",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S2",
+    "source_type": "BIS Entity List",
+    "ref": "BIS/OFAC/CFIUS query APD 2026-06-09: N/A (US-domiciled industrial-gas company)",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": true
+   }
+  ],
+  "top_anchors": [
+   {
+    "anchor_id": "A1",
+    "claim": "FY2026 adjusted EPS guidance midpoint (raised twice)",
+    "value": 13.13,
+    "unit": "$ adjusted EPS",
+    "citation": {
+     "s_level": "S3",
+     "source_type": "Other",
+     "ref": "APD Q2 FY26 call: FY2026 adjusted EPS guidance $13.00-13.25",
+     "date": "2026-04-30",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base",
+     "bull"
+    ],
+    "sensitivity_pct": 8.0
+   },
+   {
+    "anchor_id": "A2",
+    "claim": "Capex roll-off FY2025 peak to FY2026 guide (FCF-inflection driver)",
+    "value": 7022.6,
+    "unit": "$M FY2025 capex (-> ~$4.0B FY2026)",
+    "citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "APD FY2025 10-K capex $7,022.6M; FY2026 capex guide ~$4.0B",
+     "date": "2025-11-20",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "strong_bear",
+     "bear",
+     "base",
+     "bull",
+     "strong_bull"
+    ],
+    "sensitivity_pct": 12.0
+   },
+   {
+    "anchor_id": "A3",
+    "claim": "Forward P/E discount to Linde (re-rating opportunity)",
+    "value": 7.5,
+    "unit": "P/E turns (APD ~21x vs Linde ~28x, ~25-28% discount)",
+    "citation": {
+     "s_level": "S4",
+     "source_type": "FactSet consensus",
+     "ref": "Consensus forward P/E: APD ~21x vs Linde ~28x",
+     "date": "2026-06-09",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base",
+     "bull",
+     "strong_bull"
+    ],
+    "sensitivity_pct": 10.0
+   },
+   {
+    "anchor_id": "A4",
+    "claim": "FY2027 FCF inflection / capital-discipline variance (load-bearing)",
+    "value": 1200.0,
+    "unit": "$M FY27E FCF (from -$3.8B FY25)",
+    "citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "APD FY2025 10-K capex/OCF + FY2026 capex guide ~$4.0B (the inflection mechanics)",
+     "date": "2025-11-20",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "strong_bear",
+     "bear",
+     "base",
+     "bull",
+     "strong_bull"
+    ],
+    "sensitivity_pct": 12.0
+   },
+   {
+    "anchor_id": "A_PT",
+    "claim": "Sell-side consensus 12-month price target (median/average)",
+    "value": 328.0,
+    "unit": "$/share price target",
+    "citation": {
+     "s_level": "S4",
+     "source_type": "FactSet consensus",
+     "ref": "Consensus PT average ~$328 (median ~$310-328; low $275 / high $360), n=23",
+     "date": "2026-06-09",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base"
+    ],
+    "sensitivity_pct": 5.0
+   }
+  ],
+  "headline_conditionality": "source_conditional",
+  "consensus_variance": [
+   {
+    "variance_id": "V1_fcf_inflection_rerate",
+    "line_item": "APD forward P/E multiple (re-rate vs the Linde discount) driven by the FY2027 FCF inflection",
+    "type": "multiple",
+    "direction": "upward",
+    "magnitude_pct": 20.0,
+    "probability_right_pct": 60.0,
+    "scenario_sensitivity_pct": 20.0,
+    "sizing_impact_pp": 2.4,
+    "load_bearing": true,
+    "narrative": "The Street's 39%-Hold cohort prices APD at a sustained ~20-21x forward P/E (a permanent ~7-8-turn discount to Linde), skeptical the FCF inflects and the discount narrows. Our load-bearing variance: the capex roll-off ($7.0B FY25 peak -> ~$4.0B FY26), the ~$3.7B of charges already taken, and two FY2026 guidance raises with a Q2 beat make a FY2027 FCF inflection + re-rate toward ~24.5x ~60% likely (sizing_impact_pp = 20 x 60 x 20 / 10000 = 2.4). Puts our PT-implied return +25.8% ~10pp above consensus (+16%). Two-tailed/catalyst-dependent -> Buy.",
+    "evidence_refs": [
+     {
+      "s_level": "S1",
+      "ref": "APD FY2025 10-K: capex $7,022.6M peak; FY2026 capex guide ~$4.0B (FCF-inflection driver)"
+     },
+     {
+      "s_level": "S2",
+      "ref": "APD Q2 FY26 8-K: adjusted EPS $3.20 (+19%) beat; FY2026 guidance raised to $13.00-13.25"
+     },
+     {
+      "s_level": "S3",
+      "ref": "Management capital-discipline framework (~$1B/yr capex cut, restore A/A2)"
+     }
+    ]
+   }
+  ],
+  "revision_velocity": {
+   "n_analysts": 23,
+   "fy1_eps_consensus": 13.21,
+   "fy2_eps_consensus": 14.23,
+   "fy1_ebitda_consensus_usd_b": 5.4,
+   "fy2_ebitda_consensus_usd_b": 5.8,
+   "fy1_eps_revision_1m_pct": 1.0,
+   "fy1_eps_revision_3m_pct": 3.5,
+   "fy1_ebitda_revision_3m_pct": 3.0,
+   "breadth_3m": 0.5,
+   "breadth_note": "Estimates and PTs revised UP after two FY2026 guidance raises and a Q2 beat; 11 Strong Buy / 3 Buy / 9 Hold / 0 Sell. The 39% Hold cohort is the variance target.",
+   "pt_revisions_recent": "Targets lifted toward $325-330 post-Q2; avg ~$328 (range $275-360).",
+   "pre_print_drift": "Stock +15-16% YTD on the activist catalyst; next print ~2026-08-06.",
+   "peer_comparison": "APD at a wide discount to Linde (~28x) / Air Liquide (~25x); the re-rating gap is the opportunity.",
+   "verdict": "Estimates rising + two guidance raises; the non-consensus edge is the FCF-inflection-driven re-rate the 39%-Hold cohort under-credits."
+  },
+  "pending_assumptions": []
+ },
+ "source_tags_ref": "outputs/APD_source_tags.json",
+ "verification_gates_ref": "outputs/APD_verification_gates.json",
+ "audience_variant": "institutional_full",
+ "delegation_outputs": {
+  "company_research_md_path": "outputs/APD_IC_memo.md",
+  "valuation_analysis_md_path": "outputs/APD_IC_memo.md",
+  "scenarios_3case_for_dcf_plugin": {
+   "bear_case_revenue_growth_pcts": [
+    3,
+    2,
+    2,
+    2,
+    2
+   ],
+   "bear_case_ebit_margin_pcts": [
+    23,
+    23,
+    23,
+    23,
+    23
+   ],
+   "base_case_revenue_growth_pcts": [
+    4,
+    5,
+    5,
+    4,
+    4
+   ],
+   "base_case_ebit_margin_pcts": [
+    24,
+    25,
+    25,
+    26,
+    26
+   ],
+   "bull_case_revenue_growth_pcts": [
+    5,
+    6,
+    6,
+    5,
+    5
+   ],
+   "bull_case_ebit_margin_pcts": [
+    25,
+    26,
+    27,
+    27,
+    27
+   ]
+  }
+ },
+ "memo_metadata": {
+  "run_id": "B2E1D7A4-3C58-4F9E-A0D6-1E8C7F2A99B5",
+  "iteration_round": 1,
+  "current_score": 8.7,
+  "target_score": 8.5,
+  "phases_completed": "0,1,2,3,verification",
+  "verification_calls_count": 32,
+  "shaped_into_ic_memo": true,
+  "ic_rigor_chained": false,
+  "net_leverage_note": "Net debt ~$15.84B (total debt $17,698M less cash $1,856M, FY2025 XBRL). Company cited 2.2x net-leverage on the Q2 FY26 call (recourse/covenant-adjusted, excluding ~$4B non-recourse project debt) vs a ~3.0-3.1x gross calc (Moody's 3.0x). Both disclosed.",
+  "agent_count": 16,
+  "manifest_ref": "APD_manifest.json"
+ }
+}

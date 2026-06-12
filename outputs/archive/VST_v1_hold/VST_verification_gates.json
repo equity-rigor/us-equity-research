@@ -1,0 +1,129 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "VST",
+ "run_id": "DBE04F4C-05AB-4BB4-A6D9-D89E88B101BD",
+ "memo_path": "outputs/VST_IC_memo.md",
+ "memo_structured_path": "outputs/VST_structured.json",
+ "gates": [
+  {
+   "gate_id": "G1",
+   "name": "EPS x Multiple multiplicativity",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G2",
+   "name": "Segment GM reconciliation",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G3",
+   "name": "SOTP monotonicity",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G4",
+   "name": "Scenario probabilities sum to 1.00",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G5",
+   "name": "Bear/bull EPS bridge reconciles",
+   "status": "pass",
+   "category": "math",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G6",
+   "name": "Source tag at first use",
+   "status": "pass",
+   "category": "source",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G7",
+   "name": "Headline conditionality matches anchor strength",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G8",
+   "name": "GM taxonomy box exists",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G9",
+   "name": "What-would-reverse numerical denominators",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G10",
+   "name": "Anchor weighting impact table",
+   "status": "pass",
+   "category": "structure",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G11",
+   "name": "Non-GAAP to GAAP reconciliation present",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G12",
+   "name": "SBC treatment in FCF disclosed",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G13",
+   "name": "Factor exposure stated",
+   "status": "pass",
+   "category": "quant_overlay",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G14",
+   "name": "Capacity/ADV/days-to-exit stated",
+   "status": "pass",
+   "category": "quant_overlay",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G15",
+   "name": "Consensus variance declared or anchored",
+   "status": "n_a",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G16",
+   "name": "Bank metrics (N/A non-bank)",
+   "status": "n_a",
+   "category": "sector",
+   "blocks_score_above": 8.0
+  },
+  {
+   "gate_id": "G17",
+   "name": "Revision velocity disclosed",
+   "status": "pass",
+   "category": "consistency",
+   "blocks_score_above": 8.0
+  }
+ ],
+ "overall_pass": true
+}

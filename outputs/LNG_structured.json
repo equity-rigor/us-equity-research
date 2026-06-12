@@ -1,0 +1,1755 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "LNG",
+ "exchange": "NYSE",
+ "company_name": "Cheniere Energy, Inc.",
+ "cik": "0000003570",
+ "sector_gics": "Energy",
+ "industry_gics": "Oil & Gas Storage & Transportation (GICS 10102040)",
+ "as_of_date": "2026-06-09",
+ "model_cutoff_date": "2026-01-01",
+ "author": "us-equity-research full-round orchestrator (Phases 0-3 + Verification)",
+ "current_price_usd": 239.4,
+ "market_cap_usd_b": 50.17,
+ "enterprise_value_usd_b": 76.6,
+ "fiscal_year_end": "12-31",
+ "headline": {
+  "expected_return_median": 0.007,
+  "expected_return_range_p10_p90": [
+   -0.3964,
+   0.4703
+  ],
+  "rating": "Hold",
+  "default_action": "hold_long",
+  "conditionality": "source_conditional",
+  "conditional_language_pattern": "A_source_conditional_bias",
+  "headline_text": "Source-conditional Hold at $239.4 (DE-BIASED): probability-weighted 12-month expected return +0.7% to a base-case PT of $243.88 - an INDEPENDENT fair value (DCF $225 / SOTP $262 / comps $253 -> ~$244, ~flat vs spot), anchored to fundamentals rather than 'consensus EPS x current multiple.' Notably, the de-bias barely moves LNG: its DCF was already near spot, so the prior Hold was NOT a spot-anchoring artifact - LNG is genuinely fairly valued (~+1-2%). CONDITIONAL on the ~90% contracted take-or-pay book holding fixed fees and the FY2026 raise proving durable into the LNG supply wave; two-sided, source-conditional Hold."
+ },
+ "recommendation": {
+  "rating": "Hold",
+  "price_target_usd": 243.88,
+  "price_target_range_low_usd": 144.5,
+  "price_target_range_high_usd": 352.0,
+  "upside_downside_pct": 1.87,
+  "time_horizon_months": 12,
+  "conviction_tag": "source_conditional",
+  "default_action": "hold_long",
+  "rationale_one_paragraph": "DE-BIASED Hold on LNG at $239.4. Anchoring the base to an independent fair value (DCF $225, SOTP $262, comps de-rated $253 -> weighted ~$244, ~+2% vs spot) CONFIRMS the prior Hold rather than flipping it - the key finding is that LNG's DCF ($225) was already only ~6% below spot, so the v1 Hold was a genuine fair-value call, NOT a spot-anchoring artifact (unlike VST/FCX, whose DCFs were 12-27% below spot). Cheniere is a ~90%-contracted, IG, buyback-compounding LNG cash-flow machine; the contracted annuity supports value close to the current price even on normalized assumptions, while the LNG supply wave caps upside. Base PT $243.88 = FY27E EPS $19.51 x P/E 12.5x. Probability-weighted +0.7% (base +1.9%); two-sided -> Hold. G15/G20 n_a (Hold)."
+ },
+ "investment_thesis_pillars": [
+  {
+   "title": "Contracted take-or-pay cash-flow annuity",
+   "key_statistic": "~90% of capacity sold under long-term SPA/IPM through the mid-2030s; ~15yr weighted-average remaining term (S1: FY2025 10-K)",
+   "narrative": "Each SPA pairs a fixed liquefaction fee (paid on a take-or-pay basis whether or not the buyer lifts) with a ~115% Henry Hub variable charge (a near pass-through). The fixed-fee book is the genuinely defensive core: it underwrites the bulk of Distributable Cash Flow regardless of LNG spot spreads, with predominantly investment-grade counterparties (utilities, majors, NOCs). This is what makes Consolidated Adjusted EBITDA ($6.9B FY25 -> guided $7.25-7.75B FY26) far steadier than the derivative-distorted GAAP line. The same structure caps the upside: the contracted slice is largely insensitive to high spreads.",
+   "anchor_refs": [
+    "A2",
+    "A1"
+   ],
+   "timeline": "Contracted backbone runs to the mid-2030s; recontracting begins to matter late-decade"
+  },
+  {
+   "title": "Capital-return compounding on an IG balance sheet",
+   "key_statistic": "New buyback authorization to >$10B through 2030; DCF/share targeted toward ~$30 run-rate; diluted shares 253M (FY21) -> 220M (FY25) -> ~210M (S1/S2)",
+   "narrative": "Having completed the '20/20 Vision' (>$20B deployed; >$20/share run-rate DCF), management reloaded a >$10B-through-2030 repurchase authorization and reached investment grade at all three rating entities (LNG Moody's Baa2 Feb'26). The buyback retires ~4-5%/yr of shares against trivial SBC (~0.8% of revenue), so per-share DCF compounds even on a flat EBITDA platform; the dividend (~$2.22/share, growing) is a secondary return. The deleveraging-to-IG + share-shrink is the cleanest, least-commodity-dependent part of the thesis.",
+   "anchor_refs": [
+    "A3"
+   ],
+   "timeline": "Buyback runway through 2030; DCF/share re-rate is the multi-year compounding engine"
+  },
+  {
+   "title": "Brownfield growth optionality (Stage 3, Midscale 8&9, SPL Expansion)",
+   "key_statistic": "Corpus Christi Stage 3 (7 midscale trains, >10 mtpa) ramping to completion end-2026; Midscale 8&9 (~5 mtpa) FID'd Jun'25; SPL Expansion (~20 mtpa) pre-FID (S1/S2)",
+   "narrative": "Cheniere's permitted platform exceeds 100 mtpa vs ~52 mtpa operating today. Stage 3 (first LNG from Train 5 Feb'26; all trains substantially complete by end-2026) and Midscale 8&9 (~32% complete, 2H28) are funded brownfield adds at the lowest-cost US site. SPL Expansion (~20 mtpa, FERC/DOE pending) and Sabine Pass Train 7 / Corpus Christi 4 (FID early-2027) are the next legs of optionality. The bull case requires these to be contracted at fees near or above the legacy book.",
+   "anchor_refs": [
+    "A4"
+   ],
+   "timeline": "Stage 3 completes end-2026; next FIDs early-2027; SPL Expansion is the swing variable"
+  },
+  {
+   "title": "The bear: premium multiple into the largest LNG supply wave in history",
+   "key_statistic": "~10.2x FY26E EV/EBITDA (~12.7x TTM) vs an 8-11x midstream band; ~193 mtpa of new global liquefaction 2024-2028; open/merchant slice <1 mtpa in 2026 (S5/S3/S1)",
+   "narrative": "Qatar North Field (NFE+NFS, +48 mtpa), Venture Global Plaquemines (~20 mtpa), Golden Pass (~16-18 mtpa), Port Arthur (~13 mtpa) and CP2 (~28 mtpa) front-load the biggest liquefaction build ever into decelerating demand growth, pushing JKM toward $7-8 and compressing the Henry-Hub-to-JKM spread toward shipping cost. Cheniere's contracted book insulates near-term EBITDA, but (i) the variable upside the stock re-rated on is contractually tiny (<$50M EBITDA per $1/MMBtu), (ii) the marginal book recontracts/FIDs into the trough at plausibly lower fixed fees (~$2/MMBtu, undisclosed), and (iii) base rates say premium energy-infra multiples de-rate through oversupply cycles even when EBITDA holds. A re-rate from ~10.2x toward the ~8.5-9x midstream band is the path to the $200-220 floor.",
+   "anchor_refs": [
+    "A4",
+    "A1"
+   ],
+   "timeline": "Bear confirms on a sub-$7.0B FY2027 EBITDA guide or a sub-$2/MMBtu marginal-fee print"
+  }
+ ],
+ "company_qualitative": {
+  "description": "Cheniere Energy, Inc. (LNG) is the largest US producer and exporter of liquefied natural gas and the second-largest LNG operator globally. It owns and operates two liquefaction platforms: the Sabine Pass LNG terminal in Louisiana (six trains, ~30 mtpa) held through the publicly traded MLP Cheniere Energy Partners (CQP, of which LNG owns 100% of the general partner, 100% of the incentive distribution rights, and a ~48.6% limited-partner interest), and the wholly owned Corpus Christi LNG terminal in Texas (three original trains ~15 mtpa plus the Stage 3 expansion of seven midscale trains >10 mtpa). Total operating capacity is ~52 mtpa today, ramping toward >60 mtpa near-term, against a permitted/under-development platform exceeding 100 mtpa (Midscale Trains 8&9 ~5 mtpa under construction; SPL Expansion ~20 mtpa and CCL Expansion ~24 mtpa in permitting). FY2025 revenue was $19,976M (S1: SEC XBRL companyfacts CIK 0000003570) with GAAP net income attributable to Cheniere of ~$5,316M (diluted EPS $24.13) and Consolidated Adjusted EBITDA of ~$6,900M. GAAP earnings are non-informational quarter-to-quarter: they are dominated by ASC 815 unrealized mark-to-market on the commodity and interest-rate derivative book (Q1'26 reported a ~$3.5B non-cash net loss even as record exports drove ~$2.3B Consolidated Adjusted EBITDA), so management, lenders and the Street underwrite on Consolidated Adjusted EBITDA and Distributable Cash Flow. The 2024-2026 narrative combines a near-fully-contracted (~90%, ~15yr WA term, take-or-pay, IG-counterparty) cash-flow base with brownfield growth (Stage 3 ramp; Midscale 8&9 FID Jun'25) and aggressive capital return (a new >$10B-through-2030 buyback after completing the '20/20 Vision'), set against the largest global LNG supply wave in history (Qatar North Field, Plaquemines, Golden Pass, Port Arthur, CP2) that pressures merchant/uncontracted margins and the premium multiple.",
+  "products": [
+   {
+    "name": "Sabine Pass (SPL) - 6 trains ~30 mtpa",
+    "description": "Six operating liquefaction trains in Cameron Parish, LA, held via CQP. The most seasoned, most heavily contracted asset; long-dated SPAs with IG counterparties. Earns fixed liquefaction fees + ~115% Henry Hub variable charge.",
+    "target_customers": "Global utilities, majors, NOCs under 20-yr SPAs",
+    "pricing_model": "Take-or-pay fixed fee + ~115% HH variable",
+    "revenue_contribution_pct": 47.0,
+    "competitive_position": "Largest US LNG terminal; anchor of the contracted DCF base",
+    "source_citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "LNG FY2025 10-K Item 1/2 (SPL)"
+    }
+   },
+   {
+    "name": "Corpus Christi (CCL + Stage 3) - >30 mtpa",
+    "description": "Three original trains (~15 mtpa) plus Stage 3 (7 midscale trains, >10 mtpa) ramping to completion end-2026; wholly owned (100% of economics to LNG). Midscale 8&9 (~5 mtpa) under construction.",
+    "target_customers": "Long-term SPA + IPM counterparties; some marketing volume",
+    "pricing_model": "Take-or-pay fixed fee + variable; growth trains",
+    "revenue_contribution_pct": 38.0,
+    "competitive_position": "Lowest-cost US brownfield growth; the platform's expansion engine",
+    "source_citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "LNG FY2025 10-K Item 1/2 (CCL + Stage 3)"
+    }
+   },
+   {
+    "name": "Marketing & trading",
+    "description": "Cheniere Marketing lifts and sells uncontracted/portfolio volumes and optimizes the platform; the variable, spread-sensitive slice (<1 mtpa open in 2026). The source of optionality the equity re-rated on, and the part most exposed to the supply glut.",
+    "target_customers": "Spot/short-term global LNG buyers",
+    "pricing_model": "Merchant / portfolio optimization (HH vs JKM/TTF spread)",
+    "revenue_contribution_pct": 15.0,
+    "competitive_position": "Scale portfolio optimizer; margin compresses in oversupply",
+    "source_citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "LNG FY2025 10-K (Marketing); open-position sensitivity <$50M per $1/MMBtu"
+    }
+   }
+  ],
+  "customers_gtm": "Cheniere sells LNG primarily FOB and DES under long-term (typically 20-year) sale-and-purchase agreements (SPAs) and integrated production marketing (IPM) agreements to a globally diversified, predominantly investment-grade counterparty base (utilities, integrated majors, national oil/gas companies across Europe and Asia-Pacific). ~90% of total platform capacity is sold long-term through the mid-2030s; the residual <1 mtpa open in 2026 plus portfolio volumes are sold by Cheniere Marketing into the spot/short-term market. Recent contracting includes a Feb'26 ~1.2 mtpa SPA with CPC Corporation (Taiwan) through 2050.",
+  "industry": {
+   "overview": "Global LNG is entering the largest supply expansion in its history: ~193 mtpa of incremental liquefaction is scheduled to start 2024-2028 (global nameplate ~474 mtpa start-2024 toward ~666 mtpa end-2028, ~+40%), led by Qatar North Field East/South (+48 mtpa), Venture Global Plaquemines (~20 mtpa), ExxonMobil/QatarEnergy Golden Pass (~16-18 mtpa), Sempra Port Arthur (~13 mtpa) and Venture Global CP2 (~28 mtpa). 2026 alone sees ~57 mtpa of new starts, the most ever in a single year. Demand growth (Asia coal-to-gas switching, AI/data-center power, European security-of-supply) is real but lags the front-loaded supply, so most forecasters expect global LNG to move into surplus 2026-2028, pushing JKM toward $7-8/MMBtu and compressing the Henry-Hub-to-delivered spread toward marginal shipping cost. The US DOE non-FTA export 'pause' (Jan'24) was reversed Jan'25, removing the permitting brake and accelerating US supply. For Cheniere specifically, the contracted take-or-pay model insulates the bulk of cash flow; the cycle bites the merchant slice, the recontracting/FID economics of new trains, and the equity multiple.",
+   "tam": {
+    "current_year": 2026,
+    "current_tam_usd_b": 200.0,
+    "projected_year": 2030,
+    "projected_tam_usd_b": 260.0,
+    "cagr_pct": 6.8,
+    "source": {
+     "s_level": "S5",
+     "source_type": "EIA",
+     "ref": "Global LNG trade dollarized (IEA/EIA/Kpler); ~410-470 mtpa traded volume x delivered price"
+    }
+   }
+  },
+  "competitive_landscape": {
+   "peers": [
+    {
+     "name": "Venture Global",
+     "ticker": "VG",
+     "market_cap_usd_b": 40.0,
+     "market_share_pct": 8.0,
+     "key_differentiator": "Closest US LNG export pure-play; Plaquemines + Calcasieu Pass; faster-ramping but more construction/contract-dispute risk; trades cheaper (~10.8x EV/EBITDA)",
+     "revenue_growth_pct": 15.0,
+     "ebitda_margin_pct": 45.0
+    },
+    {
+     "name": "Cheniere Energy Partners",
+     "ticker": "CQP",
+     "market_cap_usd_b": 22.0,
+     "market_share_pct": 6.0,
+     "key_differentiator": "LNG's own Sabine Pass MLP; the cleanest structural mirror; ~5% yield, lower-vol SPA-heavy cash flow; ~11.7x EV/EBITDA",
+     "revenue_growth_pct": 4.0,
+     "ebitda_margin_pct": 50.0
+    },
+    {
+     "name": "Sempra",
+     "ticker": "SRE",
+     "market_cap_usd_b": 55.0,
+     "market_share_pct": 4.0,
+     "key_differentiator": "Regulated utility + Port Arthur/Cameron LNG development; richer (~16.9x) on utility multiple; LNG is a minority of the story",
+     "revenue_growth_pct": 6.0,
+     "ebitda_margin_pct": 35.0
+    },
+    {
+     "name": "Kinder Morgan",
+     "ticker": "KMI",
+     "market_cap_usd_b": 60.0,
+     "market_share_pct": 5.0,
+     "key_differentiator": "Gas midstream / pipelines; ~13.9x EV/EBITDA, ~3.8% yield; cost-of-capital and gas-infra-cycle read, not an LNG pure-play",
+     "revenue_growth_pct": 5.0,
+     "ebitda_margin_pct": 48.0
+    }
+   ],
+   "positioning_narrative": "Cheniere is the blue-chip, fully-contracted leg of US LNG export: the largest, lowest-cost, IG-rated platform with the longest contracted backlog and the strongest capital-return engine. VG is the cheaper, faster-growing but riskier pure-play (construction + contract-dispute overhang); CQP is LNG's own Sabine Pass vehicle and the cleanest structural mirror (higher yield, lower vol). SRE/KMI are utility/midstream reads useful for cost-of-capital and the broader gas-infra cycle, not LNG-export comps. LNG's ~10.2x FY26E EV/EBITDA sits above VG/CQP and below SRE/KMI/WMB. On a 12-month horizon the dominant risk is multiple durability: a premium-rated, <1%-yield, long-duration cash-flow stream carried into the biggest LNG supply wave in history, where base rates favor multiple compression even with EBITDA intact; on a multi-year horizon the question is whether brownfield FIDs and recontracting clear at fees that sustain DCF/share growth."
+  }
+ },
+ "management": [
+  {
+   "name": "Jack Fusco",
+   "title": "President & CEO",
+   "tenure_years": 9,
+   "bio": "President & CEO of Cheniere since 2016; led the platform from first LNG (2016) through the build-out to ~52 mtpa, the investment-grade transition, the '20/20 Vision' capital-return program, and the Stage 3 / Midscale 8&9 / SPL Expansion growth pipeline.",
+   "background": "Power generation, energy development, finance",
+   "source": {
+    "s_level": "S2",
+    "source_type": "DEF 14A",
+    "ref": "LNG 2026 DEF 14A (filed 2026-04-07)"
+   }
+  },
+  {
+   "name": "Zach Davis",
+   "title": "EVP & CFO",
+   "tenure_years": 5,
+   "bio": "CFO responsible for the capital-allocation framework (buyback, dividend initiation/growth, deleveraging to investment grade), Stage 3 / Midscale 8&9 financing, and the run-rate DCF/share targeting toward ~$30.",
+   "background": "Corporate finance, treasury, project finance",
+   "source": {
+    "s_level": "S2",
+    "source_type": "DEF 14A",
+    "ref": "LNG 2026 DEF 14A (filed 2026-04-07)"
+   }
+  }
+ ],
+ "financials": {
+  "historical": [
+   {
+    "period": "FY23A",
+    "period_type": "historical",
+    "revenue_usd_m": 20394,
+    "revenue_growth_pct": 0.0,
+    "gross_profit_usd_m": 7100,
+    "gross_margin_pct": 34.8,
+    "ebit_usd_m": 7500,
+    "ebit_margin_pct": 36.8,
+    "net_income_gaap_usd_m": 9879,
+    "eps_diluted_gaap_usd": 40.72,
+    "diluted_shares_m": 242.6,
+    "fcf_usd_m": 6297,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 250,
+    "buyback_usd_m": 1473,
+    "buyback_offsets_sbc_ratio": 5.9
+   },
+   {
+    "period": "FY24A",
+    "period_type": "historical",
+    "revenue_usd_m": 15703,
+    "revenue_growth_pct": -23.0,
+    "gross_profit_usd_m": 5500,
+    "gross_margin_pct": 35.0,
+    "ebit_usd_m": 4900,
+    "ebit_margin_pct": 31.2,
+    "net_income_gaap_usd_m": 3254,
+    "eps_diluted_gaap_usd": 14.2,
+    "diluted_shares_m": 229.1,
+    "fcf_usd_m": 3156,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 215,
+    "buyback_usd_m": 2262,
+    "buyback_offsets_sbc_ratio": 10.5
+   },
+   {
+    "period": "FY25A",
+    "period_type": "historical",
+    "revenue_usd_m": 19976,
+    "revenue_growth_pct": 27.2,
+    "gross_profit_usd_m": 7000,
+    "gross_margin_pct": 35.0,
+    "ebit_usd_m": 5600,
+    "ebit_margin_pct": 28.0,
+    "net_income_gaap_usd_m": 5316,
+    "eps_diluted_gaap_usd": 24.13,
+    "eps_diluted_non_gaap_usd": 17.0,
+    "diluted_shares_m": 220.3,
+    "fcf_usd_m": 2461,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 161,
+    "buyback_usd_m": 2724,
+    "buyback_offsets_sbc_ratio": 16.9
+   }
+  ],
+  "ltm": {
+   "period": "LTM_Q1FY26",
+   "period_type": "ltm",
+   "revenue_usd_m": 20400,
+   "revenue_growth_pct": 22.0,
+   "gross_profit_usd_m": 7182,
+   "gross_margin_pct": 35.21,
+   "ebit_usd_m": 5800,
+   "ebit_margin_pct": 28.4,
+   "net_income_gaap_usd_m": 1500,
+   "eps_diluted_gaap_usd": 7.0,
+   "eps_diluted_non_gaap_usd": 17.5,
+   "diluted_shares_m": 212.0,
+   "fcf_usd_m": 2600,
+   "fcf_includes_sbc_addback": false,
+   "sbc_usd_m": 160,
+   "buyback_usd_m": 2700,
+   "buyback_offsets_sbc_ratio": 16.9,
+   "segments": [
+    {
+     "name": "Sabine Pass (SPL)",
+     "revenue_usd_m": 9800,
+     "gm_pct": 42.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled LNG-margin allocation: Sabine Pass contracted SPA energy margin (Cheniere does not disclose a GAAP segment GM; IPP/LNG gm-taxonomy adaptation analogous to NIM for banks)"
+     }
+    },
+    {
+     "name": "Corpus Christi (CCL + Stage 3)",
+     "revenue_usd_m": 6900,
+     "gm_pct": 38.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled: Corpus Christi contracted + ramping-train energy-margin proxy"
+     }
+    },
+    {
+     "name": "Marketing & trading",
+     "revenue_usd_m": 3700,
+     "gm_pct": 12.0,
+     "gm_taxonomy_type": "T2_segment",
+     "source": {
+      "s_level": "S5",
+      "source_type": "Other",
+      "ref": "Modeled: portfolio/merchant margin (lowest, spread-sensitive)"
+     }
+    }
+   ]
+  },
+  "projected": [
+   {
+    "period": "FY26E",
+    "period_type": "projected",
+    "revenue_usd_m": 22050,
+    "revenue_growth_pct": 10.4,
+    "gross_profit_usd_m": 7700,
+    "gross_margin_pct": 34.9,
+    "ebit_usd_m": 6200,
+    "ebit_margin_pct": 28.1,
+    "net_income_gaap_usd_m": 3744,
+    "eps_diluted_gaap_usd": 17.91,
+    "eps_diluted_non_gaap_usd": 18.0,
+    "diluted_shares_m": 209.0,
+    "fcf_usd_m": 5000,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 160,
+    "buyback_usd_m": 2700
+   },
+   {
+    "period": "FY27E",
+    "period_type": "projected",
+    "revenue_usd_m": 23860,
+    "revenue_growth_pct": 8.2,
+    "gross_profit_usd_m": 8350,
+    "gross_margin_pct": 35.0,
+    "ebit_usd_m": 6700,
+    "ebit_margin_pct": 28.1,
+    "net_income_gaap_usd_m": 4029,
+    "eps_diluted_gaap_usd": 19.51,
+    "eps_diluted_non_gaap_usd": 19.6,
+    "diluted_shares_m": 206.5,
+    "fcf_usd_m": 5300,
+    "fcf_includes_sbc_addback": false,
+    "sbc_usd_m": 160,
+    "buyback_usd_m": 2700
+   }
+  ],
+  "revenue_by_product": [
+   {
+    "product": "Sabine Pass (SPL)",
+    "by_period": {
+     "FY24A": 7400,
+     "FY25A": 9400,
+     "FY26E": 10300,
+     "FY27E": 11100
+    }
+   },
+   {
+    "product": "Corpus Christi (CCL + Stage 3)",
+    "by_period": {
+     "FY24A": 5500,
+     "FY25A": 7600,
+     "FY26E": 8600,
+     "FY27E": 9500
+    }
+   },
+   {
+    "product": "Marketing & trading",
+    "by_period": {
+     "FY24A": 2803,
+     "FY25A": 2976,
+     "FY26E": 3150,
+     "FY27E": 3260
+    }
+   }
+  ],
+  "revenue_by_geography": [
+   {
+    "region": "Asia-Pacific",
+    "by_period": {
+     "FY24A": 7100,
+     "FY25A": 9000,
+     "FY26E": 9900,
+     "FY27E": 10700
+    }
+   },
+   {
+    "region": "Europe",
+    "by_period": {
+     "FY24A": 6600,
+     "FY25A": 8200,
+     "FY26E": 9100,
+     "FY27E": 9800
+    }
+   },
+   {
+    "region": "Americas / Other",
+    "by_period": {
+     "FY24A": 2003,
+     "FY25A": 2776,
+     "FY26E": 3050,
+     "FY27E": 3360
+    }
+   }
+  ]
+ },
+ "gm_taxonomy": {
+  "entries": [
+   {
+    "type": "T1_consolidated",
+    "name": "Consolidated Adjusted-EBITDA-margin analog LTM-Q1FY26 (the LNG/IPP equivalent of a bank's NIM per D24, since Cheniere discloses no GAAP segment gross margin): Consolidated Adjusted EBITDA / revenue-equivalent base",
+    "value_range": "35.0-35.5%",
+    "source": {
+     "s_level": "S5",
+     "source_type": "Other",
+     "ref": "Modeled LTM weighted reconciliation; Cheniere reports Consolidated Adjusted EBITDA, not a GAAP segment GM. Treated as an EBITDA-margin analog (D24 NIM-style), NOT a GAAP GM, and tagged S5 accordingly."
+    }
+   },
+   {
+    "type": "T2_segment",
+    "name": "Platform Adjusted-EBITDA-margin analog: Sabine Pass (most contracted) ~42%; Corpus Christi (contracted + ramping) ~38%; Marketing & trading (merchant) ~12%",
+    "value_range": "12-42%",
+    "source": {
+     "s_level": "S5",
+     "source_type": "Other",
+     "ref": "Modeled platform EBITDA-margin-analog allocation (NOT GAAP GM); reconciles to the consolidated analog within rounding. SOTP segment values are driven off platform-level EBITDA x multiple, not a disclosed segment P&L."
+    }
+   },
+   {
+    "type": "T3_sub_segment",
+    "name": "Contracted fixed-fee margin (take-or-pay SPA liquefaction fee) vs variable/merchant margin (open volumes + portfolio)",
+    "value_range": "Contracted fixed-fee ~50-60% / open-merchant ~10-20%",
+    "source": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "Modeled: fixed liquefaction fee is high-margin/stable; merchant slice spread-sensitive (LNG FY2025 10-K)"
+    }
+   },
+   {
+    "type": "T4_analyst_modeled",
+    "name": "FY27E blended platform margin with Stage 3 fully ramped + Midscale 8&9 partial",
+    "value_range": "34-35%",
+    "source": {
+     "s_level": "S4",
+     "source_type": "FactSet consensus",
+     "ref": "Consensus FY27E margin proxy n=23"
+    }
+   },
+   {
+    "type": "T5_marginal",
+    "name": "Marginal open-volume margin sensitivity to the JKM-Henry Hub spread (the load-bearing merchant lever)",
+    "value_range": "<1 mtpa open in 2026; <$50M Consolidated Adj EBITDA per $1/MMBtu margin move (company sensitivity); recontracting/FID trains plausibly ~$2/MMBtu fixed fee vs legacy ~$3/MMBtu",
+    "source": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "LNG FY2025 10-K open-position sensitivity + S3 Wolfe/Morgan Stanley recontracting estimates"
+    }
+   }
+  ],
+  "reconciliation_consolidated_vs_implied_bp": 1.0
+ },
+ "scenarios_ref": "outputs/LNG_scenarios.json",
+ "valuation": {
+  "methods": [
+   {
+    "method": "Trading_comps",
+    "implied_price_usd": 253.6,
+    "price_range_low_usd": 215.0,
+    "price_range_high_usd": 300.0,
+    "weight_pct": 25,
+    "weighted_value_usd": 63.4,
+    "key_assumptions": {
+     "multiple_basis": "10.2x FY27E Consolidated Adj EBITDA $7.8B",
+     "ev_2027e_usd_b": 79.6,
+     "less_net_debt_and_nci_usd_b": 26.5,
+     "implied_equity_usd_b": 53.1,
+     "diluted_shares_m": 209.55,
+     "peer_set": "VG ~10.8x / CQP ~11.7x / SRE ~16.9x / KMI ~13.9x"
+    },
+    "narrative": "Primary LNG/infra method per D8 (EV/EBITDA). 10.2x FY27E Consolidated Adj EBITDA $7.8B -> EV $79.6B less net debt + CQP non-controlling interest $26.5B = $53.1B / 209.55M = ~$253. The 10.2x holds the current FY26E forward multiple onto FY27E EBITDA; it sits above VG/CQP (~10.8-11.7x but pure-play) and well below the SRE/KMI utility-midstream band.",
+    "input_attribution": {
+     "verifiable": "the earnings/DCF-per-unit base (buildable bottom-up; tends to converge)",
+     "assumed": "the multiple \u2014 the contested judgment where the bull/bear gap lives",
+     "load_bearing_input": "assumed"
+    }
+   },
+   {
+    "method": "DCF",
+    "implied_price_usd": 225.0,
+    "price_range_low_usd": 195.0,
+    "price_range_high_usd": 258.0,
+    "weight_pct": 40,
+    "weighted_value_usd": 90.0,
+    "key_assumptions": {
+     "wacc_pct": 7.36,
+     "terminal_growth_pct": 2.25,
+     "explicit_forecast_years": 10,
+     "exit_check_ev_ebitda": 9.5
+    },
+    "narrative": "10y DCF on Distributable Cash Flow; WACC 7.36% (CoE 8.99% at beta 1.05 + after-tax Kd 4.35%; 65/35 E/D at market); g 2.25%. Base ~$225, modestly below spot - the contracted core is worth roughly spot, and the premium embeds brownfield-FID + new-SPA optionality plus terminal recontracting upside that a base DCF deliberately does not fully underwrite given oversupply-era fee uncertainty.",
+    "input_attribution": {
+     "verifiable": "the normalized cash-flow base (buildable bottom-up)",
+     "assumed": "WACC / terminal growth / normalized margin (judgment)",
+     "load_bearing_input": "assumed"
+    }
+   },
+   {
+    "method": "SOTP",
+    "implied_price_usd": 262.0,
+    "price_range_low_usd": 220.0,
+    "price_range_high_usd": 310.0,
+    "weight_pct": 35,
+    "weighted_value_usd": 91.7,
+    "key_assumptions": {
+     "Sabine_Pass_segment": {
+      "revenue": 9500,
+      "segment_gp": 4200,
+      "segment_op": 3400,
+      "segment_ni": 2400,
+      "segment_multiple": "EV/EBITDA 10.5x (contracted Sabine Pass core)",
+      "implied_value_usd_b": 38.0
+     },
+     "Corpus_Christi_segment": {
+      "revenue": 7800,
+      "segment_gp": 3500,
+      "segment_op": 2900,
+      "segment_ni": 2000,
+      "segment_multiple": "EV/EBITDA 11.5x (CCL + Stage 3 growth)",
+      "implied_value_usd_b": 36.0
+     },
+     "Marketing_segment": {
+      "revenue": 2700,
+      "segment_gp": 700,
+      "segment_op": 550,
+      "segment_ni": 400,
+      "segment_multiple": "EV/EBITDA 7.0x (merchant/portfolio)",
+      "implied_value_usd_b": 5.5
+     }
+    },
+    "narrative": "Sum-of-parts: Sabine Pass contracted core at 10.5x, Corpus Christi (incl Stage 3 growth) 11.5x, Marketing 7.0x, less net debt and CQP non-controlling interest. Monotonicity NI<=OP<=GP<=Revenue holds per segment (G3). ~$262/share, above comps/DCF because segment-level growth at Corpus is mispriced in the blended multiple.",
+    "input_attribution": {
+     "verifiable": "segment book/earnings (reported)",
+     "assumed": "the segment multiples (judgment)",
+     "load_bearing_input": "assumed"
+    }
+   },
+   {
+    "method": "Multi_multiple_bear",
+    "implied_price_usd": 190.0,
+    "price_range_low_usd": 150.0,
+    "price_range_high_usd": 220.0,
+    "weight_pct": 0,
+    "weighted_value_usd": 0.0,
+    "key_assumptions": {
+     "bear_ebitda_usd_b": 7.3,
+     "midstream_multiple": "8.5x (midstream/contracted-infra band)",
+     "bear_pe_band": "9-11x normalized EPS"
+    },
+    "narrative": "Bear floor reference: re-rate the contracted core toward the midstream band (~8.5x) on a normalized $7.3B Consolidated Adj EBITDA -> EV ~$62B less $26.5B = ~$35.5B / ~209M = ~$170-190; severe glut/derate ~$150. Not weighted; downside discipline that anchors strong_bear $144.00 and aligns with the ~$200-220 sell-side floor.",
+    "input_attribution": {
+     "verifiable": "trough/down-leg earnings history (reported)",
+     "assumed": "the trough multiple (judgment)",
+     "load_bearing_input": "assumed"
+    }
+   }
+  ],
+  "dcf_components": {
+   "wacc_pct": 7.36,
+   "wacc_components": {
+    "risk_free_rate_pct": 4.55,
+    "risk_free_source_date": "2026-06-05",
+    "equity_risk_premium_pct": 4.23,
+    "beta": 1.05,
+    "beta_basis": "5y_weekly_vs_SP500",
+    "cost_of_equity_pct": 8.99,
+    "pre_tax_cost_of_debt_pct": 5.5,
+    "tax_rate_pct": 21.0,
+    "after_tax_cost_of_debt_pct": 4.35,
+    "equity_weight_pct": 65,
+    "debt_weight_pct": 35
+   },
+   "terminal_growth_pct": 2.25,
+   "terminal_method": "perpetuity_growth",
+   "explicit_forecast_years": 10,
+   "implied_share_price_usd": 225.0
+  },
+  "weighted_price_target_usd": 243.88,
+  "football_field_range_low_usd": 144.0,
+  "football_field_range_high_usd": 374.0,
+  "reconciliation_narrative": "DE-BIASED reconcile: DCF $225, SOTP $262, comps $253 -> independent weighted fair value ~$244, ~+2% vs spot $239.4. Anchoring the base here (vs the v1 spot-anchored $253.63) barely changes the answer - LNG's DCF was already near spot, so the Hold is genuine, not a spot-anchoring artifact. Base PT $243.88 (FY27E EPS $19.51 x 12.5x).",
+  "revision_bridge": {
+   "prior_price_target_usd": 304.5,
+   "new_price_target_usd": 243.88,
+   "prior_basis": "consensus PT / current-multiple regime (spot-anchored proxy)",
+   "new_basis": "independent fair-value-anchored 12-month base (the de-bias)",
+   "components": [
+    {
+     "driver": "estimate",
+     "delta_usd": 0.0,
+     "rationale": "Base EPS/DCF-per-unit unchanged \u2014 the de-bias changed NO estimates (base_eps held fixed so bridges reconcile); public inputs identical before/after."
+    },
+    {
+     "driver": "methodology",
+     "delta_usd": -36.37,
+     "rationale": "Re-anchored the base from the consensus-PT/current-multiple regime to an independent fair-value blend \u2014 the de-bias itself."
+    },
+    {
+     "driver": "multiple",
+     "delta_usd": -24.25,
+     "rationale": "Re-rated the base multiple toward the through-cycle / private-market band consistent with independent fair value (~$244)."
+    }
+   ],
+   "judgment_share_pct": 100.0,
+   "judgment_flag": "100%% of this revision is methodology + multiple (judgment), 0%% new estimates \u2014 by design a deliberate anchor CORRECTION (de-bias), not new information; flagged per Lesson 2. Public inputs only (consensus PT, SEC/XBRL); any entitlement-restricted cross-check is a personal, non-persisted localized optimization outside the framework.",
+   "public_inputs_only": true
+  },
+  "load_bearing_input_note": "The disagreement lives in the MULTIPLE (assumed), not the earnings/DCF base (verifiable, ~converges). Surface and re-derive the multiple; never adopt it from price or another analyst's conclusion (Lessons 2-3)."
+ },
+ "risks": [
+  {
+   "category": "commodity_price",
+   "title": "Global LNG oversupply / spread compression 2026-2028",
+   "description": "~193 mtpa of new global liquefaction starts 2024-2028 (Qatar NFE/NFS, Plaquemines, Golden Pass, Port Arthur, CP2), ~57 mtpa in 2026 alone, into decelerating demand. JKM forecast toward $7-8/MMBtu and the HH-to-delivered spread compressing toward shipping cost (~$3-5/MMBtu), with episodic negative merchant margins. Hits the open/merchant slice and portfolio optimization.",
+   "probability_qualitative": "high",
+   "impact_qualitative": "moderate",
+   "mitigants": "~90% contracted take-or-pay; open slice <1 mtpa in 2026 (<$50M EBITDA per $1/MMBtu); fixed liquefaction fees insulate the bulk of DCF"
+  },
+  {
+   "category": "company_specific",
+   "title": "Recontracting / marginal-fee compression (the load-bearing variance)",
+   "description": "New SPAs and FID-train fixed fees are undisclosed; Wolfe assumes recontracting toward ~$2.00/MMBtu, at or below the legacy book (widely cited ~$3/MMBtu+). Sabine Pass Train 7 / Corpus Christi 4 (FID early-2027) and SPL Expansion FID into the oversupply trough risk setting marginal fees below legacy, capping DCF/share growth.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "material",
+   "mitigants": "Lowest-cost US brownfield site; IG counterparty demand for security-of-supply; management has historically contracted before FID"
+  },
+  {
+   "category": "industry_market",
+   "title": "Valuation de-rate / rate sensitivity on a premium multiple",
+   "description": "~10.2x FY26E EV/EBITDA (~12.7x TTM), <1% dividend yield, long-duration cash-flow stream. Base rates: premium energy-infra multiples compressed 2+ turns through the 2014-15 and 2020 oversupply cycles even when EBITDA held. A re-rate toward the 8.5-9x midstream band is ~3 turns / ~$130/share of EV; the thin yield offers little carry on the way down, and a long-end rate back-up compresses the terminal-anchored value disproportionately.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "material",
+   "mitigants": "IG balance sheet; >$10B buyback supports per-share metrics; contracted DCF limits the fundamental (vs multiple) downside"
+  },
+  {
+   "category": "financial",
+   "title": "Growth-FID-into-trough + construction / cost-inflation risk",
+   "description": "Midscale 8&9 only ~32% complete (full cost-inflation exposure remains); SPL Expansion (~20 mtpa) pre-FID; Train 7 / CCL4 FID early-2027 into the supply trough. Capex rising (FY25 $3.08B vs FY24 $2.24B). Morgan Stanley excludes pre-FID projects from its base case given oversupply-era investor hesitation.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "moderate",
+   "mitigants": "Stage 3 ~97% complete (low residual risk); Bechtel EPC track record; FID discipline (contract-before-build)"
+  },
+  {
+   "category": "industry_market",
+   "title": "Demand normalization (Europe) / China elasticity & pipeline competition",
+   "description": "EU gas demand declining (-2% 2026; power-sector burn -12% on renewables; ~1.1M residential heat pumps 2022-25); IEEFA sees EU LNG demand down ~23% 2025-2030. China LNG growth modest and price-elastic; Power of Siberia 2 (50 bcm/yr) would structurally cap Chinese LNG import need.",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "moderate",
+   "mitigants": "Asia coal-to-gas switching + AI/data-center power demand; ~90% contracted insulates Cheniere from spot demand swings"
+  },
+  {
+   "category": "financial",
+   "title": "Leverage + capital-structure complexity (CQP non-controlling interest)",
+   "description": "Consolidated net debt ~$21.7B (total debt ~$22.8B; cash ~$1.1B); EV-implied net debt + NCI ~$26.5B. The ~51% public CQP float is a non-controlling interest that complicates per-share economics; consolidated leverage target ~4.0x through the cycle.",
+   "probability_qualitative": "low",
+   "impact_qualitative": "moderate",
+   "mitigants": "All three entities IG (LNG Baa2 / SPL Baa1 / CCH Baa1); $652M debt repaid FY25; contracted DCF ~covers buyback + dividend + growth capex"
+  },
+  {
+   "category": "company_specific",
+   "title": "Crowded-long unwind / consensus complacency",
+   "description": "~96% Street Buy, +27% median PT upside ($304.50), 15 Strong Buys; the stock is ~20% off its $300.89 52-week high. A multiple de-rate into the supply wave with no estimate cut is the classic crowded-long unwind; net insider selling YTD (no open-market buys).",
+   "probability_qualitative": "medium",
+   "impact_qualitative": "moderate",
+   "mitigants": "Low short interest (~1.5% float, DTC ~1.8) = no forced unwind; >$10B buyback + passive flows absorb sellers; estimates rising not falling"
+  }
+ ],
+ "catalysts": [
+  {
+   "title": "Q2 FY26 earnings (guidance durability test)",
+   "expected_date": "2026-08-06",
+   "type": "earnings_print",
+   "expected_impact_pct": 5.0,
+   "what_would_reverse_thesis": "A further FY2026 raise or first FY2027 framing >=$8.0B Adj EBITDA supports the bull; flat-to-soft guide or disclosure that the raise was spread-driven confirms the de-rate risk. Implied move ~+/-5-7%.",
+   "anchor_ref": "A1"
+  },
+  {
+   "title": "Sabine Pass Train 7 / Corpus Christi 4 FID + fee terms",
+   "expected_date": "2027-03-31",
+   "type": "m_and_a",
+   "expected_impact_pct": 6.0,
+   "what_would_reverse_thesis": "FID with disclosed fixed fee >=$2.50/MMBtu and IG offtake = bull; FID at <=$2.00/MMBtu (at/below legacy) into the trough = bear confirmation.",
+   "anchor_ref": "A4"
+  },
+  {
+   "title": "SPL Expansion (~20 mtpa) FERC/DOE permits + FID",
+   "expected_date": "2026-12-31",
+   "type": "regulatory",
+   "expected_impact_pct": 5.0,
+   "what_would_reverse_thesis": "Permits + FID with anchor SPAs is the dominant bullish optionality trigger; continued pre-FID status keeps the optionality un-priced.",
+   "anchor_ref": "A4"
+  },
+  {
+   "title": "New long-term SPA signings (fee level)",
+   "expected_date": "2026-10-31",
+   "type": "product_launch",
+   "expected_impact_pct": 4.0,
+   "what_would_reverse_thesis": "Two+ new 15yr+ SPAs at fixed fees >=$2.50/MMBtu de-risk recontracting (bull); silence or sub-$2 prints validate marginal-fee compression (bear).",
+   "anchor_ref": "A2"
+  },
+  {
+   "title": "Corpus Christi Stage 3 full completion",
+   "expected_date": "2026-12-31",
+   "type": "product_launch",
+   "expected_impact_pct": 3.0,
+   "what_would_reverse_thesis": "On-time completion of Trains 5-7 mechanically lifts run-rate EBITDA into 2027; slippage defers accretion.",
+   "anchor_ref": "A1"
+  },
+  {
+   "title": "Global supply ramp (Qatar / Plaquemines / Golden Pass)",
+   "expected_date": "2026-12-31",
+   "type": "macro_event",
+   "expected_impact_pct": 4.0,
+   "what_would_reverse_thesis": "Faster-than-expected ramp + warm winter pushing JKM <$6/MMBtu compresses merchant margins and the multiple (bear); delays/outages re-widen spreads (bull).",
+   "anchor_ref": "A4"
+  }
+ ],
+ "what_would_reverse": [
+  {
+   "direction": "reverse_neutral_to_bull",
+   "numerical_threshold": "SPL Expansion (~20 mtpa) reaches FID AND two new 15-year+ SPAs sign at a fixed liquefaction fee >=$2.50/MMBtu",
+   "unit": "mtpa + $/MMBtu + years",
+   "observable_via": "LNG 8-K Item 1.01 + FERC/DOE dockets + IR",
+   "expected_observation_date": "2026-12-31"
+  },
+  {
+   "direction": "reverse_neutral_to_bull",
+   "numerical_threshold": "FY2027 Consolidated Adj EBITDA guide >=$8.0B AND buyback pace consistent with ~$30/share run-rate DCF",
+   "unit": "$B EBITDA + $/share DCF",
+   "observable_via": "LNG Q2/Q3 FY26 guidance + capital-allocation update",
+   "expected_observation_date": "2026-08-06"
+  },
+  {
+   "direction": "reverse_neutral_to_bear",
+   "numerical_threshold": "JKM-Henry Hub spread sustained <$5/MMBtu for 3 consecutive quarters (vs the $5-10 scarcity-era band)",
+   "unit": "$/MMBtu",
+   "observable_via": "Platts JKM + NYMEX Henry Hub forward curves",
+   "expected_observation_date": "2027-03-31"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "FY2027 Consolidated Adj EBITDA guide <$7.0B (below the FY2026 $7.25-7.75B run-rate)",
+   "unit": "$B EBITDA",
+   "observable_via": "LNG Q2/Q3 FY26 earnings + guidance",
+   "expected_observation_date": "2026-08-06"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "A new SPA or FID-train fixed liquefaction fee disclosed at <=$2.00/MMBtu (at/below the legacy book)",
+   "unit": "$/MMBtu",
+   "observable_via": "LNG 8-K Item 1.01 + Train 7/CCL4 FID terms",
+   "expected_observation_date": "2027-03-31"
+  },
+  {
+   "direction": "reverse_base_to_bear",
+   "numerical_threshold": "EV/EBITDA de-rates to <=9.0x FY26E (from ~10.2x) OR the stock breaks <$200 (vs $239.40 spot)",
+   "unit": "x EV/EBITDA + $/share",
+   "observable_via": "market price + consensus FY26E Consolidated Adj EBITDA",
+   "expected_observation_date": "2026-12-31"
+  },
+  {
+   "direction": "reverse_bear_to_bull",
+   "numerical_threshold": "JKM-Henry Hub spread re-widens >$8/MMBtu sustained for 2 consecutive quarters (outage/cold-winter/geopolitical)",
+   "unit": "$/MMBtu",
+   "observable_via": "Platts JKM + NYMEX Henry Hub forward curves",
+   "expected_observation_date": "2027-06-30"
+  }
+ ],
+ "tail_risks": [
+  {
+   "event_class": "commodity_shock",
+   "name": "Global LNG glut deepens (warm winter + faster Qatar/US ramp -> JKM <$6/MMBtu)",
+   "probability_shift": {
+    "strong_bear_delta_pp": 6,
+    "bear_delta_pp": 6,
+    "base_delta_pp": -10,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": -1
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -15,
+    "worst_case_multiple_compression_pct": -25,
+    "worst_case_price_pct": -35
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "recession",
+   "name": "NBER recession / global gas-demand destruction (Europe + Asia)",
+   "probability_shift": {
+    "strong_bear_delta_pp": 5,
+    "bear_delta_pp": 4,
+    "base_delta_pp": -7,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": -1
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -12,
+    "worst_case_multiple_compression_pct": -20,
+    "worst_case_price_pct": -30
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "rate_shock",
+   "name": "Fed rate shock +200bp / long-end back-up re-pricing a long-duration, <1%-yield multiple",
+   "probability_shift": {
+    "strong_bear_delta_pp": 4,
+    "bear_delta_pp": 4,
+    "base_delta_pp": -6,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": -1
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -5,
+    "worst_case_multiple_compression_pct": -20,
+    "worst_case_price_pct": -22
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "sector_regulatory_action",
+   "name": "DOE/FERC export-policy reversal or methane-rule re-escalation (US LNG permit/cost drag; litigation tail on the pause-lifting)",
+   "probability_shift": {
+    "strong_bear_delta_pp": 3,
+    "bear_delta_pp": 3,
+    "base_delta_pp": -5,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": 0
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -5,
+    "worst_case_multiple_compression_pct": -12,
+    "worst_case_price_pct": -15
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "tariff_trade_war",
+   "name": "Tariff / trade-war curbs on global gas demand or retaliatory LNG tariffs (Section 301/232 spillover; China LNG tariff)",
+   "probability_shift": {
+    "strong_bear_delta_pp": 2,
+    "bear_delta_pp": 3,
+    "base_delta_pp": -4,
+    "bull_delta_pp": -1,
+    "strong_bull_delta_pp": 0
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": -6,
+    "worst_case_multiple_compression_pct": -12,
+    "worst_case_price_pct": -16
+   },
+   "tail_direction": "bear"
+  },
+  {
+   "event_class": "idiosyncratic",
+   "name": "AI-power gas-demand supercycle + brownfield FIDs/SPAs at premium fees (open-book + multiple uplift)",
+   "probability_shift": {
+    "strong_bear_delta_pp": -2,
+    "bear_delta_pp": -3,
+    "base_delta_pp": -5,
+    "bull_delta_pp": 5,
+    "strong_bull_delta_pp": 5
+   },
+   "downside_impact": {
+    "worst_case_eps_haircut_pct": 0,
+    "worst_case_multiple_compression_pct": 0,
+    "worst_case_price_pct": 0
+   },
+   "upside_impact": {
+    "best_case_eps_uplift_pct": 18,
+    "best_case_multiple_expansion_pct": 20,
+    "best_case_price_pct": 40
+   },
+   "tail_direction": "bull"
+  }
+ ],
+ "forensic_flags": {
+  "asc_606_red_flags": [
+   {
+    "flag": "ASC 815 unrealized derivative mark-to-market dominates GAAP earnings (an interpretation flag, not a manipulation flag)",
+    "evidence": "Q1'26 GAAP net loss ~$(3.5)B against record exports and ~$2.3B Consolidated Adjusted EBITDA; FY23 GAAP NI was inflated by derivative gains (EPS $40.72) vs FY25 $24.13. Underwrite on Consolidated Adjusted EBITDA / DCF, not GAAP NI.",
+    "severity": "medium"
+   },
+   {
+    "flag": "FY2026 guidance raise leans on transient spread / optimization tailwinds",
+    "evidence": "Q1'26 raise (EBITDA +$0.5B, DCF +$0.4B at midpoint) attributed to record exports, higher production and YTD margin optimization (spread-driven), which mean-revert into the supply glut; the contracted fixed-fee base is the durable piece.",
+    "severity": "low"
+   }
+  ],
+  "asc_842_lease_pv_usd_m": 4500.0,
+  "asc_718_sbc_pct_revenue": 0.81,
+  "asc_718_sbc_pct_ocf": 2.9,
+  "non_gaap_to_gaap_delta_pct_ni_5y_avg": 80.0,
+  "non_gaap_reconciliation_present": true,
+  "fcf_definition": "OCF_minus_capex",
+  "goodwill_pct_net_assets": 0.8,
+  "auditor": "KPMG LLP",
+  "auditor_change_recent": false,
+  "restatement_8k_4_02_recent": false,
+  "form_4_net_12mo_usd_m": -35.0,
+  "going_concern_qualification": false,
+  "vie_exposure": "Cheniere Energy Partners (CQP) ~51% public non-controlling interest consolidated into LNG; Sabine Pass (SPL) and Corpus Christi (CCH) financing entities",
+  "pension_funded_status_pct": 100.0
+ },
+ "positioning_sentiment": {
+  "top_holders_13f": [
+   {
+    "holder": "BlackRock",
+    "shares_m": 14.9,
+    "pct_so": 7.1,
+    "qoq_delta_pct": 0.2
+   },
+   {
+    "holder": "Vanguard Group",
+    "shares_m": 11.1,
+    "pct_so": 5.28,
+    "qoq_delta_pct": 0.3
+   },
+   {
+    "holder": "Morgan Stanley",
+    "shares_m": 7.0,
+    "pct_so": 3.3,
+    "qoq_delta_pct": -0.1
+   },
+   {
+    "holder": "State Street",
+    "shares_m": 6.5,
+    "pct_so": 3.1,
+    "qoq_delta_pct": 0.1
+   },
+   {
+    "holder": "FMR (Fidelity)",
+    "shares_m": 5.0,
+    "pct_so": 2.4,
+    "qoq_delta_pct": -0.2
+   }
+  ],
+  "short_interest_pct_float": 1.5,
+  "days_to_cover": 1.8,
+  "stock_loan_rate_bps": 30,
+  "options_skew_25d_put_minus_call": 3.0,
+  "options_implied_move_earnings_pct": 6.0,
+  "iv_rank_pct": 30,
+  "etf_passive_ownership_pct": 22.0,
+  "sell_side_distribution": {
+   "buy_pct": 96,
+   "hold_pct": 4,
+   "sell_pct": 0,
+   "pt_median_usd": 304.5,
+   "pt_low_usd": 259,
+   "pt_high_usd": 340,
+   "pt_revision_3mo_pct": 3.0
+  },
+  "activist_13d_filed": false,
+  "form_4_pattern": "open_market_net_selling",
+  "index_inclusion": [
+   "S&P 500",
+   "S&P 500 Energy",
+   "Energy Select Sector SPDR (XLE)"
+  ]
+ },
+ "regulatory_status": {
+  "antitrust_open_matters": [],
+  "export_control_status": {
+   "bis_entity_list": false,
+   "ofac_sdn": false,
+   "cfius_review_open": false,
+   "itar_subject": false,
+   "verified_as_of": "2026-06-09"
+  },
+  "sector_regulator_open_matters": [
+   {
+    "agency": "DOE",
+    "matter": "Non-FTA LNG export authorizations; the Jan-2024 'pause' was reversed Jan-17-2025; SPL Expansion non-FTA authorization pending",
+    "stage": "Authorization pending (SPL Expansion)"
+   },
+   {
+    "agency": "FERC",
+    "matter": "Terminal siting/authorization for SPL Expansion (~20 mtpa) and CCL Expansion; Sabine Pass Train 7 / Corpus Christi 4",
+    "stage": "Application / pre-FID"
+   },
+   {
+    "agency": "EPA",
+    "matter": "Methane / GHG rules on US LNG; current administration de-prioritized stringency (low near-term cost drag)",
+    "stage": "Deregulatory"
+   }
+  ],
+  "tariff_exposure_pct_cogs": 0.5,
+  "tax_policy_exposures": [
+   "IRC_163j_interest_limitation",
+   "CAMT_15pct",
+   "OBBBA_provisions"
+  ]
+ },
+ "position_sizing": {
+  "kelly_math": {
+   "expected_return_12mo": 0.049,
+   "risk_free_rate_10y_ust": 0.0455,
+   "excess_return": 0.0035,
+   "sigma_annual": 0.37,
+   "sigma_squared": 0.1369,
+   "sharpe_12mo": 0.0095,
+   "raw_kelly_fraction": 0.0256,
+   "raw_kelly_pct": 2.56,
+   "conviction_multiplier": 0.15,
+   "conviction_multiplier_band": "0.10-0.20 (source-conditional Hold; beta ~1.05; load-bearing variance is two-tailed and partly S3)",
+   "conviction_adjusted_kelly_pct": 0.38,
+   "formula": "(E[R]-Rf)/sigma^2 = (0.049-0.0455)/0.1369 = 0.0256; x0.15 conviction = 0.0038 (effectively flat -> benchmark weight; Hold)"
+  },
+  "long_only_large_cap": {
+   "benchmark": "S&P 500",
+   "recommended_active_weight_bps": 0,
+   "max_weight_pct_nav": 2.5,
+   "kelly_implied_pct_nav": 0.4,
+   "conviction_adjusted_pct_nav": 0.0,
+   "mandate_constraint": "Hold at ~benchmark (S&P 500 LNG weight ~0.1%); premium multiple + crowded long; add only on a sub-$200 entry or an SPL Expansion FID with new SPAs >=$2.50/MMBtu"
+  },
+  "long_only_smid": {
+   "benchmark": "Russell 1000",
+   "recommended_active_weight_bps": 0,
+   "max_weight_pct_nav": 2.0,
+   "kelly_implied_pct_nav": 0.4,
+   "conviction_adjusted_pct_nav": 0.5,
+   "mandate_constraint": "Large-cap; SMID/all-cap energy mandates seeking LNG-export beta may prefer the cheaper pure-play VG, accepting its construction/contract risk"
+  },
+  "long_short_hedge_fund": {
+   "gross_exposure_pct_nav": 4.0,
+   "net_exposure_pct_nav": -0.5,
+   "single_name_long_cap_pct_nav": 2.5,
+   "single_name_long_cap_band_pct_nav": "0-3",
+   "single_name_short_cap_pct_nav": -2.5,
+   "kelly_implied_pct_nav": 0.4,
+   "mandate_constraint": "Express as a small long-VG / short-LNG relative-value pair on the premium convergence + crowded-long unwind, NOT a directional LNG short - the contracted DCF + >$10B buyback are a powerful squeeze cushion"
+  },
+  "sector_specialty": {
+   "benchmark": "Energy Select Sector SPDR (XLE) / Alerian midstream",
+   "recommended_active_weight_bps": 0,
+   "conviction_adjusted_pct_nav": 3.0,
+   "kelly_implied_pct_nav": 0.4,
+   "mandate_constraint": "Hold near benchmark; overweight only on a new FID/SPA catalyst or a sub-$200 re-entry"
+  },
+  "pair_trade": {
+   "long_ticker": "VG",
+   "short_ticker_primary": "LNG",
+   "short_ticker_secondary": "SRE",
+   "structure": "dollar_neutral_beta_adjusted",
+   "long_pct_nav": 2.5,
+   "short_pct_nav": 2.3,
+   "long_short_ratio_beta_adjusted": "1.00:0.92",
+   "expected_spread_return_pct": 2.5,
+   "rationale": "Long VG (~10.8x) / short LNG (~12.7x) on premium convergence + LNG crowded-long positioning (96% Street Buy, +27% PT). Size SMALL and beta-hedge (~0.92): VG carries more construction/ramp/contract-dispute risk and LNG's contracted DCF + >$10B-through-2030 buyback cushion any short; stop if the LNG-VG multiple gap compresses below ~1 turn or on a Cheniere FID/SPA print confirming durable premium fees."
+  }
+ },
+ "quant_overlay": {
+  "factor_tags": {
+   "value": -0.2,
+   "quality": 1.0,
+   "momentum": -0.3,
+   "growth": 0.8,
+   "size": 1.0,
+   "low_vol": -0.2,
+   "liquidity": 0.4
+  },
+  "capacity": {
+   "adv_30d_usd_m": 470.0,
+   "days_to_exit_10pct_participation": 2.7,
+   "days_to_exit_20pct_participation": 1.3,
+   "days_to_exit_30pct_participation": 0.9,
+   "max_position_constrained_by_adv_pct_nav": 3.0
+  },
+  "edge_decay": {
+   "thesis_half_life_months": 3.0,
+   "time_to_priced_in_months": 4.0,
+   "refresh_cadence": "quarterly_print_plus_JKM_HH_spread_plus_FID_SPA_prints",
+   "primary_decay_driver": "JKM-Henry Hub spread + new SPA/FID fee disclosures + quarterly EBITDA/DCF guidance + global supply ramp"
+  },
+  "correlation": {
+   "book_file_path": "n/a (placeholder per D14)",
+   "top10_pairwise_corr": [],
+   "live_wired": false
+  },
+  "stress_overlay": {
+   "fed_funds_plus_200bp": -14.0,
+   "lng_spread_collapse_jkm_below_3": -22.0,
+   "glut_multiple_derate_to_9x": -20.0,
+   "recession_dummy": -18.0
+  }
+ },
+ "consensus_variance": [
+  {
+   "variance_id": "V1_2027_durability_multiple",
+   "line_item": "FY2027 Consolidated Adjusted EBITDA durability + multiple",
+   "type": "scenario_weight",
+   "direction": "downward",
+   "magnitude_pct": -10.0,
+   "probability_right_pct": 58.0,
+   "scenario_sensitivity_pct": 12.0,
+   "sizing_impact_pp": 12.0,
+   "narrative": "The Street's +27% median PT (~$304.50) extrapolates the raised FY2026 run-rate (a spread/optimization-driven raise) into a sustained ~15-17x forward multiple and capitalizes the full pre-FID growth pipeline. Our downward variance marks (i) the FY2026 raise as partly transient (the merchant lever is <1 mtpa, <$50M per $1/MMBtu), (ii) the marginal book recontracting/FID-ing into the largest supply wave in history at plausibly lower fixed fees (~$2/MMBtu vs legacy ~$3/MMBtu), and (iii) base-rate multiple compression for premium energy-infra into oversupply. This shifts ~12pp of probability from base/bull toward the bear tails (a re-rate toward the 8.5-9x midstream band). Two-tailed (AI-power gas demand + new premium SPAs/FIDs are genuine upside), hence Hold not Sell.",
+   "evidence_refs": [
+    {
+     "s_level": "S1",
+     "ref": "LNG FY2025 10-K: open position <1 mtpa 2026, <$50M Consolidated Adj EBITDA per $1/MMBtu; ~90% contracted (the raise's marginal driver is the small variable slice)"
+    },
+    {
+     "s_level": "S3",
+     "ref": "Wolfe recontracting at ~$2.00/MMBtu fixed fee; Morgan Stanley ~200 mtpa under construction globally / supply wave"
+    },
+    {
+     "s_level": "S1",
+     "ref": "Sabine Pass Train 7 / Corpus Christi 4 FID early-2027 + SPL Expansion pre-FID (FERC/DOE) -> marginal trains set into the trough"
+    }
+   ]
+  }
+ ],
+ "revision_velocity": {
+  "n_analysts": 23,
+  "fy1_eps_consensus": 17.91,
+  "fy2_eps_consensus": 19.51,
+  "fy1_ebitda_consensus_usd_b": 7.5,
+  "fy2_ebitda_consensus_usd_b": 7.8,
+  "fy1_eps_revision_1m_pct": 1.5,
+  "fy1_eps_revision_3m_pct": 4.0,
+  "fy1_ebitda_revision_3m_pct": 6.7,
+  "breadth_3m": 0.4,
+  "breadth_note": "Estimates revised UP after the Q1'26 guidance raise; PT actions net up (JPM $325->$327 6/3; Scotiabank $288->$290; TD Cowen $265->$270; Morgan Stanley upgrade EW->OW $236->$313). 15 Strong Buys, 0 downgrades 3mo.",
+  "pt_revisions_recent": "JPM $327 (6/3); Scotiabank $290 (5/13); TD Cowen $270 (5/11); Morgan Stanley OW $313 (3/23). Median ~$304.50, all >+8% above spot.",
+  "pre_print_drift": "Beats + guidance raises but stock ~20% off the $300.89 52-wk high (multiple de-rate, not estimate cut); next earnings ~2026-08-06; implied move ~+/-5-7%.",
+  "peer_comparison": "LNG revisions positive and ahead of midstream peers; VG cheaper with more revision volatility. Sector read: gas-infra estimates rising, multiples mixed.",
+  "verdict": "De-rate risk (full multiple into an oversupply wave), NOT estimate deterioration - estimates and guidance are rising; our caution is multiple durability and the composition of the raise."
+ },
+ "scenarios_inline": {
+  "schema_version": "0.3.0",
+  "ticker": "LNG",
+  "current_price": 239.4,
+  "as_of_date": "2026-06-09",
+  "fiscal_year_end": "12-31",
+  "base_eps": 19.51,
+  "scenarios": [
+   {
+    "id": "strong_bear",
+    "probability": 0.1,
+    "narrative_one_liner": "Global LNG glut deepens, JKM collapses toward $6, the FY2026 spread/optimization tailwind reverses, marginal recontracting prints sub-$2/MMBtu, and the market re-rates LNG from a premium growth name to a midstream/contracted-infra multiple (~8.5x).",
+    "narrative_long": "The largest supply wave in history (Qatar NFE/NFS + Plaquemines + Golden Pass + Port Arthur + CP2) lands into decelerating demand; JKM-HH compresses to shipping cost with episodic negative merchant margins. The 2026 raise unwinds as optimization/spread upside mean-reverts; Train 7/CCL4 and SPL Expansion FID into the trough at fees at/below legacy. The equity de-rates to ~8.5x EV/EBITDA - the midstream/contracted-infra analog - as the AI/LNG-demand premium deflates.",
+    "eps": 17.0,
+    "eps_period": "FY27E",
+    "multiple": 8.5,
+    "multiple_type": "P/E",
+    "target_price": 144.5,
+    "expected_return": -0.3964,
+    "anchors": [
+     "A-Consensus",
+     "R-Bear",
+     "B-Glut",
+     "B-Recontract"
+    ],
+    "strongest_anchor_s_level": "S3",
+    "multiple_band_basis": "8.5x P/E = midstream/contracted-infra band (KMI/EPD historical 8-11x EV/EBITDA-equivalent), below LNG's own forward ~12.3x. Reflects de-rating to a no-growth contracted-infra analog as the supply glut deflates the premium.",
+    "eps_bridge": [
+     {
+      "label": "FY2026 spread/optimization tailwind reverses + open-book margin normalizes into the glut",
+      "delta_eps": -1.2,
+      "layer": "clean",
+      "source_tag": "S1: LNG 10-K open-position sensitivity (<$50M per $1/MMBtu) + S3 JKM-to-$7 path"
+     },
+     {
+      "label": "Marginal recontracting / new-train fixed fee compresses toward ~$2/MMBtu (at/below legacy)",
+      "delta_eps": -0.71,
+      "layer": "soft",
+      "source_tag": "S3: Wolfe recontracting assumption; undisclosed marginal fee"
+     },
+     {
+      "label": "Higher rate / slower buyback at depressed FCF (lost per-share accretion)",
+      "delta_eps": -0.4,
+      "layer": "clean",
+      "source_tag": "S2: LNG capital-allocation framework (buyback pace scales with DCF)"
+     },
+     {
+      "label": "Stage 3 / Midscale ramp + cost-inflation drag",
+      "delta_eps": -0.2,
+      "layer": "soft",
+      "source_tag": "S1: LNG FY2025 10-K (Midscale 8&9 ~32% complete)"
+     }
+    ]
+   },
+   {
+    "id": "bear",
+    "probability": 0.22,
+    "narrative_one_liner": "Soft glut: JKM eases toward $7-8, merchant margins normalize, recontracting is delayed rather than punitive, and the multiple compresses from ~10.2x toward ~9x (P/E ~10.5x) - the stock works back toward the sell-side floor / 52-week low.",
+    "narrative_long": "The supply wave pressures spreads but not catastrophically; the contracted book holds FY2027 EBITDA near $7.3B while the premium multiple erodes as base-rate energy-infra de-rating plays out. PT cuts begin (multiple cuts, estimates intact). The stock settles near the $200-220 sell-side floor / $186 52-week low.",
+    "eps": 18.5,
+    "eps_period": "FY27E",
+    "multiple": 10.5,
+    "multiple_type": "P/E",
+    "target_price": 194.25,
+    "expected_return": -0.1886,
+    "anchors": [
+     "A-Consensus",
+     "B-Multiple",
+     "B-Glut"
+    ],
+    "strongest_anchor_s_level": "S3",
+    "multiple_band_basis": "10.5x P/E ~ between the midstream floor and LNG's own forward ~12.3x; consistent with a partial de-rate of the AI/LNG premium with EBITDA intact.",
+    "eps_bridge": [
+     {
+      "label": "Open-book / spread normalization (JKM toward $7-8)",
+      "delta_eps": -0.61,
+      "layer": "clean",
+      "source_tag": "S3: JKM forward curve + LNG open-position sensitivity"
+     },
+     {
+      "label": "Marginal-fee / recontracting partial pressure",
+      "delta_eps": -0.25,
+      "layer": "soft",
+      "source_tag": "S3: Wolfe/MS recontracting"
+     },
+     {
+      "label": "Rate / buyback pace",
+      "delta_eps": -0.15,
+      "layer": "clean",
+      "source_tag": "S2: LNG capital allocation"
+     }
+    ]
+   },
+   {
+    "id": "base",
+    "probability": 0.38,
+    "narrative_one_liner": "Contracted book holds, Stage 3 completes end-2026, buyback compounds DCF/share, FY2027 EBITDA lands near $7.8B; the stock holds roughly its current forward multiple (~13x P/E) as the contracted annuity + capital return offset the supply-wave overhang.",
+    "narrative_long": "The ~90%-contracted take-or-pay base delivers FY2027 Consolidated Adj EBITDA ~$7.8B; Stage 3 fully ramps and the >$10B buyback retires ~4-5%/yr of shares, so DCF/share grows even on a flat platform. The supply glut compresses merchant/portfolio margin but the fixed-fee core is insulated; the multiple holds ~13x (in line with the current ~12.3x FY27E forward) rather than re-rating up (capped by oversupply) or down (cushioned by the contracted annuity).",
+    "eps": 19.51,
+    "eps_period": "FY27E",
+    "multiple": 12.5,
+    "multiple_type": "P/E",
+    "target_price": 243.88,
+    "expected_return": 0.0187,
+    "anchors": [
+     "A1-Guidance",
+     "A2-Contracted",
+     "A3-DCF",
+     "Buyback"
+    ],
+    "strongest_anchor_s_level": "S1",
+    "multiple_band_basis": "13.0x P/E ~ in line with LNG's own current forward (~12.3x FY27E); below VG/CQP-implied and the SRE/KMI utility-midstream band. Holds the multiple rather than re-rating either way.",
+    "eps_bridge": []
+   },
+   {
+    "id": "bull",
+    "probability": 0.22,
+    "narrative_one_liner": "New SPAs + SPL Expansion FID de-risk recontracting at premium fees, buyback accelerates on the raised ~$5B DCF, FY2027 EBITDA tops $8B; the market re-rates LNG toward ~15x as the contracted-growth-plus-capital-return story is recognized.",
+    "narrative_long": "Cheniere signs incremental 15yr+ SPAs at fees at/above legacy and reaches FID on SPL Expansion / Train 7, proving the growth pipeline clears even in oversupply. The raised DCF (~$5B) funds an accelerated buyback toward a ~$30/share run-rate, and the market credits the contracted-compounder narrative with a ~15x multiple (toward the Street's PT).",
+    "eps": 20.5,
+    "eps_period": "FY27E",
+    "multiple": 14.0,
+    "multiple_type": "P/E",
+    "target_price": 287.0,
+    "expected_return": 0.1988,
+    "anchors": [
+     "SPA-Convert",
+     "SPL-Expansion-FID",
+     "Buyback-Accel"
+    ],
+    "strongest_anchor_s_level": "S2",
+    "multiple_band_basis": "15.0x P/E = re-rate toward the Street PT (~$304.50 ~ 15.6x FY27E), reflecting recognition of the contracted-growth + capital-return compounding; above LNG's current forward but below utility multiples.",
+    "eps_bridge": [
+     {
+      "label": "Accelerated buyback compounding on raised ~$5B DCF (share count toward ~205M)",
+      "delta_eps": 0.55,
+      "layer": "soft",
+      "source_tag": "S2: LNG >$10B-through-2030 buyback authorization"
+     },
+     {
+      "label": "New FID accretion begins to price (SPL Expansion / Train 7-CCL4 optionality)",
+      "delta_eps": 0.29,
+      "layer": "soft",
+      "source_tag": "S2: LNG growth-pipeline disclosures"
+     },
+     {
+      "label": "Tight 2026-27 market optimization upside",
+      "delta_eps": 0.15,
+      "layer": "soft",
+      "source_tag": "S3: Cheniere Marketing portfolio optimization"
+     }
+    ]
+   },
+   {
+    "id": "strong_bull",
+    "probability": 0.08,
+    "narrative_one_liner": "AI-power gas-demand supercycle: multiple new premium SPAs + FIDs convert the >100 mtpa permitted platform, JKM re-widens on demand, buyback drives DCF/share toward ~$30, and LNG re-rates to a CQP/utility-adjacent ~17x.",
+    "narrative_long": "Structural gas demand (Asia coal-to-gas + US/global data-center power) outruns even the record supply wave; Cheniere converts a large share of its permitted platform to premium long-dated SPAs and FIDs, the buyback shrinks the share count materially, and the market re-rates the contracted compounder toward ~17x - approaching the utility/contracted-infra premium band.",
+    "eps": 22.0,
+    "eps_period": "FY27E",
+    "multiple": 16.0,
+    "multiple_type": "P/E",
+    "target_price": 352.0,
+    "expected_return": 0.4703,
+    "anchors": [
+     "AI-Gas-Supercycle",
+     "SPA-Convert",
+     "Buyback"
+    ],
+    "strongest_anchor_s_level": "S3",
+    "multiple_band_basis": "17.0x P/E approaches a CQP/utility-adjacent premium; tail re-rate predicated on durable premium-fee recontracting + a demand supercycle absorbing the supply wave.",
+    "eps_bridge": [
+     {
+      "label": "Multiple incremental premium SPAs + FIDs convert the >100 mtpa permitted platform",
+      "delta_eps": 1.3,
+      "layer": "strong",
+      "source_tag": "S3: global LNG demand pipeline (AI-power gas, Asia coal-to-gas)"
+     },
+     {
+      "label": "Aggressive buyback toward ~$30/share run-rate DCF shrinks share count",
+      "delta_eps": 1.19,
+      "layer": "strong",
+      "source_tag": "S2: LNG >$10B buyback + DCF/share target"
+     }
+    ]
+   }
+  ],
+  "probability_sum_check": 1.0,
+  "conviction_tag": "neutral",
+  "headline": {
+   "expected_return_median": 0.007,
+   "expected_return_range_p10_p90": [
+    -0.3964,
+    0.4703
+   ],
+   "rating": "Hold",
+   "default_action": "hold_long",
+   "conditionality": "source_conditional",
+   "conditional_language_pattern": "A_source_conditional_bias",
+   "headline_text": "Source-conditional Hold: LNG at $239.40 carries a de-biased 12-month expected return of +0.7%, conditional on the ~90%-contracted book holding its fixed fees and the FY2026 raise proving durable. Anchoring to independent fair value (~$244, ~flat) barely moves it - LNG's DCF was already near spot, so this confirms a genuine (not spot-anchored) Hold; scenario-weighted range -39.6% to +47.0%."
+  },
+  "weighting_sensitivity": {
+   "base_minus_10_to_bear": -0.0207,
+   "base_minus_10_to_bull": 0.018,
+   "strong_tail_plus_10": {
+    "strong_bear": -0.0415,
+    "strong_bull": 0.0452
+   }
+  }
+ },
+ "source_tags_inline": {
+  "schema_version": "0.3.0",
+  "ticker": "LNG",
+  "as_of_date": "2026-06-09",
+  "model_cutoff_date": "2026-01-01",
+  "all_citations": [
+   {
+    "s_level": "S1",
+    "source_type": "10-K",
+    "ref": "LNG FY2025 10-K (filed 2026-02; ~90% contracted, ~15yr WA SPA term, open <1 mtpa 2026)",
+    "date": "2026-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/0000003570/000000357026000005/lng-20251231.htm",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S1",
+    "source_type": "XBRL",
+    "ref": "SEC XBRL companyfacts CIK 0000003570 (revenue/NI/EPS/shares/SBC/OCF/capex/buyback FY23-25)",
+    "date": "2026-06-09",
+    "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000003570.json",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "LNG Q4/FY25 results 8-K: rev ~$20.0B, Consolidated Adj EBITDA ~$6.9B, DCF ~$5.3B; FY2026 guidance introduced",
+    "date": "2026-02-25",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S3",
+    "source_type": "Other",
+    "ref": "LNG Q1'26 release / call: FY2026 guidance RAISED to Consolidated Adj EBITDA $7.25-7.75B, DCF $4.75-5.25B; ~$2.3B EBITDA Q1; ~$3.5B GAAP net loss (MtM)",
+    "date": "2026-05-06",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "LNG Midscale Trains 8&9 positive FID (full NTP to Bechtel) Jun-2025; ~32% complete at YE25; 2H28 completion",
+    "date": "2025-06-18",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "LNG new buyback authorization to >$10B through 2030 (after completing the '20/20 Vision'); ~$1.2B remaining on prior auth at YE25",
+    "date": "2026-02-25",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "Other",
+    "ref": "Moody's upgrade LNG to Baa2 (from Baa3) Feb-27-2026; S&P BBB+ (Nov'25); Fitch BBB; SPL/CCH Baa1",
+    "date": "2026-02-27",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "8-K",
+    "ref": "LNG ~1.2 mtpa long-term SPA with CPC Corporation (Taiwan) through 2050",
+    "date": "2026-02-15",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S2",
+    "source_type": "DEF 14A",
+    "ref": "LNG 2026 DEF 14A: KPMG ratified; Jack Fusco CEO / Zach Davis CFO",
+    "date": "2026-04-07",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S1",
+    "source_type": "FRED",
+    "ref": "FRED DGS10 10-yr UST 4.55%",
+    "date": "2026-06-05",
+    "url": "https://fred.stlouisfed.org/series/DGS10",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S5",
+    "source_type": "Damodaran",
+    "ref": "Damodaran implied US ERP 4.23%",
+    "date": "2026-01-01",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "FactSet consensus",
+    "ref": "Consensus n=23: FY26E GAAP EPS $17.91, FY27E $19.51; FY26E EBITDA tracks guidance ~$7.5B; PT median $304.50 (low $259 / high $340); 96% Buy / 4% Hold / 0% Sell",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Yahoo Finance consensus",
+    "ref": "LNG $239.40 (6/9 close); mkt cap ~$50.2B; EV ~$76.6B; shares ~209.55M; EV/EBITDA ~12.7x TTM / ~10.2x FY26E; 52wk $186.20-$300.89",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "30-day ADV ~$470M (~1.96M shares); beta ~1.05 (modeled; vendor 5y beta flagged as a data artifact)",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S2",
+    "source_type": "13F",
+    "ref": "13F/13G: ~2,132 institutions; BlackRock ~7.1%, Vanguard ~5.28%, Morgan Stanley, State Street, FMR",
+    "date": "2026-05-15",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S4",
+    "source_type": "Other",
+    "ref": "Short interest ~1.5% float (DTC ~1.8); net insider selling YTD (no open-market buys)",
+    "date": "2026-05-15",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S3",
+    "source_type": "Other",
+    "ref": "Global LNG supply wave: ~193 mtpa new liquefaction 2024-2028 (nameplate ~474->~666 mtpa); Qatar NFE/NFS +48, Plaquemines ~20, Golden Pass ~16-18, Port Arthur ~13, CP2 ~28; JKM toward $7-8 (Kpler/IEEFA/Morgan Stanley)",
+    "date": "2026-05-01",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S3",
+    "source_type": "Other",
+    "ref": "Wolfe recontracting assumption ~$2.00/MMBtu fixed fee; legacy fee widely cited ~$3/MMBtu+ (undisclosed at S1)",
+    "date": "2026-05-01",
+    "verified": true,
+    "is_anchor_eligible": false
+   },
+   {
+    "s_level": "S2",
+    "source_type": "Other",
+    "ref": "US DOE non-FTA export 'pause' reversed Jan-17-2025; FERC LNG approvals resumed; no BIS/OFAC/CFIUS on LNG (US-domiciled exporter), verified 2026-06-09",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": true
+   },
+   {
+    "s_level": "S5",
+    "source_type": "Other",
+    "ref": "Peer multiples: VG ~10.8x, CQP ~11.7x, SRE ~16.9x, KMI ~13.9x EV/EBITDA (TTM)",
+    "date": "2026-06-09",
+    "verified": true,
+    "is_anchor_eligible": false
+   }
+  ],
+  "top_anchors": [
+   {
+    "anchor_id": "A1",
+    "claim": "FY2026 Consolidated Adjusted EBITDA guidance midpoint (raised Q1'26)",
+    "value": 7500.0,
+    "unit": "$M",
+    "citation": {
+     "s_level": "S3",
+     "source_type": "Other",
+     "ref": "LNG Q1'26 release: FY2026 Consolidated Adj EBITDA $7.25-7.75B",
+     "date": "2026-05-06",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base",
+     "bear",
+     "bull"
+    ],
+    "sensitivity_pct": 10.0
+   },
+   {
+    "anchor_id": "A2",
+    "claim": "Capacity sold under long-term SPA/IPM through the mid-2030s",
+    "value": 90.0,
+    "unit": "% of platform capacity contracted",
+    "citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "LNG FY2025 10-K (~90% contracted, ~15yr WA remaining term)",
+     "date": "2026-02-25",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "strong_bear",
+     "bear",
+     "base",
+     "bull",
+     "strong_bull"
+    ],
+    "sensitivity_pct": 8.0
+   },
+   {
+    "anchor_id": "A3",
+    "claim": "FY2026 Distributable Cash Flow guidance midpoint (raised Q1'26)",
+    "value": 5000.0,
+    "unit": "$M",
+    "citation": {
+     "s_level": "S3",
+     "source_type": "Other",
+     "ref": "LNG Q1'26 release: FY2026 DCF $4.75-5.25B",
+     "date": "2026-05-06",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "base",
+     "bull"
+    ],
+    "sensitivity_pct": 8.0
+   },
+   {
+    "anchor_id": "A4",
+    "claim": "Open/merchant book + marginal recontracting (load-bearing variance)",
+    "value": 50.0,
+    "unit": "$M Consolidated Adj EBITDA per $1/MMBtu (open <1 mtpa 2026)",
+    "citation": {
+     "s_level": "S1",
+     "source_type": "10-K",
+     "ref": "LNG FY2025 10-K open-position sensitivity + S3 recontracting/supply-wave",
+     "date": "2026-02-25",
+     "verified": true,
+     "is_anchor_eligible": true
+    },
+    "drives_scenarios": [
+     "strong_bear",
+     "bear",
+     "base",
+     "bull",
+     "strong_bull"
+    ],
+    "sensitivity_pct": 12.0
+   }
+  ],
+  "headline_conditionality": "source_conditional",
+  "consensus_variance": [
+   {
+    "variance_id": "V1_2027_durability_multiple",
+    "line_item": "FY2027 Consolidated Adjusted EBITDA durability + multiple",
+    "type": "scenario_weight",
+    "direction": "downward",
+    "magnitude_pct": -10.0,
+    "probability_right_pct": 58.0,
+    "scenario_sensitivity_pct": 12.0,
+    "sizing_impact_pp": 12.0,
+    "narrative": "The Street's +27% median PT (~$304.50) extrapolates the raised FY2026 run-rate (a spread/optimization-driven raise) into a sustained ~15-17x forward multiple and capitalizes the full pre-FID growth pipeline. Our downward variance marks the raise as partly transient (merchant lever <1 mtpa, <$50M per $1/MMBtu), the marginal book recontracting/FID-ing into the supply wave at plausibly lower fixed fees (~$2/MMBtu vs legacy ~$3/MMBtu), and base-rate multiple compression for premium energy-infra into oversupply; it shifts ~12pp from base/bull toward the bear tails. Two-tailed (AI-power gas demand + premium SPAs/FIDs are genuine upside) -> Hold not Sell.",
+    "evidence_refs": [
+     {
+      "s_level": "S1",
+      "ref": "LNG FY2025 10-K: open position <1 mtpa 2026, <$50M Consolidated Adj EBITDA per $1/MMBtu; ~90% contracted"
+     },
+     {
+      "s_level": "S3",
+      "ref": "Wolfe recontracting ~$2.00/MMBtu; Morgan Stanley ~200 mtpa under construction globally"
+     },
+     {
+      "s_level": "S1",
+      "ref": "Sabine Pass Train 7 / Corpus Christi 4 FID early-2027 + SPL Expansion pre-FID"
+     }
+    ]
+   }
+  ],
+  "revision_velocity": {
+   "n_analysts": 23,
+   "fy1_eps_consensus": 17.91,
+   "fy2_eps_consensus": 19.51,
+   "fy1_ebitda_consensus_usd_b": 7.5,
+   "fy2_ebitda_consensus_usd_b": 7.8,
+   "fy1_eps_revision_1m_pct": 1.5,
+   "fy1_eps_revision_3m_pct": 4.0,
+   "fy1_ebitda_revision_3m_pct": 6.7,
+   "breadth_3m": 0.4,
+   "breadth_note": "Estimates revised UP after the Q1'26 guidance raise; PT actions net up; 15 Strong Buys, 0 downgrades 3mo.",
+   "pt_revisions_recent": "JPM $327 (6/3); Scotiabank $290 (5/13); TD Cowen $270 (5/11); Morgan Stanley OW $313 (3/23). Median ~$304.50.",
+   "pre_print_drift": "Beats + raises but stock ~20% off the $300.89 52-wk high (de-rate, not estimate cut); next earnings ~2026-08-06.",
+   "peer_comparison": "LNG revisions positive, ahead of midstream peers; VG cheaper with more revision volatility.",
+   "verdict": "De-rate risk (full multiple into oversupply), NOT estimate deterioration."
+  },
+  "pending_assumptions": []
+ },
+ "source_tags_ref": "outputs/LNG_source_tags.json",
+ "verification_gates_ref": "outputs/LNG_verification_gates.json",
+ "audience_variant": "institutional_full",
+ "delegation_outputs": {
+  "company_research_md_path": "outputs/LNG_IC_memo.md",
+  "valuation_analysis_md_path": "outputs/LNG_IC_memo.md",
+  "scenarios_3case_for_dcf_plugin": {
+   "bear_case_revenue_growth_pcts": [
+    5,
+    2,
+    1,
+    1,
+    2
+   ],
+   "bear_case_ebit_margin_pcts": [
+    28,
+    27,
+    26,
+    26,
+    26
+   ],
+   "base_case_revenue_growth_pcts": [
+    10,
+    8,
+    5,
+    4,
+    3
+   ],
+   "base_case_ebit_margin_pcts": [
+    28,
+    28,
+    28,
+    28,
+    28
+   ],
+   "bull_case_revenue_growth_pcts": [
+    12,
+    10,
+    8,
+    6,
+    5
+   ],
+   "bull_case_ebit_margin_pcts": [
+    29,
+    30,
+    30,
+    29,
+    29
+   ]
+  }
+ },
+ "memo_metadata": {
+  "run_id": "B1C2D3E4-LNG2-4DE5-8F90-DEBIA5ED0002",
+  "iteration_round": 2,
+  "phases_completed": "0,1,2,3,verification",
+  "verification_calls_count": 31,
+  "shaped_into_ic_memo": true,
+  "ic_rigor_chained": false,
+  "net_leverage_note": "Consolidated net debt ~$21.7B (total debt ~$22.8B less cash ~$1.1B) is from FY2025 XBRL; the EV-implied net debt + non-controlling interest of ~$26.5B (EV $76.6B less mkt cap $50.2B) includes the ~51% public CQP minority and is the figure used in EV/EBITDA. Both are disclosed to avoid conflating consolidated vs EV-level leverage. [v2 DE-BIASED: base re-anchored to independent fair value ~$244; rating CONFIRMED Hold (DCF was already near spot); v1 archived.]",
+  "agent_count": 16,
+  "manifest_ref": "LNG_manifest.json",
+  "current_score": 8.7
+ },
+ "valuation_parallel": {
+  "method": "Two-value parallel: independent fair value (B) || market-regime value (A); the GAP is the mispricing signal; the 12-month base PT is a convergence-weighted blend.",
+  "independent_fair_value_usd": 244.0,
+  "independent_fair_value_basis": "DCF $225 + SOTP $262 + comps $253 (contracted DCF near spot) \u2014 computed WITHOUT reference to price (answers 'what is it worth')",
+  "market_regime_value_usd": 304.5,
+  "market_regime_value_basis": "consensus 12-mo PT median/avg (S4) \u2014 embeds the current-multiple regime (answers 'where will it trade given the regime')",
+  "current_price_usd": 239.4,
+  "price_vs_fair_value_pct": -1.9,
+  "regime_vs_fair_value_pct": 24.8,
+  "twelve_month_base_pt_usd": 243.88,
+  "base_vs_fair_value_pct": -0.0,
+  "convergence_speed": "n_a",
+  "convergence_assumption": "no material gap \u2014 fair value approx equals spot; the v1 Hold was genuine, not spot-anchored",
+  "signal": "fairly valued (gap < ~8%)"
+ },
+ "is_cyclical": false,
+ "is_cyclical_note": "Not classically cyclical (contracted / fee-based / oligopoly cash flows); valued on contracted DCF / P-DCF / sector multiple rather than a normalized-cycle frame.",
+ "conviction_axis": {
+  "rating": "Hold",
+  "conviction": "moderate (public-info build)",
+  "conviction_drivers_for": [
+   "independent fair value vs spot gap is the load-bearing signal (public)",
+   "DCF/SOTP/comps triangulate the fair value without reference to price"
+  ],
+  "conviction_drivers_against": [
+   "the multiple is a judgment that could re-rate",
+   "convergence timing is uncertain (overvaluation/undervaluation is not itself a catalyst)"
+  ],
+  "self_anchoring_check": "BIDIRECTIONAL \u2014 the anchoring discipline applies to revisions toward EITHER side; use external analysts' PUBLIC evidence, never their conclusions (multiple/PT/rating).",
+  "downgradeable_note": "Conviction is tracked separately from the rating; new PUBLIC counter-evidence lowers conviction even when it does not flip the rating. A nonpublic cross-check may nuance conviction personally but is NOT persisted."
+ }
+}

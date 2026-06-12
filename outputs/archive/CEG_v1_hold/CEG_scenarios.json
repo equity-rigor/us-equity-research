@@ -1,0 +1,192 @@
+{
+ "schema_version": "0.3.0",
+ "ticker": "CEG",
+ "current_price": 247.12,
+ "as_of_date": "2026-06-11",
+ "fiscal_year_end": "12-31",
+ "base_eps": 13.5,
+ "scenarios": [
+  {
+   "id": "strong_bear",
+   "probability": 0.12,
+   "narrative_one_liner": "The AI-power premium deflates: PJM capacity reverts toward the floor, hyperscalers cut capex and PPAs stall, Calpine synergies disappoint, and CEG de-rates to a VST-level ~14x on normalized ~$12 EPS.",
+   "narrative_long": "A hyperscaler capex guide-down fires all three channels at once - multiple compression, stalled PPA conversions, softer power curves. PJM capacity reverts from the cap toward the $179.55 floor on the open out-year book; the 45U floor (~$0 today) only protects a much lower earnings level; Calpine gas margins normalize from peak. The market re-rates CEG to Vistra's ~14x on a normalized $12.00 FY27E EPS.",
+   "eps": 12.0,
+   "eps_period": "FY27E",
+   "multiple": 14.0,
+   "multiple_type": "P/E",
+   "target_price": 168.0,
+   "expected_return": -0.32,
+   "anchors": [
+    "R-Bear",
+    "B-Capacity",
+    "B-Hyperscaler",
+    "B-Calpine"
+   ],
+   "strongest_anchor_s_level": "S2",
+   "multiple_band_basis": "14x P/E = de-rate to Vistra's level - the premium fully erased as the AI/nuclear-scarcity narrative deflates and the gas mix dominates.",
+   "eps_bridge": [
+    {
+     "label": "PJM capacity reverts from cap toward CONE floor on the open out-year book",
+     "delta_eps": -0.7,
+     "layer": "clean",
+     "source_tag": "S2: PJM BRA cap $333 vs floor $179.55"
+    },
+    {
+     "label": "Hyperscaler AI-capex cut / power-price normalization",
+     "delta_eps": -0.5,
+     "layer": "soft",
+     "source_tag": "S4: 2026 hyperscaler spend ~+75% YoY (can mean-revert)"
+    },
+    {
+     "label": "Calpine synergies disappoint + gas-margin normalization",
+     "delta_eps": -0.3,
+     "layer": "clean",
+     "source_tag": "S3: Calpine gas bought near peak vs NRG/VST ~7-7.5x"
+    }
+   ]
+  },
+  {
+   "id": "bear",
+   "probability": 0.25,
+   "narrative_one_liner": "Soft de-rate: power/capacity normalizes modestly, FERC FTM economics compress PPA margin and delay conversions, and the multiple compresses to ~16x on ~$12.75 EPS - the stock works toward the bear floor.",
+   "narrative_long": "The premium partially erodes as the cohort de-rates and the Calpine gas mix dilutes the multiple. PJM capacity stays above floor but off peak; hyperscaler conversions are delayed (FTM) rather than dead. Multiple settles ~16x - above the trough but below the recent ~21x - on a $12.75 FY27E EPS.",
+   "eps": 12.75,
+   "eps_period": "FY27E",
+   "multiple": 16.0,
+   "multiple_type": "P/E",
+   "target_price": 204.0,
+   "expected_return": -0.174,
+   "anchors": [
+    "A-Consensus",
+    "B-FERC",
+    "B-Capacity"
+   ],
+   "strongest_anchor_s_level": "S2",
+   "multiple_band_basis": "16x = partial de-rate; between VST (~14x) and CEG's recent ~21x, pricing cyclicality + the gas-mix dilution.",
+   "eps_bridge": [
+    {
+     "label": "Power / capacity normalization (partial)",
+     "delta_eps": -0.45,
+     "layer": "clean",
+     "source_tag": "S2: PJM capacity off peak; ERCOT/CAISO spark normalization"
+    },
+    {
+     "label": "FERC FTM economics compress PPA margin + conversion delay",
+     "delta_eps": -0.3,
+     "layer": "soft",
+     "source_tag": "S2: FERC EL25-49 BTM restriction"
+    }
+   ]
+  },
+  {
+   "id": "base",
+   "probability": 0.36,
+   "narrative_one_liner": "The de-rate stabilizes: Calpine delivers ~$2/share accretion, the >20% CAGR holds, PPA conversions resume FTM post-June framework, and CEG holds ~19x (FY27E) - roughly its current multiple - on $13.50 EPS.",
+   "narrative_long": "FY2026 guidance ($11-12) is met and Calpine accretion (~$2/share) plus uprates support the >20% base-EPS CAGR. The June-2026 FERC framework lets paused hyperscaler PPAs convert (FTM, at a modest margin haircut). The premium compresses only modestly as the gas mix dilutes the multiple; the stock holds ~19x FY27E - essentially where it trades now after the ~40% drawdown - on $13.50 EPS.",
+   "eps": 13.5,
+   "eps_period": "FY27E",
+   "multiple": 19.0,
+   "multiple_type": "P/E",
+   "target_price": 256.5,
+   "expected_return": 0.038,
+   "anchors": [
+    "A1-Guidance",
+    "A2-Nuclear",
+    "A3-Calpine",
+    "CAGR"
+   ],
+   "strongest_anchor_s_level": "S1",
+   "multiple_band_basis": "19x FY27E ~ in line with the current ~18x forward after the de-rate; a modest premium to VST justified by nuclear scarcity + IG + 45U floor, net of the Calpine gas dilution.",
+   "eps_bridge": []
+  },
+  {
+   "id": "bull",
+   "probability": 0.2,
+   "narrative_one_liner": "PPA conversions resume and new deals sign, the >20% CAGR is reaffirmed with Calpine on track, and CEG re-rates to ~22x on $14.50 EPS as the nuclear-scarcity premium re-expands.",
+   "narrative_long": "The June-2026 framework enables FTM hyperscaler PPAs; CEG signs incremental premium nuclear deals and delivers the >20% CAGR with Calpine synergies on track. The market re-credits the scarcity premium and re-rates to ~22x on a $14.50 FY27E EPS - back toward where CEG traded before the drawdown.",
+   "eps": 14.5,
+   "eps_period": "FY27E",
+   "multiple": 22.0,
+   "multiple_type": "P/E",
+   "target_price": 319.0,
+   "expected_return": 0.291,
+   "anchors": [
+    "PPA-Convert",
+    "CAGR-Deliver",
+    "Calpine-Synergy"
+   ],
+   "strongest_anchor_s_level": "S2",
+   "multiple_band_basis": "22x = re-rate toward CEG's pre-drawdown multiple; premium re-expands on PPA conversion + delivered CAGR.",
+   "eps_bridge": [
+    {
+     "label": ">20% base-EPS CAGR delivery (Calpine accretion + uprates)",
+     "delta_eps": 0.6,
+     "layer": "soft",
+     "source_tag": "S3: CEG >20% base EPS CAGR 2026-2029 target"
+    },
+    {
+     "label": "Hyperscaler PPA conversions resume FTM post-June framework",
+     "delta_eps": 0.4,
+     "layer": "soft",
+     "source_tag": "S4: conversions 'paused but not cancelled'"
+    }
+   ]
+  },
+  {
+   "id": "strong_bull",
+   "probability": 0.07,
+   "narrative_one_liner": "Nuclear-scarcity supercycle: multiple new premium PPAs, capacity durability proven, Calpine synergy beat + buyback compounding on the de-rated price; CEG re-rates to ~25x on $15.50 EPS.",
+   "narrative_long": "Structural AI-power demand sustains a multi-year nuclear premium; CEG converts a large share of its ~5 GW pipeline to premium long-dated PPAs, beats Calpine synergies, and compounds EPS via buyback at the de-rated price. Multiple approaches ~25x on a $15.50 FY27E EPS.",
+   "eps": 15.5,
+   "eps_period": "FY27E",
+   "multiple": 25.0,
+   "multiple_type": "P/E",
+   "target_price": 387.5,
+   "expected_return": 0.568,
+   "anchors": [
+    "Nuclear-Supercycle",
+    "PPA-Convert",
+    "Buyback"
+   ],
+   "strongest_anchor_s_level": "S3",
+   "multiple_band_basis": "25x approaches CEG's pre-drawdown peak multiple; tail re-rate predicated on durable premium-PPA conversion + a demand supercycle.",
+   "eps_bridge": [
+    {
+     "label": "Multiple incremental premium hyperscaler nuclear PPAs (scarcity re-rate)",
+     "delta_eps": 1.1,
+     "layer": "strong",
+     "source_tag": "S4: ~5 GW pipeline in PJM/ERCOT queues"
+    },
+    {
+     "label": "Calpine synergy beat + buyback compounding on the de-rated price",
+     "delta_eps": 0.9,
+     "layer": "strong",
+     "source_tag": "S3: $5B buyback authorization"
+    }
+   ]
+  }
+ ],
+ "probability_sum_check": 1.0,
+ "conviction_tag": "neutral",
+ "headline": {
+  "expected_return_median": 0.03,
+  "expected_return_range_p10_p90": [
+   -0.32,
+   0.568
+  ],
+  "rating": "Hold",
+  "default_action": "hold_long",
+  "conditionality": "source_conditional",
+  "conditional_language_pattern": "A_source_conditional_bias",
+  "headline_text": "CEG at $247.12 carries a probability-weighted 12-month expected return of +3.0% (source-conditional Hold); the call is conditional on the FY2026 Adjusted Operating EPS guide ($11-12, S3) and the >20% base-EPS CAGR holding post-Calpine, and on hyperscaler PPA conversions resuming under the June-2026 FERC framework - scenario-weighted range strong_bear $168.00 (-32.0%) to strong_bull $387.50 (+56.8%). The de-rate is already ~40% done (off the $412 high to a 52-wk low), and the headline +50% Street PT is a stale-target artifact being cut; the premium on cyclical-peak earnings keeps it two-sided."
+ },
+ "weighting_sensitivity": {
+  "base_minus_10_to_bear": -0.0212,
+  "base_minus_10_to_bull": 0.0253,
+  "strong_tail_plus_10": {
+   "strong_bear": -0.0358,
+   "strong_bull": 0.053
+  }
+ }
+}

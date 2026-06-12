@@ -1,0 +1,129 @@
+{
+ "run_id": "F1A2B3C4-MU22-4DE5-8F90-DEBIA5ED0006",
+ "plugin_versions": {
+  "us_equity_research": "0.6.0",
+  "us_equity_ic_rigor": "0.6.0"
+ },
+ "phase_timing": {
+  "phase_0": {
+   "start": "2026-06-11T19:00:00Z",
+   "end": "2026-06-11T19:35:00Z"
+  },
+  "phase_1": {
+   "start": "2026-06-11T19:00:00Z",
+   "end": "2026-06-11T19:35:00Z"
+  },
+  "phase_2": {
+   "start": "2026-06-11T19:00:00Z",
+   "end": "2026-06-11T19:35:00Z"
+  },
+  "phase_3": {
+   "start": "2026-06-11T19:00:00Z",
+   "end": "2026-06-11T19:35:00Z"
+  },
+  "verification": {
+   "start": "2026-06-11T19:00:00Z",
+   "end": "2026-06-11T19:35:00Z"
+  }
+ },
+ "web_search_log": [
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Micron FY2025 results HBM revenue Q2 FY2026 gross margin guidance",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Micron Q3 FY2026 guidance record gross margin EPS",
+   "phase": 0,
+   "used_by_agent": "PM"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Micron HBM market share SK Hynix Samsung HBM4 2026",
+   "phase": 1,
+   "used_by_agent": "A3"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "DRAM NAND contract price increase 2026 TrendForce ASP",
+   "phase": 1,
+   "used_by_agent": "A1"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Micron mid-cycle normalized EPS Wells Fargo through cycle memory",
+   "phase": 2,
+   "used_by_agent": "Topic-Forensic"
+  },
+  {
+   "tool": "WebFetch",
+   "query_or_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000723125.json",
+   "phase": 1,
+   "used_by_agent": "FS"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Micron capex 2026 Idaho New York fab CHIPS Act",
+   "phase": 1,
+   "used_by_agent": "A4"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Micron price to book P/B historical cycle valuation",
+   "phase": 2,
+   "used_by_agent": "R"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Micron vs SK Hynix valuation forward P/E premium HBM leader",
+   "phase": 2,
+   "used_by_agent": "A3-Peers"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Micron consensus price target analyst rating 2026",
+   "phase": 2,
+   "used_by_agent": "A-Consensus"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "HBM wafer trade ratio glut Samsung HBM4E qualification Nvidia",
+   "phase": 2,
+   "used_by_agent": "R"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "CXMT China DRAM DDR5 capacity 2026",
+   "phase": 1,
+   "used_by_agent": "A5"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Micron share price market cap beta June 2026 parabolic",
+   "phase": 3,
+   "used_by_agent": "A7"
+  },
+  {
+   "tool": "WebFetch",
+   "query_or_url": "https://fred.stlouisfed.org/series/DGS10",
+   "phase": 3,
+   "used_by_agent": "A7"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "Micron Q2 FY26 net cash balance sheet book value per share",
+   "phase": 1,
+   "used_by_agent": "FS"
+  },
+  {
+   "tool": "WebSearch",
+   "query_or_url": "memory cycle peak 2027 downturn TechInsights forecast",
+   "phase": 2,
+   "used_by_agent": "R"
+  }
+ ],
+ "verification_calls_count": 36,
+ "orchestrator_notes": "MU (Micron) fresh 0.6.0 build, fair-value-anchored from the start. STRONG SELL/Underweight: parabolic AI/HBM memory peak; independent through-cycle fair value ~$552 (-45%) on mid-cycle EPS vs peak. G15+G20 affirmative (12.7pp differentiation). Replaces older-version MU build. 3 parallel research specialists + EDGAR XBRL + FRED."
+}
